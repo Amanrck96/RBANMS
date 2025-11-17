@@ -23,6 +23,18 @@ const heroSlides = [
     subheadline: 'Unlock your potential with our world-class programs and faculty.',
     imageHint: 'graduation ceremony',
   },
+  {
+    id: 'hero-4',
+    headline: 'Discover Your Talent',
+    subheadline: 'A stage for every artist, a field for every athlete.',
+    imageHint: 'student event',
+  },
+  {
+    id: 'hero-5',
+    headline: 'A Place to Learn and Grow',
+    subheadline: 'Our library is the heart of our academic community.',
+    imageHint: 'college library',
+  },
 ];
 
 export function HeroSection() {
@@ -72,3 +84,5 @@ export function HeroSection() {
     </section>
   );
 }
+
+    

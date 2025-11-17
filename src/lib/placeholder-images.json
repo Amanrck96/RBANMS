@@ -3,20 +3,32 @@
     {
       "id": "hero-1",
       "description": "Excellence in Education",
-      "imageUrl": "https://images.unsplash.com/photo-1680444873773-7c106c23ac52?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtb2Rlcm4lMjB1bml2ZXJzaXR5fGVufDB8fHx8MTc2MzI3NzYxMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.shiksha.com/mediadata/images/1429163955phpbWVwvu.jpeg",
       "imageHint": "modern university"
     },
     {
       "id": "hero-2",
       "description": "Vibrant Campus Life",
-      "imageUrl": "https://images.unsplash.com/photo-1543269865-cbf427effbad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzdHVkZW50cyUyMHN0dWR5aW5nfGVufDB8fHx8MTc2MzI2OTc2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://scontent.fccu9-2.fna.fbcdn.net/v/t1.6435-9/41508772_10215738208944684_2838609422832369664_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=2285d6&_nc_ohc=0qsWPuHkI70Q7kNvwFN7Ted&_nc_oc=AdmdaGIn7nwruAEyXpAHvSCGNXZ0pwh5KjxuLUjGBY89tzOWwBP-kYfBIoPtt3D8icqbRwJr-laHQaW2gfx0XlWU&_nc_zt=23&_nc_ht=scontent.fccu9-2.fna&_nc_gid=NmLH5fT1pSYvraaVv8gKgA&oh=00_AfjbIJqmTw-t3RZkChb-AxexS6h3Yf2D7H2KzbQfyAIeWg&oe=69426B5E",
       "imageHint": "students studying"
     },
     {
       "id": "hero-3",
       "description": "Shape Your Future",
-      "imageUrl": "https://images.unsplash.com/photo-1590012314607-cda9d9b699ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxncmFkdWF0aW9uJTIwY2VyZW1vbnl8ZW58MHx8fHwxNzYzMzM3OTkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.shiksha.com/mediadata/images/1429182153phpSYuYdw.jpeg",
       "imageHint": "graduation ceremony"
+    },
+    {
+      "id": "hero-4",
+      "description": "Discover Your Talent",
+      "imageUrl": "https://images.jdmagicbox.com/v2/comp/bangalore/13/080p38413/catalogue/rbanms-junior-college-ulsoor-bangalore-colleges-o5sz1ak3dg.jpg",
+      "imageHint": "student event"
+    },
+    {
+      "id": "hero-5",
+      "description": "A Place to Learn and Grow",
+      "imageUrl": "https://images.jdmagicbox.com/v2/comp/bangalore/13/080p38413/catalogue/rbanms-junior-college-ulsoor-bangalore-colleges-3o5ou8kz8u.jpg",
+      "imageHint": "college library"
     },
     {
       "id": "principal-photo",
@@ -33,7 +45,7 @@
     {
       "id": "admissions-cta",
       "description": "A student writing in a notebook in a sunlit classroom.",
-      "imageUrl": "https://images.unsplash.com/photo-1517971071642-34a2d3ecc9cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdHVkZW50JTIwd3JpdGluZ3xlbnwwfHx8fDE3NjMzMjQ3NDZ8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1517971071642-34a2d3ecc9cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdHVkZW50JTIwd3JpdGluZ3xlbnwwfHx8fDE3NjMzMjQ3NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "student writing"
     },
     {
@@ -45,7 +57,7 @@
     {
       "id": "recruiter-2",
       "description": "Generic corporate logo 2",
-      "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0ZWNoJTIwY29tcGFueXxlbnwwfHx8fDE3NjMzNDE5MDl8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0ZWNoJTIwY29tcGFueXxlbnwwfHx8fDE3NjMzNDE5MDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "tech company"
     },
     {
@@ -57,13 +69,13 @@
     {
       "id": "recruiter-4",
       "description": "Generic corporate logo 4",
-      "imageUrl": "https://images.unsplash.com/photo-1692372374563-9ab54f303b7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdGFydHVwJTIwbG9nb3xlbnwwfHx8fDE3NjMyNjU5NDd8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1692372374563-9ab54f303b7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdGFydHVwJTIwbG9nb3xlbnwwfHx8fDE3NjMyNjU5NDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "startup logo"
     },
     {
       "id": "recruiter-5",
       "description": "Generic corporate logo 5",
-      "imageUrl": "https://images.unsplash.com/photo-1708164335606-30f0a10cddf1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YnVzaW5lc3MlMjBsb2dvfGVufDB8fHx8MTc2MzM2NDA4M3ww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1708164335606-30f0a10cddf1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YnVzaW5lc3MlMjBsb2dvfGVufDB8fHx8MTc2MzM2NDA4M3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "business logo"
     },
     {
