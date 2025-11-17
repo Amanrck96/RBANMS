@@ -13,7 +13,7 @@ export function GallerySection() {
           <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">Experience the creativity, talent, and energy of our students.</p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {galleryImages.slice(0, 2).map((image, index) => (
+          {galleryImages.slice(1, 2).map((image, index) => (
             <div key={index} className="group relative aspect-square overflow-hidden rounded-lg shadow-md col-span-1 md:col-span-2">
               <Image
                 src={image.imageUrl}
