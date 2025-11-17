@@ -26,12 +26,12 @@ const Logo = () => (
 
 
 const navLinks = [
-  { name: 'Home', href: '#' },
+  { name: 'Home', href: '/' },
   { name: 'News', href: '#' },
   { 
     name: 'About Us', 
     subLinks: [
-      { name: 'Our Founder', href: '#'},
+      { name: 'Our Founder', href: '/about/founder'},
       { name: 'Founder\'s Vision', href: '#'},
       { name: 'History of the College', href: '#'},
       { name: 'Vision', href: '#'},
@@ -43,7 +43,12 @@ const navLinks = [
   { 
     name: 'Academics', 
     subLinks: [
-      { name: 'Courses Offered', href: '#'},
+      { name: 'Courses Offered', subLinks: [
+        { name: 'Bachelor of Arts (B.A)', href: '#'},
+        { name: 'Bachelor of Commerce (B.Com)', href: '#'},
+        { name: 'Bachelor of Business Administration (B.B.A)', href: '#'},
+        { name: 'Bachelor of Computer Applications (B.C.A)', href: '#'},
+      ]},
       { name: 'Academic Structure', href: '#'},
       { name: 'Philosophy of Teaching', href: '#'},
       { name: 'New Courses', href: '#'},
@@ -93,6 +98,85 @@ export function SiteHeader() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+  
+  const renderNavLinks = (links: typeof navLinks, isMobile = false) => {
+    return links.map((link) => {
+      if (link.subLinks) {
+        return (
+          <AccordionItem value={link.name} key={link.name}>
+            <AccordionTrigger className="font-semibold text-lg py-4">{link.name}</AccordionTrigger>
+            <AccordionContent>
+              <ul className="space-y-2 pl-4">
+                {link.subLinks.map(subLink => {
+                  if ('subLinks' in subLink && subLink.subLinks) {
+                     return (
+                        <Accordion type="single" collapsible className="w-full" key={subLink.name}>
+                           <AccordionItem value={subLink.name}>
+                              <AccordionTrigger className="font-semibold text-md py-3">{subLink.name}</AccordionTrigger>
+                              <AccordionContent>
+                                 <ul className="space-y-2 pl-4">
+                                 {subLink.subLinks.map(childLink => (
+                                    <li key={childLink.name}>
+                                       <Link href={childLink.href} className="block py-2 text-muted-foreground hover:text-primary" onClick={() => setOpen(false)}>{childLink.name}</Link>
+                                    </li>
+                                 ))}
+                                 </ul>
+                              </AccordionContent>
+                           </AccordionItem>
+                        </Accordion>
+                     )
+                  }
+                  return (
+                    <li key={subLink.name}>
+                      <Link href={subLink.href} className="block py-2 text-muted-foreground hover:text-primary" onClick={() => setOpen(false)}>{subLink.name}</Link>
+                    </li>
+                  )
+                })}
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
+        );
+      }
+      return (
+        <Link key={link.name} href={link.href} className="block border-b py-4 font-semibold text-lg" onClick={() => setOpen(false)}>{link.name}</Link>
+      );
+    });
+  };
+
+  const renderDesktopNavLinks = (links: typeof navLinks) => {
+    return links.map((link) => (
+      <li key={link.name} className="group relative">
+        <Link href={link.href ?? '#'} className="flex items-center gap-1 font-semibold text-foreground/80 hover:text-primary transition-colors">
+          {link.name}
+          {link.subLinks && <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>}
+        </Link>
+        {link.subLinks && (
+          <ul className="absolute top-full left-0 z-20 w-56 rounded-md bg-background shadow-lg border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-1">
+            {link.subLinks.map(subLink => (
+              <li key={subLink.name} className="relative">
+                <Link href={subLink.href ?? '#'} className="flex justify-between items-center w-full px-4 py-2 text-sm text-foreground/80 hover:bg-muted hover:text-primary">
+                  {subLink.name}
+                  {'subLinks' in subLink && subLink.subLinks && <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>}
+                </Link>
+                 {'subLinks' in subLink && subLink.subLinks && (
+                    <ul className="absolute top-0 left-full z-20 w-56 rounded-md bg-background shadow-lg border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                      {subLink.subLinks.map(childLink => (
+                         <li key={childLink.name}>
+                            <Link href={childLink.href} className="block px-4 py-2 text-sm text-foreground/80 hover:bg-muted hover:text-primary">
+                              {childLink.name}
+                            </Link>
+                         </li>
+                      ))}
+                    </ul>
+                 )}
+              </li>
+            ))}
+          </ul>
+        )}
+      </li>
+    ));
+  };
+
 
   return (
     <header className="relative w-full bg-background">
@@ -135,7 +219,7 @@ export function SiteHeader() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-full max-w-sm p-0">
-              <SheetHeader className="flex flex-row items-center justify-between border-b p-4">
+               <SheetHeader className="flex flex-row items-center justify-between border-b p-4">
                  <SheetTitle className="font-bold text-lg text-primary">Menu</SheetTitle>
                  <Button variant="ghost" size="icon" onClick={() => setOpen(false)}>
                    <X className="h-6 w-6" />
@@ -143,24 +227,7 @@ export function SiteHeader() {
               </SheetHeader>
               <div className="flex-grow overflow-y-auto p-4">
                   <Accordion type="single" collapsible className="w-full">
-                    {navLinks.map((link) => 
-                      link.subLinks ? (
-                        <AccordionItem value={link.name} key={link.name}>
-                          <AccordionTrigger className="font-semibold text-lg py-4">{link.name}</AccordionTrigger>
-                          <AccordionContent>
-                            <ul className="space-y-2 pl-4">
-                              {link.subLinks.map(subLink => (
-                                <li key={subLink.name}>
-                                  <Link href={subLink.href} className="block py-2 text-muted-foreground hover:text-primary" onClick={() => setOpen(false)}>{subLink.name}</Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </AccordionContent>
-                        </AccordionItem>
-                      ) : (
-                        <Link key={link.name} href={link.href} className="block border-b py-4 font-semibold text-lg" onClick={() => setOpen(false)}>{link.name}</Link>
-                      )
-                    )}
+                    {renderNavLinks(navLinks, true)}
                   </Accordion>
               </div>
             </SheetContent>
@@ -172,25 +239,7 @@ export function SiteHeader() {
       <nav id="main-nav" className={cn("hidden lg:block bg-background border-y border-border/50", isSticky && "fixed top-0 left-0 right-0 z-50 shadow-md animate-in fade-in slide-in-from-top-2 duration-300")}>
         <div className="container mx-auto flex h-14 items-center justify-center">
           <ul className="flex items-center gap-8">
-            {navLinks.map((link) => (
-              <li key={link.name} className="group relative">
-                <Link href={link.href ?? '#'} className="flex items-center gap-1 font-semibold text-foreground/80 hover:text-primary transition-colors">
-                  {link.name}
-                  {link.subLinks && <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>}
-                </Link>
-                {link.subLinks && (
-                  <ul className="absolute top-full left-0 z-20 w-48 rounded-md bg-background shadow-lg border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-1">
-                    {link.subLinks.map(subLink => (
-                      <li key={subLink.name}>
-                        <Link href={subLink.href} className="block px-4 py-2 text-sm text-foreground/80 hover:bg-muted hover:text-primary">
-                          {subLink.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
+            {renderDesktopNavLinks(navLinks)}
           </ul>
         </div>
       </nav>
