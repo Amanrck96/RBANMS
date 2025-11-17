@@ -53,7 +53,7 @@ export function AnnouncementsSection() {
               <CardTitle className="text-primary font-headline">Principal's Message</CardTitle>
             </CardHeader>
             <CardContent className="p-6 flex-grow flex flex-col items-center text-center">
-              <Avatar className="h-24 w-24 mb-4 border-4 border-background shadow-md">
+              <Avatar className="h-32 w-32 mb-4 border-4 border-background shadow-md">
                 {principalImage && <AvatarImage src='https://rbanmsfgc.ac.in/images/gallery/WhatsApp%20Image%202025-11-04%20at%203.37.04%20PM.jpeg' alt='Dr Shanti Iyer' data-ai-hint='professional headshot' />}
                 <AvatarFallback>SI</AvatarFallback>
               </Avatar>
