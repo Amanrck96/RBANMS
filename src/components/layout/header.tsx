@@ -3,6 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Phone, Mail, Menu, X, Facebook, Twitter, Youtube, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
@@ -13,17 +14,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
-
-const Logo = () => (
-    <svg width="60" height="60" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-primary">
-        <rect width="50" height="50" rx="8" fill="currentColor"/>
-        <path d="M15 35V15H20V35H15Z" fill="white"/>
-        <path d="M25 35V15H30V35H25Z" fill="white"/>
-        <path d="M35 35V15H40V35H35Z" fill="white"/>
-        <path d="M10 40H40V35H10V40Z" fill="white"/>
-    </svg>
-);
 
 const navLinks = [
   { 
@@ -266,7 +256,7 @@ export function SiteHeader() {
       {/* Main Header */}
       <div className="container mx-auto flex items-center justify-between px-4 py-4">
         <Link href="/" className="flex items-center gap-4">
-          <Logo />
+          <Image src="https://rbanmsfgc.ac.in/images/logo_1.png?v=1.75" alt="RBANM's First Grade College Logo" width={168} height={60} />
           <div>
             <h1 className="text-xl md:text-2xl font-bold text-primary font-headline">RBANMS FIRST GRADE COLLEGE</h1>
           </div>

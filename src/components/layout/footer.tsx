@@ -1,17 +1,7 @@
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Phone, Mail, MapPin } from 'lucide-react';
-
-const Logo = () => (
-    <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white">
-        <rect width="50" height="50" rx="8" fill="currentColor" />
-        <path d="M15 35V15H20V35H15Z" fill="#F5F5F5" />
-        <path d="M25 35V15H30V35H25Z" fill="#F5F5F5" />
-        <path d="M35 35V15H40V35H35Z" fill="#F5F5F5" />
-        <path d="M10 40H40V35H10V40Z" fill="#F5F5F5" />
-    </svg>
-);
-
 
 export function SiteFooter() {
   const quickLinks = [
@@ -41,8 +31,7 @@ export function SiteFooter() {
           {/* About Section */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <Logo />
-              <h3 className="text-xl font-bold">RBANM's First Grade College</h3>
+              <Image src="https://rbanmsfgc.ac.in/images/logo_1.png?v=1.75" alt="RBANM's First Grade College Logo" width={112} height={40} />
             </div>
             <p className="text-sm text-primary-foreground/80">
              A premier institution dedicated to fostering academic excellence and holistic development. Our commitment is to create future leaders through quality education.
@@ -116,5 +105,3 @@ export function SiteFooter() {
     </footer>
   );
 }
-
-    
