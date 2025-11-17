@@ -34,21 +34,46 @@ const navLinks = [
       { name: 'Our Founder', href: '#'},
       { name: 'Founder\'s Vision', href: '#'},
       { name: 'History of the College', href: '#'},
-      { name: 'Vision & Mission', href: '#'},
+      { name: 'Vision', href: '#'},
+      { name: 'Mission', href: '#'},
+      { name: 'Core Values', href: '#'},
+      { name: 'Board Members', href: '#'},
     ]
   },
   { 
     name: 'Academics', 
     subLinks: [
       { name: 'Courses Offered', href: '#'},
-      { name: 'Departments', href: '#'},
-      { name: 'Industry Connect', href: '#'},
+      { name: 'Academic Structure', href: '#'},
+      { name: 'Philosophy of Teaching', href: '#'},
+      { name: 'New Courses', href: '#'},
     ]
   },
-  { name: 'Activities', href: '#' },
+  {
+    name: 'Departments',
+    subLinks: [
+      { name: 'Dept of Commerce', href: '#' },
+      { name: 'Dept of Management Studies', href: '#' },
+      { name: 'Dept of Computer Applications', href: '#' },
+      { name: 'Dept of Arts', href: '#' },
+      { name: 'Dept of Languages', href: '#' },
+      { name: 'Dept of English', href: '#' },
+      { name: 'Dept of Physical Education', href: '#' },
+    ]
+  },
+  { name: 'Activities', href: '#', subLinks: [
+    { name: 'Workshops', href: '#'},
+    { name: 'Events', href: '#'},
+    { name: 'Clubs', href: '#'},
+  ] },
+  { name: 'Extra-Academics', href: '#', subLinks: [
+    { name: 'NCC', href: '#'},
+    { name: 'NSS', href: '#'},
+    { name: 'Sports', href: '#'},
+  ] },
   { name: 'Facilities', href: '#' },
   { name: 'IQAC', href: '#' },
-  { name: 'Contact', href: '#' },
+  { name: 'Contact Us', href: '#' },
 ];
 
 export function SiteHeader() {

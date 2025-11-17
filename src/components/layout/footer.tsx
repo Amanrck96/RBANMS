@@ -82,7 +82,7 @@ export function SiteFooter() {
             <ul className="space-y-3 text-sm">
                <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 mt-1 shrink-0" />
-                <span className="text-primary-foreground/80">#12,Annaswamy Mudaliar Road, Opposite Ulsoor Lake, Bangalore 560042.</span>
+                <span className="text-primary-foreground/80">Opposite Ulsoor Lake, #12, Annaswamy Mudaliar Road, Bangalore 560042.</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 shrink-0" />
@@ -98,8 +98,8 @@ export function SiteFooter() {
               </li>
                  <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 shrink-0" />
-                <a href="mailto:placement.fgc@rbanmscharities.in" className="text-primary-foreground/80 hover:text-white transition-colors">
-                  placement.fgc@rbanmscharities.in
+                <a href="mailto:priyamahesh09@gmail.com" className="text-primary-foreground/80 hover:text-white transition-colors">
+                  priyamahesh09@gmail.com (Placement)
                 </a>
               </li>
             </ul>
