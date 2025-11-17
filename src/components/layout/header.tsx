@@ -111,6 +111,7 @@ const navLinks = [
   { name: 'NAAC', href: '#' },
   { name: 'Research', href: '#' },
   { name: 'Gallery', href: '#' },
+  { name: 'Contact Us', href: '/contact' },
 ];
 
 const header2Links = [
@@ -308,3 +309,5 @@ export function SiteHeader() {
     </header>
   );
 }
+
+    

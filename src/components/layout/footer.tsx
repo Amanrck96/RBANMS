@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { Phone, Mail, MapPin } from 'lucide-react';
 
@@ -14,14 +15,14 @@ const Logo = () => (
 
 export function SiteFooter() {
   const quickLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'About Us', href: '#' },
+    { name: 'Home', href: '/' },
+    { name: 'About Us', href: '/about/founder' },
     { name: 'Academics', href: '#' },
     { name: 'Facilities', href: '#' },
     { name: 'Swayam', href: '#' },
     { name: 'News', href: '#' },
-    { name: 'Events', href: '#' },
-    { name: 'Contact Us', href: '#' },
+    { name: 'Events', href: '/events' },
+    { name: 'Contact Us', href: '/contact' },
   ];
 
   const studentCorner = [
@@ -115,3 +116,5 @@ export function SiteFooter() {
     </footer>
   );
 }
+
+    
