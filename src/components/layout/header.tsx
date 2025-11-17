@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect } from 'react';
@@ -25,8 +26,16 @@ const Logo = () => (
 );
 
 const navLinks = [
-  { name: 'Home', href: '/' },
-  { name: 'News', href: '#' },
+  { 
+    name: 'Home', 
+    subLinks: [
+      { name: 'RBANM’s FGC', href: '#' },
+      { name: 'Message from Director', href: '#' },
+      { name: 'Message from Principal', href: '#' },
+      { name: 'Awards & Achievements', href: '#' },
+      { name: 'Upcoming Events', href: '#' },
+    ]
+  },
   {
     name: 'About Us',
     subLinks: [
@@ -42,15 +51,7 @@ const navLinks = [
   {
     name: 'Academics',
     subLinks: [
-      {
-        name: 'Courses Offered',
-        subLinks: [
-          { name: 'Bachelor of Arts (B.A)', href: '#' },
-          { name: 'Bachelor of Commerce (B.Com)', href: '#' },
-          { name: 'Bachelor of Business Administration (B.B.A)', href: '#' },
-          { name: 'Bachelor of Computer Applications (B.C.A)', href: '#' },
-        ],
-      },
+      { name: 'Courses Offered', href: '#'},
       { name: 'Academic Structure', href: '#' },
       { name: 'Philosophy of Teaching', href: '#' },
       { name: 'New Courses', href: '#' },
@@ -59,78 +60,73 @@ const navLinks = [
   {
     name: 'Departments',
     subLinks: [
-      { name: 'Dept of Commerce', href: '#' },
-      { name: 'Dept of Management Studies', href: '#' },
-      { name: 'Dept of Computer Applications', href: '#' },
-      { name: 'Dept of Arts', href: '#' },
-      { name: 'Dept of Languages', href: '#' },
-      { name: 'Dept of English', href: '#' },
-      { name: 'Dept of Physical Education', href: '#' },
+      { name: 'Department of Commerce', href: '#' },
+      { name: 'Department of Management Studies', href: '#' },
+      { name: 'Department of Computer Applications', href: '#' },
+      { name: 'Department of Arts', href: '#' },
+      { name: 'Department of Languages', href: '#' },
+      { name: 'Department of English', href: '#' },
+      { name: 'Department of Physical Education', href: '#' },
     ],
   },
+  { name: 'College Administration', href: '#'},
   {
     name: 'Activities',
     subLinks: [
-      { name: 'Workshops', href: '#' },
-      { name: 'Events', href: '/events' },
-      { name: 'Clubs', href: '#' },
-    ],
-  },
-  {
-    name: 'Extra-Academics',
-    subLinks: [
-      { name: 'NCC', href: '#' },
-      { name: 'NSS', href: '#' },
-      { name: 'Sports', href: '#' },
-    ],
-  },
-  { name: 'Facilities', href: '#', subLinks: [
-      { name: 'Library', subLinks: [
-        { name: 'Human Resource', href: '#' },
-        { name: 'Books and Journals', href: '#' },
-        { name: 'Statistics', href: '#' },
-        { name: 'e-Resource', href: '#' },
-        { name: 'Web OPAC', href: '#' },
-        { name: 'Pic of Library', href: '#' },
+      { name: 'Cultural', subLinks: [
+        { name: 'Natya', href: '#' },
+        { name: 'Theatre', href: '#' },
+        { name: 'Fashion', href: '#' },
+        { name: 'Music', href: '#' },
+        { name: 'Dance', href: '#' },
+        { name: 'Film Club', href: '#' },
+        { name: 'Literary Club', href: '#' },
       ]},
-      { name: 'ICT Tools', href: '#' },
-  ] },
+      { name: 'Co-Curricular', subLinks: [
+        { name: 'YRCS', href: '#' },
+        { name: 'NCC (Army)', href: '#' },
+        { name: 'NCC (Navy)', href: '#' },
+        { name: 'NSS', href: '#' },
+        { name: 'Manasa Samalochana', href: '#' },
+      ] },
+    ],
+  },
   { name: 'Cells & Committees', href: '#', subLinks: [
-    { name: 'Mandatory Committees', subLinks: [
-        { name: 'Anti-Ragging Cell', href: '#' },
-        { name: 'Prevention of Sexual Harassment cell', href: '#' },
+    { name: 'Statutory', subLinks: [
+        { name: 'Anti Ragging', href: '#' },
+        { name: 'Internal Compliance Committee', href: '#' },
+        { name: 'POSH', href: '#' },
+        { name: 'SC/ST cell', href: '#' },
         { name: 'Grievance Redressal Cell', href: '#' },
     ]},
-    { name: 'Other committees', subLinks: [
+    { name: 'Others', subLinks: [
         { name: 'Cultural Committee', href: '#' },
-        { name: 'Examination Committee', href: '#' },
-        { name: 'Equal Opportunities Cell', href: '#' },
-        { name: 'Incubation Cell', href: '#' },
-        { name: 'Placement Cell', href: '#' },
-        { name: 'Time Table Committee', href: '#' },
-        { name: 'Women Cell', href: '#' },
+        { name: 'Women’s Cell', href: '#' },
+        { name: 'Eco Club', href: '#' },
     ]},
   ] },
-  { name: 'IQAC', href: '#', subLinks: [
-    { name: 'NAAC', subLinks: [
-        { name: 'NAAC Accredition', href: '#' },
-        { name: 'NAAC Certificates', href: '#' },
-        { name: 'Students-strength', href: '#' },
-    ]},
-    { name: 'AQAR', href: '#' },
-    { name: 'Research', subLinks: [
-        { name: 'Publications', href: '#' },
-        { name: 'Minor Projects', href: '#' },
-        { name: 'Major Projects', href: '#' },
-        { name: 'Seminars/ Workshops/ Conferences', href: '#' },
-    ]},
-    { name: 'MOU, Collaborations', href: '#' },
-  ] },
-   { name: 'Alumni', href: '#', subLinks: [
-      { name: 'Alumni Activity', href: '/alumni/activity' },
-  ] },
-  { name: 'Contact Us', href: '#' },
+  { name: 'Facilities', href: '#' },
+  { name: 'Scholarships', href: '#' },
+  { name: 'IQAC', href: '#' },
+  { name: 'NAAC', href: '#' },
+  { name: 'Research', href: '#' },
+  { name: 'Gallery', href: '#' },
 ];
+
+const header2Links = [
+    { name: 'Industry Connect', subLinks: [
+        { name: 'Internship', href: '#' },
+        { name: 'Add-on programmes & Certificate Courses', href: '#' },
+        { name: 'MoU', href: '#' },
+        { name: 'Field Trip', href: '#' },
+        { name: 'Industry Visits', href: '#' },
+    ] },
+    { name: 'RTI', href: '#' },
+    { name: 'Governance', href: '#' },
+    { name: 'Code of Conduct', href: '#' },
+    { name: 'Statutory Cells', href: '#' },
+    { name: 'Alumni', href: '#' },
+]
 
 export function SiteHeader() {
   const [isSticky, setSticky] = useState(false);
@@ -235,14 +231,27 @@ export function SiteHeader() {
       <div className="bg-primary text-primary-foreground">
         <div className="container mx-auto flex h-10 items-center justify-between px-4 text-xs">
           <div className="flex items-center gap-4">
-            <a href="tel:080-48533572" className="flex items-center gap-1.5 hover:text-accent transition-colors">
-              <Phone className="h-3 w-3" />
-              <span>080-48533572</span>
-            </a>
-            <a href="mailto:principal_rbanms@gmail.com" className="hidden sm:flex items-center gap-1.5 hover:text-accent transition-colors">
-              <Mail className="h-3 w-3" />
-              <span>principal_rbanms@gmail.com</span>
-            </a>
+            <div className='flex items-center gap-x-6'>
+                {header2Links.map(link => (
+                     <li key={link.name} className="group relative list-none">
+                     <Link href={link.href ?? '#'} className="flex items-center gap-1 font-semibold text-primary-foreground/80 hover:text-accent transition-colors">
+                       {link.name}
+                       {link.subLinks && <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>}
+                     </Link>
+                     {link.subLinks && (
+                       <ul className="absolute top-full left-0 z-20 w-56 rounded-md bg-background shadow-lg border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-1">
+                         {link.subLinks.map(subLink => (
+                           <li key={subLink.name} className="relative group/sub">
+                             <Link href={subLink.href ?? '#'} className="flex justify-between items-center w-full px-4 py-2 text-sm text-foreground/80 hover:bg-muted hover:text-primary">
+                               {subLink.name}
+                             </Link>
+                           </li>
+                         ))}
+                       </ul>
+                     )}
+                   </li>
+                ))}
+            </div>
           </div>
           <div className="flex items-center gap-3">
             <a href="#" aria-label="Facebook"><Facebook className="h-4 w-4 hover:text-accent transition-colors" /></a>
@@ -291,7 +300,7 @@ export function SiteHeader() {
       {/* Navigation Bar */}
       <nav id="main-nav" className={cn("hidden lg:block bg-background border-y border-border/50", isSticky && "fixed top-0 left-0 right-0 z-50 shadow-md animate-in fade-in slide-in-from-top-2 duration-300")}>
         <div className="container mx-auto flex h-14 items-center justify-center">
-          <ul className="flex items-center gap-8">
+          <ul className="flex items-center gap-x-6">
             {renderDesktopNavLinks(navLinks)}
           </ul>
         </div>

@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -24,9 +25,9 @@ export function AnnouncementsSection() {
   return (
     <section>
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Notifications */}
-          <Card className="overflow-hidden">
+          <Card className="overflow-hidden lg:col-span-1">
             <CardHeader className="bg-primary/5">
               <CardTitle className="text-primary font-headline">Latest News & Updates</CardTitle>
             </CardHeader>
@@ -47,7 +48,7 @@ export function AnnouncementsSection() {
           </Card>
 
           {/* Principal's Message */}
-          <Card className="flex flex-col">
+          <Card className="flex flex-col lg:col-span-2">
             <CardHeader className="bg-primary/5">
               <CardTitle className="text-primary font-headline">Principal's Message</CardTitle>
             </CardHeader>
@@ -61,10 +62,15 @@ export function AnnouncementsSection() {
               <div className="relative text-muted-foreground italic flex-grow">
                 <Quote className="h-8 w-8 text-primary/10 absolute -top-2 -left-4" fill="currentColor" />
                 <p>
-                  If everyone used the identical lorem ipsum copy, search engines would flag it for plagiarism and downgrade the site for its lack of helpful content for the reader. However, when you send sample layouts filled with fun lorem ipsum to your customers, they will focus on the look and feel of the page instead of digging into and arguing about the content.
+                  The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. The key objective of education at RBANM’s First Grade College is to create efficient academicians, innovative entrepreneurs, true researchers and honest, dedicated and dynamic leaders who contribute to the development of society and nation at large.
+                </p>
+                <p className="mt-4">
+                  Guided by values of faith, integrity and dignity, we at RBANM’s FGC, are committed to providing holistic education by maintaining high academic standards, discipline and professional ethics. In the process of guiding students through the prescribed syllabii and the examination system, we also mould their personality by instilling in them values, skills and the right attitude towards life.
+                </p>
+                <p className="mt-4">
+                  In conclusion, I can say that, joining RBANM’s FGC will be a decision a student will never regret, for he/ she can then have secure future and a successful life. Having the opportunity to ‘Enrich, Excel and Evolve’, this is a place where students are taught to reach the sky and beyond.
                 </p>
               </div>
-              <Button variant="link" className="mt-4">Read More</Button>
             </CardContent>
           </Card>
         </div>
