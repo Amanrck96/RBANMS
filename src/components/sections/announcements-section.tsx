@@ -22,7 +22,7 @@ export function AnnouncementsSection() {
   const principalImage = PlaceHolderImages.find(p => p.id === 'principal-photo');
 
   return (
-    <section className="py-12 lg:py-24">
+    <section>
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Notifications */}
