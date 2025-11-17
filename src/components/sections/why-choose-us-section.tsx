@@ -1,6 +1,6 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Shield, Building, Bus, Train, Award, Leaf, GraduationCap, Laptop, Briefcase, Trophy, Zap, HeartHandshake, Drama, Paintbrush, Mic, Handshake, Users } from 'lucide-react';
+import { Shield, Building, Bus, Train, Award, Leaf, GraduationCap, Laptop, Briefcase, Trophy, Zap, HeartHandshake, Drama, Paintbrush, Mic, Handshake, Users, Gem } from 'lucide-react';
 
 const features = [
   { icon: Shield, title: "Trusted Management", description: "Managed by a trusted and universally respected Educational Charities Trust" },
@@ -11,11 +11,16 @@ const features = [
   { icon: Leaf, title: "Green Campus", description: "Learning spaces that are green and environmentally friendly" },
   { icon: GraduationCap, title: "Dedicated Faculty", description: "Dedicated and qualified in-house faculty" },
   { icon: Laptop, title: "Well-equipped classrooms", description: "Bright classrooms, equipped with LCD projectors" },
+  { icon: Laptop, title: "Computer Labs", description: "Two Computer Labs for BCA students" },
+  { icon: Gem, title: "Design Studio", description: "A design studio" },
   { icon: Users, title: "Eminent guest faculty", description: "Eminent guest faculty from various fields of expertise" },
-  { icon: Zap, title: "Skill Development", description: "Add-on and certificate courses and training for professional skills" },
+  { icon: Zap, title: "Skill Development", description: "Add-on and certificate courses" },
+  { icon: Briefcase, title: "Professional Training", description: "Training for professional skills" },
   { icon: Handshake, title: "Industry Access", description: "Access to Industry experts" },
-  { icon: Briefcase, title: "Internships", description: "Access to industry experts and internship opportunities for hands-on experience." },
-  { icon: Trophy, title: "Sports Encouragement", description: "Encouragement and support for sports, Indoor Games room, Gym, and access to world class cricket and Football grounds" },
+  { icon: Trophy, title: "Sports Encouragement", description: "Encouragement and support for sports" },
+  { icon: Shield, title: "Indoor Games", description: "Indoor Games room" },
+  { icon: Award, title: "Gym", description: "Gym" },
+  { icon: Trophy, title: "Premium Sports Access", description: "Access to world class cricket and Football grounds" },
   { icon: Shield, title: "Active NCC Programs", description: "Encouragement of NCC related activities" },
   { icon: HeartHandshake, title: "Community Engagement", description: "Meaningful engagement with community development through NSS" },
   { icon: Drama, title: "Support of the Arts", description: "Support of the Arts" },
@@ -47,3 +52,5 @@ export function WhyChooseUsSection() {
     </section>
   );
 }
+
+    

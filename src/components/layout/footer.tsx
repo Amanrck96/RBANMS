@@ -1,50 +1,36 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Twitter, Youtube, Instagram } from 'lucide-react';
 
 export function SiteFooter() {
   const quickLinks = [
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about/founder' },
     { name: 'Academics', href: '#' },
-    { name: 'Facilities', href: '#' },
-    { name: 'Swayam', href: '#' },
-    { name: 'News', href: '#' },
-    { name: 'Events', href: '/events' },
+    { name: 'Admissions', href: '#' },
     { name: 'Contact Us', href: '/contact' },
   ];
-
-  const studentCorner = [
-    { name: 'E-Resources', href: '#' },
-    { name: 'Results', href: '#' },
-    { name: 'Exam Time Table', href: '#' },
-    { name: 'Syllabus', href: '#' },
-    { name: 'Online Grievance', href: '#' },
-  ];
-  
-  const resourcesLinks = [
-    { name: 'Industry Connect', href: '#' },
-    { name: 'RTI', href: '#' },
-    { name: 'Governance', href: '#' },
-    { name: 'Code of Conduct', href: '#' },
-    { name: 'Statutory Cells', href: '#' },
-    { name: 'Alumni', href: '/alumni/activity' },
-  ]
 
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           
           {/* About Section */}
-          <div className="space-y-4 lg:col-span-2">
-            <div className="flex items-center gap-3">
+          <div className="space-y-4 lg:col-span-1">
+             <div className="flex items-center gap-3">
               <Image src="https://rbanmsfgc.ac.in/images/logo_1.png?v=1.75" alt="RBANM's First Grade College Logo" width={112} height={40} />
             </div>
             <p className="text-sm text-primary-foreground/80">
-             A premier institution dedicated to fostering academic excellence and holistic development. Our commitment is to create future leaders through quality education.
+             A premier institution dedicated to fostering academic excellence and holistic development.
             </p>
+             <div className="flex items-center gap-3 pt-4">
+                <a href="#" aria-label="Facebook"><Facebook className="h-5 w-5 hover:text-accent transition-colors" /></a>
+                <a href="#" aria-label="Twitter"><Twitter className="h-5 w-5 hover:text-accent transition-colors" /></a>
+                <a href="#" aria-label="YouTube"><Youtube className="h-5 w-5 hover:text-accent transition-colors" /></a>
+                <a href="#" aria-label="Instagram"><Instagram className="h-5 w-5 hover:text-accent transition-colors" /></a>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -60,24 +46,21 @@ export function SiteFooter() {
               ))}
             </ul>
           </div>
-
-          {/* Resources */}
-          <div className="space-y-4">
-            <h3 className="text-xl font-bold">Resources</h3>
-            <ul className="space-y-2">
-              {resourcesLinks.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-sm text-primary-foreground/80 hover:text-white transition-colors">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
+          
+          {/* Campus Info */}
+           <div className="space-y-4">
+            <h3 className="text-xl font-bold">Campus</h3>
+             <ul className="space-y-2">
+                 <li><Link href="#" className="text-sm text-primary-foreground/80 hover:text-white transition-colors">Gallery</Link></li>
+                 <li><Link href="/events" className="text-sm text-primary-foreground/80 hover:text-white transition-colors">Events</Link></li>
+                 <li><Link href="#" className="text-sm text-primary-foreground/80 hover:text-white transition-colors">News</Link></li>
             </ul>
           </div>
 
+
           {/* Contact Info */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold">Contact</h3>
+            <h3 className="text-xl font-bold">Contact Us</h3>
             <ul className="space-y-3 text-sm">
                <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 mt-1 shrink-0" />
@@ -114,3 +97,5 @@ export function SiteFooter() {
     </footer>
   );
 }
+
+    

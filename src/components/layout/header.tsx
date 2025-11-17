@@ -16,9 +16,15 @@ import {
 } from "@/components/ui/accordion";
 
 const navLinks = [
-  { 
-    name: 'Home', 
-    href: '/'
+  {
+    name: 'Home',
+    subLinks: [
+      { name: 'RBANM’s FGC', href: '/' },
+      { name: 'Message from Director', href: '#' },
+      { name: 'Message from Principal', href: '#' },
+      { name: 'Awards & Achievements', href: '#' },
+      { name: 'Upcoming Events', href: '#' },
+    ]
   },
   {
     name: 'About Us',
@@ -98,6 +104,21 @@ const navLinks = [
   { name: 'Contact Us', href: '/contact' },
 ];
 
+const header2Links = [
+    { name: 'Industry Connect', href: '#', subLinks: [
+        { name: 'Internship', href: '#' },
+        { name: 'Add-on programmes & Certificate Courses', href: '#' },
+        { name: 'MoU', href: '#' },
+        { name: 'Field Trip', href: '#' },
+        { name: 'Industry Visits', href: '#' },
+    ]},
+    { name: 'RTI', href: '#' },
+    { name: 'Governance', href: '#' },
+    { name: 'Code of Conduct', href: '#' },
+    { name: 'Statutory Cells', href: '#' },
+    { name: 'Alumni', href: '/alumni/activity' },
+]
+
 
 export function SiteHeader() {
   const [isSticky, setSticky] = useState(false);
@@ -161,7 +182,7 @@ export function SiteHeader() {
     });
   };
 
-  const renderDesktopNavLinks = (links: typeof navLinks) => {
+  const renderDesktopNavLinks = (links: any[]) => {
     return links.map((link) => (
       <li key={link.name} className="group relative">
         <Link href={link.href ?? '#'} className="flex items-center gap-1 font-semibold text-foreground/80 hover:text-primary transition-colors">
@@ -170,7 +191,7 @@ export function SiteHeader() {
         </Link>
         {link.subLinks && (
           <ul className="absolute top-full left-0 z-20 w-56 rounded-md bg-background shadow-lg border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-1">
-            {link.subLinks.map(subLink => (
+            {link.subLinks.map((subLink: any) => (
               <li key={subLink.name} className="relative group/sub">
                 <Link href={subLink.href ?? '#'} className="flex justify-between items-center w-full px-4 py-2 text-sm text-foreground/80 hover:bg-muted hover:text-primary">
                   {subLink.name}
@@ -178,7 +199,7 @@ export function SiteHeader() {
                 </Link>
                  {'subLinks' in subLink && subLink.subLinks && (
                     <ul className="absolute top-0 left-full z-20 w-56 rounded-md bg-background shadow-lg border opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300">
-                      {subLink.subLinks.map(childLink => (
+                      {subLink.subLinks.map((childLink: any) => (
                          <li key={childLink.name}>
                             <Link href={childLink.href} className="block px-4 py-2 text-sm text-foreground/80 hover:bg-muted hover:text-primary">
                               {childLink.name}
@@ -200,7 +221,10 @@ export function SiteHeader() {
     <header className="relative w-full bg-background">
       {/* Top Bar */}
       <div className="bg-primary text-primary-foreground">
-        <div className="container mx-auto flex h-10 items-center justify-end px-4 text-xs">
+        <div className="container mx-auto flex h-10 items-center justify-between px-4 text-xs">
+          <ul className="hidden lg:flex items-center gap-x-6">
+            {renderDesktopNavLinks(header2Links)}
+          </ul>
           <div className="flex items-center gap-3">
             <a href="#" aria-label="Facebook"><Facebook className="h-4 w-4 hover:text-accent transition-colors" /></a>
             <a href="#" aria-label="Twitter"><Twitter className="h-4 w-4 hover:text-accent transition-colors" /></a>
@@ -216,6 +240,7 @@ export function SiteHeader() {
           <Image src="https://rbanmsfgc.ac.in/images/logo_1.png?v=1.75" alt="RBANM's First Grade College Logo" width={168} height={60} />
           <div>
             <h1 className="text-xl md:text-2xl font-bold text-primary font-headline">RBANMS FIRST GRADE COLLEGE</h1>
+             <p className="text-sm text-muted-foreground">Affiliated to Bengaluru City University, Accredited by NAAC with B+, Recognised under 2(f) & 12(B) of UGC Act 1956</p>
           </div>
         </Link>
         <div className="lg:hidden">
@@ -256,3 +281,5 @@ export function SiteHeader() {
     </header>
   );
 }
+
+    
