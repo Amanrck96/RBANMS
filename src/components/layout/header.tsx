@@ -20,102 +20,102 @@ const navLinks = [
     name: 'Home',
     subLinks: [
       { name: 'RBANM’s FGC', href: '/' },
-      { name: 'Message from Director', href: '#' },
-      { name: 'Message from Principal', href: '#' },
-      { name: 'Awards & Achievements', href: '#' },
-      { name: 'Upcoming Events', href: '#' },
+      { name: 'Message from Director', href: '/about/director-message' },
+      { name: 'Message from Principal', href: '/about/principal-message' },
+      { name: 'Awards & Achievements', href: '/about/awards' },
+      { name: 'Upcoming Events', href: '/events' },
     ]
   },
   {
     name: 'About Us',
     subLinks: [
       { name: 'Our Founder', href: '/about/founder' },
-      { name: 'Founder\'s Vision', href: '#' },
-      { name: 'History of the College', href: '#' },
-      { name: 'Vision', href: '#' },
-      { name: 'Mission', href: '#' },
-      { name: 'Core Values', href: '#' },
-      { name: 'Board Members', href: '#' },
+      { name: 'Founder\'s Vision', href: '/about/founders-vision' },
+      { name: 'History of the College', href: '/about/history' },
+      { name: 'Vision', href: '/about/vision' },
+      { name: 'Mission', href: '/about/mission' },
+      { name: 'Core Values', href: '/about/core-values' },
+      { name: 'Board Members', href: '/about/board-members' },
     ],
   },
   {
     name: 'Academics',
     subLinks: [
-      { name: 'Courses Offered', href: '#'},
-      { name: 'Academic Structure', href: '#' },
-      { name: 'Philosophy of Teaching', href: '#' },
-      { name: 'New Courses', href: '#' },
+      { name: 'Courses Offered', href: '/academics/courses-offered'},
+      { name: 'Academic Structure', href: '/academics/academic-structure' },
+      { name: 'Philosophy of Teaching', href: '/academics/philosophy-of-teaching' },
+      { name: 'New Courses', href: '/academics/new-courses' },
     ],
   },
   {
     name: 'Departments',
     subLinks: [
-      { name: 'Department of Commerce', href: '#' },
-      { name: 'Department of Management Studies', href: '#' },
-      { name: 'Department of Computer Applications', href: '#' },
-      { name: 'Department of Arts', href: '#' },
-      { name: 'Department of Languages', href: '#' },
-      { name: 'Department of English', href: '#' },
-      { name: 'Department of Physical Education', href: '#' },
+      { name: 'Department of Commerce', href: '/departments/commerce' },
+      { name: 'Department of Management Studies', href: '/departments/management' },
+      { name: 'Department of Computer Applications', href: '/departments/computer-applications' },
+      { name: 'Department of Arts', href: '/departments/arts' },
+      { name: 'Department of Languages', href: '/departments/languages' },
+      { name: 'Department of English', href: '/departments/english' },
+      { name: 'Department of Physical Education', href: '/departments/physical-education' },
     ],
   },
-  { name: 'College Administration', href: '#'},
+  { name: 'College Administration', href: '/administration'},
   {
     name: 'Activities',
     subLinks: [
       { name: 'Cultural', subLinks: [
-        { name: 'Natya', href: '#' },
-        { name: 'Theatre', href: '#' },
-        { name: 'Fashion', href: '#' },
-        { name: 'Music', href: '#' },
-        { name: 'Dance', href: '#' },
-        { name: 'Film Club', href: '#' },
-        { name: 'Literary Club', href: '#' },
+        { name: 'Natya', href: '/activities/cultural/natya' },
+        { name: 'Theatre', href: '/activities/cultural/theatre' },
+        { name: 'Fashion', href: '/activities/cultural/fashion' },
+        { name: 'Music', href: '/activities/cultural/music' },
+        { name: 'Dance', href: '/activities/cultural/dance' },
+        { name: 'Film Club', href: '/activities/cultural/film-club' },
+        { name: 'Literary Club', href: '/activities/cultural/literary-club' },
       ]},
       { name: 'Co-Curricular', subLinks: [
-        { name: 'YRCS', href: '#' },
-        { name: 'NCC (Army)', href: '#' },
-        { name: 'NCC (Navy)', href: '#' },
-        { name: 'NSS', href: '#' },
-        { name: 'Manasa Samalochana', href: '#' },
+        { name: 'YRCS', href: '/activities/co-curricular/yrcs' },
+        { name: 'NCC (Army)', href: '/activities/co-curricular/ncc-army' },
+        { name: 'NCC (Navy)', href: '/activities/co-curricular/ncc-navy' },
+        { name: 'NSS', href: '/activities/co-curricular/nss' },
+        { name: 'Manasa Samalochana', href: '/activities/co-curricular/manasa-samalochana' },
       ] },
     ],
   },
   { name: 'Cells & Committees', href: '#', subLinks: [
     { name: 'Statutory', subLinks: [
-        { name: 'Anti Ragging', href: '#' },
-        { name: 'Internal Compliance Committee', href: '#' },
-        { name: 'POSH', href: '#' },
-        { name: 'SC/ST cell', href: '#' },
-        { name: 'Grievance Redressal Cell', href: '#' },
+        { name: 'Anti Ragging', href: '/cells-committees/statutory/anti-ragging' },
+        { name: 'Internal Compliance Committee', href: '/cells-committees/statutory/internal-compliance' },
+        { name: 'POSH', href: '/cells-committees/statutory/posh' },
+        { name: 'SC/ST cell', href: '/cells-committees/statutory/sc-st-cell' },
+        { name: 'Grievance Redressal Cell', href: '/cells-committees/statutory/grievance-redressal' },
     ]},
     { name: 'Others', subLinks: [
-        { name: 'Cultural Committee', href: '#' },
-        { name: 'Women’s Cell', href: '#' },
-        { name: 'Eco Club', href: '#' },
+        { name: 'Cultural Committee', href: '/cells-committees/others/cultural-committee' },
+        { name: 'Women’s Cell', href: '/cells-committees/others/womens-cell' },
+        { name: 'Eco Club', href: '/cells-committees/others/eco-club' },
     ]},
   ] },
-  { name: 'Facilities', href: '#' },
-  { name: 'Scholarships', href: '#' },
-  { name: 'IQAC', href: '#' },
-  { name: 'NAAC', href: '#' },
-  { name: 'Research', href: '#' },
-  { name: 'Gallery', href: '#' },
+  { name: 'Facilities', href: '/facilities' },
+  { name: 'Scholarships', href: '/scholarships' },
+  { name: 'IQAC', href: '/iqac' },
+  { name: 'NAAC', href: '/naac' },
+  { name: 'Research', href: '/research' },
+  { name: 'Gallery', href: '/gallery' },
   { name: 'Contact Us', href: '/contact' },
 ];
 
 const header2Links = [
     { name: 'Industry Connect', href: '#', subLinks: [
-        { name: 'Internship', href: '#' },
-        { name: 'Add-on programmes & Certificate Courses', href: '#' },
-        { name: 'MoU', href: '#' },
-        { name: 'Field Trip', href: '#' },
-        { name: 'Industry Visits', href: '#' },
+        { name: 'Internship', href: '/industry-connect/internship' },
+        { name: 'Add-on programmes & Certificate Courses', href: '/industry-connect/addon-programmes' },
+        { name: 'MoU', href: '/industry-connect/mou' },
+        { name: 'Field Trip', href: '/industry-connect/field-trip' },
+        { name: 'Industry Visits', href: '/industry-connect/industry-visits' },
     ]},
-    { name: 'RTI', href: '#' },
-    { name: 'Governance', href: '#' },
-    { name: 'Code of Conduct', href: '#' },
-    { name: 'Statutory Cells', href: '#' },
+    { name: 'RTI', href: '/rti' },
+    { name: 'Governance', href: '/governance' },
+    { name: 'Code of Conduct', href: '/code-of-conduct' },
+    { name: 'Statutory Cells', href: '/statutory-cells' },
     { name: 'Alumni', href: '/alumni/activity' },
 ]
 
@@ -138,7 +138,7 @@ export function SiteHeader() {
     };
   }, []);
   
-  const renderNavLinks = (links: typeof navLinks, isMobile = false) => {
+  const renderNavLinks = (links: any[], isMobile = false) => {
     return links.map((link) => {
       if (link.subLinks) {
         return (
@@ -146,7 +146,7 @@ export function SiteHeader() {
             <AccordionTrigger className="font-semibold text-lg py-4">{link.name}</AccordionTrigger>
             <AccordionContent>
               <ul className="space-y-2 pl-4">
-                {link.subLinks.map(subLink => {
+                {link.subLinks.map((subLink: any) => {
                   if ('subLinks' in subLink && subLink.subLinks) {
                      return (
                         <Accordion type="single" collapsible className="w-full" key={subLink.name}>
@@ -154,7 +154,7 @@ export function SiteHeader() {
                               <AccordionTrigger className="font-semibold text-md py-3">{subLink.name}</AccordionTrigger>
                               <AccordionContent>
                                  <ul className="space-y-2 pl-4">
-                                 {subLink.subLinks.map(childLink => (
+                                 {subLink.subLinks.map((childLink: any) => (
                                     <li key={childLink.name}>
                                        <Link href={childLink.href} className="block py-2 text-muted-foreground hover:text-primary" onClick={() => setOpen(false)}>{childLink.name}</Link>
                                     </li>
@@ -281,5 +281,3 @@ export function SiteHeader() {
     </header>
   );
 }
-
-    
