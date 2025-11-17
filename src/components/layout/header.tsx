@@ -18,13 +18,7 @@ import {
 const navLinks = [
   { 
     name: 'Home', 
-    subLinks: [
-      { name: 'RBANM’s FGC', href: '#' },
-      { name: 'Message from Director', href: '#' },
-      { name: 'Message from Principal', href: '#' },
-      { name: 'Awards & Achievements', href: '#' },
-      { name: 'Upcoming Events', href: '#' },
-    ]
+    href: '/'
   },
   {
     name: 'About Us',
@@ -104,20 +98,6 @@ const navLinks = [
   { name: 'Contact Us', href: '/contact' },
 ];
 
-const header2Links = [
-    { name: 'Industry Connect', subLinks: [
-        { name: 'Internship', href: '#' },
-        { name: 'Add-on programmes & Certificate Courses', href: '#' },
-        { name: 'MoU', href: '#' },
-        { name: 'Field Trip', href: '#' },
-        { name: 'Industry Visits', href: '#' },
-    ] },
-    { name: 'RTI', href: '#' },
-    { name: 'Governance', href: '#' },
-    { name: 'Code of Conduct', href: '#' },
-    { name: 'Statutory Cells', href: '#' },
-    { name: 'Alumni', href: '#' },
-]
 
 export function SiteHeader() {
   const [isSticky, setSticky] = useState(false);
@@ -176,7 +156,7 @@ export function SiteHeader() {
         );
       }
       return (
-        <Link key={link.name} href={link.href} className="block border-b py-4 font-semibold text-lg" onClick={() => setOpen(false)}>{link.name}</Link>
+        <Link key={link.name} href={link.href ?? '#'} className="block border-b py-4 font-semibold text-lg" onClick={() => setOpen(false)}>{link.name}</Link>
       );
     });
   };
@@ -220,30 +200,7 @@ export function SiteHeader() {
     <header className="relative w-full bg-background">
       {/* Top Bar */}
       <div className="bg-primary text-primary-foreground">
-        <div className="container mx-auto flex h-10 items-center justify-between px-4 text-xs">
-          <div className="flex items-center gap-4">
-            <div className='flex items-center gap-x-6'>
-                {header2Links.map(link => (
-                     <li key={link.name} className="group relative list-none">
-                     <Link href={link.href ?? '#'} className="flex items-center gap-1 font-semibold text-primary-foreground/80 hover:text-accent transition-colors">
-                       {link.name}
-                       {link.subLinks && <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>}
-                     </Link>
-                     {link.subLinks && (
-                       <ul className="absolute top-full left-0 z-20 w-56 rounded-md bg-background shadow-lg border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-1">
-                         {link.subLinks.map(subLink => (
-                           <li key={subLink.name} className="relative group/sub">
-                             <Link href={subLink.href ?? '#'} className="flex justify-between items-center w-full px-4 py-2 text-sm text-foreground/80 hover:bg-muted hover:text-primary">
-                               {subLink.name}
-                             </Link>
-                           </li>
-                         ))}
-                       </ul>
-                     )}
-                   </li>
-                ))}
-            </div>
-          </div>
+        <div className="container mx-auto flex h-10 items-center justify-end px-4 text-xs">
           <div className="flex items-center gap-3">
             <a href="#" aria-label="Facebook"><Facebook className="h-4 w-4 hover:text-accent transition-colors" /></a>
             <a href="#" aria-label="Twitter"><Twitter className="h-4 w-4 hover:text-accent transition-colors" /></a>
@@ -299,5 +256,3 @@ export function SiteHeader() {
     </header>
   );
 }
-
-    

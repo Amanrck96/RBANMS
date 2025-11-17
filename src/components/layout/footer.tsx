@@ -22,14 +22,23 @@ export function SiteFooter() {
     { name: 'Syllabus', href: '#' },
     { name: 'Online Grievance', href: '#' },
   ];
+  
+  const resourcesLinks = [
+    { name: 'Industry Connect', href: '#' },
+    { name: 'RTI', href: '#' },
+    { name: 'Governance', href: '#' },
+    { name: 'Code of Conduct', href: '#' },
+    { name: 'Statutory Cells', href: '#' },
+    { name: 'Alumni', href: '/alumni/activity' },
+  ]
 
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
           
           {/* About Section */}
-          <div className="space-y-4">
+          <div className="space-y-4 lg:col-span-2">
             <div className="flex items-center gap-3">
               <Image src="https://rbanmsfgc.ac.in/images/logo_1.png?v=1.75" alt="RBANM's First Grade College Logo" width={112} height={40} />
             </div>
@@ -52,11 +61,11 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          {/* Student Corner */}
+          {/* Resources */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold">Student Corner</h3>
+            <h3 className="text-xl font-bold">Resources</h3>
             <ul className="space-y-2">
-              {studentCorner.map((link) => (
+              {resourcesLinks.map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-sm text-primary-foreground/80 hover:text-white transition-colors">
                     {link.name}
