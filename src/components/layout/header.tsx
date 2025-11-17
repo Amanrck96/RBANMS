@@ -72,11 +72,7 @@ const navLinks = [
     name: 'Activities',
     subLinks: [
       { name: 'Workshops', href: '#' },
-      { name: 'Events', subLinks: [
-          { name: 'Sports Day', href: '#' },
-          { name: 'Annual Day', href: '#' },
-          { name: 'Language Day', href: '#' },
-      ]},
+      { name: 'Events', href: '/events' },
       { name: 'Clubs', href: '#' },
     ],
   },
