@@ -63,7 +63,7 @@
     {
       "id": "recruiter-5",
       "description": "Generic corporate logo 5",
-      "imageUrl": "https://images.unsplash.com/photo-1708164335606-30f0a10cddf1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YnVzaW5lc3MlMjBsb2dvfGVufDB8fHx8MTc2MzM2NDA4M3ww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1708164335606-30f0a10cddf1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YnVzaW5lc3MlMjBsb2dvfGVufDB8fHx8MTc2MzM2NDA4M3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "business logo"
     },
     {
@@ -75,19 +75,19 @@
     {
       "id": "gallery-1",
       "description": "Dance Performance",
-      "imageUrl": "https://images.unsplash.com/photo-1738600056907-2383b9669480?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c2NpZW5jZSUyMGZhaXJ8ZW58MHx8fHwxNzYzMjgzOTkzfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1738600056907-2383b9669480?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c2NpZW5jZSUyMGZhaXJ8ZW58MHx8fHwxNzYzMjgzOTkzfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "science fair"
     },
     {
       "id": "gallery-2",
       "description": "Students showcasing creativity.",
-      "imageUrl": "https://images.unsplash.com/photo-1547347298-4074fc3086f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzcG9ydHMlMjB0ZWFtfGVufDB8fHx8MTc2MzMwNDU0M3ww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1547347298-4074fc3086f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzcG9ydHMlMjB0ZWFtfGVufDB8fHx8MTc2MzMwNDU0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "sports team"
     },
     {
       "id": "gallery-3",
       "description": "A cultural event with students performing on stage.",
-      "imageUrl": "https://images.unsplash.com/photo-1761124739303-0f63772ed166?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjdWx0dXJhbCUyMGV2ZW50fGVufDB8fHx8MTc2MzM2OTA2Nnww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1761124739303-0f63772ed166?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjdWx0dXJhbCUyMGV2ZW50fGVufDB8fHx8MTc2MzM2OTA2Nnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "cultural event"
     },
     {
@@ -111,7 +111,7 @@
     {
       "id": "gallery-7",
       "description": "Students working on a project in a lab.",
-      "imageUrl": "https://images.unsplash.com/photo-1762994577543-1aa11f21310c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzdHVkZW50JTIwbGFifGVufDB8fHx8MTc2MzM1OTQ1M3ww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1762994577543-1aa11f21310c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzdHVkZW50JTIwbGFifGVufDB8fHx8MTc2MzM1OTQ1M3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "student lab"
     },
     {
@@ -119,6 +119,12 @@
       "description": "An outdoor festival on the campus grounds.",
       "imageUrl": "https://images.unsplash.com/photo-1635510238778-eb94974402c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxvdXRkb29yJTIwZmVzdGl2YWx8ZW58MHx8fHwxNzYzMzA1MTgxfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "outdoor festival"
+    },
+    {
+      "id": "alumni-activity-1",
+      "description": "Students helping local vendors with digital payments.",
+      "imageUrl": "https://images.unsplash.com/photo-1678953112839-81cb439534c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwcGF5bWVudCUyMGluZGlhfGVufDB8fHx8MTc2MzgwMjM2NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "digital payment"
     }
   ]
 }

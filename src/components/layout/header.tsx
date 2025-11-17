@@ -130,6 +130,9 @@ const navLinks = [
     ]},
     { name: 'MOU, Collaborations', href: '#' },
   ] },
+   { name: 'Alumni', href: '#', subLinks: [
+      { name: 'Alumni Activity', href: '/alumni/activity' },
+  ] },
   { name: 'Contact Us', href: '#' },
 ];
 
@@ -300,5 +303,3 @@ export function SiteHeader() {
     </header>
   );
 }
-
-    
