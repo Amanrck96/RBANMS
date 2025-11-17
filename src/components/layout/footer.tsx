@@ -14,11 +14,13 @@ const Logo = () => (
 
 export function SiteFooter() {
   const quickLinks = [
+    { name: 'Home', href: '#' },
     { name: 'About Us', href: '#' },
-    { name: 'Admissions', href: '#' },
-    { name: 'Departments', href: '#' },
-    { name: 'Placements', href: '#' },
-    { name: 'IQAC', href: '#' },
+    { name: 'Academics', href: '#' },
+    { name: 'Facilities', href: '#' },
+    { name: 'Swayam', href: '#' },
+    { name: 'News', href: '#' },
+    { name: 'Events', href: '#' },
     { name: 'Contact Us', href: '#' },
   ];
 
@@ -39,10 +41,10 @@ export function SiteFooter() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <Logo />
-              <h3 className="text-xl font-bold">Academic Mirror</h3>
+              <h3 className="text-xl font-bold">RBANM's First Grade College</h3>
             </div>
             <p className="text-sm text-primary-foreground/80">
-              A premier institution dedicated to fostering academic excellence and holistic development. Our commitment is to create future leaders through quality education.
+             A premier institution dedicated to fostering academic excellence and holistic development. Our commitment is to create future leaders through quality education.
             </p>
           </div>
 
@@ -76,22 +78,28 @@ export function SiteFooter() {
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold">Contact Us</h3>
+            <h3 className="text-xl font-bold">Contact</h3>
             <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-3">
+               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 mt-1 shrink-0" />
-                <span className="text-primary-foreground/80">123 University Ave, Knowledge City, 12345</span>
+                <span className="text-primary-foreground/80">#12,Annaswamy Mudaliar Road, Opposite Ulsoor Lake, Bangalore 560042.</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 shrink-0" />
-                <a href="mailto:info@academicmirror.edu" className="text-primary-foreground/80 hover:text-white transition-colors">
-                  info@academicmirror.edu
+                <a href="mailto:principal_rbanms@gmail.com" className="text-primary-foreground/80 hover:text-white transition-colors">
+                  principal_rbanms@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 shrink-0" />
-                <a href="tel:+1234567890" className="text-primary-foreground/80 hover:text-white transition-colors">
-                  +1 (234) 567-890
+                <a href="tel:080-48533572" className="text-primary-foreground/80 hover:text-white transition-colors">
+                  080-48533572
+                </a>
+              </li>
+                 <li className="flex items-center gap-3">
+                <Mail className="h-5 w-5 shrink-0" />
+                <a href="mailto:placement.fgc@rbanmscharities.in" className="text-primary-foreground/80 hover:text-white transition-colors">
+                  placement.fgc@rbanmscharities.in
                 </a>
               </li>
             </ul>
@@ -101,7 +109,7 @@ export function SiteFooter() {
       </div>
       <div className="bg-black/20">
         <div className="container mx-auto px-4 py-4 text-center text-sm text-primary-foreground/70">
-          <p>&copy; {new Date().getFullYear()} Academic Mirror. All Rights Reserved. Designed with care.</p>
+          <p>&copy; {new Date().getFullYear()} RBANM's First Grade College. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

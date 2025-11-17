@@ -28,7 +28,7 @@ export function AnnouncementsSection() {
           {/* Notifications */}
           <Card className="overflow-hidden">
             <CardHeader className="bg-primary/5">
-              <CardTitle className="text-primary font-headline">Notifications / Updates</CardTitle>
+              <CardTitle className="text-primary font-headline">Latest News & Updates</CardTitle>
             </CardHeader>
             <CardContent className="p-0">
               <ScrollArea className="h-96">
@@ -49,19 +49,19 @@ export function AnnouncementsSection() {
           {/* Principal's Message */}
           <Card className="flex flex-col">
             <CardHeader className="bg-primary/5">
-              <CardTitle className="text-primary font-headline">From the Principal's Desk</CardTitle>
+              <CardTitle className="text-primary font-headline">Principal's Message</CardTitle>
             </CardHeader>
             <CardContent className="p-6 flex-grow flex flex-col items-center text-center">
               <Avatar className="h-24 w-24 mb-4 border-4 border-background shadow-md">
-                {principalImage && <AvatarImage src={principalImage.imageUrl} alt={principalImage.description} data-ai-hint={principalImage.imageHint} />}
-                <AvatarFallback>PM</AvatarFallback>
+                {principalImage && <AvatarImage src='https://rbanmsfgc.ac.in/images/gallery/WhatsApp%20Image%202025-11-04%20at%203.37.04%20PM.jpeg' alt='Dr Shanti Iyer' data-ai-hint='professional headshot' />}
+                <AvatarFallback>SI</AvatarFallback>
               </Avatar>
-              <h3 className="font-bold text-xl">Dr. Jane Doe</h3>
-              <p className="text-sm text-muted-foreground mb-4">Principal</p>
+              <h3 className="font-bold text-xl">Dr. Shanti Iyer</h3>
+              <p className="text-sm text-muted-foreground mb-4">Ph.D.</p>
               <div className="relative text-muted-foreground italic flex-grow">
                 <Quote className="h-8 w-8 text-primary/10 absolute -top-2 -left-4" fill="currentColor" />
                 <p>
-                  Welcome to Academic Mirror, where we nurture minds and shape futures. Our mission is to provide an environment of academic excellence and personal growth...
+                  If everyone used the identical lorem ipsum copy, search engines would flag it for plagiarism and downgrade the site for its lack of helpful content for the reader. However, when you send sample layouts filled with fun lorem ipsum to your customers, they will focus on the look and feel of the page instead of digging into and arguing about the content.
                 </p>
               </div>
               <Button variant="link" className="mt-4">Read More</Button>

@@ -27,24 +27,26 @@ const Logo = () => (
 
 const navLinks = [
   { name: 'Home', href: '#' },
+  { name: 'News', href: '#' },
   { 
     name: 'About Us', 
     subLinks: [
-      { name: 'Our College', href: '#'},
+      { name: 'Our Founder', href: '#'},
+      { name: 'Founder\'s Vision', href: '#'},
+      { name: 'History of the College', href: '#'},
       { name: 'Vision & Mission', href: '#'},
-      { name: 'Principal\'s Message', href: '#'},
     ]
   },
-  { name: 'Admissions', href: '#' },
   { 
-    name: 'Departments', 
+    name: 'Academics', 
     subLinks: [
-      { name: 'Commerce', href: '#'},
-      { name: 'Computer Science', href: '#'},
-      { name: 'Arts', href: '#'},
+      { name: 'Courses Offered', href: '#'},
+      { name: 'Departments', href: '#'},
+      { name: 'Industry Connect', href: '#'},
     ]
   },
-  { name: 'Placements', href: '#' },
+  { name: 'Activities', href: '#' },
+  { name: 'Facilities', href: '#' },
   { name: 'IQAC', href: '#' },
   { name: 'Contact', href: '#' },
 ];
@@ -73,13 +75,13 @@ export function SiteHeader() {
       <div className="bg-primary text-primary-foreground">
         <div className="container mx-auto flex h-10 items-center justify-between px-4 text-xs">
           <div className="flex items-center gap-4">
-            <a href="tel:+1234567890" className="flex items-center gap-1.5 hover:text-accent transition-colors">
+            <a href="tel:080-48533572" className="flex items-center gap-1.5 hover:text-accent transition-colors">
               <Phone className="h-3 w-3" />
-              <span>+1 (234) 567-890</span>
+              <span>080-48533572</span>
             </a>
-            <a href="mailto:info@academicmirror.edu" className="hidden sm:flex items-center gap-1.5 hover:text-accent transition-colors">
+            <a href="mailto:principal_rbanms@gmail.com" className="hidden sm:flex items-center gap-1.5 hover:text-accent transition-colors">
               <Mail className="h-3 w-3" />
-              <span>info@academicmirror.edu</span>
+              <span>principal_rbanms@gmail.com</span>
             </a>
           </div>
           <div className="flex items-center gap-3">
@@ -96,7 +98,7 @@ export function SiteHeader() {
         <Link href="/" className="flex items-center gap-4">
           <Logo />
           <div>
-            <h1 className="text-xl md:text-2xl font-bold text-primary font-headline">ACADEMIC MIRROR</h1>
+            <h1 className="text-xl md:text-2xl font-bold text-primary font-headline">RBANM's First Grade College</h1>
             <p className="text-xs text-muted-foreground">An Autonomous Institution</p>
           </div>
         </Link>

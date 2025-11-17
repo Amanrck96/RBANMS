@@ -19,35 +19,25 @@ export function AboutSection() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="relative aspect-video lg:aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
-            {aboutImage && (
-              <Image
-                src={aboutImage.imageUrl}
-                alt={aboutImage.description}
+             <Image
+                src="https://rbanmsfgc.ac.in/images/gallery/sahana.jpeg"
+                alt="Director Dr Sahana Das"
                 fill
                 className="object-cover"
-                data-ai-hint={aboutImage.imageHint}
+                data-ai-hint="professional headshot"
               />
-            )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
           </div>
           <div className="space-y-6">
-            <h2 className="text-3xl lg:text-4xl font-bold text-primary font-headline">About Our College</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-primary font-headline">Director's Message</h2>
+             <div className="space-y-2">
+                <h3 className="font-bold text-xl">Dr. Sahana Das</h3>
+                <p className="text-sm text-muted-foreground">Director, PH D</p>
+             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              If everyone used the identical lorem ipsum copy, search engines would flag it for plagiarism and downgrade the site for its lack of helpful content for the reader. However, when you send sample layouts filled with fun lorem ipsum to your customers, they will focus on the look and feel of the page instead of digging into and arguing about the content. Nevertheless, lorem ipsum generators do not spew a random bank of words and paragraphs.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-            </p>
-            <ul className="space-y-3">
-              {features.map((feature, index) => (
-                <li key={index} className="flex items-center gap-3">
-                  <div className="bg-primary/10 p-1.5 rounded-full">
-                    <Check className="h-4 w-4 text-primary" />
-                  </div>
-                  <span className="font-medium text-foreground/80">{feature}</span>
-                </li>
-              ))}
-            </ul>
+            
             <Button size="lg">Read More</Button>
           </div>
         </div>
