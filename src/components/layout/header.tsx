@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Phone, Mail, Menu, X, Facebook, Twitter, Youtube, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 import {
   Accordion,
@@ -98,7 +98,7 @@ export function SiteHeader() {
         <Link href="/" className="flex items-center gap-4">
           <Logo />
           <div>
-            <h1 className="text-xl md:text-2xl font-bold text-primary font-headline">RBANM'S FIRST GRADE COLLEGE</h1>
+            <h1 className="text-xl md:text-2xl font-bold text-primary font-headline">RBANMS FIRST GRADE COLLEGE</h1>
           </div>
         </Link>
         <div className="lg:hidden">
@@ -110,14 +110,13 @@ export function SiteHeader() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-full max-w-sm p-0">
-              <div className="flex h-full flex-col">
-                <div className="flex items-center justify-between border-b p-4">
-                   <h2 className="font-bold text-lg text-primary">Menu</h2>
-                   <Button variant="ghost" size="icon" onClick={() => setOpen(false)}>
-                     <X className="h-6 w-6" />
-                   </Button>
-                </div>
-                <div className="flex-grow overflow-y-auto p-4">
+              <SheetHeader className="flex flex-row items-center justify-between border-b p-4">
+                 <SheetTitle className="font-bold text-lg text-primary">Menu</SheetTitle>
+                 <Button variant="ghost" size="icon" onClick={() => setOpen(false)}>
+                   <X className="h-6 w-6" />
+                 </Button>
+              </SheetHeader>
+              <div className="flex-grow overflow-y-auto p-4">
                   <Accordion type="single" collapsible className="w-full">
                     {navLinks.map((link) => 
                       link.subLinks ? (
@@ -138,7 +137,6 @@ export function SiteHeader() {
                       )
                     )}
                   </Accordion>
-                </div>
               </div>
             </SheetContent>
           </Sheet>
