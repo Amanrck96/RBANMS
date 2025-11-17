@@ -98,8 +98,7 @@ export function SiteHeader() {
         <Link href="/" className="flex items-center gap-4">
           <Logo />
           <div>
-            <h1 className="text-xl md:text-2xl font-bold text-primary font-headline">RBANM's First Grade College</h1>
-            <p className="text-xs text-muted-foreground">An Autonomous Institution</p>
+            <h1 className="text-xl md:text-2xl font-bold text-primary font-headline">RBANM'S FIRST GRADE COLLEGE</h1>
           </div>
         </Link>
         <div className="lg:hidden">

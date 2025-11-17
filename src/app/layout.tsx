@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'Academic Mirror',
+  title: "RBANM'S FIRST GRADE COLLEGE",
   description: 'A responsive website clone of an academic institution.',
   keywords: 'education, college, university, academic, responsive design',
 };
