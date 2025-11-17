@@ -24,7 +24,6 @@ export function GallerySection() {
                 data-ai-hint={image.imageHint}
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300 flex items-end p-4">
-                <p className="text-white font-bold">{image.description}</p>
               </div>
             </div>
           ))}
