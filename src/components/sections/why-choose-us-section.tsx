@@ -1,57 +1,64 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { 
-  Shield, Building, Bus, Train, Award, Leaf, GraduationCap, Laptop, Briefcase, Trophy, Zap, 
-  HeartHandshake, Drama, Mic, Handshake, Users, Gem 
-} from 'lucide-react';
+import { Check } from 'lucide-react';
 
-const features = [
-  { icon: Shield, title: "Trusted Management", description: "Managed by a trusted and universally respected Educational Charities Trust" },
-  { icon: Building, title: "Prime Location", description: "Located in the heart of Bangalore City" },
-  { icon: Bus, title: "Bus Access", description: "BMTC buses on the Shivajinagar – Jivanahalli route that stops at the college campus" },
-  { icon: Train, title: "Metro Access", description: "Walking distance from the Trinity and MG Road Metro stations" },
-  { icon: Award, title: "University Affiliation", description: "Affiliated to Bengaluru City University" },
-  { icon: Leaf, title: "Green Campus", description: "Learning spaces that are green and environmentally friendly" },
-  { icon: GraduationCap, title: "Dedicated Faculty", description: "Dedicated and qualified in-house faculty" },
-  { icon: Laptop, title: "Well-equipped classrooms", description: "Bright classrooms, equipped with LCD projectors" },
-  { icon: Laptop, title: "Computer Labs", description: "Two Computer Labs for BCA students" },
-  { icon: Gem, title: "Design Studio", description: "A design studio" },
-  { icon: Users, title: "Eminent guest faculty", description: "Eminent guest faculty from various fields of expertise" },
-  { icon: Zap, title: "Add-on Courses", description: "Add-on and certificate courses" },
-  { icon: Briefcase, title: "Professional Training", description: "Training for professional skills" },
-  { icon: Handshake, title: "Industry Access", description: "Access to Industry experts" },
-  { icon: Trophy, title: "Sports Encouragement", description: "Encouragement and support for sports" },
-  { icon: Shield, title: "Indoor Games", description: "Indoor Games room" },
-  { icon: Award, title: "Gym", description: "Gym" },
-  { icon: Trophy, title: "Premium Sports Access", description: "Access to world class cricket and Football grounds" },
-  { icon: Shield, title: "Active NCC Programs", description: "Encouragement of NCC related activities" },
-  { icon: HeartHandshake, title: "Community Engagement", description: "Meaningful engagement with community development through NSS" },
-  { icon: Drama, title: "Support of the Arts", description: "Support of the Arts" },
-  { icon: Mic, title: "Auditorium & Halls", description: "Seminar Hall, AV Room, Auditorium" },
+const advantages = [
+  "Managed by a trusted and universally respected Educational Charities Trust",
+  "Located in the heart of Bangalore City",
+  "BMTC buses on the Shivajinagar – Jivanahalli route that stops at the college campus",
+  "Walking distance from the Trinity and MG Road Metro stations",
+  "Affiliated to Bengaluru City University",
+  "Learning spaces that are green and environmentally friendly",
+  "Dedicated and qualified in-house faculty",
+  "Well-equipped classrooms",
+  "Two Computer Labs for BCA students",
+  "A design studio",
+  "Eminent guest faculty from various fields of expertise",
+  "Add-on and certificate courses",
+  "Training for professional skills",
+  "Access to Industry experts",
+  "Encouragement and support for sports",
+  "Indoor Games room",
+  "Gym",
+  "Access to world class cricket and Football grounds",
+  "Encouragement of NCC related activities",
+  "Meaningful engagement with community development through NSS",
+  "Support of the Arts",
+  "Seminar Hall, AV Room, Auditorium",
 ];
 
 export function WhyChooseUsSection() {
+  const midPoint = Math.ceil(advantages.length / 2);
+  const col1 = advantages.slice(0, midPoint);
+  const col2 = advantages.slice(midPoint);
+
   return (
-    <section className="py-12 lg:py-24">
+    <section className="py-12 lg:py-24 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-primary font-headline">The RBANM's Advantage</h2>
-          <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">We provide an educational experience that goes beyond the classroom.</p>
+          <h2 className="text-3xl lg:text-4xl font-bold text-primary font-headline">The RBANM’s Advantages</h2>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature, index) => (
-            <Card key={index} className="text-center group hover:border-primary hover:shadow-lg transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="mb-4 inline-block p-4 bg-primary/10 rounded-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                  <feature.icon className="h-8 w-8 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
-                </div>
-                <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground text-sm">{feature.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+          <ul className="space-y-4">
+            {col1.map((advantage, index) => (
+              <li key={index} className="flex items-start">
+                <Check className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" />
+                <span className="text-muted-foreground">{advantage}</span>
+              </li>
+            ))}
+          </ul>
+          <ul className="space-y-4">
+            {col2.map((advantage, index) => (
+              <li key={index} className="flex items-start">
+                <Check className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" />
+                <span className="text-muted-foreground">{advantage}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
   );
 }
+
+    

@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
@@ -23,25 +24,13 @@ const heroSlides = [
     subheadline: 'Unlock your potential with our world-class programs and faculty.',
     imageHint: 'graduation ceremony',
   },
-  {
-    id: 'hero-4',
-    headline: 'Discover Your Talent',
-    subheadline: 'A stage for every artist, a field for every athlete.',
-    imageHint: 'student event',
-  },
-  {
-    id: 'hero-5',
-    headline: 'A Place to Learn and Grow',
-    subheadline: 'Our library is the heart of our academic community.',
-    imageHint: 'college library',
-  },
 ];
 
 export function HeroSection() {
   const heroImages = PlaceHolderImages.filter(p => p.id.startsWith('hero-'));
 
   return (
-    <section className="relative h-[60vh] md:h-[80vh] w-full">
+    <section className="relative h-[60vh] md:h-[70vh] w-full">
       <Carousel className="w-full h-full" opts={{ loop: true }}>
         <CarouselContent className="h-full">
           {heroSlides.map((slide, index) => {
@@ -60,19 +49,6 @@ export function HeroSection() {
                     />
                   )}
                   <div className="absolute inset-0 bg-black/50" />
-                  <div className="absolute inset-0 flex items-center justify-center text-center text-white">
-                    <div className="container mx-auto px-4 animate-in fade-in slide-in-from-bottom-10 duration-700">
-                      <h1 className="text-4xl md:text-6xl font-extrabold font-headline mb-4 drop-shadow-lg">
-                        {slide.headline}
-                      </h1>
-                      <p className="text-lg md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto drop-shadow-md">
-                        {slide.subheadline}
-                      </p>
-                      <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-                        Learn More <ArrowRight className="ml-2 h-5 w-5" />
-                      </Button>
-                    </div>
-                  </div>
                 </div>
               </CarouselItem>
             );

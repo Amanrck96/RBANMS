@@ -5,10 +5,13 @@ import { Phone, Mail, MapPin, Facebook, Twitter, Youtube, Instagram } from 'luci
 
 export function SiteFooter() {
   const quickLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about/founder' },
-    { name: 'Academics', href: '#' },
-    { name: 'Admissions', href: '#' },
+    { name: 'Industry Connect', href: '/industry-connect/internship' },
+    { name: 'RTI', href: '/rti' },
+    { name: 'Governance', href: '/governance' },
+    { name: 'Social media', href: '#' },
+    { name: 'Code of Conduct', href: '/code-of-conduct' },
+    { name: 'Statutory CELLS', href: '/statutory-cells' },
+    { name: 'Alumni', href: '/alumni/activity' },
     { name: 'Contact Us', href: '/contact' },
   ];
 
@@ -34,9 +37,9 @@ export function SiteFooter() {
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-4">
+          <div className="space-y-4 lg:col-span-2">
             <h3 className="text-xl font-bold">Quick Links</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 columns-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-sm text-primary-foreground/80 hover:text-white transition-colors">
@@ -46,17 +49,6 @@ export function SiteFooter() {
               ))}
             </ul>
           </div>
-          
-          {/* Campus Info */}
-           <div className="space-y-4">
-            <h3 className="text-xl font-bold">Campus</h3>
-             <ul className="space-y-2">
-                 <li><Link href="#" className="text-sm text-primary-foreground/80 hover:text-white transition-colors">Gallery</Link></li>
-                 <li><Link href="/events" className="text-sm text-primary-foreground/80 hover:text-white transition-colors">Events</Link></li>
-                 <li><Link href="#" className="text-sm text-primary-foreground/80 hover:text-white transition-colors">News</Link></li>
-            </ul>
-          </div>
-
 
           {/* Contact Info */}
           <div className="space-y-4">

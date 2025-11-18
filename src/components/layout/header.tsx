@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Mail, Menu, X, Facebook, Twitter, Youtube, Instagram } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
@@ -16,16 +16,7 @@ import {
 } from "@/components/ui/accordion";
 
 const navLinks = [
-  {
-    name: 'Home',
-    subLinks: [
-      { name: 'RBANM’s FGC', href: '/' },
-      { name: 'Message from Director', href: '/about/director-message' },
-      { name: 'Message from Principal', href: '/about/principal-message' },
-      { name: 'Awards & Achievements', href: '/about/awards' },
-      { name: 'Upcoming Events', href: '/events' },
-    ]
-  },
+  { name: 'Home', href: '/' },
   {
     name: 'About Us',
     subLinks: [
@@ -48,7 +39,7 @@ const navLinks = [
     ],
   },
   {
-    name: 'Departments',
+    name: 'Dept',
     subLinks: [
       { name: 'Department of Commerce', href: '/departments/commerce' },
       { name: 'Department of Management Studies', href: '/departments/management' },
@@ -59,7 +50,7 @@ const navLinks = [
       { name: 'Department of Physical Education', href: '/departments/physical-education' },
     ],
   },
-  { name: 'College Administration', href: '/administration'},
+  { name: 'Clg Adm', href: '/administration'},
   {
     name: 'Activities',
     subLinks: [
@@ -81,7 +72,7 @@ const navLinks = [
       ] },
     ],
   },
-  { name: 'Cells & Committees', href: '#', subLinks: [
+  { name: 'Cells & Comm', href: '#', subLinks: [
     { name: 'Statutory', subLinks: [
         { name: 'Anti Ragging', href: '/cells-committees/statutory/anti-ragging' },
         { name: 'Internal Compliance Committee', href: '/cells-committees/statutory/internal-compliance' },
@@ -97,26 +88,13 @@ const navLinks = [
   ] },
   { name: 'Facilities', href: '/facilities' },
   { name: 'Scholarships', href: '/scholarships' },
-  { name: 'IQAC', href: '/iqac' },
-  { name: 'NAAC', href: '/naac' },
-  { name: 'Research', href: '/research' },
-  { name: 'Gallery', href: '/gallery' },
-  { name: 'Contact Us', href: '/contact' },
 ];
 
-const header2Links = [
-    { name: 'Industry Connect', href: '#', subLinks: [
-        { name: 'Internship', href: '/industry-connect/internship' },
-        { name: 'Add-on programmes & Certificate Courses', href: '/industry-connect/addon-programmes' },
-        { name: 'MoU', href: '/industry-connect/mou' },
-        { name: 'Field Trip', href: '/industry-connect/field-trip' },
-        { name: 'Industry Visits', href: '/industry-connect/industry-visits' },
-    ]},
-    { name: 'RTI', href: '/rti' },
-    { name: 'Governance', href: '/governance' },
-    { name: 'Code of Conduct', href: '/code-of-conduct' },
-    { name: 'Statutory Cells', href: '/statutory-cells' },
-    { name: 'Alumni', href: '/alumni/activity' },
+const secondaryNavLinks = [
+    { name: 'IQAC', href: '/iqac' },
+    { name: 'NAAC', href: '/naac' },
+    { name: 'Research', href: '/research' },
+    { name: 'Gallery', href: '/gallery' },
 ]
 
 
@@ -185,7 +163,7 @@ export function SiteHeader() {
   const renderDesktopNavLinks = (links: any[]) => {
     return links.map((link) => (
       <li key={link.name} className="group relative">
-        <Link href={link.href ?? '#'} className="flex items-center gap-1 font-semibold text-foreground/80 hover:text-primary transition-colors">
+        <Link href={link.href ?? '#'} className="flex items-center gap-1 py-2 font-semibold text-foreground/80 hover:text-primary transition-colors">
           {link.name}
           {link.subLinks && <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>}
         </Link>
@@ -218,30 +196,12 @@ export function SiteHeader() {
 
 
   return (
-    <header className="relative w-full bg-background">
-      {/* Top Bar */}
-      <div className="bg-primary text-primary-foreground">
-        <div className="container mx-auto flex h-10 items-center justify-between px-4 text-xs">
-          <ul className="hidden lg:flex items-center gap-x-6">
-            {renderDesktopNavLinks(header2Links)}
-          </ul>
-          <div className="flex items-center gap-3">
-            <a href="#" aria-label="Facebook"><Facebook className="h-4 w-4 hover:text-accent transition-colors" /></a>
-            <a href="#" aria-label="Twitter"><Twitter className="h-4 w-4 hover:text-accent transition-colors" /></a>
-            <a href="#" aria-label="YouTube"><Youtube className="h-4 w-4 hover:text-accent transition-colors" /></a>
-            <a href="#" aria-label="Instagram"><Instagram className="h-4 w-4 hover:text-accent transition-colors" /></a>
-          </div>
-        </div>
-      </div>
+    <header className="relative w-full bg-background border-b">
 
       {/* Main Header */}
       <div className="container mx-auto flex items-center justify-between px-4 py-4">
         <Link href="/" className="flex items-center gap-4">
-          <Image src="https://rbanmsfgc.ac.in/images/logo_1.png?v=1.75" alt="RBANM's First Grade College Logo" width={168} height={60} />
-          <div>
-            <h1 className="text-xl md:text-2xl font-bold text-primary font-headline">RBANMS FIRST GRADE COLLEGE</h1>
-             <p className="text-sm text-muted-foreground">Affiliated to Bengaluru City University, Accredited by NAAC with B+, Recognised under 2(f) & 12(B) of UGC Act 1956</p>
-          </div>
+          <Image src="https://rbanmsfgc.ac.in/images/logo_1.png?v=1.75" alt="RBANM's First Grade College Logo" width={112} height={40} />
         </Link>
         <div className="lg:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
@@ -263,6 +223,7 @@ export function SiteHeader() {
               <div className="flex-grow overflow-y-auto p-4">
                   <Accordion type="single" collapsible className="w-full">
                     {renderNavLinks(navLinks, true)}
+                     {renderNavLinks(secondaryNavLinks, true)}
                   </Accordion>
               </div>
             </SheetContent>
@@ -271,13 +232,18 @@ export function SiteHeader() {
       </div>
       
       {/* Navigation Bar */}
-      <nav id="main-nav" className={cn("hidden lg:block bg-background border-y border-border/50", isSticky && "fixed top-0 left-0 right-0 z-50 shadow-md animate-in fade-in slide-in-from-top-2 duration-300")}>
-        <div className="container mx-auto flex h-14 items-center justify-center">
-          <ul className="flex items-center gap-x-6">
+      <nav id="main-nav" className={cn("hidden lg:block bg-background border-t border-border/50", isSticky && "fixed top-0 left-0 right-0 z-50 shadow-md animate-in fade-in slide-in-from-top-2 duration-300")}>
+        <div className="container mx-auto flex flex-col justify-center">
+          <ul className="flex items-center justify-center gap-x-6">
             {renderDesktopNavLinks(navLinks)}
+          </ul>
+           <ul className="flex items-center justify-center gap-x-6 border-t mt-2 pt-2">
+            {renderDesktopNavLinks(secondaryNavLinks)}
           </ul>
         </div>
       </nav>
     </header>
   );
 }
+
+    

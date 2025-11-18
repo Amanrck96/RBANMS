@@ -1,7 +1,6 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-export default function ComingSoonPage() {
+export default function CollegeAdministrationPage() {
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <Card>
@@ -18,3 +17,5 @@ export default function ComingSoonPage() {
     </div>
   );
 }
+
+    
