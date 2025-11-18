@@ -49,12 +49,29 @@ export default function ContactPage() {
     defaultValues,
   });
 
-  function onSubmit(data: ContactFormValues) {
-    toast({
-      title: "Message Sent!",
-      description: "We've received your message and will get back to you shortly.",
-    });
-    form.reset();
+  async function onSubmit(data: ContactFormValues) {
+    try {
+      const res = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err?.error || "Failed to send message");
+      }
+      toast({
+        title: "Message Sent!",
+        description: "We've received your message and emailed you a confirmation.",
+      });
+      form.reset();
+    } catch (e: any) {
+      toast({
+        title: "Something went wrong",
+        description: e?.message || "Unable to send your message right now.",
+        // variant can be added if your toast supports it
+      });
+    }
   }
 
   return (
