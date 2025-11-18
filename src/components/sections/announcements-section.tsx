@@ -2,43 +2,33 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { Badge } from '@/components/ui/badge';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-
-const notifications = [
-  { id: 1, text: 'First Year Orientation Programme Schedule', new: true },
-  { id: 2, text: 'Internal Assessment Timetable for V Sem', new: true },
-  { id: 3, text: 'Library E-Resources Workshop', new: false },
-  { id: 4, text: 'Annual Sports Meet Registration Open', new: false },
-  { id: 5, text: 'Guest Lecture on AI and Machine Learning', new: true },
-];
 
 export function AnnouncementsSection() {
   const principalImage = PlaceHolderImages.find(p => p.id === 'principal-photo');
   const directorImage = PlaceHolderImages.find(p => p.id === 'about-college');
 
   return (
-    <section className="py-12 lg:py-16">
+    <section className="py-12 lg:py-16 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Application Text */}
-          <Card className="overflow-hidden lg:col-span-1">
-            <CardHeader className="bg-primary/5">
-              <CardTitle className="text-primary font-headline">Application Text</CardTitle>
+          
+          {/* Affiliation Text */}
+          <Card className="lg:col-span-1">
+             <CardHeader>
+                <CardTitle className="text-primary font-headline">RBANM’s FGC</CardTitle>
             </CardHeader>
-            <CardContent className="p-0">
-              <ScrollArea className="h-96 p-4">
-                 <p className="text-muted-foreground">Application related information and announcements will be displayed here.</p>
-              </ScrollArea>
+            <CardContent>
+                 <p className="text-muted-foreground">
+                    RBANMS FIRST GRADE COLLEGE, is affiliated to Bengaluru City University. It has been accredited by NAAC with a B+ and is recognised under Section 2(f) & 12(B) of the UGC Act, 1956.
+                 </p>
             </CardContent>
           </Card>
 
           {/* Director's Message */}
           <Card className="flex flex-col lg:col-span-1">
-            <CardHeader className="bg-primary/5">
+            <CardHeader>
               <CardTitle className="text-primary font-headline">Message from Director</CardTitle>
             </CardHeader>
             <CardContent className="p-6 flex-grow flex flex-col items-center text-center">
@@ -56,7 +46,7 @@ export function AnnouncementsSection() {
 
           {/* Principal's Message */}
           <Card className="flex flex-col lg:col-span-1">
-            <CardHeader className="bg-primary/5">
+            <CardHeader>
               <CardTitle className="text-primary font-headline">Message from Principal</CardTitle>
             </CardHeader>
             <CardContent className="p-6 flex-grow flex flex-col items-center text-center">
@@ -76,5 +66,3 @@ export function AnnouncementsSection() {
     </section>
   );
 }
-
-    

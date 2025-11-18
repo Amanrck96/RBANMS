@@ -17,16 +17,28 @@ export function SiteFooter() {
 
   return (
     <footer className="bg-primary text-primary-foreground">
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 pt-12">
+        <div className="border-b border-primary-foreground/20 pb-8">
+            <h3 className="text-xl font-bold mb-4 text-center">Quick Links</h3>
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                {quickLinks.map((link) => (
+                    <Link key={link.name} href={link.href} className="text-sm text-primary-foreground/80 hover:text-white transition-colors">
+                        {link.name}
+                    </Link>
+                ))}
+            </div>
+        </div>
+      </div>
+      <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           
           {/* About Section */}
-          <div className="space-y-4 lg:col-span-1">
+          <div className="space-y-4 lg:col-span-2">
              <div className="flex items-center gap-3">
               <Image src="https://rbanmsfgc.ac.in/images/logo_1.png?v=1.75" alt="RBANM's First Grade College Logo" width={112} height={40} />
             </div>
-            <p className="text-sm text-primary-foreground/80">
-             A premier institution dedicated to fostering academic excellence and holistic development.
+            <p className="text-sm text-primary-foreground/80 max-w-md">
+             A premier institution dedicated to fostering academic excellence and holistic development, affiliated to Bengaluru City University.
             </p>
              <div className="flex items-center gap-3 pt-4">
                 <a href="#" aria-label="Facebook"><Facebook className="h-5 w-5 hover:text-accent transition-colors" /></a>
@@ -36,22 +48,8 @@ export function SiteFooter() {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="space-y-4 lg:col-span-2">
-            <h3 className="text-xl font-bold">Quick Links</h3>
-            <ul className="space-y-2 columns-2">
-              {quickLinks.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-sm text-primary-foreground/80 hover:text-white transition-colors">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Contact Info */}
-          <div className="space-y-4">
+          <div className="space-y-4 lg:col-span-2">
             <h3 className="text-xl font-bold">Contact Us</h3>
             <ul className="space-y-3 text-sm">
                <li className="flex items-start gap-3">
@@ -89,5 +87,3 @@ export function SiteFooter() {
     </footer>
   );
 }
-
-    

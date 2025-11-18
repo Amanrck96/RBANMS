@@ -14,6 +14,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -88,15 +89,12 @@ const navLinks = [
   ] },
   { name: 'Facilities', href: '/facilities' },
   { name: 'Scholarships', href: '/scholarships' },
+  { name: 'IQAC', href: '/iqac' },
+  { name: 'NAAC', href: '/naac' },
+  { name: 'Research', href: '/research' },
+  { name: 'Gallery', href: '/gallery' },
+  { name: 'Contact Us', href: '/contact' },
 ];
-
-const secondaryNavLinks = [
-    { name: 'IQAC', href: '/iqac' },
-    { name: 'NAAC', href: '/naac' },
-    { name: 'Research', href: '/research' },
-    { name: 'Gallery', href: '/gallery' },
-]
-
 
 export function SiteHeader() {
   const [isSticky, setSticky] = useState(false);
@@ -116,8 +114,8 @@ export function SiteHeader() {
     };
   }, []);
   
-  const renderNavLinks = (links: any[], isMobile = false) => {
-    return links.map((link) => {
+  const renderNavLinks = (isMobile = false) => {
+    return navLinks.map((link) => {
       if (link.subLinks) {
         return (
           <AccordionItem value={link.name} key={link.name}>
@@ -160,8 +158,8 @@ export function SiteHeader() {
     });
   };
 
-  const renderDesktopNavLinks = (links: any[]) => {
-    return links.map((link) => (
+  const renderDesktopNavLinks = () => {
+    return navLinks.map((link) => (
       <li key={link.name} className="group relative">
         <Link href={link.href ?? '#'} className="flex items-center gap-1 py-2 font-semibold text-foreground/80 hover:text-primary transition-colors">
           {link.name}
@@ -197,8 +195,6 @@ export function SiteHeader() {
 
   return (
     <header className="relative w-full bg-background border-b">
-
-      {/* Main Header */}
       <div className="container mx-auto flex items-center justify-between px-4 py-4">
         <Link href="/" className="flex items-center gap-4">
           <Image src="https://rbanmsfgc.ac.in/images/logo_1.png?v=1.75" alt="RBANM's First Grade College Logo" width={112} height={40} />
@@ -222,8 +218,7 @@ export function SiteHeader() {
               </SheetHeader>
               <div className="flex-grow overflow-y-auto p-4">
                   <Accordion type="single" collapsible className="w-full">
-                    {renderNavLinks(navLinks, true)}
-                     {renderNavLinks(secondaryNavLinks, true)}
+                    {renderNavLinks(true)}
                   </Accordion>
               </div>
             </SheetContent>
@@ -231,19 +226,16 @@ export function SiteHeader() {
         </div>
       </div>
       
-      {/* Navigation Bar */}
       <nav id="main-nav" className={cn("hidden lg:block bg-background border-t border-border/50", isSticky && "fixed top-0 left-0 right-0 z-50 shadow-md animate-in fade-in slide-in-from-top-2 duration-300")}>
-        <div className="container mx-auto flex flex-col justify-center">
-          <ul className="flex items-center justify-center gap-x-6">
-            {renderDesktopNavLinks(navLinks)}
-          </ul>
-           <ul className="flex items-center justify-center gap-x-6 border-t mt-2 pt-2">
-            {renderDesktopNavLinks(secondaryNavLinks)}
-          </ul>
+        <div className="container mx-auto flex justify-center">
+            <ScrollArea className="w-full whitespace-nowrap">
+                <ul className="flex items-center justify-center gap-x-6 py-2">
+                    {renderDesktopNavLinks()}
+                </ul>
+                <ScrollBar orientation="horizontal" />
+            </ScrollArea>
         </div>
       </nav>
     </header>
   );
 }
-
-    
