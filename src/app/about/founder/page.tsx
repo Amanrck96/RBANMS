@@ -48,7 +48,7 @@ export default function FounderPage() {
                 <p>
                   Mudaliar’s reformist outlook was also reflected in his association with the Brahmo Samaj, an organization advocating against caste discrimination and ritualistic Hindu practices. His legacy of challenging caste hierarchies was carried forward by his descendants, who played a role in temple entry movements and supported the Indian independence struggle, including contributions to Mahatma Gandhi’s South African campaign.
                 </p>
-                <p className="font-semibold text-primary">
+                <p>
                   Narrainswamy Mudaliar’s life and work prefigured many ideals later enshrined in the Indian Constitution, particularly the principles of equality and non-discrimination. His unwavering commitment to social reform, particularly in education, caste, and gender equality, places him among the visionary reformers of 19th-century India.
                 </p>
               </div>
@@ -58,8 +58,8 @@ export default function FounderPage() {
                   The life and values of Rai Bahadur Arcot Narrainswamy Mudaliar continue to guide RBANMS’ commitment to education, equality, and social upliftment.
                 </p>
                 <Button asChild>
-                  <Link href="#">
-                    Read Our Vision <ArrowRight className="ml-2 h-5 w-5" />
+                  <Link href="/about/founders-vision">
+                    Read Our Founder's Vision <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
               </div>
@@ -70,5 +70,3 @@ export default function FounderPage() {
     </div>
   );
 }
-
-    

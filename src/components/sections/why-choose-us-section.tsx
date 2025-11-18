@@ -1,6 +1,9 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Shield, Building, Bus, Train, Award, Leaf, GraduationCap, Laptop, Briefcase, Trophy, Zap, HeartHandshake, Drama, Paintbrush, Mic, Handshake, Users, Gem } from 'lucide-react';
+import { 
+  Shield, Building, Bus, Train, Award, Leaf, GraduationCap, Laptop, Briefcase, Trophy, Zap, 
+  HeartHandshake, Drama, Mic, Handshake, Users, Gem 
+} from 'lucide-react';
 
 const features = [
   { icon: Shield, title: "Trusted Management", description: "Managed by a trusted and universally respected Educational Charities Trust" },
@@ -14,7 +17,7 @@ const features = [
   { icon: Laptop, title: "Computer Labs", description: "Two Computer Labs for BCA students" },
   { icon: Gem, title: "Design Studio", description: "A design studio" },
   { icon: Users, title: "Eminent guest faculty", description: "Eminent guest faculty from various fields of expertise" },
-  { icon: Zap, title: "Skill Development", description: "Add-on and certificate courses" },
+  { icon: Zap, title: "Add-on Courses", description: "Add-on and certificate courses" },
   { icon: Briefcase, title: "Professional Training", description: "Training for professional skills" },
   { icon: Handshake, title: "Industry Access", description: "Access to Industry experts" },
   { icon: Trophy, title: "Sports Encouragement", description: "Encouragement and support for sports" },
@@ -52,5 +55,3 @@ export function WhyChooseUsSection() {
     </section>
   );
 }
-
-    

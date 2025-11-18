@@ -59,17 +59,23 @@ export function AnnouncementsSection() {
               </Avatar>
               <h3 className="font-bold text-xl">Dr. Shanti Iyer</h3>
               <p className="text-sm text-muted-foreground mb-4">Ph.D.</p>
-              <div className="relative text-muted-foreground italic flex-grow">
+              <div className="relative text-muted-foreground italic flex-grow text-left space-y-4">
                 <Quote className="h-8 w-8 text-primary/10 absolute -top-2 -left-4" fill="currentColor" />
                 <p>
                   The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. The key objective of education at RBANM’s First Grade College is to create efficient academicians, innovative entrepreneurs, true researchers and honest, dedicated and dynamic leaders who contribute to the development of society and nation at large.
                 </p>
-                <p className="mt-4">
-                  Guided by values of faith, integrity and dignity, we at RBANM’s FGC, are committed to providing holistic education by maintaining high academic standards, discipline and professional ethics. In the process of guiding students through the prescribed syllabii and the examination system, we also mould their personality by instilling in them values, skills and the right attitude towards life.
+                <p>
+                  Guided by values of faith, integrity and dignity, we at RBANM’s FGC, are committed to providing holistic education by maintaining high academic standards, discipline and professional ethics.
                 </p>
-                <p className="mt-4">
+                <p>
+                  In the process of guiding students through the prescribed syllabii and the examination system, we also mould their personality by instilling in them values, skills and the right attitude towards life.
+                </p>
+                 <p>
                   In conclusion, I can say that, joining RBANM’s FGC will be a decision a student will never regret, for he/ she can then have secure future and a successful life. Having the opportunity to ‘Enrich, Excel and Evolve’, this is a place where students are taught to reach the sky and beyond.
                 </p>
+                 <Button asChild className="mt-4">
+                    <Link href="/about/principal-message">Read More</Link>
+                </Button>
               </div>
             </CardContent>
           </Card>
@@ -78,5 +84,3 @@ export function AnnouncementsSection() {
     </section>
   );
 }
-
-    

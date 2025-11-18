@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Check } from 'lucide-react';
+import Link from 'next/link';
 
 export function AboutSection() {
   const aboutImage = PlaceHolderImages.find(p => p.id === 'about-college');
@@ -43,11 +44,12 @@ export function AboutSection() {
             <p className="text-muted-foreground leading-relaxed">
               This holistic approach to education is in keeping with the vision of that extraordinary man who founded the RBANM’s Educational Charities in 1873: Rai Bahadur Arcot Narrainswamy Mudaliar. Even today, his ideals of equity, equality, justice, inclusion, and respect for diversity permeate our teaching philosophy. Ours is a college that is a temple of learning for all, where no student is ignored or left behind, and where education is seen as a precious gift that is life changing.
             </p>
+            <Button asChild>
+                <Link href="/about/director-message">Read More</Link>
+            </Button>
           </div>
         </div>
       </div>
     </section>
   );
 }
-
-    
