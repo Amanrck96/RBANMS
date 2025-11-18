@@ -38,6 +38,14 @@ export async function sendEnquiryEmails({
 }) {
   const transporter = getTransporter();
 
+  // Verify transporter connectivity and credentials before attempting to send.
+  try {
+    await transporter.verify();
+  } catch (verifyErr) {
+    console.error("SMTP verify failed:", verifyErr);
+    throw new Error("SMTP verification failed. Check network and credentials.");
+  }
+
   const adminEmail = process.env.ADMIN_EMAIL || process.env.GMAIL_USER;
   if (!adminEmail) {
     throw new Error("Missing ADMIN_EMAIL or GMAIL_USER environment variable");
@@ -57,7 +65,8 @@ export async function sendEnquiryEmails({
 
   // Send to admin
   await transporter.sendMail({
-    from: process.env.GMAIL_USER,
+    from: `RBANM's FGC <${process.env.GMAIL_USER}>`,
+    replyTo: email,
     to: adminEmail,
     subject: `New Enquiry: ${subject}`,
     text: `Name: ${name}\nEmail: ${email}\n${phone ? `Phone: ${phone}\n` : ""}Subject: ${subject}\n\n${message}`,
@@ -66,7 +75,7 @@ export async function sendEnquiryEmails({
 
   // Send confirmation to submitter
   await transporter.sendMail({
-    from: process.env.GMAIL_USER,
+    from: `RBANM's FGC <${process.env.GMAIL_USER}>`,
     to: email,
     subject: `We received your enquiry: ${subject}`,
     text: `Hi ${name},\n\nThanks for reaching out. We have received your enquiry and will get back to you shortly.\n\nYour message:\n${message}\n\nRegards,\nRBANM's First Grade College`,

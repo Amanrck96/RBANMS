@@ -31,10 +31,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true });
   } catch (err: any) {
     console.error("Enquiry POST error:", err);
-    return NextResponse.json(
-      { error: "Failed to send emails" },
-      { status: 500 }
-    );
+    const message = typeof err?.message === "string" ? err.message : "Failed to send emails";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
-
