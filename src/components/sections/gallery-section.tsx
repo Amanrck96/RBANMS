@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import StandardizedImage from '@/components/ui/standardized-image';
 import Link from 'next/link';
 import { getGalleryImages } from '@/lib/placeholder-images';
 
@@ -16,16 +16,14 @@ export function GallerySection() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {galleryItems.map((item) => (
           <figure key={item.id} className="rounded-lg overflow-hidden border bg-white">
-            <div className="relative aspect-[4/3]">
-              <Image
-                src={item.imageUrl}
-                alt={item.description}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover"
-                priority={false}
-              />
-            </div>
+            <StandardizedImage
+              src={item.imageUrl}
+              alt={item.description}
+              aspect="rect"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              quality={85}
+              minHeightPx={180}
+            />
             <figcaption className="p-3 text-sm text-muted-foreground">
               {item.description}
             </figcaption>

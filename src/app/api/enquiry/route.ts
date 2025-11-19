@@ -10,7 +10,6 @@ const schema = z.object({
   phone: z.string().optional(),
   subject: z.string().min(3),
   message: z.string().min(5),
-  captcha: z.string().optional(),
 });
 
 export async function POST(req: Request) {

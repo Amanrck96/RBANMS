@@ -29,7 +29,6 @@ const contactFormSchema = z.object({
   phone: z.string().optional(),
   subject: z.string().min(5, { message: "Subject must be at least 5 characters." }),
   message: z.string().min(10, { message: "Message must be at least 10 characters." }),
-  captcha: z.string().min(1, { message: "Please enter the captcha." }),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -40,7 +39,6 @@ const defaultValues: Partial<ContactFormValues> = {
   phone: "",
   subject: "",
   message: "",
-  captcha: "",
 };
 
 export default function ContactPage() {
@@ -204,25 +202,6 @@ export default function ContactPage() {
                             <FormLabel>Your message</FormLabel>
                             <FormControl>
                               <Textarea placeholder="Type your message here." {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                       <FormField
-                        control={form.control}
-                        name="captcha"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Enter captcha</FormLabel>
-                             <div className="flex items-center gap-4">
-                              <span className="px-4 py-2 bg-muted rounded-md text-lg font-bold tracking-widest italic line-through select-none">
-                                XYZ123
-                              </span>
-                              <Button type="button" variant="link">Not readable? Change text.</Button>
-                            </div>
-                            <FormControl>
-                              <Input placeholder="Enter the text above" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>

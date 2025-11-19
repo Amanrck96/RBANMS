@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import StandardizedImage from '@/components/ui/standardized-image';
 import { Card, CardContent } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -12,15 +12,16 @@ export default function AlumniActivityPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
             <div className="md:col-span-1 space-y-6">
               {alumniImage && (
-                <div className="relative w-full aspect-video rounded-lg overflow-hidden border shadow-sm">
-                  <Image
-                    src={alumniImage.imageUrl}
-                    alt={alumniImage.description}
-                    fill
-                    className="object-cover"
-                    data-ai-hint={alumniImage.imageHint}
-                  />
-                </div>
+                <StandardizedImage
+                  src={alumniImage.imageUrl}
+                  alt={alumniImage.description}
+                  aspect="rect"
+                  containerClassName="rounded-lg border shadow-sm"
+                  className=""
+                  quality={85}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  data-ai-hint={alumniImage.imageHint}
+                />
               )}
             </div>
 
