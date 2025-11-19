@@ -2,7 +2,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function ComingSoonPage() {
-  return_data = (
+  return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <Card>
         <CardHeader>
