@@ -25,6 +25,91 @@ const headerLinks = [
   { label: "Contact Us", href: "/contact" },
 ];
 
+// Dropdown items configuration for all tabs
+const dropdownItems: Record<string, { label: string; href: string }[]> = {
+  "About Us": [
+    { label: "Overview", href: "/about" },
+    { label: "Director Message", href: "/about/director-message" },
+    { label: "Principal Message", href: "/about/principal-message" },
+    { label: "Mission", href: "/about/mission" },
+    { label: "Vision", href: "/about/vision" },
+    { label: "Core Values", href: "/about/core-values" },
+    { label: "Founders Vision", href: "/about/founders-vision" },
+    { label: "Founder", href: "/about/founder" },
+    { label: "History", href: "/about/history" },
+    { label: "Awards", href: "/about/awards" },
+    { label: "Board Members", href: "/about/board-members" },
+  ],
+  Academics: [
+    { label: "Overview", href: "/academics" },
+    { label: "Courses Offered", href: "/academics/courses-offered" },
+    { label: "New Courses", href: "/academics/new-courses" },
+    { label: "Academic Structure", href: "/academics/academic-structure" },
+    { label: "Philosophy of Teaching", href: "/academics/philosophy-of-teaching" },
+  ],
+  Departments: [
+    { label: "Arts", href: "/departments/arts" },
+    { label: "Commerce", href: "/departments/commerce" },
+    { label: "Management Studies", href: "/departments/management" },
+    { label: "Computer Applications", href: "/departments/computer-applications" },
+    { label: "Languages", href: "/departments/languages" },
+    { label: "English", href: "/departments/english" },
+    { label: "Physical Education", href: "/departments/physical-education" },
+  ],
+  "College Administration": [
+    { label: "Overview", href: "/administration" },
+  ],
+  Activities: [
+    { label: "Overview", href: "/activities" },
+    { label: "NCC Army", href: "/activities/co-curricular/ncc-army" },
+    { label: "NCC Navy", href: "/activities/co-curricular/ncc-navy" },
+    { label: "NSS", href: "/activities/co-curricular/nss" },
+    { label: "YRCS", href: "/activities/co-curricular/yrcs" },
+    { label: "Manasa Samalochana", href: "/activities/co-curricular/manasa-samalochana" },
+    { label: "Dance", href: "/activities/cultural/dance" },
+    { label: "Fashion", href: "/activities/cultural/fashion" },
+    { label: "Film Club", href: "/activities/cultural/film-club" },
+    { label: "Literary Club", href: "/activities/cultural/literary-club" },
+    { label: "Music", href: "/activities/cultural/music" },
+    { label: "Natya", href: "/activities/cultural/natya" },
+    { label: "Theatre", href: "/activities/cultural/theatre" },
+  ],
+  "Cells & Committees": [
+    { label: "Overview", href: "/cells-committees" },
+    { label: "Statutory (Overview)", href: "/cells-committees/statutory" },
+    { label: "Anti-Ragging", href: "/cells-committees/statutory/anti-ragging" },
+    { label: "Grievance Redressal", href: "/cells-committees/statutory/grievance-redressal" },
+    { label: "Internal Compliance", href: "/cells-committees/statutory/internal-compliance" },
+    { label: "POSH", href: "/cells-committees/statutory/posh" },
+    { label: "SC/ST Cell", href: "/cells-committees/statutory/sc-st-cell" },
+    { label: "Others (Overview)", href: "/cells-committees/others" },
+    { label: "Women's Cell", href: "/cells-committees/others/womens-cell" },
+    { label: "Eco Club", href: "/cells-committees/others/eco-club" },
+    { label: "Cultural Committee", href: "/cells-committees/others/cultural-committee" },
+  ],
+  Facilities: [
+    { label: "Overview", href: "/facilities" },
+  ],
+  Scholarships: [
+    { label: "Overview", href: "/scholarships" },
+  ],
+  IQAC: [
+    { label: "Overview", href: "/iqac" },
+  ],
+  NAAC: [
+    { label: "Overview", href: "/naac" },
+  ],
+  Research: [
+    { label: "Overview", href: "/research" },
+  ],
+  Gallery: [
+    { label: "Overview", href: "/gallery" },
+  ],
+  "Contact Us": [
+    { label: "Overview", href: "/contact" },
+  ],
+};
+
 export function SiteHeader() {
   return (
     <header aria-label="Main" className="w-full m-0 p-0">
@@ -61,7 +146,7 @@ export function SiteHeader() {
           <ul className="flex flex-wrap items-center gap-3 overflow-x-auto text-sm text-blue-900">
             {headerLinks.map((link) => (
               <li key={link.href} className="shrink-0">
-                {link.label === "Departments" ? (
+                {dropdownItems[link.label] ? (
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <button
@@ -70,31 +155,15 @@ export function SiteHeader() {
                         aria-haspopup="menu"
                         aria-expanded="false"
                       >
-                        Departments <ChevronDown className="h-4 w-4" />
+                        {link.label} <ChevronDown className="h-4 w-4" />
                       </button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="start">
-                      <DropdownMenuItem asChild>
-                        <Link href="/departments/arts">Arts</Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem asChild>
-                        <Link href="/departments/commerce">Commerce</Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem asChild>
-                        <Link href="/departments/management">Management Studies</Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem asChild>
-                        <Link href="/departments/computer-applications">Computer Applications</Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem asChild>
-                        <Link href="/departments/languages">Languages</Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem asChild>
-                        <Link href="/departments/english">English</Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem asChild>
-                        <Link href="/departments/physical-education">Physical Education</Link>
-                      </DropdownMenuItem>
+                      {dropdownItems[link.label].map((item) => (
+                        <DropdownMenuItem key={item.href} asChild>
+                          <Link href={item.href}>{item.label}</Link>
+                        </DropdownMenuItem>
+                      ))}
                     </DropdownMenuContent>
                   </DropdownMenu>
                 ) : (
