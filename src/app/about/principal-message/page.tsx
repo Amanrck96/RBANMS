@@ -12,10 +12,16 @@ export default function PrincipalMessagePage() {
         </CardHeader>
         <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start pt-6">
           <div className="md:col-span-1 space-y-4">
-             <Avatar className="h-48 w-48 rounded-none mx-auto mb-4 border-4 border-background shadow-md">
-                <AvatarImage src='https://rbanmsfgc.ac.in/images/gallery/WhatsApp%20Image%202025-11-04%20at%203.37.04%20PM.jpeg' alt='Dr Shanti Iyer' data-ai-hint='professional headshot' />
-                <AvatarFallback>SI</AvatarFallback>
-              </Avatar>
+            <div className="relative w-full aspect-square overflow-hidden border shadow-sm">
+              <Image
+                src="https://rbanmsfgc.ac.in/images/gallery/WhatsApp%20Image%202025-11-04%20at%203.37.04%20PM.jpeg"
+                alt="Dr Shanti Iyer"
+                fill
+                className="object-cover"
+                data-ai-hint="professional headshot"
+                unoptimized
+              />
+            </div>
             <div className="text-center">
               <h2 className="text-xl font-bold text-primary">Dr. Shanti Iyer</h2>
               <p className="text-sm text-muted-foreground mb-4">Ph.D.</p>

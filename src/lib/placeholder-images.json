@@ -97,6 +97,18 @@
       "imageHint": "outdoor festival"
     },
     {
+      "id": "gallery-9",
+      "description": "Campus view and facilities.",
+      "imageUrl": "https://images.shiksha.com/mediadata/images/1429765089phpdlpaQG.jpeg",
+      "imageHint": "campus view"
+    },
+    {
+      "id": "gallery-10",
+      "description": "College cultural event crowd.",
+      "imageUrl": "https://scontent.fccu9-2.fna.fbcdn.net/v/t1.6435-9/41508772_10215738208944684_2838609422832369664_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=2285d6&_nc_ohc=0qsWPuHkI70Q7kNvwGiIz5R&_nc_oc=AdmMwGgp-XXcgT1Dr2My1BCqhHk8c9IKHHVpHy4VKama57KKuUNfrlB0-yoWDBDYPwVID5vO2gohc46jMxRWkMwK&_nc_zt=23&_nc_ht=scontent.fccu9-2.fna&_nc_gid=VHF0YesHYMoV2bQlXAGnoQ&oh=00_Afhmvu58FTSg9Tt2wJm3ba3KwrNDE-lOYjmogNW2FnYe9g&oe=69450E5E",
+      "imageHint": "cultural event"
+    },
+    {
       "id": "alumni-activity-1",
       "description": "Students helping local vendors with digital payments.",
       "imageUrl": "https://images.unsplash.com/photo-1678953112839-81cb439534c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwcGF5bWVudCUyMGluZGlhfGVufDB8fHx8MTc2MzgwMjM2NHww&ixlib=rb-4.1.0&q=80&w=1080",
