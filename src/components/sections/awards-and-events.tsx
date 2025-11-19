@@ -15,7 +15,7 @@ export function AwardsAndEvents() {
           
           <Card className="overflow-hidden lg:col-span-1">
             <CardHeader className="bg-primary/5">
-              <CardTitle className="text-primary font-headline">Awards & Achievements</CardTitle>
+              <CardTitle className="text-blue-900 font-headline">Awards & Achievements</CardTitle>
             </CardHeader>
             <CardContent className="p-0">
               <ScrollArea className="h-72 p-4">
@@ -26,7 +26,7 @@ export function AwardsAndEvents() {
 
           <Card className="flex flex-col lg:col-span-1">
             <CardHeader className="bg-primary/5">
-              <CardTitle className="text-primary font-headline">Videos</CardTitle>
+              <CardTitle className="text-blue-900 font-headline">Videos</CardTitle>
             </CardHeader>
             <CardContent className="p-6 flex-grow">
                <Carousel className="w-full" opts={{ loop: true }}>
@@ -54,19 +54,19 @@ export function AwardsAndEvents() {
 
           <Card className="overflow-hidden lg:col-span-1">
             <CardHeader className="bg-primary/5">
-              <CardTitle className="text-primary font-headline">Upcoming Events</CardTitle>
+              <CardTitle className="text-blue-900 font-headline">Upcoming Events</CardTitle>
             </CardHeader>
             <CardContent className="p-6">
                <ul className="space-y-3">
                  <li className="flex items-start gap-3">
-                    <div className="text-center font-bold text-primary w-12 shrink-0">
+                    <div className="text-center font-bold text-blue-900 w-12 shrink-0">
                         <div className="text-2xl">25</div>
                         <div className="text-sm">DEC</div>
                     </div>
                     <p className="text-muted-foreground">Annual College Fest - Aarohana 2024</p>
                  </li>
                  <li className="flex items-start gap-3">
-                    <div className="text-center font-bold text-primary w-12 shrink-0">
+                    <div className="text-center font-bold text-blue-900 w-12 shrink-0">
                         <div className="text-2xl">10</div>
                         <div className="text-sm">JAN</div>
                     </div>

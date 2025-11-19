@@ -17,7 +17,7 @@ export function AnnouncementsSection() {
           {/* Affiliation Text */}
           <Card className="lg:col-span-1">
              <CardHeader>
-                <CardTitle className="text-primary font-headline">RBANM’s FGC</CardTitle>
+                <CardTitle className="text-blue-900 font-headline">RBANM’s FGC</CardTitle>
             </CardHeader>
             <CardContent>
                  <p className="text-muted-foreground">
@@ -29,7 +29,7 @@ export function AnnouncementsSection() {
           {/* Director's Message */}
           <Card className="flex flex-col lg:col-span-1">
             <CardHeader>
-              <CardTitle className="text-primary font-headline">Message from Director</CardTitle>
+              <CardTitle className="text-blue-900 font-headline">Message from Director</CardTitle>
             </CardHeader>
             <CardContent className="p-6 flex-grow flex flex-col items-center text-center">
               {directorImage && (
@@ -55,7 +55,7 @@ export function AnnouncementsSection() {
           {/* Principal's Message */}
           <Card className="flex flex-col lg:col-span-1">
             <CardHeader>
-              <CardTitle className="text-primary font-headline">Message from Principal</CardTitle>
+              <CardTitle className="text-blue-900 font-headline">Message from Principal</CardTitle>
             </CardHeader>
             <CardContent className="p-6 flex-grow flex flex-col items-center text-center">
                 {principalImage && (
