@@ -49,42 +49,6 @@
       "imageHint": "student writing"
     },
     {
-      "id": "recruiter-1",
-      "description": "Generic corporate logo 1",
-      "imageUrl": "https://images.unsplash.com/photo-1676870421337-2b9c65190264?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBsb2dvfGVufDB8fHx8MTc2MzMyNTI2NXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "corporate logo"
-    },
-    {
-      "id": "recruiter-2",
-      "description": "Generic corporate logo 2",
-      "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0ZWNoJTIwY29tcGFueXxlbnwwfHx8fDE3NjMzNDE5MDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "tech company"
-    },
-    {
-      "id": "recruiter-3",
-      "description": "Generic corporate logo 3",
-      "imageUrl": "https://images.unsplash.com/photo-1684128169771-f4ff82dffbb5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxmaW5hbmNlJTIwZmlybXxlbnwwfHx8fDE3NjMzNzA1MDd8MA&ixlibrb-4.1.0&q=80&w=1080",
-      "imageHint": "finance firm"
-    },
-    {
-      "id": "recruiter-4",
-      "description": "Generic corporate logo 4",
-      "imageUrl": "https://images.unsplash.com/photo-1692372374563-9ab54f303b7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdGFydHVwJTIwbG9nb3xlbnwwfHx8fDE3NjMyNjU5NDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "startup logo"
-    },
-    {
-      "id": "recruiter-5",
-      "description": "Generic corporate logo 5",
-      "imageUrl": "https://images.unsplash.com/photo-1708164335606-30f0a10cddf1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YnVzaW5lc3MlMjBsb2dvfGVufDB8fHx8MTc2MzM2NDA4M3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "business logo"
-    },
-    {
-      "id": "recruiter-6",
-      "description": "Generic corporate logo 6",
-      "imageUrl": "https://images.unsplash.com/photo-1757833155170-211a15494193?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb25zdWx0aW5nJTIwZ3JvdXB8ZW58MHx8fHwxNzYzMzcwNTA3fDA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "consulting group"
-    },
-    {
       "id": "gallery-1",
       "description": "Dance Performance",
       "imageUrl": "https://scontent.fccu9-2.fna.fbcdn.net/v/t1.6435-9/41508772_10215738208944684_2838609422832369664_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=2285d6&_nc_ohc=0qsWPuHkI70Q7kNvwFN7Ted&_nc_oc=AdmdaGIn7nwruAEyXpAHvSCGNXZ0pwh5KjxuLUjGBY89tzOWwBP-kYfBIoPtt3D8icqbRwJr-laHQaW2gfx0XlWU&_nc_zt=23&_nc_ht=scontent.fccu9-2.fna&_nc_gid=NmLH5fT1pSYvraaVv8gKgA&oh=00_AfjbIJqmTw-t3RZkChb-AxexS6h3Yf2D7H2KzbQfyAIeWg&oe=69426B5E",

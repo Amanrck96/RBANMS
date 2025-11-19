@@ -1,5 +1,4 @@
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { GallerySection } from '@/components/sections/gallery-section';
 
 export default function GalleryPage() {

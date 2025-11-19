@@ -34,31 +34,6 @@ const events = [
     title: 'BLOOD DONATION CAMP',
     description: 'BLOOD DONATION CAMP ORGANISED BY RED CROSS UNIT IN RBANM’S FIRST GRADE COLLEGE',
   },
-  {
-    date: { day: '06', month: 'May', year: '2019' },
-    title: 'Graduation Day',
-    description: 'The aim of education is the knowledge, not of facts, but of values.” -William S. Burroughs The Graduation Day was conducted for the UG 2018-2019 batch and 2018-2019 PG batch in the campus. After the ceremonial invocation son and',
-  },
-  {
-    date: { day: '12', month: 'Jan', year: '2020' },
-    title: 'VIVEKANANDA JAYANTHI',
-    description: 'On Swami Vivekananda\'s birth anniversary on January 12, the students & staff paid homage to one of the world\'s greatest spiritual leaders, known as the "Messenger of Indian wisdom to the western world". His birth anniversary is observed.',
-  },
-  {
-    date: { day: '19', month: 'Jul', year: '2019' },
-    title: 'Ethnic Day',
-    description: 'The Cultural Club of RBANMS College has organized Ethnic Day for Students, Teachers & Non Teaching Staff on 05/10/2019 Saturday. Girls were dressed in Ghagharas, Lehngas and traditional Sarees and the boys wore Dhothis, Kurtas, Sherw.',
-  },
-  {
-    date: { day: '18', month: 'Jul', year: '2019' },
-    title: 'NCC',
-    description: 'The National Cadet Corps (NCC), as a premier youth organisation in our country has immensely contributed in propagating national unity and integrity amongst youth. Its role in instilling in them the values of character, discipline and hard work an.',
-  },
-  {
-    date: { day: '26', month: 'Jan', year: '2020' },
-    title: 'Republic Day Celebration',
-    description: 'The 70th Republic Day of India was celebrated with gaiety and patriotic fervor at RBANMS FGC amidst the foggy morning of 26th January, 2019. The ceremony took place in the presence of Administrative officer, Dr.Veerabadhrappa, Principal.',
-  },
 ];
 
 export default function EventsPage() {
