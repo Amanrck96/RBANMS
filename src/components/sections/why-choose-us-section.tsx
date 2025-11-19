@@ -24,7 +24,9 @@ const advantages = [
   "Encouragement of NCC related activities",
   "Meaningful engagement with community development through NSS",
   "Support of the Arts",
-  "Seminar Hall, AV Room, Auditorium",
+  "Seminar Hall",
+  "AV Room",
+  "Auditorium",
 ];
 
 export function WhyChooseUsSection() {

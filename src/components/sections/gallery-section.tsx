@@ -4,8 +4,6 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function GallerySection() {
   const galleryImages = PlaceHolderImages.filter(p => p.id.startsWith('gallery-')).slice(0, 8);
-  const firstImage = galleryImages[0];
-  const otherImages = galleryImages.slice(2);
 
   return (
     <section className="py-12 lg:py-16">
@@ -16,60 +14,21 @@ export function GallerySection() {
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="grid gap-4">
-            {otherImages.slice(0, 2).map((image, index) => (
-              <div key={image.id} className="relative aspect-square group overflow-hidden rounded-lg">
-                <Image
-                  src={image.imageUrl}
-                  alt={image.description}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  data-ai-hint={image.imageHint}
-                />
-              </div>
-            ))}
-          </div>
-          <div className="grid gap-4">
-            {otherImages.slice(2, 4).map((image, index) => (
-               <div key={image.id} className="relative aspect-square group overflow-hidden rounded-lg">
-                <Image
-                  src={image.imageUrl}
-                  alt={image.description}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                   data-ai-hint={image.imageHint}
-                />
-              </div>
-            ))}
-          </div>
-           <div className="grid gap-4">
-            {otherImages.slice(4, 6).map((image, index) => (
-               <div key={image.id} className="relative aspect-square group overflow-hidden rounded-lg">
-                <Image
-                  src={image.imageUrl}
-                  alt={image.description}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                   data-ai-hint={image.imageHint}
-                />
-              </div>
-            ))}
-          </div>
-          <div className="grid gap-4">
-            {otherImages.slice(6, 8).map((image, index) => (
-               <div key={image.id} className="relative aspect-square group overflow-hidden rounded-lg">
-                <Image
-                  src={image.imageUrl}
-                  alt={image.description}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                   data-ai-hint={image.imageHint}
-                />
-              </div>
-            ))}
-          </div>
+          {galleryImages.map((image, index) => (
+             <div key={image.id} className="relative aspect-square group overflow-hidden rounded-lg">
+              <Image
+                src={image.imageUrl}
+                alt={image.description}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                data-ai-hint={image.imageHint}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
+
+    
