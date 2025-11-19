@@ -35,12 +35,7 @@ export function SiteFooter() {
             </li>
           ))}
         </ul>
-        <div className="hidden md:flex items-center gap-3 float-right">
-          <a href="#" aria-label="Facebook"><Facebook className="h-4 w-4 hover:text-accent transition-colors" /></a>
-          <a href="#" aria-label="Twitter"><Twitter className="h-4 w-4 hover:text-accent transition-colors" /></a>
-          <a href="#" aria-label="YouTube"><Youtube className="h-4 w-4 hover:text-accent transition-colors" /></a>
-          <a href="#" aria-label="Instagram"><Instagram className="h-4 w-4 hover:text-accent transition-colors" /></a>
-        </div>
+        {/** Removed social icons from top bar; icons will appear only in Social Media section */}
       </div>
 
       <div className="container mx-auto px-4 py-12">
@@ -53,12 +48,7 @@ export function SiteFooter() {
             <p className="text-sm text-primary-foreground/80 max-w-md">
               A premier institution dedicated to fostering academic excellence and holistic development, affiliated to Bengaluru City University.
             </p>
-            <div className="flex items-center gap-3 pt-4">
-              <a href="#" aria-label="Facebook"><Facebook className="h-5 w-5 hover:text-accent transition-colors" /></a>
-              <a href="#" aria-label="Twitter"><Twitter className="h-5 w-5 hover:text-accent transition-colors" /></a>
-              <a href="#" aria-label="YouTube"><Youtube className="h-5 w-5 hover:text-accent transition-colors" /></a>
-              <a href="#" aria-label="Instagram"><Instagram className="h-5 w-5 hover:text-accent transition-colors" /></a>
-            </div>
+            {/** Removed social icons from About block; icons will appear only in Social Media section */}
           </div>
 
           {/* Quick Links */}
@@ -147,4 +137,3 @@ export function SiteFooter() {
     </footer>
   );
 }
-

@@ -32,9 +32,16 @@ export function AnnouncementsSection() {
               <CardTitle className="text-primary font-headline">Message from Director</CardTitle>
             </CardHeader>
             <CardContent className="p-6 flex-grow flex flex-col items-center text-center">
-              {directorImage &&
-                <Image src={directorImage.imageUrl} alt={directorImage.description} width={100} height={100} className="rounded-full mb-4 border-2 border-background shadow-md" />
-              }
+              {directorImage && (
+                <Image
+                  src={directorImage.imageUrl}
+                  alt={directorImage.description}
+                  width={471}
+                  height={471}
+                  className="mb-4 object-cover rounded-none"
+                  sizes="(min-width: 1024px) 471px, 100vw"
+                />
+              )}
               <p className="text-sm text-muted-foreground mb-4 line-clamp-4">
                 Education must go beyond the syllabus and help prepare students for life so that their professional success is balanced with their personal, emotional, and spiritual wellbeing. Our student-centric approach keeps the campus energetic and purposeful...
               </p>
@@ -50,9 +57,16 @@ export function AnnouncementsSection() {
               <CardTitle className="text-primary font-headline">Message from Principal</CardTitle>
             </CardHeader>
             <CardContent className="p-6 flex-grow flex flex-col items-center text-center">
-                {principalImage &&
-                    <Image src={principalImage.imageUrl} alt={principalImage.description} width={100} height={100} className="rounded-full mb-4 border-2 border-background shadow-md" />
-                }
+                {principalImage && (
+                  <Image
+                    src={principalImage.imageUrl}
+                    alt={principalImage.description}
+                    width={471}
+                    height={471}
+                    className="mb-4 object-cover rounded-none"
+                    sizes="(min-width: 1024px) 471px, 100vw"
+                  />
+                )}
               <p className="text-sm text-muted-foreground mb-4 line-clamp-4">
                 The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. The key objective of education at RBANM’s First Grade College is to create efficient academicians, innovative entrepreneurs...
               </p>

@@ -10,21 +10,19 @@ import {
   CarouselPrevious,
   CarouselApi,
 } from '@/components/ui/carousel';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { getGalleryImages } from '@/lib/placeholder-images';
 
 const INSTITUTIONAL_TEXT = `Affiliated to Bengaluru City University, Accredited by NAAC with B+, Recognised under 2(f) & 12(B) of UGC Act 1956`;
 
 export function HeaderGalleryCarousel() {
-  const galleryImages = useMemo(
-    () => PlaceHolderImages.filter((p) => p.id.startsWith('gallery-') && !!p.imageUrl),
-    []
-  );
+  const galleryImages = useMemo(() => getGalleryImages(), []);
 
   const [api, setApi] = useState<CarouselApi | null>(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [slideCount, setSlideCount] = useState(galleryImages.length);
   const [paused, setPaused] = useState(false);
   const intervalRef = useRef<number | null>(null);
+  const [failedMap, setFailedMap] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     if (!api) return;
@@ -71,13 +69,15 @@ export function HeaderGalleryCarousel() {
             <CarouselItem key={image.id} className="h-full">
               <div className="relative w-full h-full">
                 <Image
-                  src={image.imageUrl!}
+                  src={failedMap[image.id] ? 'https://placehold.co/1600x900?text=RBANMS+Gallery' : image.imageUrl!}
                   alt={image.description}
                   fill
                   className="object-cover"
                   priority={idx === 0}
                   sizes="100vw"
                   data-ai-hint={image.imageHint}
+                  unoptimized
+                  onError={() => setFailedMap((m) => ({ ...m, [image.id]: true }))}
                 />
                 <div className="absolute inset-0 bg-black/50" />
                 <div
@@ -114,4 +114,3 @@ export function HeaderGalleryCarousel() {
     </div>
   );
 }
-

@@ -3,10 +3,10 @@ import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { getGalleryImages } from '@/lib/placeholder-images';
 
 export function AwardsAndEvents() {
-    const videoImages = PlaceHolderImages.filter(p => p.id.startsWith('gallery-'));
+    const videoImages = getGalleryImages();
 
   return (
     <section className="py-12 lg:py-16">

@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { getGalleryImages } from '@/lib/placeholder-images';
 
 export function GallerySection() {
-  const galleryItems = PlaceHolderImages.filter((img) => img.id.startsWith('gallery-'));
+  const galleryItems = getGalleryImages();
 
   return (
     <section aria-label="Gallery" className="space-y-6">
@@ -35,4 +35,3 @@ export function GallerySection() {
     </section>
   );
 }
-
