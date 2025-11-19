@@ -1,5 +1,12 @@
 import Link from "next/link";
-import { Phone, Mail } from "lucide-react";
+import Image from "next/image";
+import { Phone, Mail, ChevronDown } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
 
 const headerLinks = [
   { label: "Home", href: "/" },
@@ -35,17 +42,55 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {/* Second header: navigation */}
+      {/* Second header: logo + navigation */}
       <nav className="w-full border-t border-b border-primary/30 bg-white" role="navigation">
-        <ul className="mx-auto max-w-7xl flex flex-wrap items-center gap-3 overflow-x-auto px-3 py-2 text-sm text-blue-900">
-          {headerLinks.map((link) => (
-            <li key={link.href} className="shrink-0">
-              <Link href={link.href} className="hover:underline underline-offset-4">
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="mx-auto max-w-7xl px-3 py-2 flex items-center gap-4">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2 shrink-0" aria-label="RBANM's First Grade College Home">
+            <Image
+              src="https://rbanmsfgc.ac.in/images/logo_1.png?v=1.75"
+              alt="RBANM's First Grade College Logo"
+              width={120}
+              height={44}
+              className="h-10 w-auto"
+              priority
+            />
+          </Link>
+
+          {/* Links */}
+          <ul className="flex flex-wrap items-center gap-3 overflow-x-auto text-sm text-blue-900">
+            {headerLinks.map((link) => (
+              <li key={link.href} className="shrink-0">
+                {link.label === "Departments" ? (
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <button
+                        type="button"
+                        className="flex items-center gap-1 hover:underline underline-offset-4"
+                        aria-haspopup="menu"
+                        aria-expanded="false"
+                      >
+                        Departments <ChevronDown className="h-4 w-4" />
+                      </button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="start">
+                      <DropdownMenuItem asChild>
+                        <Link href="/departments/arts">Arts</Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem asChild>
+                        <Link href="/departments/commerce">Commerce</Link>
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                ) : (
+                  <Link href={link.href} className="hover:underline underline-offset-4">
+                    {link.label}
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
       </nav>
     </header>
   );

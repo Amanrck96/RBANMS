@@ -57,3 +57,14 @@
     @apply bg-background text-foreground font-body;
   }
 }
+
+/*
+  Global text color override for main content area
+  - Applies dark blue (#00008B) to typical text elements inside <main>
+  - Excludes header and footer by scoping strictly to <main>
+  - Chosen elements avoid altering button text and interactive UI controls
+  - Keeps accessibility: strong contrast on light background
+*/
+main :where(p, h1, h2, h3, h4, h5, h6, li, span, small, strong, em, a, td, th, figcaption, label) {
+  color: #00008B !important;
+}
