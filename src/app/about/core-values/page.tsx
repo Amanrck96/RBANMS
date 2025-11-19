@@ -1,6 +1,6 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Gem, BookUser, Wrench, Briefcase, Scale, HeartHandshake, UserCheck } from 'lucide-react';
+import { Gem, BookUser, Wrench, Briefcase, Scale, UserCheck } from 'lucide-react';
 
 const coreValues = [
   { icon: Gem, title: "Value-Based Education", description: "Cultivating knowledge with integrity and moral responsibility." },
@@ -35,3 +35,5 @@ export default function CoreValuesPage() {
     </div>
   );
 }
+
+    

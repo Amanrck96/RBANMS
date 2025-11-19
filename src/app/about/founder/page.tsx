@@ -13,12 +13,12 @@ export default function FounderPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
             {/* Left Sidebar */}
             <div className="md:col-span-1 space-y-6">
-              <div className="relative w-full aspect-square rounded-lg overflow-hidden border shadow-sm">
+              <div className="relative w-full aspect-[3/4] rounded-lg overflow-hidden border shadow-sm">
                 <Image
                   src="https://rbanmsfgc.ac.in/images/founder.png"
                   alt="Rai Bahadur Arcot Narrainswamy Mudaliar"
                   fill
-                  className="object-cover"
+                  className="object-contain object-top"
                   data-ai-hint="historical portrait"
                 />
               </div>
@@ -70,3 +70,5 @@ export default function FounderPage() {
     </div>
   );
 }
+
+    

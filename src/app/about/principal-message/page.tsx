@@ -2,10 +2,8 @@
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function PrincipalMessagePage() {
-  const principalImage = PlaceHolderImages.find(p => p.id === 'principal-photo');
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <Card>
@@ -15,7 +13,7 @@ export default function PrincipalMessagePage() {
         <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start pt-6">
           <div className="md:col-span-1 space-y-4">
              <Avatar className="h-48 w-48 mx-auto mb-4 border-4 border-background shadow-md">
-                {principalImage && <AvatarImage src='https://rbanmsfgc.ac.in/images/gallery/WhatsApp%20Image%202025-11-04%20at%203.37.04%20PM.jpeg' alt='Dr Shanti Iyer' data-ai-hint='professional headshot' />}
+                <AvatarImage src='https://rbanmsfgc.ac.in/images/gallery/WhatsApp%20Image%202025-11-04%20at%203.37.04%20PM.jpeg' alt='Dr Shanti Iyer' data-ai-hint='professional headshot' />
                 <AvatarFallback>SI</AvatarFallback>
               </Avatar>
             <div className="text-center">
@@ -42,3 +40,5 @@ export default function PrincipalMessagePage() {
     </div>
   );
 }
+
+    

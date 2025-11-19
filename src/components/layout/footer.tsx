@@ -25,7 +25,6 @@ export function SiteFooter() {
 
   return (
     <footer className="bg-primary text-primary-foreground">
-      {/* Footer Top Row: moved from header */}
       <div className="container mx-auto px-4 py-3 border-b border-primary-foreground/20">
         <ul className="flex flex-wrap items-center gap-4 md:gap-6 text-sm">
           {footerTopLinks.map((link) => (
@@ -46,20 +45,19 @@ export function SiteFooter() {
 
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
-          
           {/* About Section */}
-          <div className="space-y-4 lg:col-span-1">
-             <div className="flex items-center gap-3">
+          <div className="space-y-4 lg:col-span-2">
+            <div className="flex items-center gap-3">
               <Image src="https://rbanmsfgc.ac.in/images/logo_1.png?v=1.75" alt="RBANM's First Grade College Logo" width={112} height={40} />
             </div>
-            <p className="text-sm text-primary-foreground/80">
-             A premier institution dedicated to fostering academic excellence and holistic development.
+            <p className="text-sm text-primary-foreground/80 max-w-md">
+              A premier institution dedicated to fostering academic excellence and holistic development, affiliated to Bengaluru City University.
             </p>
-             <div className="flex items-center gap-3 pt-4">
-                <a href="#" aria-label="Facebook"><Facebook className="h-5 w-5 hover:text-accent transition-colors" /></a>
-                <a href="#" aria-label="Twitter"><Twitter className="h-5 w-5 hover:text-accent transition-colors" /></a>
-                <a href="#" aria-label="YouTube"><Youtube className="h-5 w-5 hover:text-accent transition-colors" /></a>
-                <a href="#" aria-label="Instagram"><Instagram className="h-5 w-5 hover:text-accent transition-colors" /></a>
+            <div className="flex items-center gap-3 pt-4">
+              <a href="#" aria-label="Facebook"><Facebook className="h-5 w-5 hover:text-accent transition-colors" /></a>
+              <a href="#" aria-label="Twitter"><Twitter className="h-5 w-5 hover:text-accent transition-colors" /></a>
+              <a href="#" aria-label="YouTube"><Youtube className="h-5 w-5 hover:text-accent transition-colors" /></a>
+              <a href="#" aria-label="Instagram"><Instagram className="h-5 w-5 hover:text-accent transition-colors" /></a>
             </div>
           </div>
 
@@ -78,12 +76,12 @@ export function SiteFooter() {
           </div>
 
           {/* Campus Info */}
-           <div className="space-y-4">
+          <div className="space-y-4">
             <h3 className="text-xl font-bold">Campus</h3>
-             <ul className="space-y-2">
-                 <li><Link href="#" className="text-sm text-primary-foreground/80 hover:text-white transition-colors">Gallery</Link></li>
-                 <li><Link href="/events" className="text-sm text-primary-foreground/80 hover:text-white transition-colors">Events</Link></li>
-                 <li><Link href="#" className="text-sm text-primary-foreground/80 hover:text-white transition-colors">News</Link></li>
+            <ul className="space-y-2">
+              <li><Link href="#" className="text-sm text-primary-foreground/80 hover:text-white transition-colors">Gallery</Link></li>
+              <li><Link href="/events" className="text-sm text-primary-foreground/80 hover:text-white transition-colors">Events</Link></li>
+              <li><Link href="#" className="text-sm text-primary-foreground/80 hover:text-white transition-colors">News</Link></li>
             </ul>
           </div>
 
@@ -111,10 +109,10 @@ export function SiteFooter() {
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-4">
+          <div className="space-y-4 lg:col-span-2">
             <h3 className="text-xl font-bold">Contact Us</h3>
             <ul className="space-y-3 text-sm">
-               <li className="flex items-start gap-3">
+              <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 mt-1 shrink-0" />
                 <span className="text-primary-foreground/80">Opposite Ulsoor Lake, #12, Annaswamy Mudaliar Road, Bangalore 560042.</span>
               </li>
@@ -130,7 +128,7 @@ export function SiteFooter() {
                   080-48533572
                 </a>
               </li>
-                 <li className="flex items-center gap-3">
+              <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 shrink-0" />
                 <a href="mailto:priyamahesh09@gmail.com" className="text-primary-foreground/80 hover:text-white transition-colors">
                   priyamahesh09@gmail.com (Placement)
@@ -138,9 +136,9 @@ export function SiteFooter() {
               </li>
             </ul>
           </div>
-
         </div>
       </div>
+
       <div className="bg-black/20">
         <div className="container mx-auto px-4 py-4 text-center text-sm text-primary-foreground/70">
           <p>&copy; {new Date().getFullYear()} RBANM's First Grade College. All Rights Reserved.</p>

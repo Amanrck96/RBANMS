@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 
 const headerLinks = [
@@ -36,4 +35,3 @@ export function SiteHeader() {
   );
 }
 
-    

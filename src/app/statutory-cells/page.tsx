@@ -11,8 +11,7 @@ export default function ComingSoonPage() {
         <CardContent>
           <div className="flex flex-col items-center justify-center min-h-[40vh] text-center">
             <h2 className="text-2xl font-semibold text-muted-foreground">Coming Soon</h2>
-            <p className="mt-2 text-foreground/80">This page is under construction. Please check back later!</p>
-          </div>
+            <p className="mt-2 text-foreground/80">This page is under construction. Please check back later!</p>          </div>
         </CardContent>
       </Card>
     </div>

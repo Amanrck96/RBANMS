@@ -5,6 +5,7 @@ import { HeroSection } from '@/components/sections/hero-section';
 import { AnnouncementsSection } from '@/components/sections/announcements-section';
 import { WhyChooseUsSection } from '@/components/sections/why-choose-us-section';
 import { AwardsAndEvents } from '@/components/sections/awards-and-events';
+import { AboutSection } from '@/components/sections/about-section';
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <SiteHeader />
       <main className="flex-grow">
         <HeroSection />
+        <AboutSection />
         <AnnouncementsSection />
         <WhyChooseUsSection />
         <AwardsAndEvents />
