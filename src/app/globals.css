@@ -72,6 +72,11 @@ main :where(p, li, span, small, strong, em, td, th, figcaption, label) {
   color: #000 !important;
 }
 
+/* Body content icons: set to maroon across pages */
+main :where(svg) {
+  color: #800000 !important;
+}
+
 /* Utility: force black content text, overriding global dark blue */
 .content-black,
 .content-black :where(p, li, span, small, strong, em, a, td, th, figcaption, label) {
