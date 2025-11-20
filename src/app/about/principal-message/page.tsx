@@ -27,7 +27,7 @@ export default function PrincipalMessagePage() {
               <p className="text-sm text-muted-foreground mb-4">Ph.D.</p>
             </div>
           </div>
-          <div className="md:col-span-2 space-y-4 prose prose-lg max-w-none text-foreground/80">
+          <div className="md:col-span-2 space-y-4 prose prose-lg max-w-none content-black">
             <p>
               The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. The key objective of education at RBANM’s First Grade College is to create efficient academicians, innovative entrepreneurs, true researchers and honest, dedicated and dynamic leaders who contribute to the development of society and nation at large.
             </p>

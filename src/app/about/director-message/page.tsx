@@ -24,7 +24,7 @@ export default function DirectorMessagePage() {
               <h2 className="text-xl font-bold text-primary">Dr. Sahana Das</h2>
             </div>
           </div>
-          <div className="md:col-span-2 space-y-4 prose prose-lg max-w-none text-foreground/80">
+          <div className="md:col-span-2 space-y-4 prose prose-lg max-w-none content-black">
             <p>
               Education must go beyond the syllabus and help prepare students for life so that their professional success is balanced with their personal, emotional, and spiritual wellbeing. Our student-centric approach keeps the campus energetic and purposeful all through the academic year and offer learnings that will always stay as anchor in the ebb and flow of life.
             </p>

@@ -43,7 +43,7 @@ export function AnnouncementsSection() {
                   />
                 </div>
               )}
-              <p className="text-sm text-muted-foreground mb-4 line-clamp-4">
+              <p className="text-sm content-black mb-4 line-clamp-4">
                 Education must go beyond the syllabus and help prepare students for life so that their professional success is balanced with their personal, emotional, and spiritual wellbeing. Our student-centric approach keeps the campus energetic and purposeful...
               </p>
                  <Button asChild variant="link">
@@ -69,7 +69,7 @@ export function AnnouncementsSection() {
                     />
                   </div>
                 )}
-              <p className="text-sm text-muted-foreground mb-4 line-clamp-4">
+              <p className="text-sm content-black mb-4 line-clamp-4">
                 The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. The key objective of education at RBANM’s First Grade College is to create efficient academicians, innovative entrepreneurs...
               </p>
                  <Button asChild variant="link">

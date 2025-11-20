@@ -68,3 +68,9 @@
 main :where(p, h1, h2, h3, h4, h5, h6, li, span, small, strong, em, a, td, th, figcaption, label) {
   color: #00008B !important;
 }
+
+/* Utility: force black content text, overriding global dark blue */
+.content-black,
+.content-black :where(p, li, span, small, strong, em, a, td, th, figcaption, label) {
+  color: #000 !important;
+}
