@@ -7,7 +7,7 @@ export default function DirectorMessagePage() {
     <div className="container mx-auto px-4 py-12 md:py-16">
       <Card>
         <CardHeader>
-          <CardTitle className="text-3xl md:text-4xl font-bold text-primary font-headline">Message from Director</CardTitle>
+          <CardTitle className="text-3xl md:text-4xl font-bold text-blue-900 font-headline">Message from Director</CardTitle>
         </CardHeader>
         <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start pt-6">
           <div className="md:col-span-1 space-y-4">
@@ -21,7 +21,7 @@ export default function DirectorMessagePage() {
               />
             </div>
             <div className="text-center">
-              <h2 className="text-xl font-bold text-primary">Dr. Sahana Das</h2>
+              <h2 className="text-xl font-bold text-blue-900">Dr. Sahana Das</h2>
             </div>
           </div>
           <div className="md:col-span-2 space-y-4 prose prose-lg max-w-none content-black">

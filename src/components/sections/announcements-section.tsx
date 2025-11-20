@@ -20,8 +20,8 @@ export function AnnouncementsSection() {
                 <CardTitle className="text-blue-900 font-headline">RBANM’s FGC</CardTitle>
             </CardHeader>
             <CardContent>
-                 <p className="text-muted-foreground">
-                    RBANMS FIRST GRADE COLLEGE, is affiliated to Bengaluru City University. It has been accredited by NAAC with a B+ and is recognised under Section 2(f) & 12(B) of the UGC Act, 1956.
+                 <p className="content-black">
+                     RBANMS FIRST GRADE COLLEGE, is affiliated to Bengaluru City University. It has been accredited by NAAC with a B+ and is recognised under Section 2(f) & 12(B) of the UGC Act, 1956.
                  </p>
             </CardContent>
           </Card>

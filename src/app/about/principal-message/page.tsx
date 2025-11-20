@@ -8,7 +8,7 @@ export default function PrincipalMessagePage() {
     <div className="container mx-auto px-4 py-12 md:py-16">
       <Card>
         <CardHeader>
-          <CardTitle className="text-3xl md:text-4xl font-bold text-primary font-headline">Message from Principal</CardTitle>
+          <CardTitle className="text-3xl md:text-4xl font-bold text-blue-900 font-headline">Message from Principal</CardTitle>
         </CardHeader>
         <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start pt-6">
           <div className="md:col-span-1 space-y-4">
@@ -23,7 +23,7 @@ export default function PrincipalMessagePage() {
               />
             </div>
             <div className="text-center">
-              <h2 className="text-xl font-bold text-primary">Dr. Shanti Iyer</h2>
+              <h2 className="text-xl font-bold text-blue-900">Dr. Shanti Iyer</h2>
               <p className="text-sm text-muted-foreground mb-4">Ph.D.</p>
             </div>
           </div>

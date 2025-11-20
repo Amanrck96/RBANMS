@@ -25,8 +25,8 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 
 const headerLinks = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { label: "Academics", href: "/academics" },
+  { label: "ABOUT US", href: "/about" },
+  { label: "ACADEMICS", href: "/academics" },
   { label: "Departments", href: "/departments" },
   { label: "College Administration", href: "/administration" },
   { label: "Activities", href: "/activities" },
@@ -41,57 +41,66 @@ const headerLinks = [
 ];
 
 // Dropdown items configuration for all tabs
-const dropdownItems: Record<string, { label: string; href: string }[]> = {
-  "About Us": [
-    { label: "Director Message", href: "/about/director-message" },
-    { label: "Principal Message", href: "/about/principal-message" },
-    { label: "Mission", href: "/about/mission" },
-    { label: "Vision", href: "/about/vision" },
-    { label: "Core Values", href: "/about/core-values" },
-    { label: "Founders Vision", href: "/about/founders-vision" },
-    { label: "Founder", href: "/about/founder" },
-    { label: "History", href: "/about/history" },
-    { label: "Awards", href: "/about/awards" },
-    { label: "Board Members", href: "/about/board-members" },
+type NavItem = { label: string; href?: string; disabled?: boolean };
+const dropdownItems: Record<string, NavItem[]> = {
+  Home: [
+    { label: "RBANM’s FGC", href: "/" },
+    { label: "Message from Director", href: "/about/director-message" },
+    { label: "Message from Principal", href: "/about/principal-message" },
+    { label: "Awards & Achievements", href: "/about/awards" },
+    { label: "Upcoming Events", href: "/events", disabled: true },
   ],
-  Academics: [
+  "ABOUT US": [
+    { label: "Our Founder", href: "/about/founder" },
+    { label: "Founder’s Vision", href: "/about/founders-vision" },
+    { label: "History of the College", href: "/about/history" },
+    { label: "Vision", href: "/about/vision" },
+    { label: "Mission", href: "/about/mission" },
+    { label: "Core Values", href: "/about/core-values" },
+    { label: "Board Members", href: "/about/board-members", disabled: true },
+  ],
+  ACADEMICS: [
     { label: "Courses Offered", href: "/academics/courses-offered" },
-    { label: "New Courses", href: "/academics/new-courses" },
     { label: "Academic Structure", href: "/academics/academic-structure" },
     { label: "Philosophy of Teaching", href: "/academics/philosophy-of-teaching" },
+    { label: "New Courses", href: "/academics/new-courses", disabled: true },
   ],
   Departments: [
-    { label: "Arts", href: "/departments/arts" },
-    { label: "Commerce", href: "/departments/commerce" },
-    { label: "Management Studies", href: "/departments/management" },
-    { label: "Computer Applications", href: "/departments/computer-applications" },
-    { label: "Languages", href: "/departments/languages" },
-    { label: "English", href: "/departments/english" },
-    { label: "Physical Education", href: "/departments/physical-education" },
+    { label: "Department of Commerce", href: "/departments/commerce" },
+    { label: "Department of Management Studies", href: "/departments/management" },
+    { label: "Department of Computer Applications", href: "/departments/computer-applications" },
+    { label: "Department of Arts", href: "/departments/arts" },
+    { label: "Department of Languages", href: "/departments/languages" },
+    { label: "Department of English", href: "/departments/english" },
+    { label: "Department of Physical Education", href: "/departments/physical-education" },
   ],
   Activities: [
-    { label: "NCC Army", href: "/activities/co-curricular/ncc-army" },
-    { label: "NCC Navy", href: "/activities/co-curricular/ncc-navy" },
-    { label: "NSS", href: "/activities/co-curricular/nss" },
-    { label: "YRCS", href: "/activities/co-curricular/yrcs" },
-    { label: "Manasa Samalochana", href: "/activities/co-curricular/manasa-samalochana" },
-    { label: "Dance", href: "/activities/cultural/dance" },
-    { label: "Fashion", href: "/activities/cultural/fashion" },
-    { label: "Film Club", href: "/activities/cultural/film-club" },
-    { label: "Literary Club", href: "/activities/cultural/literary-club" },
-    { label: "Music", href: "/activities/cultural/music" },
+    { label: "Cultural", href: "/activities/cultural" },
     { label: "Natya", href: "/activities/cultural/natya" },
     { label: "Theatre", href: "/activities/cultural/theatre" },
+    { label: "Fashion", href: "/activities/cultural/fashion" },
+    { label: "Music", href: "/activities/cultural/music" },
+    { label: "Dance", href: "/activities/cultural/dance" },
+    { label: "Film Club", href: "/activities/cultural/film-club" },
+    { label: "Literary Club", href: "/activities/cultural/literary-club" },
+    { label: "Co-Curricular", href: "/activities/co-curricular" },
+    { label: "YRCS", href: "/activities/co-curricular/yrcs" },
+    { label: "NCC (Army)", href: "/activities/co-curricular/ncc-army" },
+    { label: "NCC (Navy)", href: "/activities/co-curricular/ncc-navy" },
+    { label: "NSS", href: "/activities/co-curricular/nss" },
+    { label: "Manasa Samalochana", href: "/activities/co-curricular/manasa-samalochana" },
   ],
   "Cells & Committees": [
-    { label: "Anti-Ragging", href: "/cells-committees/statutory/anti-ragging" },
-    { label: "Grievance Redressal", href: "/cells-committees/statutory/grievance-redressal" },
-    { label: "Internal Compliance", href: "/cells-committees/statutory/internal-compliance" },
+    { label: "Statutory", href: "/cells-committees/statutory" },
+    { label: "Anti Ragging", href: "/cells-committees/statutory/anti-ragging" },
+    { label: "Internal Compliance Committee", href: "/cells-committees/statutory/internal-compliance" },
     { label: "POSH", href: "/cells-committees/statutory/posh" },
-    { label: "SC/ST Cell", href: "/cells-committees/statutory/sc-st-cell" },
-    { label: "Women's Cell", href: "/cells-committees/others/womens-cell" },
-    { label: "Eco Club", href: "/cells-committees/others/eco-club" },
+    { label: "SC/ST cell", href: "/cells-committees/statutory/sc-st-cell" },
+    { label: "Grievance Redressal Cell", href: "/cells-committees/statutory/grievance-redressal" },
+    { label: "Others", href: "/cells-committees/others" },
     { label: "Cultural Committee", href: "/cells-committees/others/cultural-committee" },
+    { label: "Women’s Cell", href: "/cells-committees/others/womens-cell" },
+    { label: "Eco Club", href: "/cells-committees/others/eco-club" },
   ],
 };
 
@@ -145,9 +154,15 @@ export function SiteHeader() {
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="start">
                       {dropdownItems[link.label]?.map((item) => (
-                        <DropdownMenuItem key={item.href} asChild>
-                          <Link href={item.href}>{item.label}</Link>
-                        </DropdownMenuItem>
+                        item.disabled ? (
+                          <DropdownMenuItem key={item.label} disabled>
+                            {item.label}
+                          </DropdownMenuItem>
+                        ) : (
+                          <DropdownMenuItem key={item.href} asChild>
+                            <Link href={item.href!}>{item.label}</Link>
+                          </DropdownMenuItem>
+                        )
                       ))}
                     </DropdownMenuContent>
                   </DropdownMenu>
@@ -212,13 +227,19 @@ export function SiteHeader() {
                                   ) : (
                                     <ul className="mt-1 space-y-1 pl-2">
                                       {dropdownItems[link.label]?.map((item) => (
-                                        <li key={item.href}>
-                                          <Link
-                                            href={item.href}
-                                            className="block rounded px-2 py-1.5 text-blue-900 text-base font-normal font-body hover:bg-primary/5"
-                                          >
-                                            {item.label}
-                                          </Link>
+                                        <li key={(item.href ?? item.label)}>
+                                          {item.disabled ? (
+                                            <span className="block rounded px-2 py-1.5 text-blue-900 text-base font-normal font-body opacity-50 cursor-not-allowed">
+                                              {item.label}
+                                            </span>
+                                          ) : (
+                                            <Link
+                                              href={item.href!}
+                                              className="block rounded px-2 py-1.5 text-blue-900 text-base font-normal font-body hover:bg-primary/5"
+                                            >
+                                              {item.label}
+                                            </Link>
+                                          )}
                                         </li>
                                       ))}
                                     </ul>

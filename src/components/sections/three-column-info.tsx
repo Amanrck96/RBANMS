@@ -8,11 +8,11 @@ export function ThreeColumnInfo() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-background rounded-lg p-6 shadow-sm">
             <h3 className="text-xl font-bold text-blue-900 font-headline mb-3">Affiliation</h3>
-            <p className="text-foreground/80 text-sm leading-relaxed">
+            <p className="content-black text-sm leading-relaxed">
               RBANMS First Grade College is affiliated to Bengaluru City University,
               accredited by NAAC with B+, and recognised under 2(f) & 12(B) of the UGC Act 1956.
             </p>
-            <p className="text-foreground/80 text-sm leading-relaxed mt-2">
+            <p className="content-black text-sm leading-relaxed mt-2">
               We are committed to high standards in teaching, research, and holistic development.
             </p>
           </div>

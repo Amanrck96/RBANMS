@@ -8,25 +8,25 @@ const courses = [
   {
     icon: Computer,
     title: 'Bachelor of Computer Applications (BCA)',
-    description: 'A three-year undergraduate program focusing on computer science, programming, software development, and IT applications. It is designed for students who aspire to build a career in the tech industry, covering subjects like database management, networking, web development, and cybersecurity. Graduates have diverse career opportunities as software developers, web designers, system analysts, and more.',
+    description: 'The BCA (Bachelor of Computer Applications) is a three-year undergraduate program that focuses on computer science, programming, software development, and IT applications. It is designed for students who aspire to build a career in the tech industry, covering subjects like database management, networking, web development, and cybersecurity. BCA graduates have diverse career opportunities, including roles as software developers, web designers, system analysts, IT support specialists, and database administrators. Further studies such as MCA (Master of Computer Applications) or certifications in AI, cloud computing, and data science can enhance career prospects.',
     href: '/departments/computer-applications'
   },
   {
     icon: Briefcase,
     title: 'Bachelor of Commerce (B.Com)',
-    description: 'A three-year undergraduate degree providing in-depth knowledge of commerce, finance, accounting, taxation, and business law. Ideal for students interested in banking, finance, and corporate sectors. Graduates can pursue careers as accountants, financial analysts, tax consultants, and auditors.',
+    description: 'The B.Com (Bachelor of Commerce) is a three-year undergraduate degree that provides in-depth knowledge of commerce, finance, accounting, taxation, and business law. It is ideal for students interested in banking, finance, and corporate sectors. B.Com graduates can pursue careers as accountants, financial analysts, tax consultants, auditors, and investment bankers. Those who wish to advance in finance or management can opt for further studies such as M.Com, MBA, CA (Chartered Accountancy), CMA (Cost and Management Accounting), or CFA (Chartered Financial Analyst).',
     href: '/departments/commerce'
   },
   {
     icon: Landmark,
     title: 'Bachelor of Business Administration (BBA)',
-    description: 'A three-year undergraduate program focusing on management, entrepreneurship, marketing, finance, and human resources. It is designed for students who want to develop leadership and managerial skills for the corporate world. Graduates can work as business analysts, marketing executives, and HR managers.',
+    description: 'The BBA (Bachelor of Business Administration) is a three-year undergraduate program focusing on management, entrepreneurship, marketing, finance, and human resources. It is designed for students who want to develop leadership and managerial skills for the corporate world. BBA graduates can work as business analysts, marketing executives, HR managers, and financial advisors. Many students also pursue an MBA (Master of Business Administration) for higher career growth, leading to roles such as business consultants, company executives, and start-up founders.',
     href: '/departments/management'
   },
   {
     icon: BookOpen,
     title: 'Bachelor of Arts (BA)',
-    description: 'A three-year undergraduate degree with History, Political Science, and Economics. It provides a strong foundation in humanities and social sciences, helping students develop critical thinking, research, and analytical skills. Career options include journalism, teaching, social work, and public administration.',
+    description: 'The BA (Bachelor of Arts) is a three-year undergraduate degree with History, Political Science, and Economics. It provides a strong foundation in humanities and the social sciences, helping students develop critical thinking, research, and analytical skills. Career options for BA graduates include journalism, teaching, social work, public administration, and content writing. Further studies like MA (Master of Arts), PhD, or professional courses in mass communication, law, and public relations can open more specialized career paths.',
     href: '/departments/arts'
   }
 ];
@@ -48,7 +48,7 @@ export default function CoursesOfferedPage() {
                 <CardTitle className="text-2xl">{course.title}</CardTitle>
               </CardHeader>
               <CardContent className="flex-grow">
-                <p className="text-muted-foreground">{course.description}</p>
+                <p className="content-black">{course.description}</p>
               </CardContent>
               <div className="p-6 pt-0">
                 <Button asChild variant="link" className="p-0">
