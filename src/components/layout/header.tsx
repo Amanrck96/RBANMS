@@ -184,9 +184,9 @@ export function SiteHeader() {
                           {dropdownItems[link.label]?.length ? (
                             <Accordion type="single" collapsible>
                               <AccordionItem value={link.label}>
-                                <AccordionTrigger className="text-blue-900 hover:underline underline-offset-4">
-                                  {link.label}
-                                </AccordionTrigger>
+                              <AccordionTrigger className="text-blue-900 text-base !font-normal font-body hover:underline underline-offset-4">
+                                {link.label}
+                              </AccordionTrigger>
                                 <AccordionContent>
                                   {link.label === "Activities" ? (
                                     <div className="mt-2">
@@ -196,7 +196,7 @@ export function SiteHeader() {
                                             <CarouselItem key={item.href} className="basis-2/3 sm:basis-1/2 md:basis-1/3">
                                               <Link
                                                 href={item.href}
-                                                className="block rounded border border-primary/20 px-3 py-2 text-blue-900 hover:bg-primary/5"
+                                                className="block rounded border border-primary/20 px-3 py-2 text-blue-900 text-base font-normal font-body hover:bg-primary/5"
                                               >
                                                 {item.label}
                                               </Link>
@@ -215,7 +215,7 @@ export function SiteHeader() {
                                         <li key={item.href}>
                                           <Link
                                             href={item.href}
-                                            className="block rounded px-2 py-1.5 text-blue-900 hover:bg-primary/5"
+                                            className="block rounded px-2 py-1.5 text-blue-900 text-base font-normal font-body hover:bg-primary/5"
                                           >
                                             {item.label}
                                           </Link>
@@ -229,7 +229,7 @@ export function SiteHeader() {
                           ) : (
                             <Link
                               href={link.href}
-                              className="block rounded px-2 py-2 text-blue-900 hover:bg-primary/5 hover:underline underline-offset-4"
+                              className="block rounded px-2 py-2 text-blue-900 text-base font-normal font-body hover:bg-primary/5 hover:underline underline-offset-4"
                             >
                               {link.label}
                             </Link>
