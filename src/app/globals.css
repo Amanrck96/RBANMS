@@ -59,14 +59,17 @@
 }
 
 /*
-  Global text color override for main content area
-  - Applies dark blue (#00008B) to typical text elements inside <main>
-  - Excludes header and footer by scoping strictly to <main>
-  - Chosen elements avoid altering button text and interactive UI controls
-  - Keeps accessibility: strong contrast on light background
+  Global text color policy for content pages
+  - Section titles (headings) are blue
+  - Body content text is black
+  - Scoped to <main> to avoid header/footer UI
+  - Excludes interactive controls; anchors styled via components
 */
-main :where(p, h1, h2, h3, h4, h5, h6, li, span, small, strong, em, a, td, th, figcaption, label) {
+main :where(h1, h2, h3, h4, h5, h6) {
   color: #00008B !important;
+}
+main :where(p, li, span, small, strong, em, td, th, figcaption, label) {
+  color: #000 !important;
 }
 
 /* Utility: force black content text, overriding global dark blue */
