@@ -67,6 +67,7 @@ export default function ContactPage() {
       toast({
         title: "Something went wrong",
         description: e?.message || "Unable to send your message right now.",
+        variant: "destructive",
         // variant can be added if your toast supports it
       });
     }

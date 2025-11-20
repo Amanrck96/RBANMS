@@ -51,20 +51,20 @@ export default function ScholarshipsPage() {
             <ul className="space-y-2">
               {secondYearCriteria.map((item, index) => (
                 <li key={index} className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-accent mr-3 mt-1 shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" />
                   <span className="text-muted-foreground">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
-          
-           <div className="p-6 bg-secondary rounded-lg">
+
+          <div className="p-6 bg-secondary rounded-lg">
             <h3 className="text-2xl font-bold text-primary mb-4">In the Final Year:</h3>
-             <p className="text-muted-foreground">The same criteria will apply for renewals and fresh applications.</p>
+            <p className="text-muted-foreground">The same criteria will apply for renewals and fresh applications.</p>
           </div>
 
           <div className="pt-4">
-             <h3 className="text-2xl font-bold text-primary mb-2">Additional Support</h3>
+            <h3 className="text-2xl font-bold text-primary mb-2">Additional Support</h3>
             <p className="text-lg text-muted-foreground">
               In addition, the college staff will assist students to apply for Government and private scholarships, as appropriate.
             </p>
@@ -75,4 +75,3 @@ export default function ScholarshipsPage() {
   );
 }
 
-    

@@ -44,7 +44,7 @@ export function WhyChooseUsSection() {
           <ul className="space-y-4">
             {col1.map((advantage, index) => (
               <li key={index} className="flex items-start">
-                <Check className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" />
+                <Check className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" />
                 <span className="text-muted-foreground">{advantage}</span>
               </li>
             ))}
@@ -52,7 +52,7 @@ export function WhyChooseUsSection() {
           <ul className="space-y-4">
             {col2.map((advantage, index) => (
               <li key={index} className="flex items-start">
-                <Check className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" />
+                <Check className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" />
                 <span className="text-muted-foreground">{advantage}</span>
               </li>
             ))}
@@ -63,4 +63,3 @@ export function WhyChooseUsSection() {
   );
 }
 
-    

@@ -46,10 +46,21 @@ export async function sendEnquiryEmails({
     throw new Error("SMTP verification failed. Check network and credentials.");
   }
 
-  const adminEmail = process.env.ADMIN_EMAIL || process.env.GMAIL_USER;
-  if (!adminEmail) {
-    throw new Error("Missing ADMIN_EMAIL or GMAIL_USER environment variable");
+  // Support multiple admin recipients via ADMIN_EMAILS (comma/space/semicolon separated).
+  // Fallbacks: ADMIN_EMAIL (single) or GMAIL_USER.
+  const adminEmailsRaw =
+    process.env.ADMIN_EMAILS || 
+    process.env.ADMIN_EMAIL || 
+    "principal_rbanms@gmail.com,priyamahesh09@gmail.com";
+
+  if (!adminEmailsRaw) {
+    throw new Error("Missing ADMIN_EMAILS/ADMIN_EMAIL or GMAIL_USER environment variable");
   }
+
+  const adminRecipients = adminEmailsRaw
+    .split(/[;,\s]+/)
+    .map((addr) => addr.trim())
+    .filter(Boolean);
 
   const detailsHtml = `
     <div style="font-family: Arial, sans-serif; line-height: 1.6;">
@@ -63,11 +74,11 @@ export async function sendEnquiryEmails({
     </div>
   `;
 
-  // Send to admin
+  // Send to admin(s)
   await transporter.sendMail({
     from: `RBANM's FGC <${process.env.GMAIL_USER}>`,
     replyTo: email,
-    to: adminEmail,
+    to: adminRecipients,
     subject: `New Enquiry: ${subject}`,
     text: `Name: ${name}\nEmail: ${email}\n${phone ? `Phone: ${phone}\n` : ""}Subject: ${subject}\n\n${message}`,
     html: detailsHtml,

@@ -80,3 +80,21 @@ After deployment, the CLI will provide you with the URL to your live website.
 # RBANMS
 # RBANMS
 \nChore: trigger Vercel redeploy.
+
+## Email Setup (Enquiry Form)
+
+To enable the contact enquiry emails, configure Gmail SMTP with an App Password and set the following environment variables (for local development, use `.env.local`):
+
+- `GMAIL_USER`: Your Gmail address used to send emails.
+- `GMAIL_APP_PASSWORD`: Your Gmail App Password (not your normal password).
+- `ADMIN_EMAIL` or `ADMIN_EMAILS`: Recipient email(s) for admin notifications.
+  - Use `ADMIN_EMAILS` to notify multiple recipients. Provide a comma/space/semicolon separated list, e.g.
+    - `ADMIN_EMAILS=principal_rbanms@gmail.com, priyamahesh09@gmail.com`
+
+The system sends two emails on successful enquiry:
+- Admin notification to `ADMIN_EMAILS` (or `ADMIN_EMAIL`, falling back to `GMAIL_USER`).
+- Confirmation email to the submitter's address.
+
+Troubleshooting:
+- Ensure the Gmail account has App Passwords enabled.
+- Check server logs for `SMTP verification failed` if credentials or network are incorrect.

@@ -32,7 +32,7 @@ const structure = {
         { name: "Kannada" },
         { name: "Tamil" },
         { name: "Additional English" },
-      ],
+      ] as { name: string; href?: string }[],
       href: "/departments/languages",
     },
     {
@@ -40,7 +40,7 @@ const structure = {
       icon: CheckSquare,
       description: "Compulsory courses in subjects like Constitution, and Environmental Science as directed by Bengaluru City University.",
     },
-     {
+    {
       title: "Skill-Based & Vocational Courses",
       icon: BrainCircuit,
       description: "Offered in collaboration with external trainers. On completion of these courses, students earn a certificate of recognition.",
@@ -60,11 +60,11 @@ export default function AcademicStructurePage() {
         <CardContent className="pt-6 space-y-8">
           <p className="text-lg text-muted-foreground">{structure.duration}</p>
           <p className="text-lg text-muted-foreground">Each semester has the following courses:</p>
-          
+
           <div className="space-y-6">
             {structure.courses.map((course, index) => (
               <div key={index} className="flex items-start gap-4 p-4 border rounded-lg bg-secondary/50">
-                <course.icon className="h-8 w-8 text-accent mt-1" />
+                <course.icon className="h-8 w-8 text-primary mt-1" />
                 <div className="flex-1">
                   <h3 className="font-bold text-xl text-primary">{course.title}</h3>
                   <p className="text-muted-foreground mt-1">{course.description}</p>
@@ -83,11 +83,11 @@ export default function AcademicStructurePage() {
                       ))}
                     </ul>
                   )}
-                   {course.href && !course.options && (
-                     <Link href={course.href} className="text-sm text-primary hover:underline mt-2 inline-block">
-                        Learn More
-                      </Link>
-                   )}
+                  {course.href && !course.options && (
+                    <Link href={course.href} className="text-sm text-primary hover:underline mt-2 inline-block">
+                      Learn More
+                    </Link>
+                  )}
                 </div>
               </div>
             ))}
@@ -99,4 +99,3 @@ export default function AcademicStructurePage() {
   );
 }
 
-    
