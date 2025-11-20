@@ -41,7 +41,7 @@ const headerLinks = [
 ];
 
 // Dropdown items configuration for all tabs
-type NavItem = { label: string; href?: string; disabled?: boolean };
+type NavItem = { label: string; href?: string; disabled?: boolean; children?: NavItem[] };
 const dropdownItems: Record<string, NavItem[]> = {
   Home: [
     { label: "RBANM’s FGC", href: "/" },
@@ -75,32 +75,52 @@ const dropdownItems: Record<string, NavItem[]> = {
     { label: "Department of Physical Education", href: "/departments/physical-education" },
   ],
   Activities: [
-    { label: "Cultural", href: "/activities/cultural" },
-    { label: "Natya", href: "/activities/cultural/natya" },
-    { label: "Theatre", href: "/activities/cultural/theatre" },
-    { label: "Fashion", href: "/activities/cultural/fashion" },
-    { label: "Music", href: "/activities/cultural/music" },
-    { label: "Dance", href: "/activities/cultural/dance" },
-    { label: "Film Club", href: "/activities/cultural/film-club" },
-    { label: "Literary Club", href: "/activities/cultural/literary-club" },
-    { label: "Co-Curricular", href: "/activities/co-curricular" },
-    { label: "YRCS", href: "/activities/co-curricular/yrcs" },
-    { label: "NCC (Army)", href: "/activities/co-curricular/ncc-army" },
-    { label: "NCC (Navy)", href: "/activities/co-curricular/ncc-navy" },
-    { label: "NSS", href: "/activities/co-curricular/nss" },
-    { label: "Manasa Samalochana", href: "/activities/co-curricular/manasa-samalochana" },
+    {
+      label: "Cultural",
+      href: "/activities/cultural",
+      children: [
+        { label: "Natya", href: "/activities/cultural/natya" },
+        { label: "Theatre", href: "/activities/cultural/theatre" },
+        { label: "Fashion", href: "/activities/cultural/fashion" },
+        { label: "Music", href: "/activities/cultural/music" },
+        { label: "Dance", href: "/activities/cultural/dance" },
+        { label: "Film Club", href: "/activities/cultural/film-club" },
+        { label: "Literary Club", href: "/activities/cultural/literary-club" },
+      ],
+    },
+    {
+      label: "Co-Curricular",
+      href: "/activities/co-curricular",
+      children: [
+        { label: "YRCS", href: "/activities/co-curricular/yrcs" },
+        { label: "NCC (Army)", href: "/activities/co-curricular/ncc-army" },
+        { label: "NCC (Navy)", href: "/activities/co-curricular/ncc-navy" },
+        { label: "NSS", href: "/activities/co-curricular/nss" },
+        { label: "Manasa Samalochana", href: "/activities/co-curricular/manasa-samalochana" },
+      ],
+    },
   ],
   "Cells & Committees": [
-    { label: "Statutory", href: "/cells-committees/statutory" },
-    { label: "Anti Ragging", href: "/cells-committees/statutory/anti-ragging" },
-    { label: "Internal Compliance Committee", href: "/cells-committees/statutory/internal-compliance" },
-    { label: "POSH", href: "/cells-committees/statutory/posh" },
-    { label: "SC/ST cell", href: "/cells-committees/statutory/sc-st-cell" },
-    { label: "Grievance Redressal Cell", href: "/cells-committees/statutory/grievance-redressal" },
-    { label: "Others", href: "/cells-committees/others" },
-    { label: "Cultural Committee", href: "/cells-committees/others/cultural-committee" },
-    { label: "Women’s Cell", href: "/cells-committees/others/womens-cell" },
-    { label: "Eco Club", href: "/cells-committees/others/eco-club" },
+    {
+      label: "Statutory",
+      href: "/cells-committees/statutory",
+      children: [
+        { label: "Anti Ragging", href: "/cells-committees/statutory/anti-ragging" },
+        { label: "Internal Compliance Committee", href: "/cells-committees/statutory/internal-compliance" },
+        { label: "POSH", href: "/cells-committees/statutory/posh" },
+        { label: "SC/ST cell", href: "/cells-committees/statutory/sc-st-cell" },
+        { label: "Grievance Redressal Cell", href: "/cells-committees/statutory/grievance-redressal" },
+      ],
+    },
+    {
+      label: "Others",
+      href: "/cells-committees/others",
+      children: [
+        { label: "Cultural Committee", href: "/cells-committees/others/cultural-committee" },
+        { label: "Women’s Cell", href: "/cells-committees/others/womens-cell" },
+        { label: "Eco Club", href: "/cells-committees/others/eco-club" },
+      ],
+    },
   ],
 };
 
@@ -154,14 +174,35 @@ export function SiteHeader() {
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="start">
                       {dropdownItems[link.label]?.map((item) => (
-                        item.disabled ? (
-                          <DropdownMenuItem key={item.label} disabled>
-                            {item.label}
-                          </DropdownMenuItem>
+                        item.children && item.children.length ? (
+                          <div key={item.label} className="px-2 py-2">
+                            <Link href={item.href!} className="block text-blue-900 font-semibold hover:underline underline-offset-4">
+                              {item.label}
+                            </Link>
+                            <div className="mt-2 space-y-1">
+                              {item.children.map((child) => (
+                                child.disabled ? (
+                                  <DropdownMenuItem key={child.label} disabled>
+                                    {child.label}
+                                  </DropdownMenuItem>
+                                ) : (
+                                  <DropdownMenuItem key={(child.href ?? child.label)} asChild>
+                                    <Link href={child.href!}>{child.label}</Link>
+                                  </DropdownMenuItem>
+                                )
+                              ))}
+                            </div>
+                          </div>
                         ) : (
-                          <DropdownMenuItem key={item.href} asChild>
-                            <Link href={item.href!}>{item.label}</Link>
-                          </DropdownMenuItem>
+                          item.disabled ? (
+                            <DropdownMenuItem key={item.label} disabled>
+                              {item.label}
+                            </DropdownMenuItem>
+                          ) : (
+                            <DropdownMenuItem key={(item.href ?? item.label)} asChild>
+                              <Link href={item.href!}>{item.label}</Link>
+                            </DropdownMenuItem>
+                          )
                         )
                       ))}
                     </DropdownMenuContent>
@@ -203,32 +244,35 @@ export function SiteHeader() {
                                 {link.label}
                               </AccordionTrigger>
                                 <AccordionContent>
-                                  {link.label === "Activities" ? (
-                                    <div className="mt-2">
-                                      <Carousel className="w-full" opts={{ dragFree: true, containScroll: "trimSnaps" }}>
-                                        <CarouselContent>
-                                          {dropdownItems[link.label]?.map((item) => (
-                                            <CarouselItem key={item.href} className="basis-2/3 sm:basis-1/2 md:basis-1/3">
-                                              <Link
-                                                href={item.href}
-                                                className="block rounded border border-primary/20 px-3 py-2 text-blue-900 text-base font-normal font-body hover:bg-primary/5"
-                                              >
-                                                {item.label}
-                                              </Link>
-                                            </CarouselItem>
-                                          ))}
-                                        </CarouselContent>
-                                        <div className="mt-3 flex items-center justify-end gap-2">
-                                          <CarouselPrevious aria-label="Previous" />
-                                          <CarouselNext aria-label="Next" />
-                                        </div>
-                                      </Carousel>
-                                    </div>
-                                  ) : (
-                                    <ul className="mt-1 space-y-1 pl-2">
-                                      {dropdownItems[link.label]?.map((item) => (
-                                        <li key={(item.href ?? item.label)}>
-                                          {item.disabled ? (
+                                  <ul className="mt-1 space-y-2 pl-2">
+                                    {dropdownItems[link.label]?.map((item) => (
+                                      <li key={(item.href ?? item.label)}>
+                                        {item.children && item.children.length ? (
+                                          <div>
+                                            <Link href={item.href!} className="block px-2 py-1.5 text-blue-900 font-semibold hover:bg-primary/5 hover:underline underline-offset-4">
+                                              {item.label}
+                                            </Link>
+                                            <ul className="mt-1 space-y-1 pl-2">
+                                              {item.children.map((child) => (
+                                                <li key={(child.href ?? child.label)}>
+                                                  {child.disabled ? (
+                                                    <span className="block rounded px-2 py-1.5 text-blue-900 text-base font-normal font-body opacity-50 cursor-not-allowed">
+                                                      {child.label}
+                                                    </span>
+                                                  ) : (
+                                                    <Link
+                                                      href={child.href!}
+                                                      className="block rounded px-2 py-1.5 text-blue-900 text-base font-normal font-body hover:bg-primary/5"
+                                                    >
+                                                      {child.label}
+                                                    </Link>
+                                                  )}
+                                                </li>
+                                              ))}
+                                            </ul>
+                                          </div>
+                                        ) : (
+                                          item.disabled ? (
                                             <span className="block rounded px-2 py-1.5 text-blue-900 text-base font-normal font-body opacity-50 cursor-not-allowed">
                                               {item.label}
                                             </span>
@@ -239,11 +283,11 @@ export function SiteHeader() {
                                             >
                                               {item.label}
                                             </Link>
-                                          )}
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  )}
+                                          )
+                                        )}
+                                      </li>
+                                    ))}
+                                  </ul>
                                 </AccordionContent>
                               </AccordionItem>
                             </Accordion>
