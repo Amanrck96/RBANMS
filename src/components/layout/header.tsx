@@ -1,12 +1,25 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, ChevronDown } from "lucide-react";
+import { Phone, Mail, ChevronDown, Menu } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
+import {
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 
 const headerLinks = [
   { label: "Home", href: "/" },
@@ -142,8 +155,8 @@ export function SiteHeader() {
             />
           </Link>
 
-          {/* Links */}
-          <ul className="flex flex-wrap items-center gap-3 overflow-x-auto text-sm text-blue-900">
+          {/* Desktop Links */}
+          <ul className="hidden lg:flex flex-wrap items-center gap-3 overflow-x-auto text-sm text-blue-900">
             {headerLinks.map((link) => (
               <li key={link.href} className="shrink-0">
                 {dropdownItems[link.label] ? (
@@ -174,6 +187,64 @@ export function SiteHeader() {
               </li>
             ))}
           </ul>
+
+          {/* Mobile hamburger menu */}
+          <div className="ml-auto lg:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <button
+                  type="button"
+                  aria-label="Open navigation menu"
+                  className="inline-flex items-center justify-center rounded-md border border-primary/30 px-3 py-2 text-blue-900 shadow-sm hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                >
+                  <Menu className="h-5 w-5" />
+                </button>
+              </SheetTrigger>
+              <SheetContent side="left" className="bg-white">
+                <SheetHeader>
+                  <SheetTitle className="text-xl font-bold text-blue-900">Menu</SheetTitle>
+                </SheetHeader>
+                <nav aria-label="Mobile" className="mt-4">
+                  <ul className="space-y-2 text-base">
+                    {headerLinks.map((link) => (
+                      <li key={link.href}>
+                        {dropdownItems[link.label] ? (
+                          <Accordion type="single" collapsible>
+                            <AccordionItem value={link.label}>
+                              <AccordionTrigger className="text-blue-900 hover:underline underline-offset-4">
+                                {link.label}
+                              </AccordionTrigger>
+                              <AccordionContent>
+                                <ul className="mt-1 space-y-1 pl-2">
+                                  {dropdownItems[link.label].map((item) => (
+                                    <li key={item.href}>
+                                      <Link
+                                        href={item.href}
+                                        className="block rounded px-2 py-1.5 text-blue-900 hover:bg-primary/5"
+                                      >
+                                        {item.label}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </AccordionContent>
+                            </AccordionItem>
+                          </Accordion>
+                        ) : (
+                          <Link
+                            href={link.href}
+                            className="block rounded px-2 py-2 text-blue-900 hover:bg-primary/5 hover:underline underline-offset-4"
+                          >
+                            {link.label}
+                          </Link>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </nav>
     </header>
