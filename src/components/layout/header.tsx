@@ -41,7 +41,6 @@ const headerLinks = [
 // Dropdown items configuration for all tabs
 const dropdownItems: Record<string, { label: string; href: string }[]> = {
   "About Us": [
-    { label: "Overview", href: "/about" },
     { label: "Director Message", href: "/about/director-message" },
     { label: "Principal Message", href: "/about/principal-message" },
     { label: "Mission", href: "/about/mission" },
@@ -54,7 +53,6 @@ const dropdownItems: Record<string, { label: string; href: string }[]> = {
     { label: "Board Members", href: "/about/board-members" },
   ],
   Academics: [
-    { label: "Overview", href: "/academics" },
     { label: "Courses Offered", href: "/academics/courses-offered" },
     { label: "New Courses", href: "/academics/new-courses" },
     { label: "Academic Structure", href: "/academics/academic-structure" },
@@ -69,11 +67,7 @@ const dropdownItems: Record<string, { label: string; href: string }[]> = {
     { label: "English", href: "/departments/english" },
     { label: "Physical Education", href: "/departments/physical-education" },
   ],
-  "College Administration": [
-    { label: "Overview", href: "/administration" },
-  ],
   Activities: [
-    { label: "Overview", href: "/activities" },
     { label: "NCC Army", href: "/activities/co-curricular/ncc-army" },
     { label: "NCC Navy", href: "/activities/co-curricular/ncc-navy" },
     { label: "NSS", href: "/activities/co-curricular/nss" },
@@ -88,38 +82,14 @@ const dropdownItems: Record<string, { label: string; href: string }[]> = {
     { label: "Theatre", href: "/activities/cultural/theatre" },
   ],
   "Cells & Committees": [
-    { label: "Overview", href: "/cells-committees" },
-    { label: "Statutory (Overview)", href: "/cells-committees/statutory" },
     { label: "Anti-Ragging", href: "/cells-committees/statutory/anti-ragging" },
     { label: "Grievance Redressal", href: "/cells-committees/statutory/grievance-redressal" },
     { label: "Internal Compliance", href: "/cells-committees/statutory/internal-compliance" },
     { label: "POSH", href: "/cells-committees/statutory/posh" },
     { label: "SC/ST Cell", href: "/cells-committees/statutory/sc-st-cell" },
-    { label: "Others (Overview)", href: "/cells-committees/others" },
     { label: "Women's Cell", href: "/cells-committees/others/womens-cell" },
     { label: "Eco Club", href: "/cells-committees/others/eco-club" },
     { label: "Cultural Committee", href: "/cells-committees/others/cultural-committee" },
-  ],
-  Facilities: [
-    { label: "Overview", href: "/facilities" },
-  ],
-  Scholarships: [
-    { label: "Overview", href: "/scholarships" },
-  ],
-  IQAC: [
-    { label: "Overview", href: "/iqac" },
-  ],
-  NAAC: [
-    { label: "Overview", href: "/naac" },
-  ],
-  Research: [
-    { label: "Overview", href: "/research" },
-  ],
-  Gallery: [
-    { label: "Overview", href: "/gallery" },
-  ],
-  "Contact Us": [
-    { label: "Overview", href: "/contact" },
   ],
 };
 
@@ -159,7 +129,7 @@ export function SiteHeader() {
           <ul className="hidden lg:flex flex-wrap items-center gap-3 overflow-x-auto text-sm text-blue-900">
             {headerLinks.map((link) => (
               <li key={link.href} className="shrink-0">
-                {dropdownItems[link.label] ? (
+                {dropdownItems[link.label]?.length ? (
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <button
@@ -172,7 +142,7 @@ export function SiteHeader() {
                       </button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="start">
-                      {dropdownItems[link.label].map((item) => (
+                      {dropdownItems[link.label]?.map((item) => (
                         <DropdownMenuItem key={item.href} asChild>
                           <Link href={item.href}>{item.label}</Link>
                         </DropdownMenuItem>
@@ -208,7 +178,7 @@ export function SiteHeader() {
                   <ul className="space-y-2 text-base">
                     {headerLinks.map((link) => (
                       <li key={link.href}>
-                        {dropdownItems[link.label] ? (
+                        {dropdownItems[link.label]?.length ? (
                           <Accordion type="single" collapsible>
                             <AccordionItem value={link.label}>
                               <AccordionTrigger className="text-blue-900 hover:underline underline-offset-4">
@@ -216,7 +186,7 @@ export function SiteHeader() {
                               </AccordionTrigger>
                               <AccordionContent>
                                 <ul className="mt-1 space-y-1 pl-2">
-                                  {dropdownItems[link.label].map((item) => (
+                                  {dropdownItems[link.label]?.map((item) => (
                                     <li key={item.href}>
                                       <Link
                                         href={item.href}
