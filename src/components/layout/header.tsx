@@ -20,6 +20,8 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const headerLinks = [
   { label: "Home", href: "/" },
@@ -174,44 +176,69 @@ export function SiteHeader() {
                 <SheetHeader>
                   <SheetTitle className="text-xl font-bold text-blue-900">Menu</SheetTitle>
                 </SheetHeader>
-                <nav aria-label="Mobile" className="mt-4">
-                  <ul className="space-y-2 text-base">
-                    {headerLinks.map((link) => (
-                      <li key={link.href}>
-                        {dropdownItems[link.label]?.length ? (
-                          <Accordion type="single" collapsible>
-                            <AccordionItem value={link.label}>
-                              <AccordionTrigger className="text-blue-900 hover:underline underline-offset-4">
-                                {link.label}
-                              </AccordionTrigger>
-                              <AccordionContent>
-                                <ul className="mt-1 space-y-1 pl-2">
-                                  {dropdownItems[link.label]?.map((item) => (
-                                    <li key={item.href}>
-                                      <Link
-                                        href={item.href}
-                                        className="block rounded px-2 py-1.5 text-blue-900 hover:bg-primary/5"
-                                      >
-                                        {item.label}
-                                      </Link>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </AccordionContent>
-                            </AccordionItem>
-                          </Accordion>
-                        ) : (
-                          <Link
-                            href={link.href}
-                            className="block rounded px-2 py-2 text-blue-900 hover:bg-primary/5 hover:underline underline-offset-4"
-                          >
-                            {link.label}
-                          </Link>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
+                <ScrollArea className="mt-4 h-[calc(100vh-6rem)]">
+                  <nav aria-label="Mobile">
+                    <ul className="space-y-2 text-base">
+                      {headerLinks.map((link) => (
+                        <li key={link.href}>
+                          {dropdownItems[link.label]?.length ? (
+                            <Accordion type="single" collapsible>
+                              <AccordionItem value={link.label}>
+                                <AccordionTrigger className="text-blue-900 hover:underline underline-offset-4">
+                                  {link.label}
+                                </AccordionTrigger>
+                                <AccordionContent>
+                                  {link.label === "Activities" ? (
+                                    <div className="mt-2">
+                                      <Carousel className="w-full" opts={{ dragFree: true, containScroll: "trimSnaps" }}>
+                                        <CarouselContent>
+                                          {dropdownItems[link.label]?.map((item) => (
+                                            <CarouselItem key={item.href} className="basis-2/3 sm:basis-1/2 md:basis-1/3">
+                                              <Link
+                                                href={item.href}
+                                                className="block rounded border border-primary/20 px-3 py-2 text-blue-900 hover:bg-primary/5"
+                                              >
+                                                {item.label}
+                                              </Link>
+                                            </CarouselItem>
+                                          ))}
+                                        </CarouselContent>
+                                        <div className="mt-3 flex items-center justify-end gap-2">
+                                          <CarouselPrevious aria-label="Previous" />
+                                          <CarouselNext aria-label="Next" />
+                                        </div>
+                                      </Carousel>
+                                    </div>
+                                  ) : (
+                                    <ul className="mt-1 space-y-1 pl-2">
+                                      {dropdownItems[link.label]?.map((item) => (
+                                        <li key={item.href}>
+                                          <Link
+                                            href={item.href}
+                                            className="block rounded px-2 py-1.5 text-blue-900 hover:bg-primary/5"
+                                          >
+                                            {item.label}
+                                          </Link>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  )}
+                                </AccordionContent>
+                              </AccordionItem>
+                            </Accordion>
+                          ) : (
+                            <Link
+                              href={link.href}
+                              className="block rounded px-2 py-2 text-blue-900 hover:bg-primary/5 hover:underline underline-offset-4"
+                            >
+                              {link.label}
+                            </Link>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+                </ScrollArea>
               </SheetContent>
             </Sheet>
           </div>
