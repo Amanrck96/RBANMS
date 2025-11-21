@@ -161,18 +161,21 @@ export function SiteHeader() {
             {headerLinks.map((link) => (
               <li key={link.href} className="shrink-0">
                 {dropdownItems[link.label]?.length ? (
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <button
-                        type="button"
-                        className="flex items-center gap-1 hover:underline underline-offset-4"
-                        aria-haspopup="menu"
-                        aria-expanded="false"
-                      >
-                        {link.label} <ChevronDown className="h-4 w-4" />
-                      </button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="start">
+                  <div className="flex items-center gap-1">
+                    <Link href={link.href} className="hover:underline underline-offset-4">
+                      {link.label}
+                    </Link>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <button
+                          type="button"
+                          aria-label={`${link.label} submenu`}
+                          className="inline-flex items-center justify-center rounded px-1 py-0.5 hover:bg-primary/5"
+                        >
+                          <ChevronDown className="h-4 w-4" />
+                        </button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="start">
                       {dropdownItems[link.label]?.map((item) => (
                         item.children && item.children.length ? (
                           <div key={item.label} className="px-2 py-2">
@@ -205,8 +208,9 @@ export function SiteHeader() {
                           )
                         )
                       ))}
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </div>
                 ) : (
                   <Link href={link.href} className="hover:underline underline-offset-4">
                     {link.label}
@@ -240,9 +244,18 @@ export function SiteHeader() {
                           {dropdownItems[link.label]?.length ? (
                             <Accordion type="single" collapsible>
                               <AccordionItem value={link.label}>
-                              <AccordionTrigger className="text-blue-900 text-base !font-normal font-body hover:underline underline-offset-4">
-                                {link.label}
-                              </AccordionTrigger>
+                                <AccordionTrigger className="text-blue-900 text-base !font-normal font-body hover:underline underline-offset-4">
+                                  <div className="flex items-center justify-between w-full">
+                                    <Link
+                                      href={link.href}
+                                      className="block rounded px-2 py-1.5 text-blue-900 text-base !font-normal font-body hover:bg-primary/5 hover:underline underline-offset-4"
+                                      onClick={(e) => e.stopPropagation()}
+                                    >
+                                      {link.label}
+                                    </Link>
+                                    <ChevronDown className="h-4 w-4" />
+                                  </div>
+                                </AccordionTrigger>
                                 <AccordionContent>
                                   <ul className="mt-1 space-y-2 pl-2">
                                     {dropdownItems[link.label]?.map((item) => (

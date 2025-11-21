@@ -11,20 +11,20 @@ export function AwardsAndEvents() {
   return (
     <section className="py-12 lg:py-16">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
           
-          <Card className="overflow-hidden lg:col-span-1">
+          <Card className="flex flex-col h-full overflow-hidden lg:col-span-1">
             <CardHeader className="bg-primary/5">
               <CardTitle className="text-blue-900 font-headline">Awards & Achievements</CardTitle>
             </CardHeader>
-            <CardContent className="p-0">
+            <CardContent className="p-0 flex-grow">
               <ScrollArea className="h-72 p-4">
                  <p className="text-muted-foreground">Scrolling list of awards and achievements will be displayed here.</p>
               </ScrollArea>
             </CardContent>
           </Card>
 
-          <Card className="flex flex-col lg:col-span-1">
+          <Card className="flex flex-col h-full lg:col-span-1">
             <CardHeader className="bg-primary/5">
               <CardTitle className="text-blue-900 font-headline">Videos</CardTitle>
             </CardHeader>
@@ -52,11 +52,11 @@ export function AwardsAndEvents() {
             </CardContent>
           </Card>
 
-          <Card className="overflow-hidden lg:col-span-1">
+          <Card className="flex flex-col h-full overflow-hidden lg:col-span-1">
             <CardHeader className="bg-primary/5">
               <CardTitle className="text-blue-900 font-headline">Upcoming Events</CardTitle>
             </CardHeader>
-            <CardContent className="p-6">
+            <CardContent className="p-6 flex-grow">
                <ul className="space-y-3">
                  <li className="flex items-start gap-3">
                     <div className="text-center font-bold text-blue-900 w-12 shrink-0">

@@ -43,9 +43,9 @@ export default function EventsPage() {
         <h1 className="text-3xl md:text-4xl font-bold text-primary font-headline">Events</h1>
         <p className="text-muted-foreground mt-2">Stay updated with the latest happenings at our college.</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
         {events.map((event, index) => (
-          <Card key={index} className="flex flex-col overflow-hidden">
+          <Card key={index} className="flex flex-col h-full overflow-hidden">
             <CardHeader className="flex flex-row items-start bg-muted/50 p-4">
               <div className="flex items-center gap-4">
                 <div className="text-center">

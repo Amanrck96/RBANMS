@@ -12,14 +12,14 @@ export function AnnouncementsSection() {
   return (
     <section className="py-12 lg:py-16 bg-secondary">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
           
           {/* Affiliation Text */}
-          <Card className="lg:col-span-1">
+          <Card className="flex flex-col h-full lg:col-span-1">
              <CardHeader>
                 <CardTitle className="text-blue-900 font-headline">RBANM’s FGC</CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-grow">
                  <p className="content-black">
                      RBANMS FIRST GRADE COLLEGE, is affiliated to Bengaluru City University. It has been accredited by NAAC with a B+ and is recognised under Section 2(f) & 12(B) of the UGC Act, 1956.
                  </p>
@@ -27,7 +27,7 @@ export function AnnouncementsSection() {
           </Card>
 
           {/* Director's Message */}
-          <Card className="flex flex-col lg:col-span-1">
+          <Card className="flex flex-col h-full lg:col-span-1">
             <CardHeader>
               <CardTitle className="text-blue-900 font-headline">Message from Director</CardTitle>
             </CardHeader>
@@ -53,7 +53,7 @@ export function AnnouncementsSection() {
           </Card>
 
           {/* Principal's Message */}
-          <Card className="flex flex-col lg:col-span-1">
+          <Card className="flex flex-col h-full lg:col-span-1">
             <CardHeader>
               <CardTitle className="text-blue-900 font-headline">Message from Principal</CardTitle>
             </CardHeader>

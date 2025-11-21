@@ -38,9 +38,9 @@ export default function CoursesOfferedPage() {
         <CardHeader>
           <CardTitle className="text-3xl md:text-4xl font-bold text-primary font-headline text-center">Courses Offered</CardTitle>
         </CardHeader>
-        <CardContent className="pt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <CardContent className="pt-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {courses.map((course, index) => (
-            <Card key={index} className="flex flex-col">
+            <Card key={index} className="flex flex-col h-full">
               <CardHeader className="flex-row gap-4 items-center">
                  <div className="p-3 bg-primary/10 rounded-full">
                     <course.icon className="h-8 w-8 text-accent" />
