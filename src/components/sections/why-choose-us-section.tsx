@@ -35,7 +35,7 @@ export function WhyChooseUsSection() {
   const col2 = advantages.slice(midPoint);
 
   return (
-    <section className="py-12 lg:py-24 bg-secondary">
+    <section className="py-12 lg:pt-8 lg:pb-24 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold text-primary font-headline">The RBANM’s Advantages</h2>
