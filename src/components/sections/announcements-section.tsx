@@ -31,7 +31,7 @@ export function AnnouncementsSection() {
             <CardHeader>
               <CardTitle className="text-blue-900 font-headline">Message from Director</CardTitle>
             </CardHeader>
-            <CardContent className="p-6 flex-grow flex flex-col items-center text-center">
+            <CardContent className="p-6 flex-grow flex flex-col items-center">
               {directorImage && (
                 <div className="relative w-full aspect-square mb-4">
                   <Image
@@ -43,7 +43,7 @@ export function AnnouncementsSection() {
                   />
                 </div>
               )}
-              <p className="text-sm content-black mb-4 line-clamp-4">
+              <p className="text-left text-sm content-black mb-4 line-clamp-4">
                 Education must go beyond the syllabus and help prepare students for life so that their professional success is balanced with their personal, emotional, and spiritual wellbeing. Our student-centric approach keeps the campus energetic and purposeful...
               </p>
                  <Button asChild variant="link">
@@ -57,7 +57,7 @@ export function AnnouncementsSection() {
             <CardHeader>
               <CardTitle className="text-blue-900 font-headline">Message from Principal</CardTitle>
             </CardHeader>
-            <CardContent className="p-6 flex-grow flex flex-col items-center text-center">
+            <CardContent className="p-6 flex-grow flex flex-col items-center">
                 {principalImage && (
                   <div className="relative w-full aspect-square mb-4">
                     <Image
@@ -69,7 +69,7 @@ export function AnnouncementsSection() {
                     />
                   </div>
                 )}
-              <p className="text-sm content-black mb-4 line-clamp-4">
+              <p className="text-left text-sm content-black mb-4 line-clamp-4">
                 The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. The key objective of education at RBANM’s First Grade College is to create efficient academicians, innovative entrepreneurs...
               </p>
                  <Button asChild variant="link">
