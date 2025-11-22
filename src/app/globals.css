@@ -61,17 +61,12 @@
 }
 
 /*
-  Global text color policy for content pages
-  - Section titles (headings) are blue
-  - Body content text is black
-  - Scoped to <main> to avoid header/footer UI
-  - Excludes interactive controls; anchors styled via components
+  Global text color policy for titles
+  - All headings and CardTitle components render in blue
+  - This applies across the site to meet the requirement
 */
-main :where(h1, h2, h3, h4, h5, h6) {
-  color: #00008B !important;
-}
-/* Ensure CardTitle-based headings render in blue across pages */
-main :where(.card-title) {
+:where(h1, h2, h3, h4, h5, h6),
+.card-title {
   color: #00008B !important;
 }
 main :where(p, li, span, small, strong, em, td, th, figcaption, label) {

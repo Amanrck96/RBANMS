@@ -15,7 +15,7 @@ export function AnnouncementsSection() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
           
           {/* Affiliation Text */}
-          <Card className="flex flex-col h-full lg:col-span-1">
+          <Card className="flex flex-col h-full lg:col-span-1" id="rbanms-fgc">
              <CardHeader>
                 <CardTitle className="text-blue-900 font-headline">RBANM’s FGC</CardTitle>
             </CardHeader>

@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, Mail, ChevronDown, Menu } from "lucide-react";
@@ -24,7 +25,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const headerLinks = [
-  { label: "Home", href: "/" },
+  { label: "Home", href: "/#rbanms-fgc" },
   { label: "ABOUT US", href: "/about" },
   { label: "ACADEMICS", href: "/academics" },
   { label: "Departments", href: "/departments" },
@@ -43,13 +44,7 @@ const headerLinks = [
 // Dropdown items configuration for all tabs
 type NavItem = { label: string; href?: string; disabled?: boolean; children?: NavItem[] };
 const dropdownItems: Record<string, NavItem[]> = {
-  Home: [
-    { label: "RBANM’s FGC", href: "/" },
-    { label: "Message from Director", href: "/about/director-message" },
-    { label: "Message from Principal", href: "/about/principal-message" },
-    { label: "Awards & Achievements", href: "/about/awards" },
-    { label: "Upcoming Events", href: "/events", disabled: true },
-  ],
+  Home: [],
   "ABOUT US": [
     { label: "Our Founder", href: "/about/founder" },
     { label: "Founder’s Vision", href: "/about/founders-vision" },
@@ -245,16 +240,13 @@ export function SiteHeader() {
                             <Accordion type="single" collapsible>
                               <AccordionItem value={link.label}>
                                 <AccordionTrigger className="text-blue-900 text-base !font-normal font-body hover:underline underline-offset-4">
-                                  <div className="flex items-center justify-between w-full">
-                                    <Link
-                                      href={link.href}
-                                      className="block rounded px-2 py-1.5 text-blue-900 text-base !font-normal font-body hover:bg-primary/5 hover:underline underline-offset-4"
-                                      onClick={(e) => e.stopPropagation()}
-                                    >
-                                      {link.label}
-                                    </Link>
-                                    <ChevronDown className="h-4 w-4" />
-                                  </div>
+                                  <Link
+                                    href={link.href}
+                                    className="block w-full rounded px-2 py-1.5 text-blue-900 text-base !font-normal font-body hover:bg-primary/5 hover:underline underline-offset-4 text-left"
+                                    onClick={(e) => e.stopPropagation()}
+                                  >
+                                    {link.label}
+                                  </Link>
                                 </AccordionTrigger>
                                 <AccordionContent>
                                   <ul className="mt-1 space-y-2 pl-2">
