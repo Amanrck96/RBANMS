@@ -35,9 +35,9 @@ export default function FacilitiesPage() {
           <CardTitle className="text-3xl md:text-4xl font-bold text-primary font-headline">Our Facilities</CardTitle>
         </CardHeader>
         <CardContent className="pt-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 items-stretch">
+          <div className="grid auto-rows-fr grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 items-stretch">
             {facilities.map((facility, index) => (
-              <div key={index} className="h-full flex items-center p-4 bg-secondary rounded-lg">
+              <div key={index} className="box-border h-full w-full flex items-center p-4 bg-secondary rounded-lg">
                 <facility.icon className="h-8 w-8 text-accent mr-4 shrink-0" />
                 <span className="text-muted-foreground">{facility.text}</span>
               </div>

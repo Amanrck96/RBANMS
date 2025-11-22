@@ -28,7 +28,7 @@ export default function VisionPage() {
           <CardTitle className="text-3xl md:text-4xl font-bold text-primary font-headline">Our Vision</CardTitle>
         </CardHeader>
         <CardContent className="pt-6">
-          <p className="text-lg font-bold text-left text-muted-foreground mb-10">The vision of RBANMS is built upon three fundamental principles:</p>
+          <p className="text-lg font-bold text-center text-muted-foreground mb-10">The vision of RBANMS is built upon three fundamental principles:</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {principles.map((principle, index) => (
               <div key={index} className="flex flex-col items-start text-left">
