@@ -70,30 +70,8 @@ const dropdownItems: Record<string, NavItem[]> = {
     { label: "Department of Physical Education", href: "/departments/physical-education" },
   ],
   Activities: [
-    {
-      label: "Cultural",
-      href: "/activities/cultural",
-      children: [
-        { label: "Natya", href: "/activities/cultural/natya" },
-        { label: "Theatre", href: "/activities/cultural/theatre" },
-        { label: "Fashion", href: "/activities/cultural/fashion" },
-        { label: "Music", href: "/activities/cultural/music" },
-        { label: "Dance", href: "/activities/cultural/dance" },
-        { label: "Film Club", href: "/activities/cultural/film-club" },
-        { label: "Literary Club", href: "/activities/cultural/literary-club" },
-      ],
-    },
-    {
-      label: "Co-Curricular",
-      href: "/activities/co-curricular",
-      children: [
-        { label: "YRCS", href: "/activities/co-curricular/yrcs" },
-        { label: "NCC (Army)", href: "/activities/co-curricular/ncc-army" },
-        { label: "NCC (Navy)", href: "/activities/co-curricular/ncc-navy" },
-        { label: "NSS", href: "/activities/co-curricular/nss" },
-        { label: "Manasa Samalochana", href: "/activities/co-curricular/manasa-samalochana" },
-      ],
-    },
+    { label: "Cultural", href: "/activities/cultural" },
+    { label: "Co-Curricular", href: "/activities/co-curricular" },
   ],
   "Cells & Committees": [
     {
