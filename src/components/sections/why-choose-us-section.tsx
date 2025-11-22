@@ -45,7 +45,7 @@ export function WhyChooseUsSection() {
             {col1.map((advantage, index) => (
               <li key={index} className="flex items-start">
                 <Check className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" />
-                <span className="text-muted-foreground">{advantage}</span>
+                <span className="text-muted-foreground font-bold">{advantage}</span>
               </li>
             ))}
           </ul>
@@ -53,7 +53,7 @@ export function WhyChooseUsSection() {
             {col2.map((advantage, index) => (
               <li key={index} className="flex items-start">
                 <Check className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" />
-                <span className="text-muted-foreground">{advantage}</span>
+                <span className="text-muted-foreground font-bold">{advantage}</span>
               </li>
             ))}
           </ul>
