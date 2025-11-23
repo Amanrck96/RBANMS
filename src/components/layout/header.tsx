@@ -70,8 +70,30 @@ const dropdownItems: Record<string, NavItem[]> = {
     { label: "Department of Physical Education", href: "/departments/physical-education" },
   ],
   Activities: [
-    { label: "Cultural", href: "/activities/cultural" },
-    { label: "Co-Curricular", href: "/activities/co-curricular" },
+    {
+      label: "Cultural",
+      href: "/activities/cultural",
+      children: [
+        { label: "Natya", href: "/activities/cultural/natya" },
+        { label: "Theatre", href: "/activities/cultural/theatre" },
+        { label: "Fashion", href: "/activities/cultural/fashion" },
+        { label: "Music", href: "/activities/cultural/music" },
+        { label: "Dance", href: "/activities/cultural/dance" },
+        { label: "Film Club", href: "/activities/cultural/film-club" },
+        { label: "Literary Club", href: "/activities/cultural/literary-club" },
+      ],
+    },
+    {
+      label: "Co-Curricular",
+      href: "/activities/co-curricular",
+      children: [
+        { label: "YRCS", href: "/activities/co-curricular/yrcs" },
+        { label: "NCC (Army)", href: "/activities/co-curricular/ncc-army" },
+        { label: "NCC (Navy)", href: "/activities/co-curricular/ncc-navy" },
+        { label: "NSS", href: "/activities/co-curricular/nss" },
+        { label: "Manasa Samalochana", href: "/activities/co-curricular/manasa-samalochana" },
+      ],
+    },
   ],
   "Cells & Committees": [
     {
@@ -148,7 +170,7 @@ export function SiteHeader() {
                           <ChevronDown className="h-4 w-4" />
                         </button>
                       </DropdownMenuTrigger>
-                      <DropdownMenuContent align="start">
+                      <DropdownMenuContent align="start" className={link.label === "Activities" ? "grid grid-cols-2 gap-4 p-2" : undefined}>
                       {dropdownItems[link.label]?.map((item) => (
                         item.children && item.children.length ? (
                           <div key={item.label} className="px-2 py-2">

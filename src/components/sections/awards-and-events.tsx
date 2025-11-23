@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
 import { getGalleryImages } from '@/lib/placeholder-images';
 
 export function AwardsAndEvents() {
@@ -48,6 +48,14 @@ export function AwardsAndEvents() {
                     </CarouselItem>
                   ))}
                 </CarouselContent>
+                <CarouselPrevious
+                  aria-label="prev"
+                  className="left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white border-none text-blue-900 shadow"
+                />
+                <CarouselNext
+                  aria-label="next"
+                  className="right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white border-none text-blue-900 shadow"
+                />
               </Carousel>
             </CardContent>
           </Card>
