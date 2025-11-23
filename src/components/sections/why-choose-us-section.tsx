@@ -5,7 +5,7 @@ import { Check } from 'lucide-react';
 const advantages = [
   "Managed by a trusted and universally respected Educational Charities Trust",
   "Located in the heart of Bangalore City",
-  "BMTC buses on the Shivajinagar – Jivanahalli route that stops at the college campus",
+  "BMTC buses on the Shivajinagar – Jeevanhalli route that stops at the college campus",
   "Walking distance from the Trinity and MG Road Metro stations",
   "Affiliated to Bengaluru City University",
   "Learning spaces that are green and environmentally friendly",
