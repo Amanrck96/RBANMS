@@ -18,7 +18,6 @@ export const activitiesData: ActivityCategory[] = [
     items: [
       { slug: "natya", title: "Natya", excerpt: "The dramatics club fostering stagecraft and performance.", imageUrl: "https://placehold.co/600x400?text=Natya" },
       { slug: "theatre", title: "Theatre", excerpt: "Exploring theatre arts through workshops and productions.", imageUrl: "https://placehold.co/600x400?text=Theatre" },
-      { slug: "fashion", title: "Fashion", excerpt: "Creative expression in fashion, styling, and design.", imageUrl: "https://placehold.co/600x400?text=Fashion" },
       { slug: "music", title: "Music", excerpt: "Vocal and instrumental ensembles, performances, and learning.", imageUrl: "https://placehold.co/600x400?text=Music" },
       { slug: "dance", title: "Dance", excerpt: "Classical and contemporary dance forms and showcases.", imageUrl: "https://placehold.co/600x400?text=Dance" },
       { slug: "film-club", title: "Film Club", excerpt: "Screenings, discussions, and film-making initiatives.", imageUrl: "https://placehold.co/600x400?text=Film+Club" },
@@ -33,7 +32,6 @@ export const activitiesData: ActivityCategory[] = [
       { slug: "ncc-army", title: "NCC (Army)", excerpt: "Army wing training, drills, and leadership.", imageUrl: "https://placehold.co/600x400?text=NCC+Army" },
       { slug: "ncc-navy", title: "NCC (Navy)", excerpt: "Naval wing initiatives, seamanship, and discipline.", imageUrl: "https://placehold.co/600x400?text=NCC+Navy" },
       { slug: "nss", title: "NSS", excerpt: "National Service Scheme social outreach and service.", imageUrl: "https://placehold.co/600x400?text=NSS" },
-      { slug: "manasa-samalochana", title: "Manasa Samalochana", excerpt: "Mindfulness and discourse for holistic development.", imageUrl: "https://placehold.co/600x400?text=Manasa+Samalochana" },
     ],
   },
 ]
@@ -46,4 +44,3 @@ export function getActivityItem(categoryId: "cultural" | "co-curricular", slug: 
   const cat = getActivityCategory(categoryId)
   return cat?.items.find((i) => i.slug === slug)
 }
-

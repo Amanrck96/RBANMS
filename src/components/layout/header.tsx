@@ -29,6 +29,7 @@ const headerLinks = [
   { label: "ABOUT US", href: "/about" },
   { label: "ACADEMICS", href: "/academics" },
   { label: "Departments", href: "/departments" },
+  { label: "Sports", href: "/departments/physical-education" },
   { label: "College Administration", href: "/administration" },
   { label: "Activities", href: "/activities" },
   { label: "Cells & Committees", href: "/cells-committees" },
@@ -47,7 +48,6 @@ const dropdownItems: Record<string, NavItem[]> = {
   Home: [],
   "ABOUT US": [
     { label: "Our Founder", href: "/about/founder" },
-    { label: "Founder’s Vision", href: "/about/founders-vision" },
     { label: "History of the College", href: "/about/history" },
     { label: "Vision", href: "/about/vision" },
     { label: "Mission", href: "/about/mission" },
@@ -96,26 +96,8 @@ const dropdownItems: Record<string, NavItem[]> = {
     },
   ],
   "Cells & Committees": [
-    {
-      label: "Statutory",
-      href: "/cells-committees/statutory",
-      children: [
-        { label: "Anti Ragging", href: "/cells-committees/statutory/anti-ragging" },
-        { label: "Internal Compliance Committee", href: "/cells-committees/statutory/internal-compliance" },
-        { label: "POSH", href: "/cells-committees/statutory/posh" },
-        { label: "SC/ST cell", href: "/cells-committees/statutory/sc-st-cell" },
-        { label: "Grievance Redressal Cell", href: "/cells-committees/statutory/grievance-redressal" },
-      ],
-    },
-    {
-      label: "Others",
-      href: "/cells-committees/others",
-      children: [
-        { label: "Cultural Committee", href: "/cells-committees/others/cultural-committee" },
-        { label: "Women’s Cell", href: "/cells-committees/others/womens-cell" },
-        { label: "Eco Club", href: "/cells-committees/others/eco-club" },
-      ],
-    },
+    { label: "Statutory", href: "/cells-committees/statutory" },
+    { label: "Others", href: "/cells-committees/others" },
   ],
 };
 
@@ -144,9 +126,9 @@ export function SiteHeader() {
             <Image
               src="https://rbanmsfgc.ac.in/images/logo_1.png?v=1.75"
               alt="RBANM's First Grade College Logo"
-              width={120}
-              height={44}
-              className="h-10 w-auto"
+              width={140}
+              height={52}
+              className="h-12 w-auto"
               priority
             />
           </Link>
