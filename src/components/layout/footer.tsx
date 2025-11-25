@@ -24,12 +24,12 @@ export function SiteFooter() {
   ];
 
   return (
-    <footer className="bg-primary text-primary-foreground">
-      <div className="container mx-auto px-4 py-3 border-b border-primary-foreground/20">
+    <footer className="bg-blue-900 text-white">
+      <div className="container mx-auto px-4 py-3 border-b border-white/20">
         <ul className="flex flex-wrap items-center gap-4 md:gap-6 text-sm">
           {footerTopLinks.map((link) => (
             <li key={link.name}>
-              <Link href={link.href} className="text-primary-foreground/90 hover:text-white transition-colors">
+              <Link href={link.href} className="text-white/90 hover:text-white transition-colors">
                 {link.name}
               </Link>
             </li>
@@ -43,9 +43,11 @@ export function SiteFooter() {
           {/* About Section */}
           <div className="space-y-4 lg:col-span-2">
             <div className="flex items-center gap-3">
-              <Image src="https://rbanmsfgc.ac.in/images/logo_1.png?v=1.75" alt="RBANM's First Grade College Logo" width={112} height={40} />
+              <div className="bg-white p-1 rounded-sm">
+                <Image src="https://rbanmsfgc.ac.in/images/logo_1.png?v=1.75" alt="RBANM's First Grade College Logo" width={112} height={40} />
+              </div>
             </div>
-            <p className="text-sm text-primary-foreground/80 max-w-md">
+            <p className="text-sm text-white/80 max-w-md">
               A premier institution dedicated to fostering academic excellence and holistic development, affiliated to Bengaluru City University.
             </p>
             {/** Removed social icons from About block; icons will appear only in Social Media section */}
@@ -57,7 +59,7 @@ export function SiteFooter() {
             <ul className="space-y-2 columns-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-sm text-primary-foreground/80 hover:text-white transition-colors">
+                  <Link href={link.href} className="text-sm text-white/80 hover:text-white transition-colors">
                     {link.name}
                   </Link>
                 </li>
@@ -69,9 +71,9 @@ export function SiteFooter() {
           <div className="space-y-4">
             <h3 className="text-xl font-bold">Campus</h3>
             <ul className="space-y-2">
-              <li><Link href="#" className="text-sm text-primary-foreground/80 hover:text-white transition-colors">Gallery</Link></li>
-              <li><Link href="/events" className="text-sm text-primary-foreground/80 hover:text-white transition-colors">Events</Link></li>
-              <li><Link href="#" className="text-sm text-primary-foreground/80 hover:text-white transition-colors">News</Link></li>
+              <li><Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">Gallery</Link></li>
+              <li><Link href="/events" className="text-sm text-white/80 hover:text-white transition-colors">Events</Link></li>
+              <li><Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">News</Link></li>
             </ul>
           </div>
 
@@ -81,19 +83,19 @@ export function SiteFooter() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-3">
                 <Facebook className="h-5 w-5 shrink-0" />
-                <a href="#" className="text-primary-foreground/80 hover:text-white transition-colors">Facebook</a>
+                <a href="#" className="text-white/80 hover:text-white transition-colors">Facebook</a>
               </li>
               <li className="flex items-center gap-3">
                 <Twitter className="h-5 w-5 shrink-0" />
-                <a href="#" className="text-primary-foreground/80 hover:text-white transition-colors">Twitter</a>
+                <a href="#" className="text-white/80 hover:text-white transition-colors">Twitter</a>
               </li>
               <li className="flex items-center gap-3">
                 <Youtube className="h-5 w-5 shrink-0" />
-                <a href="#" className="text-primary-foreground/80 hover:text-white transition-colors">YouTube</a>
+                <a href="#" className="text-white/80 hover:text-white transition-colors">YouTube</a>
               </li>
               <li className="flex items-center gap-3">
                 <Instagram className="h-5 w-5 shrink-0" />
-                <a href="#" className="text-primary-foreground/80 hover:text-white transition-colors">Instagram</a>
+                <a href="#" className="text-white/80 hover:text-white transition-colors">Instagram</a>
               </li>
             </ul>
           </div>
@@ -104,23 +106,23 @@ export function SiteFooter() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 mt-1 shrink-0" />
-                <span className="text-primary-foreground/80">Opposite Ulsoor Lake, #12, Annaswamy Mudaliar Road, Bangalore 560042.</span>
+                <span className="text-white/80">Opposite Ulsoor Lake, #12, Annaswamy Mudaliar Road, Bangalore 560042.</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 shrink-0" />
-                <a href="mailto:principal_rbanms@gmail.com" className="text-primary-foreground/80 hover:text-white transition-colors">
+                <a href="mailto:principal_rbanms@gmail.com" className="text-white/80 hover:text-white transition-colors">
                   principal_rbanms@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 shrink-0" />
-                <a href="tel:080-48533572" className="text-primary-foreground/80 hover:text-white transition-colors">
+                <a href="tel:080-48533572" className="text-white/80 hover:text-white transition-colors">
                   080-48533572
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 shrink-0" />
-                <a href="mailto:priyamahesh09@gmail.com" className="text-primary-foreground/80 hover:text-white transition-colors">
+                <a href="mailto:priyamahesh09@gmail.com" className="text-white/80 hover:text-white transition-colors">
                   priyamahesh09@gmail.com (Placement)
                 </a>
               </li>
@@ -130,7 +132,7 @@ export function SiteFooter() {
       </div>
 
       <div className="bg-black/20">
-        <div className="container mx-auto px-4 py-4 text-center text-sm text-primary-foreground/70">
+        <div className="container mx-auto px-4 py-4 text-center text-sm text-white/70">
           <p>&copy; {new Date().getFullYear()} RBANM's First Grade College. All Rights Reserved.</p>
         </div>
       </div>

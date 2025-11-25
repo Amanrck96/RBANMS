@@ -83,7 +83,7 @@ export function SiteHeader() {
   return (
     <header aria-label="Main" className="w-full m-0 p-0">
       {/* First header: contact info */}
-      <div className="w-full bg-primary text-primary-foreground">
+      <div className="w-full bg-blue-900 text-white border-b border-white/10">
         <div className="mx-auto max-w-7xl px-3 py-1.5 flex items-center justify-end gap-6 text-sm">
           <a href="tel:080-48533572" className="flex items-center gap-2 hover:underline underline-offset-4">
             <Phone className="h-4 w-4" />
@@ -97,22 +97,24 @@ export function SiteHeader() {
       </div>
 
       {/* Second header: logo + navigation */}
-      <nav className="w-full border-t border-b border-primary/30 bg-white" role="navigation">
+      <nav className="w-full border-b border-white/10 bg-blue-900" role="navigation">
         <div className="mx-auto max-w-7xl px-3 py-2 flex items-center gap-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0" aria-label="RBANM's First Grade College Home">
-            <Image
-              src="https://rbanmsfgc.ac.in/images/logo_1.png?v=1.75"
-              alt="RBANM's First Grade College Logo"
-              width={140}
-              height={52}
-              className="h-12 w-auto"
-              priority
-            />
+            <div className="bg-white p-1 rounded-sm">
+              <Image
+                src="https://rbanmsfgc.ac.in/images/logo_1.png?v=1.75"
+                alt="RBANM's First Grade College Logo"
+                width={140}
+                height={52}
+                className="h-12 w-auto"
+                priority
+              />
+            </div>
           </Link>
 
           {/* Desktop Links */}
-          <ul className="hidden lg:flex flex-wrap items-center gap-3 overflow-x-auto text-sm text-blue-900">
+          <ul className="hidden lg:flex flex-wrap items-center gap-3 text-sm text-white">
             {headerLinks.map((link) => (
               <li key={link.href} className="shrink-0">
                 {dropdownItems[link.label]?.length ? (
@@ -120,30 +122,30 @@ export function SiteHeader() {
                     <DropdownMenuTrigger asChild>
                       <button
                         type="button"
-                        className="flex items-center gap-1 hover:bg-primary/5 rounded px-2 py-1 text-blue-900 font-normal normal-case"
+                        className="flex items-center gap-1 hover:bg-white/10 rounded px-2 py-1 text-white font-normal normal-case"
                       >
                         <span className="hover:underline underline-offset-4">{link.label}</span>
                         <ChevronDown className="h-4 w-4" />
                       </button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent align="start">
+                    <DropdownMenuContent align="start" className="bg-blue-900 border-white/10 text-white">
                       {dropdownItems[link.label]?.map((item) =>
                         item.children && item.children.length ? (
                           <div key={item.label} className="px-2 py-2">
                             <Link
                               href={item.href!}
-                              className="block text-blue-900 font-semibold hover:underline underline-offset-4"
+                              className="block text-white font-semibold hover:underline underline-offset-4"
                             >
                               {item.label}
                             </Link>
                             <div className="mt-2 space-y-1">
                               {item.children.map((child) =>
                                 child.disabled ? (
-                                  <DropdownMenuItem key={child.label} disabled>
+                                  <DropdownMenuItem key={child.label} disabled className="text-white/50 focus:bg-white/10 focus:text-white">
                                     {child.label}
                                   </DropdownMenuItem>
                                 ) : (
-                                  <DropdownMenuItem key={child.href ?? child.label} asChild>
+                                  <DropdownMenuItem key={child.href ?? child.label} asChild className="text-white focus:bg-white/10 focus:text-white">
                                     <Link href={child.href!}>{child.label}</Link>
                                   </DropdownMenuItem>
                                 )
@@ -151,11 +153,11 @@ export function SiteHeader() {
                             </div>
                           </div>
                         ) : item.disabled ? (
-                          <DropdownMenuItem key={item.label} disabled>
+                          <DropdownMenuItem key={item.label} disabled className="text-white/50 focus:bg-white/10 focus:text-white">
                             {item.label}
                           </DropdownMenuItem>
                         ) : (
-                          <DropdownMenuItem key={item.href ?? item.label} asChild>
+                          <DropdownMenuItem key={item.href ?? item.label} asChild className="text-white focus:bg-white/10 focus:text-white">
                             <Link href={item.href!}>{item.label}</Link>
                           </DropdownMenuItem>
                         )
@@ -163,7 +165,7 @@ export function SiteHeader() {
                     </DropdownMenuContent>
                   </DropdownMenu>
                 ) : (
-                  <Link href={link.href} className="hover:underline underline-offset-4 normal-case">
+                  <Link href={link.href} className="hover:underline underline-offset-4 normal-case hover:bg-white/10 px-2 py-1 rounded">
                     {link.label}
                   </Link>
                 )}
@@ -178,14 +180,14 @@ export function SiteHeader() {
                 <button
                   type="button"
                   aria-label="Open navigation menu"
-                  className="inline-flex items-center justify-center rounded-md border border-primary/30 px-3 py-2 text-blue-900 shadow-sm hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                  className="inline-flex items-center justify-center rounded-md border border-white/30 px-3 py-2 text-white shadow-sm hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-900"
                 >
                   <Menu className="h-5 w-5" />
                 </button>
               </SheetTrigger>
-              <SheetContent side="left" className="bg-white">
+              <SheetContent side="left" className="bg-blue-900 border-r-white/10 text-white">
                 <SheetHeader>
-                  <SheetTitle className="text-xl font-bold text-blue-900">Menu</SheetTitle>
+                  <SheetTitle className="text-xl font-bold text-white">Menu</SheetTitle>
                 </SheetHeader>
                 <ScrollArea className="mt-4 h-[calc(100vh-6rem)]">
                   <nav aria-label="Mobile">
@@ -193,10 +195,10 @@ export function SiteHeader() {
                       {headerLinks.map((link) => (
                         <li key={link.href}>
                           {dropdownItems[link.label]?.length ? (
-                            <Accordion type="single" collapsible>
-                              <AccordionItem value={link.label}>
-                                <AccordionTrigger className="text-blue-900 text-base !font-normal font-body hover:underline underline-offset-4 normal-case">
-                                  <span className="block w-full rounded px-2 py-1.5 text-blue-900 text-base !font-normal font-body hover:bg-primary/5 text-left">
+                            <Accordion type="single" collapsible className="border-white/10">
+                              <AccordionItem value={link.label} className="border-white/10">
+                                <AccordionTrigger className="text-white text-base !font-normal font-body hover:underline underline-offset-4 normal-case hover:no-underline">
+                                  <span className="block w-full rounded px-2 py-1.5 text-white text-base !font-normal font-body hover:bg-white/10 text-left">
                                     {link.label}
                                   </span>
                                 </AccordionTrigger>
@@ -206,20 +208,20 @@ export function SiteHeader() {
                                       <li key={(item.href ?? item.label)}>
                                         {item.children && item.children.length ? (
                                           <div>
-                                            <Link href={item.href!} className="block px-2 py-1.5 text-blue-900 font-semibold hover:bg-primary/5 hover:underline underline-offset-4">
+                                            <Link href={item.href!} className="block px-2 py-1.5 text-white font-semibold hover:bg-white/10 hover:underline underline-offset-4">
                                               {item.label}
                                             </Link>
                                             <ul className="mt-1 space-y-1 pl-2">
                                               {item.children.map((child) => (
                                                 <li key={(child.href ?? child.label)}>
                                                   {child.disabled ? (
-                                                    <span className="block rounded px-2 py-1.5 text-blue-900 text-base font-normal font-body opacity-50 cursor-not-allowed">
+                                                    <span className="block rounded px-2 py-1.5 text-white/50 text-base font-normal font-body cursor-not-allowed">
                                                       {child.label}
                                                     </span>
                                                   ) : (
                                                     <Link
                                                       href={child.href!}
-                                                      className="block rounded px-2 py-1.5 text-blue-900 text-base font-normal font-body hover:bg-primary/5"
+                                                      className="block rounded px-2 py-1.5 text-white text-base font-normal font-body hover:bg-white/10"
                                                     >
                                                       {child.label}
                                                     </Link>
@@ -230,13 +232,13 @@ export function SiteHeader() {
                                           </div>
                                         ) : (
                                           item.disabled ? (
-                                            <span className="block rounded px-2 py-1.5 text-blue-900 text-base font-normal font-body opacity-50 cursor-not-allowed">
+                                            <span className="block rounded px-2 py-1.5 text-white/50 text-base font-normal font-body cursor-not-allowed">
                                               {item.label}
                                             </span>
                                           ) : (
                                             <Link
                                               href={item.href!}
-                                              className="block rounded px-2 py-1.5 text-blue-900 text-base font-normal font-body hover:bg-primary/5"
+                                              className="block rounded px-2 py-1.5 text-white text-base font-normal font-body hover:bg-white/10"
                                             >
                                               {item.label}
                                             </Link>
@@ -251,7 +253,7 @@ export function SiteHeader() {
                           ) : (
                             <Link
                               href={link.href}
-                              className="block rounded px-2 py-2 text-blue-900 text-base font-normal font-body hover:bg-primary/5 hover:underline underline-offset-4 normal-case"
+                              className="block rounded px-2 py-2 text-white text-base font-normal font-body hover:bg-white/10 hover:underline underline-offset-4 normal-case"
                             >
                               {link.label}
                             </Link>

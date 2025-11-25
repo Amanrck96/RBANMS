@@ -15,7 +15,7 @@ export default function Home() {
         {/* Static hero image from gallery replacing carousel */}
         {/* Removed hero placeholder to eliminate blank space */}
         {/* Additional carousel showcasing three images */}
-        <div className="mt-6">
+        <div className="">
           <AdditionalImagesCarousel intervalMs={3500} />
         </div>
         <AboutSection />
@@ -28,4 +28,4 @@ export default function Home() {
   );
 }
 
-    
+

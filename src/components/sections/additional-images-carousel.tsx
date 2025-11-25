@@ -1,10 +1,8 @@
 "use client"
-
 import { useEffect, useMemo, useRef, useState } from "react"
 import Image from "next/image"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselApi } from "@/components/ui/carousel"
 import { cn } from "@/lib/utils"
-import { getGalleryImages } from "@/lib/placeholder-images"
 
 type AdditionalImagesCarouselProps = {
   intervalMs?: number
@@ -17,20 +15,15 @@ export function AdditionalImagesCarousel({ intervalMs = 3500, className }: Addit
   const [isPaused, setIsPaused] = useState(false)
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
 
-  // Pick three additional images distinct from hero
+  // Use the new hero images
   const slides = useMemo(() => {
-    const imgs = getGalleryImages()
-    const pickIds = new Set(["gallery-3", "gallery-4", "gallery-6"]) // curated selection
-    const chosen = imgs.filter((i) => pickIds.has(i.id)).map((i) => ({ id: i.id, src: i.imageUrl, alt: i.description }))
-    // Fallback to first three with URLs if curated set missing
-    if (chosen.length < 3) {
-      const extra = imgs.filter((i) => !pickIds.has(i.id)).slice(0, 3 - chosen.length)
-      return [
-        ...chosen,
-        ...extra.map((i) => ({ id: i.id, src: i.imageUrl, alt: i.description })),
-      ]
-    }
-    return chosen
+    return [
+      { id: "hero-1", src: "/images/hero/hero-1.jpg", alt: "RBANMS Campus View 1" },
+      { id: "hero-2", src: "/images/hero/hero-2.jpg", alt: "RBANMS Campus View 2" },
+      { id: "hero-3", src: "/images/hero/hero-3.jpg", alt: "RBANMS Campus View 3" },
+      { id: "hero-4", src: "/images/hero/hero-4.jpg", alt: "RBANMS Campus View 4" },
+      { id: "hero-5", src: "/images/hero/hero-5.jpg", alt: "RBANMS Campus View 5" },
+    ]
   }, [])
 
   // Track selected index for indicators
@@ -67,58 +60,45 @@ export function AdditionalImagesCarousel({ intervalMs = 3500, className }: Addit
 
   return (
     <section
-      aria-label="Additional images"
+      aria-label="Hero Carousel"
       className={cn("w-full", className)}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onFocus={() => setIsPaused(true)}
       onBlur={() => setIsPaused(false)}
     >
-      <div className="relative mx-auto max-w-6xl px-4">
+      <div className="w-full">
         <Carousel
           setApi={setApi}
           opts={{ loop: true, duration: 20 }}
-          className=""
+          className="w-full"
           aria-label="Image carousel"
         >
-          <CarouselContent className="">
+          <CarouselContent className="-ml-0">
             {slides.map((slide, idx) => (
-              <CarouselItem key={`${slide.id}-${idx}`} className="">
-                <div className="relative w-full">
-                  <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg border bg-muted">
-                    {/* Non-blocking placeholder background to avoid blank frames */}
-                    <div
-                      aria-hidden
-                      className="absolute inset-0"
-                      style={{
-                        backgroundImage: `url(https://placehold.co/1600x900?text=RBANMS)`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                        filter: "brightness(0.95)",
-                      }}
-                    />
-
-                    <Image
-                      src={slide.src}
-                      alt={slide.alt || "RBANMS gallery image"}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 70vw"
-                      quality={85}
-                      priority={false}
-                    />
-                  </div>
+              <CarouselItem key={`${slide.id}-${idx}`} className="pl-0">
+                <div className="relative w-full h-[600px]">
+                  <Image
+                    src={slide.src}
+                    alt={slide.alt}
+                    fill
+                    className="object-cover"
+                    sizes="100vw"
+                    priority={idx === 0}
+                  />
+                  {/* Overlay for better text readability if needed later, currently just slight darkening */}
+                  <div className="absolute inset-0 bg-black/10" />
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
 
-          {/* Controls */}
-          <CarouselPrevious aria-label="Previous image" />
-          <CarouselNext aria-label="Next image" />
+          {/* Controls - positioned absolutely */}
+          <CarouselPrevious className="left-4 bg-white/20 hover:bg-white/40 border-none text-white" aria-label="Previous image" />
+          <CarouselNext className="right-4 bg-white/20 hover:bg-white/40 border-none text-white" aria-label="Next image" />
 
           {/* Indicators */}
-          <div className="mt-4 flex items-center justify-center gap-2" aria-label="Slide indicators">
+          <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2 z-10" aria-label="Slide indicators">
             {slides.map((_, i) => (
               <button
                 key={`dot-${i}`}
@@ -126,8 +106,8 @@ export function AdditionalImagesCarousel({ intervalMs = 3500, className }: Addit
                 aria-label={`Go to slide ${i + 1}`}
                 aria-current={selectedIndex === i ? "true" : undefined}
                 className={cn(
-                  "h-2 w-2 rounded-full transition-colors",
-                  selectedIndex === i ? "bg-primary" : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                  "h-2 w-2 rounded-full transition-colors shadow-sm",
+                  selectedIndex === i ? "bg-white" : "bg-white/50 hover:bg-white/70"
                 )}
                 onClick={() => api?.scrollTo(i)}
               />
