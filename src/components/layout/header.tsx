@@ -26,8 +26,8 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 
 const headerLinks = [
   { label: "Home", href: "/#rbanms-fgc" },
-  { label: "ABOUT US", href: "/about" },
-  { label: "ACADEMICS", href: "/academics" },
+  { label: "About Us", href: "/about" },
+  { label: "Academics", href: "/academics" },
   { label: "Departments", href: "/departments" },
   { label: "Sports", href: "/departments/physical-education" },
   { label: "College Administration", href: "/administration" },
@@ -46,7 +46,7 @@ const headerLinks = [
 type NavItem = { label: string; href?: string; disabled?: boolean; children?: NavItem[] };
 const dropdownItems: Record<string, NavItem[]> = {
   Home: [],
-  "ABOUT US": [
+  "About Us": [
     { label: "Our Founder", href: "/about/founder" },
     { label: "History of the College", href: "/about/history" },
     { label: "Vision", href: "/about/vision" },
@@ -54,7 +54,7 @@ const dropdownItems: Record<string, NavItem[]> = {
     { label: "Core Values", href: "/about/core-values" },
     { label: "Board Members", href: "/about/board-members", disabled: true },
   ],
-  ACADEMICS: [
+  Academics: [
     { label: "Courses Offered", href: "/academics/courses-offered" },
     { label: "Academic Structure", href: "/academics/academic-structure" },
     { label: "Philosophy of Teaching", href: "/academics/philosophy-of-teaching" },
@@ -70,30 +70,8 @@ const dropdownItems: Record<string, NavItem[]> = {
     { label: "Department of Physical Education", href: "/departments/physical-education" },
   ],
   Activities: [
-    {
-      label: "Cultural",
-      href: "/activities/cultural",
-      children: [
-        { label: "Natya", href: "/activities/cultural/natya" },
-        { label: "Theatre", href: "/activities/cultural/theatre" },
-        { label: "Fashion", href: "/activities/cultural/fashion" },
-        { label: "Music", href: "/activities/cultural/music" },
-        { label: "Dance", href: "/activities/cultural/dance" },
-        { label: "Film Club", href: "/activities/cultural/film-club" },
-        { label: "Literary Club", href: "/activities/cultural/literary-club" },
-      ],
-    },
-    {
-      label: "Co-Curricular",
-      href: "/activities/co-curricular",
-      children: [
-        { label: "YRCS", href: "/activities/co-curricular/yrcs" },
-        { label: "NCC (Army)", href: "/activities/co-curricular/ncc-army" },
-        { label: "NCC (Navy)", href: "/activities/co-curricular/ncc-navy" },
-        { label: "NSS", href: "/activities/co-curricular/nss" },
-        { label: "Manasa Samalochana", href: "/activities/co-curricular/manasa-samalochana" },
-      ],
-    },
+    { label: "Cultural", href: "/activities/cultural" },
+    { label: "Co-Curricular", href: "/activities/co-curricular" },
   ],
   "Cells & Committees": [
     { label: "Statutory", href: "/cells-committees/statutory" },
@@ -138,58 +116,54 @@ export function SiteHeader() {
             {headerLinks.map((link) => (
               <li key={link.href} className="shrink-0">
                 {dropdownItems[link.label]?.length ? (
-                  <div className="flex items-center gap-1">
-                    <Link href={link.href} className="hover:underline underline-offset-4">
-                      {link.label}
-                    </Link>
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <button
-                          type="button"
-                          aria-label={`${link.label} submenu`}
-                          className="inline-flex items-center justify-center rounded px-1 py-0.5 hover:bg-primary/5"
-                        >
-                          <ChevronDown className="h-4 w-4" />
-                        </button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="start" className={link.label === "Activities" ? "grid grid-cols-2 gap-4 p-2" : undefined}>
-                      {dropdownItems[link.label]?.map((item) => (
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <button
+                        type="button"
+                        className="flex items-center gap-1 hover:bg-primary/5 rounded px-2 py-1 text-blue-900 font-normal normal-case"
+                      >
+                        <span className="hover:underline underline-offset-4">{link.label}</span>
+                        <ChevronDown className="h-4 w-4" />
+                      </button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="start">
+                      {dropdownItems[link.label]?.map((item) =>
                         item.children && item.children.length ? (
                           <div key={item.label} className="px-2 py-2">
-                            <Link href={item.href!} className="block text-blue-900 font-semibold hover:underline underline-offset-4">
+                            <Link
+                              href={item.href!}
+                              className="block text-blue-900 font-semibold hover:underline underline-offset-4"
+                            >
                               {item.label}
                             </Link>
                             <div className="mt-2 space-y-1">
-                              {item.children.map((child) => (
+                              {item.children.map((child) =>
                                 child.disabled ? (
                                   <DropdownMenuItem key={child.label} disabled>
                                     {child.label}
                                   </DropdownMenuItem>
                                 ) : (
-                                  <DropdownMenuItem key={(child.href ?? child.label)} asChild>
+                                  <DropdownMenuItem key={child.href ?? child.label} asChild>
                                     <Link href={child.href!}>{child.label}</Link>
                                   </DropdownMenuItem>
                                 )
-                              ))}
+                              )}
                             </div>
                           </div>
+                        ) : item.disabled ? (
+                          <DropdownMenuItem key={item.label} disabled>
+                            {item.label}
+                          </DropdownMenuItem>
                         ) : (
-                          item.disabled ? (
-                            <DropdownMenuItem key={item.label} disabled>
-                              {item.label}
-                            </DropdownMenuItem>
-                          ) : (
-                            <DropdownMenuItem key={(item.href ?? item.label)} asChild>
-                              <Link href={item.href!}>{item.label}</Link>
-                            </DropdownMenuItem>
-                          )
+                          <DropdownMenuItem key={item.href ?? item.label} asChild>
+                            <Link href={item.href!}>{item.label}</Link>
+                          </DropdownMenuItem>
                         )
-                      ))}
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  </div>
+                      )}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 ) : (
-                  <Link href={link.href} className="hover:underline underline-offset-4">
+                  <Link href={link.href} className="hover:underline underline-offset-4 normal-case">
                     {link.label}
                   </Link>
                 )}
@@ -221,14 +195,10 @@ export function SiteHeader() {
                           {dropdownItems[link.label]?.length ? (
                             <Accordion type="single" collapsible>
                               <AccordionItem value={link.label}>
-                                <AccordionTrigger className="text-blue-900 text-base !font-normal font-body hover:underline underline-offset-4">
-                                  <Link
-                                    href={link.href}
-                                    className="block w-full rounded px-2 py-1.5 text-blue-900 text-base !font-normal font-body hover:bg-primary/5 hover:underline underline-offset-4 text-left"
-                                    onClick={(e) => e.stopPropagation()}
-                                  >
+                                <AccordionTrigger className="text-blue-900 text-base !font-normal font-body hover:underline underline-offset-4 normal-case">
+                                  <span className="block w-full rounded px-2 py-1.5 text-blue-900 text-base !font-normal font-body hover:bg-primary/5 text-left">
                                     {link.label}
-                                  </Link>
+                                  </span>
                                 </AccordionTrigger>
                                 <AccordionContent>
                                   <ul className="mt-1 space-y-2 pl-2">
@@ -281,7 +251,7 @@ export function SiteHeader() {
                           ) : (
                             <Link
                               href={link.href}
-                              className="block rounded px-2 py-2 text-blue-900 text-base font-normal font-body hover:bg-primary/5 hover:underline underline-offset-4"
+                              className="block rounded px-2 py-2 text-blue-900 text-base font-normal font-body hover:bg-primary/5 hover:underline underline-offset-4 normal-case"
                             >
                               {link.label}
                             </Link>
