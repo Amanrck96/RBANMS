@@ -32,7 +32,7 @@ export function SiteFooter() {
 
           {/* Quick Links */}
           <div className="space-y-2">
-            <h3 className="text-xl font-bold">Quick Links</h3>
+            <h3 className="text-xl font-bold text-yellow-400">Quick Links</h3>
             <ul className="space-y-2 columns-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
@@ -46,7 +46,7 @@ export function SiteFooter() {
 
           {/* Campus Info */}
           <div className="space-y-2">
-            <h3 className="text-xl font-bold">Campus</h3>
+            <h3 className="text-xl font-bold text-yellow-400">Campus</h3>
             <ul className="space-y-2">
               <li><Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">Gallery</Link></li>
               <li><Link href="/events" className="text-sm text-white/80 hover:text-white transition-colors">Events</Link></li>
@@ -56,7 +56,7 @@ export function SiteFooter() {
 
           {/* Social Media */}
           <div className="space-y-2">
-            <h3 className="text-xl font-bold">Social Media</h3>
+            <h3 className="text-xl font-bold text-yellow-400">Social Media</h3>
             <div className="flex gap-4">
               <a href="#" className="text-white/80 hover:text-white transition-colors" aria-label="Facebook">
                 <Facebook className="h-6 w-6" />
@@ -75,7 +75,7 @@ export function SiteFooter() {
 
           {/* Contact Info */}
           <div className="space-y-2">
-            <h3 className="text-xl font-bold">Contact Us</h3>
+            <h3 className="text-xl font-bold text-yellow-400">Contact Us</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 mt-1 shrink-0" />
