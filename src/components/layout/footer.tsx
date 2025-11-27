@@ -27,17 +27,11 @@ export function SiteFooter() {
     <footer className="bg-blue-900 text-white">
 
 
-      <div className="container mx-auto px-4 py-6">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
-          {/* About Section */}
-          <div className="space-y-4 lg:col-span-2">
-
-
-            {/** Removed social icons from About block; icons will appear only in Social Media section */}
-          </div>
+      <div className="container mx-auto px-4 py-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
 
           {/* Quick Links */}
-          <div className="space-y-4 lg:col-span-2">
+          <div className="space-y-2">
             <h3 className="text-xl font-bold">Quick Links</h3>
             <ul className="space-y-2 columns-2">
               {quickLinks.map((link) => (
@@ -51,7 +45,7 @@ export function SiteFooter() {
           </div>
 
           {/* Campus Info */}
-          <div className="space-y-4">
+          <div className="space-y-2">
             <h3 className="text-xl font-bold">Campus</h3>
             <ul className="space-y-2">
               <li><Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">Gallery</Link></li>
@@ -61,7 +55,7 @@ export function SiteFooter() {
           </div>
 
           {/* Social Media */}
-          <div className="space-y-4">
+          <div className="space-y-2">
             <h3 className="text-xl font-bold">Social Media</h3>
             <div className="flex gap-4">
               <a href="#" className="text-white/80 hover:text-white transition-colors" aria-label="Facebook">
@@ -80,7 +74,7 @@ export function SiteFooter() {
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-4 lg:col-span-2">
+          <div className="space-y-2">
             <h3 className="text-xl font-bold">Contact Us</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-3">
