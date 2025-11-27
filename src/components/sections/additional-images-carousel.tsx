@@ -18,8 +18,8 @@ export function AdditionalImagesCarousel({ intervalMs = 3500, className }: Addit
   // Use the new hero images
   const slides = useMemo(() => {
     return [
-      { id: "hero-1", src: "/images/hero/hero-1.jpg", alt: "RBANMS Campus View 1" },
       { id: "hero-2", src: "/images/hero/hero-2.jpg", alt: "RBANMS Campus View 2" },
+      { id: "hero-3", src: "/images/hero/hero-3.jpg", alt: "RBANMS Campus View 3" },
       { id: "hero-4", src: "/images/hero/hero-4.jpg", alt: "RBANMS Campus View 4" },
       { id: "hero-5", src: "/images/hero/hero-5.jpg", alt: "RBANMS Campus View 5" },
     ]
