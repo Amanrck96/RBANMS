@@ -84,26 +84,26 @@ export function SiteHeader() {
     <header aria-label="Main" className="w-full m-0 p-0">
       {/* First header: contact info */}
       <div className="w-full bg-blue-900 text-white border-b border-white/10">
-        <div className="relative mx-auto max-w-7xl px-3 py-1.5 flex flex-col md:flex-row items-center md:justify-center gap-4 text-sm">
+        <div className="relative mx-auto max-w-7xl px-2 py-1 flex flex-col md:flex-row items-center md:justify-center gap-2 text-xs">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0" aria-label="RBANM's First Grade College Home">
             <div className="bg-white p-1 rounded-sm">
               <Image
                 src="https://rbanmsfgc.ac.in/images/logo_1.png?v=1.75"
                 alt="RBANM's First Grade College Logo"
-                width={140}
-                height={52}
-                className="h-12 w-auto"
+                width={120}
+                height={45}
+                className="h-9 w-auto"
                 priority
               />
             </div>
           </Link>
-          <div className="flex items-center gap-6 md:absolute md:right-3">
-            <a href="tel:080-48533572" className="flex items-center gap-2 hover:underline underline-offset-4">
+          <div className="flex items-center gap-3 md:absolute md:right-2">
+            <a href="tel:080-48533572" className="flex items-center gap-2 hover:underline underline-offset-4 text-yellow-400">
               <Phone className="h-4 w-4" />
               080-48533572
             </a>
-            <a href="mailto:principal_rbanms@gmail.com" className="flex items-center gap-2 hover:underline underline-offset-4">
+            <a href="mailto:principal_rbanms@gmail.com" className="flex items-center gap-2 hover:underline underline-offset-4 text-yellow-400">
               <Mail className="h-4 w-4" />
               principal_rbanms@gmail.com
             </a>
@@ -113,10 +113,10 @@ export function SiteHeader() {
 
       {/* Second header: logo + navigation */}
       <nav className="w-full border-b border-white/10 bg-blue-900" role="navigation">
-        <div className="mx-auto max-w-7xl px-3 py-2 flex items-center gap-4">
+        <div className="mx-auto max-w-7xl px-2 py-1 flex items-center gap-2">
 
           {/* Desktop Links */}
-          <ul className="hidden lg:flex flex-wrap items-center gap-3 text-sm text-white">
+          <ul className="hidden lg:flex flex-nowrap items-center gap-1 text-xs text-white">
             {headerLinks.map((link) => (
               <li key={link.href} className="shrink-0">
                 {dropdownItems[link.label]?.length ? (
@@ -124,10 +124,10 @@ export function SiteHeader() {
                     <DropdownMenuTrigger asChild>
                       <button
                         type="button"
-                        className="flex items-center gap-1 hover:bg-white/10 rounded px-2 py-1 text-white font-normal normal-case"
+                        className="flex items-center gap-0.5 hover:bg-white/10 rounded px-1.5 py-0.5 text-white font-normal normal-case whitespace-nowrap"
                       >
                         <span className="hover:underline underline-offset-4">{link.label}</span>
-                        <ChevronDown className="h-4 w-4" />
+                        <ChevronDown className="h-3 w-3" />
                       </button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="start" className="bg-blue-900 border-white/10 text-white">
@@ -167,7 +167,7 @@ export function SiteHeader() {
                     </DropdownMenuContent>
                   </DropdownMenu>
                 ) : (
-                  <Link href={link.href} className="hover:underline underline-offset-4 normal-case hover:bg-white/10 px-2 py-1 rounded">
+                  <Link href={link.href} className="hover:underline underline-offset-4 normal-case hover:bg-white/10 px-1.5 py-0.5 rounded whitespace-nowrap">
                     {link.label}
                   </Link>
                 )}

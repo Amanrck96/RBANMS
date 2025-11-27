@@ -21,7 +21,7 @@ export const activitiesData: ActivityCategory[] = [
       { slug: "music", title: "Music", excerpt: "Vocal and instrumental ensembles, performances, and learning.", imageUrl: "https://placehold.co/600x400?text=Music" },
       { slug: "dance", title: "Dance", excerpt: "Classical and contemporary dance forms and showcases.", imageUrl: "https://placehold.co/600x400?text=Dance" },
       { slug: "film-club", title: "Film Club", excerpt: "Screenings, discussions, and film-making initiatives.", imageUrl: "https://placehold.co/600x400?text=Film+Club" },
-      { slug: "literary-club", title: "Literary Club", excerpt: "Reading, writing, debates, and creative literary forums.", imageUrl: "https://placehold.co/600x400?text=Literary+Club" },
+      { slug: "literary-club", title: "Magazine Team", excerpt: "Reading, writing, debates, and creative literary forums.", imageUrl: "https://placehold.co/600x400?text=Magazine+Team" },
     ],
   },
   {

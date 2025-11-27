@@ -13,7 +13,7 @@ export default function CoCurricularActivitiesPage() {
           <CardTitle className="text-3xl md:text-4xl font-bold text-primary font-headline">Co-Curricular</CardTitle>
         </CardHeader>
         <CardContent className="pt-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 items-stretch">
             {category.items.map((item) => (
               <Link key={item.slug} href={`/activities/co-curricular/${item.slug}`} className="group">
                 <div className="h-full rounded-lg border shadow-sm overflow-hidden flex flex-col bg-background">

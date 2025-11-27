@@ -6,7 +6,7 @@ export default function ComingSoonPage() {
     <div className="container mx-auto px-4 py-12 md:py-16">
       <Card>
         <CardHeader>
-          <CardTitle className="text-3xl md:text-4xl font-bold text-primary font-headline">Literary Club</CardTitle>
+          <CardTitle className="text-3xl md:text-4xl font-bold text-primary font-headline">Magazine Team</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex flex-col items-center justify-center min-h-[40vh] text-center">

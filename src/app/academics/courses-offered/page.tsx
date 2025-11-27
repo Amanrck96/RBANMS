@@ -2,7 +2,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowRight, Computer, Briefcase, Landmark, BookOpen } from 'lucide-react';
+import { ArrowRight, Computer, Briefcase, Landmark, BookOpen, Dumbbell, Newspaper } from 'lucide-react';
 
 const courses = [
   {
@@ -28,6 +28,18 @@ const courses = [
     title: 'Bachelor of Arts (BA)',
     description: 'The BA (Bachelor of Arts) is a three-year undergraduate degree with History, Political Science, and Economics. It provides a strong foundation in humanities and the social sciences, helping students develop critical thinking, research, and analytical skills. Career options for BA graduates include journalism, teaching, social work, public administration, and content writing. Further studies like MA (Master of Arts), PhD, or professional courses in mass communication, law, and public relations can open more specialized career paths.',
     href: '/departments/arts'
+  },
+  {
+    icon: Dumbbell,
+    title: 'Bachelor of Arts (Physical Education with History & Political Science)',
+    description: 'The BA in Physical Education combines sports science with humanities subjects like History and Political Science. This three-year undergraduate program is designed for students passionate about sports, fitness, and education. It covers sports psychology, exercise physiology, coaching techniques, and sports management alongside analytical subjects. Graduates can pursue careers as physical education teachers, sports coaches, fitness trainers, sports administrators, and athletic trainers. Further studies like M.P.Ed (Master of Physical Education) or certifications in sports nutrition, yoga, or sports management can enhance career prospects.',
+    href: '/departments/physical-education'
+  },
+  {
+    icon: Newspaper,
+    title: 'Bachelor of Arts (Journalism, History & Economics)',
+    description: 'The BA in Journalism with History and Economics is a three-year undergraduate program that blends media studies with social sciences. This specialization develops strong communication, research, and analytical skills essential for the media industry. Students learn news writing, reporting, media ethics, and digital journalism alongside historical context and economic analysis. Career opportunities include journalism, content creation, news reporting, editorial work, media production, and public relations. Further studies like Master in Journalism, Mass Communication, or specialized courses in digital media and broadcast journalism can lead to senior roles in media organizations.',
+    href: '/departments/arts'
   }
 ];
 
@@ -42,9 +54,9 @@ export default function CoursesOfferedPage() {
           {courses.map((course, index) => (
             <Card key={index} className="flex flex-col h-full">
               <CardHeader className="flex-row gap-4 items-center">
-                 <div className="p-3 bg-primary/10 rounded-full">
-                    <course.icon className="h-8 w-8 text-accent" />
-                 </div>
+                <div className="p-3 bg-primary/10 rounded-full">
+                  <course.icon className="h-8 w-8 text-accent" />
+                </div>
                 <CardTitle className="text-2xl">{course.title}</CardTitle>
               </CardHeader>
               <CardContent className="flex-grow">
@@ -65,4 +77,4 @@ export default function CoursesOfferedPage() {
   );
 }
 
-    
+
