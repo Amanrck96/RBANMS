@@ -25,31 +25,14 @@ export function SiteFooter() {
 
   return (
     <footer className="bg-blue-900 text-white">
-      <div className="container mx-auto px-4 py-3 border-b border-white/20">
-        <ul className="flex flex-wrap items-center gap-4 md:gap-6 text-sm">
-          {footerTopLinks.map((link) => (
-            <li key={link.name}>
-              <Link href={link.href} className="text-white/90 hover:text-white transition-colors">
-                {link.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        {/** Removed social icons from top bar; icons will appear only in Social Media section */}
-      </div>
+
 
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
           {/* About Section */}
           <div className="space-y-4 lg:col-span-2">
-            <div className="flex items-center gap-3">
-              <div className="bg-white p-1 rounded-sm">
-                <Image src="https://rbanmsfgc.ac.in/images/logo_1.png?v=1.75" alt="RBANM's First Grade College Logo" width={112} height={40} />
-              </div>
-            </div>
-            <p className="text-sm text-white/80 max-w-md">
-              A premier institution dedicated to fostering academic excellence and holistic development, affiliated to Bengaluru City University.
-            </p>
+
+
             {/** Removed social icons from About block; icons will appear only in Social Media section */}
           </div>
 

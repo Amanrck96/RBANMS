@@ -84,21 +84,7 @@ export function SiteHeader() {
     <header aria-label="Main" className="w-full m-0 p-0">
       {/* First header: contact info */}
       <div className="w-full bg-blue-900 text-white border-b border-white/10">
-        <div className="mx-auto max-w-7xl px-3 py-1.5 flex items-center justify-end gap-6 text-sm">
-          <a href="tel:080-48533572" className="flex items-center gap-2 hover:underline underline-offset-4">
-            <Phone className="h-4 w-4" />
-            080-48533572
-          </a>
-          <a href="mailto:principal_rbanms@gmail.com" className="flex items-center gap-2 hover:underline underline-offset-4">
-            <Mail className="h-4 w-4" />
-            principal_rbanms@gmail.com
-          </a>
-        </div>
-      </div>
-
-      {/* Second header: logo + navigation */}
-      <nav className="w-full border-b border-white/10 bg-blue-900" role="navigation">
-        <div className="mx-auto max-w-7xl px-3 py-2 flex items-center gap-4">
+        <div className="relative mx-auto max-w-7xl px-3 py-1.5 flex flex-col md:flex-row items-center md:justify-center gap-4 text-sm">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0" aria-label="RBANM's First Grade College Home">
             <div className="bg-white p-1 rounded-sm">
@@ -112,6 +98,22 @@ export function SiteHeader() {
               />
             </div>
           </Link>
+          <div className="flex items-center gap-6 md:absolute md:right-3">
+            <a href="tel:080-48533572" className="flex items-center gap-2 hover:underline underline-offset-4">
+              <Phone className="h-4 w-4" />
+              080-48533572
+            </a>
+            <a href="mailto:principal_rbanms@gmail.com" className="flex items-center gap-2 hover:underline underline-offset-4">
+              <Mail className="h-4 w-4" />
+              principal_rbanms@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Second header: logo + navigation */}
+      <nav className="w-full border-b border-white/10 bg-blue-900" role="navigation">
+        <div className="mx-auto max-w-7xl px-3 py-2 flex items-center gap-4">
 
           {/* Desktop Links */}
           <ul className="hidden lg:flex flex-wrap items-center gap-3 text-sm text-white">
