@@ -1,4 +1,4 @@
-import type {NextConfig} from 'next';
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -34,13 +34,19 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
-       {
+      {
         protocol: 'https',
         hostname: 'scontent.fccu9-2.fna.fbcdn.net',
         port: '',
         pathname: '/**',
       },
-       {
+      {
+        protocol: 'https',
+        hostname: 'scontent.fccu4-2.fna.fbcdn.net',
+        port: '',
+        pathname: '/**',
+      },
+      {
         protocol: 'https',
         hostname: 'images.shiksha.com',
         port: '',

@@ -59,7 +59,7 @@ const dropdownItems: Record<string, NavItem[]> = {
     { label: "Courses Offered", href: "/academics/courses-offered" },
     { label: "Academic Structure", href: "/academics/academic-structure" },
     { label: "Philosophy of Teaching", href: "/academics/philosophy-of-teaching" },
-    { label: "New Courses", href: "/academics/new-courses", disabled: true },
+
   ],
   Department: [
     { label: "Department of Commerce", href: "/departments/commerce" },

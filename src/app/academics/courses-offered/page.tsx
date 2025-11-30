@@ -31,13 +31,13 @@ const courses = [
   },
   {
     icon: Dumbbell,
-    title: 'Bachelor of Arts (Physical Education with History & Political Science)',
+    title: 'Bachelor of Arts (Physical Education with History & Political Science) - Expected to begin in June 2026',
     description: 'The BA in Physical Education combines sports science with humanities subjects like History and Political Science. This three-year undergraduate program is designed for students passionate about sports, fitness, and education. It covers sports psychology, exercise physiology, coaching techniques, and sports management alongside analytical subjects. Graduates can pursue careers as physical education teachers, sports coaches, fitness trainers, sports administrators, and athletic trainers. Further studies like M.P.Ed (Master of Physical Education) or certifications in sports nutrition, yoga, or sports management can enhance career prospects.',
     href: '/departments/physical-education'
   },
   {
     icon: Newspaper,
-    title: 'Bachelor of Arts (Journalism, History & Economics)',
+    title: 'Bachelor of Arts (Journalism, History & Economics) - Expected to begin in June 2026',
     description: 'The BA in Journalism with History and Economics is a three-year undergraduate program that blends media studies with social sciences. This specialization develops strong communication, research, and analytical skills essential for the media industry. Students learn news writing, reporting, media ethics, and digital journalism alongside historical context and economic analysis. Career opportunities include journalism, content creation, news reporting, editorial work, media production, and public relations. Further studies like Master in Journalism, Mass Communication, or specialized courses in digital media and broadcast journalism can lead to senior roles in media organizations.',
     href: '/departments/arts'
   }
@@ -63,6 +63,7 @@ export default function CoursesOfferedPage() {
                 <p className="content-black">{course.description}</p>
               </CardContent>
               <div className="p-6 pt-0">
+                <p className="text-lg font-bold text-primary font-headline mb-1">Applied for</p>
                 <Button asChild variant="link" className="p-0">
                   <Link href={course.href}>
                     Click here for details <ArrowRight className="ml-2 h-4 w-4" />
