@@ -21,6 +21,7 @@ export const cellsData: CellCategory[] = [
       { slug: "posh", title: "POSH", excerpt: "Prevention of Sexual Harassment framework and redressal.", imageUrl: "https://placehold.co/600x400?text=POSH" },
       { slug: "sc-st-cell", title: "SC/ST cell", excerpt: "Support services and facilitation for SC/ST students.", imageUrl: "https://placehold.co/600x400?text=SC%2FST+Cell" },
       { slug: "grievance-redressal", title: "Grievance Redressal Cell", excerpt: "Mechanisms to address and resolve student grievances.", imageUrl: "https://placehold.co/600x400?text=Grievance+Redressal" },
+      { slug: "equal-opportunity-cell", title: "Equal Opportunity Cell", excerpt: "Ensuring equal opportunities for all students.", imageUrl: "https://placehold.co/600x400?text=Equal+Opportunity+Cell" },
     ],
   },
   {
