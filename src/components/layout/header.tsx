@@ -28,16 +28,17 @@ const headerLinks = [
   { label: "Home", href: "/#rbanms-fgc" },
   { label: "About Us", href: "/about" },
   { label: "Academics", href: "/academics" },
-  { label: "Departments", href: "/departments" },
-  { label: "Sports", href: "/departments/physical-education" },
+  { label: "Department", href: "/departments" },
   { label: "College Administration", href: "/administration" },
+  { label: "Facilities", href: "/facilities" },
   { label: "Activities", href: "/activities" },
   { label: "Cells & Committees", href: "/cells-committees" },
-  { label: "Facilities", href: "/facilities" },
-  { label: "Scholarships", href: "/scholarships" },
+  { label: "Sports", href: "/departments/physical-education" },
+  { label: "NCC", href: "/ncc" },
+  { label: "Scholarship", href: "/scholarships" },
+  { label: "Research", href: "/research" },
   { label: "IQAC", href: "/iqac" },
   { label: "NAAC", href: "/naac" },
-  { label: "Research", href: "/research" },
   { label: "Gallery", href: "/gallery" },
   { label: "Contact Us", href: "/contact" },
 ];
@@ -60,7 +61,7 @@ const dropdownItems: Record<string, NavItem[]> = {
     { label: "Philosophy of Teaching", href: "/academics/philosophy-of-teaching" },
     { label: "New Courses", href: "/academics/new-courses", disabled: true },
   ],
-  Departments: [
+  Department: [
     { label: "Department of Commerce", href: "/departments/commerce" },
     { label: "Department of Management Studies", href: "/departments/management" },
     { label: "Department of Computer Applications", href: "/departments/computer-applications" },
@@ -76,6 +77,10 @@ const dropdownItems: Record<string, NavItem[]> = {
   "Cells & Committees": [
     { label: "Statutory", href: "/cells-committees/statutory" },
     { label: "Others", href: "/cells-committees/others" },
+  ],
+  NCC: [
+    { label: "Army", href: "/ncc/army" },
+    { label: "Navy", href: "/ncc/navy" },
   ],
 };
 
