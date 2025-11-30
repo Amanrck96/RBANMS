@@ -104,9 +104,9 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="bg-black/20">
+      <div className="bg-[#800000]">
         <div className="container mx-auto px-4 py-3 text-center text-sm text-white/70">
-          <p>&copy; {new Date().getFullYear()} RBANM's First Grade College. All Rights Reserved.</p>
+          <p>&copy; 2025 RBANM's First Grade College. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

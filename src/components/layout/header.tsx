@@ -112,7 +112,7 @@ export function SiteHeader() {
       </div>
 
       {/* Second header: logo + navigation */}
-      <nav className="w-full border-b border-white/10 bg-blue-900" role="navigation">
+      <nav className="w-full border-b border-white/10 bg-[#800000]" role="navigation">
         <div className="mx-auto max-w-7xl px-2 py-1 flex items-center gap-2">
 
           {/* Desktop Links */}
@@ -130,7 +130,7 @@ export function SiteHeader() {
                         <ChevronDown className="h-3 w-3" />
                       </button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent align="start" className="bg-blue-900 border-white/10 text-white">
+                    <DropdownMenuContent align="start" className="bg-[#800000] border-white/10 text-white">
                       {dropdownItems[link.label]?.map((item) =>
                         item.children && item.children.length ? (
                           <div key={item.label} className="px-2 py-2">
@@ -187,7 +187,7 @@ export function SiteHeader() {
                   <Menu className="h-5 w-5" />
                 </button>
               </SheetTrigger>
-              <SheetContent side="left" className="bg-blue-900 border-r-white/10 text-white">
+              <SheetContent side="left" className="bg-[#800000] border-r-white/10 text-white">
                 <SheetHeader>
                   <SheetTitle className="text-xl font-bold text-white">Menu</SheetTitle>
                 </SheetHeader>
