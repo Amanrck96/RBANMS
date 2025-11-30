@@ -1,6 +1,42 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { cn } from "@/lib/utils";
+
+function ExpandableMessage({ title, imageSrc, imageAlt, children, unoptimized = false }: { title: string, imageSrc: string, imageAlt: string, children: React.ReactNode, unoptimized?: boolean }) {
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    return (
+        <div className="bg-white rounded-lg shadow-sm p-6 border border-slate-100 flex flex-col h-full">
+            <h2 className="text-2xl font-bold text-blue-900 mb-6 font-headline">
+                {title}
+            </h2>
+            <div className="mb-4 relative w-full aspect-[4/3] overflow-hidden rounded-md">
+                <Image
+                    src={imageSrc}
+                    alt={imageAlt}
+                    fill
+                    className="object-cover object-top"
+                    unoptimized={unoptimized}
+                />
+            </div>
+            <div className={cn("text-slate-700 leading-relaxed flex-grow", isExpanded ? "" : "line-clamp-4 relative")}>
+                {children}
+                {!isExpanded && (
+                    <div className="absolute bottom-0 left-0 w-full h-8 bg-gradient-to-t from-white to-transparent" />
+                )}
+            </div>
+            <button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="text-blue-600 hover:text-blue-800 font-medium mt-4 text-sm self-start"
+            >
+                {isExpanded ? "Read Less" : "Read More"}
+            </button>
+        </div>
+    );
+}
 
 export function IntroTextBox() {
     return (
@@ -13,54 +49,62 @@ export function IntroTextBox() {
                     </h2>
                     <div className="text-lg text-slate-700 leading-relaxed max-w-5xl mx-auto">
                         <p>
-                            RBANMS FIRST GRADE COLLEGE is affiliated to Bengaluru City University, accredited by NAAC with a B+, and recognised under Section 2(f) & 12(B) of the UGC Act, 1956. A premier Institution dedicated to fostering academic excellence and holistic development.
+                            RBANMS FIRST GRADE COLLEGE, is affiliated to Bengaluru City University. It has been accredited by NAAC with a B+ and is recognised under Section 2(f) & 12(B) of the UGC Act, 1956.
+                        </p>
+                        <p className="mt-4">
+                            A premier Institution dedicated to fostering academic excellence and holistic development, affiliated to Bengaluru City University.
                         </p>
                     </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-
                     {/* Column 2: Message from Director */}
-                    <div className="bg-white rounded-lg shadow-sm p-6 border border-slate-100 flex flex-col h-full">
-                        <h2 className="text-2xl font-bold text-blue-900 mb-6 font-headline">
-                            Message from Director
-                        </h2>
-                        <div className="mb-4 relative w-full aspect-[4/3] overflow-hidden rounded-md">
-                            <Image
-                                src="https://rbanmsfgc.ac.in/images/gallery/sahana.jpeg"
-                                alt="Director Dr Sahana Das"
-                                fill
-                                className="object-cover object-top"
-                            />
-                        </div>
-                        <div className="text-slate-700 leading-relaxed flex-grow">
-                            <p className="line-clamp-4">
-                                Education must go beyond the syllabus and help prepare students for life so that their professional success is balanced with their personal, emotional, and spiritual wellbeing. Our student-centric approach keeps the campus energetic and purposeful.
+                    <ExpandableMessage
+                        title="Message from Director"
+                        imageSrc="https://rbanmsfgc.ac.in/images/gallery/sahana.jpeg"
+                        imageAlt="Director Dr Sahana Das"
+                    >
+                        <div className="space-y-4">
+                            <p>
+                                Education must go beyond the syllabus and help prepare students for life so that their professional success is balanced with their personal, emotional, and spiritual wellbeing. Our student-centric approach keeps the campus energetic and purposeful all through the academic year and offer learnings that will always stay as anchor in the ebb and flow of life.
+                            </p>
+                            <p>
+                                What is education? What is the value of coming to college? Why bother with a degree? At RBANM’s First Grade College we ask these very important questions and try to find answers from the point of view of the student who has decided to trust us as a life guide. We have a three-pronged approach: address exams, address employability, and address personality development. In the classroom and outside, through theory and in practice, it is this philosophy of education that fuels all that we do.
+                            </p>
+                            <p>
+                                This holistic approach to education is in keeping with the vision of that extraordinary man who founded the RBANM’s Educational Charities in 1873: Rai Bahadur Arcot Narrainswamy Mudaliar. Even today, his ideals of equity, equality, justice, inclusion, and respect for diversity permeate our teaching philosophy. Ours is a college that is a temple of learning for all, where no student is ignored or left behind, and where education is seen as a precious gift that is life changing.
+                            </p>
+                            <p className="font-bold">
+                                - Dr. Sahana Das
                             </p>
                         </div>
-                    </div>
+                    </ExpandableMessage>
 
                     {/* Column 3: Message from Principal */}
-                    <div className="bg-white rounded-lg shadow-sm p-6 border border-slate-100 flex flex-col h-full">
-                        <h2 className="text-2xl font-bold text-blue-900 mb-6 font-headline">
-                            Message from Principal
-                        </h2>
-                        <div className="mb-4 relative w-full aspect-[4/3] overflow-hidden rounded-md">
-                            <Image
-                                src="https://rbanmsfgc.ac.in/images/gallery/WhatsApp%20Image%202025-11-04%20at%203.37.04%20PM.jpeg"
-                                alt="Principal Dr Shanti Iyer"
-                                fill
-                                className="object-cover object-top"
-                                unoptimized
-                            />
-                        </div>
-                        <div className="text-slate-700 leading-relaxed flex-grow">
-                            <p className="line-clamp-4">
-                                The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. The key objective of education at RBANM’s First Grade College is to create efficient academicians, innovative entrepreneurs, and true researchers.
+                    <ExpandableMessage
+                        title="Message from Principal"
+                        imageSrc="https://rbanmsfgc.ac.in/images/gallery/WhatsApp%20Image%202025-11-04%20at%203.37.04%20PM.jpeg"
+                        imageAlt="Principal Dr Shanti Iyer"
+                        unoptimized={true}
+                    >
+                        <div className="space-y-4">
+                            <p>
+                                The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. The key objective of education at RBANM’s First Grade College is to create efficient academicians, innovative entrepreneurs, true researchers and honest, dedicated and dynamic leaders who contribute to the development of society and nation at large.
+                            </p>
+                            <p>
+                                Guided by values of faith, integrity and dignity, we at RBANM’s FGC, are committed to providing holistic education by maintaining high academic standards, discipline and professional ethics.
+                            </p>
+                            <p>
+                                In the process of guiding students through the prescribed syllabii and the examination system, we also mould their personality by instilling in them values, skills and the right attitude towards life.
+                            </p>
+                            <p>
+                                In conclusion, I can say that, joining RBANM’s FGC will be a decision a student will never regret, for he/ she can then have secure future and a successful life. Having the opportunity to ‘Enrich, Excel and Evolve’, this is a place where students are taught to reach the sky and beyond.
+                            </p>
+                            <p className="font-bold">
+                                - Dr. Shanti Iyer
                             </p>
                         </div>
-                    </div>
+                    </ExpandableMessage>
                 </div>
             </div>
         </section>
