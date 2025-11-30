@@ -63,7 +63,9 @@ export default function CoursesOfferedPage() {
                 <p className="content-black">{course.description}</p>
               </CardContent>
               <div className="p-6 pt-0">
-                <p className="text-lg font-bold text-primary font-headline mb-1">Applied for</p>
+                {index >= courses.length - 2 && (
+                  <p className="text-lg font-bold text-primary font-headline mb-1">Applied for</p>
+                )}
                 <Button asChild variant="link" className="p-0">
                   <Link href={course.href}>
                     Click here for details <ArrowRight className="ml-2 h-4 w-4" />
