@@ -1,11 +1,12 @@
 
 import { SiteHeader } from '@/components/layout/header';
 import { SiteFooter } from '@/components/layout/footer';
-import { AnnouncementsSection } from '@/components/sections/announcements-section';
+
 import { WhyChooseUsSection } from '@/components/sections/why-choose-us-section';
-import { AwardsAndEvents } from '@/components/sections/awards-and-events';
+
 
 import { AdditionalImagesCarousel } from '@/components/sections/additional-images-carousel';
+import { IntroTextBox } from '@/components/sections/intro-text-box';
 
 export default function Home() {
   return (
@@ -18,10 +19,11 @@ export default function Home() {
         <div className="">
           <AdditionalImagesCarousel intervalMs={3500} />
         </div>
+        <IntroTextBox />
 
-        <AnnouncementsSection />
+
         <WhyChooseUsSection />
-        <AwardsAndEvents />
+
       </main>
       <SiteFooter />
     </div>
