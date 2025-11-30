@@ -57,8 +57,8 @@ export function IntroTextBox() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {/* Column 2: Message from Director */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {/* Column 1: Message from Director */}
                     <ExpandableMessage
                         title="Message from Director"
                         imageSrc="https://rbanmsfgc.ac.in/images/gallery/sahana.jpeg"
@@ -69,10 +69,10 @@ export function IntroTextBox() {
                                 Education must go beyond the syllabus and help prepare students for life so that their professional success is balanced with their personal, emotional, and spiritual wellbeing. Our student-centric approach keeps the campus energetic and purposeful all through the academic year and offer learnings that will always stay as anchor in the ebb and flow of life.
                             </p>
                             <p>
-                                What is education? What is the value of coming to college? Why bother with a degree? At RBANM’s First Grade College we ask these very important questions and try to find answers from the point of view of the student who has decided to trust us as a life guide. We have a three-pronged approach: address exams, address employability, and address personality development. In the classroom and outside, through theory and in practice, it is this philosophy of education that fuels all that we do.
+                                What is education? What is the value of coming to college? Why bother with a degree? At RBANM's First Grade College we ask these very important questions and try to find answers from the point of view of the student who has decided to trust us as a life guide. We have a three-pronged approach: address exams, address employability, and address personality development. In the classroom and outside, through theory and in practice, it is this philosophy of education that fuels all that we do.
                             </p>
                             <p>
-                                This holistic approach to education is in keeping with the vision of that extraordinary man who founded the RBANM’s Educational Charities in 1873: Rai Bahadur Arcot Narrainswamy Mudaliar. Even today, his ideals of equity, equality, justice, inclusion, and respect for diversity permeate our teaching philosophy. Ours is a college that is a temple of learning for all, where no student is ignored or left behind, and where education is seen as a precious gift that is life changing.
+                                This holistic approach to education is in keeping with the vision of that extraordinary man who founded the RBANM's Educational Charities in 1873: Rai Bahadur Arcot Narrainswamy Mudaliar. Even today, his ideals of equity, equality, justice, inclusion, and respect for diversity permeate our teaching philosophy. Ours is a college that is a temple of learning for all, where no student is ignored or left behind, and where education is seen as a precious gift that is life changing.
                             </p>
                             <p className="font-bold">
                                 - Dr. Sahana Das
@@ -80,7 +80,7 @@ export function IntroTextBox() {
                         </div>
                     </ExpandableMessage>
 
-                    {/* Column 3: Message from Principal */}
+                    {/* Column 2: Message from Principal */}
                     <ExpandableMessage
                         title="Message from Principal"
                         imageSrc="https://rbanmsfgc.ac.in/images/gallery/WhatsApp%20Image%202025-11-04%20at%203.37.04%20PM.jpeg"
@@ -89,22 +89,62 @@ export function IntroTextBox() {
                     >
                         <div className="space-y-4">
                             <p>
-                                The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. The key objective of education at RBANM’s First Grade College is to create efficient academicians, innovative entrepreneurs, true researchers and honest, dedicated and dynamic leaders who contribute to the development of society and nation at large.
+                                The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. The key objective of education at RBANM's First Grade College is to create efficient academicians, innovative entrepreneurs, true researchers and honest, dedicated and dynamic leaders who contribute to the development of society and nation at large.
                             </p>
                             <p>
-                                Guided by values of faith, integrity and dignity, we at RBANM’s FGC, are committed to providing holistic education by maintaining high academic standards, discipline and professional ethics.
+                                Guided by values of faith, integrity and dignity, we at RBANM's FGC, are committed to providing holistic education by maintaining high academic standards, discipline and professional ethics.
                             </p>
                             <p>
                                 In the process of guiding students through the prescribed syllabii and the examination system, we also mould their personality by instilling in them values, skills and the right attitude towards life.
                             </p>
                             <p>
-                                In conclusion, I can say that, joining RBANM’s FGC will be a decision a student will never regret, for he/ she can then have secure future and a successful life. Having the opportunity to ‘Enrich, Excel and Evolve’, this is a place where students are taught to reach the sky and beyond.
+                                In conclusion, I can say that, joining RBANM's FGC will be a decision a student will never regret, for he/ she can then have secure future and a successful life. Having the opportunity to 'Enrich, Excel and Evolve', this is a place where students are taught to reach the sky and beyond.
                             </p>
                             <p className="font-bold">
                                 - Dr. Shanti Iyer
                             </p>
                         </div>
                     </ExpandableMessage>
+
+                    {/* Column 3: The Month that was */}
+                    <div className="bg-white rounded-lg shadow-sm p-6 border border-slate-100 flex flex-col h-full">
+                        <h2 className="text-2xl font-bold text-blue-900 mb-6 font-headline">
+                            The Month that was
+                        </h2>
+                        <div className="text-slate-700 leading-relaxed space-y-4 flex-grow">
+                            <div className="border-l-4 border-blue-600 pl-4 py-2">
+                                <h3 className="font-bold text-blue-800 mb-1">November 2025</h3>
+                                <ul className="space-y-2 text-sm">
+                                    <li className="flex gap-2">
+                                        <span className="text-blue-600 font-bold">•</span>
+                                        <span>National Education Day celebrated with inspiring talks and activities</span>
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <span className="text-blue-600 font-bold">•</span>
+                                        <span>Industrial visit to HTCS Cloud Solutions for BCA students</span>
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <span className="text-blue-600 font-bold">•</span>
+                                        <span>Annual Sports Day showcasing athletic excellence</span>
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <span className="text-blue-600 font-bold">•</span>
+                                        <span>Faculty development workshop on innovative teaching methods</span>
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <span className="text-blue-600 font-bold">•</span>
+                                        <span>Student placement interviews with top companies</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <Link
+                                href="/events"
+                                className="inline-block text-blue-600 hover:text-blue-800 font-medium text-sm mt-4"
+                            >
+                                View All Events →
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
