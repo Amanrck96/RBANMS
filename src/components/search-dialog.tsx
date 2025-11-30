@@ -78,12 +78,12 @@ export function SearchDialog() {
 
         // Add courses
         const courses = [
-            { title: "Bachelor of Computer Applications (BCA)", href: "/departments/computer-applications", keywords: "BCA computer applications programming software development IT" },
-            { title: "Bachelor of Commerce (B.Com)", href: "/departments/commerce", keywords: "BCom B.Com commerce accounting finance taxation business" },
-            { title: "Bachelor of Business Administration (BBA)", href: "/departments/management", keywords: "BBA business administration management entrepreneurship marketing HR" },
-            { title: "Bachelor of Arts (BA)", href: "/departments/arts", keywords: "BA arts history political science economics humanities" },
-            { title: "Bachelor of Arts (Physical Education)", href: "/departments/physical-education", keywords: "BA physical education PE sports fitness coaching" },
-            { title: "Bachelor of Arts (Journalism)", href: "/departments/arts", keywords: "BA journalism media news reporting communication" },
+            { title: "Bachelor of Computer Applications (BCA)", href: "/departments/computer-applications" },
+            { title: "Bachelor of Commerce (B.Com)", href: "/departments/commerce" },
+            { title: "Bachelor of Business Administration (BBA)", href: "/departments/management" },
+            { title: "Bachelor of Arts (BA)", href: "/departments/arts" },
+            { title: "Bachelor of Arts (Physical Education)", href: "/departments/physical-education" },
+            { title: "Bachelor of Arts (Journalism)", href: "/departments/arts" },
         ];
 
         courses.forEach((course) => {
@@ -96,12 +96,12 @@ export function SearchDialog() {
 
         // Add departments
         const departments = [
-            { title: "Computer Applications Department", href: "/departments/computer-applications", keywords: "BCA computer IT technology" },
-            { title: "Commerce Department", href: "/departments/commerce", keywords: "BCom commerce accounts finance" },
-            { title: "Management Department", href: "/departments/management", keywords: "BBA business management" },
-            { title: "Arts Department", href: "/departments/arts", keywords: "BA arts humanities" },
-            { title: "Physical Education Department", href: "/departments/physical-education", keywords: "PE sports physical education" },
-            { title: "English Department", href: "/departments/english", keywords: "english language communication" },
+            { title: "Computer Applications Department (BCA)", href: "/departments/computer-applications" },
+            { title: "Commerce Department (B.Com)", href: "/departments/commerce" },
+            { title: "Management Department (BBA)", href: "/departments/management" },
+            { title: "Arts Department (BA)", href: "/departments/arts" },
+            { title: "Physical Education Department", href: "/departments/physical-education" },
+            { title: "English Department", href: "/departments/english" },
         ];
 
         departments.forEach((dept) => {
@@ -112,66 +112,113 @@ export function SearchDialog() {
             });
         });
 
-        // Add contact information - searchable by keywords
-        items.push({
-            title: "Contact Us - Phone: +91-9845132727",
-            href: "/contact",
-            category: "Contact Information",
+        // Add all contact information
+        const contacts = [
+            { title: "Phone: 080-48533572", href: "/contact" },
+            { title: "Email: principal_rbanms@gmail.com", href: "/contact" },
+            { title: "Email: priyamahesh09@gmail.com (Placement)", href: "/contact" },
+            { title: "BCA Department Email: rbanmsfgc.bca@gmail.com", href: "/departments/computer-applications" },
+            { title: "English Department Email: departmentofenglishrbanms@gmail.com", href: "/departments/english" },
+            { title: "Address: #12, Annaswamy Mudaliar Road, Bangalore 560042", href: "/contact" },
+        ];
+
+        contacts.forEach((contact) => {
+            items.push({
+                title: contact.title,
+                href: contact.href,
+                category: "Contact Information",
+            });
         });
 
-        items.push({
-            title: "Contact Us - Email: rbanmsfgc@gmail.com",
-            href: "/contact",
-            category: "Contact Information",
+        // Add BCA Faculty members
+        const bcaFaculty = [
+            { name: "Moka Nanditha Varma (HOD, BCA)", email: "nanditha.moka@gmail.com" },
+            { name: "Vijaya Lakshmi (BCA Faculty)", email: "vijayalakshmi.rbanmsfgc@gmail.com" },
+            { name: "S Divya (BCA Faculty)", email: "dhivya.valli@gmail.com" },
+            { name: "Shirley Nesamani (BCA Faculty)", email: "rbanmsfgc.shirley@gmail.com" },
+            { name: "Md Ziya Hakim (BCA Faculty)", email: "ziyahakim89@gmail.com" },
+        ];
+
+        bcaFaculty.forEach((faculty) => {
+            items.push({
+                title: `${faculty.name} - ${faculty.email}`,
+                href: "/departments/computer-applications",
+                category: "Faculty - Computer Applications",
+            });
         });
 
-        items.push({
-            title: "Principal: +91-9845132727",
-            href: "/contact",
-            category: "Contact Information",
+        // Add English Faculty members
+        const englishFaculty = [
+            { name: "Simran (English Faculty)", email: "s.simranwrites@gmail.com" },
+            { name: "Rashi Tibrewal (English Faculty)", email: "rashi30tibrewal@gmail.com" },
+            { name: "Tony Chembakassery Paul (English Faculty)", email: "tony17paul@gmail.com" },
+        ];
+
+        englishFaculty.forEach((faculty) => {
+            items.push({
+                title: `${faculty.name} - ${faculty.email}`,
+                href: "/departments/english",
+                category: "Faculty - English",
+            });
         });
 
-        items.push({
-            title: "Office: +91-9845132727",
-            href: "/contact",
-            category: "Contact Information",
+        // Add important academic pages
+        const academicPages = [
+            { title: "Courses Offered", href: "/academics/courses-offered" },
+            { title: "Principal's Message", href: "/about/principal-message" },
+            { title: "Director's Message", href: "/" },
+            { title: "Research Centre - Arcot Narrainswamy", href: "/research" },
+            { title: "Facilities", href: "/facilities" },
+            { title: "Placement", href: "/placement" },
+            { title: "Scholarship", href: "/scholarship" },
+            { title: "Alumni Activities", href: "/alumni/activity" },
+            { title: "RTI - Right to Information", href: "/rti" },
+            { title: "Governance", href: "/governance" },
+            { title: "Code of Conduct", href: "/code-of-conduct" },
+            { title: "Industry Connect - Internships", href: "/industry-connect/internship" },
+            { title: "Industry Connect - Industry Visits", href: "/industry-connect/industry-visits" },
+            { title: "Events Calendar", href: "/events" },
+            { title: "Contact Us", href: "/contact" },
+        ];
+
+        academicPages.forEach((page) => {
+            items.push({
+                title: page.title,
+                href: page.href,
+                category: "Pages",
+            });
         });
 
-        // Add other important pages
-        items.push({
-            title: "Principal's Message",
-            href: "/about/principal-message",
-            category: "About",
+        // Add certificate courses and programs
+        const programs = [
+            { title: "Web Development & Cloud DevOps (BCA Certification)", href: "/departments/computer-applications" },
+            { title: "Campus to Corporate (English Certificate)", href: "/departments/english" },
+            { title: "Theatre Arts Certificate Course", href: "/departments/english" },
+            { title: "Communication & Soft Skills (Certificate)", href: "/departments/english" },
+        ];
+
+        programs.forEach((program) => {
+            items.push({
+                title: program.title,
+                href: program.href,
+                category: "Certificate Courses",
+            });
         });
 
-        items.push({
-            title: "Director's Message",
-            href: "/",
-            category: "About",
-        });
+        // Add student clubs and activities
+        const clubs = [
+            { title: "NATYA - Drama Club", href: "/departments/english" },
+            { title: "Fourth Wall Theatre Club", href: "/departments/english" },
+            { title: "Phoenix Club - Editorial Committee", href: "/departments/english" },
+            { title: "Techtantra - BCA Forum", href: "/departments/computer-applications" },
+        ];
 
-        items.push({
-            title: "Facilities",
-            href: "/facilities",
-            category: "Campus",
-        });
-
-        items.push({
-            title: "Placement",
-            href: "/placement",
-            category: "Campus",
-        });
-
-        items.push({
-            title: "Scholarship",
-            href: "/scholarship",
-            category: "Student Services",
-        });
-
-        items.push({
-            title: "Research Centre",
-            href: "/research",
-            category: "Academics",
+        clubs.forEach((club) => {
+            items.push({
+                title: club.title,
+                href: club.href,
+                category: "Student Clubs",
+            });
         });
 
         return items;
@@ -207,7 +254,7 @@ export function SearchDialog() {
                     <div className="flex items-center gap-2">
                         <Search className="h-5 w-5 text-muted-foreground" />
                         <Input
-                            placeholder="Search for courses, departments, contact info, activities..."
+                            placeholder="Search for courses, faculty, contact info, activities..."
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}
                             className="border-0 focus-visible:ring-0 px-0 text-lg h-auto"
