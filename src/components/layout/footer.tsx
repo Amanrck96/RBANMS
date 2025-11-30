@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Mail, MapPin, Facebook, Twitter, Youtube, Instagram } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Twitter, Youtube, Instagram, Linkedin } from 'lucide-react';
 
 export function SiteFooter() {
   const quickLinks = [
@@ -32,7 +32,7 @@ export function SiteFooter() {
 
           {/* Quick Links */}
           <div className="space-y-2">
-            <h3 className="text-xl font-bold text-yellow-300">Quick Links</h3>
+            <h3 className="text-xl font-bold !text-yellow-400">Quick Links</h3>
             <ul className="space-y-2 columns-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
@@ -46,17 +46,18 @@ export function SiteFooter() {
 
           {/* Campus Info */}
           <div className="space-y-2">
-            <h3 className="text-xl font-bold text-yellow-300">Campus</h3>
+            <h3 className="text-xl font-bold !text-yellow-400">Campus</h3>
             <ul className="space-y-2">
               <li><Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">Gallery</Link></li>
               <li><Link href="/events" className="text-sm text-white/80 hover:text-white transition-colors">Events</Link></li>
               <li><Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">News</Link></li>
+              <li><Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">Placement</Link></li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div className="space-y-2">
-            <h3 className="text-xl font-bold text-yellow-300">Contact Us</h3>
+            <h3 className="text-xl font-bold !text-yellow-400">Contact Us</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 mt-1 shrink-0" />
@@ -85,19 +86,16 @@ export function SiteFooter() {
 
           {/* Social Media */}
           <div className="space-y-2">
-            <h3 className="text-xl font-bold text-yellow-300">Social Media</h3>
+            <h3 className="text-xl font-bold !text-yellow-400">Social Media</h3>
             <div className="flex gap-4">
-              <a href="#" className="text-white/80 hover:text-white transition-colors" aria-label="Facebook">
-                <Facebook className="h-6 w-6" />
-              </a>
-              <a href="#" className="text-white/80 hover:text-white transition-colors" aria-label="Twitter">
-                <Twitter className="h-6 w-6" />
-              </a>
               <a href="#" className="text-white/80 hover:text-white transition-colors" aria-label="YouTube">
                 <Youtube className="h-6 w-6" />
               </a>
               <a href="#" className="text-white/80 hover:text-white transition-colors" aria-label="Instagram">
                 <Instagram className="h-6 w-6" />
+              </a>
+              <a href="#" className="text-white/80 hover:text-white transition-colors" aria-label="LinkedIn">
+                <Linkedin className="h-6 w-6" />
               </a>
             </div>
           </div>
