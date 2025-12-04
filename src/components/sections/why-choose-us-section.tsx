@@ -38,7 +38,7 @@ export function WhyChooseUsSection() {
     <section className="py-12 lg:pt-8 lg:pb-24 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-primary font-headline">The RBANM's Advantage</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold text-primary font-headline">The RBANM’s Advantage</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
           <ul className="space-y-4">
