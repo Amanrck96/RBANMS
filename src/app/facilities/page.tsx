@@ -213,6 +213,70 @@ export default function FacilitiesPage() {
               </div>
             </div>
 
+            {/* Digital Library & Automation */}
+            <div className="space-y-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-2xl text-emerald-800">
+                    <Monitor className="h-6 w-6" /> Digital Library
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">A digital library is an online data base of digital study material such as textbooks, articles, E- Journals, image, audio and video accessible from anywhere with an internet connection. In the digital library of RBANM’S First Grade College the following e- resources are available:</p>
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div>
+                      <h4 className="font-semibold text-emerald-700 mb-2">E-Resources Available</h4>
+                      <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
+                        <li>N - List</li>
+                        <li>DELNET</li>
+                        <li>National Digital Library (NDL)</li>
+                        <li>Directory of Open Access Books</li>
+                        <li>Wikipedia</li>
+                        <li>JESTOR</li>
+                        <li>e-Pathashala</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-emerald-700 mb-2">E-Books & E-Journals</h4>
+                      <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
+                        <li>Cambridge books (Online)</li>
+                        <li>E-library</li>
+                        <li>Springer eBooks</li>
+                        <li>Sage Publication e Books</li>
+                        <li>Taylor Francis eBooks</li>
+                        <li>Mylibrary - McGrew Hills</li>
+                        <li>Economic and Political Weekly</li>
+                        <li>Indian Journals Management Science</li>
+                        <li>Indian Journals of Social Science</li>
+                        <li>Oxford University Press</li>
+                        <li>Cambridge University Press</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="mt-4 bg-emerald-50 p-4 rounded text-sm text-muted-foreground">
+                    There is YouTube Video and Published articles upload facilities available in DELNET consortium using institutional membership and the same can be viewed by any other institution members who has access to DELNET.
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-2xl text-emerald-800">
+                    <Library className="h-6 w-6" /> Library Automation
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <h4 className="font-semibold text-emerald-700 mb-2">Library Management System</h4>
+                  <p className="text-muted-foreground mb-4">
+                    Library and Information Center of the college is completely automated with integrated multi-user library software working under Windows EASY-LIB software (latest version 6.4). The software has provision of bar coding for easy search of the resources available.
+                  </p>
+                  <p className="text-muted-foreground">
+                    This software package provides the modules for acquisition, serial control, circulation, cataloging, and OPAC (Online Public Access Catalogue). This user friendly package is used to search for author, title, class, number, key words and accession number etc.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
             {/* Classrooms */}
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="order-2 md:order-1">
