@@ -13,7 +13,10 @@ import {
   MapPin,
   Clock,
   Wifi,
-  Printer
+  Printer,
+  Globe,
+  Database,
+  Search
 } from 'lucide-react';
 
 export default function FacilitiesPage() {
@@ -52,7 +55,7 @@ export default function FacilitiesPage() {
       <div>
         <h4 className="text-lg font-bold uppercase tracking-wider text-slate-800 border-b pb-2 mb-4">Quick Facilities</h4>
         <div className="flex flex-wrap gap-2">
-          {["Computer Labs", "Auditorium", "Library", "Canteen", "Sports Ground", "Seminar Hall", "Design Studio"].map((tag, i) => (
+          {["Computer Labs", "Auditorium", "Library", "Canteen", "Sports Ground", "Seminar Hall", "Design Studio", "Digital Library"].map((tag, i) => (
             <Badge key={i} variant="secondary">{tag}</Badge>
           ))}
         </div>
@@ -164,34 +167,71 @@ export default function FacilitiesPage() {
 
       {/* Library */}
       <section id="library">
-        <h2 className="text-3xl font-bold mb-8 border-l-4 border-primary pl-4">Library</h2>
-        <Card className="overflow-hidden">
-          <div className="bg-primary/5 p-6 text-center border-b">
-            <h3 className="text-xl font-bold text-primary mb-2">Timing: 8 A.M. to 5 P.M.</h3>
-            <p className="text-sm text-muted-foreground">Fully computerized with database search cataloging</p>
-          </div>
-          <CardContent className="p-8 space-y-6">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="space-y-4">
-                <h4 className="font-bold text-lg">Collection</h4>
-                <p className="text-muted-foreground">
-                  More than 40,000 volumes of books on all subjects, ranging from academic books, encyclopaedias, fiction, science, photography, arts, religion and general knowledge. Excellent facilities with Newspapers, periodicals and magazines.
+        <h2 className="text-3xl font-bold mb-8 border-l-4 border-primary pl-4">Library & Digital Resources</h2>
+        <div className="space-y-8">
+          <Card className="overflow-hidden">
+            <div className="bg-primary/5 p-6 text-center border-b">
+              <h3 className="text-xl font-bold text-primary mb-2">Timing: 8 A.M. to 5 P.M.</h3>
+              <p className="text-sm text-muted-foreground">Fully computerized with database search cataloging</p>
+            </div>
+            <CardContent className="p-8 space-y-6">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                  <h4 className="font-bold text-lg">Collection</h4>
+                  <p className="text-muted-foreground">
+                    More than 40,000 volumes of books on all subjects, ranging from academic books, encyclopaedias, fiction, science, photography, arts, religion and general knowledge. Excellent facilities with Newspapers, periodicals and magazines.
+                  </p>
+                </div>
+                <div className="space-y-4">
+                  <h4 className="font-bold text-lg">Services</h4>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-muted-foreground">
+                    <li className="flex gap-2 items-center"><BookOpen className="h-4 w-4" /> Reference Service</li>
+                    <li className="flex gap-2 items-center"><Printer className="h-4 w-4" /> Reprographic Service</li>
+                    <li className="flex gap-2 items-center"><Wifi className="h-4 w-4" /> Internet Facilities</li>
+                    <li className="flex gap-2 items-center"><BookOpen className="h-4 w-4" /> Open Access Service</li>
+                    <li className="flex gap-2 items-center"><Library className="h-4 w-4" /> Book Bank Facilities</li>
+                    <li className="flex gap-2 items-center"><Globe className="h-4 w-4" /> British Council Tie-up</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Digital Library Section */}
+          <Card>
+            <CardHeader className="border-b bg-slate-50">
+              <CardTitle className="text-xl flex items-center gap-2">
+                <Database className="h-6 w-6 text-primary" /> Digital Library
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="p-8 space-y-8">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="font-bold text-lg mb-4">E-Resources</h4>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    {["N-List", "DELNET", "National Digital Library (NDL)", "Directory of Open Access Books", "Wikipedia", "JESTOR", "e-Pathashala"].map((res, i) => (
+                      <li key={i} className="flex gap-2 items-center"><span className="h-1.5 w-1.5 rounded-full bg-blue-500" />{res}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-bold text-lg mb-4">E-Books & Journals</h4>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    {["Cambridge books (Online)", "E-library", "Springer eBooks", "Sage Publication e Books", "Taylor Francis eBooks", "Mylibrary - McGrew Hills", "Economic and Political Weekly", "Indian Journals Management Science", "Oxford University Press"].map((res, i) => (
+                      <li key={i} className="flex gap-2 items-center"><span className="h-1.5 w-1.5 rounded-full bg-green-500" />{res}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="p-4 bg-yellow-50 rounded-lg border border-yellow-100">
+                <h4 className="font-bold text-slate-800 mb-2 flex items-center gap-2"><Search className="h-5 w-5 text-yellow-600" /> Library Management System</h4>
+                <p className="text-sm text-slate-700 leading-relaxed">
+                  The library is completely automated with <strong>EASY-LIB software (version 6.4)</strong>. The system supports bar coding for easy search and provides modules for acquisition, serial control, circulation, cataloging, and OPAC (Online Public Access Catalogue). Users can search by author, title, class number, keywords, etc.
                 </p>
               </div>
-              <div className="space-y-4">
-                <h4 className="font-bold text-lg">Services</h4>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-muted-foreground">
-                  <li className="flex gap-2 items-center"><BookOpen className="h-4 w-4" /> Reference Service</li>
-                  <li className="flex gap-2 items-center"><Printer className="h-4 w-4" /> Reprographic Service</li>
-                  <li className="flex gap-2 items-center"><Wifi className="h-4 w-4" /> Internet Facilities</li>
-                  <li className="flex gap-2 items-center"><BookOpen className="h-4 w-4" /> Open Access Service</li>
-                  <li className="flex gap-2 items-center"><Library className="h-4 w-4" /> Book Bank Facilities</li>
-                  <li className="flex gap-2 items-center"><Globe className="h-4 w-4" /> British Council Tie-up</li>
-                </ul>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </div>
       </section>
 
       {/* Classrooms */}

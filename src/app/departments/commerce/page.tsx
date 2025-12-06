@@ -1,30 +1,33 @@
 import React from 'react';
 import { DepartmentLayout } from '@/components/layout/department-layout';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Button } from '@/components/ui/button';
 import {
+  TrendingUp,
   Briefcase,
+  Calculator,
+  PieChart,
   Users,
   Target,
-  Mail,
-  Lightbulb,
   Award,
+  BookOpen,
+  DollarSign,
   Globe,
-  TrendingUp
+  FileText
 } from 'lucide-react';
 
 export default function CommerceDepartmentPage() {
   const welcomeText = (
     <div className="space-y-6 text-justify">
       <p>
-        The Commerce Department at RBANM’s First Grade College has been shaping capable and confident graduates since 1984. It offers a strong undergraduate program built on practical learning and steady innovation.
+        The Commerce Department at RBANM’s First Grade College has been shaping capable and confident graduates since 1984. It offers a strong undergraduate program built on practical learning and steady innovation. The goal is clear: to improve every year and deliver education that meets global standards.
       </p>
       <p>
-        The goal is clear: to improve every year and deliver education that meets global standards. Teaching blends traditional lectures with student centred methods that build real understanding. Role-plays, simulations, group work, discussions, debates, and case-based learning make the classroom active and engaging.
+        Teaching blends traditional lectures with student-centred methods that build real understanding. Role-plays, simulations, group work, discussions, debates, and case-based learning make the classroom active and engaging.
       </p>
       <p>
-        The department also takes pride in practices that support all round development. Students gain exposure through service learning, peer mentoring, mental health and wellness initiatives, social outreach, research paper opportunities, a bridge course for non-commerce learners, and skill enhancement programs aligned with industry expectations.
+        The department also takes pride in practices that support all-round development. Students gain exposure through service learning, peer mentoring, mental health initiatives, and skill enhancement programs aligned with industry expectations.
       </p>
     </div>
   );
@@ -34,13 +37,15 @@ export default function CommerceDepartmentPage() {
       <h3 className="text-2xl font-bold flex items-center justify-center gap-2">
         <Target className="h-6 w-6 stroke-[3px]" /> Vision & Mission
       </h3>
-      <p className="text-muted-foreground italic">
-        "To nurture competent, ethical, and socially responsible commerce graduates ready for a dynamic global business environment."
-      </p>
-      <div className="pt-2">
-        <Button variant="outline" className="font-semibold">
-          View Full Vision
-        </Button>
+      <div className="text-muted-foreground italic text-sm space-y-2 text-left">
+        <p>“To nurture competent, ethical, and socially responsible commerce graduates ready for a dynamic global business environment.”</p>
+        <ul className="list-disc pl-5 space-y-1">
+          <li>Deliver quality education through innovative teaching and practical exposure.</li>
+          <li>Build strong analytical, communication, and entrepreneurial skills.</li>
+          <li>Integrate technology-driven learning (Tally, GST, Analytics).</li>
+          <li>Instil values and professional ethics.</li>
+          <li>Strengthen industry-institution linkages.</li>
+        </ul>
       </div>
     </div>
   );
@@ -52,11 +57,11 @@ export default function CommerceDepartmentPage() {
         <h4 className="text-lg font-bold uppercase tracking-wider text-slate-800 border-b pb-2">Highlights</h4>
         <ul className="space-y-3">
           {[
-            "Practical Learning (Case studies, Simulations)",
-            "Add-on programmes (Tally, Industry courses)",
-            "Strong Faculty Team",
-            "Industry Alignment & Job Readiness",
-            "Active Commerce Club & Entrepreneur Cell"
+            "Practical Learning: Case work, simulations, field activities",
+            "Add-on programmes: Tally training, Industry courses",
+            "Strong Faculty: Experienced Associate & Assistant Professors",
+            "Industry Alignment: Bridges academic concepts with market needs",
+            "Clubs: Commerce Club & Entrepreneur Cell"
           ].map((item, i) => (
             <li key={i} className="flex gap-3 text-sm text-muted-foreground">
               <span className="text-primary font-bold">•</span> {item}
@@ -65,17 +70,13 @@ export default function CommerceDepartmentPage() {
         </ul>
       </div>
 
-      {/* Career Pathways Panel */}
+      {/* Why B.Com? */}
       <div className="space-y-4">
-        <h4 className="text-lg font-bold uppercase tracking-wider text-slate-800 border-b pb-2">Career Pathways</h4>
-        <div className="flex flex-wrap gap-2">
-          {[
-            "Accountant", "Financial Analyst", "Tax Consultant", "Banking Associate", "HR Assistant", "Entrepreneur"
-          ].map((skill, i) => (
-            <span key={i} className="bg-white border rounded px-2 py-1 text-xs font-semibold text-slate-600">
-              {skill}
-            </span>
-          ))}
+        <h4 className="text-lg font-bold uppercase tracking-wider text-slate-800 border-b pb-2">Why B.Com?</h4>
+        <div className="text-sm text-muted-foreground space-y-2">
+          <p><strong>Strong Fundamentals:</strong> Accounting, Finance, Taxation, Management.</p>
+          <p><strong>High Employability:</strong> 62.81% employability rate (India Skills Report 2026).</p>
+          <p><strong>Stable Pathway:</strong> Relevant career opportunities in Banking, Fintech, and Analytics.</p>
         </div>
       </div>
     </>
@@ -84,19 +85,19 @@ export default function CommerceDepartmentPage() {
   const featureTiles: [React.ReactNode, React.ReactNode] = [
     <Card key="1" className="h-full bg-slate-900 text-white border-none flex flex-col justify-center text-center p-6">
       <CardContent className="space-y-4">
-        <Lightbulb className="h-12 w-12 mx-auto text-yellow-400" />
-        <h3 className="text-2xl font-bold">Skills Set Acquired</h3>
+        <Calculator className="h-12 w-12 mx-auto text-yellow-400" />
+        <h3 className="text-2xl font-bold">Skill Set</h3>
         <p className="text-slate-300 leading-relaxed text-sm">
-          Financial Literacy, Business Fundamentals, Analytical Ability, Digital Competence (Tally/GST), Communication Skills, and Entrepreneurial Mindset.
+          Financial Literacy, Analytical Ability, Digital Competence (Tally/GST), and Entrepreneurial Mindset combined with Professional Ethics.
         </p>
       </CardContent>
     </Card>,
     <Card key="2" className="h-full bg-primary text-primary-foreground border-none flex flex-col justify-center text-center p-6">
       <CardContent className="space-y-4">
-        <TrendingUp className="h-12 w-12 mx-auto text-white" />
-        <h3 className="text-2xl font-bold">Program Outcomes</h3>
+        <Award className="h-12 w-12 mx-auto text-white" />
+        <h3 className="text-2xl font-bold">Outcomes</h3>
         <p className="text-primary-foreground/90 leading-relaxed text-sm">
-          Develop financial literacy, critical thinking, ethical behavior, and readiness for careers in banking, finance, taxation, and business management.
+          Prepare, analyse, and interpret financial statements. Demonstrate problem-solving in business situations. Be career-ready for Banking, Finance, and Taxation.
         </p>
       </CardContent>
     </Card>
@@ -105,16 +106,40 @@ export default function CommerceDepartmentPage() {
   return (
     <DepartmentLayout
       title="Department of Commerce"
-      tagline="Shaping Capable and Confident Graduates Since 1984."
+      tagline="Shaping capable and confident graduates since 1984."
       activeTab="commerce"
       contentLeft={welcomeText}
       ctaContent={ctaContent}
       sidebarContent={sidebarContent}
       featureTiles={featureTiles}
     >
-      {/* Course Matrices */}
-      <section>
-        <h2 className="text-3xl font-bold mb-8 border-l-4 border-primary pl-4">Course Matrix (B.Com)</h2>
+      {/* Career Options */}
+      <section id="careers">
+        <h2 className="text-3xl font-bold mb-8 border-l-4 border-primary pl-4">Career Options</h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { field: "Accounting & Finance", roles: "Accountant, Financial Analyst, Auditor, Investment Advisor" },
+            { field: "Taxation & Compliance", roles: "Tax Consultant, GST Executive, Compliance Assistant" },
+            { field: "Banking & Insurance", roles: "Banking Associate, Loan Officer, Insurance Advisor" },
+            { field: "Business Roles", roles: "HR Assistant, Marketing Executive, Administrative Executive" },
+            { field: "Operations", roles: "Supply Chain Coordinator, E-commerce Ops, BPO/KPO Executive" },
+            { field: "Entrepreneurship", roles: "Small Business Owner, Entrepreneur" }
+          ].map((item, i) => (
+            <Card key={i} className="hover:shadow-md transition-shadow">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-lg text-primary">{item.field}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">{item.roles}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Course Matrix */}
+      <section id="matrix">
+        <h2 className="text-3xl font-bold mb-8 border-l-4 border-primary pl-4">Course Matrix</h2>
         <div className="bg-slate-50 p-6 rounded-xl border">
           <Tabs defaultValue="sem1" className="w-full">
             <TabsList className="grid w-full grid-cols-3 md:grid-cols-6 h-auto p-1 bg-white shadow-sm mb-8">
@@ -126,131 +151,63 @@ export default function CommerceDepartmentPage() {
               <TabsTrigger value="sem6" className="py-2">Sem 6</TabsTrigger>
             </TabsList>
 
-            {/* Semester Content Mapping */}
-            {[
-              { id: "sem1", title: "Semester 1", subjects: ["1.1 FINANCIAL ACCOUNTING", "1.2 PRINCIPLES OF MARKETING", "1.3 BUSINESS ENVIRONMENT", "1.4 INDIAN FINANCIAL SYSTEM"] },
-              { id: "sem2", title: "Semester 2", subjects: ["2.1 ADVANCED FINANCIAL ACCOUNTING", "2.2 HUMAN RESOURCE MANAGEMENT", "2.3 BUSINESS REGULATION", "2.4(a) CORPORATE ADMINISTRATION"] },
-              { id: "sem3", title: "Semester 3", subjects: ["3.1 CORPORATE ACCOUNTING", "3.2 QUANTITATIVE ANALYSIS FOR BUSINESS DECISION I", "3.3 COST ACCOUNTING", "3.4(E1) EMPLOYEE PERFORMANCE MANAGEMENT", "3.5 CORPORATE COMMUNICATION SKILLS"] },
-              { id: "sem4", title: "Semester 4", subjects: ["4.1 ADVANCED CORPORATE ACCOUNTING", "4.2 QUANTITATIVE ANALYSIS FOR BUSINESS DECISION II", "4.3 RESEARCH METHODOLOGY", "4.4(E2) EMPLOYEE WELFARE AND SOCIAL SECURITY", "4.5 BANKING PRACTISE"] },
-              { id: "sem5", title: "Semester 5", subjects: ["5.1 ADVANCED ACCOUNTING", "5.2 FINANCIAL MANAGEMENT", "5.3 INCOME TAX I", "5.4 GOODS AND SERVICES TAX", "5.5 COSTING METHODS", "5.6 SURVEY PROJECTS"] },
-              { id: "sem6", title: "Semester 6", subjects: ["6.1 INDIAN ACCOUNTING STANDARDS", "6.2 MANAGEMENT ACCOUNTING", "6.3 INCOME TAX II", "6.4 BUSINESS TAXATION", "6.5 AUDITING", "6.6 INTERNSHIP"] }
-            ].map((sem) => (
-              <TabsContent key={sem.id} value={sem.id} className="space-y-4">
-                <ul className="grid md:grid-cols-2 gap-4">
-                  {sem.subjects.map((sub, i) => (
-                    <li key={i} className="bg-white p-4 rounded border flex items-center gap-3 shadow-sm">
-                      <span className="bg-primary/10 text-primary font-bold px-2 py-1 rounded text-xs">Core</span>
-                      <span className="text-sm font-medium">{sub}</span>
-                    </li>
-                  ))}
-                </ul>
-              </TabsContent>
-            ))}
+            <TabsContent value="sem1"><Card><CardHeader><CardTitle>Semester 1</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5 text-muted-foreground"><li>Financial Accounting</li><li>Principles of Marketing</li><li>Business Environment</li><li>Indian Financial System</li></ul></CardContent></Card></TabsContent>
+            <TabsContent value="sem2"><Card><CardHeader><CardTitle>Semester 2</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5 text-muted-foreground"><li>Advanced Financial Accounting</li><li>Human Resource Management</li><li>Business Regulation</li><li>Corporate Administration</li></ul></CardContent></Card></TabsContent>
+            <TabsContent value="sem3"><Card><CardHeader><CardTitle>Semester 3</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5 text-muted-foreground"><li>Corporate Accounting</li><li>Quantitative Analysis - I</li><li>Cost Accounting</li><li>Employee Performance Mgmt</li><li>Corporate Communication Skills</li></ul></CardContent></Card></TabsContent>
+            <TabsContent value="sem4"><Card><CardHeader><CardTitle>Semester 4</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5 text-muted-foreground"><li>Advanced Corporate Accounting</li><li>Quantitative Analysis - II</li><li>Research Methodology</li><li>Employee Welfare & Social Security</li><li>Banking Practise</li></ul></CardContent></Card></TabsContent>
+            <TabsContent value="sem5"><Card><CardHeader><CardTitle>Semester 5</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5 text-muted-foreground"><li>Advanced Accounting</li><li>Financial Management</li><li>Income Tax - I</li><li>Goods and Services Tax</li><li>Costing Methods</li><li>Survey Projects</li></ul></CardContent></Card></TabsContent>
+            <TabsContent value="sem6"><Card><CardHeader><CardTitle>Semester 6</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5 text-muted-foreground"><li>Indian Accounting Standards</li><li>Management Accounting</li><li>Income Tax - II</li><li>Business Taxation</li><li>Auditing</li><li>Internship</li></ul></CardContent></Card></TabsContent>
           </Tabs>
         </div>
       </section>
 
-      {/* Activities Section */}
-      <section>
+      {/* Activities */}
+      <section id="activities">
         <h2 className="text-3xl font-bold mb-8 border-l-4 border-primary pl-4">Departmental Activities</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {[
-            { title: "Industrial Visits", desc: "Visit to South Indian Paper Mills (SIPM) to observe real-time manufacturing." },
-            { title: "Training Programs", desc: "Magic Bus Training Programme for life skills and employability." },
-            { title: "NISM Certification", desc: "Investor Awareness certification covering capital markets and SEBI regulations." },
-            { title: "Add-on Courses", desc: "FICCI FLO programme: Basic Tally, Advanced Tally, and GST training." }
+            { title: "Industrial Visit: South Indian Paper Mills", desc: "Students observed real-time paper manufacturing to connect classroom concepts with industrial practice." },
+            { title: "Magic Bus Training Programme", desc: "Life skills and employability modules to build confidence and problem-solving abilities." },
+            { title: "NISM Certification", desc: "Training on Investor Awareness covering capital markets, mutual funds, and SEBI regulations." },
+            { title: "FICCI FLO Add-on Programme", desc: "Hands-on training in Basic Tally, Advanced Tally, and GST filing (GSTR-1, GSTR-3B)." }
           ].map((act, i) => (
-            <Card key={i} className="hover:shadow-lg transition-shadow">
+            <Card key={i} className="hover:border-primary transition-colors">
               <CardHeader>
-                <CardTitle className="text-lg flex items-start gap-2">
-                  <Briefcase className="h-5 w-5 text-primary shrink-0 mt-1" /> {act.title}
-                </CardTitle>
+                <CardTitle className="text-lg">{act.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">{act.desc}</p>
+                <p className="text-muted-foreground text-sm">{act.desc}</p>
               </CardContent>
             </Card>
           ))}
         </div>
       </section>
 
+
       {/* Faculty Section */}
-      <section>
+      <section id="faculty">
         <h2 className="text-3xl font-bold mb-8 border-l-4 border-primary pl-4">Our Faculty</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          <Card>
-            <CardHeader>
-              <div className="flex gap-4 items-start">
-                <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center shrink-0">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { name: "Mrs. Yashodha S.M", role: "Head of Dept", qual: "M.Com(IB), M.Com(A&T), MBA(FIN), PGDFM, UGC-NET, K-SET" },
+            { name: "Ms. Savitha G.M", role: "Assistant Professor", qual: "MBA, M.Phil" },
+            { name: "Mr. Mohhamed Nawaz", role: "Assistant Professor", qual: "M.Com, UGC-NET, K-SET, (PhD)" },
+            { name: "Ms. Gayathri K", role: "Assistant Professor", qual: "M.Com, MBA" },
+            { name: "Ms. Angel Jaya Kirubha", role: "Assistant Professor", qual: "" }
+          ].map((faculty, i) => (
+            <Card key={i} className="text-center hover:border-primary transition-colors">
+              <CardHeader>
+                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto flex items-center justify-center mb-4">
                   <Users className="h-8 w-8 text-primary" />
                 </div>
-                <div>
-                  <CardTitle className="text-xl">YASHODHA.S.M</CardTitle>
-                  <CardDescription className="text-primary font-medium">Head Of Department</CardDescription>
-                  <p className="text-xs text-muted-foreground mt-1">M.Com(IB), M.Com(A&T), MBA(FIN), PGDFM, UGC-NET, K-SET</p>
-                </div>
-              </div>
-            </CardHeader>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <div className="flex gap-4 items-start">
-                <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center shrink-0">
-                  <Users className="h-8 w-8 text-primary" />
-                </div>
-                <div>
-                  <CardTitle className="text-xl">Ms.Savitha.G.M</CardTitle>
-                  <CardDescription className="text-primary font-medium">Assistant Professor</CardDescription>
-                  <p className="text-xs text-muted-foreground mt-1">MBA, MPhil</p>
-                </div>
-              </div>
-            </CardHeader>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <div className="flex gap-4 items-start">
-                <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center shrink-0">
-                  <Users className="h-8 w-8 text-primary" />
-                </div>
-                <div>
-                  <CardTitle className="text-xl">Mr.Mohhamed Nawaz</CardTitle>
-                  <CardDescription className="text-primary font-medium">Assistant Professor</CardDescription>
-                  <p className="text-xs text-muted-foreground mt-1">M.Com, UGC-NET,K-SET, (PhD)</p>
-                </div>
-              </div>
-            </CardHeader>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <div className="flex gap-4 items-start">
-                <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center shrink-0">
-                  <Users className="h-8 w-8 text-primary" />
-                </div>
-                <div>
-                  <CardTitle className="text-xl">Ms.Gayathri.K</CardTitle>
-                  <CardDescription className="text-primary font-medium">Assistant Professor</CardDescription>
-                  <p className="text-xs text-muted-foreground mt-1">M.Com, MBA</p>
-                </div>
-              </div>
-            </CardHeader>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <div className="flex gap-4 items-start">
-                <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center shrink-0">
-                  <Users className="h-8 w-8 text-primary" />
-                </div>
-                <div>
-                  <CardTitle className="text-xl">Ms.Angel Jaya Kirubha</CardTitle>
-                  <CardDescription className="text-primary font-medium">Assistant Professor</CardDescription>
-                </div>
-              </div>
-            </CardHeader>
-          </Card>
+                <CardTitle className="text-lg">{faculty.name}</CardTitle>
+                <CardDescription className="text-primary font-medium">{faculty.role}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-xs text-muted-foreground mb-2">{faculty.qual}</p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </section>
     </DepartmentLayout>
