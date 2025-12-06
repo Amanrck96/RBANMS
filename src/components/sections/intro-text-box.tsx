@@ -22,10 +22,10 @@ function ExpandableMessage({ title, imageSrc, imageAlt, children, unoptimized = 
                     unoptimized={unoptimized}
                 />
             </div>
-            <div className={cn("text-slate-700 leading-relaxed flex-grow", isExpanded ? "" : "line-clamp-4 relative")}>
+            <div className={cn("text-slate-700 leading-relaxed flex-grow relative", isExpanded ? "" : "max-h-40 overflow-hidden")}>
                 {children}
                 {!isExpanded && (
-                    <div className="absolute bottom-0 left-0 w-full h-8 bg-gradient-to-t from-white to-transparent" />
+                    <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white to-transparent" />
                 )}
             </div>
             <button
