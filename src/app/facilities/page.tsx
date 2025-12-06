@@ -10,7 +10,9 @@ import {
   Users,
   Coffee,
   Trees,
-  LayoutGrid
+  LayoutGrid,
+  Globe,
+  Database
 } from 'lucide-react';
 import Image from 'next/image';
 
@@ -33,6 +35,7 @@ export default function FacilitiesPage() {
     { label: 'Sports Ground', href: '#sports-ground', isActive: false },
     { label: 'Auditorium', href: '#auditorium', isActive: false },
     { label: 'Library', href: '#library', isActive: false },
+    { label: 'Digital Library', href: '#digital-library', isActive: false },
     { label: 'Classrooms', href: '#classrooms', isActive: false },
     { label: 'Canteen', href: '#canteen', isActive: false },
   ];
@@ -160,6 +163,43 @@ export default function FacilitiesPage() {
             </CardContent>
           </Card>
         </section>
+
+        {/* Digital Library */}
+        <section id="digital-library" className="scroll-mt-24">
+          <h2 className="text-3xl font-bold mb-8 border-l-4 border-primary pl-4 flex items-center gap-3"><Globe /> Digital Library</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <Card>
+              <CardHeader><CardTitle>E-Resources</CardTitle></CardHeader>
+              <CardContent className="text-muted-foreground">
+                <p className="mb-4">The digital library provides access to online databases, textbooks, articles, and audio-video materials. Available e-resources include:</p>
+                <ul className="grid grid-cols-2 gap-2 text-sm">
+                  {["N - List", "DELNET", "National Digital Library", "Directory of Open Access Books", "Wikipedia", "JESTOR", "e-Pathashala"].map((e, i) => (
+                    <li key={i} className="flex items-center gap-2"><div className="h-1.5 w-1.5 rounded-full bg-primary" />{e}</li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader><CardTitle>Software</CardTitle></CardHeader>
+              <CardContent className="text-muted-foreground">
+                <p className="mb-4"><strong>EASY-LIB (Version 6.4):</strong> A multi-user library software running on Windows.</p>
+                <ul className="list-disc pl-5 space-y-2 text-sm">
+                  <li>Provision of bar coding for easy search.</li>
+                  <li>Modules: Acquisition, serial control, circulation, cataloging, and OPAC.</li>
+                  <li>OPAC allows searching by author, title, keyword, accession number, etc.</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+          <Card className="mt-6">
+            <CardContent className="pt-6">
+              <h4 className="font-bold mb-2">E-Books & Journals Access</h4>
+              <p className="text-sm text-muted-foreground mb-2">The library provides access to collections from: Cambridge Books, Springer eBooks, Sage Publication, Taylor Francis, McGraw Hill, Oxford UP, etc.</p>
+              <p className="text-sm text-muted-foreground">YouTube Video and Published articles upload facilities are available in DELNET consortium using institutional membership.</p>
+            </CardContent>
+          </Card>
+        </section>
+
 
         {/* Classrooms */}
         <section id="classrooms" className="scroll-mt-24">
