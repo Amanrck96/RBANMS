@@ -1,342 +1,237 @@
 import React from 'react';
+import { DepartmentLayout } from '@/components/layout/department-layout';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
-  Building,
   Monitor,
   Trophy,
-  Mic,
-  BookOpen,
-  Users,
-  Utensils,
-  Clock,
-  CheckCircle,
-  Wifi,
-  Copy,
+  Mic2,
   Library,
-  Dumbbell,
-  Trees
+  BookOpen,
+  Coffee,
+  Trees,
+  MapPin,
+  Clock,
+  Wifi,
+  Printer
 } from 'lucide-react';
 
 export default function FacilitiesPage() {
-  return (
-    <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-emerald-800 to-green-700 text-white py-20 px-4 md:px-8">
-        <div className="container mx-auto">
-          <div className="max-w-4xl">
-            <Badge className="mb-4 bg-yellow-500 text-black hover:bg-yellow-400 border-none">
-              Facilities
-            </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Infrastructural <span className="text-yellow-400">Abundance</span>
-            </h1>
-            <p className="text-lg md:text-xl text-emerald-100 max-w-2xl leading-relaxed">
-              Creating an environment friendly campus, full of greenery, set in the heart of town.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Introduction */}
-      <section className="py-16 px-4 md:px-8 container mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-primary">Infrastructural Self-Sufficiency</h2>
-            <p className="text-muted-foreground leading-relaxed">
-              It is part of the basic policy of the promoters that infrastructural self-sufficiency is a pre-requisite for better productivity and performance in all the activities, more so for academic activities. The Management has always been creating and updating academic and building infrastructure to meet the standards from time to time and to make life easy and stress-free in the campus.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Today every bit of the vacant space is covered with lawns, trees, flower plants and gardens. It is an environment friendly campus, full of greenery, set in the heart of town.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <Card className="bg-emerald-50 border-none">
-              <CardContent className="p-6 flex flex-col items-center text-center space-y-2">
-                <Trees className="h-8 w-8 text-emerald-600" />
-                <span className="font-semibold text-emerald-900">Green Campus</span>
-              </CardContent>
-            </Card>
-            <Card className="bg-green-50 border-none">
-              <CardContent className="p-6 flex flex-col items-center text-center space-y-2">
-                <Building className="h-8 w-8 text-green-600" />
-                <span className="font-semibold text-green-900">Modern Infra</span>
-              </CardContent>
-            </Card>
-            <Card className="bg-teal-50 border-none">
-              <CardContent className="p-6 flex flex-col items-center text-center space-y-2">
-                <Wifi className="h-8 w-8 text-teal-600" />
-                <span className="font-semibold text-teal-900">Connected</span>
-              </CardContent>
-            </Card>
-            <Card className="bg-lime-50 border-none">
-              <CardContent className="p-6 flex flex-col items-center text-center space-y-2">
-                <Users className="h-8 w-8 text-lime-600" />
-                <span className="font-semibold text-lime-900">Student Centric</span>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Facilities Grid */}
-      <section className="py-16 bg-slate-50 px-4 md:px-8">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Facilities</h2>
-
-          <div className="space-y-16">
-            {/* Computer Labs */}
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="order-2 md:order-1">
-                <Card className="h-full">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-2xl text-emerald-800">
-                      <Monitor className="h-6 w-6" /> Computer Labs
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground mb-4">
-                      There are three computer labs on campus: two for the exclusive use of BCA students, and one used as a Design Lab for students of Journalism, and those who are part of the Editorial/ Design Team, the Phoenix Club.
-                    </p>
-                    <p className="text-muted-foreground">
-                      These labs have been the main learning resource in providing students with practical exposure for the syllabus of Bangalore University and to go beyond it.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-              <div className="order-1 md:order-2 flex justify-center">
-                {/* Placeholder for image */}
-                <div className="w-full h-64 bg-emerald-100 rounded-lg flex items-center justify-center">
-                  <Monitor className="h-16 w-16 text-emerald-300" />
-                </div>
-              </div>
-            </div>
-
-            {/* Sports Ground */}
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="flex justify-center">
-                {/* Placeholder for image */}
-                <div className="w-full h-64 bg-green-100 rounded-lg flex items-center justify-center">
-                  <Trophy className="h-16 w-16 text-green-300" />
-                </div>
-              </div>
-              <div>
-                <Card className="h-full">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-2xl text-emerald-800">
-                      <Trophy className="h-6 w-6" /> Sports Ground
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground mb-4">
-                      The college has a large ground on campus, dedicated to sports. This area is regularly used for throwball, volleyball, basketball, kho kho, and more. The grounds are also used for NCC parades.
-                    </p>
-                    <p className="text-muted-foreground">
-                      In addition, the sports students have access to the SUFC and Karnataka Cricket Club that are situated on land owned by RBANMs Educational Charities.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-
-            {/* Auditorium */}
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="order-2 md:order-1">
-                <Card className="h-full">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-2xl text-emerald-800">
-                      <Mic className="h-6 w-6" /> Auditorium
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground mb-4">
-                      Believing that experience on stage does wonders for the personality and individual growth of students, the college has two performance spaces:
-                    </p>
-                    <ul className="list-disc pl-5 text-muted-foreground mb-4 space-y-2">
-                      <li>A seminar hall for small, intimate gatherings, such as the Natya club and guest lectures.</li>
-                      <li>A large auditorium to host events such as Orientation, Freshers’ Day, and other cultural activities.</li>
-                    </ul>
-                    <p className="text-muted-foreground">
-                      In addition, the college have access to Sabha, a centre for Art and Culture, that is situated in a building owned by RBANMs Educational Charities.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-              <div className="order-1 md:order-2 flex justify-center">
-                {/* Placeholder for image */}
-                <div className="w-full h-64 bg-emerald-100 rounded-lg flex items-center justify-center">
-                  <Mic className="h-16 w-16 text-emerald-300" />
-                </div>
-              </div>
-            </div>
-
-            {/* Library */}
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="flex justify-center">
-                {/* Placeholder for image */}
-                <div className="w-full h-64 bg-green-100 rounded-lg flex items-center justify-center">
-                  <BookOpen className="h-16 w-16 text-green-300" />
-                </div>
-              </div>
-              <div>
-                <Card className="h-full">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-2xl text-emerald-800">
-                      <Library className="h-6 w-6" /> Library
-                    </CardTitle>
-                    <CardDescription className="flex items-center gap-2 mt-2">
-                      <Clock className="h-4 w-4" /> Timing: 8 A.M. to 5 P.M.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="mb-6">
-                      <h4 className="font-semibold text-emerald-700 mb-2">Highlights</h4>
-                      <div className="grid grid-cols-2 gap-2 text-sm text-muted-foreground">
-                        <span className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-emerald-500" /> Reference Service</span>
-                        <span className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-emerald-500" /> Reprographic Service</span>
-                        <span className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-emerald-500" /> Internet Facilities</span>
-                        <span className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-emerald-500" /> Tie up with British Council</span>
-                        <span className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-emerald-500" /> BU Institutional membership</span>
-                        <span className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-emerald-500" /> Open Access Service</span>
-                        <span className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-emerald-500" /> Book Bank Facilities</span>
-                      </div>
-                    </div>
-                    <p className="text-muted-foreground text-sm mb-4">
-                      The college library is large, with more than 40,000 volumes of books on all subjects, ranging from academic books, encyclopaedias, fiction, science, photography, arts, religion and general knowledge. The collection supports the curriculum and is built through student-teacher suggestions.
-                    </p>
-                    <p className="text-muted-foreground text-sm">
-                      The library is fully computerized with database search cataloging and offers borrowing facilities @ 3 books/ student member for a period of 15 days and @ 5 books staff member for a period of a semester.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-
-            {/* Digital Library & Automation */}
-            <div className="space-y-8">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-2xl text-emerald-800">
-                    <Monitor className="h-6 w-6" /> Digital Library
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">A digital library is an online data base of digital study material such as textbooks, articles, E- Journals, image, audio and video accessible from anywhere with an internet connection. In the digital library of RBANM’S First Grade College the following e- resources are available:</p>
-                  <div className="grid md:grid-cols-2 gap-8">
-                    <div>
-                      <h4 className="font-semibold text-emerald-700 mb-2">E-Resources Available</h4>
-                      <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
-                        <li>N - List</li>
-                        <li>DELNET</li>
-                        <li>National Digital Library (NDL)</li>
-                        <li>Directory of Open Access Books</li>
-                        <li>Wikipedia</li>
-                        <li>JESTOR</li>
-                        <li>e-Pathashala</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-emerald-700 mb-2">E-Books & E-Journals</h4>
-                      <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
-                        <li>Cambridge books (Online)</li>
-                        <li>E-library</li>
-                        <li>Springer eBooks</li>
-                        <li>Sage Publication e Books</li>
-                        <li>Taylor Francis eBooks</li>
-                        <li>Mylibrary - McGrew Hills</li>
-                        <li>Economic and Political Weekly</li>
-                        <li>Indian Journals Management Science</li>
-                        <li>Indian Journals of Social Science</li>
-                        <li>Oxford University Press</li>
-                        <li>Cambridge University Press</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="mt-4 bg-emerald-50 p-4 rounded text-sm text-muted-foreground">
-                    There is YouTube Video and Published articles upload facilities available in DELNET consortium using institutional membership and the same can be viewed by any other institution members who has access to DELNET.
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-2xl text-emerald-800">
-                    <Library className="h-6 w-6" /> Library Automation
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <h4 className="font-semibold text-emerald-700 mb-2">Library Management System</h4>
-                  <p className="text-muted-foreground mb-4">
-                    Library and Information Center of the college is completely automated with integrated multi-user library software working under Windows EASY-LIB software (latest version 6.4). The software has provision of bar coding for easy search of the resources available.
-                  </p>
-                  <p className="text-muted-foreground">
-                    This software package provides the modules for acquisition, serial control, circulation, cataloging, and OPAC (Online Public Access Catalogue). This user friendly package is used to search for author, title, class, number, key words and accession number etc.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Classrooms */}
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="order-2 md:order-1">
-                <Card className="h-full">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-2xl text-emerald-800">
-                      <Users className="h-6 w-6" /> Classrooms
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">
-                      Spread over three floors, the college has well equipped, brightly lit classrooms with old-style bench seating, combining modern facilities with the charm of a century old heritage. Most classrooms have projectors and the faculty makes classes come alive with lectures that are more than the traditional chalk-and-talk teaching method.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-              <div className="order-1 md:order-2 flex justify-center">
-                {/* Placeholder for image */}
-                <div className="w-full h-64 bg-emerald-100 rounded-lg flex items-center justify-center">
-                  <Users className="h-16 w-16 text-emerald-300" />
-                </div>
-              </div>
-            </div>
-
-            {/* Canteen */}
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="flex justify-center">
-                {/* Placeholder for image */}
-                <div className="w-full h-64 bg-green-100 rounded-lg flex items-center justify-center">
-                  <Utensils className="h-16 w-16 text-green-300" />
-                </div>
-              </div>
-              <div>
-                <Card className="h-full">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-2xl text-emerald-800">
-                      <Utensils className="h-6 w-6" /> Canteen
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground mb-4">
-                      The canteen on campus provides meals and snacks to students, staff, and guests that is hygienic and affordable. It also caters to college events where meals are part of the invitation.
-                    </p>
-                    <div className="bg-emerald-50 p-4 rounded-lg">
-                      <h4 className="font-semibold text-emerald-800 mb-2">Timings</h4>
-                      <ul className="space-y-1 text-sm text-emerald-700">
-                        <li><strong>Breakfast:</strong> Before 9:00 AM</li>
-                        <li><strong>Snacks:</strong> 11:00 AM - 11:15 AM</li>
-                        <li><strong>Lunch:</strong> 1:15 PM - 1:45 PM</li>
-                        <li><strong>Open until:</strong> 5:00 PM (Mon-Fri), 2:00 PM (Sat)</li>
-                      </ul>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+  const welcomeText = (
+    <div className="space-y-6 text-justify">
+      <h2 className="text-2xl font-bold text-slate-800">Infrastructural Abundance</h2>
+      <p>
+        It is part of the basic policy of the promoters that infrastructural self-sufficiency is a pre-requisite for better productivity and performance in all the activities, more so for academic activities. The Management has always been creating and updating academic and building infrastructure to meet the standards from time to time and to make life easy and stress-free in the campus.
+      </p>
+      <p>
+        Today every bit of the vacant space is covered with lawns, trees, flower plants and gardens. It is an environment friendly campus, full of greenery, set in the heart of town.
+      </p>
     </div>
+  );
+
+  const ctaContent = (
+    <div className="space-y-4">
+      <h3 className="text-2xl font-bold flex items-center justify-center gap-2">
+        <Trees className="h-6 w-6 stroke-[3px]" /> Green Campus
+      </h3>
+      <p className="text-muted-foreground italic">
+        "A stress-free, environment-friendly campus set in the heart of town, covering every vacant space with lawns and gardens."
+      </p>
+    </div>
+  );
+
+  const sidebarContent = (
+    <div className="space-y-6">
+      <div>
+        <h4 className="text-lg font-bold uppercase tracking-wider text-slate-800 border-b pb-2 mb-4">Location</h4>
+        <div className="flex items-start gap-3 text-muted-foreground text-sm">
+          <MapPin className="h-5 w-5 text-primary shrink-0" />
+          <p>Located in the heart of Bangalore City, with easy access to Metro and Bus stations.</p>
+        </div>
+      </div>
+      <div>
+        <h4 className="text-lg font-bold uppercase tracking-wider text-slate-800 border-b pb-2 mb-4">Quick Facilities</h4>
+        <div className="flex flex-wrap gap-2">
+          {["Computer Labs", "Auditorium", "Library", "Canteen", "Sports Ground", "Seminar Hall", "Design Studio"].map((tag, i) => (
+            <Badge key={i} variant="secondary">{tag}</Badge>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
+  const featureTiles: [React.ReactNode, React.ReactNode] = [
+    <Card key="1" className="h-full bg-slate-900 text-white border-none flex flex-col justify-center text-center p-6">
+      <CardContent className="space-y-4">
+        <Monitor className="h-12 w-12 mx-auto text-yellow-400" />
+        <h3 className="text-2xl font-bold">Technologically Enabled</h3>
+        <p className="text-slate-300 leading-relaxed text-sm">
+          From high-performance computer labs to tech-enabled classrooms, we ensure students have the tools they need.
+        </p>
+      </CardContent>
+    </Card>,
+    <Card key="2" className="h-full bg-primary text-primary-foreground border-none flex flex-col justify-center text-center p-6">
+      <CardContent className="space-y-4">
+        <Library className="h-12 w-12 mx-auto text-white" />
+        <h3 className="text-2xl font-bold">Knowledge Hub</h3>
+        <p className="text-primary-foreground/90 leading-relaxed text-sm">
+          Our library houses over 40,000 volumes, providing a vast resource for academic and personal growth.
+        </p>
+      </CardContent>
+    </Card>
+  ];
+
+  const navItems = [
+    { label: "Computer Labs", href: "#labs", isActive: false },
+    { label: "Sports Ground", href: "#sports", isActive: false },
+    { label: "Auditorium", href: "#auditorium", isActive: false },
+    { label: "Library", href: "#library", isActive: false },
+    { label: "Classrooms", href: "#classrooms", isActive: false },
+    { label: "Canteen", href: "#canteen", isActive: false },
+  ];
+
+  return (
+    <DepartmentLayout
+      title="Campus Facilities"
+      tagline="Creating an environment for better productivity and stress-free learning."
+      contentLeft={welcomeText}
+      ctaContent={ctaContent}
+      sidebarContent={sidebarContent}
+      featureTiles={featureTiles}
+      navItems={navItems}
+      badgeText="Infrastructure"
+    >
+      {/* Computer Labs */}
+      <section id="labs">
+        <h2 className="text-3xl font-bold mb-8 border-l-4 border-primary pl-4">Computer Labs</h2>
+        <Card>
+          <CardContent className="p-8">
+            <div className="flex flex-col md:flex-row gap-8 items-center">
+              <div className="flex-1 space-y-4">
+                <p className="text-muted-foreground leading-relaxed">
+                  There are three computer labs on campus: two for the exclusive use of BCA students, and one used as a Design Lab for students of Journalism and the Phoenix Club. These labs have been the main learning resource in providing students with practical exposure for the syllabus of Bangalore University and to go beyond it.
+                </p>
+                <div className="flex gap-4 pt-2">
+                  <Badge variant="outline" className="gap-1 px-4 py-2"><Monitor className="h-4 w-4" /> 3 Labs</Badge>
+                  <Badge variant="outline" className="gap-1 px-4 py-2"><Wifi className="h-4 w-4" /> Internet Access</Badge>
+                </div>
+              </div>
+              <div className="w-full md:w-1/3 bg-slate-100 h-48 rounded-lg flex items-center justify-center">
+                <Monitor className="h-16 w-16 text-slate-300" />
+                {/* Placeholder for Lab Image */}
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* Sports Ground */}
+      <section id="sports">
+        <h2 className="text-3xl font-bold mb-8 border-l-4 border-primary pl-4">Sports Ground</h2>
+        <Card>
+          <CardContent className="p-8">
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              The college has a large ground on campus, dedicated to sports. This area is regularly used for throwball, volleyball, basketball, kho kho, and more. The grounds are also used for NCC parades.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              In addition, the sports students have access to the SUFC and Karnataka Cricket Club that are situated on land owned by RBANMs Educational Charities.
+            </p>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* Auditorium */}
+      <section id="auditorium">
+        <h2 className="text-3xl font-bold mb-8 border-l-4 border-primary pl-4">Auditorium & Seminar Hall</h2>
+        <div className="grid md:grid-cols-2 gap-6">
+          <Card className="bg-slate-50 border">
+            <CardHeader><CardTitle className="text-lg">Seminar Hall</CardTitle></CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground text-sm">A space for small, intimate gatherings, such as the Natya club and guest lectures.</p>
+            </CardContent>
+          </Card>
+          <Card className="bg-slate-50 border">
+            <CardHeader><CardTitle className="text-lg">Large Auditorium</CardTitle></CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground text-sm">Used for hosting major events such as Orientation, Freshers’ Day, and other cultural activities.</p>
+            </CardContent>
+          </Card>
+        </div>
+        <p className="mt-4 text-muted-foreground text-sm italic">
+          In addition, the college has access to Sabha, a centre for Art and Culture, situated in a building owned by RBANMs Educational Charities.
+        </p>
+      </section>
+
+      {/* Library */}
+      <section id="library">
+        <h2 className="text-3xl font-bold mb-8 border-l-4 border-primary pl-4">Library</h2>
+        <Card className="overflow-hidden">
+          <div className="bg-primary/5 p-6 text-center border-b">
+            <h3 className="text-xl font-bold text-primary mb-2">Timing: 8 A.M. to 5 P.M.</h3>
+            <p className="text-sm text-muted-foreground">Fully computerized with database search cataloging</p>
+          </div>
+          <CardContent className="p-8 space-y-6">
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-4">
+                <h4 className="font-bold text-lg">Collection</h4>
+                <p className="text-muted-foreground">
+                  More than 40,000 volumes of books on all subjects, ranging from academic books, encyclopaedias, fiction, science, photography, arts, religion and general knowledge. Excellent facilities with Newspapers, periodicals and magazines.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <h4 className="font-bold text-lg">Services</h4>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-muted-foreground">
+                  <li className="flex gap-2 items-center"><BookOpen className="h-4 w-4" /> Reference Service</li>
+                  <li className="flex gap-2 items-center"><Printer className="h-4 w-4" /> Reprographic Service</li>
+                  <li className="flex gap-2 items-center"><Wifi className="h-4 w-4" /> Internet Facilities</li>
+                  <li className="flex gap-2 items-center"><BookOpen className="h-4 w-4" /> Open Access Service</li>
+                  <li className="flex gap-2 items-center"><Library className="h-4 w-4" /> Book Bank Facilities</li>
+                  <li className="flex gap-2 items-center"><Globe className="h-4 w-4" /> British Council Tie-up</li>
+                </ul>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* Classrooms */}
+      <section id="classrooms">
+        <h2 className="text-3xl font-bold mb-8 border-l-4 border-primary pl-4">Classrooms</h2>
+        <Card>
+          <CardContent className="p-8">
+            <p className="text-muted-foreground leading-relaxed">
+              Spread over three floors, the college has well equipped, brightly lit classrooms with old-style bench seating, combining modern facilities with the charm of a century old heritage. Most classrooms have projectors and the faculty makes classes come alive with lectures that are more than the traditional chalk-and-talk teaching method.
+            </p>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* Canteen */}
+      <section id="canteen">
+        <h2 className="text-3xl font-bold mb-8 border-l-4 border-primary pl-4">Canteen</h2>
+        <Card>
+          <CardContent className="p-8 flex flex-col md:flex-row gap-8 items-center">
+            <div className="flex-1 space-y-4">
+              <p className="text-muted-foreground leading-relaxed">
+                The canteen on campus provides meals and snacks to students, staff, and guests that is hygienic and affordable. It also caters to college events where meals are part of the invitation.
+              </p>
+              <div className="flex flex-col gap-2 text-sm text-muted-foreground bg-slate-50 p-4 rounded-lg">
+                <div className="flex justify-between items-center border-b pb-2"><span>Breakfast</span> <span className="font-semibold text-slate-700">Before 9:00 AM</span></div>
+                <div className="flex justify-between items-center border-b pb-2"><span>Snacks</span> <span className="font-semibold text-slate-700">11:00 AM - 11:15 AM</span></div>
+                <div className="flex justify-between items-center"><span>Lunch</span> <span className="font-semibold text-slate-700">1:15 PM - 1:45 PM</span></div>
+              </div>
+            </div>
+            <div className="w-full md:w-1/3 text-center">
+              <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Coffee className="h-10 w-10 text-orange-600" />
+              </div>
+              <h4 className="font-bold text-lg mb-1">Open Mon-Sat</h4>
+              <p className="text-sm text-muted-foreground">Until 5PM (2PM on Sat)</p>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+
+    </DepartmentLayout>
   );
 }

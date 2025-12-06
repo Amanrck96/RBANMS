@@ -5,15 +5,23 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 
+interface NavItem {
+    label: string;
+    href: string;
+    isActive?: boolean;
+}
+
 interface DepartmentLayoutProps {
     title: string;
     tagline?: string;
-    activeTab: string; // The slug of the current department
+    activeTab?: string; // The slug of the current department (optional if using custom navItems)
     contentLeft: React.ReactNode; // Intro paragraphs
     ctaContent?: React.ReactNode; // The outlined CTA box
     sidebarContent: React.ReactNode; // Right column content
     featureTiles?: [React.ReactNode, React.ReactNode]; // Exactly two tiles for the lower grid
     children?: React.ReactNode; // Anything else below the main structure (Course Matrix, Faculty, etc)
+    navItems?: NavItem[]; // Optional custom navigation items (overrides default departments)
+    badgeText?: string; // Optional badge text (default: "Department")
 }
 
 const departments = [
@@ -35,20 +43,29 @@ export function DepartmentLayout({
     sidebarContent,
     featureTiles,
     children,
+    navItems,
+    badgeText = "Department"
 }: DepartmentLayoutProps) {
+
+    const navigationItems = navItems || departments.map(dept => ({
+        label: dept.name,
+        href: `/departments/${dept.slug}`,
+        isActive: dept.slug === activeTab
+    }));
+
     return (
         <div className="min-h-screen bg-background text-foreground font-sans">
             {/* 1. Full-width Header Band */}
             <div className="w-full bg-primary py-12 px-4 md:px-8 shadow-sm">
                 <div className="container mx-auto">
                     <Badge className="mb-4 bg-yellow-500 text-black hover:bg-yellow-400 border-none">
-                        Department
+                        {badgeText}
                     </Badge>
-                    <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground tracking-tight">
+                    <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground font-headline tracking-tight">
                         {title}
                     </h1>
                     {tagline && (
-                        <p className="mt-4 text-xl text-primary-foreground/90 max-w-3xl leading-relaxed">
+                        <p className="mt-4 text-lg md:text-xl text-primary-foreground/90 max-w-3xl leading-relaxed">
                             {tagline}
                         </p>
                     )}
@@ -59,24 +76,22 @@ export function DepartmentLayout({
             <div className="w-full border-b bg-muted/30 sticky top-0 z-20 backdrop-blur-sm">
                 <div className="container mx-auto">
                     <ScrollArea className="w-full whitespace-nowrap">
-                        <div className="flex w-full">
-                            {departments.map((dept) => {
-                                const isActive = dept.slug === activeTab;
-                                return (
-                                    <Link
-                                        key={dept.slug}
-                                        href={`/departments/${dept.slug}`}
-                                        className={cn(
-                                            "flex-1 inline-flex items-center justify-center px-6 py-4 text-sm font-medium transition-colors hover:bg-muted/50 border-b-2",
-                                            isActive
-                                                ? "border-primary text-primary bg-primary/5 font-bold"
-                                                : "border-transparent text-muted-foreground hover:text-foreground"
-                                        )}
-                                    >
-                                        {dept.name}
-                                    </Link>
-                                );
-                            })}
+                        <div className="flex w-full min-w-max">
+                            {navigationItems.map((item, idx) => (
+                                <Link
+                                    key={idx}
+                                    href={item.href}
+                                    className={cn(
+                                        "flex-1 inline-flex items-center justify-center px-6 py-4 text-sm font-medium transition-colors hover:bg-muted/50 border-b-2 whitespace-nowrap",
+                                        item.isActive
+                                            ? "border-primary text-primary bg-primary/5 font-bold"
+                                            : "border-transparent text-muted-foreground hover:text-foreground"
+                                    )}
+                                >
+                                    {item.label}
+                                </Link>
+                            )
+                            )}
                         </div>
                         <ScrollBar orientation="horizontal" />
                     </ScrollArea>

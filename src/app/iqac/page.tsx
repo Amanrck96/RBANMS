@@ -1,182 +1,151 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { DepartmentLayout } from '@/components/layout/department-layout';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import {
-  Target,
-  Settings,
-  Award,
-  BookOpen,
-  Users,
-  BarChart,
-  CheckCircle,
-  Lightbulb
-} from 'lucide-react';
+import { Target, Settings, Award, CheckCircle, Zap, BookOpen } from 'lucide-react';
 
 export default function IQACPage() {
+  const welcomeText = (
+    <div className="space-y-6 text-justify">
+      <h2 className="text-2xl font-bold text-slate-800">Internal Quality Assurance Cell (IQAC)</h2>
+      <p>
+        The Quality Policy of RBANMS First grade college is to achieve excellence in teaching, research, student support, extension and consultancy, with social relevance. The quality management system encompasses organizational structure, procedures, processes and financial, non-financial, human and technological resources.
+      </p>
+      <p>
+        Internal quality assurance systems in the institution are formulated on the basis of guidelines of external quality assurance agencies such as ISO, NAAC, UGC and the affiliating university. Through internal and annual external audits, our quality assurance systems have evolved over a period of time, and have been strengthened.
+      </p>
+    </div>
+  );
+
+  const ctaContent = (
+    <div className="space-y-4" id="objectives">
+      <h3 className="text-2xl font-bold flex items-center justify-center gap-2">
+        <Target className="h-6 w-6 stroke-[3px]" /> Objectives
+      </h3>
+      <div className="text-left space-y-3">
+        <div className="flex gap-3 text-muted-foreground">
+          <CheckCircle className="h-5 w-5 text-primary shrink-0" />
+          <span className="text-sm">To develop a system for conscious and consistent catalytic action, to improve the academic and administrative performance of the institution.</span>
+        </div>
+        <div className="flex gap-3 text-muted-foreground">
+          <CheckCircle className="h-5 w-5 text-primary shrink-0" />
+          <span className="text-sm">To facilitate institutionalisation of quality initiatives, for the improvement of academic and administrative performance of the college.</span>
+        </div>
+      </div>
+    </div>
+  );
+
+  const sidebarContent = (
+    <div className="space-y-6">
+      <div>
+        <h4 className="text-lg font-bold uppercase tracking-wider text-slate-800 border-b pb-2 mb-4">Focus Areas</h4>
+        <div className="flex flex-wrap gap-2">
+          {["Curriculum Review", "Teaching Pedagogy", "Student Support", "Infrastructure Audit", "Faculty Development", "ICT Integration"].map((tag, i) => (
+            <Badge key={i} variant="secondary">{tag}</Badge>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h4 className="text-lg font-bold uppercase tracking-wider text-slate-800 border-b pb-2 mb-4">Quality Assurance</h4>
+        <ul className="space-y-3 text-sm text-muted-foreground">
+          <li className="flex gap-2"><span className="text-primary font-bold">•</span> Annual External Audits</li>
+          <li className="flex gap-2"><span className="text-primary font-bold">•</span> Feedback Mechanism</li>
+          <li className="flex gap-2"><span className="text-primary font-bold">•</span> Academic & Admin Audit</li>
+        </ul>
+      </div>
+    </div>
+  );
+
+  const featureTiles: [React.ReactNode, React.ReactNode] = [
+    <Card key="1" className="h-full bg-slate-900 text-white border-none flex flex-col justify-center text-center p-6">
+      <CardContent className="space-y-4">
+        <Settings className="h-12 w-12 mx-auto text-yellow-400" />
+        <h3 className="text-2xl font-bold">Operational Framework</h3>
+        <p className="text-slate-300 leading-relaxed text-sm">
+          Integrating with all academic and administrative operations to ensure structured strategies and defined processes for delivery.
+        </p>
+      </CardContent>
+    </Card>,
+    <Card key="2" className="h-full bg-primary text-primary-foreground border-none flex flex-col justify-center text-center p-6">
+      <CardContent className="space-y-4">
+        <Award className="h-12 w-12 mx-auto text-white" />
+        <h3 className="text-2xl font-bold">Excellence</h3>
+        <p className="text-primary-foreground/90 leading-relaxed text-sm">
+          Achieving excellence in teaching, research, and consultancy with social relevance through continuous quality improvement.
+        </p>
+      </CardContent>
+    </Card>
+  ];
+
+  const navItems = [
+    { label: "Objectives", href: "#objectives", isActive: false },
+    { label: "Functions", href: "#functions", isActive: false },
+    { label: "Major Contributions", href: "#contributions", isActive: false },
+  ];
+
   return (
-    <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-900 to-slate-800 text-white py-20 px-4 md:px-8">
-        <div className="container mx-auto">
-          <div className="max-w-4xl">
-            <Badge className="mb-4 bg-yellow-500 text-black hover:bg-yellow-400 border-none">
-              Internal Quality Assurance Cell (IQAC)
-            </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Striving for <span className="text-yellow-400">Excellence</span>
-            </h1>
-            <p className="text-lg md:text-xl text-blue-100 max-w-2xl leading-relaxed">
-              Enhancing quality in teaching, research, student support, and administration.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Quality Policy */}
-      <section className="py-16 px-4 md:px-8 container mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-primary">Quality Policy</h2>
-            <p className="text-muted-foreground leading-relaxed">
-              The Quality Policy of RBANMS First grade college is to achieve excellence in teaching, research, student support, extension and consultancy, with social relevance. The quality management system encompasses organizational structure, procedures, processes and financial, non-financial, human and technological resources.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Internal quality assurance systems in the institution are formulated on the basis of guidelines of external quality assurance agencies such as ISO, NAAC, UGC and the affiliating university. Through internal and annual external audits, our quality assurance systems have evolved over a period of time, and have been strengthened.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <Card className="bg-blue-50 border-none">
-              <CardContent className="p-6 flex flex-col items-center text-center space-y-2">
-                <Award className="h-8 w-8 text-blue-600" />
-                <span className="font-semibold text-blue-900">Excellence</span>
-              </CardContent>
-            </Card>
-            <Card className="bg-slate-50 border-none">
-              <CardContent className="p-6 flex flex-col items-center text-center space-y-2">
-                <Settings className="h-8 w-8 text-slate-600" />
-                <span className="font-semibold text-slate-900">Systems</span>
-              </CardContent>
-            </Card>
-            <Card className="bg-indigo-50 border-none">
-              <CardContent className="p-6 flex flex-col items-center text-center space-y-2">
-                <CheckCircle className="h-8 w-8 text-indigo-600" />
-                <span className="font-semibold text-indigo-900">Audits</span>
-              </CardContent>
-            </Card>
-            <Card className="bg-teal-50 border-none">
-              <CardContent className="p-6 flex flex-col items-center text-center space-y-2">
-                <Target className="h-8 w-8 text-teal-600" />
-                <span className="font-semibold text-teal-900">Relevance</span>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Objectives */}
-      <section className="py-16 bg-slate-50 px-4 md:px-8">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Objectives</h2>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <Card className="hover:shadow-lg transition-shadow duration-300">
+    <DepartmentLayout
+      title="Internal Quality Assurance Cell"
+      tagline="Ensuring Excellence through Conscious and Consistent Action."
+      contentLeft={welcomeText}
+      ctaContent={ctaContent}
+      sidebarContent={sidebarContent}
+      featureTiles={featureTiles}
+      navItems={navItems}
+      badgeText="Quality Assurance"
+    >
+      {/* Functions Section */}
+      <section id="functions">
+        <h2 className="text-3xl font-bold mb-8 border-l-4 border-primary pl-4">Functions</h2>
+        <div className="grid gap-6 md:grid-cols-2">
+          {[
+            { title: "Operational Integration", desc: "Associates closely with every academic operation to ensure structured strategies and defined processes, enabling tangible performance measurement." },
+            { title: "Faculty Development", desc: "Regularly conducts Faculty Development Programmes to help upskill and upgrade the Faculty." },
+            { title: "Student Centricity", desc: "Observes student support initiatives to identify deviations. Actively amends processes and ensures firm adherence to modifications." },
+            { title: "Validation", desc: "Continuously validates the conformity between academic and administrative delivery to ensure comprehensive effectiveness." }
+          ].map((func, i) => (
+            <Card key={i}>
               <CardHeader>
-                <Target className="h-10 w-10 text-blue-600 mb-2" />
-                <CardTitle className="text-lg">Catalytic Action</CardTitle>
+                <CardTitle className="text-lg text-primary">{func.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">To develop a system for conscious and consistent catalytic action, to improve the academic and administrative performance of the institution.</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">{func.desc}</p>
               </CardContent>
             </Card>
-            <Card className="hover:shadow-lg transition-shadow duration-300">
-              <CardHeader>
-                <Settings className="h-10 w-10 text-blue-600 mb-2" />
-                <CardTitle className="text-lg">Institutionalisation</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">To facilitate institutionalisation of quality initiatives, for the improvement of academic and administrative performance of the college.</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Functions */}
-      <section className="py-16 px-4 md:px-8 container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">Functions</h2>
-        <div className="max-w-4xl mx-auto space-y-6">
-          <p className="text-center text-muted-foreground mb-8">
-            IQAC has evolved operational framework for quality assurance by integrating with all academic and administrative operations of the institution.
-          </p>
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg flex items-center gap-2"><BookOpen className="h-5 w-5 text-blue-600" /> Academic Operations</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm">
-                  It associates closely with every academic operation of the institution to ensure that all operations have structured strategies and well-defined processes of delivery. This enables tangible measurement of performance, which will serve as reference for sustaining and improving quality of future initiatives.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg flex items-center gap-2"><Users className="h-5 w-5 text-blue-600" /> Faculty Development</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm">
-                  Regularly conducts Faculty Development Programmes to help upskill and upgrade the Faculty.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg flex items-center gap-2"><Users className="h-5 w-5 text-blue-600" /> Student Support</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm">
-                  It closely observes student support initiatives being delivered at various touch-points across the system, to identify deviations from student-centric approaches. Once such shortcomings are identified, the IQAC actively involves in the amendment and modification of processes/systems, communicates the same and also plays a key role in ensuring firm adherence to these modifications.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg flex items-center gap-2"><Settings className="h-5 w-5 text-blue-600" /> Validation</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm">
-                  It also continuously validates the conformity between academic and administrative delivery, to ensure that there is no disconnect in comprehensive effectiveness.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+          ))}
         </div>
       </section>
 
       {/* Major Contributions */}
-      <section className="py-16 bg-slate-50 px-4 md:px-8">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Major Contributions</h2>
-          <Card className="max-w-4xl mx-auto">
-            <CardContent className="p-8">
-              <div className="flex flex-col md:flex-row gap-6">
-                <div className="shrink-0">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                    <Lightbulb className="h-8 w-8 text-blue-600" />
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <p className="text-muted-foreground leading-relaxed">
-                    Organization of seminars, workshops and training programmes at institutional and national levels, for faculty, students and support staff, to enhance their functional efficiency. It organized two national seminars on quality aspects of education, initiated collaborative programmes in the areas of curriculum review, dissemination of information on best practices and innovative practices in departments and other institutions, and institutionalized them through seminars and reporting systems, thus maintaining quality culture of continuous improvement.
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Development of course file with annexure on teaching plan, pedagogy and content, periodical academic audits, assessment plan and learner-centric activities help teachers benchmark the teaching-learning-evaluation process, help increase integration of ICT in teaching-learning and promote use of ICT, along with sensitization and training of faculty.
-                  </p>
-                </div>
+      <section id="contributions">
+        <h2 className="text-3xl font-bold mb-8 border-l-4 border-primary pl-4">Major Contributions</h2>
+        <Card className="bg-slate-50 border">
+          <CardContent className="p-8 space-y-6">
+            <div className="flex gap-4 items-start">
+              <div className="bg-white p-3 rounded-full shadow-sm shrink-0">
+                <Zap className="h-6 w-6 text-yellow-500" />
               </div>
-            </CardContent>
-          </Card>
-        </div>
+              <div>
+                <h3 className="text-xl font-bold text-slate-800 mb-2">Seminars & Workshops</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Organization of seminars, workshops and training programmes at institutional and national levels. Organized two national seminars on quality aspects of education. Initiated collaborative programmes in curriculum review and sharing of best practices.
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-4 items-start">
+              <div className="bg-white p-3 rounded-full shadow-sm shrink-0">
+                <BookOpen className="h-6 w-6 text-blue-500" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-slate-800 mb-2">Academic Audits & Teaching Plans</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Development of course files with teaching plans, pedagogy, and content. Periodical academic audits and learner-centric activities helping teachers benchmark the teaching-learning process. Promoting the use of ICT in teaching.
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </section>
-    </div>
+    </DepartmentLayout>
   );
 }

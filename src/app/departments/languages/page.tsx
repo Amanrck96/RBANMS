@@ -2,7 +2,6 @@ import React from 'react';
 import { DepartmentLayout } from '@/components/layout/department-layout';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import {
   BookOpen,
@@ -14,9 +13,9 @@ import {
   Globe,
   Star,
   Calendar,
+  Mail,
   Award,
-  Library,
-  Mail
+  Library
 } from 'lucide-react';
 
 export default function LanguagesDepartmentPage() {
@@ -55,37 +54,40 @@ export default function LanguagesDepartmentPage() {
 
   const sidebarContent = (
     <>
-      {/* Highlights Panel */}
-      <div className="space-y-4">
-        <h4 className="text-lg font-bold uppercase tracking-wider text-slate-800 border-b pb-2">Highlights</h4>
-        <ul className="space-y-3">
-          {[
-            "Comprehensive Undergraduate Curriculum",
-            "Student-Centric Teaching Methods",
-            "Literary & Cultural Activities",
-            "Research Orientation",
-            "Strong Library Resources"
-          ].map((item, i) => (
-            <li key={i} className="flex gap-3 text-sm text-muted-foreground">
-              <span className="text-primary font-bold">•</span> {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-
       {/* Objectives Panel */}
       <div className="space-y-4">
         <h4 className="text-lg font-bold uppercase tracking-wider text-slate-800 border-b pb-2">Objectives</h4>
         <ul className="space-y-3">
           {[
-            "Develop Listening & Speaking Skills",
-            "Improve Reading & Writing Abilities",
-            "Build Vocabulary & Grammar",
-            "Understand Indian Culture",
-            "Appreciate Regional Literature"
+            "Develop listening & speaking skills",
+            "Improve reading skills",
+            "Develop writing abilities",
+            "Build vocabulary & grammar",
+            "Introduce Indian culture & literature"
           ].map((obj, i) => (
             <li key={i} className="flex gap-3 text-sm text-muted-foreground">
               <span className="text-primary font-bold">•</span> {obj}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Highlights Panel */}
+      <div className="space-y-4">
+        <h4 className="text-lg font-bold uppercase tracking-wider text-slate-800 border-b pb-2">Highlights</h4>
+        <ul className="space-y-3">
+          {[
+            "Well-designed Undergraduate Curriculum",
+            "Student-centric teaching",
+            "Qualified & Dedicated Faculty",
+            "Literary & Cultural Activities",
+            "Supportive Learning Environment",
+            "Strong Library Resources",
+            "Research Orientation",
+            "Career Guidance & Counselling"
+          ].map((item, i) => (
+            <li key={i} className="flex gap-3 text-sm text-muted-foreground">
+              <span className="text-primary font-bold">•</span> {item}
             </li>
           ))}
         </ul>
@@ -125,7 +127,7 @@ export default function LanguagesDepartmentPage() {
       featureTiles={featureTiles}
     >
       {/* Language Programmes */}
-      <section>
+      <section id="programmes">
         <h2 className="text-3xl font-bold mb-8 border-l-4 border-primary pl-4">Language Programmes</h2>
         <div className="bg-slate-50 p-6 rounded-xl border">
           <Tabs defaultValue="hindi" className="w-full">
@@ -139,7 +141,7 @@ export default function LanguagesDepartmentPage() {
               <Card className="border-none shadow-none bg-transparent">
                 <CardHeader><CardTitle className="text-2xl text-primary">Hindi</CardTitle></CardHeader>
                 <CardContent className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p>Dedicated to the study, preservation, and promotion of Hindi language, literature, and culture. Fosters linguistic knowledge and literary appreciation through academic programs and cultural events.</p>
+                  <p>The programme in Hindi is dedicated to the study, preservation, and promotion of the Hindi language, literature, and culture. It plays a vital role in fostering linguistic knowledge and literary appreciation among students. Through academic programs, research activities, and cultural events, the department encourages a deep understanding of Hindi as both a classical and modern language.</p>
                 </CardContent>
               </Card>
             </TabsContent>
@@ -148,7 +150,7 @@ export default function LanguagesDepartmentPage() {
               <Card className="border-none shadow-none bg-transparent">
                 <CardHeader><CardTitle className="text-2xl text-primary">Kannada</CardTitle></CardHeader>
                 <CardContent className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p>Committed to promoting the rich literary, linguistic, and cultural heritage of Kannada. Fosters appreciation for Kannada literature and traditions through dynamic teaching and creative activities.</p>
+                  <p>The programme in Kannada is committed to promoting the rich literary, linguistic, and cultural heritage of the Kannada language. Through dynamic teaching practices, creative activities, and artistic engagements, the department fosters a deep appreciation for Kannada literature and its diverse traditions. We strive to build strong language skills, encourage critical thinking, and nurture a sense of pride in Karnataka’s cultural identity among students.</p>
                 </CardContent>
               </Card>
             </TabsContent>
@@ -157,7 +159,8 @@ export default function LanguagesDepartmentPage() {
               <Card className="border-none shadow-none bg-transparent">
                 <CardHeader><CardTitle className="text-2xl text-primary">Tamil</CardTitle></CardHeader>
                 <CardContent className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p>Offers in-depth understanding of Tamil language, literature (Sangam to modern), and culture. Develops research ability, translation competence, and creative writing skills.</p>
+                  <p className="mb-4">The programme in Tamil is designed to offer an in-depth understanding of Tamil language, literature, culture, and history. Students are introduced to the richness of Tamil studies, ranging from Sangam literature to modern writings. The curriculum provides a strong foundation in linguistics, grammar, literary analysis, and the evolution of the Tamil language, helping students gain both theoretical knowledge and analytical skills.</p>
+                  <p>Through the program, students develop research ability, critical thinking skills, translation competence, and creative writing skills. The department organizes seminars, workshops, guest lectures, and cultural events to enhance experiential learning. Graduates from the department are well-prepared for careers such as teaching, writing, research, journalism, translation, and various cultural and academic fields. Above all, the programme nurtures pride and love for Tamil and its culture.</p>
                 </CardContent>
               </Card>
             </TabsContent>
@@ -166,41 +169,46 @@ export default function LanguagesDepartmentPage() {
       </section>
 
       {/* Events */}
-      <section>
+      <section id="events">
         <h2 className="text-3xl font-bold mb-8 border-l-4 border-primary pl-4">Events</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          <Card>
-            <CardContent className="p-6 text-center">
-              <Calendar className="h-10 w-10 text-primary mx-auto mb-4" />
-              <h3 className="font-bold text-lg mb-2">Literature Week</h3>
-              <p className="text-sm text-muted-foreground">Essay writing, Debate, and Poetry competitions.</p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="p-6 text-center">
-              <Globe className="h-10 w-10 text-primary mx-auto mb-4" />
-              <h3 className="font-bold text-lg mb-2">International Language Day</h3>
-              <p className="text-sm text-muted-foreground">Celebrating multilingualism on 22 February.</p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="p-6 text-center">
-              <Star className="h-10 w-10 text-primary mx-auto mb-4" />
-              <h3 className="font-bold text-lg mb-2">Cultural Celebrations</h3>
-              <p className="text-sm text-muted-foreground">Grand celebrations for Hindi Diwas and Kannada Rajyotsava.</p>
-            </CardContent>
-          </Card>
+        <div className="bg-slate-50 p-8 rounded-xl border">
+          <p className="text-center text-muted-foreground mb-8 text-lg">
+            Dedicated to enriching students’ linguistic and cultural experiences, the Language Department regularly hosts events that highlight regional literature, art, and tradition. Our annual activities reflect our commitment to preserving heritage and inspiring creativity.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Card>
+              <CardContent className="p-6 text-center">
+                <Calendar className="h-10 w-10 text-primary mx-auto mb-4" />
+                <h3 className="font-bold text-lg mb-2">Literature Week</h3>
+                <p className="text-sm text-muted-foreground">Celebrated with daily events throughout the week, including Essay writing, Debate, and Poetry writing competitions, aimed at enhancing students’ linguistic and literary skills.</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="p-6 text-center">
+                <Globe className="h-10 w-10 text-primary mx-auto mb-4" />
+                <h3 className="font-bold text-lg mb-2">International Language Day</h3>
+                <p className="text-sm text-muted-foreground">Held on 22 February, highlighting the significance of multilingualism and cultural diversity.</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="p-6 text-center">
+                <Star className="h-10 w-10 text-primary mx-auto mb-4" />
+                <h3 className="font-bold text-lg mb-2">Cultural Celebrations</h3>
+                <p className="text-sm text-muted-foreground">Hindi Diwas and Kannada Rajyotsava are grand celebrations in college.</p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
       {/* Faculty Section */}
-      <section>
+      <section id="faculty">
         <h2 className="text-3xl font-bold mb-8 border-l-4 border-primary pl-4">Our Faculty</h2>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
-            { name: "Dr. Sunil Kumar", role: "Head of Dept - Hindi", qual: "M.A., B.Ed, Ph.D.", email: "sunilkumarshetty1977@gmail.com" },
-            { name: "Abhimanyu Shinde", role: "Asst. Professor - Hindi", qual: "M.A., B.Ed", email: "abhimanyushinde14@gmail.com" },
-            { name: "Pushpa Latha. K R", role: "Asst. Professor - Kannada", qual: "MA, B.Ed., NET, SLET", email: "pushpalatha.rbanmsfgc.gmail.com" },
+            { name: "Dr. Sunil Kumar", role: "Head of Dept - Hindi", qual: "M.A. , B.Ed ,Ph.D.", email: "sunilkumarshetty1977@gmail.com" },
+            { name: "Abhimanyu Shinde", role: "Asst. Professor - Hindi", qual: "M.A., B. Ed", email: "abhimanyushinde14@gmail.com" },
+            { name: "Pushpa Latha. K R", role: "Asst. Professor - Kannada", qual: "MA. B.Ed., NET, SLET", email: "pushpalatha.rbanmsfgc.gmail.com" },
             { name: "Dr. Narayanaswamy K", role: "Asst. Professor - Kannada", qual: "MA, PhD, NET-JRF", email: "narayankkyasamballi.gmail.com" },
             { name: "Ms. Sivapriya Kannan", role: "Asst. Professor - Tamil", qual: "", email: "priyakannan.8892@gmail.com" }
           ].map((faculty, i) => (
