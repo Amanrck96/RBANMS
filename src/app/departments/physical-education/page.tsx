@@ -20,13 +20,7 @@ export default function PhysicalEducationPage() {
   const highlightsContent = (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="space-y-6 text-justify prose prose-lg dark:prose-invert max-w-none text-muted-foreground">
-        <h2 className="text-3xl font-bold text-slate-800 dark:text-white">Department of Physical Education</h2>
-        <p>
-          The Department of Physical Education at RBANM’s First Grade College is dedicated to promoting health, fitness, and sportsmanship among students. We believe that physical education is an integral part of holistic education, contributing to the physical, mental, and social development of an individual.
-        </p>
-        <p>
-          Our goal is to foster a culture of fitness and healthy competition. We encourage students to participate in various sports and games, helping them develop discipline, leadership skills, and team spirit.
-        </p>
+        <h2 className="text-3xl font-bold text-slate-800 dark:text-white">Overview</h2>
         <p>
           Whether for recreation or competition, we provide ample opportunities for students to engage in physical activities that suit their interests and talents.
         </p>
@@ -182,7 +176,7 @@ export default function PhysicalEducationPage() {
   return (
     <DepartmentLayout
       title="Department of Physical Education"
-      tagline="Fostering Fitness, Discipline, and Team Spirit."
+      tagline="Welcome to our department, a vibrant community where every voice is heard and every story matters. We believe that learning is a shared journey of discovery, where diverse perspectives come together to spark creativity and understanding. Whether you are here to master a new skill, explore rich traditions, or shape your future career, you will find a supportive environment that nurtures your growth and inspires you to reach your full potential."
       sections={sections}
     />
   );
