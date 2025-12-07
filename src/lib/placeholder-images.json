@@ -79,6 +79,18 @@
       "imageHint": "orientation lamp"
     },
     {
+      "id": "gallery-6",
+      "description": "AIDS Awareness Campaign Rally.",
+      "imageUrl": "/images/gallery/aids-awareness-rally.jpg",
+      "imageHint": "aids awareness"
+    },
+    {
+      "id": "gallery-7",
+      "description": "NCC Cadets Group Photo.",
+      "imageUrl": "/images/gallery/ncc-group-photo.jpg",
+      "imageHint": "ncc group"
+    },
+    {
       "id": "alumni-activity-1",
       "description": "Students helping local vendors with digital payments.",
       "imageUrl": "https://images.unsplash.com/photo-1678953112839-81cb439534c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwcGF5bWVudCUyMGluZGlhfGVufDB8fHx8MTc2MzgwMjM2NHww&ixlib=rb-4.1.0&q=80&w=1080",
