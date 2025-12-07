@@ -20,12 +20,12 @@ export default function EnglishDepartmentPage() {
   const highlightsContent = (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="space-y-6 text-justify prose prose-lg dark:prose-invert max-w-none text-muted-foreground">
-        <h2 className="text-3xl font-bold text-slate-800 dark:text-white">Welcome to English & Communications</h2>
+        <h2 className="text-3xl font-bold text-slate-800 dark:text-white">Overview</h2>
         <p>
-          At the Department of English, words are not just letters, they are doorways. Here, our classrooms become lively arenas where lecture meets critical thinking and every student becomes both a reader and explorer. We believe studying English is not merely about mastering grammar or passing exams, it’s about shaping minds that question, analyze and express.
+          We foster an inclusive and vibrant community where every student’s curiosity is welcome.
         </p>
         <p>
-          We foster an inclusive and vibrant community where every student’s curiosity is welcome. Beyond textbooks, we integrate interactive sessions, creative writing workshops, group discussions, debates, public speaking activities, theatre and occasional literary events, making the study of English as dynamic and alive as the language itself.
+          Beyond textbooks, we integrate interactive sessions, creative writing workshops, group discussions, debates, public speaking activities, theatre and occasional literary events, making the study of English as dynamic and alive as the language itself.
         </p>
       </div>
 
@@ -34,10 +34,10 @@ export default function EnglishDepartmentPage() {
         <CardContent>
           <ul className="space-y-3">
             {[
-              "We blend academic attitude with creative freedom.",
-              "Holistic student development (confidence, empathy, ethics).",
-              "We value every voice, from beginner to eager reader.",
-              "Community and collaboration (Peer discussions, clubs)."
+              "We blend academic attitude with creative freedom. From structured syllabus-based learning to open-ended literary discussions.",
+              "We believe in holistic student development. Not just scholastic success but nurturing confidence, empathy, ethics, and sensitivity.",
+              "We value every voice. Be it a beginner or an eager reader, each student’s journey matters.",
+              "We foster community and collaboration. Peer discussions, group projects, clubs, seminars, interactive workshops."
             ].map((item, i) => (
               <li key={i} className="flex gap-3 text-base text-muted-foreground">
                 <span className="text-primary font-bold">•</span> {item}
@@ -200,12 +200,14 @@ export default function EnglishDepartmentPage() {
           <Lightbulb className="h-16 w-16 mx-auto text-yellow-400" />
           <h3 className="text-3xl font-bold">Course Objectives</h3>
           <ul className="text-slate-300 leading-relaxed text-lg text-left list-disc pl-8 space-y-2">
-            <li>Develop proficiency in Listening, Speaking, Reading and Writing (LSRW).</li>
-            <li>Cultivate inclusivity, equality and sensitivity.</li>
-            <li>Nurture creativity and self-expression.</li>
-            <li>Strengthen critical reading and writing skills.</li>
-            <li>Enhance public-speaking and interpersonal skills.</li>
-            <li>Deepen awareness of social responsibilities.</li>
+            <li>To develop students’ proficiency in Listening, Speaking, Reading and Writing (LSRW), enabling them to communicate clearly and confidently.</li>
+            <li>To cultivate inclusivity, equality and sensitivity by exposing students to varied perspectives.</li>
+            <li>To nurture creativity and self-expression through tasks that encourage articulation of personal experiences.</li>
+            <li>To build competence in using digital resources and modern tools for learning, research, and presentation.</li>
+            <li>To strengthen critical reading and writing skills, enabling analytical thought, clarity, and ethical usage of language.</li>
+            <li>To enhance public-speaking, presentation (oral and written) and interpersonal skills.</li>
+            <li>To deepen awareness of social responsibilities, ethical behaviour and moral sensitivity.</li>
+            <li>To foster analytical and creative thinking, enabling students to interpret texts with insight, empathy and righteousness.</li>
           </ul>
         </CardContent>
       </Card>
@@ -220,12 +222,16 @@ export default function EnglishDepartmentPage() {
           <BookOpen className="h-16 w-16 mx-auto text-white" />
           <h3 className="text-3xl font-bold">Programme Outcomes</h3>
           <ul className="text-primary-foreground/90 leading-relaxed text-lg text-left list-disc pl-8 space-y-2">
-            <li>Demonstrate improved proficiency in all four language skills.</li>
-            <li>Appreciate richness of language and communication.</li>
-            <li>Apply creative and critical thinking to express ideas.</li>
-            <li>Use digital learning tools effectively.</li>
-            <li>Write well-structured professional documents.</li>
-            <li>Exhibit ethical awareness and social responsibility.</li>
+            <li>Demonstrate improved proficiency in all four language skills (listening, speaking, reading, writing).</li>
+            <li>Appreciate and respect the richness of language and communication, showing inclusivity and equality.</li>
+            <li>Apply creative and critical thinking to express ideas, experiences or viewpoints effectively.</li>
+            <li>Use digital learning tools, resources and modern methods to research and present content.</li>
+            <li>Write well-structured, coherent and thoughtful resumes, portfolios, and professional documents.</li>
+            <li>Communicate confidently in group discussions, interviews, or group activities.</li>
+            <li>Read, analyze and interpret texts critically, recognizing literary or rhetorical devices.</li>
+            <li>Present ideas or opinions effectively through oral or written medium.</li>
+            <li>Exhibit ethical awareness, social responsibility, and moral sensitivity.</li>
+            <li>Use analytical skills to solve communication problems and adapt language to varied contexts.</li>
           </ul>
         </CardContent>
       </Card>
@@ -239,25 +245,27 @@ export default function EnglishDepartmentPage() {
       <Card className="bg-pink-50 border-pink-200 dark:bg-pink-900/10">
         <CardHeader><CardTitle className="text-pink-700 dark:text-pink-400 flex items-center gap-2"><Mic2 className="h-6 w-6" /> Welcome to Natya</CardTitle></CardHeader>
         <CardContent className="space-y-4">
-          <p className="text-muted-foreground text-lg">A creative club founded by Prof. Simran, open to everyone who seeks a space to express art, emotion, and ideas. Natya’s core belief is that every voice deserves to shine.</p>
+          <p className="text-muted-foreground text-lg">A creative club founded by Prof. Simran, open to everyone who seeks a space to express art, emotion, and ideas, irrespective of background or prior experience. Here, we strip away all labels and come together simply as artists. Natya’s core belief is that every voice deserves to shine.</p>
+          <p className="text-muted-foreground text-lg">Whether you dream of acting under the spotlight, or prefer working quietly behind the scenes, at Natya there’s a place for you. Come, join the family of artists, because here, everyone is an artist.</p>
           <div className="grid md:grid-cols-2 gap-6 mt-4">
             <div>
               <h4 className="font-bold mb-2 text-lg">Why Natya?</h4>
               <ul className="list-disc pl-5 text-muted-foreground space-y-1">
-                <li>A safe, inclusive space embracing diversity.</li>
-                <li>Build confidence and master public speaking.</li>
-                <li>Opportunities in acting, event-management, and marketing.</li>
-                <li>Platform to experiment and improvised without fear.</li>
+                <li>A safe, inclusive space where diversity, equality, sensitivity and mutual respect are embraced.</li>
+                <li>A place to build confidence and master public speaking, whether you’re on stage or behind the mic.</li>
+                <li>Opportunities to learn and grow, from acting and anchoring to event-management, technical support, and marketing.</li>
+                <li>A platform to experiment, create, improvise, to express your feelings, ideas and stories without fear.</li>
+                <li>A community where teamwork, collaboration, leadership and shared passion drive every performance and activity.</li>
               </ul>
             </div>
             <div>
               <h4 className="font-bold mb-2 text-lg">Skills You’ll Develop</h4>
               <ul className="list-disc pl-5 text-muted-foreground space-y-1">
-                <li>Confidence & Stage Presence</li>
-                <li>Leadership & Event Management</li>
-                <li>Technical Know-how</li>
-                <li>Creativity & Adaptability</li>
-                <li>Empathy & Respect</li>
+                <li>Confidence, expressive speech and strong stage presence</li>
+                <li>Leadership, team-work, planning and event-management skills</li>
+                <li>Technical know-how: handling audio/lighting/equipment, marketing/promotion, behind-the-scenes coordination</li>
+                <li>Creativity, quick thinking and adaptability through acting, improvisation, and collaborative production</li>
+                <li>Empathy, sensitivity and respect, both on stage and off</li>
               </ul>
             </div>
           </div>
@@ -272,11 +280,12 @@ export default function EnglishDepartmentPage() {
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4">Fourth Wall</h2>
       <Card className="bg-purple-50 border-purple-200 dark:bg-purple-900/10">
         <CardHeader><CardTitle className="text-purple-700 dark:text-purple-400 flex items-center gap-2"><Drama className="h-6 w-6" /> The Theatre Club</CardTitle></CardHeader>
-        <CardContent className="space-y-4 text-muted-foreground text-lg">
-          <p>Named for the idea of “breaking the fourth wall”, this performing arts club is led by Prof. Tony Paul. It blends theatre as an expressive art form and an extension of literary study.</p>
-          <p><strong>Multilingual Approach:</strong> Performances often weave together English with regional languages (Kannada, Tamil, Telugu), celebrating linguistic diversity.</p>
-          <p><strong>Fusion:</strong> Blends literature with popular culture (classic texts, cinema, music, memes).</p>
-          <p>Students take on roles in acting, backstage management, costume, sound design, lighting, and scripting, gaining a complete understanding of performance production.</p>
+        <CardContent className="space-y-4 text-muted-foreground text-lg text-justify">
+          <p>The Theatre Club named Fourth Wall for the idea of “breaking the fourth wall” to dissolve the barriers between audience and stage is a performing arts club led by Prof. Tony Paul. The club was created as a space for students to engage with theatre as both an expressive art form and an extension of literary study.</p>
+          <p>One of our signature features is our multilingual approach. Performances often weave together English with regional languages such as Kannada, Tamil, Telugu, and others, celebrating the linguistic diversity of our campus and making our productions inclusive and culturally resonant.</p>
+          <p>Fourth Wall is also interested in blending literature with elements of popular culture, drawing from classic texts, cinema, music and even Gen Z memes. This fusion allows the club to create performances that are accessible and creatively bold. Through sessions, rehearsals, and stage events, the club nurtures essential skills such as communication, collaboration, critical thinking, and creative expression.</p>
+          <p>Students are not limited to acting alone, members take on roles in backstage management, costume, sound design, lighting, and scripting. This holistic involvement ensures that students gain a complete understanding of how a performance comes together, while also discovering their individual strengths and creative interests.</p>
+          <p>Fourth Wall aims to help students step out of their shells, discover their voices, and grow more confident in expressing themselves. The club wishes to create a safe, supportive environment where students can become more comfortable in their own skin both on stage and in everyday life.</p>
         </CardContent>
       </Card>
     </div>
@@ -289,26 +298,33 @@ export default function EnglishDepartmentPage() {
       <Card className="bg-orange-50 border-orange-200 dark:bg-orange-900/10">
         <CardHeader><CardTitle className="text-orange-700 dark:text-orange-400 flex items-center gap-2"><PenTool className="h-6 w-6" /> The Editorial Committee</CardTitle></CardHeader>
         <CardContent className="space-y-4 text-muted-foreground text-lg">
-          <p>Founded by Prof. Rashi Tibrewal, this is a creative space for students who wish to think, write, imagine, design, and express. </p>
-          <p><strong>Our Work:</strong> The team behind “Phoenix”, the college annual magazine (2024–25). It has grown into a vibrant, multi-year community.</p>
+          <p>The Editorial Committee, calling itself the Phoenix Club, is a creative and intellectual space founded by Prof. Rashi Tibrewal, built keeping in mind every student who wishes to think, write, imagine, design, and express. Here, labels fade away, and what remains is a shared love for ideas, words, visuals, and stories.</p>
           <div className="grid md:grid-cols-2 gap-6 mt-4">
             <div>
-              <h4 className="font-bold mb-2">Why Join?</h4>
+              <h4 className="font-bold mb-2">Why the Editorial Committee?</h4>
               <ul className="list-disc pl-5 text-sm space-y-1">
-                <li>Explore content writing, photography, design, and marketing.</li>
-                <li>Access to a Design Room with design software.</li>
-                <li>Platform to grow confidence and contribute to the college magazine.</li>
+                <li>Opportunities to explore multiple creative avenues ranging from content writing, proofreading, and photography to layout design, marketing, and editorial planning.</li>
+                <li>A safe, inspiring space that encourages diversity, equality, thoughtful dialogue and mutual respect.</li>
+                <li>A platform to grow your confidence through writing, editing, designing, and collaborative storytelling.</li>
+                <li>Access to a Design Room equipped with systems loaded with design software.</li>
+                <li>A chance to experiment, innovate, brainstorm, and contribute meaningfully to the college’s creative landscape.</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-2">Skills</h4>
+              <h4 className="font-bold mb-2">The skills you will shake hands with</h4>
               <ul className="list-disc pl-5 text-sm space-y-1">
-                <li>Content writing & proofreading</li>
-                <li>Design skills (Canva, etc.)</li>
-                <li>Photography & Visual storytelling</li>
-                <li>Planning & Leadership</li>
+                <li>Content writing, proofreading, and crisp, expressive communication</li>
+                <li>Design skills through Canva, digital tools and hands-on layout creation</li>
+                <li>Photography, visual storytelling and creative direction</li>
+                <li>Planning, teamwork, coordination and editorial leadership</li>
+                <li>Creative thinking, adaptability and problem-solving in fast-paced publishing cycles</li>
+                <li>Sensitivity, responsibility and integrity</li>
               </ul>
             </div>
+          </div>
+          <div className="mt-4">
+            <p className="mb-2"><strong>Our Work:</strong> The Editorial Committee is proud to be the team behind “Phoenix”, the most recent edition of the college annual magazine, published in the academic year 2024–25.</p>
+            <p>what makes the Editorial Committee truly special is the fun, energy and camaraderie that flows through every discussion, draft, design, and photoshoot. Here, every thought matters, every voice counts, and every student is a storyteller.</p>
           </div>
         </CardContent>
       </Card>
@@ -372,7 +388,7 @@ export default function EnglishDepartmentPage() {
   return (
     <DepartmentLayout
       title="Department of English & Communications"
-      tagline="Words are not just letters, they are doorways."
+      tagline="At the Department of English, words are not just letters, they are doorways. Here, our classrooms become lively arenas where lecture meets critical thinking and every student becomes both reader and explorer. We believe studying English is not merely about mastering grammar or passing exams, it’s about shaping minds that question, analyze and express."
       sections={sections}
     />
   );

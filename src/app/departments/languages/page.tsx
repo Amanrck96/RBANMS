@@ -65,13 +65,18 @@ export default function LanguagesDepartmentPage() {
       <div className="text-muted-foreground italic text-lg space-y-4 leading-relaxed">
         <p>In keeping with the ideals of the college and our founder, the Department of Languages attempts to:</p>
         <ul className="text-left space-y-2 list-disc pl-8 inline-block">
-          <li>Build a society where every individual is empowered with knowledge, skills, and values.</li>
-          <li>Provide quality education and promote innovation.</li>
+          <li>Build a society where every individual is empowered with knowledge, skills, and values, becoming self-reliant, responsible, and an active contributor to nation-building.</li>
+          <li>Provide quality education, promote innovation and ethical values, and support every individual in realizing their full potential through holistic development.</li>
           <li>Help students appreciate regional languages, literature, and culture.</li>
           <li>Build confident and creative learners with strong communication skills.</li>
           <li>Encourage values of respect, empathy, and responsibility.</li>
-          <li>Develop strong language skills and literary understanding.</li>
-          <li>Foster an inclusive learning environment.</li>
+          <li>Inspire students to understand and contribute to India’s rich heritage.</li>
+          <li>Support students’ overall growth through meaningful learning experiences.</li>
+          <li>Develop strong language skills and literary understanding among students.</li>
+          <li>Encourage critical thinking, cultural sensitivity, and creative expression.</li>
+          <li>Foster an inclusive learning environment built on respect and empathy.</li>
+          <li>Prepare learners for academic, cultural, and professional growth.</li>
+          <li>Inspire lifelong appreciation of regional literature, heritage, and social responsibility.</li>
         </ul>
       </div>
     </div>

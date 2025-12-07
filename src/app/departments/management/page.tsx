@@ -50,7 +50,7 @@ export default function ManagementDepartmentPage() {
             <div>
               <h4 className="font-semibold text-sm mb-1 text-primary">Marketing Roles</h4>
               <div className="flex flex-wrap gap-2">
-                {["Digital Marketing Coordinator", "Brand Executive", "Market Research Analyst"].map((role, i) => (
+                {["Digital Marketing Coordinator", "Brand / Product Executive", "Market Research Analyst", "Social Media Executive", "Advertising / Campaign Executive"].map((role, i) => (
                   <Badge key={i} variant="outline" className="text-xs">{role}</Badge>
                 ))}
               </div>
@@ -58,7 +58,15 @@ export default function ManagementDepartmentPage() {
             <div>
               <h4 className="font-semibold text-sm mb-1 text-primary">HR Roles</h4>
               <div className="flex flex-wrap gap-2">
-                {["Talent Acquisition Specialist", "HR Executive", "Types of Training"].map((role, i) => (
+                {["Talent Acquisition Specialist", "HR Executive", "HR Business Partner", "Training & Development Executive", "Employee Relations"].map((role, i) => (
+                  <Badge key={i} variant="outline" className="text-xs">{role}</Badge>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h4 className="font-semibold text-sm mb-1 text-primary">Cross-Functional Roles</h4>
+              <div className="flex flex-wrap gap-2">
+                {["Employer Branding Manager", "Sales & Business Development", "Customer Success Executive", "HR / Marketing Analytics Associate"].map((role, i) => (
                   <Badge key={i} variant="outline" className="text-xs">{role}</Badge>
                 ))}
               </div>
@@ -184,15 +192,15 @@ export default function ManagementDepartmentPage() {
         <CardContent className="space-y-6">
           <Award className="h-16 w-16 mx-auto text-white" />
           <h3 className="text-3xl font-bold">Programme Outcome</h3>
-          <ul className="text-primary-foreground/90 leading-relaxed text-lg text-center list-none space-y-2">
-            <li>PO1: Business Acumen</li>
-            <li>PO2: HR Expertise</li>
-            <li>PO3: Marketing Competence</li>
-            <li>PO4: Strategic Thinking</li>
-            <li>PO5: Communication & Collaboration</li>
-            <li>PO6: Problem-Solving & Adaptability</li>
-            <li>PO7: Ethics & Social Responsibility</li>
-            <li>PO8: Leadership & Teamwork</li>
+          <ul className="text-primary-foreground/90 leading-relaxed text-sm text-left list-none space-y-3">
+            <li><strong>PO1: Business Acumen</strong> – Apply foundational business knowledge to solve real‑world problems.</li>
+            <li><strong>PO2: HR Expertise</strong> – Demonstrate proficiency in recruitment, talent management, employee relations, and performance management.</li>
+            <li><strong>PO3: Marketing Competence</strong> – Develop and implement effective marketing strategies using digital tools and analytics.</li>
+            <li><strong>PO4: Strategic Thinking</strong> – Integrate HR and marketing insights to formulate business strategies.</li>
+            <li><strong>PO5: Communication & Collaboration</strong> – Communicate and collaborate effectively with diverse stakeholders.</li>
+            <li><strong>PO6: Problem‑Solving & Adaptability</strong> – Analyze complex issues, think critically, and adapt to changing environments.</li>
+            <li><strong>PO7: Ethics & Social Responsibility</strong> – Uphold ethical standards and demonstrate social responsibility in HR and marketing decisions.</li>
+            <li><strong>PO8: Leadership & Teamwork</strong> – Lead cross‑functional teams and inspire individuals to achieve shared goals.</li>
           </ul>
         </CardContent>
       </Card>
