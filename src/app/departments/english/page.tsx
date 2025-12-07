@@ -195,11 +195,11 @@ export default function EnglishDepartmentPage() {
   // 7. Course Objectives
   const objContent = (
     <div className="max-w-3xl mx-auto">
-      <Card className="h-full bg-slate-900 text-white border-none flex flex-col justify-center text-center p-8">
+      <Card className="h-full bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-8">
         <CardContent className="space-y-6">
-          <Lightbulb className="h-16 w-16 mx-auto text-yellow-400" />
+          <Lightbulb className="h-16 w-16 mx-auto text-primary" />
           <h3 className="text-3xl font-bold">Course Objectives</h3>
-          <ul className="text-slate-300 leading-relaxed text-lg text-left list-disc pl-8 space-y-2">
+          <ul className="text-black leading-relaxed text-lg text-left list-disc pl-8 space-y-2">
             <li>To develop students’ proficiency in Listening, Speaking, Reading and Writing (LSRW), enabling them to communicate clearly and confidently.</li>
             <li>To cultivate inclusivity, equality and sensitivity by exposing students to varied perspectives.</li>
             <li>To nurture creativity and self-expression through tasks that encourage articulation of personal experiences.</li>
@@ -217,11 +217,11 @@ export default function EnglishDepartmentPage() {
   // 8. Programme Outcomes
   const outcomesContent = (
     <div className="max-w-3xl mx-auto">
-      <Card className="h-full bg-primary text-primary-foreground border-none flex flex-col justify-center text-center p-8">
+      <Card className="h-full bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-8">
         <CardContent className="space-y-6">
-          <BookOpen className="h-16 w-16 mx-auto text-white" />
+          <BookOpen className="h-16 w-16 mx-auto text-primary" />
           <h3 className="text-3xl font-bold">Programme Outcomes</h3>
-          <ul className="text-primary-foreground/90 leading-relaxed text-lg text-left list-disc pl-8 space-y-2">
+          <ul className="text-black leading-relaxed text-lg text-left list-disc pl-8 space-y-2">
             <li>Demonstrate improved proficiency in all four language skills (listening, speaking, reading, writing).</li>
             <li>Appreciate and respect the richness of language and communication, showing inclusivity and equality.</li>
             <li>Apply creative and critical thinking to express ideas, experiences or viewpoints effectively.</li>
@@ -242,8 +242,8 @@ export default function EnglishDepartmentPage() {
   const natyaContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4">Natya</h2>
-      <Card className="bg-pink-50 border-pink-200 dark:bg-pink-900/10">
-        <CardHeader><CardTitle className="text-pink-700 dark:text-pink-400 flex items-center gap-2"><Mic2 className="h-6 w-6" /> Welcome to Natya</CardTitle></CardHeader>
+      <Card className="bg-white border-2 border-primary">
+        <CardHeader><CardTitle className="text-primary flex items-center gap-2"><Mic2 className="h-6 w-6" /> Welcome to Natya</CardTitle></CardHeader>
         <CardContent className="space-y-4">
           <p className="text-muted-foreground text-lg">A creative club founded by Prof. Simran, open to everyone who seeks a space to express art, emotion, and ideas, irrespective of background or prior experience. Here, we strip away all labels and come together simply as artists. Natya’s core belief is that every voice deserves to shine.</p>
           <p className="text-muted-foreground text-lg">Whether you dream of acting under the spotlight, or prefer working quietly behind the scenes, at Natya there’s a place for you. Come, join the family of artists, because here, everyone is an artist.</p>
@@ -278,8 +278,8 @@ export default function EnglishDepartmentPage() {
   const fourthWallContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4">Fourth Wall</h2>
-      <Card className="bg-purple-50 border-purple-200 dark:bg-purple-900/10">
-        <CardHeader><CardTitle className="text-purple-700 dark:text-purple-400 flex items-center gap-2"><Drama className="h-6 w-6" /> The Theatre Club</CardTitle></CardHeader>
+      <Card className="bg-white border-2 border-primary">
+        <CardHeader><CardTitle className="text-primary flex items-center gap-2"><Drama className="h-6 w-6" /> The Theatre Club</CardTitle></CardHeader>
         <CardContent className="space-y-4 text-muted-foreground text-lg text-justify">
           <p>The Theatre Club named Fourth Wall for the idea of “breaking the fourth wall” to dissolve the barriers between audience and stage is a performing arts club led by Prof. Tony Paul. The club was created as a space for students to engage with theatre as both an expressive art form and an extension of literary study.</p>
           <p>One of our signature features is our multilingual approach. Performances often weave together English with regional languages such as Kannada, Tamil, Telugu, and others, celebrating the linguistic diversity of our campus and making our productions inclusive and culturally resonant.</p>
@@ -295,8 +295,8 @@ export default function EnglishDepartmentPage() {
   const phoenixContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4">Phoenix Club</h2>
-      <Card className="bg-orange-50 border-orange-200 dark:bg-orange-900/10">
-        <CardHeader><CardTitle className="text-orange-700 dark:text-orange-400 flex items-center gap-2"><PenTool className="h-6 w-6" /> The Editorial Committee</CardTitle></CardHeader>
+      <Card className="bg-white border-2 border-primary">
+        <CardHeader><CardTitle className="text-primary flex items-center gap-2"><PenTool className="h-6 w-6" /> The Editorial Committee</CardTitle></CardHeader>
         <CardContent className="space-y-4 text-muted-foreground text-lg">
           <p>The Editorial Committee, calling itself the Phoenix Club, is a creative and intellectual space founded by Prof. Rashi Tibrewal, built keeping in mind every student who wishes to think, write, imagine, design, and express. Here, labels fade away, and what remains is a shared love for ideas, words, visuals, and stories.</p>
           <div className="grid md:grid-cols-2 gap-6 mt-4">

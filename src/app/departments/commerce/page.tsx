@@ -23,11 +23,11 @@ export default function CommerceDepartmentPage() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
-        <Card className="bg-slate-900 text-white border-none flex flex-col justify-center text-center p-6">
+        <Card className="bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-6">
           <CardContent className="space-y-4">
-            <TrendingUp className="h-12 w-12 mx-auto text-yellow-400" />
+            <TrendingUp className="h-12 w-12 mx-auto text-primary" />
             <h3 className="text-2xl font-bold">Why B.COM?</h3>
-            <ul className="text-slate-300 leading-relaxed text-sm text-left list-disc pl-5 space-y-2">
+            <ul className="text-black leading-relaxed text-sm text-left list-disc pl-5 space-y-2">
               <li>Builds strong fundamentals in accounting, finance, taxation.</li>
               <li>High employability (62.81% per India Skills Report 2026).</li>
               <li>Demand in banking, fintech, compliance, and analytics.</li>
@@ -184,11 +184,11 @@ export default function CommerceDepartmentPage() {
   // Section 7: Programme Outcomes
   const outcomesContent = (
     <div className="max-w-3xl mx-auto">
-      <Card className="h-full bg-primary text-primary-foreground border-none flex flex-col justify-center text-center p-8">
+      <Card className="h-full bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-8">
         <CardContent className="space-y-6">
-          <Award className="h-16 w-16 mx-auto text-white" />
+          <Award className="h-16 w-16 mx-auto text-primary" />
           <h3 className="text-3xl font-bold">Programme Outcome</h3>
-          <ul className="text-primary-foreground/90 leading-relaxed text-lg text-left list-disc pl-8 space-y-2">
+          <ul className="text-black leading-relaxed text-lg text-left list-disc pl-8 space-y-2">
             <li>Fundamenals of accounting & finance.</li>
             <li>Financial literacy & analysis.</li>
             <li>Effective communication.</li>

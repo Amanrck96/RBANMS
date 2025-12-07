@@ -31,9 +31,9 @@ export default function ManagementDepartmentPage() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
-        <Card className="bg-slate-900 text-white border-none flex flex-col justify-center text-center p-6">
-          <CardHeader><CardTitle className="text-2xl text-yellow-400 flex items-center justify-center gap-2"><Zap className="h-6 w-6" /> Why BBA?</CardTitle></CardHeader>
-          <CardContent className="space-y-2 text-sm text-slate-300 text-left">
+        <Card className="bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-6">
+          <CardHeader><CardTitle className="text-2xl text-primary flex items-center justify-center gap-2"><Zap className="h-6 w-6" /> Why BBA?</CardTitle></CardHeader>
+          <CardContent className="space-y-2 text-sm text-black text-left">
             <p><strong>Integrated Curriculum:</strong> Core business fundamentals + focused courses (recruitment, branding, consumer behavior).</p>
             <p><strong>Industry-Ready Skills:</strong> Design HR policies and Marketing strategies.</p>
             <p><strong>Practical Exposure:</strong> Live projects, internships, workshops.</p>
@@ -170,11 +170,11 @@ export default function ManagementDepartmentPage() {
   // 6. Objectives
   const objContent = (
     <div className="max-w-3xl mx-auto">
-      <Card className="h-full bg-slate-900 text-white border-none flex flex-col justify-center text-center p-8">
+      <Card className="h-full bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-8">
         <CardContent className="space-y-6">
-          <Lightbulb className="h-16 w-16 mx-auto text-yellow-400" />
+          <Lightbulb className="h-16 w-16 mx-auto text-primary" />
           <h3 className="text-3xl font-bold">Objectives</h3>
-          <p className="text-slate-300 leading-relaxed text-lg">
+          <p className="text-black leading-relaxed text-lg">
             The BBA program at RBANMs First Grade College under Bengaluru City University is designed to develop comprehensive business competencies with dual specialization in Human Resources and Marketing.
           </p>
         </CardContent>
@@ -185,11 +185,11 @@ export default function ManagementDepartmentPage() {
   // 7. Outcomes
   const outcomesContent = (
     <div className="max-w-3xl mx-auto">
-      <Card className="h-full bg-primary text-primary-foreground border-none flex flex-col justify-center text-center p-8">
+      <Card className="h-full bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-8">
         <CardContent className="space-y-6">
-          <Award className="h-16 w-16 mx-auto text-white" />
+          <Award className="h-16 w-16 mx-auto text-primary" />
           <h3 className="text-3xl font-bold">Programme Outcome</h3>
-          <ul className="text-primary-foreground/90 leading-relaxed text-sm text-left list-none space-y-3">
+          <ul className="text-black leading-relaxed text-sm text-left list-none space-y-3">
             <li><strong>PO1: Business Acumen</strong> – Apply foundational business knowledge to solve real‑world problems.</li>
             <li><strong>PO2: HR Expertise</strong> – Demonstrate proficiency in recruitment, talent management, employee relations, and performance management.</li>
             <li><strong>PO3: Marketing Competence</strong> – Develop and implement effective marketing strategies using digital tools and analytics.</li>

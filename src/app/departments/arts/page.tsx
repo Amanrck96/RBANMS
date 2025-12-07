@@ -95,11 +95,11 @@ export default function ArtsDepartmentPage() {
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4">Skills Developed</h2>
 
       <div className="grid md:grid-cols-2 gap-6">
-        <Card className="bg-slate-900 text-white border-none flex flex-col justify-center text-center p-6">
+        <Card className="bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-6">
           <CardContent className="space-y-4">
-            <Lightbulb className="h-12 w-12 mx-auto text-yellow-400" />
+            <Lightbulb className="h-12 w-12 mx-auto text-primary" />
             <h3 className="text-2xl font-bold">Objectives</h3>
-            <ul className="text-slate-300 leading-relaxed text-sm text-left list-disc pl-5 space-y-2">
+            <ul className="text-black leading-relaxed text-sm text-left list-disc pl-5 space-y-2">
               <li>Strengthen understanding of economic concepts & real-world applications.</li>
               <li>Enhance analytical and problem-solving abilities.</li>
               <li>Develop employability skills (finance, policy, research).</li>
@@ -108,11 +108,11 @@ export default function ArtsDepartmentPage() {
             </ul>
           </CardContent>
         </Card>
-        <Card className="bg-primary text-primary-foreground border-none flex flex-col justify-center text-center p-6">
+        <Card className="bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-6">
           <CardContent className="space-y-4">
-            <Award className="h-12 w-12 mx-auto text-white" />
+            <Award className="h-12 w-12 mx-auto text-primary" />
             <h3 className="text-2xl font-bold">Programme Outcomes</h3>
-            <ul className="text-primary-foreground/90 leading-relaxed text-sm text-left list-disc pl-5 space-y-2">
+            <ul className="text-black leading-relaxed text-sm text-left list-disc pl-5 space-y-2">
               <li>Disciplinary Knowledge</li>
               <li>Application of Theory</li>
               <li>Critical Thinking & Research Skills</li>

@@ -85,11 +85,11 @@ export default function LanguagesDepartmentPage() {
   // 3. Objectives
   const objContent = (
     <div className="max-w-3xl mx-auto">
-      <Card className="h-full bg-slate-900 text-white border-none flex flex-col justify-center text-center p-8">
+      <Card className="h-full bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-8">
         <CardContent className="space-y-6">
-          <Lightbulb className="h-16 w-16 mx-auto text-yellow-400" />
+          <Lightbulb className="h-16 w-16 mx-auto text-primary" />
           <h3 className="text-3xl font-bold">Course Objectives</h3>
-          <ul className="text-slate-300 leading-relaxed text-lg text-left list-disc pl-8 space-y-2">
+          <ul className="text-black leading-relaxed text-lg text-left list-disc pl-8 space-y-2">
             <li><strong>Listening & Speaking:</strong> Communicate clearly, correctly, and effectively.</li>
             <li><strong>Reading Skills:</strong> Understand and interpret regional literature.</li>
             <li><strong>Writing Abilities:</strong> Construct simple to complex sentences, essays, etc.</li>
@@ -104,11 +104,11 @@ export default function LanguagesDepartmentPage() {
   // 4. Outcomes
   const outcomesContent = (
     <div className="max-w-3xl mx-auto">
-      <Card className="h-full bg-primary text-primary-foreground border-none flex flex-col justify-center text-center p-8">
+      <Card className="h-full bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-8">
         <CardContent className="space-y-6">
-          <Target className="h-16 w-16 mx-auto text-white" />
+          <Target className="h-16 w-16 mx-auto text-primary" />
           <h3 className="text-3xl font-bold">Programme Outcome</h3>
-          <ul className="text-primary-foreground/90 leading-relaxed text-lg text-left list-disc pl-8 space-y-2">
+          <ul className="text-black leading-relaxed text-lg text-left list-disc pl-8 space-y-2">
             <li>Proficiency in listening, speaking, reading, and writing in Indian languages.</li>
             <li>Appreciation of literary texts and cultural contexts.</li>
             <li>Development of creative writing and translation skills.</li>
@@ -122,8 +122,8 @@ export default function LanguagesDepartmentPage() {
   // 5. Hindi
   const hindiContent = (
     <div className="space-y-6">
-      <Card className="border-orange-200 bg-orange-50/50 dark:bg-orange-900/10 dark:border-orange-800">
-        <CardHeader><CardTitle className="text-3xl text-orange-600">Hindi</CardTitle></CardHeader>
+      <Card className="border-2 border-primary bg-white">
+        <CardHeader><CardTitle className="text-3xl text-primary">Hindi</CardTitle></CardHeader>
         <CardContent className="text-muted-foreground text-lg leading-relaxed">
           The programme in Hindi is dedicated to the study, preservation, and promotion of the Hindi language, literature, and culture. It plays a vital role in fostering linguistic knowledge and literary appreciation among students. Through academic programs, research activities, and cultural events, the department encourages a deep understanding of Hindi as both a classical and modern language.
         </CardContent>
@@ -134,8 +134,8 @@ export default function LanguagesDepartmentPage() {
   // 6. Kannada
   const kannadaContent = (
     <div className="space-y-6">
-      <Card className="border-yellow-200 bg-yellow-50/50 dark:bg-yellow-900/10 dark:border-yellow-800">
-        <CardHeader><CardTitle className="text-3xl text-yellow-600">Kannada</CardTitle></CardHeader>
+      <Card className="border-2 border-primary bg-white">
+        <CardHeader><CardTitle className="text-3xl text-primary">Kannada</CardTitle></CardHeader>
         <CardContent className="text-muted-foreground text-lg leading-relaxed">
           The programme in Kannada is committed to promoting the rich literary, linguistic, and cultural heritage of the Kannada language. Through dynamic teaching practices, creative activities, and artistic engagements, the department fosters a deep appreciation for Kannada literature and its diverse traditions. We strive to build strong language skills, encourage critical thinking, and nurture a sense of pride in Karnataka’s cultural identity among students.
         </CardContent>
@@ -146,8 +146,8 @@ export default function LanguagesDepartmentPage() {
   // 7. Tamil
   const tamilContent = (
     <div className="space-y-6">
-      <Card className="border-red-200 bg-red-50/50 dark:bg-red-900/10 dark:border-red-800">
-        <CardHeader><CardTitle className="text-3xl text-red-600">Tamil</CardTitle></CardHeader>
+      <Card className="border-2 border-primary bg-white">
+        <CardHeader><CardTitle className="text-3xl text-primary">Tamil</CardTitle></CardHeader>
         <CardContent className="text-muted-foreground text-lg space-y-4 leading-relaxed">
           <p>The programme in Tamil is designed to offer an in-depth understanding of Tamil language, literature, culture, and history. Students are introduced to the richness of Tamil studies, ranging from Sangam literature to modern writings.</p>
           <p>Through the program, students develop research ability, critical thinking skills, translation competence, and creative writing skills. The department organizes seminars, workshops, guest lectures, and cultural events to enhance experiential learning.</p>

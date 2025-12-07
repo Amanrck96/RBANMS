@@ -100,20 +100,20 @@ export default function PhysicalEducationPage() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-6 mt-6">
-        <Card className="h-full bg-slate-900 text-white border-none flex flex-col justify-center text-center p-6">
+        <Card className="h-full bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-6">
           <CardContent className="space-y-4">
-            <Activity className="h-12 w-12 mx-auto text-yellow-400" />
+            <Activity className="h-12 w-12 mx-auto text-primary" />
             <h3 className="text-2xl font-bold">Health & Wellness</h3>
-            <p className="text-slate-300 leading-relaxed text-sm">
+            <p className="text-black leading-relaxed text-sm">
               Promoting physical fitness as a way of life, ensuring students maintain a healthy balance between academics and sports.
             </p>
           </CardContent>
         </Card>
-        <Card className="h-full bg-primary text-primary-foreground border-none flex flex-col justify-center text-center p-6">
+        <Card className="h-full bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-6">
           <CardContent className="space-y-4">
-            <Trophy className="h-12 w-12 mx-auto text-white" />
+            <Trophy className="h-12 w-12 mx-auto text-primary" />
             <h3 className="text-2xl font-bold">Competitive Excellence</h3>
-            <p className="text-primary-foreground/90 leading-relaxed text-sm">
+            <p className="text-black leading-relaxed text-sm">
               Providing training and support for students to excel in inter-collegiate, university, and state-level tournaments.
             </p>
           </CardContent>

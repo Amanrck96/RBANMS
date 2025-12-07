@@ -229,11 +229,11 @@ export default function ComputerApplicationsDeptPage() {
   // 7. Objectives
   const objContent = (
     <div className="max-w-3xl mx-auto">
-      <Card className="h-full bg-slate-900 text-white border-none flex flex-col justify-center text-center p-8">
+      <Card className="h-full bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-8">
         <CardContent className="space-y-6">
-          <Lightbulb className="h-16 w-16 mx-auto text-yellow-400" />
+          <Lightbulb className="h-16 w-16 mx-auto text-primary" />
           <h3 className="text-3xl font-bold">Objectives</h3>
-          <ul className="text-slate-300 leading-relaxed text-lg text-left list-disc pl-8 space-y-2">
+          <ul className="text-black leading-relaxed text-lg text-left list-disc pl-8 space-y-2">
             <li>Build a strong foundation in computer science and programming.</li>
             <li>Develop skills in software development, web technologies, and databases.</li>
             <li>Enhance problem-solving, analytical, and logical thinking abilities.</li>
@@ -249,11 +249,11 @@ export default function ComputerApplicationsDeptPage() {
   // 8. Outcomes
   const outcomesContent = (
     <div className="max-w-3xl mx-auto">
-      <Card className="h-full bg-primary text-primary-foreground border-none flex flex-col justify-center text-center p-8">
+      <Card className="h-full bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-8">
         <CardContent className="space-y-6">
-          <Award className="h-16 w-16 mx-auto text-white" />
+          <Award className="h-16 w-16 mx-auto text-primary" />
           <h3 className="text-3xl font-bold">Programme Outcome</h3>
-          <ul className="text-primary-foreground/90 leading-relaxed text-lg text-left list-disc pl-8 space-y-2">
+          <ul className="text-black leading-relaxed text-lg text-left list-disc pl-8 space-y-2">
             <li><strong>Apply Knowledge:</strong> Understand mechanics of CS and software development.</li>
             <li><strong>Problem Solving & Critical Thinking:</strong> Analyse problems, design algorithms.</li>
             <li><strong>Professional Competence:</strong> Develop, test, and deploy software applications.</li>
