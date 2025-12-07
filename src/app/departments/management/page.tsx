@@ -21,10 +21,7 @@ export default function ManagementDepartmentPage() {
   const whyBbaContent = (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="space-y-6 text-justify prose prose-lg dark:prose-invert max-w-none text-muted-foreground">
-        <h2 className="text-3xl font-bold text-slate-800 dark:text-white">Welcome to the Department of Management Studies</h2>
-        <p>
-          At RBANM’s First Grade College, the Department of Management blends the art of people management with the science of market dynamics.
-        </p>
+        At RBANM’s First Grade College, the Department of Management blends the art of people management with the science of market dynamics.
         <p>
           Bachelor of Business Administration (BBA) program, with dual specializations in Human Resources and Marketing, equips students with the skills to lead, innovate, and adapt in today’s evolving business environment.
         </p>
@@ -287,7 +284,7 @@ export default function ManagementDepartmentPage() {
   return (
     <DepartmentLayout
       title="Department of Management Studies"
-      tagline="Blends the art of people management with the science of market dynamics."
+      tagline="Welcome to our department, a vibrant community where every voice is heard and every story matters. We believe that learning is a shared journey of discovery, where diverse perspectives come together to spark creativity and understanding. Whether you are here to master a new skill, explore rich traditions, or shape your future career, you will find a supportive environment that nurtures your growth and inspires you to reach your full potential."
       sections={sections}
     />
   );

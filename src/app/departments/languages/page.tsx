@@ -19,7 +19,7 @@ export default function LanguagesDepartmentPage() {
   const highlightsContent = (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="space-y-6 text-justify prose prose-lg dark:prose-invert max-w-none text-muted-foreground">
-        <h2 className="text-3xl font-bold text-slate-800 dark:text-white">Welcome to the Department of Languages</h2>
+        <h2 className="text-3xl font-bold text-slate-800 dark:text-white">Overview</h2>
         <p>
           At RBANM’s First Grade College, Language Study is offered as a second language, other than the compulsory course in English. This is as prescribed by Bengaluru City University for students across all steams of BA, BCA, B.COM, and BBA.
         </p>
@@ -229,7 +229,7 @@ export default function LanguagesDepartmentPage() {
   return (
     <DepartmentLayout
       title="Department of Languages"
-      tagline="Fostering linguistic knowledge and literary appreciation."
+      tagline="Welcome to our department, a vibrant community where every voice is heard and every story matters. We believe that learning is a shared journey of discovery, where diverse perspectives come together to spark creativity and understanding. Whether you are here to master a new skill, explore rich traditions, or shape your future career, you will find a supportive environment that nurtures your growth and inspires you to reach your full potential."
       sections={sections}
     />
   );

@@ -16,10 +16,7 @@ export default function CommerceDepartmentPage() {
   const whyBcomContent = (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="space-y-6 text-justify prose prose-lg dark:prose-invert max-w-none text-muted-foreground">
-        <h2 className="text-3xl font-bold text-slate-800 dark:text-white">Welcome to the Department of Commerce</h2>
-        <p>
-          The Commerce Department at RBANM’s First Grade College has been shaping capable and confident graduates since 1984. It offers a strong undergraduate program built on practical learning and steady innovation.
-        </p>
+        <h2 className="text-3xl font-bold text-slate-800 dark:text-white">Overview</h2>
         <p>
           The goal is clear: to improve every year and deliver education that meets global standards. Teaching blends traditional lectures with student centred methods that build real understanding. Role-plays, simulations, group work, discussions, debates, and case-based learning make the classroom active and engaging.
         </p>
@@ -282,7 +279,7 @@ export default function CommerceDepartmentPage() {
   return (
     <DepartmentLayout
       title="Department of Commerce"
-      tagline="Shaping capable and confident graduates since 1984."
+      tagline="Welcome to our department, a vibrant community where every voice is heard and every story matters. We believe that learning is a shared journey of discovery, where diverse perspectives come together to spark creativity and understanding. Whether you are here to master a new skill, explore rich traditions, or shape your future career, you will find a supportive environment that nurtures your growth and inspires you to reach your full potential."
       sections={sections}
     />
   );
