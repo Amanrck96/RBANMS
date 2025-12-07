@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 interface NavItem {
     label: string;
@@ -14,14 +15,15 @@ interface NavItem {
 interface DepartmentLayoutProps {
     title: string;
     tagline?: string;
-    activeTab?: string; // The slug of the current department (optional if using custom navItems)
-    contentLeft: React.ReactNode; // Intro paragraphs
-    ctaContent?: React.ReactNode; // The outlined CTA box
-    sidebarContent: React.ReactNode; // Right column content
-    featureTiles?: [React.ReactNode, React.ReactNode]; // Exactly two tiles for the lower grid
-    children?: React.ReactNode; // Anything else below the main structure (Course Matrix, Faculty, etc)
-    navItems?: NavItem[]; // Optional custom navigation items (overrides default departments)
-    badgeText?: string; // Optional badge text (default: "Department")
+    activeTab?: string;
+    contentLeft?: React.ReactNode;
+    ctaContent?: React.ReactNode;
+    sidebarContent?: React.ReactNode;
+    featureTiles?: [React.ReactNode, React.ReactNode];
+    children?: React.ReactNode;
+    navItems?: NavItem[];
+    sections?: { id: string; label: string; content: React.ReactNode }[];
+    badgeText?: string;
 }
 
 const departments = [
@@ -44,9 +46,65 @@ export function DepartmentLayout({
     featureTiles,
     children,
     navItems,
+    sections,
     badgeText = "Department"
 }: DepartmentLayoutProps) {
 
+    // If sections are provided, we use the Tabbed Layout
+    if (sections && sections.length > 0) {
+        return (
+            <div className="min-h-screen bg-background text-foreground font-sans">
+                {/* 1. Full-width Header Band */}
+                <div className="w-full bg-primary py-12 px-4 md:px-8 shadow-sm">
+                    <div className="container mx-auto">
+                        <Badge className="mb-4 bg-yellow-500 text-black hover:bg-yellow-400 border-none">
+                            {badgeText}
+                        </Badge>
+                        <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground font-headline tracking-tight">
+                            {title}
+                        </h1>
+                        {tagline && (
+                            <p className="mt-4 text-lg md:text-xl text-primary-foreground/90 max-w-3xl leading-relaxed">
+                                {tagline}
+                            </p>
+                        )}
+                    </div>
+                </div>
+
+                {/* Tabbed Interface */}
+                <Tabs defaultValue={sections[0].id} className="w-full">
+                    <div className="border-b bg-muted/30 sticky top-0 z-20 backdrop-blur-sm">
+                        <div className="container mx-auto">
+                            <ScrollArea className="w-full whitespace-nowrap">
+                                <TabsList className="flex w-full min-w-max h-auto bg-transparent p-0 justify-start">
+                                    {sections.map((section) => (
+                                        <TabsTrigger
+                                            key={section.id}
+                                            value={section.id}
+                                            className="flex-1 inline-flex items-center justify-center px-6 py-4 text-sm font-medium transition-colors hover:bg-muted/50 border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:bg-primary/5 data-[state=active]:font-bold rounded-none"
+                                        >
+                                            {section.label}
+                                        </TabsTrigger>
+                                    ))}
+                                </TabsList>
+                                <ScrollBar orientation="horizontal" />
+                            </ScrollArea>
+                        </div>
+                    </div>
+
+                    <div className="container mx-auto px-4 md:px-8 py-12 min-h-[500px]">
+                        {sections.map((section) => (
+                            <TabsContent key={section.id} value={section.id} className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                {section.content}
+                            </TabsContent>
+                        ))}
+                    </div>
+                </Tabs>
+            </div>
+        );
+    }
+
+    // Legacy Scroll Layout
     const navigationItems = navItems || departments.map(dept => ({
         label: dept.name,
         href: `/departments/${dept.slug}`,
@@ -72,7 +130,7 @@ export function DepartmentLayout({
                 </div>
             </div>
 
-            {/* 2. Navigation/Tabs Strip */}
+            {/* 2. Navigation/Tabs Strip (Legacy) */}
             <div className="w-full border-b bg-muted/30 sticky top-0 z-20 backdrop-blur-sm">
                 <div className="container mx-auto">
                     <ScrollArea className="w-full whitespace-nowrap">
