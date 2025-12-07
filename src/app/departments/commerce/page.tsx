@@ -8,255 +8,254 @@ import {
   Target,
   Award,
   Users,
+  Lightbulb,
+  Briefcase,
+  Zap,
+  Mail,
+  GraduationCap
 } from 'lucide-react';
 
 export default function CommerceDepartmentPage() {
 
-  // Section 1: Why B.COM? (Overview + Careers)
+  // 1. Why B.COM?
   const whyBcomContent = (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <div className="space-y-6 text-justify prose prose-lg dark:prose-invert max-w-none text-muted-foreground">
-        <h2 className="text-3xl font-bold text-slate-800 dark:text-white">Overview</h2>
-        <p>
-          The goal is clear: to improve every year and deliver education that meets global standards. Teaching blends traditional lectures with student centred methods that build real understanding. Role-plays, simulations, group work, discussions, debates, and case-based learning make the classroom active and engaging.
-        </p>
+      <div className="space-y-6 text-justify prose prose-lg dark:prose-invert max-w-none text-black">
+        <h2 className="text-xl font-bold text-primary">Why B.COM?</h2>
+        <ul className="space-y-2 list-disc pl-5">
+          <li>The Commerce stream builds strong fundamentals in accounting, finance, taxation, economics, and business management while developing digital, analytical, and communication skills.</li>
+          <li>Employability for commerce graduates has risen, with the India Skills Report 2026 placing it at 62.81 percent. Growth in banking, fintech, compliance, and business analytics continues to drive demand for graduates with both subject knowledge and digital capability.</li>
+          <li>Commerce remains a relevant and stable career pathway, offering strong opportunities for students who combine academic learning with industry aligned skills.</li>
+        </ul>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6">
-        <Card className="bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-6">
-          <CardContent className="space-y-4">
-            <TrendingUp className="h-12 w-12 mx-auto text-primary" />
-            <h3 className="text-2xl font-bold">Why B.COM?</h3>
-            <ul className="text-black leading-relaxed text-sm text-left list-disc pl-5 space-y-2">
-              <li>Builds strong fundamentals in accounting, finance, taxation.</li>
-              <li>High employability (62.81% per India Skills Report 2026).</li>
-              <li>Demand in banking, fintech, compliance, and analytics.</li>
-              <li>A relevant and stable career pathway combining academic learning with skills.</li>
-            </ul>
-          </CardContent>
-        </Card>
-
-        <div className="space-y-4">
-          <h3 className="text-xl font-bold">Career Options</h3>
-          <ul className="grid grid-cols-1 gap-2">
-            {[
-              "Accountant, Financial Analyst, Auditor",
-              "Tax Consultant, GST Executive",
-              "Banking Associate, Loan Officer",
-              "HR Assistant, Marketing Executive",
-              "BPO/KPO Executive, Supply Chain",
-              "Entrepreneur, Small Business Owner"
-            ].map((job, i) => (
-              <li key={i} className="flex gap-2 text-sm text-muted-foreground items-center">
-                <Badge variant="outline" className="h-6 w-6 rounded-full p-0 flex items-center justify-center shrink-0">{i + 1}</Badge>
-                {job}
-              </li>
-            ))}
-          </ul>
+      <div className="space-y-6">
+        <h2 className="text-xl font-bold text-primary">Career Options</h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <Card className="bg-white border-2 border-primary text-black">
+            <CardHeader><CardTitle className="text-base text-primary">Accounting and Finance</CardTitle></CardHeader>
+            <CardContent><ul className="list-disc pl-5 text-sm"><li>Accountant</li><li>Financial Analyst</li><li>Auditor</li><li>Payroll Executive</li><li>Investment Advisor</li><li>Stock Market and Trading Assistant</li></ul></CardContent>
+          </Card>
+          <Card className="bg-white border-2 border-primary text-black">
+            <CardHeader><CardTitle className="text-base text-primary">Taxation and Compliance</CardTitle></CardHeader>
+            <CardContent><ul className="list-disc pl-5 text-sm"><li>Tax Consultant</li><li>GST Executive</li><li>Compliance Assistant</li></ul></CardContent>
+          </Card>
+          <Card className="bg-white border-2 border-primary text-black">
+            <CardHeader><CardTitle className="text-base text-primary">Banking and Insurance</CardTitle></CardHeader>
+            <CardContent><ul className="list-disc pl-5 text-sm"><li>Banking Associate</li><li>Loan Officer</li><li>Insurance Advisor or Claims Executive</li></ul></CardContent>
+          </Card>
+          <Card className="bg-white border-2 border-primary text-black">
+            <CardHeader><CardTitle className="text-base text-primary">Business and Corporate Roles</CardTitle></CardHeader>
+            <CardContent><ul className="list-disc pl-5 text-sm"><li>HR Assistant</li><li>Marketing and Sales Executive</li><li>Administrative Executive</li><li>Customer Relationship Executive</li></ul></CardContent>
+          </Card>
+          <Card className="bg-white border-2 border-primary text-black">
+            <CardHeader><CardTitle className="text-base text-primary">Operations and Support Services</CardTitle></CardHeader>
+            <CardContent><ul className="list-disc pl-5 text-sm"><li>BPO and KPO Executive</li><li>Supply Chain and Logistics Coordinator</li><li>E-commerce Operations Executive</li></ul></CardContent>
+          </Card>
+          <Card className="bg-white border-2 border-primary text-black">
+            <CardHeader><CardTitle className="text-base text-primary">Entrepreneurship</CardTitle></CardHeader>
+            <CardContent><ul className="list-disc pl-5 text-sm"><li>Entrepreneur</li><li>Small Business Owner</li></ul></CardContent>
+          </Card>
         </div>
       </div>
     </div>
   );
 
-  // Section 2: Skill Set
-  const skillsContent = (
-    <div className="space-y-6">
-      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4">Skill Set Acquired</h2>
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {[
-          { t: "Financial Literacy", d: "Accounting, statements, budgeting" },
-          { t: "Business Fundamentals", d: "Marketing, management, law" },
-          { t: "Analytical Ability", d: "Interpreting data, solving problems" },
-          { t: "Digital Competence", d: "Tally, GST, spreadsheets" },
-          { t: "Communication", d: "Writing, presentation, interpersonal" },
-          { t: "Research Skills", d: "Surveys, case studies, reports" },
-          { t: "Entrepreneurial Mindset", d: "Planning, opportunity assessment" },
-          { t: "Professional Ethics", d: "Responsibility, compliance" }
-        ].map((skill, i) => (
-          <Card key={i} className="bg-slate-50 border-slate-200">
-            <CardContent className="p-4">
-              <h4 className="font-bold text-slate-800 text-sm mb-1">{skill.t}</h4>
-              <p className="text-xs text-muted-foreground">{skill.d}</p>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </div>
-  );
-
-  // Section 3: Highlights
+  // 2. Highlights
   const highlightsContent = (
-    <div className="max-w-3xl mx-auto space-y-6">
-      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4">Department Highlights</h2>
-      <Card>
+    <div className="space-y-8">
+      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">HIGHLIGHTS</h2>
+      <Card className="bg-white border-2 border-primary text-black">
         <CardContent className="pt-6">
           <ul className="space-y-4">
             {[
-              "Practical Learning (Case work, simulations, field activities)",
-              "Add on programmes (Tally training, Industry focused courses)",
-              "Strong Faculty (Experienced Professors)",
-              "Industry Alignment (Bridges academic concepts with market needs)",
-              "Clubs and Cells (Commerce Club, Entrepreneur Cell)"
-            ].map((item, i) => (
-              <li key={i} className="flex gap-4 text-base text-muted-foreground items-start">
-                <span className="text-primary font-bold text-xl">•</span> {item}
-              </li>
-            ))}
+              "Practical Learning: Students build real world understanding through case work, simulations, field activities, and hands on exposure to financial and business processes.",
+              "Add on programmes: Along with the university curriculum, the department offers self-financed Tally training and other industry focused courses to build job ready skills.",
+              "Strong Faculty: A dedicated team of experienced Associate and Assistant Professors guide students with expertise and commitment.",
+              "Industry Alignment: The program bridges academic concepts with real industry needs, creating a learning environment that prepares students for current market demands.",
+              "Clubs and Cells: The Commerce Club and Entrepreneur Cell encourage creativity, leadership, and entrepreneurial thinking beyond the classroom."
+            ].map((item, i) => {
+              const [title, desc] = item.split(':');
+              return (
+                <li key={i} className="flex gap-3 text-base text-black">
+                  <span className="text-primary font-bold">•</span>
+                  <span><strong>{title}:</strong>{desc}</span>
+                </li>
+              );
+            })}
           </ul>
         </CardContent>
       </Card>
-      <div className="mt-8">
-        <h4 className="text-xl font-bold mb-4">Programme Offered</h4>
-        <Badge className="text-lg py-2 px-6">B.COM General</Badge>
-      </div>
     </div>
   );
 
-  // Section 4: Vision & Mission
+  // 3. Vision & Mission
   const visionContent = (
-    <div className="mx-auto w-full max-w-3xl border-2 border-dashed border-primary/30 rounded-xl p-8 bg-primary/5 text-center">
-      <h3 className="text-3xl font-bold flex items-center justify-center gap-2 mb-6">
-        <Target className="h-8 w-8 stroke-[3px]" /> Vision & Mission
+    <div className="mx-auto w-full max-w-3xl border-2 border-dashed border-primary/30 rounded-xl p-8 bg-white text-center">
+      <h3 className="text-3xl font-bold flex items-center justify-center gap-2 mb-6 text-black">
+        <Target className="h-8 w-8 stroke-[3px] text-primary" /> VISION & MISSION
       </h3>
-      <div className="text-muted-foreground italic text-lg space-y-4 leading-relaxed">
-        <p>In keeping with the ideals of the college and our founder, our attempt is to:</p>
-        <ul className="text-left space-y-2 list-disc pl-8 inline-block">
+      <div className="text-black italic text-lg space-y-4 leading-relaxed">
+        <p className="not-italic font-semibold text-primary">In keeping with the ideals of the college and our founder, our attempt is to:</p>
+        <ul className="text-left space-y-2 list-disc pl-8 inline-block not-italic">
           <li>Nurture competent, ethical, and socially responsible commerce graduates ready for a dynamic global business environment.</li>
           <li>Deliver quality education through innovative teaching, practical exposure, and continuous academic enrichment.</li>
           <li>Build strong analytical, communication, and entrepreneurial skills for careers in finance, accounting, management, and business.</li>
           <li>Integrate technology driven learning such as Tally, GST, financial analytics, and digital commerce tools.</li>
-          <li>Promote research mindset and critical inquiry.</li>
-          <li>Instil values, professionalism, and social responsibility.</li>
+          <li>Promote research mindset and critical inquiry through case studies, seminars, projects, and experiential activities.</li>
+          <li>Instil values, professionalism, and social responsibility to prepare students for meaningful contributions to society and industry.</li>
+          <li>Strengthen industry–institution linkages for internships, training, industrial visits, and career opportunities.</li>
         </ul>
       </div>
     </div>
   );
 
-  // Section 5: Matrix
-  // NOTE: This uses the Tabbed Content requested by the user for the Matrix itself.
+  // 4. Skill Set
+  const skillsContent = (
+    <div className="space-y-6">
+      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">SKILL-SET ACQUIRED</h2>
+      <Card className="bg-white border-2 border-primary text-black">
+        <CardContent className="pt-6">
+          <ul className="list-disc pl-5 space-y-2 text-lg">
+            <li><strong>Financial Literacy:</strong> Strong understanding of accounting principles, financial statements, budgeting, and cost analysis.</li>
+            <li><strong>Business Fundamentals:</strong> Knowledge of marketing, management, economics, and business law that supports informed decision making.</li>
+            <li><strong>Analytical Ability:</strong> Skill in interpreting data, solving problems, and evaluating business performance.</li>
+            <li><strong>Digital Competence:</strong> Working knowledge of tools like Tally, GST software, spreadsheets, and basic financial analytics.</li>
+            <li><strong>Communication Skills:</strong> Clear writing, presentation, and interpersonal skills required in corporate and business settings.</li>
+            <li><strong>Research Skills:</strong> Ability to conduct surveys, analyze case studies, prepare reports, and apply research methods.</li>
+            <li><strong>Entrepreneurial Mindset:</strong> Understanding of business planning, opportunity assessment, and small business management.</li>
+            <li><strong>Professional Ethics:</strong> Awareness of corporate responsibility, workplace ethics, and compliance standards.</li>
+            <li><strong>Teamwork and Leadership:</strong> Experience working in groups, leading activities, and managing collaborative tasks.</li>
+            <li><strong>Practical Exposure:</strong> Insights gained through assignments, projects, internships, and industry interactions.</li>
+          </ul>
+        </CardContent>
+      </Card>
+      <div className="mt-4">
+        <h3 className="text-xl font-bold text-black mb-2">PROGRAMME OFFERED</h3>
+        <Badge className="text-lg py-2 px-4 bg-primary text-white">B.COM General</Badge>
+      </div>
+    </div>
+  );
+
+  // 5. Course Matrix
   const matrixContent = (
     <div className="space-y-6">
-      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 mb-8">Course Matrix</h2>
-      <div className="bg-slate-50 p-6 rounded-xl border">
+      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 mb-8 text-black">COURSE MATRIX: CORE PAPERS</h2>
+      <div className="bg-white p-6 rounded-xl border-2 border-primary">
         <Tabs defaultValue="sem1" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 md:grid-cols-6 h-auto p-1 bg-white shadow-sm mb-8">
-            <TabsTrigger value="sem1" className="py-2">Sem 1</TabsTrigger>
-            <TabsTrigger value="sem2" className="py-2">Sem 2</TabsTrigger>
-            <TabsTrigger value="sem3" className="py-2">Sem 3</TabsTrigger>
-            <TabsTrigger value="sem4" className="py-2">Sem 4</TabsTrigger>
-            <TabsTrigger value="sem5" className="py-2">Sem 5</TabsTrigger>
-            <TabsTrigger value="sem6" className="py-2">Sem 6</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-2 md:grid-cols-6 h-auto p-1 bg-white shadow-sm mb-8 border border-primary/20">
+            {['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4', 'Sem 5', 'Sem 6'].map((sem, i) => (
+              <TabsTrigger key={i} value={`sem${i + 1}`} className="py-2 text-black data-[state=active]:bg-primary data-[state=active]:text-white">{sem}</TabsTrigger>
+            ))}
           </TabsList>
-          <TabsContent value="sem1"><Card><CardHeader><CardTitle>Semester 1</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5 text-muted-foreground"><li>Financial Accounting</li><li>Principles of Marketing</li><li>Business Environment</li><li>Indian Financial System</li></ul></CardContent></Card></TabsContent>
-          <TabsContent value="sem2"><Card><CardHeader><CardTitle>Semester 2</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5 text-muted-foreground"><li>Advanced Financial Accounting</li><li>Human Resource Management</li><li>Business Regulation</li><li>Corporate Administration</li></ul></CardContent></Card></TabsContent>
-          <TabsContent value="sem3"><Card><CardHeader><CardTitle>Semester 3</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5 text-muted-foreground"><li>Corporate Accounting</li><li>Quantitative Analysis for Business Decision I</li><li>Cost Accounting</li><li>Employee Performance Management</li><li>Corporate Communication Skills</li></ul></CardContent></Card></TabsContent>
-          <TabsContent value="sem4"><Card><CardHeader><CardTitle>Semester 4</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5 text-muted-foreground"><li>Advanced Corporate Accounting</li><li>Quantitative Analysis for Business Decision II</li><li>Research Methodology</li><li>Employee Welfare and Social Security</li><li>Banking Practise</li></ul></CardContent></Card></TabsContent>
-          <TabsContent value="sem5"><Card><CardHeader><CardTitle>Semester 5</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5 text-muted-foreground"><li>Advanced Accounting</li><li>Financial Management</li><li>Income Tax I</li><li>Goods and Services Tax</li><li>Costing Methods</li><li>Survey Projects</li></ul></CardContent></Card></TabsContent>
-          <TabsContent value="sem6"><Card><CardHeader><CardTitle>Semester 6</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5 text-muted-foreground"><li>Indian Accounting Standards</li><li>Management Accounting</li><li>Income Tax II</li><li>Business Taxation</li><li>Auditing</li><li>Internship</li></ul></CardContent></Card></TabsContent>
+          <TabsContent value="sem1"><Card className="bg-white border-2 border-primary text-black"><CardHeader><CardTitle className="text-primary">Semester 1</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5"><li>FINANCIAL ACCOUNTING</li><li>PRINCIPLES OF MARKETING</li><li>BUSINESS ENVIRONMENT</li><li>INDIAN FINANCIAL SYSTEM</li></ul></CardContent></Card></TabsContent>
+          <TabsContent value="sem2"><Card className="bg-white border-2 border-primary text-black"><CardHeader><CardTitle className="text-primary">Semester 2</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5"><li>ADVANCED FINANCIAL ACCOUNTING</li><li>HUMAN RESOURCE MANAGEMENT</li><li>BUSINESS REGULATION</li><li>CORPORATE ADMINISTRATION</li></ul></CardContent></Card></TabsContent>
+          <TabsContent value="sem3"><Card className="bg-white border-2 border-primary text-black"><CardHeader><CardTitle className="text-primary">Semester 3</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5"><li>CORPORATE ACCOUNTING</li><li>QUANTITATIVE ANALYSIS FOR BUSINESS DECISION I</li><li>COST ACCOUNTING</li><li>EMPLOYEE PERFORMANCE MANAGEMENT</li><li>CORPORATE COMMUNICATION SKILLS</li></ul></CardContent></Card></TabsContent>
+          <TabsContent value="sem4"><Card className="bg-white border-2 border-primary text-black"><CardHeader><CardTitle className="text-primary">Semester 4</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5"><li>ADVANCED CORPORATE ACCOUNTING</li><li>QUANTITATIVE ANALYSIS FOR BUSINESS DECISION II</li><li>RESEARCH METHODOLOGY</li><li>EMPLOYEE WELFARE AND SOCIAL SECURITY</li><li>BANKING PRACTISE</li></ul></CardContent></Card></TabsContent>
+          <TabsContent value="sem5"><Card className="bg-white border-2 border-primary text-black"><CardHeader><CardTitle className="text-primary">Semester 5</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5"><li>ADVANCED ACCOUNTING</li><li>FINANCIAL MANAGEMENT</li><li>INCOME TAX I</li><li>GOODS AND SERVICES TAX</li><li>COSTING METHODS</li><li>SURVEY PROJECTS</li></ul></CardContent></Card></TabsContent>
+          <TabsContent value="sem6"><Card className="bg-white border-2 border-primary text-black"><CardHeader><CardTitle className="text-primary">Semester 6</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5"><li>INDIAN ACCOUNTING STANDARDS</li><li>MANAGEMENT ACCOUNTING</li><li>INCOME TAX II</li><li>BUSINESS TAXATION</li><li>AUDITING</li><li>INTERNSHIP</li></ul></CardContent></Card></TabsContent>
         </Tabs>
       </div>
     </div>
   );
 
-  // Section 6: Course Outcomes
-  const cosContent = (
-    <div className="max-w-4xl mx-auto space-y-6">
-      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4">Course Outcomes</h2>
-      <Card>
-        <CardContent className="pt-6">
-          <ul className="list-disc pl-5 space-y-2 text-muted-foreground text-lg">
-            <li>Understand accounting, finance, taxation, economics, business law.</li>
-            <li>Apply accounting principles to prepare/analyse financial statements.</li>
-            <li>Use budgeting, costing, and managerial tools.</li>
-            <li>Analyse market behaviour and economic trends.</li>
-            <li>Communicate business information effectively.</li>
-            <li>Use digital tools (Tally, GST, spreadsheets).</li>
-            <li>Apply business laws and ethical principles.</li>
-            <li>Solve practical business problems.</li>
-            <li>Develop entrepreneurial thinking.</li>
-            <li>Prepare for careers in banking, finance, marketing etc.</li>
-          </ul>
-        </CardContent>
-      </Card>
-    </div>
-  );
-
-  // Section 7: Programme Outcomes
+  // 6. Outcomes
   const outcomesContent = (
-    <div className="max-w-3xl mx-auto">
-      <Card className="h-full bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-8">
-        <CardContent className="space-y-6">
-          <Award className="h-16 w-16 mx-auto text-primary" />
-          <h3 className="text-3xl font-bold">Programme Outcome</h3>
-          <ul className="text-black leading-relaxed text-lg text-left list-disc pl-8 space-y-2">
-            <li>Fundamenals of accounting & finance.</li>
-            <li>Financial literacy & analysis.</li>
-            <li>Effective communication.</li>
-            <li>Digital tools & Tally/GST usage.</li>
-            <li>Ethical behaviour & social responsibility.</li>
-            <li>Entrepreneurial skills.</li>
-            <li>Career-ready mindset.</li>
-          </ul>
-        </CardContent>
-      </Card>
-    </div>
-  );
-
-  // Section 8: Activities
-  const activitiesContent = (
     <div className="space-y-6">
-      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4">Activities</h2>
-      <div className="space-y-4">
-        <Card>
-          <CardHeader><CardTitle className="text-lg">Industrial Visits</CardTitle></CardHeader>
-          <CardContent className="text-muted-foreground">
-            <p>Students visited South Indian Paper Mills (SIPM) to observe real-time paper manufacturing and understand production stages.</p>
+      <div className="grid md:grid-cols-2 gap-6">
+        <Card className="bg-white border-2 border-primary text-black h-full">
+          <CardHeader><CardTitle className="flex items-center gap-2 text-primary"><Award className="h-6 w-6" /> PROGRAM OUTCOME</CardTitle></CardHeader>
+          <CardContent>
+            <ul className="list-disc pl-5 space-y-2 text-sm">
+              <li>Gain fundamental knowledge of accounting, finance, taxation, and business management.</li>
+              <li>Develop financial literacy and the ability to analyse business performance.</li>
+              <li>Apply critical thinking to solve business and economic problems.</li>
+              <li>Communicate effectively in professional and academic settings.</li>
+              <li>Use digital tools, accounting software, and technology for business operations.</li>
+              <li>Demonstrate ethical behaviour and awareness of social and corporate responsibilities.</li>
+              <li>Develop research and analytical skills for informed decision-making.</li>
+              <li>Acquire entrepreneurial skills to identify, plan, and manage business opportunities.</li>
+              <li>Work effectively in teams and demonstrate leadership qualities.</li>
+              <li>Become career-ready graduates with the mindset for higher education and lifelong learning.</li>
+            </ul>
           </CardContent>
         </Card>
-        <Card>
-          <CardHeader><CardTitle className="text-lg">Training Programs</CardTitle></CardHeader>
-          <CardContent className="text-muted-foreground space-y-4">
-            <div>
-              <span className="font-bold text-slate-800 block">Magic Bus Training Programme</span>
-              <p>Built confidence, communication skills, and problem-solving abilities for career readiness.</p>
-            </div>
-            <div>
-              <span className="font-bold text-slate-800 block">NISM Certification</span>
-              <p>Investor Awareness training on capital markets, financial products, and responsible investing.</p>
-            </div>
-            <div>
-              <span className="font-bold text-slate-800 block">FICCI FLO Add-on Programme</span>
-              <p>Hands-on training in Basic Tally, Advanced Tally, and GST (Registration, returns, input tax credit).</p>
-            </div>
+        <Card className="bg-white border-2 border-primary text-black h-full">
+          <CardHeader><CardTitle className="flex items-center gap-2 text-primary"><GraduationCap className="h-6 w-6" /> COURSE OUTCOME</CardTitle></CardHeader>
+          <CardContent>
+            <ul className="list-disc pl-5 space-y-2 text-sm">
+              <li>Understand fundamental concepts in accounting, finance, taxation, economics, and business law.</li>
+              <li>Apply accounting principles to prepare, analyse, and interpret financial statements.</li>
+              <li>Demonstrate the ability to use budgeting, costing, and managerial tools for business decision-making.</li>
+              <li>Analyse market behaviour, consumer patterns, and economic trends using basic statistical methods.</li>
+              <li>Communicate business information effectively through reports, presentations, and documentation.</li>
+              <li>Use digital tools, spreadsheets, and accounting software for business and financial operations.</li>
+              <li>Apply business laws, regulatory frameworks, and ethical principles in organisational contexts.</li>
+              <li>Demonstrate problem-solving skills in practical business situations through case studies and projects.</li>
+              <li>Develop entrepreneurial thinking and the ability to create, plan, and manage small business ventures.</li>
+              <li>Prepare for careers in banking, accounting, taxation, finance, marketing, and pursue higher studies or professional courses.</li>
+            </ul>
           </CardContent>
         </Card>
       </div>
     </div>
   );
 
-  // Section 9: Faculty
+  // 7. Activities
+  const activitiesContent = (
+    <div className="space-y-6">
+      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">DEPARTMENTAL ACTIVITIES</h2>
+      <Card className="bg-white border-2 border-primary text-black">
+        <CardContent className="pt-6 space-y-4">
+          <div className="space-y-2">
+            <h4 className="font-bold text-primary">Industrial Visit - SIPM</h4>
+            <p className="text-sm">Students visited South Indian Paper Mills (SIPM) to observe real-time paper manufacturing and understand how raw materials move through each stage of production. The visit helped connect classroom concepts with industrial practice.</p>
+          </div>
+          <div className="space-y-2">
+            <h4 className="font-bold text-primary">Magic Bus Training Programme</h4>
+            <p className="text-sm">The Magic Bus Training Programme helped students build confidence, communication skills, and problem-solving abilities. Professional facilitators guided learners through life skills and employability modules that support career readiness.</p>
+          </div>
+          <div className="space-y-2">
+            <h4 className="font-bold text-primary">NISM Certification</h4>
+            <p className="text-sm">Students completed the NISM Certification on Investor Awareness, which strengthened their understanding of capital markets, financial products, and responsible investing. The training covered equity, debt, mutual funds, derivatives, SEBI regulations, stock exchanges, and the functioning of financial intermediaries.</p>
+          </div>
+          <div className="space-y-2">
+            <h4 className="font-bold text-primary">FICCI FLO Add-on Programme (Tally & GST)</h4>
+            <p className="text-sm">Through the FICCI FLO Add-on Programme, students received hands-on training in Basic Tally, Advanced Tally, and GST.</p>
+            <ul className="list-disc pl-5 text-sm">
+              <li>The Basic Tally module taught ledger creation, voucher entry, and digital bookkeeping.</li>
+              <li>The Advanced Tally module covered cost centres, budgets, payroll, inventory, bank reconciliation, and MIS reports.</li>
+              <li>The GST module explained registration, returns, input tax credit, invoicing, and filing GSTR-1 and GSTR-3B with practical exercises.</li>
+            </ul>
+            <p className="text-sm mt-1">This programme strengthened accounting skills and boosted employability in finance, taxation, and office operations.</p>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+
+  // 8. Faculty
   const facultyContent = (
     <div className="space-y-6">
-      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4">Our Faculty</h2>
+      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">FACULTY PROFILE</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
-          { name: "Yashodha S.M", role: "Head of Dept", qual: "M.Com(IB), M.Com(A&T), MBA(FIN), PGDFM" },
-          { name: "Ms. Savitha G.M", role: "Assistant Professor", qual: "MBA, M.Phil" },
-          { name: "Mr. Mohhamed Nawaz", role: "Assistant Professor", qual: "M.Com, UGC-NET, K-SET, (PhD)" },
-          { name: "Ms. Gayathri K", role: "Assistant Professor", qual: "M.Com, MBA" },
-          { name: "Ms. Angel Jaya Kirubha", role: "Assistant Professor", qual: "" }
+          { name: "YASHODHA.S.M", role: "Head Of Department, Department of Commerce", qual: "M.Com(IB), M.Com(A&T), MBA(FIN), PGDFM, UGC-NET, K-SET" },
+          { name: "Ms.Savitha.G.M", role: "Assistant Professor", qual: "MBA, MPhil" },
+          { name: "Mr.Mohhamed Nawaz", role: "Assistant Professor", qual: "M.Com, UGC-NET,K-SET, (PhD)" },
+          { name: "Ms.Gayathri.K", role: "Assistant Professor", qual: "M.Com, MBA" },
+          { name: "Ms.Angel Jaya Kirubha", role: "Assistant Professor", qual: "" }
         ].map((faculty, i) => (
-          <Card key={i} className="text-center hover:border-primary transition-colors">
+          <Card key={i} className="text-center bg-white border-2 border-primary text-black hover:bg-primary/5 transition-colors">
             <CardHeader>
               <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto flex items-center justify-center mb-4">
                 <Users className="h-8 w-8 text-primary" />
               </div>
-              <CardTitle className="text-lg">{faculty.name}</CardTitle>
+              <CardTitle className="text-lg text-black">{faculty.name}</CardTitle>
               <CardDescription className="text-primary font-medium">{faculty.role}</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-xs text-muted-foreground mb-2">{faculty.qual}</p>
-              <p className="text-xs text-muted-foreground">hodcommercerbanms@gmail.com</p>
+              {faculty.qual && <p className="text-xs text-black font-semibold">{faculty.qual}</p>}
             </CardContent>
           </Card>
         ))}
@@ -265,13 +264,12 @@ export default function CommerceDepartmentPage() {
   );
 
   const sections = [
-    { id: "whybcom", label: "Why B.COM?", content: whyBcomContent },
-    { id: "skills", label: "Skill Set Acquired", content: skillsContent },
+    { id: "why-bcom", label: "Why B.COM?", content: whyBcomContent },
     { id: "highlights", label: "Highlights", content: highlightsContent },
     { id: "vision", label: "Vision & Mission", content: visionContent },
+    { id: "skills", label: "Skill Set Acquired", content: skillsContent },
     { id: "matrix", label: "Course Matrix", content: matrixContent },
-    { id: "course-outcomes", label: "Course Outcomes", content: cosContent },
-    { id: "outcomes", label: "Programme Outcome", content: outcomesContent },
+    { id: "outcomes", label: "Outcomes", content: outcomesContent },
     { id: "activities", label: "Activities", content: activitiesContent },
     { id: "faculty", label: "Faculty Profile", content: facultyContent },
   ];
@@ -279,7 +277,7 @@ export default function CommerceDepartmentPage() {
   return (
     <DepartmentLayout
       title="Department of Commerce"
-      tagline="Welcome to our department, a vibrant community where every voice is heard and every story matters. We believe that learning is a shared journey of discovery, where diverse perspectives come together to spark creativity and understanding. Whether you are here to master a new skill, explore rich traditions, or shape your future career, you will find a supportive environment that nurtures your growth and inspires you to reach your full potential."
+      tagline="Welcome to the Department of Commerce. The Commerce Department at RBANM’s First Grade College has been shaping capable and confident graduates since 1984. It offers a strong undergraduate program built on practical learning and steady innovation. The goal is clear: to improve every year and deliver education that meets global standards. Teaching blends traditional lectures with student centred methods that build real understanding. Role-plays, simulations, group work, discussions, debates, and case-based learning make the classroom active and engaging. The department also takes pride in practices that support all round development. Students gain exposure through service learning, peer mentoring, mental health and wellness initiatives, social outreach, research paper opportunities, a bridge course for non-commerce learners, and skill enhancement programs aligned with industry expectations."
       sections={sections}
     />
   );
