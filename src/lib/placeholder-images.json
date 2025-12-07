@@ -50,63 +50,33 @@
     },
     {
       "id": "gallery-1",
-      "description": "Dance Performance",
-      "imageUrl": "https://scontent.fccu9-2.fna.fbcdn.net/v/t1.6435-9/41508772_10215738208944684_2838609422832369664_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=2285d6&_nc_ohc=0qsWPuHkI70Q7kNvwFN7Ted&_nc_oc=AdmdaGIn7nwruAEyXpAHvSCGNXZ0pwh5KjxuLUjGBY89tzOWwBP-kYfBIoPtt3D8icqbRwJr-laHQaW2gfx0XlWU&_nc_zt=23&_nc_ht=scontent.fccu9-2.fna&_nc_gid=NmLH5fT1pSYvraaVv8gKgA&oh=00_AfjbIJqmTw-t3RZkChb-AxexS6h3Yf2D7H2KzbQfyAIeWg&oe=69426B5E",
-      "imageHint": "cultural event"
+      "description": "Students on a hiking trip.",
+      "imageUrl": "/images/gallery/group-hiking.jpg",
+      "imageHint": "group hiking"
     },
     {
       "id": "gallery-2",
-      "description": "Students showcasing creativity.",
-      "imageUrl": "https://images.shiksha.com/mediadata/images/1429182153phpSYuYdw.jpeg",
-      "imageHint": "college event"
+      "description": "Student performing at Natya event.",
+      "imageUrl": "/images/gallery/natya-singing-1.jpg",
+      "imageHint": "natya singing"
     },
     {
       "id": "gallery-3",
-      "description": "A cultural event with students performing on stage.",
-      "imageUrl": "https://images.shiksha.com/mediadata/images/1429163955phpbWVwvu.jpeg",
-      "imageHint": "cultural event"
+      "description": "Natya cultural performance.",
+      "imageUrl": "/images/gallery/natya-singing-2.jpg",
+      "imageHint": "natya performance"
     },
     {
       "id": "gallery-4",
-      "description": "A classroom lecture with an engaged audience.",
-      "imageUrl": "https://images.jdmagicbox.com/v2/comp/bangalore/13/080p38413/catalogue/rbanms-junior-college-ulsoor-bangalore-colleges-o5sz1ak3dg.jpg",
-      "imageHint": "classroom lecture"
+      "description": "NCC Cadet receiving badge.",
+      "imageUrl": "/images/gallery/ncc-cadet.jpg",
+      "imageHint": "ncc cadet"
     },
     {
       "id": "gallery-5",
-      "description": "Campus library interior with students reading.",
-      "imageUrl": "https://images.jdmagicbox.com/v2/comp/bangalore/13/080p38413/catalogue/rbanms-junior-college-ulsoor-bangalore-colleges-3o5ou8kz8u.jpg",
-      "imageHint": "library interior"
-    },
-    {
-      "id": "gallery-6",
-      "description": "Aerial view of the college campus.",
-      "imageUrl": "https://images.jdmagicbox.com/v2/comp/bangalore/13/080p38413/catalogue/rbanms-junior-college-ulsoor-bangalore-colleges-agtvth4ez9.jpg",
-      "imageHint": "campus aerial"
-    },
-    {
-      "id": "gallery-7",
-      "description": "Students working on a project in a lab.",
-      "imageUrl": "https://images.jdmagicbox.com/v2/comp/bangalore/13/080p38413/catalogue/rbanms-junior-college-ulsoor-bangalore-colleges-ytkirqab34.jpg",
-      "imageHint": "student lab"
-    },
-    {
-      "id": "gallery-8",
-      "description": "An outdoor festival on the campus grounds.",
-      "imageUrl": "https://images.jdmagicbox.com/v2/comp/bangalore/13/080p38413/catalogue/rbanms-junior-college-ulsoor-bangalore-colleges-o8geznn9a6.jpg",
-      "imageHint": "outdoor festival"
-    },
-    {
-      "id": "gallery-9",
-      "description": "Campus view and facilities.",
-      "imageUrl": "https://images.shiksha.com/mediadata/images/1429765089phpdlpaQG.jpeg",
-      "imageHint": "campus view"
-    },
-    {
-      "id": "gallery-10",
-      "description": "College cultural event crowd.",
-      "imageUrl": "https://scontent.fccu9-2.fna.fbcdn.net/v/t1.6435-9/41508772_10215738208944684_2838609422832369664_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=2285d6&_nc_ohc=0qsWPuHkI70Q7kNvwGiIz5R&_nc_oc=AdmMwGgp-XXcgT1Dr2My1BCqhHk8c9IKHHVpHy4VKama57KKuUNfrlB0-yoWDBDYPwVID5vO2gohc46jMxRWkMwK&_nc_zt=23&_nc_ht=scontent.fccu9-2.fna&_nc_gid=VHF0YesHYMoV2bQlXAGnoQ&oh=00_Afhmvu58FTSg9Tt2wJm3ba3KwrNDE-lOYjmogNW2FnYe9g&oe=69450E5E",
-      "imageHint": "cultural event"
+      "description": "Lighting the lamp at Orientation.",
+      "imageUrl": "/images/gallery/orientation-lamp.jpg",
+      "imageHint": "orientation lamp"
     },
     {
       "id": "alumni-activity-1",
