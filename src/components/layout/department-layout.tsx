@@ -55,16 +55,16 @@ export function DepartmentLayout({
         return (
             <div className="min-h-screen bg-background text-foreground font-sans">
                 {/* 1. Full-width Header Band */}
-                <div className="w-full bg-primary py-12 px-4 md:px-8 shadow-sm">
+                <div className="w-full bg-white py-12 px-4 md:px-8 shadow-sm border-b">
                     <div className="container mx-auto">
                         <Badge className="mb-4 bg-yellow-500 text-black hover:bg-yellow-400 border-none">
                             {badgeText}
                         </Badge>
-                        <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground font-headline tracking-tight">
+                        <h1 className="text-4xl md:text-5xl font-bold text-black font-headline tracking-tight">
                             {title}
                         </h1>
                         {tagline && (
-                            <p className="mt-4 text-lg md:text-xl text-primary-foreground/90 max-w-3xl leading-relaxed">
+                            <p className="mt-4 text-lg md:text-xl text-black max-w-3xl leading-relaxed">
                                 {tagline}
                             </p>
                         )}
@@ -114,16 +114,16 @@ export function DepartmentLayout({
     return (
         <div className="min-h-screen bg-background text-foreground font-sans">
             {/* 1. Full-width Header Band */}
-            <div className="w-full bg-primary py-12 px-4 md:px-8 shadow-sm">
+            <div className="w-full bg-white py-12 px-4 md:px-8 shadow-sm border-b">
                 <div className="container mx-auto">
                     <Badge className="mb-4 bg-yellow-500 text-black hover:bg-yellow-400 border-none">
                         {badgeText}
                     </Badge>
-                    <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground font-headline tracking-tight">
+                    <h1 className="text-4xl md:text-5xl font-bold text-black font-headline tracking-tight">
                         {title}
                     </h1>
                     {tagline && (
-                        <p className="mt-4 text-lg md:text-xl text-primary-foreground/90 max-w-3xl leading-relaxed">
+                        <p className="mt-4 text-lg md:text-xl text-black max-w-3xl leading-relaxed">
                             {tagline}
                         </p>
                     )}
