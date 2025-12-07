@@ -92,7 +92,7 @@ export default function EnglishDepartmentPage() {
     <Card id="objectives" key="1" className="h-full bg-slate-900 text-white border-none flex flex-col justify-center text-center p-6">
       <CardContent className="space-y-4">
         <Lightbulb className="h-12 w-12 mx-auto text-yellow-400" />
-        <h3 className="text-2xl font-bold">Objectives</h3>
+        <h3 className="text-2xl font-bold">Course Objectives</h3>
         <ul className="text-slate-300 leading-relaxed text-sm text-left list-disc pl-5 space-y-2">
           <li>Develop proficiency in Listening, Speaking, Reading and Writing (LSRW).</li>
           <li>Cultivate inclusivity, equality and sensitivity.</li>
@@ -122,16 +122,16 @@ export default function EnglishDepartmentPage() {
   const navItems = [
     { label: "Highlights", href: "#highlights" },
     { label: "Facilities", href: "#facilities" },
-    { label: "Vision", href: "#vision" },
+    { label: "Vision & Mission", href: "#vision" },
     { label: "Programmes", href: "#programmes" },
-    { label: "Certificates", href: "#certificate-courses" },
-    { label: "Matrix", href: "#matrix" },
-    { label: "Objectives", href: "#objectives" },
-    { label: "Outcomes", href: "#outcomes" },
+    { label: "Certificate Courses", href: "#certificate-courses" },
+    { label: "Course Matrix", href: "#matrix" },
+    { label: "Course Objectives", href: "#objectives" },
+    { label: "Programme Outcome", href: "#outcomes" },
     { label: "Natya", href: "#natya" },
     { label: "Fourth Wall", href: "#fourth-wall" },
     { label: "Phoenix", href: "#phoenix" },
-    { label: "Faculty", href: "#faculty" },
+    { label: "Faculty Profile", href: "#faculty" },
     { label: "Contact", href: "#contact" },
   ];
 

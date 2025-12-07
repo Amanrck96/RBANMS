@@ -35,7 +35,6 @@ export default function FacilitiesPage() {
     { label: 'Sports Ground', href: '#sports-ground', isActive: false },
     { label: 'Auditorium', href: '#auditorium', isActive: false },
     { label: 'Library', href: '#library', isActive: false },
-    { label: 'Digital Library', href: '#digital-library', isActive: false },
     { label: 'Classrooms', href: '#classrooms', isActive: false },
     { label: 'Canteen', href: '#canteen', isActive: false },
   ];

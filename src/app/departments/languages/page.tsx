@@ -86,7 +86,7 @@ export default function LanguagesDepartmentPage() {
     <Card id="objectives" key="1" className="h-full bg-slate-900 text-white border-none flex flex-col justify-center text-center p-6">
       <CardContent className="space-y-4">
         <Lightbulb className="h-12 w-12 mx-auto text-yellow-400" />
-        <h3 className="text-2xl font-bold">Objectives</h3>
+        <h3 className="text-2xl font-bold">Course Objectives</h3>
         <ul className="text-slate-300 leading-relaxed text-sm text-left list-disc pl-5 space-y-2">
           <li><strong>Listening & Speaking:</strong> Communicate clearly, correctly, and effectively.</li>
           <li><strong>Reading Skills:</strong> Understand and interpret regional literature.</li>
@@ -96,26 +96,31 @@ export default function LanguagesDepartmentPage() {
         </ul>
       </CardContent>
     </Card>,
-    <Card key="2" className="h-full bg-primary text-primary-foreground border-none flex flex-col justify-center text-center p-6">
+
+    <Card id="outcomes" key="2" className="h-full bg-primary text-primary-foreground border-none flex flex-col justify-center text-center p-6">
       <CardContent className="space-y-4">
-        <Calendar className="h-12 w-12 mx-auto text-white" />
-        <h3 className="text-2xl font-bold">Events Preview</h3>
-        <p className="text-primary-foreground/90 leading-relaxed text-sm">
-          Literature Week, International Language Day, Hindi Diwas, Kannada Rajyotsava.
-        </p>
+        <Target className="h-12 w-12 mx-auto text-white" />
+        <h3 className="text-2xl font-bold">Programme Outcome</h3>
+        <ul className="text-primary-foreground/90 leading-relaxed text-sm text-left list-disc pl-5 space-y-2">
+          <li>Proficiency in listening, speaking, reading, and writing in Indian languages.</li>
+          <li>Appreciation of literary texts and cultural contexts.</li>
+          <li>Development of creative writing and translation skills.</li>
+          <li>Understanding of Indian society and traditions through literature.</li>
+        </ul>
       </CardContent>
     </Card>
   ];
 
   const navItems = [
     { label: "Highlights", href: "#highlights" },
-    { label: "Vision", href: "#vision" },
-    { label: "Objectives", href: "#objectives" },
+    { label: "Vision & Mission", href: "#vision" },
+    { label: "Course Objectives", href: "#objectives" },
+    { label: "Programme Outcome", href: "#outcomes" },
     { label: "Hindi", href: "#hindi" },
     { label: "Kannada", href: "#kannada" },
     { label: "Tamil", href: "#tamil" },
     { label: "Events", href: "#events" },
-    { label: "Faculty", href: "#faculty" },
+    { label: "Faculty Profile", href: "#faculty" },
     { label: "Contact", href: "#contact" },
   ];
 

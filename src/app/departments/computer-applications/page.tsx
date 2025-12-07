@@ -110,14 +110,14 @@ export default function ComputerApplicationsDeptPage() {
 
   const navItems = [
     { label: "Highlights", href: "#highlights" },
-    { label: "Vision", href: "#vision" },
+    { label: "Vision & Mission", href: "#vision" },
     { label: "Facilities", href: "#facilities" },
-    { label: "Competency", href: "#competency" },
-    { label: "Certificates", href: "#certificate-courses" },
-    { label: "Matrix", href: "#matrix" },
+    { label: "Competency Training", href: "#competency" },
+    { label: "Certificate Courses", href: "#certificate-courses" },
+    { label: "Course Matrix", href: "#matrix" },
     { label: "Objectives", href: "#objectives" },
-    { label: "Outcomes", href: "#outcomes" },
-    { label: "Faculty", href: "#faculty" },
+    { label: "Programme Outcome", href: "#outcomes" },
+    { label: "Faculty Profile", href: "#faculty" },
   ];
 
   return (

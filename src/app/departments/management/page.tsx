@@ -113,14 +113,14 @@ export default function ManagementDepartmentPage() {
 
   const navItems = [
     { label: "Why BBA?", href: "#why-bba" },
-    { label: "Skills", href: "#skills" },
+    { label: "Skill Set Acquired", href: "#skills" },
     { label: "Highlights", href: "#highlights" },
-    { label: "Vision", href: "#vision" },
-    { label: "Matrix", href: "#matrix" },
+    { label: "Vision & Mission", href: "#vision" },
+    { label: "Course Matrix", href: "#matrix" },
     { label: "Objectives", href: "#objectives" },
-    { label: "Outcomes", href: "#outcomes" },
+    { label: "Programme Outcome", href: "#outcomes" },
     { label: "Activities", href: "#activities" },
-    { label: "Faculty", href: "#faculty" },
+    { label: "Faculty Profile", href: "#faculty" },
   ];
 
   return (
