@@ -1,99 +1,91 @@
 import React from 'react';
 import { DepartmentLayout } from '@/components/layout/department-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import {
-  CheckCircle,
-  Settings,
-  Target,
-  FileCheck,
-  Award
-} from 'lucide-react';
+import { Target, Settings, TrendingUp } from 'lucide-react';
 
 export default function IQACPage() {
-
-  // 1. Objectives
   const objectivesContent = (
-    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <div className="space-y-6 text-justify prose prose-lg dark:prose-invert max-w-none text-muted-foreground">
-        <h2 className="text-3xl font-bold text-slate-800 dark:text-white">Internal Quality Assurance Cell (IQAC)</h2>
-        <p>
-          The Quality Policy of RBANMS First grade college is to achieve excellence in teaching, research, student support, extension and consultancy, with social relevance. The quality management system encompasses organizational structure, procedures, processes and financial, non-financial, human and technological resources.
-        </p>
-        <p>
-          Internal quality assurance systems in the institution are formulated on the basis of guidelines of external quality assurance agencies such as ISO, NAAC, UGC and the affiliating university. Through internal and annual external audits, our quality assurance systems have evolved over a period of time, and have been strengthened.
-        </p>
-      </div>
-
-      <div className="mx-auto w-full max-w-3xl border-2 border-dashed border-primary/30 rounded-xl p-8 bg-primary/5 text-center">
-        <h3 className="text-3xl font-bold flex items-center justify-center gap-2 mb-6">
-          <Target className="h-8 w-8 stroke-[3px]" /> Objectives
-        </h3>
-        <div className="text-muted-foreground italic text-lg space-y-4 leading-relaxed">
-          <p>To develop a system for conscious and consistent catalytic action, to improve the academic and administrative performance of the institution.</p>
-          <p>To facilitate institutionalisation of quality initiatives, for the improvement of academic and administrative performance of the college.</p>
-        </div>
-      </div>
+    <div className="space-y-6">
+      <Card className="bg-white border-2 border-primary text-black">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-primary">
+            <Target className="h-6 w-6" /> Objectives
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <ul className="list-disc pl-5 space-y-2 text-lg">
+            <li>To develop a system for conscious, consistent and catalytic action to improve the academic and administrative performance of the institution.</li>
+            <li>To promote measures for institutional functioning towards quality enhancement through internalization of quality culture and institutionalization of best practices.</li>
+          </ul>
+        </CardContent>
+      </Card>
     </div>
   );
 
-  // 2. Functions
   const functionsContent = (
     <div className="space-y-6">
-      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4">Functions</h2>
-      <div className="text-lg text-muted-foreground space-y-4">
-        <p>IQAC has evolved operational framework for quality assurance by integrating with all academic and administrative operations of the institution.</p>
-        <Card>
-          <CardContent className="pt-6">
-            <ul className="list-disc pl-5 space-y-2">
-              <li>Associates closely with every academic operation to ensure structured strategies and well-defined processes.</li>
-              <li>Regularly conducts Faculty Development Programmes to help upskill and upgrade the Faculty.</li>
-              <li>Observes student support initiatives to identify deviations from student-centric approaches.</li>
-              <li>Validates the conformity between academic and administrative delivery.</li>
-            </ul>
-          </CardContent>
-        </Card>
-      </div>
+      <Card className="bg-white border-2 border-primary text-black">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-primary">
+            <Settings className="h-6 w-6" /> Functions
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <ul className="list-disc pl-5 space-y-2 text-lg">
+            <li>Development and application of quality benchmarks/parameters for various academic and administrative activities of the institution</li>
+            <li>Facilitating the creation of a learner-centric environment conducive to quality education and faculty maturation to adopt the required knowledge and technology for participatory teaching and learning process</li>
+            <li>Arrangement for feedback response from students, parents and other stakeholders on quality-related institutional processes</li>
+            <li>Dissemination of information on various quality parameters of higher education</li>
+            <li>Organization of inter and intra institutional workshops, seminars on quality related themes and promotion of quality circles</li>
+            <li>Documentation of the various programmes/activities leading to quality improvement</li>
+            <li>Acting as a nodal agency of the Institution for coordinating quality-related activities, including adoption and dissemination of best practices</li>
+            <li>Development and maintenance of institutional database through MIS for the purpose of maintaining /enhancing the institutional quality</li>
+            <li>Development of Quality Culture in the institution</li>
+            <li>Preparation of the Annual Quality Assurance Report (AQAR) as per guidelines and parameters of NAAC, to be submitted to NAAC</li>
+          </ul>
+        </CardContent>
+      </Card>
     </div>
   );
 
-  // 3. Major Contributions
   const contributionsContent = (
     <div className="space-y-6">
-      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4">Major Contributions</h2>
-      <div className="grid md:grid-cols-2 gap-6">
-        <Card className="h-full bg-slate-900 text-white border-none flex flex-col p-6">
-          <CardContent className="space-y-4">
-            <Award className="h-12 w-12 text-yellow-400" />
-            <h3 className="text-2xl font-bold">Seminars & Workshops</h3>
-            <p className="text-slate-300 leading-relaxed text-sm">
-              Organization of seminars, workshops and training programmes at institutional and national levels, for faculty, students and support staff, to enhance their functional efficiency. It organized two national seminars on quality aspects of education, initiated collaborative programmes in the areas of curriculum review, dissemination of information on best practices and innovative practices in departments and other institutions, and institutionalized them through seminars and reporting systems, thus maintaining quality culture of continuous improvement.
+      <Card className="bg-white border-2 border-primary text-black">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-primary">
+            <TrendingUp className="h-6 w-6" /> Major Contributions
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4 text-lg">
+            <p><strong>NIRF Participation:</strong> The College participates in the NIRF ranking every year.</p>
+            <p><strong>AISHE:</strong> Data is uploaded to the All India Survey on Higher Education portal every year.</p>
+            <p><strong>Feedback:</strong> Feedback is collected from various stakeholders like students, parents, alumni, and employers, analyzed, and action taken report is prepared and uploaded on the website.</p>
+            <p><strong>Result Analysis:</strong> Result analysis is done after every semester to identify advanced learners and slow learners.</p>
+            <p><strong>Audit:</strong> Academic and Administrative Audit is conducted to evaluate the performance of the institution.</p>
+            <p>
+              <strong>Fidelity to the requirements of NAAC:</strong>
+              <ul className="list-disc pl-8 mt-2">
+                <li>AQAR is submitted every year.</li>
+                <li>SSR is submitted for the accreditation process (First Cycle, Second Cycle, Third Cycle, and Fourth Cycle).</li>
+              </ul>
             </p>
-          </CardContent>
-        </Card>
-        <Card className="h-full bg-primary text-primary-foreground border-none flex flex-col p-6">
-          <CardContent className="space-y-4">
-            <FileCheck className="h-12 w-12 text-white" />
-            <h3 className="text-2xl font-bold">Best Practices</h3>
-            <p className="text-primary-foreground/90 leading-relaxed text-sm">
-              Development of course file with annexure on teaching plan, pedagogy and content, periodical academic audits, assessment plan and learner-centric activities help teachers benchmark the teaching-learning-evaluation process, help increase integration of ICT in teaching-learning and promote use of ICT, along with sensitization and training of faculty.
-            </p>
-          </CardContent>
-        </Card>
-      </div>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 
   const sections = [
-    { id: "objectives", label: "Objectives", content: objectivesContent },
-    { id: "functions", label: "Functions", content: functionsContent },
-    { id: "contributions", label: "Major Contributions", content: contributionsContent },
+    { id: 'objectives', label: 'Objectives', content: objectivesContent },
+    { id: 'functions', label: 'Functions', content: functionsContent },
+    { id: 'major-contributions', label: 'Major Contributions', content: contributionsContent },
   ];
 
   return (
     <DepartmentLayout
       title="Internal Quality Assurance Cell (IQAC)"
       tagline="Achieving excellence in teaching, research, and student support."
-      badgeText="Quality Assurance"
       sections={sections}
     />
   );

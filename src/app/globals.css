@@ -67,7 +67,7 @@
 */
 :where(h1, h2, h3, h4, h5, h6),
 .card-title {
-  color: #00008B !important;
+  color: #000 !important;
 }
 main :where(p, li, span, small, strong, em, td, th, figcaption, label) {
   color: #000 !important;
