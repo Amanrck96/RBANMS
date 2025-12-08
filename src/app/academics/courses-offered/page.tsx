@@ -53,19 +53,22 @@ export default function CoursesOfferedPage() {
         <CardContent className="pt-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {courses.map((course, index) => (
             <Card key={index} className="flex flex-col h-full">
-              <CardHeader className="flex-row gap-4 items-center">
-                <div className="p-3 bg-primary/10 rounded-full">
-                  <course.icon className="h-8 w-8 text-accent" />
+              <CardHeader className="flex flex-col gap-2">
+                {index >= courses.length - 2 && (
+                  <p className="text-lg font-bold text-primary font-headline">Applied for</p>
+                )}
+                <div className="flex flex-row gap-4 items-center">
+                  <div className="p-3 bg-primary/10 rounded-full">
+                    <course.icon className="h-8 w-8 text-accent" />
+                  </div>
+                  <CardTitle className="text-2xl">{course.title}</CardTitle>
                 </div>
-                <CardTitle className="text-2xl">{course.title}</CardTitle>
               </CardHeader>
               <CardContent className="flex-grow">
                 <p className="content-black">{course.description}</p>
               </CardContent>
               <div className="p-6 pt-0">
-                {index >= courses.length - 2 && (
-                  <p className="text-lg font-bold text-primary font-headline mb-1">Applied for</p>
-                )}
+
                 <Button asChild variant="link" className="p-0">
                   <Link href={course.href}>
                     Click here for details <ArrowRight className="ml-2 h-4 w-4" />
