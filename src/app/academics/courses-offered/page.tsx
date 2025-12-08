@@ -55,7 +55,7 @@ export default function CoursesOfferedPage() {
             <Card key={index} className="flex flex-col h-full">
               <CardHeader className="flex flex-col gap-2">
                 {index >= courses.length - 2 && (
-                  <p className="text-lg font-bold text-primary font-headline">Applied for</p>
+                  <p className="text-lg font-bold text-blue-600 font-headline">Applied for</p>
                 )}
                 <div className="flex flex-row gap-4 items-center">
                   <div className="p-3 bg-primary/10 rounded-full">
