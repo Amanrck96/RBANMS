@@ -6,6 +6,7 @@ import { WhyChooseUsSection } from '@/components/sections/why-choose-us-section'
 
 import { AdditionalImagesCarousel } from '@/components/sections/additional-images-carousel';
 import { IntroTextBox } from '@/components/sections/intro-text-box';
+import { AnnouncementsBlogSection } from '@/components/sections/announcements-blog-section';
 
 export default function Home() {
     return (
@@ -20,6 +21,7 @@ export default function Home() {
                 </div>
                 <IntroTextBox />
 
+                <AnnouncementsBlogSection />
 
                 <WhyChooseUsSection />
 

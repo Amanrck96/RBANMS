@@ -85,7 +85,7 @@ export default function IQACPage() {
   return (
     <DepartmentLayout
       title="Internal Quality Assurance Cell (IQAC)"
-      tagline="Achieving excellence in teaching, research, and student support."
+      tagline="The Internal Quality Assurance Cell (IQAC) at RBNMS College is the driving force behind our pursuit of academic excellence. Dedicated to maintaining high standards, the cell continuously monitors and enhances the quality of teaching, learning, and infrastructure. By implementing best practices and coordinating with accreditation bodies like NAAC, the IQAC ensures that the institution evolves to meet global educational standards while fostering a culture of continuous improvement for both faculty and students."
       sections={sections}
     />
   );

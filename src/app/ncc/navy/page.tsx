@@ -1,20 +1,23 @@
-import React from 'react';
-import { Construction } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
+
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function NavyPage() {
     return (
-        <div className="flex flex-col items-center justify-center min-h-[60vh] text-center p-8 space-y-6">
-            <Badge className="bg-yellow-500 text-black hover:bg-yellow-400 border-none text-lg px-6 py-2">
-                NCC - Navy Wing
-            </Badge>
-            <div className="bg-slate-100 p-8 rounded-full">
-                <Construction className="h-24 w-24 text-slate-400" />
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-800">Coming Soon</h1>
-            <p className="text-xl text-muted-foreground max-w-lg">
-                This page is under construction. Please check back later!
-            </p>
+        <div className="container mx-auto px-4 py-12 md:py-16">
+            <Card>
+                <CardHeader>
+                    <CardTitle className="text-3xl md:text-4xl font-bold text-primary font-headline">
+                        NCC – Navy Wing
+                    </CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <div className="space-y-6 text-foreground/90 leading-relaxed">
+                        <p className="text-lg">
+                            The NCC Navy Wing offers students a unique opportunity to develop discipline, leadership, and a spirit of adventure. Cadets undergo rigorous training in naval drills, boat pulling, and swimming, alongside character-building activities. We aim to instil a deep sense of patriotism and readiness to serve the nation. Through camps and national exchanges, our Navy Wing cadets grow into responsible citizens who embody the values of duty, unity, and discipline.
+                        </p>
+                    </div>
+                </CardContent>
+            </Card>
         </div>
     );
 }

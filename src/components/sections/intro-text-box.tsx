@@ -49,18 +49,49 @@ export function IntroTextBox() {
                     </h2>
                     <div className="text-lg text-slate-700 leading-relaxed max-w-5xl mx-auto">
                         <p>
-                            RBANMS FIRST GRADE COLLEGE, is affiliated to Bengaluru City University. It has been accredited by NAAC with a B+ and is recognised under Section 2(f) & 12(B) of the UGC Act, 1956.
+                            RBANM's First Grade College was established by RBANM's Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.
                         </p>
                         <p className="mt-4">
-                            A premier Institution dedicated to fostering academic excellence and holistic development, affiliated to Bengaluru City University.
+                            This is one of the many institutions established under the umbrella of the RBANM's Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.
+                        </p>
+                        <p className="mt-4">
+                            The college has been accredited by NAAC and is recognised under Section 2(f) and 12(b) of the UGC Act, 1956.
                         </p>
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {/* Column 1: Message from Director */}
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {/* Column 1: Founder */}
+                    <div className="bg-white rounded-lg shadow-sm p-6 border border-slate-100 flex flex-col h-full">
+                        <h2 className="text-2xl font-bold text-blue-900 mb-6 font-headline">
+                            Founder
+                        </h2>
+                        <div className="mb-4 relative w-full aspect-[4/3] overflow-hidden rounded-md">
+                            <Image
+                                src="https://rbanmsfgc.ac.in/images/gallery/AN-Mudaliar.jpg"
+                                alt="Founder Dharmarathnakara Rai Bahadur Arcot Narrainswamy Mudaliar"
+                                fill
+                                className="object-cover object-top"
+                                unoptimized={true}
+                            />
+                        </div>
+                        <div className="text-slate-700 leading-relaxed flex-grow">
+                            <p>
+                                Our founder Dharmarathnakara Rai Bahadur Arcot Narrainswamy Mudaliar embarked on his vision of social regeneration, providing for all classes and castes in the fields of education and social welfare.
+                            </p>
+                        </div>
+                        <Link
+                            href="/about/founder"
+                            className="text-blue-600 hover:text-blue-800 font-medium mt-4 text-sm self-start"
+                        >
+                            Learn More →
+                        </Link>
+                    </div>
+
+                    {/* Column 2: Message from Director */}
                     <ExpandableMessage
-                        title="Message from Director"
+                        title="Director"
                         imageSrc="https://rbanmsfgc.ac.in/images/gallery/sahana.jpeg"
                         imageAlt="Director Dr Sahana Das"
                     >
@@ -80,9 +111,9 @@ export function IntroTextBox() {
                         </div>
                     </ExpandableMessage>
 
-                    {/* Column 2: Message from Principal */}
+                    {/* Column 3: Message from Principal */}
                     <ExpandableMessage
-                        title="Message from Principal"
+                        title="Principal"
                         imageSrc="https://rbanmsfgc.ac.in/images/gallery/WhatsApp%20Image%202025-11-04%20at%203.37.04%20PM.jpeg"
                         imageAlt="Principal Dr Shanti Iyer"
                         unoptimized={true}
@@ -106,7 +137,7 @@ export function IntroTextBox() {
                         </div>
                     </ExpandableMessage>
 
-                    {/* Column 3: The Month that was */}
+                    {/* Column 4: The Month that was */}
                     <div className="bg-white rounded-lg shadow-sm p-6 border border-slate-100 flex flex-col h-full">
                         <h2 className="text-2xl font-bold text-blue-900 mb-6 font-headline">
                             The Month that was

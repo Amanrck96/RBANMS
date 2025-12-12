@@ -3,30 +3,18 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Check } from 'lucide-react';
 
 const advantages = [
-  "Managed by a trusted and universally respected Educational Charities Trust",
-  "Located in the heart of Bangalore City",
-  "BMTC buses on the Shivajinagar – Jeevanhalli route that stops at the college campus",
-  "Walking distance from the Trinity and MG Road Metro stations",
-  "Affiliated to Bengaluru City University",
+  "Managed by a trusted and highly respected Educational Charities Trust",
+  "Located in the heart of Bangalore City, accessible with Metro, BMTC buses, and private vehicles",
   "Learning spaces that are green and environmentally friendly",
+  "Well-equipped classrooms, labs, and AV rooms",
   "Dedicated and qualified in-house faculty",
-  "Well-equipped classrooms",
-  "Two Computer Labs for BCA students",
-  "A design studio",
   "Eminent guest faculty from various fields of expertise",
-  "Add-on and certificate courses",
-  "Training for professional skills",
-  "Access to Industry experts",
-  "Encouragement and support for sports",
-  "Indoor Games room",
-  "Gym",
-  "Access to world class cricket and Football grounds",
+  "Add-on and certificate courses to enhance professional skills",
+  "Encouragement and support for Sports, with in-house facilities and ample space",
+  "Access to professional training centres for cricket and football",
   "Encouragement of NCC related activities",
   "Meaningful engagement with community development through NSS",
-  "Support of the Arts",
-  "Seminar Hall",
-  "AV Room",
-  "Auditorium",
+  "Support of the Arts through workshops, and access to several performance spaces",
 ];
 
 export function WhyChooseUsSection() {
@@ -38,7 +26,7 @@ export function WhyChooseUsSection() {
     <section className="py-12 lg:pt-8 lg:pb-24 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-primary font-headline">The RBANM’s Advantage</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold text-primary font-headline">The RBANM's Experience</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
           <ul className="space-y-4">
