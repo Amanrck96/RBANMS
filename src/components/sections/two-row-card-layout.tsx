@@ -24,8 +24,13 @@ export function TwoRowCardLayout() {
                             <CardTitle className="text-blue-900 font-headline">Our Founder</CardTitle>
                         </CardHeader>
                         <CardContent className="flex-grow flex flex-col">
-                            <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-blue-900 to-blue-700 flex items-center justify-center">
-                                <div className="text-white text-6xl font-bold">AN</div>
+                            <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gray-100">
+                                <Image
+                                    src="https://scontent.fccu23-1.fna.fbcdn.net/v/t39.30808-6/470059366_9268902089795080_3206634938260589095_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=33274f&_nc_ohc=1wMdKiYsPe0Q7kNvwHkpe9M&_nc_oc=AdnnQ3Dvj_7PTdd8L3xlkXG-RqOTyCUKX0CZR5ozi9Qql-bHIMytpUfqB8F5XEpTmMPjaBq8cnsY_ylmNvShhi2b&_nc_zt=23&_nc_ht=scontent.fccu23-1.fna&_nc_gid=S7dCKKEdDQLhDtY_vKIgCw&oh=00_AfnvMIwmAvEefoTF1ecEUfhRF4vAOgJtSA_y_nKonvE23w&oe=69437EB5"
+                                    alt="Rai Bahadur Arcot Narrainswamy Mudaliar"
+                                    fill
+                                    className="object-contain object-top"
+                                />
                             </div>
                             <h3 className="text-center text-sm font-bold text-primary mb-2">
                                 Rai Bahadur Arcot Narrainswamy Mudaliar

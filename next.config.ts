@@ -46,6 +46,12 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'scontent.fccu23-1.fna.fbcdn.net',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
         hostname: 'images.shiksha.com',
         port: '',
         pathname: '/**',
