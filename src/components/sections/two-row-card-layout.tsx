@@ -24,14 +24,8 @@ export function TwoRowCardLayout() {
                             <CardTitle className="text-blue-900 font-headline">Our Founder</CardTitle>
                         </CardHeader>
                         <CardContent className="flex-grow flex flex-col">
-                            <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gray-100">
-                                <Image
-                                    src="https://rbanmsfgc.ac.in/images/founder.jpg"
-                                    alt="Rai Bahadur Arcot Narrainswamy Mudaliar"
-                                    fill
-                                    className="object-contain object-top"
-                                    unoptimized
-                                />
+                            <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-blue-900 to-blue-700 flex items-center justify-center">
+                                <div className="text-white text-6xl font-bold">AN</div>
                             </div>
                             <h3 className="text-center text-sm font-bold text-primary mb-2">
                                 Rai Bahadur Arcot Narrainswamy Mudaliar
@@ -83,11 +77,10 @@ export function TwoRowCardLayout() {
                         <CardContent className="flex-grow flex flex-col">
                             <div className="relative w-full aspect-square mb-4 rounded-lg overflow-hidden bg-gray-100">
                                 <Image
-                                    src="https://rbanmsfgc.ac.in/images/director.jpg"
-                                    alt="Director"
+                                    src="https://rbanmsfgc.ac.in/images/gallery/sahana.jpeg"
+                                    alt="Dr. Sahana Das - Director"
                                     fill
                                     className="object-cover"
-                                    unoptimized
                                 />
                             </div>
 
@@ -130,11 +123,10 @@ export function TwoRowCardLayout() {
                         <CardContent className="flex-grow flex flex-col">
                             <div className="relative w-full aspect-square mb-4 rounded-lg overflow-hidden bg-gray-100">
                                 <Image
-                                    src="https://rbanmsfgc.ac.in/images/principal.jpg"
-                                    alt="Principal"
+                                    src="https://rbanmsfgc.ac.in/images/gallery/WhatsApp%20Image%202025-11-04%20at%203.37.04%20PM.jpeg"
+                                    alt="Dr. Shanti Iyer - Principal"
                                     fill
                                     className="object-cover"
-                                    unoptimized
                                 />
                             </div>
 
