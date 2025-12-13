@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin, Facebook, Twitter, Youtube, Instagram, Linkedin } 
 
 export function SiteFooter() {
   const quickLinks = [
+    { name: 'Home', href: '/', highlight: true },
     { name: 'Industry Connect', href: '/industry-connect/internship' },
     { name: 'RTI', href: '/rti' },
     { name: 'Governance', href: '/governance' },
@@ -36,7 +37,13 @@ export function SiteFooter() {
             <ul className="space-y-2 columns-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-sm text-white/80 hover:text-white transition-colors">
+                  <Link
+                    href={link.href}
+                    className={`text-sm transition-colors ${link.highlight
+                        ? 'text-yellow-400 hover:text-yellow-300 font-semibold'
+                        : 'text-white/80 hover:text-white'
+                      }`}
+                  >
                     {link.name}
                   </Link>
                 </li>
