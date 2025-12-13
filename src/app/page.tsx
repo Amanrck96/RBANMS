@@ -2,11 +2,8 @@ import { SiteHeader } from '@/components/layout/header';
 import { SiteFooter } from '@/components/layout/footer';
 
 import { WhyChooseUsSection } from '@/components/sections/why-choose-us-section';
-
-
 import { AdditionalImagesCarousel } from '@/components/sections/additional-images-carousel';
-import { IntroTextBox } from '@/components/sections/intro-text-box';
-import { AnnouncementsBlogSection } from '@/components/sections/announcements-blog-section';
+import { TwoRowCardLayout } from '@/components/sections/two-row-card-layout';
 
 export default function Home() {
     return (
@@ -19,9 +16,9 @@ export default function Home() {
                 <div className="">
                     <AdditionalImagesCarousel intervalMs={3500} />
                 </div>
-                <IntroTextBox />
 
-                <AnnouncementsBlogSection />
+                {/* Two-row card layout: Row 1 - Founder, Director, Principal | Row 2 - Blog, Announcements, The Month That Was */}
+                <TwoRowCardLayout />
 
                 <WhyChooseUsSection />
 
