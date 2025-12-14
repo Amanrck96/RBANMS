@@ -58,22 +58,15 @@ export function TwoRowCardLayout() {
 
                             <div className="text-left text-sm content-black mb-4">
                                 <p className={expandedCard !== 'founder' ? 'line-clamp-3' : ''}>
-                                    Arcot Narrainswamy Mudaliar was a pioneering businessman, philanthropist, and social reformer whose life story embodies the values of equality, education, and social justice. Born in Arcot in 1827, he moved to Bangalore as a child, shouldering the responsibility of his family after his father's demise.
+                                    Our founder Dharmarathnakara Rai Bahadur Arcot Narrainswamy Mudaliar embarked on his vision of social regeneration, providing for all classes and castes in the fields of education and social welfare.
                                 </p>
 
                                 {expandedCard === 'founder' && (
                                     <div className="mt-3 space-y-3">
                                         <p>
-                                            His entrepreneurial acumen led him to establish successful businesses, including Mysore Hall and Bangalore Agency, making him one of the wealthiest merchants of his time.
-                                        </p>
-                                        <p>
-                                            Despite his business success, what set Mudaliar apart was his progressive vision for society. Deeply influenced by the idea that wealth was a trust for the upliftment of the needy, he dedicated himself to philanthropy, particularly in education. In 1873, he founded the Free English Primary School in Bangalore Cantonment for non-white students—an assertion of the principle of equality at a time when education was a privilege of the elite.
-                                        </p>
-                                        <p>
-                                            Mudaliar also championed gender and caste equality, with the founding of the Thirukulatar School in 1883, which provided education to the most marginalized castes. In 1886, he established the Govindammal Girls School, recognizing that education was the key to women's empowerment.
-                                        </p>
-                                        <p>
-                                            His legacy of challenging caste hierarchies and commitment to social reform places him among the visionary reformers of 19th-century India.
+                                            <a href="/about/founder" className="text-primary hover:underline font-semibold">
+                                                Read more about our Founder
+                                            </a>
                                         </p>
                                     </div>
                                 )}
@@ -244,11 +237,9 @@ export function TwoRowCardLayout() {
                         </CardHeader>
                         <CardContent className="flex-grow">
                             <ul className="space-y-3 text-sm content-black list-disc list-inside">
-                                <li>Admission applications for the Academic Year 2025-26 are now open</li>
-                                <li>Annual Cultural Fest scheduled for January 2026</li>
-                                <li>New certificate courses in Digital Marketing and Data Analytics</li>
-                                <li>Library extended hours during examination period</li>
-                                <li>Guest lecture series on Entrepreneurship begins next month</li>
+                                <li>Odd Semester Examinations scheduled to begin on December 15, 2025</li>
+                                <li>Students are requested to collect their ‘No Dues’ certificate from the Office</li>
+                                <li>The college will remain closed December 28th to December 31st, 2025</li>
                             </ul>
                         </CardContent>
                     </Card>

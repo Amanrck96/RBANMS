@@ -6,7 +6,9 @@ export default function WomensCellPage() {
     <div className="container mx-auto px-4 py-12 md:py-16">
       <Card>
         <CardHeader>
-          <CardTitle className="text-3xl md:text-4xl font-bold text-primary font-headline">Women’s Cell</CardTitle>
+          <CardTitle className="text-3xl md:text-4xl font-bold text-primary font-headline">
+            Women Cell
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-6 text-foreground/90 leading-relaxed">

@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-export default function ManasaCounsellingCellPage() {
+export default function ManasaCounsellingPage() {
     return (
         <div className="container mx-auto px-4 py-12 md:py-16">
             <Card>
