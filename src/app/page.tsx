@@ -1,7 +1,7 @@
 import { SiteHeader } from '@/components/layout/header';
 import { SiteFooter } from '@/components/layout/footer';
 
-import { WhyChooseUsSection } from '@/components/sections/why-choose-us-section';
+
 import { AdditionalImagesCarousel } from '@/components/sections/additional-images-carousel';
 import { TwoRowCardLayout } from '@/components/sections/two-row-card-layout';
 
@@ -35,7 +35,7 @@ export default function Home() {
                 {/* Two-row card layout: Row 1 - Founder, Director, Principal | Row 2 - Blog, Announcements, The Month That Was */}
                 <TwoRowCardLayout />
 
-                <WhyChooseUsSection />
+
 
             </main>
             <SiteFooter />
