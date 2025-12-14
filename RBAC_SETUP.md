@@ -4,26 +4,34 @@ This document explains the role-based access control system for RBANM's First Gr
 
 ## Overview
 
-The system implements two user roles:
-- **Super Admin**: Full access to all features
-- **Admin**: Limited access focused on content management
+The website has two types of users: **Super Admin** and **Admin**. This separation of duties keeps the website secure and helps prevent accidental changes. Both roles are provided free of charge.
 
-## Roles and Permissions
+## Role Definitions (Short Version)
+
+*   **Super Admin** — Full access; can edit pages, settings, layouts, and users.
+*   **Admin** — Limited access; can upload blogs and edit post text & images only.
+*   **Cost** — Both roles are provided free of charge.
+*   **Benefit** — Improves security and reduces accidental changes.
+
+## Detailed Permissions
 
 ### Super Admin
+ **Full Control:**
 - ✅ Create, edit, and delete blog posts
 - ✅ Upload and manage images
 - ✅ Create and manage users
 - ✅ Edit any website content
 - ✅ Access all settings
+- ✅ Change website layouts
 
 ### Admin
+**Limited Access:**
 - ✅ Create and edit blog posts
-- ✅ Upload images
+- ✅ Upload new blog posts
 - ✅ Change text and images in posts
-- ❌ Cannot delete posts
+- ❌ Cannot delete posts (security feature)
 - ❌ Cannot manage users
-- ❌ Cannot access settings
+- ❌ Cannot access settings or change layouts
 
 ## Setup Instructions
 

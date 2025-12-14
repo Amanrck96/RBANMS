@@ -86,30 +86,62 @@ export default function DashboardPage() {
                 })}
             </div>
 
-            <Card>
-                <CardHeader>
-                    <CardTitle>Your Role: {user.role.replace('_', ' ').toUpperCase()}</CardTitle>
-                    <CardDescription>
-                        {user.role === 'super_admin'
-                            ? 'You have full access to all features and can manage everything on the website.'
-                            : 'You can create and edit blog posts, and upload images.'}
-                    </CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <div className="space-y-2">
-                        <h3 className="font-semibold text-sm">Permissions:</h3>
-                        <ul className="list-disc list-inside space-y-1 text-sm text-gray-600">
-                            {permissions.canCreatePosts && <li>Create new blog posts</li>}
-                            {permissions.canEditPosts && <li>Edit post content and images</li>}
-                            {permissions.canUploadImages && <li>Upload and manage images</li>}
-                            {permissions.canDeletePosts && <li>Delete posts</li>}
-                            {permissions.canManageUsers && <li>Create and manage admin users</li>}
-                            {permissions.canManageSettings && <li>Modify site settings</li>}
-                            {permissions.canEditAnyContent && <li>Edit any website content</li>}
-                        </ul>
-                    </div>
-                </CardContent>
-            </Card>
+            <div className="grid gap-6 md:grid-cols-2">
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Your Role: {user.role.replace('_', ' ').toUpperCase()}</CardTitle>
+                        <CardDescription>
+                            {user.role === 'super_admin'
+                                ? 'You have full control and can edit anything on the website.'
+                                : 'You have limited access focused on content management.'}
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="space-y-4">
+                            <div>
+                                <h3 className="font-semibold text-sm mb-2">Current Permissions:</h3>
+                                <ul className="list-disc list-inside space-y-1 text-sm text-gray-600">
+                                    {permissions.canCreatePosts && <li>Create new blog posts</li>}
+                                    {permissions.canEditPosts && <li>Edit post content and images</li>}
+                                    {permissions.canUploadImages && <li>Upload and manage images</li>}
+                                    {permissions.canDeletePosts && <li>Delete posts</li>}
+                                    {permissions.canManageUsers && <li>Create and manage admin users</li>}
+                                    {permissions.canManageSettings && <li>Modify site settings</li>}
+                                    {permissions.canEditAnyContent && <li>Edit any website content</li>}
+                                </ul>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Role Access Overview</CardTitle>
+                        <CardDescription>
+                            Understanding the security levels
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4 text-sm">
+                        <div>
+                            <span className="font-bold text-blue-900">Super Admin</span>
+                            <p className="text-gray-600 mt-1">
+                                Full access; can edit pages, settings, layouts, and users. Has full control over everything on the website.
+                            </p>
+                        </div>
+                        <div>
+                            <span className="font-bold text-blue-900">Admin</span>
+                            <p className="text-gray-600 mt-1">
+                                Limited access; can upload blogs and edit post text & images only. Cannot change website settings or layouts.
+                            </p>
+                        </div>
+                        <div className="pt-2 border-t mt-2">
+                            <p className="text-gray-500 text-xs italic">
+                                Both roles are provided free of charge. This separation of duties keeps the website secure and helps prevent accidental changes.
+                            </p>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
         </div>
     );
 }
