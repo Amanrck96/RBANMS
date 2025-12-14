@@ -76,7 +76,7 @@ export function AdditionalImagesCarousel({ intervalMs = 3500, className }: Addit
           <CarouselContent className="-ml-0">
             {slides.map((slide, idx) => (
               <CarouselItem key={`${slide.id}-${idx}`} className="pl-0">
-                <div className="relative w-full h-[600px]">
+                <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px]">
                   <Image
                     src={slide.src}
                     alt={slide.alt}

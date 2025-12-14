@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { AuthProvider } from '@/hooks/useAuth';
@@ -7,6 +7,12 @@ export const metadata: Metadata = {
   title: "RBANM'S FIRST GRADE COLLEGE",
   description: 'A responsive website clone of an academic institution.',
   keywords: 'education, college, university, academic, responsive design',
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({

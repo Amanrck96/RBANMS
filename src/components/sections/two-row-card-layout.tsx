@@ -36,11 +36,11 @@ export function TwoRowCardLayout() {
         <section className="py-12 lg:py-16 bg-secondary/30">
             <div className="container mx-auto px-4">
                 {/* Row 1: Founder, Director, Principal */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6 mb-6">
                     {/* Founder Card */}
                     <Card className="flex flex-col h-full">
                         <CardHeader>
-                            <CardTitle className="text-blue-900 font-headline">Our Founder</CardTitle>
+                            <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">Our Founder</CardTitle>
                         </CardHeader>
                         <CardContent className="flex-grow flex flex-col">
                             <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gray-100">
@@ -49,6 +49,7 @@ export function TwoRowCardLayout() {
                                     alt="Rai Bahadur Arcot Narrainswamy Mudaliar"
                                     fill
                                     className="object-cover"
+                                    sizes="(max-width: 1024px) 100vw, 33vw"
                                 />
                             </div>
                             <h3 className="text-center text-sm font-bold text-primary mb-2">
@@ -89,7 +90,7 @@ export function TwoRowCardLayout() {
                     {/* Director's Message */}
                     <Card className="flex flex-col h-full">
                         <CardHeader>
-                            <CardTitle className="text-blue-900 font-headline">Message from Director</CardTitle>
+                            <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">Message from Director</CardTitle>
                         </CardHeader>
                         <CardContent className="flex-grow flex flex-col">
                             <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gray-100">
@@ -98,6 +99,7 @@ export function TwoRowCardLayout() {
                                     alt="Dr. Sahana Das - Director"
                                     fill
                                     className="object-cover"
+                                    sizes="(max-width: 1024px) 100vw, 33vw"
                                 />
                             </div>
 
@@ -135,7 +137,7 @@ export function TwoRowCardLayout() {
                     {/* Principal's Message */}
                     <Card className="flex flex-col h-full">
                         <CardHeader>
-                            <CardTitle className="text-blue-900 font-headline">Message from Principal</CardTitle>
+                            <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">Message from Principal</CardTitle>
                         </CardHeader>
                         <CardContent className="flex-grow flex flex-col">
                             <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gray-100">
@@ -144,6 +146,7 @@ export function TwoRowCardLayout() {
                                     alt="Dr. Shanti Iyer - Principal"
                                     fill
                                     className="object-cover"
+                                    sizes="(max-width: 1024px) 100vw, 33vw"
                                 />
                             </div>
 
@@ -186,7 +189,7 @@ export function TwoRowCardLayout() {
                 <div className="flex justify-center mb-6">
                     <Card className="w-full max-w-5xl">
                         <CardHeader className="text-center">
-                            <CardTitle className="text-3xl lg:text-4xl font-bold text-primary font-headline">
+                            <CardTitle className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold text-primary font-headline">
                                 The RBANM's Experience
                             </CardTitle>
                         </CardHeader>
@@ -214,11 +217,11 @@ export function TwoRowCardLayout() {
                 </div>
 
                 {/* Row 2: Blog, Announcements, The Month That Was */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
                     {/* Blog Card */}
                     <Card className="flex flex-col h-full">
                         <CardHeader>
-                            <CardTitle className="text-blue-900 font-headline">Blog</CardTitle>
+                            <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">Blog</CardTitle>
                         </CardHeader>
                         <CardContent className="flex-grow">
                             <p className="text-sm content-black mb-4">
@@ -233,7 +236,7 @@ export function TwoRowCardLayout() {
                     {/* Announcements Card */}
                     <Card className="flex flex-col h-full">
                         <CardHeader>
-                            <CardTitle className="text-blue-900 font-headline">Announcements</CardTitle>
+                            <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">Announcements</CardTitle>
                         </CardHeader>
                         <CardContent className="flex-grow">
                             <ul className="space-y-3 text-sm content-black list-disc list-inside">
@@ -247,7 +250,7 @@ export function TwoRowCardLayout() {
                     {/* The Month That Was Card */}
                     <Card className="flex flex-col h-full">
                         <CardHeader>
-                            <CardTitle className="text-blue-900 font-headline">The Month That Was</CardTitle>
+                            <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">The Month That Was</CardTitle>
                         </CardHeader>
                         <CardContent className="flex-grow">
                             <div className="space-y-3">
