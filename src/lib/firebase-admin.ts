@@ -7,13 +7,26 @@ import { getFirestore } from 'firebase-admin/firestore';
 const apps = getApps();
 
 if (!apps.length) {
-    initializeApp({
-        credential: cert({
-            projectId: process.env.FIREBASE_PROJECT_ID,
-            clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-            privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
-        }),
-    });
+    const projectId = process.env.FIREBASE_PROJECT_ID;
+    const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
+    const privateKey = process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n');
+
+    if (projectId && clientEmail && privateKey) {
+        initializeApp({
+            credential: cert({
+                projectId,
+                clientEmail,
+                privateKey,
+            }),
+        });
+    } else {
+        // Fallback for build time where secrets might be missing
+        // This prevents the build from crashing but API calls will fail if keys are not present at runtime
+        initializeApp({
+            projectId: 'build-placeholder',
+        });
+        console.warn('Firebase Admin initialized without credentials (build mode).');
+    }
 }
 
 export const adminAuth = getAuth();
