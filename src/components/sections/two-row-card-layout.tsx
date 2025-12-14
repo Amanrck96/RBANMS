@@ -4,7 +4,22 @@ import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Check } from 'lucide-react';
+
+const advantages = [
+    "Managed by a trusted and highly respected Educational Charities Trust",
+    "Located in the heart of Bangalore City, accessible with Metro, BMTC buses, and private vehicles",
+    "Learning spaces that are green and environmentally friendly",
+    "Well-equipped classrooms, labs, and AV rooms",
+    "Dedicated and qualified in-house faculty",
+    "Eminent guest faculty from various fields of expertise",
+    "Add-on and certificate courses to enhance professional skills",
+    "Encouragement and support for Sports, with in-house facilities and ample space",
+    "Access to professional training centres for cricket and football",
+    "Encouragement of NCC related activities",
+    "Meaningful engagement with community development through NSS",
+    "Support of the Arts through workshops, and access to several performance spaces",
+];
 
 export function TwoRowCardLayout() {
     const [expandedCard, setExpandedCard] = useState<string | null>(null);
@@ -12,6 +27,10 @@ export function TwoRowCardLayout() {
     const toggleCard = (cardId: string) => {
         setExpandedCard(expandedCard === cardId ? null : cardId);
     };
+
+    const midPoint = Math.ceil(advantages.length / 2);
+    const col1 = advantages.slice(0, midPoint);
+    const col2 = advantages.slice(midPoint);
 
     return (
         <section className="py-12 lg:py-16 bg-secondary/30">
@@ -29,7 +48,7 @@ export function TwoRowCardLayout() {
                                     src="https://scontent.fccu23-1.fna.fbcdn.net/v/t39.30808-6/470059366_9268902089795080_3206634938260589095_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=33274f&_nc_ohc=1wMdKiYsPe0Q7kNvwHkpe9M&_nc_oc=AdnnQ3Dvj_7PTdd8L3xlkXG-RqOTyCUKX0CZR5ozi9Qql-bHIMytpUfqB8F5XEpTmMPjaBq8cnsY_ylmNvShhi2b&_nc_zt=23&_nc_ht=scontent.fccu23-1.fna&_nc_gid=S7dCKKEdDQLhDtY_vKIgCw&oh=00_AfnvMIwmAvEefoTF1ecEUfhRF4vAOgJtSA_y_nKonvE23w&oe=69437EB5"
                                     alt="Rai Bahadur Arcot Narrainswamy Mudaliar"
                                     fill
-                                    className="object-contain object-top"
+                                    className="object-cover"
                                 />
                             </div>
                             <h3 className="text-center text-sm font-bold text-primary mb-2">
@@ -80,7 +99,7 @@ export function TwoRowCardLayout() {
                             <CardTitle className="text-blue-900 font-headline">Message from Director</CardTitle>
                         </CardHeader>
                         <CardContent className="flex-grow flex flex-col">
-                            <div className="relative w-full aspect-square mb-4 rounded-lg overflow-hidden bg-gray-100">
+                            <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gray-100">
                                 <Image
                                     src="https://rbanmsfgc.ac.in/images/gallery/sahana.jpeg"
                                     alt="Dr. Sahana Das - Director"
@@ -126,7 +145,7 @@ export function TwoRowCardLayout() {
                             <CardTitle className="text-blue-900 font-headline">Message from Principal</CardTitle>
                         </CardHeader>
                         <CardContent className="flex-grow flex flex-col">
-                            <div className="relative w-full aspect-square mb-4 rounded-lg overflow-hidden bg-gray-100">
+                            <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gray-100">
                                 <Image
                                     src="https://rbanmsfgc.ac.in/images/gallery/WhatsApp%20Image%202025-11-04%20at%203.37.04%20PM.jpeg"
                                     alt="Dr. Shanti Iyer - Principal"
@@ -166,6 +185,37 @@ export function TwoRowCardLayout() {
                                     <>Read More <ChevronDown className="h-4 w-4" /></>
                                 )}
                             </Button>
+                        </CardContent>
+                    </Card>
+                </div>
+
+                {/* Full-Width "The RBANM's Experience" Card - Centered between the rows */}
+                <div className="flex justify-center mb-6">
+                    <Card className="w-full max-w-5xl">
+                        <CardHeader className="text-center">
+                            <CardTitle className="text-3xl lg:text-4xl font-bold text-primary font-headline">
+                                The RBANM's Experience
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+                                <ul className="space-y-4">
+                                    {col1.map((advantage, index) => (
+                                        <li key={index} className="flex items-start">
+                                            <Check className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" />
+                                            <span className="text-muted-foreground font-bold">{advantage}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                                <ul className="space-y-4">
+                                    {col2.map((advantage, index) => (
+                                        <li key={index} className="flex items-start">
+                                            <Check className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" />
+                                            <span className="text-muted-foreground font-bold">{advantage}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </CardContent>
                     </Card>
                 </div>
