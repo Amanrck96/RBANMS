@@ -40,8 +40,8 @@ export function SiteFooter() {
                   <Link
                     href={link.href}
                     className={`text-sm transition-colors ${link.highlight
-                        ? 'text-yellow-400 hover:text-yellow-300 font-semibold'
-                        : 'text-white/80 hover:text-white'
+                      ? 'text-yellow-400 hover:text-yellow-300 font-semibold'
+                      : 'text-white/80 hover:text-white'
                       }`}
                   >
                     {link.name}
