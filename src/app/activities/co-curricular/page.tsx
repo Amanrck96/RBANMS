@@ -15,7 +15,15 @@ export default function CoCurricularActivitiesPage() {
         <CardContent className="pt-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 items-stretch">
             {category.items.map((item) => (
-              <Link key={item.slug} href={`/activities/co-curricular/${item.slug}`} className="group">
+              <Link
+                key={item.slug}
+                href={
+                  item.slug === 'ncc-army' ? '/ncc/army' :
+                    item.slug === 'ncc-navy' ? '/ncc/navy' :
+                      `/activities/co-curricular/${item.slug}`
+                }
+                className="group"
+              >
                 <div className="h-full rounded-lg border shadow-sm overflow-hidden flex flex-col bg-background">
                   <div className="relative w-full aspect-[16/9]">
                     <Image src={item.imageUrl} alt={item.title} fill className="object-cover" />

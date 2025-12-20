@@ -162,7 +162,7 @@ export default function ArtsDepartmentPage() {
         </CardContent>
       </Card>
 
-      <h3 className="text-2xl font-bold mt-8 mb-4 text-black">Course Matrix – History</h3>
+      <h3 className="text-2xl font-bold mt-8 mb-4 text-black">Paper Titles – History</h3>
       <div className="bg-white p-6 rounded-xl border-2 border-primary">
         <Tabs defaultValue="sem1" className="w-full">
           <TabsList className="grid w-full grid-cols-2 md:grid-cols-6 h-auto p-1 bg-white shadow-sm mb-8 border border-primary/20">
@@ -191,7 +191,7 @@ export default function ArtsDepartmentPage() {
         </CardContent>
       </Card>
 
-      <h3 className="text-2xl font-bold mt-8 mb-4 text-black text-primary">Course Matrix - Economics</h3>
+      <h3 className="text-2xl font-bold mt-8 mb-4 text-black text-primary">Paper Titles - Economics</h3>
       <div className="bg-white p-6 rounded-xl border-2 border-primary">
         <Tabs defaultValue="sem1" className="w-full">
           <TabsList className="grid w-full grid-cols-2 md:grid-cols-6 h-auto p-1 bg-white shadow-sm mb-8 border border-primary/20">
@@ -220,7 +220,7 @@ export default function ArtsDepartmentPage() {
         </CardContent>
       </Card>
 
-      <h3 className="text-2xl font-bold mt-8 mb-4 text-black">Course Matrix – Political Science</h3>
+      <h3 className="text-2xl font-bold mt-8 mb-4 text-black">Paper Titles – Political Science</h3>
       <div className="bg-white p-6 rounded-xl border-2 border-primary">
         <Tabs defaultValue="sem1" className="w-full">
           <TabsList className="grid w-full grid-cols-2 md:grid-cols-6 h-auto p-1 bg-white shadow-sm mb-8 border border-primary/20">
@@ -317,6 +317,17 @@ export default function ArtsDepartmentPage() {
     </div>
   );
 
+  const sidebarContent = (
+    <div className="w-full aspect-[4/3] relative rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 bg-slate-100">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="https://placehold.co/600x800/f1f5f9/475569?text=Department+Image"
+        alt="Department of Arts Featured Image"
+        className="w-full h-full object-cover"
+      />
+    </div>
+  );
+
   const sections = [
     { id: "highlights", label: "Highlights", content: highlightsContent },
     { id: "skills", label: "Skills Developed", content: skillsContent },
@@ -336,6 +347,7 @@ export default function ArtsDepartmentPage() {
     <DepartmentLayout
       title="Department of Arts"
       tagline="Welcome to the Department of Arts. We explore the World Through History, Economics and Political Science. In the Department of Arts, learning becomes a journey into understanding societies, ideas, systems and human thought. Our classrooms are vibrant spaces where curiosity meets scholarship, where discussions evolve into insights and every student grows into an observer, analyst and responsible citizen. Pursuing Arts is not just about studying past events, economic structures or political institution, it is about developing the ability to interpret change, evaluate issues and engage meaningfully with the world. To that end, we cultivate an inclusive and lively academic environment where every student’s perspective is valued and intellectual exploration encouraged. Beyond traditional teaching, we enrich learning through field visits, interactive sessions, projects, seminars, debates, group discussions, model parliaments, economic simulations and cross-disciplinary academic events, making the study of Arts dynamic, relevant and engaging."
+      sidebarContent={sidebarContent}
       sections={sections}
     />
   );

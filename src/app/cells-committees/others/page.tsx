@@ -23,9 +23,9 @@ export default function OtherCellsPage() {
                   <div className="p-4 flex-1 flex flex-col">
                     <h3 className="text-lg font-bold text-primary mb-2">{item.title}</h3>
                     <p className="text-muted-foreground text-sm line-clamp-2">{item.excerpt}</p>
-                    <div className="mt-auto pt-3">
-                      <span className="text-primary text-sm group-hover:underline">Read More →</span>
-                    </div>
+                    {/* <div className="mt-auto pt-3">
+               <span className="text-primary text-sm group-hover:underline">Read More →</span>
+             </div> */}
                   </div>
                 </div>
               </Link>

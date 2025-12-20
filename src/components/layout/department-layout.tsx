@@ -24,6 +24,8 @@ interface DepartmentLayoutProps {
     navItems?: NavItem[];
     sections?: { id: string; label: string; content: React.ReactNode }[];
     badgeText?: string;
+    heroImage?: string;
+    heroImageAlt?: string;
 }
 
 const departments = [
@@ -47,29 +49,70 @@ export function DepartmentLayout({
     children,
     navItems,
     sections,
-    badgeText = "Department"
+    badgeText = "Department",
+    heroImage,
+    heroImageAlt
 }: DepartmentLayoutProps) {
+
+    const HeaderContent = ({ showSidebar = false }: { showSidebar?: boolean }) => (
+        <div className={cn(
+            "w-full py-12 md:py-20 px-4 md:px-8 shadow-sm border-b relative overflow-hidden",
+            heroImage ? "text-white" : "bg-white text-black"
+        )}>
+            {heroImage && (
+                <>
+                    <div className="absolute inset-0 w-full h-full">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                            src={heroImage}
+                            alt={heroImageAlt || title}
+                            className="w-full h-full object-cover"
+                        />
+                    </div>
+                    <div className="absolute inset-0 bg-black/60 z-10" />
+                </>
+            )}
+
+            <div className={cn("container mx-auto relative", heroImage && "z-20")}>
+                <div className="grid md:grid-cols-3 gap-12 items-start">
+                    <div className="md:col-span-2">
+                        <Badge className={cn(
+                            "mb-4 border-none",
+                            heroImage ? "bg-yellow-500 text-black hover:bg-yellow-400" : "bg-yellow-500 text-black hover:bg-yellow-400"
+                        )}>
+                            {badgeText}
+                        </Badge>
+                        <h1 className={cn(
+                            "text-4xl md:text-5xl font-bold font-headline tracking-tight",
+                            heroImage ? "text-white drop-shadow-md" : "text-black"
+                        )}>
+                            {title}
+                        </h1>
+                        {tagline && (
+                            <p className={cn(
+                                "mt-4 text-lg md:text-xl leading-relaxed",
+                                heroImage ? "text-white/90 drop-shadow-sm" : "text-black"
+                            )}>
+                                {tagline}
+                            </p>
+                        )}
+                    </div>
+                    {showSidebar && sidebarContent && (
+                        <div className="md:col-span-1 mt-8 md:mt-0">
+                            {sidebarContent}
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
 
     // If sections are provided, we use the Tabbed Layout
     if (sections && sections.length > 0) {
         return (
             <div className="min-h-screen bg-background text-foreground font-sans">
                 {/* 1. Full-width Header Band */}
-                <div className="w-full bg-white py-12 px-4 md:px-8 shadow-sm border-b">
-                    <div className="container mx-auto">
-                        <Badge className="mb-4 bg-yellow-500 text-black hover:bg-yellow-400 border-none">
-                            {badgeText}
-                        </Badge>
-                        <h1 className="text-4xl md:text-5xl font-bold text-black font-headline tracking-tight">
-                            {title}
-                        </h1>
-                        {tagline && (
-                            <p className="mt-4 text-lg md:text-xl text-black max-w-3xl leading-relaxed">
-                                {tagline}
-                            </p>
-                        )}
-                    </div>
-                </div>
+                <HeaderContent showSidebar={true} />
 
                 {/* Tabbed Interface */}
                 <Tabs defaultValue={sections[0].id} className="w-full">
@@ -114,21 +157,7 @@ export function DepartmentLayout({
     return (
         <div className="min-h-screen bg-background text-foreground font-sans">
             {/* 1. Full-width Header Band */}
-            <div className="w-full bg-white py-12 px-4 md:px-8 shadow-sm border-b">
-                <div className="container mx-auto">
-                    <Badge className="mb-4 bg-yellow-500 text-black hover:bg-yellow-400 border-none">
-                        {badgeText}
-                    </Badge>
-                    <h1 className="text-4xl md:text-5xl font-bold text-black font-headline tracking-tight">
-                        {title}
-                    </h1>
-                    {tagline && (
-                        <p className="mt-4 text-lg md:text-xl text-black max-w-3xl leading-relaxed">
-                            {tagline}
-                        </p>
-                    )}
-                </div>
-            </div>
+            <HeaderContent />
 
             {/* 2. Navigation/Tabs Strip (Legacy) */}
             <div className="w-full border-b bg-muted/30 sticky top-0 z-20 backdrop-blur-sm">

@@ -137,7 +137,7 @@ export default function CommerceDepartmentPage() {
     </div>
   );
 
-  // 5. Course Matrix
+  // 5. Paper Titles
   const matrixContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 mb-8 text-black">COURSE MATRIX: CORE PAPERS</h2>
@@ -263,12 +263,23 @@ export default function CommerceDepartmentPage() {
     </div>
   );
 
+  const sidebarContent = (
+    <div className="w-full aspect-[4/3] relative rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 bg-slate-100">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="https://placehold.co/600x800/f1f5f9/475569?text=Department+Image"
+        alt="Department of Commerce Featured Image"
+        className="w-full h-full object-cover"
+      />
+    </div>
+  );
+
   const sections = [
     { id: "why-bcom", label: "Why B.COM?", content: whyBcomContent },
     { id: "highlights", label: "Highlights", content: highlightsContent },
     { id: "vision", label: "Vision & Mission", content: visionContent },
     { id: "skills", label: "Skill Set Acquired", content: skillsContent },
-    { id: "matrix", label: "Course Matrix", content: matrixContent },
+    { id: "matrix", label: "Paper Titles", content: matrixContent },
     { id: "outcomes", label: "Outcomes", content: outcomesContent },
     { id: "activities", label: "Activities", content: activitiesContent },
     { id: "faculty", label: "Faculty Profile", content: facultyContent },
@@ -278,6 +289,7 @@ export default function CommerceDepartmentPage() {
     <DepartmentLayout
       title="Department of Commerce"
       tagline="Welcome to the Department of Commerce. The Commerce Department at RBANM’s First Grade College has been shaping capable and confident graduates since 1984. It offers a strong undergraduate program built on practical learning and steady innovation. The goal is clear: to improve every year and deliver education that meets global standards. Teaching blends traditional lectures with student centred methods that build real understanding. Role-plays, simulations, group work, discussions, debates, and case-based learning make the classroom active and engaging. The department also takes pride in practices that support all round development. Students gain exposure through service learning, peer mentoring, mental health and wellness initiatives, social outreach, research paper opportunities, a bridge course for non-commerce learners, and skill enhancement programs aligned with industry expectations."
+      sidebarContent={sidebarContent}
       sections={sections}
     />
   );
