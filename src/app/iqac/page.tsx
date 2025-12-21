@@ -2,6 +2,7 @@ import React from 'react';
 import { DepartmentLayout } from '@/components/layout/department-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Target, Settings, TrendingUp } from 'lucide-react';
+import { DocumentFolder } from '@/components/ui/document-folder';
 
 export default function IQACPage() {
   const objectivesContent = (
@@ -76,10 +77,25 @@ export default function IQACPage() {
     </div>
   );
 
+
+
+  const documentsContent = (
+    <div className="space-y-6">
+      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">DOCUMENTS</h2>
+      <div className="grid md:grid-cols-2 gap-6">
+        <DocumentFolder title="Meeting Minutes" />
+        <DocumentFolder title="AQAR Reports" />
+        <DocumentFolder title="Procedures" />
+        <DocumentFolder title="Feedback Reports" />
+      </div>
+    </div>
+  );
+
   const sections = [
     { id: 'objectives', label: 'Objectives', content: objectivesContent },
     { id: 'functions', label: 'Functions', content: functionsContent },
     { id: 'major-contributions', label: 'Major Contributions', content: contributionsContent },
+    { id: 'documents', label: 'Documents', content: documentsContent },
   ];
 
   return (
