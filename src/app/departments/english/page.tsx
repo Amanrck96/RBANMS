@@ -100,6 +100,16 @@ export default function EnglishDepartmentPage() {
           <Badge key={i} className="text-lg py-3 px-6 bg-white text-black border-2 border-primary hover:bg-primary hover:text-white transition-colors cursor-default">{prog}</Badge>
         ))}
       </div>
+      <div className="mt-6">
+        <Card className="bg-white border-2 border-primary text-black">
+          <CardHeader><CardTitle className="text-xl">Degree Courses</CardTitle></CardHeader>
+          <CardContent>
+            <ul className="list-decimal pl-5 text-lg">
+              <li>B.A. with Journalism, History, and Economics (Applied for)</li>
+            </ul>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 

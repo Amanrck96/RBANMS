@@ -98,8 +98,6 @@ export default function ArtsDepartmentPage() {
         <CardContent className="pt-6">
           <ul className="space-y-3 list-decimal pl-5 text-lg">
             <li>B.A. with History, Economics, and Political Science</li>
-            <li>B.A. with Physical Education, History, and Political Science (Applied for)</li>
-            <li>B.A. with Journalism, History, and Economics (Applied for)</li>
             <li>Compulsory Course in Constitutional Values, for all streams</li>
           </ul>
         </CardContent>
