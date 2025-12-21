@@ -22,6 +22,7 @@ export function AdditionalImagesCarousel({ intervalMs = 3500, className }: Addit
       { id: "hero-3", src: "/images/hero/hero-3.jpg", alt: "RBANMS Campus View 3" },
       { id: "hero-4", src: "/images/hero/hero-4.jpg", alt: "RBANMS Campus View 4" },
       { id: "hero-5", src: "/images/hero/hero-5.jpg", alt: "RBANMS Campus View 5" },
+      { id: "home-carousel-5", src: "/images/home-carousel-5.jpg", alt: "RBANMS Campus View 6" },
     ]
   }, [])
 
