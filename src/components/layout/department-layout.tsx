@@ -74,7 +74,7 @@ export function DepartmentLayout({
             )}
 
             <div className={cn("container mx-auto relative", heroImage && "z-20")}>
-                <div className="grid md:grid-cols-3 gap-12 items-start">
+                <div className="grid md:grid-cols-3 gap-12 items-center">
                     <div className="md:col-span-2">
                         <Badge className={cn(
                             "mb-4 border-none",

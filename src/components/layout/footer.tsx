@@ -8,7 +8,7 @@ export function SiteFooter() {
     { name: 'Industry Connect', href: '/industry-connect/internship' },
     { name: 'RTI', href: '/rti' },
     { name: 'Governance', href: '/governance' },
-    { name: 'Social media', href: '#' },
+
     { name: 'Code of Conduct', href: '/code-of-conduct' },
     { name: 'Statutory CELLS', href: '/statutory-cells' },
     { name: 'Alumni', href: '/alumni/activity' },
