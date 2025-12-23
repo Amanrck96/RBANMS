@@ -86,11 +86,11 @@ export default function CoursesOfferedPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <div className="bg-primary py-16 text-primary-foreground">
+      <div className="bg-white py-16">
         <div className="container mx-auto px-4 text-center">
-          <Badge variant="secondary" className="mb-4 text-primary font-bold bg-white">Academic Excellence</Badge>
-          <h1 className="text-4xl md:text-5xl font-bold font-headline mb-4">Courses Offered</h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto opacity-90">
+          <Badge variant="secondary" className="mb-4 text-primary font-bold bg-blue-50">Academic Excellence</Badge>
+          <h1 className="text-4xl md:text-5xl font-bold font-headline mb-4 text-primary">Courses Offered</h1>
+          <p className="text-lg md:text-xl max-w-2xl mx-auto text-muted-foreground">
             Discover our diverse range of undergraduate programs designed to empower you with knowledge, skills, and future-ready capabilities.
           </p>
         </div>
@@ -153,25 +153,25 @@ export default function CoursesOfferedPage() {
           ))}
         </div>
 
-        <div className="mt-16 bg-blue-900 rounded-xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+        <div className="mt-16 bg-white border rounded-xl p-8 md:p-12 text-center text-foreground relative overflow-hidden shadow-sm">
           <div className="relative z-10">
-            <GraduationCap className="h-12 w-12 mx-auto mb-4 text-yellow-400" />
+            <GraduationCap className="h-12 w-12 mx-auto mb-4 text-yellow-500" />
             <h2 className="text-3xl font-bold font-headline mb-4">Ready to Start Your Journey?</h2>
-            <p className="text-blue-100 max-w-2xl mx-auto mb-8 text-lg">
+            <p className="text-muted-foreground max-w-2xl mx-auto mb-8 text-lg">
               Join us at RBANM's First Grade College and become part of a legacy of excellence in education.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-yellow-500 text-blue-900 hover:bg-yellow-400 font-bold border-none">
                 <Link href="/contact">Contact Admissions</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
+              <Button asChild size="lg" variant="outline" className="text-primary border-primary hover:bg-primary/5">
                 <Link href="/about">Learn More About Us</Link>
               </Button>
             </div>
           </div>
           {/* Decorative circles */}
-          <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full translate-x-1/3 translate-y-1/3" />
+          <div className="absolute top-0 left-0 w-64 h-64 bg-slate-100 rounded-full -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-slate-100 rounded-full translate-x-1/3 translate-y-1/3" />
         </div>
       </div>
     </div>

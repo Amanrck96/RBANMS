@@ -9,9 +9,10 @@ export default function ComingSoonPage() {
           <CardTitle className="text-3xl md:text-4xl font-bold text-primary font-headline">Internal Compliance Committee</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="flex flex-col items-center justify-center min-h-[40vh] text-center">
-            <h2 className="text-2xl font-semibold text-muted-foreground">Coming Soon</h2>
-            <p className="mt-2 text-foreground/80">This page is under construction. Please check back later!</p>
+          <div className="space-y-6 text-foreground/90 leading-relaxed">
+            <p className="text-lg">
+              Compliance oversight and grievance handling within the institution.
+            </p>
           </div>
         </CardContent>
         <div className="mt-8 w-full aspect-[21/9] bg-muted relative rounded-xl overflow-hidden shadow-sm mx-auto max-w-5xl">
