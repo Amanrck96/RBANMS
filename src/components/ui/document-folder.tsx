@@ -9,6 +9,7 @@ interface DocumentItem {
     type: 'folder' | 'file';
     size?: string;
     date?: string;
+    url?: string;
 }
 
 interface DocumentFolderProps {
@@ -41,7 +42,13 @@ export function DocumentFolder({ title, items = [] }: DocumentFolderProps) {
                                         {item.date && <span>{item.date}</span>}
                                     </div>
                                 </div>
-                                <Button size="sm" variant="outline" className="ml-2 text-xs h-8">Download</Button>
+                                {item.url ? (
+                                    <Button size="sm" variant="outline" className="ml-2 text-xs h-8" asChild>
+                                        <a href={item.url} target="_blank" rel="noopener noreferrer">View</a>
+                                    </Button>
+                                ) : (
+                                    <Button size="sm" variant="outline" className="ml-2 text-xs h-8">Download</Button>
+                                )}
                             </div>
                         ))}
                     </div>
