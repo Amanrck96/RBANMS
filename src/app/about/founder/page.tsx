@@ -15,7 +15,7 @@ export default function FounderPage() {
             <div className="md:col-span-1 space-y-6">
               <div className="relative w-full aspect-[3/4] rounded-lg overflow-hidden border shadow-sm">
                 <Image
-                  src="https://scontent.fccu23-1.fna.fbcdn.net/v/t39.30808-6/470059366_9268902089795080_3206634938260589095_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=33274f&_nc_ohc=1wMdKiYsPe0Q7kNvwGCLp3r&_nc_oc=AdnD9ZkM1nWiqOyoo5cltXl_9jSLBtqBRkJLBrPc8VE9eYk_jjf6SmJey1AO39ppzzFT_n2LD-LeUL2ybq34s9ML&_nc_zt=23&_nc_ht=scontent.fccu23-1.fna&_nc_gid=NeyUxcOT2l9V8tiX-t15EQ&oh=00_AfmH073qZBW6Jw1wy7pwZpv56Wz03m8PzPET2r6Uc8mg3w&oe=69442775"
+                  src="/images/founder.jpg"
                   alt="Rai Bahadur Arcot Narrainswamy Mudaliar"
                   fill
                   className="object-contain object-top"
