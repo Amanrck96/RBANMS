@@ -8,6 +8,17 @@ export const metadata: Metadata = {
   title: "RBANM'S FIRST GRADE COLLEGE",
   description: 'A responsive website clone of an academic institution.',
   keywords: 'education, college, university, academic, responsive design',
+  openGraph: {
+    title: "RBANM'S FIRST GRADE COLLEGE",
+    description: 'A responsive website clone of an academic institution.',
+    images: ["/images/migrated/logo.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "RBANM'S FIRST GRADE COLLEGE",
+    description: 'A responsive website clone of an academic institution.',
+    images: ["/images/migrated/logo.png"],
+  },
 };
 
 export const viewport: Viewport = {

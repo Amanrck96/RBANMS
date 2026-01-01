@@ -264,12 +264,12 @@ export default function CommerceDepartmentPage() {
   );
 
   const sidebarContent = (
-    <div className="w-full aspect-[4/3] relative rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 bg-slate-100">
+    <div className="w-full relative rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 bg-slate-100">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="https://placehold.co/600x800/f1f5f9/475569?text=Department+Image"
-        alt="Department of Commerce Featured Image"
-        className="w-full h-full object-cover"
+        src="/images/departments/commerce/group_photo.jpg"
+        alt="Department of Commerce Faculty and Activities"
+        className="w-full h-auto object-cover"
       />
     </div>
   );
