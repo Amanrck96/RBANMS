@@ -14,7 +14,7 @@ export default function PrincipalMessagePage() {
           <div className="md:col-span-1 space-y-4">
             <div className="relative w-full aspect-square overflow-hidden border shadow-sm">
               <Image
-                src="https://rbanmsfgc.ac.in/images/gallery/WhatsApp%20Image%202025-11-04%20at%203.37.04%20PM.jpeg"
+                src="https://www.rbanmsfgc.edu.in/images/gallery/WhatsApp%20Image%202025-11-04%20at%203.37.04%20PM.jpeg"
                 alt="Dr Shanti Iyer"
                 fill
                 className="object-cover"
@@ -34,7 +34,7 @@ export default function PrincipalMessagePage() {
             <p>
               Guided by values of faith, integrity and dignity, we at RBANM’s FGC, are committed to providing holistic education by maintaining high academic standards, discipline and professional ethics.
             </p>
-             <p>
+            <p>
               In the process of guiding students through the prescribed syllabii and the examination system, we also mould their personality by instilling in them values, skills and the right attitude towards life.
             </p>
             <p>
@@ -47,4 +47,4 @@ export default function PrincipalMessagePage() {
   );
 }
 
-    
+

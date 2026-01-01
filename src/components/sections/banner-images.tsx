@@ -3,15 +3,15 @@ import Image from 'next/image';
 export function BannerImages() {
   const images = [
     {
-      src: 'https://rbanmsfgc.ac.in/images/campus1.jpg',
+      src: 'https://www.rbanmsfgc.edu.in/images/campus1.jpg',
       alt: "RBANMS campus view",
     },
     {
-      src: 'https://rbanmsfgc.ac.in/images/campus2.jpg',
+      src: 'https://www.rbanmsfgc.edu.in/images/campus2.jpg',
       alt: "RBANMS building",
     },
     {
-      src: 'https://rbanmsfgc.ac.in/images/campus3.jpg',
+      src: 'https://www.rbanmsfgc.edu.in/images/campus3.jpg',
       alt: "RBANMS grounds",
     },
   ];

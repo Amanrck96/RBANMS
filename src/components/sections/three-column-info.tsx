@@ -20,13 +20,13 @@ export function ThreeColumnInfo() {
           <div className="bg-background rounded-lg p-6 shadow-sm">
             <h3 className="text-xl font-bold text-blue-900 font-headline mb-3">Message from Director</h3>
             <div className="flex items-start gap-4">
-              <Image src="https://rbanmsfgc.ac.in/images/director.jpg" alt="Director" width={96} height={96} className="rounded-md object-cover" />
+              <Image src="https://www.rbanmsfgc.edu.in/images/director.jpg" alt="Director" width={96} height={96} className="rounded-md object-cover" />
               <div>
                 <p className="text-foreground/80 text-sm leading-relaxed">
                   Our vision is to empower students through innovative learning and
                   value-based education, fostering leadership and excellence.
                 </p>
-            <Link href="/about/director-message" className="text-blue-900 mt-2 inline-block text-sm">Read more…</Link>
+                <Link href="/about/director-message" className="text-blue-900 mt-2 inline-block text-sm">Read more…</Link>
               </div>
             </div>
           </div>
@@ -34,13 +34,13 @@ export function ThreeColumnInfo() {
           <div className="bg-background rounded-lg p-6 shadow-sm">
             <h3 className="text-xl font-bold text-blue-900 font-headline mb-3">Message from Principal</h3>
             <div className="flex items-start gap-4">
-              <Image src="https://rbanmsfgc.ac.in/images/principal.jpg" alt="Principal" width={96} height={96} className="rounded-md object-cover" />
+              <Image src="https://www.rbanmsfgc.edu.in/images/principal.jpg" alt="Principal" width={96} height={96} className="rounded-md object-cover" />
               <div>
                 <p className="text-foreground/80 text-sm leading-relaxed">
                   We strive to create a supportive environment that nurtures curiosity,
                   creativity, and discipline, preparing students for future challenges.
                 </p>
-            <Link href="/about/principal-message" className="text-blue-900 mt-2 inline-block text-sm">Read more…</Link>
+                <Link href="/about/principal-message" className="text-blue-900 mt-2 inline-block text-sm">Read more…</Link>
               </div>
             </div>
           </div>

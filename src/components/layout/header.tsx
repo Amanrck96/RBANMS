@@ -38,7 +38,7 @@ export function SiteHeader() {
           <Link href="/" className="flex items-center gap-2 shrink-0" aria-label="RBANM's First Grade College Home">
             <div className="bg-white p-1 rounded-sm">
               <Image
-                src="https://rbanmsfgc.ac.in/images/logo_1.png?v=1.75"
+                src="https://www.rbanmsfgc.edu.in/images/logo_1.png?v=1.75"
                 alt="RBANM's First Grade College Logo"
                 width={120}
                 height={45}

@@ -11,9 +11,9 @@ type Slide = {
 };
 
 const slides: Slide[] = [
-  { src: 'https://rbanmsfgc.ac.in/images/campus1.jpg', alt: 'Campus photo', caption: 'Campus Life' },
-  { src: 'https://rbanmsfgc.ac.in/images/event1.jpg', alt: 'Event highlight', caption: 'Events' },
-  { src: 'https://rbanmsfgc.ac.in/images/highlight1.jpg', alt: 'Important highlight', caption: 'Highlights' },
+  { src: 'https://www.rbanmsfgc.edu.in/images/campus1.jpg', alt: 'Campus photo', caption: 'Campus Life' },
+  { src: 'https://www.rbanmsfgc.edu.in/images/event1.jpg', alt: 'Event highlight', caption: 'Events' },
+  { src: 'https://www.rbanmsfgc.edu.in/images/highlight1.jpg', alt: 'Important highlight', caption: 'Highlights' },
 ];
 
 export function CarouselHero() {

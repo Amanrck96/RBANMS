@@ -13,7 +13,7 @@ export default function DirectorMessagePage() {
           <div className="md:col-span-1 space-y-4">
             <div className="relative w-full aspect-square rounded-lg overflow-hidden border shadow-sm">
               <Image
-                src="https://rbanmsfgc.ac.in/images/gallery/sahana.jpeg"
+                src="https://www.rbanmsfgc.edu.in/images/gallery/sahana.jpeg"
                 alt="Director Dr Sahana Das"
                 fill
                 className="object-cover"
@@ -41,4 +41,4 @@ export default function DirectorMessagePage() {
   );
 }
 
-    
+
