@@ -13,7 +13,7 @@ export default function DirectorMessagePage() {
           <div className="md:col-span-1 space-y-4">
             <div className="relative w-full aspect-square rounded-lg overflow-hidden border shadow-sm">
               <Image
-                src="/images/migrated/director-sahana.jpeg"
+                src="/images/director_new.png"
                 alt="Director Dr Sahana Das"
                 fill
                 className="object-cover"

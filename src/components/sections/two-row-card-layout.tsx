@@ -95,7 +95,7 @@ export function TwoRowCardLayout() {
                         <CardContent className="flex-grow flex flex-col">
                             <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gray-100">
                                 <Image
-                                    src="/images/migrated/director-sahana.jpeg"
+                                    src="/images/director_new.png"
                                     alt="Dr. Sahana Das - Director"
                                     fill
                                     className="object-cover"
