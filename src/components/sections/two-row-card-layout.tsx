@@ -95,7 +95,7 @@ export function TwoRowCardLayout() {
                         <CardContent className="flex-grow flex flex-col">
                             <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gray-100">
                                 <Image
-                                    src="https://www.rbanmsfgc.edu.in/images/gallery/sahana.jpeg"
+                                    src="/images/migrated/director-sahana.jpeg"
                                     alt="Dr. Sahana Das - Director"
                                     fill
                                     className="object-cover"
@@ -142,7 +142,7 @@ export function TwoRowCardLayout() {
                         <CardContent className="flex-grow flex flex-col">
                             <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gray-100">
                                 <Image
-                                    src="https://www.rbanmsfgc.edu.in/images/gallery/WhatsApp%20Image%202025-11-04%20at%203.37.04%20PM.jpeg"
+                                    src="/images/migrated/principal-whatsapp.jpeg"
                                     alt="Dr. Shanti Iyer - Principal"
                                     fill
                                     className="object-cover"

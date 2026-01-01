@@ -20,7 +20,7 @@ export function ThreeColumnInfo() {
           <div className="bg-background rounded-lg p-6 shadow-sm">
             <h3 className="text-xl font-bold text-blue-900 font-headline mb-3">Message from Director</h3>
             <div className="flex items-start gap-4">
-              <Image src="https://www.rbanmsfgc.edu.in/images/director.jpg" alt="Director" width={96} height={96} className="rounded-md object-cover" />
+              <Image src="/images/migrated/director-sahana.jpeg" alt="Director" width={96} height={96} className="rounded-md object-cover" />
               <div>
                 <p className="text-foreground/80 text-sm leading-relaxed">
                   Our vision is to empower students through innovative learning and
@@ -34,7 +34,7 @@ export function ThreeColumnInfo() {
           <div className="bg-background rounded-lg p-6 shadow-sm">
             <h3 className="text-xl font-bold text-blue-900 font-headline mb-3">Message from Principal</h3>
             <div className="flex items-start gap-4">
-              <Image src="https://www.rbanmsfgc.edu.in/images/principal.jpg" alt="Principal" width={96} height={96} className="rounded-md object-cover" />
+              <Image src="/images/migrated/principal-whatsapp.jpeg" alt="Principal" width={96} height={96} className="rounded-md object-cover" />
               <div>
                 <p className="text-foreground/80 text-sm leading-relaxed">
                   We strive to create a supportive environment that nurtures curiosity,

@@ -1,0 +1,12 @@
+name = "rbanms-website"
+compatibility_date = "2024-01-01"
+
+# Cloudflare Account & Zone IDs provided by user
+account_id = "ed90d9a10a3efc01957fdcce2506ca33"
+zone_id = "1e5c333cbe971a37cb1435f2740bfe86"
+
+[site]
+bucket = ".next"
+
+[build]
+command = "npm run build"

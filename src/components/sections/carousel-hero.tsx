@@ -11,9 +11,9 @@ type Slide = {
 };
 
 const slides: Slide[] = [
-  { src: 'https://www.rbanmsfgc.edu.in/images/campus1.jpg', alt: 'Campus photo', caption: 'Campus Life' },
-  { src: 'https://www.rbanmsfgc.edu.in/images/event1.jpg', alt: 'Event highlight', caption: 'Events' },
-  { src: 'https://www.rbanmsfgc.edu.in/images/highlight1.jpg', alt: 'Important highlight', caption: 'Highlights' },
+  { src: 'https://images.shiksha.com/mediadata/images/1429163955phpbWVwvu.jpeg', alt: 'Campus photo', caption: 'Campus Life' },
+  { src: 'https://scontent.fccu9-2.fna.fbcdn.net/v/t1.6435-9/41508772_10215738208944684_2838609422832369664_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=2285d6&_nc_ohc=0qsWPuHkI70Q7kNvwFN7Ted&_nc_oc=AdmdaGIn7nwruAEyXpAHvSCGNXZ0pwh5KjxuLUjGBY89tzOWwBP-kYfBIoPtt3D8icqbRwJr-laHQaW2gfx0XlWU&_nc_zt=23&_nc_ht=scontent.fccu9-2.fna&_nc_gid=NmLH5fT1pSYvraaVv8gKgA&oh=00_AfjbIJqmTw-t3RZkChb-AxexS6h3Yf2D7H2KzbQfyAIeWg&oe=69426B5E', alt: 'Event highlight', caption: 'Events' },
+  { src: 'https://images.shiksha.com/mediadata/images/1429182153phpSYuYdw.jpeg', alt: 'Important highlight', caption: 'Highlights' },
 ];
 
 export function CarouselHero() {
