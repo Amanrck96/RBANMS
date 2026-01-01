@@ -34,6 +34,18 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'www.rbanmsfgc.edu.in',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'rbanmsfgc.edu.in',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
         hostname: 'scontent.fccu9-2.fna.fbcdn.net',
         port: '',
         pathname: '/**',
