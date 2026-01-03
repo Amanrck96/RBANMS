@@ -77,7 +77,7 @@ const courses = [
       'Focus: Media Studies, Social Sciences',
       'Career Roles: Journalist, Content Creator, Media Producer'
     ],
-    href: '/departments/arts',
+    href: '/departments/english',
     isNew: true
   }
 ];
