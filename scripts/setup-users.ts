@@ -1,4 +1,11 @@
 
+import 'dotenv/config';
+import * as dotenv from 'dotenv';
+import path from 'path';
+
+// Load .env.local
+dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
+
 /**
  * Script to ensure users exist and set their passwords/roles
  * Usage: npx tsx scripts/setup-users.ts
