@@ -13,6 +13,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
 import { ArrowLeft, Save } from 'lucide-react';
 import Link from 'next/link';
+import { VisualEditor } from '@/components/admin/visual-editor';
 
 export default function PostEditorPage() {
     const router = useRouter();
@@ -165,19 +166,11 @@ export default function PostEditorPage() {
 
                         <div className="space-y-2">
                             <Label htmlFor="content">Content *</Label>
-                            <Textarea
-                                id="content"
+                            <VisualEditor
                                 value={content}
-                                onChange={(e) => setContent(e.target.value)}
+                                onChange={setContent}
                                 placeholder="Write your post content here..."
-                                rows={15}
-                                required
-                                disabled={loading}
-                                className="font-mono text-sm"
                             />
-                            <p className="text-xs text-gray-500">
-                                You can use markdown formatting in the content.
-                            </p>
                         </div>
 
                         <div className="flex items-center space-x-2">

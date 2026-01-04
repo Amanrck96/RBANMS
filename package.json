@@ -12,7 +12,8 @@
     "typecheck": "tsc --noEmit",
     "create-admin": "npx tsx scripts/create-super-admin.ts",
     "assign-role": "npx tsx scripts/assign-role.ts",
-    "setup-users": "npx tsx scripts/setup-users.ts"
+    "setup-users": "npx tsx scripts/setup-users.ts",
+    "onboard": "npx tsx scripts/secure-onboard.ts"
   },
   "dependencies": {
     "@genkit-ai/google-genai": "^1.25.0",

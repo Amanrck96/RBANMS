@@ -6,6 +6,7 @@ export interface User {
     email: string;
     role: UserRole;
     displayName?: string;
+    needsPasswordChange?: boolean;
     createdAt: string;
     updatedAt: string;
 }

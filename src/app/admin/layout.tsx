@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { hasPermission } from '@/lib/auth-utils';
+import { PasswordChangeForm } from '@/components/admin/password-change-form';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
     const { user, loading, signOut } = useAuth();
@@ -29,12 +30,19 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         }
     }, [user, loading, router]);
 
+    const isLoginPage = pathname === '/admin/login';
+
     if (loading) {
         return (
             <div className="min-h-screen flex items-center justify-center">
                 <div className="text-lg">Loading...</div>
             </div>
         );
+    }
+
+    // Allow login page to render without a user
+    if (isLoginPage) {
+        return <>{children}</>;
     }
 
     if (!user) {
@@ -91,8 +99,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                                     key={item.name}
                                     href={item.href}
                                     className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${isActive
-                                            ? 'bg-blue-700 text-white'
-                                            : 'text-blue-100 hover:bg-blue-700/50'
+                                        ? 'bg-blue-700 text-white'
+                                        : 'text-blue-100 hover:bg-blue-700/50'
                                         }`}
                                 >
                                     <Icon size={20} />
@@ -137,7 +145,18 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 </header>
 
                 {/* Page Content */}
-                <main className="p-6">{children}</main>
+                <main className="p-6">
+                    {user.needsPasswordChange ? (
+                        <div className="flex items-center justify-center min-h-[60vh]">
+                            <PasswordChangeForm
+                                uid={user.uid}
+                                onComplete={() => window.location.reload()}
+                            />
+                        </div>
+                    ) : (
+                        children
+                    )}
+                </main>
             </div>
         </div>
     );

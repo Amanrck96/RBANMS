@@ -53,6 +53,7 @@
   * {
     border-color: hsl(var(--border));
   }
+
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
@@ -69,6 +70,7 @@
 .card-title {
   color: #000 !important;
 }
+
 main :where(p, li, span, small, strong, em, td, th, figcaption, label) {
   color: #000 !important;
 }
@@ -82,4 +84,60 @@ main :where(svg) {
 .content-black,
 .content-black :where(p, li, span, small, strong, em, a, td, th, figcaption, label) {
   color: #000 !important;
+}
+
+/* Visual Editor Styles */
+[contenteditable] {
+  outline: none;
+}
+
+[contenteditable]:empty:before {
+  content: attr(placeholder);
+  color: #9ca3af;
+  pointer-events: none;
+  display: block;
+}
+
+[contenteditable] h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+[contenteditable] h2 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+[contenteditable] p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+[contenteditable] ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+[contenteditable] ol {
+  list-style-type: decimal;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+[contenteditable] blockquote {
+  border-left: 4px solid #e5e7eb;
+  padding-left: 1rem;
+  font-style: italic;
+  color: #4b5563;
+  margin-bottom: 1rem;
+}
+
+[contenteditable] a {
+  color: #2563eb;
+  text-decoration: underline;
 }
