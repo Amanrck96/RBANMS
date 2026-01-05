@@ -1,9 +1,11 @@
+'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { DynamicSection } from '@/components/dynamic-section';
 
 export default function FounderPage() {
   return (
@@ -31,27 +33,33 @@ export default function FounderPage() {
 
             {/* Main Content */}
             <div className="md:col-span-2 space-y-6">
-              <h1 className="text-3xl md:text-4xl font-bold text-primary font-headline border-b pb-2">Our Founder</h1>
-              <div className="prose prose-lg max-w-none text-foreground/80 space-y-4">
-                <p>
-                  Arcot Narrainswamy Mudaliar was a pioneering businessman, philanthropist, and social reformer whose life story embodies the values of equality, education, and social justice. Born in Arcot in 1827, he moved to Bangalore as a child, shouldering the responsibility of his family after his father’s demise. His entrepreneurial acumen led him to establish successful businesses, including Mysore Hall and Bangalore Agency, making him one of the wealthiest merchants of his time.
-                </p>
-                <p>
-                  Despite his business success, what set Mudaliar apart was his progressive vision for society. Deeply influenced by the idea that wealth was a trust for the upliftment of the needy, he dedicated himself to philanthropy, particularly in education. In 1873, he founded the Free English Primary School in Bangalore Cantonment for non-white students—an assertion of the principle of equality at a time when education was a privilege of the elite. Remarkably, despite not being literate in English himself, he understood its value in empowering future generations.
-                </p>
-                <p>
-                  Mudaliar also championed gender and caste equality, first, with the founding of the Thirukulatar School in 1883, which provided education to the most marginalized castes from untouchable communities, defying rigid social hierarchies that completely excluded them from mainstream education. In 1886, he established the Govindammal Girls School, recognizing that education was the key to women's empowerment, at a time when societal norms relegated women to domestic roles.
-                </p>
-                <p>
-                  His impact was not limited to education. Mudaliar established one of Bangalore’s earliest technical schools in 1897, breaking the barriers of hereditary professions and providing opportunities for skill development. His response to the devastating famine of 1876-1878 demonstrated his humanitarian spirit, as he set up feeding centers and later an orphanage, which evolved into a permanent hostel for the underprivileged.
-                </p>
-                <p>
-                  Mudaliar’s reformist outlook was also reflected in his association with the Brahmo Samaj, an organization advocating against caste discrimination and ritualistic Hindu practices. His legacy of challenging caste hierarchies was carried forward by his descendants, who played a role in temple entry movements and supported the Indian independence struggle, including contributions to Mahatma Gandhi’s South African campaign.
-                </p>
-                <p>
-                  Narrainswamy Mudaliar’s life and work prefigured many ideals later enshrined in the Indian Constitution, particularly the principles of equality and non-discrimination. His unwavering commitment to social reform, particularly in education, caste, and gender equality, places him among the visionary reformers of 19th-century India.
-                </p>
-              </div>
+              <DynamicSection
+                pageId="about-founder"
+                defaultTitle="Our Founder"
+                defaultContent={
+                  <div className="space-y-4">
+                    <p>
+                      Arcot Narrainswamy Mudaliar was a pioneering businessman, philanthropist, and social reformer whose life story embodies the values of equality, education, and social justice. Born in Arcot in 1827, he moved to Bangalore as a child, shouldering the responsibility of his family after his father’s demise. His entrepreneurial acumen led him to establish successful businesses, including Mysore Hall and Bangalore Agency, making him one of the wealthiest merchants of his time.
+                    </p>
+                    <p>
+                      Despite his business success, what set Mudaliar apart was his progressive vision for society. Deeply influenced by the idea that wealth was a trust for the upliftment of the needy, he dedicated himself to philanthropy, particularly in education. In 1873, he founded the Free English Primary School in Bangalore Cantonment for non-white students—an assertion of the principle of equality at a time when education was a privilege of the elite. Remarkably, despite not being literate in English himself, he understood its value in empowering future generations.
+                    </p>
+                    <p>
+                      Mudaliar also championed gender and caste equality, first, with the founding of the Thirukulatar School in 1883, which provided education to the most marginalized castes from untouchable communities, defying rigid social hierarchies that completely excluded them from mainstream education. In 1886, he established the Govindammal Girls School, recognizing that education was the key to women's empowerment, at a time when societal norms relegated women to domestic roles.
+                    </p>
+                    <p>
+                      His impact was not limited to education. Mudaliar established one of Bangalore’s earliest technical schools in 1897, breaking the barriers of hereditary professions and providing opportunities for skill development. His response to the devastating famine of 1876-1878 demonstrated his humanitarian spirit, as he set up feeding centers and later an orphanage, which evolved into a permanent hostel for the underprivileged.
+                    </p>
+                    <p>
+                      Mudaliar’s reformist outlook was also reflected in his association with the Brahmo Samaj, an organization advocating against caste discrimination and ritualistic Hindu practices. His legacy of challenging caste hierarchies was carried forward by his descendants, who played a role in temple entry movements and supported the Indian independence struggle, including contributions to Mahatma Gandhi’s South African campaign.
+                    </p>
+                    <p>
+                      Narrainswamy Mudaliar’s life and work prefigured many ideals later enshrined in the Indian Constitution, particularly the principles of equality and non-discrimination. His unwavering commitment to social reform, particularly in education, caste, and gender equality, places him among the visionary reformers of 19th-century India.
+                    </p>
+                  </div>
+                }
+              />
+
               <div className="bg-secondary p-6 rounded-lg mt-8">
                 <h3 className="text-2xl font-bold text-primary mb-2">A Legacy That Inspires Generations</h3>
                 <p className="text-muted-foreground mb-4">
@@ -70,4 +78,3 @@ export default function FounderPage() {
     </div>
   );
 }
-

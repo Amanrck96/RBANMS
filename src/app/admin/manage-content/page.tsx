@@ -8,8 +8,21 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Plus, Trash2, Save, Loader2 } from 'lucide-react';
+import { Plus, Trash2, Save, Loader2, Globe, FileEdit } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { VisualEditor } from '@/components/admin/visual-editor';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+
+const EDITABLE_PAGES = [
+    { label: 'Home: Hero Section', id: 'home-hero' },
+    { label: 'About: Founder', id: 'about-founder' },
+    { label: 'About: History', id: 'about-history' },
+    { label: 'About: Vision & Mission', id: 'about-vision' },
+    { label: 'Facilities', id: 'facilities' },
+    { label: 'Contact Details', id: 'contact' },
+    { label: 'IQAC Overview', id: 'iqac' },
+];
 
 export default function ManageContentPage() {
     const { user } = useAuth();
@@ -17,34 +30,32 @@ export default function ManageContentPage() {
     const [loading, setLoading] = useState(false);
     const [fetching, setFetching] = useState(true);
 
-    // Notices State
+    // Global State
     const [notices, setNotices] = useState<string[]>([]);
-
-    // Activities State
     const [activities, setActivities] = useState<{ title: string, date: string, description: string }[]>([]);
+
+    // Page Editor State
+    const [selectedPage, setSelectedPage] = useState<string>('');
+    const [pageContent, setPageContent] = useState<string>('');
+    const [pageTitle, setPageTitle] = useState<string>('');
 
     useEffect(() => {
         if (user) {
-            fetchContent();
+            fetchGlobalContent();
         }
     }, [user]);
 
-    const fetchContent = async () => {
+    const fetchGlobalContent = async () => {
         setFetching(true);
         try {
-            // Fetch Notices
-            const noticesRes = await fetch('/api/site-content?section=notices');
-            const noticesData = await noticesRes.json();
-            if (noticesData.data?.items) {
-                setNotices(noticesData.data.items);
-            }
-
-            // Fetch Activities
-            const activitiesRes = await fetch('/api/site-content?section=activities');
-            const activitiesData = await activitiesRes.json();
-            if (activitiesData.data?.items) {
-                setActivities(activitiesData.data.items);
-            }
+            const [nRes, aRes] = await Promise.all([
+                fetch('/api/site-content?section=notices'),
+                fetch('/api/site-content?section=activities')
+            ]);
+            const nData = await nRes.json();
+            const aData = await aRes.json();
+            if (nData.data?.items) setNotices(nData.data.items);
+            if (aData.data?.items) setActivities(aData.data.items);
         } catch (error) {
             console.error('Error fetching content:', error);
         } finally {
@@ -52,35 +63,27 @@ export default function ManageContentPage() {
         }
     };
 
-    const handleSaveNotices = async () => {
+    const fetchPageContent = async (pageId: string) => {
         setLoading(true);
         try {
-            const token = await auth.currentUser?.getIdToken();
-            const res = await fetch('/api/site-content', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify({
-                    section: 'notices',
-                    data: { items: notices }
-                })
-            });
-
-            if (res.ok) {
-                toast({ title: 'Success', description: 'Notices updated successfully' });
+            const res = await fetch(`/api/site-content?section=page-${pageId}`);
+            const data = await res.json();
+            if (data.data) {
+                setPageContent(data.data.content || '');
+                setPageTitle(data.data.title || '');
             } else {
-                throw new Error('Failed to update');
+                setPageContent('');
+                setPageTitle('');
             }
         } catch (error) {
-            toast({ title: 'Error', description: 'Failed to update notices', variant: 'destructive' });
+            console.error('Error fetching page content:', error);
         } finally {
             setLoading(false);
         }
     };
 
-    const handleSaveActivities = async () => {
+    const handleSavePage = async () => {
+        if (!selectedPage) return;
         setLoading(true);
         try {
             const token = await auth.currentUser?.getIdToken();
@@ -91,18 +94,43 @@ export default function ManageContentPage() {
                     'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify({
-                    section: 'activities',
-                    data: { items: activities }
+                    section: `page-${selectedPage}`,
+                    data: { title: pageTitle, content: pageContent }
                 })
             });
 
             if (res.ok) {
-                toast({ title: 'Success', description: 'Activities updated successfully' });
+                toast({ title: 'Success', description: 'Page updated successfully' });
             } else {
                 throw new Error('Failed to update');
             }
         } catch (error) {
-            toast({ title: 'Error', description: 'Failed to update activities', variant: 'destructive' });
+            toast({ title: 'Error', description: 'Failed to update page', variant: 'destructive' });
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleSaveGlobal = async (section: string, items: any) => {
+        setLoading(true);
+        try {
+            const token = await auth.currentUser?.getIdToken();
+            const res = await fetch('/api/site-content', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ section, data: { items } })
+            });
+
+            if (res.ok) {
+                toast({ title: 'Success', description: `${section.charAt(0).toUpperCase() + section.slice(1)} updated` });
+            } else {
+                throw new Error('Failed to update');
+            }
+        } catch (error) {
+            toast({ title: 'Error', description: `Failed to update ${section}`, variant: 'destructive' });
         } finally {
             setLoading(false);
         }
@@ -131,97 +159,167 @@ export default function ManageContentPage() {
     }
 
     return (
-        <div className="space-y-8 max-w-5xl mx-auto">
+        <div className="space-y-8 max-w-6xl mx-auto">
             <div>
-                <h1 className="text-3xl font-bold">Manage Site Content</h1>
-                <p className="text-muted-foreground mt-1">Update global sections like Notices and Monthly Activities.</p>
+                <h1 className="text-3xl font-bold flex items-center gap-2">
+                    <Globe className="text-primary" /> Manage Site Content
+                </h1>
+                <p className="text-muted-foreground mt-1">Super Admin Dashboard for editing any page content across the website.</p>
             </div>
 
-            {/* Notices Card */}
-            <Card>
-                <CardHeader>
-                    <CardTitle>Homepage Notices</CardTitle>
-                    <CardDescription>These items appear in the "Notice" section on the home page.</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                    {notices.map((notice, index) => (
-                        <div key={index} className="flex gap-2">
-                            <Input
-                                value={notice}
-                                onChange={(e) => updateNotice(index, e.target.value)}
-                                placeholder="Enter notice text..."
-                            />
-                            <Button variant="ghost" size="icon" onClick={() => removeNotice(index)}>
-                                <Trash2 className="h-4 w-4 text-destructive" />
-                            </Button>
-                        </div>
-                    ))}
-                    <div className="flex justify-between pt-2">
-                        <Button variant="outline" size="sm" onClick={addNotice}>
-                            <Plus className="h-4 w-4 mr-2" /> Add Notice
-                        </Button>
-                        <Button size="sm" onClick={handleSaveNotices} disabled={loading}>
-                            <Save className="h-4 w-4 mr-2" /> Save Notices
-                        </Button>
-                    </div>
-                </CardContent>
-            </Card>
+            <Tabs defaultValue="homepage" className="space-y-6">
+                <TabsList className="grid w-full grid-cols-2 lg:w-[400px]">
+                    <TabsTrigger value="homepage">Global & Home</TabsTrigger>
+                    <TabsTrigger value="pages">All Pages</TabsTrigger>
+                </TabsList>
 
-            {/* The Month That Was Card */}
-            <Card>
-                <CardHeader>
-                    <CardTitle>The Month That Was</CardTitle>
-                    <CardDescription>Update latest activities and events.</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                    {activities.map((activity, index) => (
-                        <div key={index} className="p-4 border rounded-lg space-y-4 relative bg-gray-50/50">
-                            <Button
-                                variant="ghost"
-                                size="icon"
-                                className="absolute top-2 right-2"
-                                onClick={() => removeActivity(index)}
-                            >
-                                <Trash2 className="h-4 w-4 text-destructive" />
-                            </Button>
-                            <div className="grid grid-cols-2 gap-4">
-                                <div className="space-y-2">
-                                    <Label>Title</Label>
+                <TabsContent value="homepage" className="space-y-8">
+                    {/* Notices Card */}
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Homepage Notices</CardTitle>
+                            <CardDescription>Update the scrolling or bulleted notices on the home page.</CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                            {notices.map((notice, index) => (
+                                <div key={index} className="flex gap-2">
                                     <Input
-                                        value={activity.title}
-                                        onChange={(e) => updateActivity(index, 'title', e.target.value)}
-                                        placeholder="e.g. National Science Day"
+                                        value={notice}
+                                        onChange={(e) => updateNotice(index, e.target.value)}
+                                        placeholder="Enter notice text..."
                                     />
+                                    <Button variant="ghost" size="icon" onClick={() => removeNotice(index)}>
+                                        <Trash2 className="h-4 w-4 text-destructive" />
+                                    </Button>
                                 </div>
-                                <div className="space-y-2">
-                                    <Label>Date</Label>
-                                    <Input
-                                        value={activity.date}
-                                        onChange={(e) => updateActivity(index, 'date', e.target.value)}
-                                        placeholder="e.g. February 28, 2025"
-                                    />
-                                </div>
+                            ))}
+                            <div className="flex justify-between pt-2">
+                                <Button variant="outline" size="sm" onClick={addNotice}>
+                                    <Plus className="h-4 w-4 mr-2" /> Add Notice
+                                </Button>
+                                <Button size="sm" onClick={() => handleSaveGlobal('notices', notices)} disabled={loading}>
+                                    <Save className="h-4 w-4 mr-2" /> Save Notices
+                                </Button>
                             </div>
+                        </CardContent>
+                    </Card>
+
+                    {/* The Month That Was Card */}
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>The Month That Was</CardTitle>
+                            <CardDescription>Latest college activities and events.</CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-6">
+                            {activities.map((activity, index) => (
+                                <div key={index} className="p-4 border rounded-lg space-y-4 relative bg-gray-50/50">
+                                    <Button
+                                        variant="ghost"
+                                        size="icon"
+                                        className="absolute top-2 right-2"
+                                        onClick={() => removeActivity(index)}
+                                    >
+                                        <Trash2 className="h-4 w-4 text-destructive" />
+                                    </Button>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div className="space-y-2">
+                                            <Label>Title</Label>
+                                            <Input
+                                                value={activity.title}
+                                                onChange={(e) => updateActivity(index, 'title', e.target.value)}
+                                                placeholder="Activity Title"
+                                            />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <Label>Date</Label>
+                                            <Input
+                                                value={activity.date}
+                                                onChange={(e) => updateActivity(index, 'date', e.target.value)}
+                                                placeholder="e.g. Nov 20, 2025"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <Label>Description</Label>
+                                        <Textarea
+                                            value={activity.description}
+                                            onChange={(e) => updateActivity(index, 'description', e.target.value)}
+                                            placeholder="Write a short description..."
+                                        />
+                                    </div>
+                                </div>
+                            ))}
+                            <div className="flex justify-between pt-2">
+                                <Button variant="outline" size="sm" onClick={addActivity}>
+                                    <Plus className="h-4 w-4 mr-2" /> Add Activity
+                                </Button>
+                                <Button size="sm" onClick={() => handleSaveGlobal('activities', activities)} disabled={loading}>
+                                    <Save className="h-4 w-4 mr-2" /> Save Activities
+                                </Button>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </TabsContent>
+
+                <TabsContent value="pages" className="space-y-6">
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Universal Page Editor</CardTitle>
+                            <CardDescription>Select any page to modify its main text and information.</CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-6">
                             <div className="space-y-2">
-                                <Label>Description</Label>
-                                <Textarea
-                                    value={activity.description}
-                                    onChange={(e) => updateActivity(index, 'description', e.target.value)}
-                                    placeholder="Brief description of the event..."
-                                />
+                                <Label>Select Page Section</Label>
+                                <Select onValueChange={(val) => {
+                                    setSelectedPage(val);
+                                    fetchPageContent(val);
+                                }}>
+                                    <SelectTrigger>
+                                        <SelectValue placeholder="Choose a page to edit..." />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        {EDITABLE_PAGES.map((page) => (
+                                            <SelectItem key={page.id} value={page.id}>{page.label}</SelectItem>
+                                        ))}
+                                    </SelectContent>
+                                </Select>
                             </div>
+
+                            {selectedPage && (
+                                <div className="space-y-6 pt-4 border-t">
+                                    <div className="space-y-2">
+                                        <Label>Display Title</Label>
+                                        <Input
+                                            value={pageTitle}
+                                            onChange={(e) => setPageTitle(e.target.value)}
+                                            placeholder="Enter the main title for this section"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <Label>Main Content (Visual Editor)</Label>
+                                        <VisualEditor
+                                            value={pageContent}
+                                            onChange={setPageContent}
+                                        />
+                                    </div>
+                                    <div className="flex justify-end pt-4">
+                                        <Button onClick={handleSavePage} disabled={loading}>
+                                            <FileEdit className="h-4 w-4 mr-2" /> {loading ? 'Saving...' : 'Update Page Content'}
+                                        </Button>
+                                    </div>
+                                </div>
+                            )}
+                        </CardContent>
+                    </Card>
+
+                    {!selectedPage && (
+                        <div className="text-center py-12 bg-gray-50 rounded-lg border-2 border-dashed">
+                            <FileEdit size={48} className="mx-auto text-gray-300 mb-4" />
+                            <p className="text-gray-500 italic">Select a page from the dropdown above to start editing.</p>
                         </div>
-                    ))}
-                    <div className="flex justify-between pt-2">
-                        <Button variant="outline" size="sm" onClick={addActivity}>
-                            <Plus className="h-4 w-4 mr-2" /> Add Activity
-                        </Button>
-                        <Button size="sm" onClick={handleSaveActivities} disabled={loading}>
-                            <Save className="h-4 w-4 mr-2" /> Save Activities
-                        </Button>
-                    </div>
-                </CardContent>
-            </Card>
+                    )}
+                </TabsContent>
+            </Tabs>
         </div>
     );
 }

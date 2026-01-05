@@ -1,6 +1,8 @@
+'use client';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Scale, ShieldCheck, Handshake } from 'lucide-react';
+import { DynamicSection } from '@/components/dynamic-section';
 
 const principles = [
   {
@@ -24,26 +26,29 @@ export default function VisionPage() {
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <Card>
-        <CardHeader>
-          <CardTitle className="text-3xl md:text-4xl font-bold text-primary font-headline">Our Vision</CardTitle>
-        </CardHeader>
-        <CardContent className="pt-6">
-          <p className="text-lg font-bold text-center text-muted-foreground mb-10">The vision of RBANMS is built upon three fundamental principles:</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {principles.map((principle, index) => (
-              <div key={index} className="flex flex-col items-start text-left">
-                <div className="p-4 bg-primary/10 rounded-full mb-4">
-                  <principle.icon className="h-10 w-10 text-accent" />
+        <CardContent className="pt-10">
+          <DynamicSection
+            pageId="about-vision"
+            defaultTitle="Our Vision"
+            defaultContent={
+              <>
+                <p className="text-lg font-bold text-center text-muted-foreground mb-10">The vision of RBANMS is built upon three fundamental principles:</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {principles.map((principle, index) => (
+                    <div key={index} className="flex flex-col items-start text-left">
+                      <div className="p-4 bg-primary/10 rounded-full mb-4">
+                        <principle.icon className="h-10 w-10 text-accent" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-primary mb-2">{principle.title}</h3>
+                      <p className="text-muted-foreground text-left">{principle.description}</p>
+                    </div>
+                  ))}
                 </div>
-                <h3 className="text-2xl font-bold text-primary mb-2">{principle.title}</h3>
-                <p className="text-muted-foreground text-left">{principle.description}</p>
-              </div>
-            ))}
-          </div>
+              </>
+            }
+          />
         </CardContent>
       </Card>
     </div>
   );
 }
-
-    
