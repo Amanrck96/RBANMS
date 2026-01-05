@@ -1,9 +1,9 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { useState } from 'react';
 import { ChevronDown, ChevronUp, Check } from 'lucide-react';
 
 const advantages = [
@@ -21,8 +21,49 @@ const advantages = [
     "Support of the Arts through workshops, and access to several performance spaces",
 ];
 
+const defaultNotices = [
+    "Admissions open for AY 2026-27. For a Campus Tour, email info@rbanmsfgc.edu.in.",
+    "College will remain closed on 12th and 13th January.",
+    "The Even Semester for AY 2025-26 will begin on January 19.",
+    "Regular classes for all courses will commence on January 27."
+];
+
+const defaultActivities = [
+    { title: "MILANA: Cultural Competition", date: "November 7, 2025", description: "Inter-high school and PU cultural competition" },
+    { title: "NAADAHABBA Folk Festival", date: "November 19, 2025", description: "Presenting folk dances of Karnataka at Sabha" },
+    { title: "SPICMACAY Presentations", date: "November 13 & 27, 2025", description: "Classical music and Sattriya Dance performances" },
+    { title: "Field Visits & Guest Lectures", date: "November 2025", description: "Visits to Innovation Institute and lectures on AI & Digital Marketing" },
+    { title: "Pre-Final Examinations", date: "November 14-22, 2025", description: "Internal assessments for all departments" }
+];
+
 export function TwoRowCardLayout() {
     const [expandedCard, setExpandedCard] = useState<string | null>(null);
+    const [dynamicNotices, setDynamicNotices] = useState<string[]>(defaultNotices);
+    const [dynamicActivities, setDynamicActivities] = useState<any[]>(defaultActivities);
+
+    useEffect(() => {
+        const fetchContent = async () => {
+            try {
+                // Fetch Notices
+                const noticesRes = await fetch('/api/site-content?section=notices');
+                const noticesData = await noticesRes.json();
+                if (noticesData.data?.items) {
+                    setDynamicNotices(noticesData.data.items);
+                }
+
+                // Fetch Activities
+                const activitiesRes = await fetch('/api/site-content?section=activities');
+                const activitiesData = await activitiesRes.json();
+                if (activitiesData.data?.items) {
+                    setDynamicActivities(activitiesData.data.items);
+                }
+            } catch (error) {
+                console.error('Error fetching dynamic content:', error);
+            }
+        };
+
+        fetchContent();
+    }, []);
 
     const toggleCard = (cardId: string) => {
         setExpandedCard(expandedCard === cardId ? null : cardId);
@@ -240,10 +281,17 @@ export function TwoRowCardLayout() {
                         </CardHeader>
                         <CardContent className="flex-grow">
                             <ul className="space-y-3 text-sm content-black list-disc list-inside">
-                                <li>Admissions open for AY 2026-27. For a Campus Tour, email <a href="mailto:info@rbanmsfgc.edu.in" className="text-primary hover:underline">info@rbanmsfgc.edu.in</a>.</li>
-                                <li>College will remain closed on 12th and 13th January.</li>
-                                <li>The Even Semester for AY 2025-26 will begin on January 19.</li>
-                                <li>Regular classes for all courses will commence on January 27.</li>
+                                {dynamicNotices.map((notice, idx) => (
+                                    <li key={idx}>
+                                        {notice.includes('info@rbanmsfgc.edu.in') ? (
+                                            <>
+                                                {notice.split('info@rbanmsfgc.edu.in')[0]}
+                                                <a href="mailto:info@rbanmsfgc.edu.in" className="text-primary hover:underline">info@rbanmsfgc.edu.in</a>
+                                                {notice.split('info@rbanmsfgc.edu.in')[1]}
+                                            </>
+                                        ) : notice}
+                                    </li>
+                                ))}
                             </ul>
                         </CardContent>
                     </Card>
@@ -255,31 +303,13 @@ export function TwoRowCardLayout() {
                         </CardHeader>
                         <CardContent className="flex-grow">
                             <div className="space-y-3">
-                                <div className="border-l-4 border-blue-900 pl-3 py-2">
-                                    <p className="text-sm font-semibold text-blue-900">MILANA: Cultural Competition</p>
-                                    <p className="text-xs text-muted-foreground">November 7, 2025</p>
-                                    <p className="text-xs content-black mt-1">Inter-high school and PU cultural competition</p>
-                                </div>
-                                <div className="border-l-4 border-blue-900 pl-3 py-2">
-                                    <p className="text-sm font-semibold text-blue-900">NAADAHABBA Folk Festival</p>
-                                    <p className="text-xs text-muted-foreground">November 19, 2025</p>
-                                    <p className="text-xs content-black mt-1">Presenting folk dances of Karnataka at Sabha</p>
-                                </div>
-                                <div className="border-l-4 border-blue-900 pl-3 py-2">
-                                    <p className="text-sm font-semibold text-blue-900">SPICMACAY Presentations</p>
-                                    <p className="text-xs text-muted-foreground">November 13 & 27, 2025</p>
-                                    <p className="text-xs content-black mt-1">Classical music and Sattriya Dance performances</p>
-                                </div>
-                                <div className="border-l-4 border-blue-900 pl-3 py-2">
-                                    <p className="text-sm font-semibold text-blue-900">Field Visits & Guest Lectures</p>
-                                    <p className="text-xs text-muted-foreground">November 2025</p>
-                                    <p className="text-xs content-black mt-1">Visits to Innovation Institute and lectures on AI & Digital Marketing</p>
-                                </div>
-                                <div className="border-l-4 border-blue-900 pl-3 py-2">
-                                    <p className="text-sm font-semibold text-blue-900">Pre-Final Examinations</p>
-                                    <p className="text-xs text-muted-foreground">November 14-22, 2025</p>
-                                    <p className="text-xs content-black mt-1">Internal assessments for all departments</p>
-                                </div>
+                                {dynamicActivities.map((activity, idx) => (
+                                    <div key={idx} className="border-l-4 border-blue-900 pl-3 py-2">
+                                        <p className="text-sm font-semibold text-blue-900">{activity.title}</p>
+                                        <p className="text-xs text-muted-foreground">{activity.date}</p>
+                                        <p className="text-xs content-black mt-1">{activity.description}</p>
+                                    </div>
+                                ))}
                             </div>
                         </CardContent>
                     </Card>

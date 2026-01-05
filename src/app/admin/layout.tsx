@@ -51,6 +51,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
     const navigation = [
         { name: 'Dashboard', href: '/admin/dashboard', icon: LayoutDashboard, show: true },
+        { name: 'Manage Content', href: '/admin/manage-content', icon: FileText, show: hasPermission(user, 'canEditAnyContent') },
         { name: 'Posts', href: '/admin/posts', icon: FileText, show: hasPermission(user, 'canEditPosts') },
         { name: 'Users', href: '/admin/users', icon: Users, show: hasPermission(user, 'canManageUsers') },
         { name: 'Settings', href: '/admin/settings', icon: Settings, show: hasPermission(user, 'canManageSettings') },
