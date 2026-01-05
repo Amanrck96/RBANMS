@@ -344,6 +344,7 @@ export default function ArtsDepartmentPage() {
   return (
     <DepartmentLayout
       title="Department of Arts"
+      pageId="dept-arts"
       tagline="Welcome to the Department of Arts. We explore the World Through History, Economics and Political Science. In the Department of Arts, learning becomes a journey into understanding societies, ideas, systems and human thought. Our classrooms are vibrant spaces where curiosity meets scholarship, where discussions evolve into insights and every student grows into an observer, analyst and responsible citizen. Pursuing Arts is not just about studying past events, economic structures or political institution, it is about developing the ability to interpret change, evaluate issues and engage meaningfully with the world. To that end, we cultivate an inclusive and lively academic environment where every student’s perspective is valued and intellectual exploration encouraged. Beyond traditional teaching, we enrich learning through field visits, interactive sessions, projects, seminars, debates, group discussions, model parliaments, economic simulations and cross-disciplinary academic events, making the study of Arts dynamic, relevant and engaging."
       sidebarContent={sidebarContent}
       sections={sections}

@@ -303,6 +303,7 @@ export default function ComputerApplicationsDeptPage() {
   return (
     <DepartmentLayout
       title="Department of Computer Applications"
+      pageId="dept-bca"
       tagline="Welcome to the Department of Computer Applications. At the Department of Computer Applications, technology is not just a subject, it's a gateway to innovation. Here, our classrooms transform into dynamic learning spaces where concepts meet creativity, and every student becomes both a problem-solver and a creator. We believe studying Computer Applications is not merely about coding or completing assignments; it’s about shaping analytical minds that design, develop, question, and innovate. We nurture an inclusive and vibrant environment where every student’s curiosity is valued and encouraged. Beyond textbooks, we integrate hands-on lab sessions, coding workshops, project-based learning, industry interactions, technical quizzes, seminars, hackathons, and tech-driven events—making the study of Computer Applications as engaging, relevant, and future-focused as the digital world itself."
       sidebarContent={sidebarContent}
       sections={sections}

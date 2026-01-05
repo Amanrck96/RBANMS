@@ -1,6 +1,8 @@
+'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Target, BookOpen, Wrench, Users, ShieldCheck } from 'lucide-react';
+import { DynamicSection } from '@/components/dynamic-section';
 
 const missionPoints = [
   {
@@ -29,27 +31,30 @@ export default function MissionPage() {
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <Card>
-        <CardHeader>
-          <CardTitle className="text-3xl md:text-4xl font-bold text-primary font-headline">Our Mission</CardTitle>
-        </CardHeader>
-        <CardContent className="pt-6 space-y-6">
-          <p className="text-lg text-muted-foreground">
-            At RBANMS, we are committed to providing quality education that empowers students to excel in life, staying true to the visionary dream of our founder. Our mission is to:
-          </p>
-          <ul className="space-y-4">
-            {missionPoints.map((point, index) => (
-              <li key={index} className="flex items-start">
-                <div className="p-2 bg-primary/10 rounded-full mr-4">
-                  <point.icon className="h-6 w-6 text-accent" />
-                </div>
-                <span className="flex-1 text-muted-foreground text-lg">{point.text}</span>
-              </li>
-            ))}
-          </ul>
+        <CardContent className="pt-10">
+          <DynamicSection
+            pageId="about-mission"
+            defaultTitle="Our Mission"
+            defaultContent={
+              <>
+                <p className="text-lg text-muted-foreground mb-6">
+                  At RBANMS, we are committed to providing quality education that empowers students to excel in life, staying true to the visionary dream of our founder. Our mission is to:
+                </p>
+                <ul className="space-y-4">
+                  {missionPoints.map((point, index) => (
+                    <li key={index} className="flex items-start">
+                      <div className="p-2 bg-primary/10 rounded-full mr-4">
+                        <point.icon className="h-6 w-6 text-accent" />
+                      </div>
+                      <span className="flex-1 text-muted-foreground text-lg">{point.text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            }
+          />
         </CardContent>
       </Card>
     </div>
   );
 }
-
-    

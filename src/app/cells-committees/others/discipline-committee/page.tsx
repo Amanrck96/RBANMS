@@ -1,27 +1,25 @@
+'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
+import { DynamicSection } from '@/components/dynamic-section';
 
 export default function DisciplineCommitteePage() {
     return (
         <div className="container mx-auto px-4 py-12 md:py-16">
             <Card>
-                <CardHeader>
-                    <CardTitle className="text-3xl md:text-4xl font-bold text-primary font-headline">
-                        Discipline Committee
-                    </CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <div className="space-y-6 text-foreground/90 leading-relaxed">
-                        <p className="text-lg">
-                            The Discipline Committee ensures the maintenance of order, decorum, and professional conduct across the college campus. We are responsible for enforcing the college’s code of conduct and addressing behavioral issues prompt and fairly. By promoting punctuality, respect, and rule-abidance, we create a conducive academic environment where learning can flourish without disruption. Our goal is to mold students into responsible, self-disciplined individuals who respect the rights and space of others.
-                        </p>
-                    </div>
+                <CardContent className="pt-10">
+                    <DynamicSection
+                        pageId="cell-discipline"
+                        defaultTitle="Discipline Committee"
+                        defaultContent={
+                            <div className="space-y-6 text-foreground/90 leading-relaxed">
+                                <p className="text-lg">
+                                    The Discipline Committee at RBANMS First Grade College is committed to maintaining a learning environment built on respect, integrity, and accountability. Our task is to ensure that all students and staff adhere to the college's code of conduct, fostering a safe and orderly campus. We work closely with students to promote self-discipline and positive behavior, ensuring that everyone has the opportunity to learn and grow in an environment that is conducive to academic excellence and personal development.
+                                </p>
+                            </div>
+                        }
+                    />
                 </CardContent>
-                <div className="mt-8 w-full aspect-[21/9] bg-muted relative rounded-xl overflow-hidden shadow-sm mx-auto max-w-5xl">
-                    <div className="absolute inset-0 flex items-center justify-center bg-slate-200 text-slate-500">
-                        <span className="text-lg font-medium">Featured Activity Image</span>
-                    </div>
-                </div>
             </Card>
         </div>
     );

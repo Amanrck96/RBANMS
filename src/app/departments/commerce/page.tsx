@@ -288,6 +288,7 @@ export default function CommerceDepartmentPage() {
   return (
     <DepartmentLayout
       title="Department of Commerce"
+      pageId="dept-commerce"
       tagline="Welcome to the Department of Commerce. The Commerce Department at RBANM’s First Grade College has been shaping capable and confident graduates since 1984. It offers a strong undergraduate program built on practical learning and steady innovation. The goal is clear: to improve every year and deliver education that meets global standards. Teaching blends traditional lectures with student centred methods that build real understanding. Role-plays, simulations, group work, discussions, debates, and case-based learning make the classroom active and engaging. The department also takes pride in practices that support all round development. Students gain exposure through service learning, peer mentoring, mental health and wellness initiatives, social outreach, research paper opportunities, a bridge course for non-commerce learners, and skill enhancement programs aligned with industry expectations."
       sidebarContent={sidebarContent}
       sections={sections}

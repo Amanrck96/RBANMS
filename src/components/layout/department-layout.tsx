@@ -26,6 +26,7 @@ interface DepartmentLayoutProps {
     badgeText?: string;
     heroImage?: string;
     heroImageAlt?: string;
+    pageId?: string;
 }
 
 const departments = [
@@ -37,6 +38,8 @@ const departments = [
     { name: 'Languages', slug: 'languages' },
     { name: 'Physical Education', slug: 'physical-education' },
 ];
+
+import { DynamicSection } from '@/components/dynamic-section';
 
 export function DepartmentLayout({
     title,
@@ -51,7 +54,8 @@ export function DepartmentLayout({
     sections,
     badgeText = "Department",
     heroImage,
-    heroImageAlt
+    heroImageAlt,
+    pageId
 }: DepartmentLayoutProps) {
 
     const HeaderContent = ({ showSidebar = false }: { showSidebar?: boolean }) => (
@@ -88,7 +92,18 @@ export function DepartmentLayout({
                         )}>
                             {title}
                         </h1>
-                        {tagline && (
+                        {pageId ? (
+                            <div className={cn(
+                                "mt-4 text-lg md:text-xl leading-relaxed",
+                                heroImage ? "text-white/90 drop-shadow-sm" : "text-black"
+                            )}>
+                                <DynamicSection
+                                    pageId={pageId}
+                                    defaultContent={<p>{tagline}</p>}
+                                    onlyContent
+                                />
+                            </div>
+                        ) : tagline && (
                             <p className={cn(
                                 "mt-4 text-lg md:text-xl leading-relaxed",
                                 heroImage ? "text-white/90 drop-shadow-sm" : "text-black"

@@ -295,10 +295,10 @@ export default function ManagementDepartmentPage() {
   return (
     <DepartmentLayout
       title="Department of Management Studies"
+      pageId="dept-management"
       tagline="Welcome to the Department of Management Studies. At RBANM’s First Grade College, the Department of Management blends the art of people management with the science of market dynamics. Bachelor of Business Administration (BBA) program, with dual specializations in Human Resources and Marketing, equips students with the skills to lead, innovate, and adapt in today’s evolving business environment. The curriculum integrates theoretical knowledge with practical exposure, ensuring graduates are prepared for both corporate and entrepreneurial roles. Through interactive learning, real-world projects, and mentorship from experienced faculty, students develop the confidence and competence required to excel in competitive global markets."
       sidebarContent={sidebarContent}
       sections={sections}
-
     />
   );
 }

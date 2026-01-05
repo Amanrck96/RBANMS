@@ -191,6 +191,7 @@ export default function PhysicalEducationPage() {
   return (
     <DepartmentLayout
       title="Department of Physical Education"
+      pageId="dept-physed"
       tagline="Welcome to our department, a vibrant community where every voice is heard and every story matters. We believe that learning is a shared journey of discovery, where diverse perspectives come together to spark creativity and understanding. Whether you are here to master a new skill, explore rich traditions, or shape your future career, you will find a supportive environment that nurtures your growth and inspires you to reach your full potential."
       sections={sections}
     />

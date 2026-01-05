@@ -1,27 +1,25 @@
+'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
+import { DynamicSection } from '@/components/dynamic-section';
 
 export default function EcoClubPage() {
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <Card>
-        <CardHeader>
-          <CardTitle className="text-3xl md:text-4xl font-bold text-primary font-headline">
-            Eco Club
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-6 text-foreground/90 leading-relaxed">
-            <p className="text-lg">
-              The Eco Club is dedicated to creating a greener, more sustainable campus and community. We organize tree plantation drives, waste management awareness, and plastic-free initiatives to instill environmental consciousness in students. Our activities encourage students to become active guardians of nature. By promoting eco-friendly practices within the college and beyond, the Eco Club plays a vital role in building a responsible generation committed to protecting our planet.
-            </p>
-          </div>
+        <CardContent className="pt-10">
+          <DynamicSection
+            pageId="cell-eco"
+            defaultTitle="Eco Club"
+            defaultContent={
+              <div className="space-y-6 text-foreground/90 leading-relaxed">
+                <p className="text-lg">
+                  The Eco Club at RBANMS First Grade College is a passionate group of students and faculty committed to environmental conservation and sustainability. Our mission is to raise awareness about ecological issues and inspire action within the campus and the local community. Through initiatives like tree planting drives, waste management workshops, and environmental awareness campaigns, we strive to make a positive impact on our planet. Joining the Eco Club is an opportunity to contribute to a greener future and learn valuable skills in environmental stewardship.
+                </p>
+              </div>
+            }
+          />
         </CardContent>
-        <div className="mt-8 w-full aspect-[21/9] bg-muted relative rounded-xl overflow-hidden shadow-sm mx-auto max-w-5xl">
-          <div className="absolute inset-0 flex items-center justify-center bg-slate-200 text-slate-500">
-            <span className="text-lg font-medium">Featured Activity Image</span>
-          </div>
-        </div>
       </Card>
     </div>
   );

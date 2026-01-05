@@ -411,10 +411,10 @@ export default function EnglishDepartmentPage() {
   return (
     <DepartmentLayout
       title="Department of English & Communications"
+      pageId="dept-english"
       tagline="Welcome to the Department of English & Communications. At the Department of English, words are not just letters, they are doorways. Here, our classrooms become lively arenas where lecture meets critical thinking and every student becomes both reader and explorer. We believe studying English is not merely about mastering grammar or passing exams, it’s about shaping minds that question, analyze and express. We foster an inclusive and vibrant community where every student’s curiosity is welcome. Beyond textbooks, we integrate interactive sessions, creative writing workshops, group discussions, debates, public speaking activities, theatre and occasional literary events, making the study of English as dynamic and alive as the language itself."
       sidebarContent={sidebarContent}
       sections={sections}
-
     />
   );
 }

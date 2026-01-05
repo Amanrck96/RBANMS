@@ -21,6 +21,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { SiteHeader } from "@/components/layout/header";
 import { SiteFooter } from "@/components/layout/footer";
+import { DynamicSection } from "@/components/dynamic-section";
 
 
 const contactFormSchema = z.object({
@@ -74,9 +75,9 @@ export default function ContactPage() {
   }
 
   return (
-     <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col">
       <SiteHeader />
-       <main className="flex-grow bg-background">
+      <main className="flex-grow bg-background">
         <div className="container mx-auto px-4 py-12 md:py-16">
           <div className="mb-12 text-center">
             <h1 className="text-3xl md:text-4xl font-bold text-primary font-headline">Contact Us</h1>
@@ -88,40 +89,48 @@ export default function ContactPage() {
                   <CardTitle>Address</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <MapPin className="h-6 w-6 text-primary mt-1" />
-                    <p className="text-muted-foreground">
-                      Opposite Ulsoor Lake<br />
-                      12 Annasawmy Mudaliar Road<br />
-                      Bangalore 560042
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <Mail className="h-6 w-6 text-primary" />
-                    <a href="mailto:principal_rbanms@gmail.com" className="text-muted-foreground hover:text-primary">
-                      principal_rbanms@gmail.com
-                    </a>
-                  </div>
-                   <div className="flex items-center gap-4">
-                    <Mail className="h-6 w-6 text-primary" />
-                    <a href="mailto:priyamahesh09@gmail.com" className="text-muted-foreground hover:text-primary">
-                      priyamahesh09@gmail.com (Placement)
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <Phone className="h-6 w-6 text-primary" />
-                    <a href="tel:080-48533572" className="text-muted-foreground hover:text-primary">
-                      080-48533572
-                    </a>
-                  </div>
+                  <DynamicSection
+                    pageId="contact-info"
+                    onlyContent
+                    defaultContent={
+                      <>
+                        <div className="flex items-start gap-4">
+                          <MapPin className="h-6 w-6 text-primary mt-1" />
+                          <p className="text-muted-foreground">
+                            Opposite Ulsoor Lake<br />
+                            12 Annasawmy Mudaliar Road<br />
+                            Bangalore 560042
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-4">
+                          <Mail className="h-6 w-6 text-primary" />
+                          <a href="mailto:principal_rbanms@gmail.com" className="text-muted-foreground hover:text-primary">
+                            principal_rbanms@gmail.com
+                          </a>
+                        </div>
+                        <div className="flex items-center gap-4">
+                          <Mail className="h-6 w-6 text-primary" />
+                          <a href="mailto:priyamahesh09@gmail.com" className="text-muted-foreground hover:text-primary">
+                            priyamahesh09@gmail.com (Placement)
+                          </a>
+                        </div>
+                        <div className="flex items-center gap-4">
+                          <Phone className="h-6 w-6 text-primary" />
+                          <a href="tel:080-48533572" className="text-muted-foreground hover:text-primary">
+                            080-48533572
+                          </a>
+                        </div>
+                      </>
+                    }
+                  />
                 </CardContent>
               </Card>
-               <Card className="mt-8">
+              <Card className="mt-8">
                 <CardHeader>
                   <CardTitle>Our Location</CardTitle>
                 </CardHeader>
                 <CardContent>
-                   <div className="aspect-video w-full rounded-lg overflow-hidden">
+                  <div className="aspect-video w-full rounded-lg overflow-hidden">
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.9045763953507!2d77.61623867601057!3d12.97792248733737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae168536b85675%3A0xbef91957c5a0833a!2sRBANM&#39;s%20First%20Grade%20College!5e0!3m2!1sen!2sin!4v1763784013444!5m2!1sen!2sin"
                       width="100%"

@@ -269,10 +269,10 @@ export default function LanguagesDepartmentPage() {
   return (
     <DepartmentLayout
       title="Department of Languages"
+      pageId="dept-languages"
       tagline="Welcome to the Department of Languages. At RBANM’s First Grade College, Language Study is offered as a second language, other than the compulsory course in English. This is as prescribed by Bengaluru City University for students across all steams of BA, BCA, B.COM, and BBA. The language option offered are: Tamil, Kannada, Hindi, Additional English (only for eligible students, conducted by the Department of English)"
       sidebarContent={sidebarContent}
       sections={sections}
-
     />
   );
 }

@@ -8,20 +8,57 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Plus, Trash2, Save, Loader2, Globe, FileEdit } from 'lucide-react';
+import { Plus, Trash2, Save, Loader2, Globe, FileEdit, ImageIcon } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { VisualEditor } from '@/components/admin/visual-editor';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 const EDITABLE_PAGES = [
+    // Home Section
+    { label: 'Home: Introduction', id: 'home-intro' },
     { label: 'Home: Hero Section', id: 'home-hero' },
     { label: 'About: Founder', id: 'about-founder' },
     { label: 'About: History', id: 'about-history' },
-    { label: 'About: Vision & Mission', id: 'about-vision' },
+    { label: 'About: Vision', id: 'about-vision' },
+    { label: 'About: Mission', id: 'about-mission' },
+    { label: 'About: Director Message', id: 'about-director' },
+    { label: 'About: Principal Message', id: 'about-principal' },
+    { label: 'About: Board Members', id: 'about-board' },
+
+    // Academics
+    { label: 'Academics: Courses Offered', id: 'academics-courses' },
+    { label: 'Academics: Rules & Regulations', id: 'academics-rules' },
+
+    // Departments
+    { label: 'Dept: Commerce', id: 'dept-commerce' },
+    { label: 'Dept: Management (BBA)', id: 'dept-management' },
+    { label: 'Dept: Computer Applications (BCA)', id: 'dept-bca' },
+    { label: 'Dept: Arts', id: 'dept-arts' },
+    { label: 'Dept: English', id: 'dept-english' },
+    { label: 'Dept: Languages', id: 'dept-languages' },
+    { label: 'Dept: Physical Education', id: 'dept-physed' },
+
+    // Cells & Committees
+    { label: 'Cell: IQAC', id: 'cell-iqac' },
+    { label: 'Cell: NSS', id: 'cell-nss' },
+    { label: 'Cell: NCC Army', id: 'cell-ncc-army' },
+    { label: 'Cell: NCC Navy', id: 'cell-ncc-navy' },
+    { label: 'Cell: Women\'s Cell', id: 'cell-womens' },
+    { label: 'Cell: Eco Club', id: 'cell-eco' },
+    { label: 'Cell: Cultural Committee', id: 'cell-cultural' },
+    { label: 'Cell: Placement Cell', id: 'cell-placement' },
+    { label: 'Cell: Anti-Ragging', id: 'cell-antiragging' },
+    { label: 'Cell: Grievance Redressal', id: 'cell-grievance' },
+    { label: 'Cell: YRC & Scouts', id: 'cell-yrc' },
+    { label: 'Cell: AICTE Committee', id: 'cell-aicte' },
     { label: 'Facilities', id: 'facilities' },
-    { label: 'Contact Details', id: 'contact' },
-    { label: 'IQAC Overview', id: 'iqac' },
+    { label: 'Contact Info', id: 'contact-info' },
+    { label: 'Cell: Discipline Committee', id: 'cell-discipline' },
+    { label: 'Cell: Examination Committee', id: 'cell-exam' },
+    { label: 'Cell: IPC', id: 'cell-ipc' },
+    { label: 'Cell: Manasa Counselling', id: 'cell-manasa' },
+    { label: 'Academics: Philosophy', id: 'academics-philosophy' },
 ];
 
 export default function ManageContentPage() {
@@ -38,6 +75,7 @@ export default function ManageContentPage() {
     const [selectedPage, setSelectedPage] = useState<string>('');
     const [pageContent, setPageContent] = useState<string>('');
     const [pageTitle, setPageTitle] = useState<string>('');
+    const [pageImageUrl, setPageImageUrl] = useState<string>('');
 
     useEffect(() => {
         if (user) {
@@ -71,9 +109,11 @@ export default function ManageContentPage() {
             if (data.data) {
                 setPageContent(data.data.content || '');
                 setPageTitle(data.data.title || '');
+                setPageImageUrl(data.data.imageUrl || '');
             } else {
                 setPageContent('');
                 setPageTitle('');
+                setPageImageUrl('');
             }
         } catch (error) {
             console.error('Error fetching page content:', error);
@@ -95,7 +135,7 @@ export default function ManageContentPage() {
                 },
                 body: JSON.stringify({
                     section: `page-${selectedPage}`,
-                    data: { title: pageTitle, content: pageContent }
+                    data: { title: pageTitle, content: pageContent, imageUrl: pageImageUrl }
                 })
             });
 
@@ -106,31 +146,6 @@ export default function ManageContentPage() {
             }
         } catch (error) {
             toast({ title: 'Error', description: 'Failed to update page', variant: 'destructive' });
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    const handleSaveGlobal = async (section: string, items: any) => {
-        setLoading(true);
-        try {
-            const token = await auth.currentUser?.getIdToken();
-            const res = await fetch('/api/site-content', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify({ section, data: { items } })
-            });
-
-            if (res.ok) {
-                toast({ title: 'Success', description: `${section.charAt(0).toUpperCase() + section.slice(1)} updated` });
-            } else {
-                throw new Error('Failed to update');
-            }
-        } catch (error) {
-            toast({ title: 'Error', description: `Failed to update ${section}`, variant: 'destructive' });
         } finally {
             setLoading(false);
         }
@@ -197,7 +212,15 @@ export default function ManageContentPage() {
                                 <Button variant="outline" size="sm" onClick={addNotice}>
                                     <Plus className="h-4 w-4 mr-2" /> Add Notice
                                 </Button>
-                                <Button size="sm" onClick={() => handleSaveGlobal('notices', notices)} disabled={loading}>
+                                <Button size="sm" onClick={() => {
+                                    const token = auth.currentUser?.getIdToken().then(t => {
+                                        fetch('/api/site-content', {
+                                            method: 'POST',
+                                            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${t}` },
+                                            body: JSON.stringify({ section: 'notices', data: { items: notices } })
+                                        }).then(() => toast({ title: 'Success', description: 'Notices updated' }));
+                                    });
+                                }} disabled={loading}>
                                     <Save className="h-4 w-4 mr-2" /> Save Notices
                                 </Button>
                             </div>
@@ -253,7 +276,15 @@ export default function ManageContentPage() {
                                 <Button variant="outline" size="sm" onClick={addActivity}>
                                     <Plus className="h-4 w-4 mr-2" /> Add Activity
                                 </Button>
-                                <Button size="sm" onClick={() => handleSaveGlobal('activities', activities)} disabled={loading}>
+                                <Button size="sm" onClick={() => {
+                                    const token = auth.currentUser?.getIdToken().then(t => {
+                                        fetch('/api/site-content', {
+                                            method: 'POST',
+                                            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${t}` },
+                                            body: JSON.stringify({ section: 'activities', data: { items: activities } })
+                                        }).then(() => toast({ title: 'Success', description: 'Activities updated' }));
+                                    });
+                                }} disabled={loading}>
                                     <Save className="h-4 w-4 mr-2" /> Save Activities
                                 </Button>
                             </div>
@@ -287,14 +318,25 @@ export default function ManageContentPage() {
 
                             {selectedPage && (
                                 <div className="space-y-6 pt-4 border-t">
-                                    <div className="space-y-2">
-                                        <Label>Display Title</Label>
-                                        <Input
-                                            value={pageTitle}
-                                            onChange={(e) => setPageTitle(e.target.value)}
-                                            placeholder="Enter the main title for this section"
-                                        />
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div className="space-y-2">
+                                            <Label>Display Title</Label>
+                                            <Input
+                                                value={pageTitle}
+                                                onChange={(e) => setPageTitle(e.target.value)}
+                                                placeholder="Enter the main title for this section"
+                                            />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <Label className="flex items-center gap-2"><ImageIcon size={14} /> Featured Image URL</Label>
+                                            <Input
+                                                value={pageImageUrl}
+                                                onChange={(e) => setPageImageUrl(e.target.value)}
+                                                placeholder="/images/example.jpg"
+                                            />
+                                        </div>
                                     </div>
+
                                     <div className="space-y-2">
                                         <Label>Main Content (Visual Editor)</Label>
                                         <VisualEditor

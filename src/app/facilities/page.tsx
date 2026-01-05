@@ -235,6 +235,7 @@ export default function FacilitiesPage() {
   return (
     <DepartmentLayout
       title="Our Facilities"
+      pageId="facilities"
       tagline="Creating an environment for better productivity and performance."
       sections={sections}
     />
