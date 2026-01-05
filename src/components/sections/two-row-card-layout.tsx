@@ -240,9 +240,10 @@ export function TwoRowCardLayout() {
                         </CardHeader>
                         <CardContent className="flex-grow">
                             <ul className="space-y-3 text-sm content-black list-disc list-inside">
-                                <li>Odd Semester Examinations scheduled to begin on December 15, 2025</li>
-                                <li>Students are requested to collect their ‘No Dues’ certificate from the Office</li>
-                                <li>The college will remain closed December 28th to December 31st, 2025</li>
+                                <li>Admissions open for AY 2026-27. For a Campus Tour, email <a href="mailto:info@rbanmsfgc.edu.in" className="text-primary hover:underline">info@rbanmsfgc.edu.in</a>.</li>
+                                <li>College will remain closed on 12th and 13th January.</li>
+                                <li>The Even Semester for AY 2025-26 will begin on January 19.</li>
+                                <li>Regular classes for all courses will commence on January 27.</li>
                             </ul>
                         </CardContent>
                     </Card>
