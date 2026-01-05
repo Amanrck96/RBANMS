@@ -236,7 +236,7 @@ export function TwoRowCardLayout() {
                     {/* Announcements Card */}
                     <Card className="flex flex-col h-full">
                         <CardHeader>
-                            <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">Announcements</CardTitle>
+                            <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">Notice</CardTitle>
                         </CardHeader>
                         <CardContent className="flex-grow">
                             <ul className="space-y-3 text-sm content-black list-disc list-inside">
