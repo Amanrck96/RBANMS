@@ -256,19 +256,29 @@ export function TwoRowCardLayout() {
                         <CardContent className="flex-grow">
                             <div className="space-y-3">
                                 <div className="border-l-4 border-blue-900 pl-3 py-2">
-                                    <p className="text-sm font-semibold text-blue-900">National Science Day Celebration</p>
-                                    <p className="text-xs text-muted-foreground">February 28, 2025</p>
-                                    <p className="text-xs content-black mt-1">Interactive workshops and science exhibitions</p>
+                                    <p className="text-sm font-semibold text-blue-900">MILANA: Cultural Competition</p>
+                                    <p className="text-xs text-muted-foreground">November 7, 2025</p>
+                                    <p className="text-xs content-black mt-1">Inter-high school and PU cultural competition</p>
                                 </div>
                                 <div className="border-l-4 border-blue-900 pl-3 py-2">
-                                    <p className="text-sm font-semibold text-blue-900">Inter-Collegiate Sports Meet</p>
-                                    <p className="text-xs text-muted-foreground">February 15-17, 2025</p>
-                                    <p className="text-xs content-black mt-1">Our students won 5 gold medals</p>
+                                    <p className="text-sm font-semibold text-blue-900">NAADAHABBA Folk Festival</p>
+                                    <p className="text-xs text-muted-foreground">November 19, 2025</p>
+                                    <p className="text-xs content-black mt-1">Presenting folk dances of Karnataka at Sabha</p>
                                 </div>
                                 <div className="border-l-4 border-blue-900 pl-3 py-2">
-                                    <p className="text-sm font-semibold text-blue-900">Career Guidance Workshop</p>
-                                    <p className="text-xs text-muted-foreground">February 10, 2025</p>
-                                    <p className="text-xs content-black mt-1">Industry experts shared valuable insights</p>
+                                    <p className="text-sm font-semibold text-blue-900">SPICMACAY Presentations</p>
+                                    <p className="text-xs text-muted-foreground">November 13 & 27, 2025</p>
+                                    <p className="text-xs content-black mt-1">Classical music and Sattriya Dance performances</p>
+                                </div>
+                                <div className="border-l-4 border-blue-900 pl-3 py-2">
+                                    <p className="text-sm font-semibold text-blue-900">Field Visits & Guest Lectures</p>
+                                    <p className="text-xs text-muted-foreground">November 2025</p>
+                                    <p className="text-xs content-black mt-1">Visits to Innovation Institute and lectures on AI & Digital Marketing</p>
+                                </div>
+                                <div className="border-l-4 border-blue-900 pl-3 py-2">
+                                    <p className="text-sm font-semibold text-blue-900">Pre-Final Examinations</p>
+                                    <p className="text-xs text-muted-foreground">November 14-22, 2025</p>
+                                    <p className="text-xs content-black mt-1">Internal assessments for all departments</p>
                                 </div>
                             </div>
                         </CardContent>
