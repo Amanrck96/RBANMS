@@ -95,10 +95,19 @@ export default function AdministrationPage() {
   ];
 
   return (
-    <DepartmentLayout
-      title="Administration"
-      tagline="The Backbone of Our College. Efficient, responsive, and dedicated to supporting our academic environment."
-      sections={sections}
+    <DynamicSection
+      pageId="administration"
+      render={(data) => (
+        <DepartmentLayout
+          title={data.title || "Administration"}
+          tagline={data.imageUrl ? undefined : (data.content ? "The Backbone of Our College" : "The Backbone of Our College. Efficient, responsive, and dedicated to supporting our academic environment.")}
+          heroImage={data.imageUrl}
+          sections={data.content ? [
+            { id: 'custom', label: 'Updates', content: <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: data.content }} /> },
+            ...sections
+          ] : sections}
+        />
+      )}
     />
   );
 }

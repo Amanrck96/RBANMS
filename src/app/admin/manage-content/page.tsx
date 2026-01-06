@@ -52,13 +52,26 @@ const EDITABLE_PAGES = [
     { label: 'Cell: Grievance Redressal', id: 'cell-grievance' },
     { label: 'Cell: YRC & Scouts', id: 'cell-yrc' },
     { label: 'Cell: AICTE Committee', id: 'cell-aicte' },
-    { label: 'Facilities', id: 'facilities' },
-    { label: 'Contact Info', id: 'contact-info' },
     { label: 'Cell: Discipline Committee', id: 'cell-discipline' },
     { label: 'Cell: Examination Committee', id: 'cell-exam' },
     { label: 'Cell: IPC', id: 'cell-ipc' },
     { label: 'Cell: Manasa Counselling', id: 'cell-manasa' },
+    { label: 'Cell: Statutory (General)', id: 'cell-statutory' },
+    { label: 'Cell: Others (General)', id: 'cell-others' },
+
+    // More Pages
+    { label: 'Facilities', id: 'facilities' },
+    { label: 'Contact Info', id: 'contact-info' },
+    { label: 'Scholarships', id: 'scholarships' },
+    { label: 'Research', id: 'research' },
+    { label: 'NAAC', id: 'naac' },
+    { label: 'Gallery (Brief)', id: 'gallery' },
+    { label: 'Core Values', id: 'about-core-values' },
+    { label: 'Academic Structure', id: 'academics-structure' },
     { label: 'Academics: Philosophy', id: 'academics-philosophy' },
+    { label: 'Activities: Cultural', id: 'activities-cultural' },
+    { label: 'Activities: Co-Curricular', id: 'activities-co-curricular' },
+    { label: 'Administration (Staff List)', id: 'administration' },
 ];
 
 export default function ManageContentPage() {

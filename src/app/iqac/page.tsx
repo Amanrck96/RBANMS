@@ -119,11 +119,20 @@ export default function IQACPage() {
   ];
 
   return (
-    <DepartmentLayout
-      title="Internal Quality Assurance Cell (IQAC)"
+    <DynamicSection
       pageId="cell-iqac"
-      tagline="The Internal Quality Assurance Cell (IQAC) at RBNMS College is the driving force behind our pursuit of academic excellence. Dedicated to maintaining high standards, the cell continuously monitors and enhances the quality of teaching, learning, and infrastructure. By implementing best practices and coordinating with accreditation bodies like NAAC, the IQAC ensures that the institution evolves to meet global educational standards while fostering a culture of continuous improvement for both faculty and students."
-      sections={sections}
+      render={(data) => (
+        <DepartmentLayout
+          title={data.title || "Internal Quality Assurance Cell (IQAC)"}
+          pageId="cell-iqac"
+          tagline={data.imageUrl ? undefined : (data.content ? "Internal Quality Assurance Cell" : "The Internal Quality Assurance Cell (IQAC) at RBNMS College is the driving force behind our pursuit of academic excellence. Dedicated to maintaining high standards, the cell continuously monitors and enhances the quality of teaching, learning, and infrastructure. By implementing best practices and coordinating with accreditation bodies like NAAC, the IQAC ensures that the institution evolves to meet global educational standards while fostering a culture of continuous improvement for both faculty and students.")}
+          heroImage={data.imageUrl}
+          sections={data.content ? [
+            { id: 'custom', label: 'Updates', content: <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: data.content }} /> },
+            ...sections
+          ] : sections}
+        />
+      )}
     />
   );
 }

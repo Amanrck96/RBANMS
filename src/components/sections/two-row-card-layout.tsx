@@ -79,182 +79,215 @@ export function TwoRowCardLayout() {
                 {/* Row 1: Founder, Director, Principal */}
                 <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6 mb-6">
                     {/* Founder Card */}
-                    <Card className="flex flex-col h-full">
-                        <CardHeader>
-                            <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">Our Founder</CardTitle>
-                        </CardHeader>
-                        <CardContent className="flex-grow flex flex-col">
-                            <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gray-100">
-                                <Image
-                                    src="/images/founder.jpg"
-                                    alt="Rai Bahadur Arcot Narrainswamy Mudaliar"
-                                    fill
-                                    className="object-cover"
-                                    sizes="(max-width: 1024px) 100vw, 33vw"
-                                />
-                            </div>
-                            <h3 className="text-center text-sm font-bold text-primary mb-2">
-                                Rai Bahadur Arcot Narrainswamy Mudaliar
-                            </h3>
-                            <p className="text-muted-foreground text-sm text-center mb-3">(1827–1910)</p>
-
-                            <div className="text-left text-sm content-black mb-4">
-                                <p className={expandedCard !== 'founder' ? 'line-clamp-3' : ''}>
-                                    Our founder Dharmarathnakara Rai Bahadur Arcot Narrainswamy Mudaliar embarked on his vision of social regeneration, providing for all classes and castes in the fields of education and social welfare.
-                                </p>
-
-                                {expandedCard === 'founder' && (
-                                    <div className="mt-3 space-y-3">
-                                        <p>
-                                            <a href="/about/founder" className="text-primary hover:underline font-semibold">
-                                                Read more about our Founder
-                                            </a>
-                                        </p>
+                    <DynamicSection
+                        pageId="about-founder"
+                        render={(data) => (
+                            <Card className="flex flex-col h-full">
+                                <CardHeader>
+                                    <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">
+                                        {data.title || 'Our Founder'}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent className="flex-grow flex flex-col">
+                                    <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gray-100">
+                                        <Image
+                                            src={data.imageUrl || "/images/founder.jpg"}
+                                            alt={data.title || "Rai Bahadur Arcot Narrainswamy Mudaliar"}
+                                            fill
+                                            className="object-cover"
+                                            sizes="(max-width: 1024px) 100vw, 33vw"
+                                        />
                                     </div>
-                                )}
-                            </div>
+                                    <h3 className="text-center text-sm font-bold text-primary mb-2">
+                                        {data.title || "Rai Bahadur Arcot Narrainswamy Mudaliar"}
+                                    </h3>
+                                    <p className="text-muted-foreground text-sm text-center mb-3">(1827–1910)</p>
 
-                            <Button
-                                onClick={() => toggleCard('founder')}
-                                variant="link"
-                                className="mt-auto flex items-center gap-1 px-0"
-                            >
-                                {expandedCard === 'founder' ? (
-                                    <>Read Less <ChevronUp className="h-4 w-4" /></>
-                                ) : (
-                                    <>Read More <ChevronDown className="h-4 w-4" /></>
-                                )}
-                            </Button>
-                        </CardContent>
-                    </Card>
+                                    <div className="text-left text-sm content-black mb-4">
+                                        <div
+                                            className={expandedCard !== 'founder' ? 'line-clamp-3' : ''}
+                                            dangerouslySetInnerHTML={{ __html: data.content || 'Our founder Dharmarathnakara Rai Bahadur Arcot Narrainswamy Mudaliar embarked on his vision of social regeneration, providing for all classes and castes in the fields of education and social welfare.' }}
+                                        />
+
+                                        {expandedCard === 'founder' && (
+                                            <div className="mt-3 space-y-3">
+                                                <p>
+                                                    <a href="/about/founder" className="text-primary hover:underline font-semibold">
+                                                        Read more about our Founder
+                                                    </a>
+                                                </p>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    <Button
+                                        onClick={() => toggleCard('founder')}
+                                        variant="link"
+                                        className="mt-auto flex items-center gap-1 px-0"
+                                    >
+                                        {expandedCard === 'founder' ? (
+                                            <>Read Less <ChevronUp className="h-4 w-4" /></>
+                                        ) : (
+                                            <>Read More <ChevronDown className="h-4 w-4" /></>
+                                        )}
+                                    </Button>
+                                </CardContent>
+                            </Card>
+                        )}
+                    />
 
                     {/* Director's Message */}
-                    <Card className="flex flex-col h-full">
-                        <CardHeader>
-                            <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">Message from Director</CardTitle>
-                        </CardHeader>
-                        <CardContent className="flex-grow flex flex-col">
-                            <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gray-100">
-                                <Image
-                                    src="/images/director_new.png"
-                                    alt="Dr. Sahana Das - Director"
-                                    fill
-                                    className="object-cover"
-                                    sizes="(max-width: 1024px) 100vw, 33vw"
-                                />
-                            </div>
-
-                            <div className="text-left text-sm content-black mb-4">
-                                <p className={expandedCard !== 'director' ? 'line-clamp-4' : ''}>
-                                    Education must go beyond the syllabus and help prepare students for life so that their professional success is balanced with their personal, emotional, and spiritual wellbeing. Our student-centric approach keeps the campus energetic and purposeful.
-                                </p>
-
-                                {expandedCard === 'director' && (
-                                    <div className="mt-3 space-y-3">
-                                        <p>
-                                            At RBANM's First Grade College, we believe in nurturing not just academicians but well-rounded individuals who are equipped to face the challenges of the modern world. Our comprehensive approach to education ensures that students develop critical thinking, creativity, and leadership skills.
-                                        </p>
-                                        <p>
-                                            We are committed to providing an environment that encourages innovation, collaboration, and personal growth. Our dedicated faculty members work tirelessly to inspire and guide students towards achieving their full potential.
-                                        </p>
+                    <DynamicSection
+                        pageId="about-director"
+                        render={(data) => (
+                            <Card className="flex flex-col h-full">
+                                <CardHeader>
+                                    <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">
+                                        {data.title || 'Message from Director'}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent className="flex-grow flex flex-col">
+                                    <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gray-100">
+                                        <Image
+                                            src={data.imageUrl || "/images/director_new.png"}
+                                            alt={data.title || "Dr. Sahana Das - Director"}
+                                            fill
+                                            className="object-cover"
+                                            sizes="(max-width: 1024px) 100vw, 33vw"
+                                        />
                                     </div>
-                                )}
-                            </div>
 
-                            <Button
-                                onClick={() => toggleCard('director')}
-                                variant="link"
-                                className="mt-auto flex items-center gap-1 px-0"
-                            >
-                                {expandedCard === 'director' ? (
-                                    <>Read Less <ChevronUp className="h-4 w-4" /></>
-                                ) : (
-                                    <>Read More <ChevronDown className="h-4 w-4" /></>
-                                )}
-                            </Button>
-                        </CardContent>
-                    </Card>
+                                    <div className="text-left text-sm content-black mb-4">
+                                        <div
+                                            className={expandedCard !== 'director' ? 'line-clamp-4' : ''}
+                                            dangerouslySetInnerHTML={{ __html: data.content || 'Education must go beyond the syllabus and help prepare students for life so that their professional success is balanced with their personal, emotional, and spiritual wellbeing. Our student-centric approach keeps the campus energetic and purposeful.' }}
+                                        />
+
+                                        {expandedCard === 'director' && !data.content && (
+                                            <div className="mt-3 space-y-3">
+                                                <p>
+                                                    At RBANM&apos;s First Grade College, we believe in nurturing not just academicians but well-rounded individuals who are equipped to face the challenges of the modern world. Our comprehensive approach to education ensures that students develop critical thinking, creativity, and leadership skills.
+                                                </p>
+                                                <p>
+                                                    We are committed to providing an environment that encourages innovation, collaboration, and personal growth. Our dedicated faculty members work tirelessly to inspire and guide students towards achieving their full potential.
+                                                </p>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    <Button
+                                        onClick={() => toggleCard('director')}
+                                        variant="link"
+                                        className="mt-auto flex items-center gap-1 px-0"
+                                    >
+                                        {expandedCard === 'director' ? (
+                                            <>Read Less <ChevronUp className="h-4 w-4" /></>
+                                        ) : (
+                                            <>Read More <ChevronDown className="h-4 w-4" /></>
+                                        )}
+                                    </Button>
+                                </CardContent>
+                            </Card>
+                        )}
+                    />
 
                     {/* Principal's Message */}
-                    <Card className="flex flex-col h-full">
-                        <CardHeader>
-                            <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">Message from Principal</CardTitle>
-                        </CardHeader>
-                        <CardContent className="flex-grow flex flex-col">
-                            <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gray-100">
-                                <Image
-                                    src="/images/migrated/principal-whatsapp.jpeg"
-                                    alt="Dr. Shanti Iyer - Principal"
-                                    fill
-                                    className="object-cover"
-                                    sizes="(max-width: 1024px) 100vw, 33vw"
-                                />
-                            </div>
-
-                            <div className="text-left text-sm content-black mb-4">
-                                <p className={expandedCard !== 'principal' ? 'line-clamp-4' : ''}>
-                                    The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. The key objective of education at RBANM's First Grade College is to create efficient academicians, innovative entrepreneurs, and responsible citizens.
-                                </p>
-
-                                {expandedCard === 'principal' && (
-                                    <div className="mt-3 space-y-3">
-                                        <p>
-                                            We are dedicated to fostering an educational experience that goes beyond textbooks. Our focus is on holistic development that encompasses intellectual growth, emotional maturity, and social responsibility.
-                                        </p>
-                                        <p>
-                                            Through our diverse range of programs, state-of-the-art facilities, and experienced faculty, we strive to provide every student with the tools they need to succeed in their chosen fields and contribute meaningfully to society.
-                                        </p>
-                                        <p>
-                                            I invite you to join us on this transformative journey of learning and growth at RBANM's First Grade College.
-                                        </p>
+                    <DynamicSection
+                        pageId="about-principal"
+                        render={(data) => (
+                            <Card className="flex flex-col h-full">
+                                <CardHeader>
+                                    <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">
+                                        {data.title || 'Message from Principal'}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent className="flex-grow flex flex-col">
+                                    <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gray-100">
+                                        <Image
+                                            src={data.imageUrl || "/images/migrated/principal-whatsapp.jpeg"}
+                                            alt={data.title || "Dr. Shanti Iyer - Principal"}
+                                            fill
+                                            className="object-cover"
+                                            sizes="(max-width: 1024px) 100vw, 33vw"
+                                        />
                                     </div>
-                                )}
-                            </div>
 
-                            <Button
-                                onClick={() => toggleCard('principal')}
-                                variant="link"
-                                className="mt-auto flex items-center gap-1 px-0"
-                            >
-                                {expandedCard === 'principal' ? (
-                                    <>Read Less <ChevronUp className="h-4 w-4" /></>
-                                ) : (
-                                    <>Read More <ChevronDown className="h-4 w-4" /></>
-                                )}
-                            </Button>
-                        </CardContent>
-                    </Card>
+                                    <div className="text-left text-sm content-black mb-4">
+                                        <div
+                                            className={expandedCard !== 'principal' ? 'line-clamp-4' : ''}
+                                            dangerouslySetInnerHTML={{ __html: data.content || 'The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. The key objective of education at RBANM\'s First Grade College is to create efficient academicians, innovative entrepreneurs, and responsible citizens.' }}
+                                        />
+
+                                        {expandedCard === 'principal' && !data.content && (
+                                            <div className="mt-3 space-y-3">
+                                                <p>
+                                                    We are dedicated to fostering an educational experience that goes beyond textbooks. Our focus is on holistic development that encompasses intellectual growth, emotional maturity, and social responsibility.
+                                                </p>
+                                                <p>
+                                                    Through our diverse range of programs, state-of-the-art facilities, and experienced faculty, we strive to provide every student with the tools they need to succeed in their chosen fields and contribute meaningfully to society.
+                                                </p>
+                                                <p>
+                                                    I invite you to join us on this transformative journey of learning and growth at RBANM&apos;s First Grade College.
+                                                </p>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    <Button
+                                        onClick={() => toggleCard('principal')}
+                                        variant="link"
+                                        className="mt-auto flex items-center gap-1 px-0"
+                                    >
+                                        {expandedCard === 'principal' ? (
+                                            <>Read Less <ChevronUp className="h-4 w-4" /></>
+                                        ) : (
+                                            <>Read More <ChevronDown className="h-4 w-4" /></>
+                                        )}
+                                    </Button>
+                                </CardContent>
+                            </Card>
+                        )}
+                    />
                 </div>
 
                 {/* Full-Width "The RBANM's Experience" Card - Centered between the rows */}
                 <div className="flex justify-center mb-6">
-                    <Card className="w-full max-w-5xl">
-                        <CardHeader className="text-center">
-                            <CardTitle className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold text-primary font-headline">
-                                The RBANM's Experience
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
-                                <ul className="space-y-4">
-                                    {col1.map((advantage, index) => (
-                                        <li key={index} className="flex items-start">
-                                            <Check className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" />
-                                            <span className="text-muted-foreground font-bold">{advantage}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                                <ul className="space-y-4">
-                                    {col2.map((advantage, index) => (
-                                        <li key={index} className="flex items-start">
-                                            <Check className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" />
-                                            <span className="text-muted-foreground font-bold">{advantage}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </CardContent>
-                    </Card>
+                    <DynamicSection
+                        pageId="home-hero"
+                        render={(data) => (
+                            <Card className="w-full max-w-5xl">
+                                <CardHeader className="text-center">
+                                    <CardTitle className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold text-primary font-headline">
+                                        {data.title || "The RBANM's Experience"}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    {data.content ? (
+                                        <div className="prose prose-lg max-w-none text-muted-foreground font-bold" dangerouslySetInnerHTML={{ __html: data.content }} />
+                                    ) : (
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+                                            <ul className="space-y-4">
+                                                {col1.map((advantage, index) => (
+                                                    <li key={index} className="flex items-start">
+                                                        <Check className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" />
+                                                        <span className="text-muted-foreground font-bold">{advantage}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                            <ul className="space-y-4">
+                                                {col2.map((advantage, index) => (
+                                                    <li key={index} className="flex items-start">
+                                                        <Check className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" />
+                                                        <span className="text-muted-foreground font-bold">{advantage}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
+                                </CardContent>
+                            </Card>
+                        )}
+                    />
                 </div>
 
                 {/* Row 2: Blog, Announcements, The Month That Was */}
