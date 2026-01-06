@@ -27,6 +27,13 @@ Welcome to your new admin dashboard! This guide will help you manage the website
 
 ---
 
+## 🖼️ Managing Images & Media
+- **Upload**: Use the **Media Library** to upload new images.
+- **Replacing Images**: When you replace an image, it may not update on the live site immediately due to caching.
+- **Cache Clearing**: After replacing an image, please clear the site cache. Look for a "Purge Cache" or similar button in the admin bar at the top of the screen. If you cannot find this button, please contact IT support.
+
+---
+
 ## 👥 User Roles & Permissions
 ### 👑 Super Admin (`info@rbanmsfgc.edu.in`)
 - Full control over the website.
