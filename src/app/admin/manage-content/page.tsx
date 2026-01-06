@@ -13,6 +13,8 @@ import { useToast } from '@/hooks/use-toast';
 import { VisualEditor } from '@/components/admin/visual-editor';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { DynamicSection } from '@/components/dynamic-section';
+import { CMS_DEFAULTS } from '@/lib/cms-defaults';
 
 const EDITABLE_PAGES = [
     // Home Section
@@ -119,17 +121,26 @@ export default function ManageContentPage() {
         try {
             const res = await fetch(`/api/site-content?section=page-${pageId}`);
             const data = await res.json();
-            if (data.data) {
+            if (data.data && (data.data.content || data.data.title)) {
                 setPageContent(data.data.content || '');
                 setPageTitle(data.data.title || '');
                 setPageImageUrl(data.data.imageUrl || '');
             } else {
-                setPageContent('');
-                setPageTitle('');
-                setPageImageUrl('');
+                // Fallback to defaults
+                const defaults = CMS_DEFAULTS[pageId];
+                setPageContent(defaults ? defaults.content : '');
+                setPageTitle(defaults ? defaults.title : '');
+                setPageImageUrl(defaults ? defaults.imageUrl || '' : '');
             }
         } catch (error) {
             console.error('Error fetching page content:', error);
+            // Even on error, try to show defaults
+            const defaults = CMS_DEFAULTS[pageId];
+            if (defaults) {
+                setPageContent(defaults.content);
+                setPageTitle(defaults.title);
+                setPageImageUrl(defaults.imageUrl || '');
+            }
         } finally {
             setLoading(false);
         }
