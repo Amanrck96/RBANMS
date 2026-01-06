@@ -6,7 +6,7 @@
         <?php 
         $hero_image = get_field('home_hero_image');
         if ($hero_image): ?>
-            <img src="<?php echo $hero_image; ?>" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="Hero Image">
+            <img src="<?php echo esc_url($hero_image['url']); ?>" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="<?php echo esc_attr($hero_image['alt']); ?>">
         <?php endif; ?>
         
         <div class="relative mx-auto max-w-7xl px-4 py-24 text-white">
@@ -36,7 +36,7 @@
                     <?php 
                     $card_image = get_field('right_column_card_image');
                     if ($card_image): ?>
-                        <img src="<?php echo $card_image; ?>" class="w-full h-48 object-cover" alt="Card Image">
+                        <img src="<?php echo esc_url($card_image['url']); ?>" class="w-full h-48 object-cover" alt="<?php echo esc_attr($card_image['alt']); ?>">
                     <?php endif; ?>
                     <div class="p-8">
                         <h3 class="text-xl font-bold mb-4"><?php the_field('right_column_card_title'); ?></h3>
