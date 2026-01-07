@@ -34,6 +34,7 @@ const EDITABLE_PAGES = [
 
     // Departments
     { label: 'Dept: Commerce', id: 'dept-commerce' },
+    { label: 'Dept: Commerce Sidebar', id: 'dept-commerce-sidebar' },
     { label: 'Dept: Management (BBA)', id: 'dept-management' },
     { label: 'Dept: Computer Applications (BCA)', id: 'dept-bca' },
     { label: 'Dept: Arts', id: 'dept-arts' },

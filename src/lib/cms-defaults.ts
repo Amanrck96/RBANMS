@@ -198,5 +198,15 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
                 <li>Code of conduct for students</li>
             </ul>
         `
+    },
+    'home-hero': {
+        title: 'Welcome to RBANMS',
+        content: '<h1>Empowering Generations Since 1883</h1><p>A legacy of excellence in education and character building.</p>',
+        imageUrl: '/images/hero/hero-2.jpg'
+    },
+    'dept-commerce-sidebar': {
+        title: 'Department Team',
+        content: '<p>Our dedicated faculty and eager students.</p>',
+        imageUrl: '/images/departments/commerce/group_photo.jpg'
     }
 };

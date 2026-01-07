@@ -1,10 +1,13 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { DynamicSection } from '@/components/dynamic-section';
 
 interface NavItem {
     label: string;
@@ -39,8 +42,6 @@ const departments = [
     { name: 'Physical Education', slug: 'physical-education' },
 ];
 
-import { DynamicSection } from '@/components/dynamic-section';
-
 export function DepartmentLayout({
     title,
     tagline,
@@ -58,17 +59,38 @@ export function DepartmentLayout({
     pageId
 }: DepartmentLayoutProps) {
 
+    // Dynamic Hero Image State
+    const [dynamicHeroImage, setDynamicHeroImage] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (!pageId) return;
+        async function fetchPageData() {
+            try {
+                const res = await fetch(`/api/site-content?section=page-${pageId}`);
+                const json = await res.json();
+                if (json.data && json.data.imageUrl) {
+                    setDynamicHeroImage(json.data.imageUrl);
+                }
+            } catch (e) {
+                console.error("Failed to fetch dynamic page content:", e);
+            }
+        }
+        fetchPageData();
+    }, [pageId]);
+
+    const effectiveHeroImage = dynamicHeroImage || heroImage;
+
     const HeaderContent = ({ showSidebar = false }: { showSidebar?: boolean }) => (
         <div className={cn(
             "w-full py-12 md:py-20 px-4 md:px-8 shadow-sm border-b relative overflow-hidden",
-            heroImage ? "text-white" : "bg-white text-black"
+            effectiveHeroImage ? "text-white" : "bg-white text-black"
         )}>
-            {heroImage && (
+            {effectiveHeroImage && (
                 <>
                     <div className="absolute inset-0 w-full h-full">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
-                            src={heroImage}
+                            src={effectiveHeroImage}
                             alt={heroImageAlt || title}
                             className="w-full h-full object-cover"
                         />
@@ -77,25 +99,25 @@ export function DepartmentLayout({
                 </>
             )}
 
-            <div className={cn("container mx-auto relative", heroImage && "z-20")}>
+            <div className={cn("container mx-auto relative", effectiveHeroImage && "z-20")}>
                 <div className="grid md:grid-cols-3 gap-12 items-center">
                     <div className="md:col-span-2">
                         <Badge className={cn(
                             "mb-4 border-none",
-                            heroImage ? "bg-yellow-500 text-black hover:bg-yellow-400" : "bg-yellow-500 text-black hover:bg-yellow-400"
+                            effectiveHeroImage ? "bg-yellow-500 text-black hover:bg-yellow-400" : "bg-yellow-500 text-black hover:bg-yellow-400"
                         )}>
                             {badgeText}
                         </Badge>
                         <h1 className={cn(
                             "text-4xl md:text-5xl font-bold font-headline tracking-tight",
-                            heroImage ? "text-white drop-shadow-md" : "text-black"
+                            effectiveHeroImage ? "text-white drop-shadow-md" : "text-black"
                         )}>
                             {title}
                         </h1>
                         {pageId ? (
                             <div className={cn(
                                 "mt-4 text-lg md:text-xl leading-relaxed",
-                                heroImage ? "text-white/90 drop-shadow-sm" : "text-black"
+                                effectiveHeroImage ? "text-white/90 drop-shadow-sm" : "text-black"
                             )}>
                                 <DynamicSection
                                     pageId={pageId}
@@ -106,7 +128,7 @@ export function DepartmentLayout({
                         ) : tagline && (
                             <p className={cn(
                                 "mt-4 text-lg md:text-xl leading-relaxed",
-                                heroImage ? "text-white/90 drop-shadow-sm" : "text-black"
+                                effectiveHeroImage ? "text-white/90 drop-shadow-sm" : "text-black"
                             )}>
                                 {tagline}
                             </p>
