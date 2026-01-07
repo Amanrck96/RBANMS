@@ -93,6 +93,10 @@ export default function ManageContentPage() {
     const [pageTitle, setPageTitle] = useState<string>('');
     const [pageImageUrl, setPageImageUrl] = useState<string>('');
 
+    // Toggle State for Old vs New
+    const [currentData, setCurrentData] = useState<{ title: string, content: string, imageUrl: string } | null>(null);
+    const [viewMode, setViewMode] = useState<'current' | 'original'>('current');
+
     useEffect(() => {
         if (user) {
             fetchGlobalContent();
@@ -119,20 +123,37 @@ export default function ManageContentPage() {
 
     const fetchPageContent = async (pageId: string) => {
         setLoading(true);
+        setViewMode('current'); // Reset view mode anytime we switch pages
         try {
             const res = await fetch(`/api/site-content?section=page-${pageId}`);
             const data = await res.json();
+
+            let newContent = '';
+            let newTitle = '';
+            let newImage = '';
+
             if (data.data && (data.data.content || data.data.title)) {
-                setPageContent(data.data.content || '');
-                setPageTitle(data.data.title || '');
-                setPageImageUrl(data.data.imageUrl || '');
+                newContent = data.data.content || '';
+                newTitle = data.data.title || '';
+                newImage = data.data.imageUrl || '';
             } else {
-                // Fallback to defaults
+                // If No DB content, default to CMS Defaults
                 const defaults = CMS_DEFAULTS[pageId];
-                setPageContent(defaults ? defaults.content : '');
-                setPageTitle(defaults ? defaults.title : '');
-                setPageImageUrl(defaults ? defaults.imageUrl || '' : '');
+                newContent = defaults ? defaults.content : '';
+                newTitle = defaults ? defaults.title : '';
+                newImage = defaults ? defaults.imageUrl || '' : '';
             }
+
+            setPageContent(newContent);
+            setPageTitle(newTitle);
+            setPageImageUrl(newImage);
+
+            setCurrentData({
+                title: newTitle,
+                content: newContent,
+                imageUrl: newImage
+            });
+
         } catch (error) {
             console.error('Error fetching page content:', error);
             // Even on error, try to show defaults
@@ -141,9 +162,37 @@ export default function ManageContentPage() {
                 setPageContent(defaults.content);
                 setPageTitle(defaults.title);
                 setPageImageUrl(defaults.imageUrl || '');
+                setCurrentData({
+                    title: defaults.title,
+                    content: defaults.content,
+                    imageUrl: defaults.imageUrl || ''
+                });
             }
         } finally {
             setLoading(false);
+        }
+    };
+
+    const handleViewModeChange = (mode: string) => {
+        const newMode = mode as 'current' | 'original';
+        setViewMode(newMode);
+
+        if (newMode === 'current') {
+            if (currentData) {
+                setPageTitle(currentData.title);
+                setPageContent(currentData.content);
+                setPageImageUrl(currentData.imageUrl);
+            }
+        } else {
+            // Load Old/Original
+            const defaults = CMS_DEFAULTS[selectedPage];
+            if (defaults) {
+                setPageTitle(defaults.title);
+                setPageContent(defaults.content);
+                setPageImageUrl(defaults.imageUrl || '');
+            } else {
+                toast({ title: 'Info', description: 'No original content found for this page.' });
+            }
         }
     };
 
@@ -166,6 +215,13 @@ export default function ManageContentPage() {
 
             if (res.ok) {
                 toast({ title: 'Success', description: 'Page updated successfully' });
+                // Update current data state
+                setCurrentData({
+                    title: pageTitle,
+                    content: pageContent,
+                    imageUrl: pageImageUrl
+                });
+                setViewMode('current');
             } else {
                 throw new Error('Failed to update');
             }
@@ -343,6 +399,16 @@ export default function ManageContentPage() {
 
                             {selectedPage && (
                                 <div className="space-y-6 pt-4 border-t">
+
+                                    <div className="flex justify-center pb-4">
+                                        <Tabs value={viewMode} onValueChange={handleViewModeChange} className="w-[300px]">
+                                            <TabsList className="grid w-full grid-cols-2">
+                                                <TabsTrigger value="current">New (Current)</TabsTrigger>
+                                                <TabsTrigger value="original">Old (Original)</TabsTrigger>
+                                            </TabsList>
+                                        </Tabs>
+                                    </div>
+
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div className="space-y-2">
                                             <Label>Display Title</Label>
