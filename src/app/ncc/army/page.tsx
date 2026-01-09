@@ -15,13 +15,23 @@ export default function ArmyPage() {
                         <p className="text-lg">
                             The NCC Army Wing at RBNMS College is a premier youth grooming platform that focuses on character, comradeship, and discipline. Cadets receive training in military drills, map reading, and weapon handling, alongside developing soft skills and leadership qualities. We prepare youth for the armed forces and other uniformed services while fostering a strong spirit of national integration. Our cadets are trained to be resilient leaders ready to serve the nation with pride.
                         </p>
-                        <div className="mt-8 rounded-xl overflow-hidden shadow-lg border-2 border-primary/20">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img
-                                src="/images/ncc/army_wing.jpg"
-                                alt="NCC Army Wing Cadets"
-                                className="w-full h-auto object-cover"
-                            />
+                        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 h-64 md:h-80 relative">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                    src="/images/ncc/army_wing.jpg"
+                                    alt="NCC Army Wing Cadets"
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                            <div className="rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 h-64 md:h-80 relative">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                    src="/images/ncc/army_firing.jpg"
+                                    alt="NCC Army Wing Firing Practice"
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
                         </div>
                     </div>
                 </CardContent>
