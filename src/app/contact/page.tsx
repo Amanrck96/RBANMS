@@ -104,8 +104,8 @@ export default function ContactPage() {
                         </div>
                         <div className="flex items-center gap-4">
                           <Mail className="h-6 w-6 text-primary" />
-                          <a href="mailto:principal_rbanms@gmail.com" className="text-muted-foreground hover:text-primary">
-                            principal_rbanms@gmail.com
+                          <a href="mailto:info@rbanmsfgc.edu.in" className="text-muted-foreground hover:text-primary">
+                            Via e-mail: info@rbanmsfgc.edu.in
                           </a>
                         </div>
                         <div className="flex items-center gap-4">
@@ -114,11 +114,12 @@ export default function ContactPage() {
                             priyamahesh09@gmail.com (Placement)
                           </a>
                         </div>
-                        <div className="flex items-center gap-4">
-                          <Phone className="h-6 w-6 text-primary" />
-                          <a href="tel:080-48533572" className="text-muted-foreground hover:text-primary">
-                            080-48533572
-                          </a>
+                        <div className="flex items-start gap-4">
+                          <Phone className="h-6 w-6 text-primary mt-1" />
+                          <div className="flex flex-col text-muted-foreground">
+                            <span>Landline: <a href="tel:08041653395" className="hover:text-primary">080-41653395</a> / <a href="tel:08025512976" className="hover:text-primary">080-25512976</a></span>
+                            <span>Mobile: <a href="tel:7349251497" className="hover:text-primary">7349251497</a></span>
+                          </div>
                         </div>
                       </>
                     }

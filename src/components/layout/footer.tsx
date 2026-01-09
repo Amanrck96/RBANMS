@@ -72,15 +72,16 @@ export function SiteFooter() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 shrink-0" />
-                <a href="mailto:principal_rbanms@gmail.com" className="text-white/80 hover:text-white transition-colors">
-                  principal_rbanms@gmail.com
+                <a href="mailto:info@rbanmsfgc.edu.in" className="text-white/80 hover:text-white transition-colors">
+                  Via e-mail: info@rbanmsfgc.edu.in
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 shrink-0" />
-                <a href="tel:080-48533572" className="text-white/80 hover:text-white transition-colors">
-                  080-48533572
-                </a>
+              <li className="flex items-start gap-3">
+                <Phone className="h-5 w-5 shrink-0 mt-1" />
+                <div className="flex flex-col text-white/80">
+                  <span>Landline: <a href="tel:08041653395" className="hover:text-white transition-colors">080-41653395</a> / <a href="tel:08025512976" className="hover:text-white transition-colors">080-25512976</a></span>
+                  <span>Mobile: <a href="tel:7349251497" className="hover:text-white transition-colors">7349251497</a></span>
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 shrink-0" />

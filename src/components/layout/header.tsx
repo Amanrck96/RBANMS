@@ -35,26 +35,19 @@ export function SiteHeader() {
       <div className="w-full bg-blue-900 text-white border-b border-white/10">
         <div className="relative mx-auto max-w-7xl px-2 py-1 flex flex-col md:flex-row items-center md:justify-center gap-2 text-xs">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 shrink-0" aria-label="RBANM's First Grade College Home">
-            <div className="bg-white p-1 rounded-sm">
-              <Image
-                src="/images/migrated/logo.png"
-                alt="RBANM's First Grade College Logo"
-                width={120}
-                height={45}
-                className="h-9 w-auto"
-                priority
-              />
-            </div>
-          </Link>
-          <div className="flex items-center gap-3 md:absolute md:right-2">
-            <a href="tel:080-48533572" className="flex items-center gap-2 hover:underline underline-offset-4 text-yellow-400">
+          <div className="flex flex-col md:flex-row items-center gap-3 w-full justify-end">
+            <div className="flex items-center gap-2 text-yellow-400">
               <Phone className="h-4 w-4" />
-              080-48533572
-            </a>
-            <a href="mailto:principal_rbanms@gmail.com" className="flex items-center gap-2 hover:underline underline-offset-4 text-yellow-400">
+              <span className="flex flex-col md:flex-row md:gap-2 text-center md:text-left">
+                <span>Landline: <a href="tel:08041653395" className="hover:underline">080-41653395</a> / <a href="tel:08025512976" className="hover:underline">080-25512976</a></span>
+                <span className="hidden md:inline">|</span>
+                <span>Mobile: <a href="tel:7349251497" className="hover:underline">7349251497</a></span>
+              </span>
+            </div>
+            <div className="hidden md:block h-4 w-px bg-white/20 mx-1" />
+            <a href="mailto:info@rbanmsfgc.edu.in" className="flex items-center gap-2 hover:underline underline-offset-4 text-yellow-400">
               <Mail className="h-4 w-4" />
-              principal_rbanms@gmail.com
+              Via e-mail: info@rbanmsfgc.edu.in
             </a>
             <div className="h-4 w-px bg-white/20 mx-1" />
             <SearchDialog />
