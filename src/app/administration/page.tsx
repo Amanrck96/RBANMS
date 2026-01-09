@@ -3,6 +3,7 @@ import { DepartmentLayout } from '@/components/layout/department-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Users, Image as ImageIcon } from 'lucide-react';
 import Image from 'next/image';
+import { DynamicSection } from '@/components/dynamic-section';
 
 export default function AdministrationPage() {
 
