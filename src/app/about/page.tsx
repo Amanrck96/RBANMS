@@ -34,12 +34,13 @@ export default function AboutIndexPage() {
             <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
               {/* Logo */}
               <div className="shrink-0">
-                <div className="relative w-[180px] h-[180px] overflow-hidden">
+                <div className="relative w-[240px] h-[240px] overflow-hidden">
                   <Image
-                    src="/images/migrated/logo.png"
-                    alt="RBANM Logo"
+                    src="/images/logo-full.png"
+                    alt="RBANM's First Grade College Logo"
                     fill
                     className="object-contain"
+                    priority
                   />
                 </div>
               </div>

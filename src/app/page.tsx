@@ -34,18 +34,16 @@ export default function Home() {
                                 return (
                                     <div className="flex flex-col md:flex-row gap-12 items-center md:items-start text-left">
                                         {/* Left Column: Logo Stack */}
-                                        <div className="flex flex-col items-center shrink-0 w-[240px]">
-                                            <div className="relative w-[140px] h-[140px] mb-4 overflow-hidden">
+                                        {/* Left Column: Full Integrated Logo */}
+                                        <div className="shrink-0">
+                                            <div className="relative w-[240px] h-[240px] overflow-hidden">
                                                 <Image
-                                                    src="/images/migrated/logo.png"
-                                                    alt="RBANM Logo"
+                                                    src="/images/logo-full.png"
+                                                    alt="RBANM's First Grade College Logo"
                                                     fill
-                                                    className="object-cover object-left scale-110" // scale slightly to ensuring fill if needed
+                                                    className="object-contain"
+                                                    priority
                                                 />
-                                            </div>
-                                            <div className="text-center font-headline">
-                                                <h2 className="text-3xl font-bold text-blue-900 leading-none">RBANM's</h2>
-                                                <h3 className="text-xl font-bold text-[#800000] leading-tight">First Grade College</h3>
                                             </div>
                                         </div>
 

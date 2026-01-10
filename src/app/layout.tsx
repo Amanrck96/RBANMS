@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description: "RBANM's First Grade College - Affiliated to Bengaluru City University & Accredited by NAAC. Empowering students with quality education since 1983.",
     images: [
       {
-        url: "/images/migrated/logo.png",
+        url: "/images/logo-full.png",
         width: 1200,
         height: 630,
         alt: "RBANM's First Grade College Logo",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "RBANM'S FIRST GRADE COLLEGE",
     description: "RBANM's First Grade College - Affiliated to Bengaluru City University & Accredited by NAAC.",
-    images: ["/images/migrated/logo.png"],
+    images: ["/images/logo-full.png"],
   },
   alternates: {
     canonical: 'https://www.rbanmsfgc.edu.in/',
