@@ -63,12 +63,16 @@ export function DynamicSection({ pageId, defaultTitle, defaultContent, defaultIm
                             {currentTitle}
                         </h1>
                     )}
-                    <div
-                        className="prose prose-lg max-w-none text-foreground/80 space-y-4"
-                        dangerouslySetInnerHTML={currentContent ? { __html: currentContent } : undefined}
-                    >
-                        {!currentContent && defaultContent}
-                    </div>
+                    {currentContent ? (
+                        <div
+                            className="prose prose-lg max-w-none text-foreground/80 space-y-4"
+                            dangerouslySetInnerHTML={{ __html: currentContent }}
+                        />
+                    ) : (
+                        <div className="prose prose-lg max-w-none text-foreground/80 space-y-4">
+                            {defaultContent}
+                        </div>
+                    )}
                 </div>
 
                 {currentImageUrl && (
