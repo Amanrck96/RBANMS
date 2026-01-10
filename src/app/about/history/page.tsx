@@ -29,10 +29,13 @@ export default function HistoryPage() {
             defaultContent={
               <div className="space-y-4">
                 <p>
-                  RBANMS First Grade College was founded in 1983 as part of RBANM’s Educational Charities to meet the growing educational needs of Bangalore, a city rapidly emerging as a modern technology hub. Our institution is a proud extension of the RBANMS Educational Charities, which was established in 1873 by Dharmarathnakara Rai Bahadur Arcot Narrainswamy Mudaliar. With a vision of social regeneration, our founder dedicated himself to making education accessible to all, transcending social and economic barriers. Today, RBANMS First Grade College stands as a testament to that vision, fostering learning, inclusivity, and growth.
+                  RBANM’s First Grade College was established by RBANM’s Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.
                 </p>
                 <p>
-                  We strongly believe that education is a collaborative journey. When students, parents, and educators work together, learning becomes more meaningful. Our dedicated teachers teach, guide, mentor, and inspire. Through a mix of academics and extracurricular activities, we shape well-rounded individuals who are prepared for both career success and personal fulfilment. RBANMS First Grade College is a space where we prepare students for life.
+                  This is one of the many institutions established under the umbrella of the RBANM’s Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.
+                </p>
+                <p>
+                  The college has been accredited by NAAC and is recognised under Section 2(f) and 12(b) of the UGC Act, 1956.
                 </p>
               </div>
             }
