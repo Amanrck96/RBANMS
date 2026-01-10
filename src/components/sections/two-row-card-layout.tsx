@@ -262,27 +262,31 @@ export function TwoRowCardLayout() {
                                         {data.title || "The RBANM's Experience"}
                                     </CardTitle>
                                 </CardHeader>
-                                <CardContent className="p-0">
-                                    <div className="flex flex-col lg:flex-row gap-12 items-start">
+                                <CardContent className="px-4 md:px-6">
+                                    <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
                                         {/* Left Side - Checkmarks List */}
-                                        <div className="flex-grow">
+                                        <div className="flex-grow w-full lg:w-3/5">
                                             {data.content ? (
                                                 <div className="prose prose-lg max-w-none text-muted-foreground font-bold" dangerouslySetInnerHTML={{ __html: data.content }} />
                                             ) : (
-                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
-                                                    <ul className="space-y-6">
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 md:gap-y-6">
+                                                    <ul className="space-y-4 md:space-y-6">
                                                         {col1.map((advantage, index) => (
                                                             <li key={index} className="flex items-start">
-                                                                <Check className="h-6 w-6 text-red-700 mr-3 mt-0.5 shrink-0 stroke-[3]" />
-                                                                <span className="text-black font-semibold text-base leading-tight text-left">{advantage}</span>
+                                                                <div className="mt-1 shrink-0">
+                                                                    <Check className="h-5 w-5 text-red-700 stroke-[3]" />
+                                                                </div>
+                                                                <span className="ml-3 text-black font-semibold text-sm md:text-base leading-snug text-left">{advantage}</span>
                                                             </li>
                                                         ))}
                                                     </ul>
-                                                    <ul className="space-y-6">
+                                                    <ul className="space-y-4 md:space-y-6">
                                                         {col2.map((advantage, index) => (
                                                             <li key={index} className="flex items-start">
-                                                                <Check className="h-6 w-6 text-red-700 mr-3 mt-0.5 shrink-0 stroke-[3]" />
-                                                                <span className="text-black font-semibold text-base leading-tight text-left">{advantage}</span>
+                                                                <div className="mt-1 shrink-0">
+                                                                    <Check className="h-5 w-5 text-red-700 stroke-[3]" />
+                                                                </div>
+                                                                <span className="ml-3 text-black font-semibold text-sm md:text-base leading-snug text-left">{advantage}</span>
                                                             </li>
                                                         ))}
                                                     </ul>
@@ -290,16 +294,37 @@ export function TwoRowCardLayout() {
                                             )}
                                         </div>
 
-                                        {/* Right Side - Image */}
-                                        <div className="w-full lg:w-[400px] shrink-0 mt-4 lg:mt-0">
-                                            <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg border-2 border-white">
-                                                <Image
-                                                    src={data.imageUrl || "/images/migrated/campus1.jpg"}
-                                                    alt="RBANM Campus Experience"
-                                                    fill
-                                                    className="object-cover"
-                                                />
-                                            </div>
+                                        {/* Right Side - Image (Featured Magazine) */}
+                                        <div className="w-full sm:w-[320px] lg:w-[340px] shrink-0">
+                                            <a
+                                                href="https://drive.google.com/file/d/1iZPsekFA8vT5qAVqkYK7mPBN9XXPodvv/view?usp=sharing"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="block group"
+                                            >
+                                                <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white transition-all duration-500 group-hover:shadow-primary/20 group-hover:scale-[1.03]">
+                                                    <Image
+                                                        src={data.imageUrl || "/images/phoenix-magazine.png"}
+                                                        alt="RBANM Annual Magazine - Phoenix"
+                                                        fill
+                                                        className="object-cover"
+                                                    />
+                                                    {/* Hover Overlay */}
+                                                    <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300 flex items-center justify-center">
+                                                        <div className="bg-white/95 text-primary px-8 py-3 rounded-full font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 shadow-2xl scale-90 group-hover:scale-100">
+                                                            Read Magazine
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="text-center mt-4">
+                                                    <p className="text-sm font-bold text-primary group-hover:text-red-700 transition-colors">
+                                                        Phoenix Annual Magazine
+                                                    </p>
+                                                    <p className="text-xs text-muted-foreground mt-1">
+                                                        Click to Open PDF
+                                                    </p>
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </CardContent>
