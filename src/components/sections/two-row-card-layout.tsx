@@ -85,7 +85,7 @@ export function TwoRowCardLayout() {
                             <Card className="flex flex-col h-full">
                                 <CardHeader>
                                     <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">
-                                        {data.title || 'Our Founder'}
+                                        Our Founder
                                     </CardTitle>
                                 </CardHeader>
                                 <CardContent className="flex-grow flex flex-col">
