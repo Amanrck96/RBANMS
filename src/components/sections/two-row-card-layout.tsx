@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, ChevronUp, Check } from 'lucide-react';
+import { DynamicSection } from '@/components/dynamic-section';
 
 const advantages = [
     "Managed by a trusted and highly respected Educational Charities Trust",
@@ -81,7 +82,7 @@ export function TwoRowCardLayout() {
                     {/* Founder Card */}
                     <DynamicSection
                         pageId="about-founder"
-                        render={(data) => (
+                        render={(data: any) => (
                             <Card className="flex flex-col h-full">
                                 <CardHeader>
                                     <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">
@@ -139,7 +140,7 @@ export function TwoRowCardLayout() {
                     {/* Director's Message */}
                     <DynamicSection
                         pageId="about-director"
-                        render={(data) => (
+                        render={(data: any) => (
                             <Card className="flex flex-col h-full">
                                 <CardHeader>
                                     <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">
@@ -194,7 +195,7 @@ export function TwoRowCardLayout() {
                     {/* Principal's Message */}
                     <DynamicSection
                         pageId="about-principal"
-                        render={(data) => (
+                        render={(data: any) => (
                             <Card className="flex flex-col h-full">
                                 <CardHeader>
                                     <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">
@@ -254,7 +255,7 @@ export function TwoRowCardLayout() {
                 <div className="flex justify-center mb-6">
                     <DynamicSection
                         pageId="home-hero"
-                        render={(data) => (
+                        render={(data: any) => (
                             <Card className="w-full max-w-5xl">
                                 <CardHeader className="text-center">
                                     <CardTitle className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold text-primary font-headline">

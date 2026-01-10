@@ -42,8 +42,8 @@ export function DynamicSection({ pageId, defaultTitle, defaultContent, defaultIm
         );
     }
 
-    if (render && data) {
-        return <>{render(data)}</>;
+    if (render) {
+        return <>{render(data || {} as any)}</>;
     }
 
     if (onlyContent && data?.content) {

@@ -1,8 +1,11 @@
+'use client';
+
 import React from 'react';
 import { DepartmentLayout } from '@/components/layout/department-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Target, Settings, TrendingUp } from 'lucide-react';
 import { DocumentFolder } from '@/components/ui/document-folder';
+import { DynamicSection } from '@/components/dynamic-section';
 
 export default function IQACPage() {
   const objectivesContent = (
