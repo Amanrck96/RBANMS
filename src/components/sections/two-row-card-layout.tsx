@@ -256,35 +256,52 @@ export function TwoRowCardLayout() {
                     <DynamicSection
                         pageId="home-hero"
                         render={(data: any) => (
-                            <Card className="w-full max-w-5xl">
-                                <CardHeader className="text-center">
-                                    <CardTitle className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold text-primary font-headline">
+                            <Card className="w-full max-w-7xl border-none shadow-none bg-transparent">
+                                <CardHeader className="text-center pb-10">
+                                    <CardTitle className="text-[clamp(2rem,4vw,2.5rem)] font-bold text-black font-headline">
                                         {data.title || "The RBANM's Experience"}
                                     </CardTitle>
                                 </CardHeader>
-                                <CardContent>
-                                    {data.content ? (
-                                        <div className="prose prose-lg max-w-none text-muted-foreground font-bold" dangerouslySetInnerHTML={{ __html: data.content }} />
-                                    ) : (
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
-                                            <ul className="space-y-4">
-                                                {col1.map((advantage, index) => (
-                                                    <li key={index} className="flex items-start">
-                                                        <Check className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" />
-                                                        <span className="text-muted-foreground font-bold">{advantage}</span>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                            <ul className="space-y-4">
-                                                {col2.map((advantage, index) => (
-                                                    <li key={index} className="flex items-start">
-                                                        <Check className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" />
-                                                        <span className="text-muted-foreground font-bold">{advantage}</span>
-                                                    </li>
-                                                ))}
-                                            </ul>
+                                <CardContent className="p-0">
+                                    <div className="flex flex-col lg:flex-row gap-12 items-start">
+                                        {/* Left Side - Checkmarks List */}
+                                        <div className="flex-grow">
+                                            {data.content ? (
+                                                <div className="prose prose-lg max-w-none text-muted-foreground font-bold" dangerouslySetInnerHTML={{ __html: data.content }} />
+                                            ) : (
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                                                    <ul className="space-y-6">
+                                                        {col1.map((advantage, index) => (
+                                                            <li key={index} className="flex items-start">
+                                                                <Check className="h-6 w-6 text-red-700 mr-3 mt-0.5 shrink-0 stroke-[3]" />
+                                                                <span className="text-black font-semibold text-base leading-tight text-left">{advantage}</span>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                    <ul className="space-y-6">
+                                                        {col2.map((advantage, index) => (
+                                                            <li key={index} className="flex items-start">
+                                                                <Check className="h-6 w-6 text-red-700 mr-3 mt-0.5 shrink-0 stroke-[3]" />
+                                                                <span className="text-black font-semibold text-base leading-tight text-left">{advantage}</span>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            )}
                                         </div>
-                                    )}
+
+                                        {/* Right Side - Image */}
+                                        <div className="w-full lg:w-[400px] shrink-0 mt-4 lg:mt-0">
+                                            <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg border-2 border-white">
+                                                <Image
+                                                    src={data.imageUrl || "/images/migrated/campus1.jpg"}
+                                                    alt="RBANM Campus Experience"
+                                                    fill
+                                                    className="object-cover"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
                                 </CardContent>
                             </Card>
                         )}
