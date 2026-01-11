@@ -41,18 +41,19 @@ export function SidebarCards() {
 
                 return (
                     <div className="w-full">
-                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                            {/* Left Column: Major Events */}
-                            <div className="flex flex-col gap-6">
-                                <Card className="flex flex-col border-blue-100 shadow-sm hover:shadow-md transition-shadow h-full">
-                                    <CardHeader className="bg-blue-50/50 pb-4">
-                                        <CardTitle className="text-blue-900 flex items-center gap-2 text-lg">
-                                            <Star className="size-5 text-yellow-500 fill-yellow-500" /> Major Events
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 items-stretch">
+                            {/* Left Column: Major Events & Brochure */}
+                            <div className="flex flex-col gap-5 h-full">
+                                {/* Major Events Card */}
+                                <Card className="flex flex-col border-blue-100 shadow-sm hover:shadow-md transition-shadow flex-1">
+                                    <CardHeader className="bg-blue-50/50 pb-3 p-4">
+                                        <CardTitle className="text-blue-900 flex items-center gap-2 text-base font-bold">
+                                            <Star className="size-4 text-yellow-500 fill-yellow-500" /> Major Events
                                         </CardTitle>
                                     </CardHeader>
-                                    <CardContent className="pt-6 flex-grow space-y-4">
+                                    <CardContent className="p-4 pt-4 flex-grow space-y-3">
                                         {majorEvents.image && (
-                                            <div className="relative aspect-video rounded-lg overflow-hidden border shadow-sm">
+                                            <div className="relative aspect-video w-full rounded-md overflow-hidden border shadow-sm">
                                                 <Image
                                                     src={majorEvents.image}
                                                     alt={data.major_events_alt || "Major Events"}
@@ -61,9 +62,9 @@ export function SidebarCards() {
                                                 />
                                             </div>
                                         )}
-                                        <ul className="space-y-3">
+                                        <ul className="space-y-2">
                                             {majorEvents.items?.map((item: string, i: number) => (
-                                                <li key={i} className="flex gap-2 text-sm text-slate-700 leading-snug">
+                                                <li key={i} className="flex gap-2 text-sm text-slate-700 leading-tight">
                                                     <div className="mt-1.5 size-1.5 rounded-full bg-blue-600 shrink-0" />
                                                     {item}
                                                 </li>
@@ -73,15 +74,15 @@ export function SidebarCards() {
                                 </Card>
 
                                 {/* Brochure Card */}
-                                <Card className="flex flex-col border-blue-100 shadow-sm hover:shadow-md transition-shadow">
-                                    <CardHeader className="bg-blue-50/50 pb-4">
-                                        <CardTitle className="text-blue-900 flex items-center gap-2 text-lg">
-                                            <FileText className="size-5 text-secondary" /> College Brochure
+                                <Card className="flex flex-col border-blue-100 shadow-sm hover:shadow-md transition-shadow flex-1">
+                                    <CardHeader className="bg-blue-50/50 pb-3 p-4">
+                                        <CardTitle className="text-blue-900 flex items-center gap-2 text-base font-bold">
+                                            <FileText className="size-4 text-secondary" /> College Brochure
                                         </CardTitle>
                                     </CardHeader>
-                                    <CardContent className="pt-6 flex-grow flex flex-col items-center justify-center">
+                                    <CardContent className="p-4 pt-4 flex-grow flex flex-col items-center justify-center">
                                         {brochure && (
-                                            <div className="relative w-full aspect-[3/4.2] rounded-xl overflow-hidden shadow-xl border-4 border-white transform hover:rotate-2 transition-transform cursor-pointer group">
+                                            <div className="relative w-48 aspect-[3/4.2] rounded-lg overflow-hidden shadow-lg border-2 border-white transform hover:rotate-1 transition-transform cursor-pointer group">
                                                 <Image
                                                     src={brochure}
                                                     alt={data.brochure_alt || "Download Brochure"}
@@ -89,7 +90,7 @@ export function SidebarCards() {
                                                     className="object-cover"
                                                 />
                                                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                                    <span className="bg-white text-blue-900 px-6 py-2 rounded-full font-bold text-sm">Download PDF</span>
+                                                    <span className="bg-white text-blue-900 px-4 py-1.5 rounded-full font-bold text-xs">Download PDF</span>
                                                 </div>
                                             </div>
                                         )}
@@ -98,27 +99,26 @@ export function SidebarCards() {
                             </div>
 
                             {/* Center Column: The Month That Was */}
-                            <div className="flex flex-col gap-6">
+                            <div className="flex flex-col h-full">
                                 <Card className="flex flex-col border-blue-100 shadow-sm hover:shadow-md transition-shadow h-full">
-                                    <CardHeader className="bg-blue-50/50 pb-4">
-                                        <CardTitle className="text-blue-900 flex flex-col gap-1 text-lg">
+                                    <CardHeader className="bg-blue-50/50 pb-3 p-4">
+                                        <CardTitle className="text-blue-900 flex flex-col gap-0.5 text-base font-bold">
                                             <div className="flex items-center gap-2">
-                                                <Calendar className="size-5 text-primary" /> The Month That Was
+                                                <Calendar className="size-4 text-primary" /> The Month That Was
                                             </div>
-                                            <span className="text-sm font-normal text-muted-foreground ml-7">November 2025</span>
+                                            <span className="text-xs font-normal text-muted-foreground ml-6">November 2025</span>
                                         </CardTitle>
                                     </CardHeader>
-                                    <CardContent className="pt-6 flex-grow">
-                                        <div className="space-y-4">
-
+                                    <CardContent className="p-4 pt-4 flex-grow">
+                                        <div className="space-y-3">
                                             {monthThatWas.slice(0, 6).map((item: any, i: number) => (
-                                                <div key={i} className="group border-l-4 border-blue-200 hover:border-blue-600 pl-4 py-1 transition-colors">
-                                                    <div className="flex items-center gap-2 mb-1">
+                                                <div key={i} className="group border-l-4 border-blue-200 hover:border-blue-600 pl-3 py-1 transition-colors">
+                                                    <div className="flex items-center gap-2 mb-0.5">
                                                         <Clock className="size-3 text-muted-foreground" />
                                                         <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">{item.date}</span>
                                                     </div>
-                                                    <p className="text-sm font-bold text-slate-800 group-hover:text-blue-900 transition-colors uppercase">{item.title}</p>
-                                                    <p className="text-xs text-slate-600 mt-1 line-clamp-2">{item.text}</p>
+                                                    <p className="text-sm font-bold text-slate-800 group-hover:text-blue-900 transition-colors uppercase leading-tight">{item.title}</p>
+                                                    <p className="text-xs text-slate-600 mt-0.5 line-clamp-2 leading-relaxed">{item.text}</p>
                                                 </div>
                                             ))}
                                         </div>
@@ -127,46 +127,42 @@ export function SidebarCards() {
                             </div>
 
                             {/* Right Column: Sidebar Cards */}
-                            <div className="flex flex-col gap-6">
+                            <div className="flex flex-col gap-5 h-full">
                                 {/* Announcements Card */}
-                                <Card className="flex flex-col border-blue-100 shadow-sm hover:shadow-md transition-shadow">
-                                    <CardHeader className="bg-blue-50/50 pb-4">
-                                        <CardTitle className="text-blue-900 flex items-center gap-2 text-lg">
-                                            <Bell className="size-5 text-red-500 animate-pulse" /> Announcements
+                                <Card className="flex flex-col border-blue-100 shadow-sm hover:shadow-md transition-shadow flex-1">
+                                    <CardHeader className="bg-blue-50/50 pb-3 p-4">
+                                        <CardTitle className="text-blue-900 flex items-center gap-2 text-base font-bold">
+                                            <Bell className="size-4 text-red-500 animate-pulse" /> Announcements
                                         </CardTitle>
                                     </CardHeader>
-                                    <CardContent className="pt-6 flex-grow">
+                                    <CardContent className="p-4 pt-4 flex-grow">
                                         <div
-                                            className="prose prose-sm prose-blue max-w-none text-slate-700 font-medium bg-red-50/30 p-4 rounded-lg border border-red-100/50"
+                                            className="prose prose-sm prose-blue max-w-none text-slate-700 font-medium bg-red-50/30 p-3 rounded border border-red-100/50"
                                             dangerouslySetInnerHTML={{ __html: announcements }}
                                         />
                                     </CardContent>
                                 </Card>
 
                                 {/* Upcoming Events Card */}
-                                <Card className="flex flex-col border-blue-100 shadow-sm hover:shadow-md transition-shadow">
-                                    <CardHeader className="bg-blue-50/50 pb-4">
-                                        <CardTitle className="text-blue-900 flex items-center gap-2 text-lg">
-                                            <Clock className="size-5 text-primary" /> Upcoming Events
+                                <Card className="flex flex-col border-blue-100 shadow-sm hover:shadow-md transition-shadow flex-1">
+                                    <CardHeader className="bg-blue-50/50 pb-3 p-4">
+                                        <CardTitle className="text-blue-900 flex items-center gap-2 text-base font-bold">
+                                            <Clock className="size-4 text-primary" /> Upcoming Events
                                         </CardTitle>
                                     </CardHeader>
-                                    <CardContent className="pt-6 flex-grow">
-                                        <div className="space-y-3">
+                                    <CardContent className="p-4 pt-4 flex-grow">
+                                        <div className="space-y-2">
                                             {upcomingEvents.map((item: string, i: number) => (
-                                                <div key={i} className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg border border-slate-100 hover:bg-white hover:shadow-sm transition-all">
-                                                    <div className="size-10 rounded-full bg-blue-900 text-white flex items-center justify-center font-bold text-xs shrink-0">
+                                                <div key={i} className="flex items-center gap-3 p-2.5 bg-slate-50 rounded border border-slate-100 hover:bg-white hover:shadow-sm transition-all">
+                                                    <div className="size-8 rounded-full bg-blue-900 text-white flex items-center justify-center font-bold text-[10px] shrink-0">
                                                         {(i + 1).toString().padStart(2, '0')}
                                                     </div>
-                                                    <span className="text-sm font-semibold text-slate-700">{item}</span>
+                                                    <span className="text-sm font-semibold text-slate-700 leading-tight">{item}</span>
                                                 </div>
                                             ))}
                                         </div>
                                     </CardContent>
                                 </Card>
-
-
-
-
                             </div>
                         </div>
                     </div>
