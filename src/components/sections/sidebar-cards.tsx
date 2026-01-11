@@ -166,20 +166,7 @@ export function SidebarCards() {
 
 
 
-                                {/* Blog Card */}
-                                <Card className="flex flex-col border-blue-100 shadow-sm hover:shadow-md transition-shadow">
-                                    <CardHeader className="bg-blue-50/50 pb-4">
-                                        <CardTitle className="text-blue-900 flex items-center gap-2 text-lg">
-                                            <BookOpen className="size-5 text-blue-600" /> Blog
-                                        </CardTitle>
-                                    </CardHeader>
-                                    <CardContent className="pt-6 flex-grow">
-                                        <div
-                                            className="prose prose-sm prose-blue max-w-none text-slate-700 font-medium bg-blue-50/30 p-4 rounded-lg border border-blue-100/50"
-                                            dangerouslySetInnerHTML={{ __html: blog }}
-                                        />
-                                    </CardContent>
-                                </Card>
+
                             </div>
                         </div>
                     </div>
