@@ -17,10 +17,24 @@ export function SidebarCards() {
                     items: ['Annual Sports Day', 'Cultural Fest 2026', 'Inter-college Debate']
                 };
                 const monthThatWas = data?.month_that_was_items || [
-                    { date: 'Dec 15', title: 'NSS Camp', text: 'Successfully completed 7-day rural camp.' },
-                    { date: 'Dec 22', title: 'Tech Talk', text: 'Guest lecture on Artificial Intelligence.' }
+                    { date: 'Nov 6', title: 'Field Visit & Guest Lecture', text: 'Final year BBA/BCA visit to Tech Institute. BCom lecture on Financial Mgmt.' },
+                    { date: 'Nov 7', title: 'MILANA', text: 'Inter high school / PU cultural competition' },
+                    { date: 'Nov 8-9', title: 'Holiday', text: 'College Holiday' },
+                    { date: 'Nov 12', title: 'Guest Lecture', text: 'Digital Marketing' },
+                    { date: 'Nov 13', title: 'SPICMACAY', text: 'Cultural presentation' },
+                    { date: 'Nov 14-22', title: 'Pre-Final Exams', text: 'Conducted for all classes' },
+                    { date: 'Nov 19', title: 'NAADAHABBA', text: 'Folk dances of Karnataka at Sabha. Open to all.' },
+                    { date: 'Nov 25', title: 'Guest Lecture', text: 'Final Year BCA: AI tools - a practical approach' },
+                    { date: 'Nov 27', title: 'SPICMACAY', text: 'Presentation of Sattriya Dance' },
+                    { date: 'Nov 29', title: 'Bharatiyar Event', text: 'Dept. of Languages - Tamil' }
                 ];
-                const announcements = data?.announcements_text || '<p>Admissions open for next academic year. Contact office for details.</p>';
+                const announcements = data?.announcements_text || `
+                    <ul className="list-disc pl-4 space-y-2">
+                        <li>Admissions open for AY 2026-27. For a Campus Tour, email info@rbanmsfgc.edu.in.</li>
+                        <li>College will remain closed on 12th and 13th January.</li>
+                        <li>The Even Semester for AY 2025-26 will begin on January 19.</li>
+                        <li>Regular classes for all courses will commence on January 27.</li>
+                    </ul>`;
                 const brochure = data?.brochure_image || '/images/phoenix-magazine.png';
                 const upcomingEvents = data?.upcoming_events_text || [
                     'Internal Assessment - Jan 20',
