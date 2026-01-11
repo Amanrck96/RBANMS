@@ -266,6 +266,12 @@ export function DepartmentLayout({
                         {children}
                     </div>
                 )}
+
+                {children && (
+                    <div className="pt-8 space-y-16 border-t">
+                        {children}
+                    </div>
+                )}
             </div>
         </div>
     );

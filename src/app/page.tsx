@@ -7,6 +7,7 @@ import { SiteFooter } from '@/components/layout/footer';
 import { AdditionalImagesCarousel } from '@/components/sections/additional-images-carousel';
 import { TwoRowCardLayout } from '@/components/sections/two-row-card-layout';
 import { DynamicSection } from '@/components/dynamic-section';
+import { SidebarCards } from '@/components/sections/sidebar-cards';
 
 export default function Home() {
     return (
@@ -56,8 +57,18 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* Two-row card layout: Row 1 - Founder, Director, Principal | Row 2 - Blog, Announcements, The Month That Was */}
+                {/* Two-row card layout: Row 1 - Founder, Director, Principal */}
                 <TwoRowCardLayout />
+
+                {/* Campus Updates & Info Section */}
+                <section className="py-12 bg-white pb-24">
+                    <div className="container mx-auto px-4">
+                        <h2 className="text-3xl font-bold text-blue-900 mb-12 font-headline uppercase tracking-wide border-l-8 border-blue-900 pl-6">
+                            Campus Updates & Info
+                        </h2>
+                        <SidebarCards />
+                    </div>
+                </section>
 
 
 

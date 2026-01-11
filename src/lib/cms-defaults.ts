@@ -1,5 +1,5 @@
 
-export const CMS_DEFAULTS: Record<string, { title: string; content: string; imageUrl?: string }> = {
+export const CMS_DEFAULTS: Record<string, { title: string; content: string; imageUrl?: string;[key: string]: any }> = {
     'home-intro': {
         title: 'Introduction',
         content: `
@@ -208,5 +208,39 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         title: 'Department Team',
         content: '<p>Our dedicated faculty and eager students.</p>',
         imageUrl: '/images/departments/commerce/group_photo.jpg'
+    },
+    '8': {
+        title: 'Campus Updates',
+        content: '',
+        major_events_image: '/images/hero/hero-1.jpg',
+        major_events_alt: 'Campus Event',
+        major_events_text: ['Annual Sports Day', 'Cultural Fest 2026', 'Inter-college Debate'],
+        month_that_was_items: [
+            { title: "MILANA", date: "November 7, 2025", text: "Inter high school / PU cultural competition hosted at FGC" },
+            { title: "SPICMACAY - Saraikela Chhau", date: "November 13, 2025", text: "Folk Dance from Odisha, Lecture-Demonstration" },
+            { title: "Pre-Final Exams", date: "November 14-22, 2025", text: "Internal assessments for all departments" },
+            { title: "NAADAHABBA", date: "November 19, 2025", text: "Folk dances of Karnataka at Sabha. Open to all and the Media." },
+            { title: "SPICMACAY: Sattriya Dance", date: "November 27, 2025", text: "Classical dance from Assam, Lecture - Demonstration" },
+            { title: "Tribute to Bharatiyar", date: "November 29, 2025", text: "An event by the Department of Languages - Tamil" }
+        ],
+        announcements_text: `
+            <ul class="space-y-2 list-disc list-inside">
+                <li>Admissions open for AY 2026-27. For a Campus Tour, email info@rbanmsfgc.edu.in.</li>
+                <li>The Even Semester for AY 2025-26 will begin on January 16, 2026 for Faculty and all Final Year students.</li>
+                <li>Regular classes for all courses will commence on January 27.</li>
+                <li>Second and First Year students will begin classes on January 27.</li>
+            </ul>
+        `,
+        brochure_image: '/images/phoenix-magazine.png',
+        brochure_alt: 'College Magazine',
+        upcoming_events_text: [
+            'Internal Assessment - Jan 20',
+            'Republic Day Celebration - Jan 26',
+            'Industrial Visit - Feb 05'
+        ],
+        blog_text: `
+            <p>Welcome to our blog section where we share insights, stories, and updates from our college community. Stay tuned for upcoming articles on academic excellence, student achievements, and educational initiatives that shape the future of learning.</p>
+            <p>Blog content coming soon...</p>
+        `
     }
 };

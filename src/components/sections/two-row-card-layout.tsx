@@ -332,64 +332,6 @@ export function TwoRowCardLayout() {
                         )}
                     />
                 </div>
-
-                {/* Row 2: Blog, Announcements, The Month That Was */}
-                <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
-                    {/* Blog Card */}
-                    <Card className="flex flex-col h-full">
-                        <CardHeader>
-                            <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">Blog</CardTitle>
-                        </CardHeader>
-                        <CardContent className="flex-grow">
-                            <p className="text-sm content-black mb-4">
-                                Welcome to our blog section where we share insights, stories, and updates from our college community. Stay tuned for upcoming articles on academic excellence, student achievements, and educational initiatives that shape the future of learning.
-                            </p>
-                            <p className="text-sm text-muted-foreground italic">
-                                Blog content coming soon...
-                            </p>
-                        </CardContent>
-                    </Card>
-
-                    {/* Announcements Card */}
-                    <Card className="flex flex-col h-full">
-                        <CardHeader>
-                            <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">Announcements</CardTitle>
-                        </CardHeader>
-                        <CardContent className="flex-grow">
-                            <ul className="space-y-3 text-sm content-black list-disc list-inside">
-                                {dynamicNotices.map((notice, idx) => (
-                                    <li key={idx}>
-                                        {notice.includes('info@rbanmsfgc.edu.in') ? (
-                                            <>
-                                                {notice.split('info@rbanmsfgc.edu.in')[0]}
-                                                <a href="mailto:info@rbanmsfgc.edu.in" className="text-primary hover:underline">info@rbanmsfgc.edu.in</a>
-                                                {notice.split('info@rbanmsfgc.edu.in')[1]}
-                                            </>
-                                        ) : notice}
-                                    </li>
-                                ))}
-                            </ul>
-                        </CardContent>
-                    </Card>
-
-                    {/* The Month That Was Card */}
-                    <Card className="flex flex-col h-full">
-                        <CardHeader>
-                            <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">The Month That Was</CardTitle>
-                        </CardHeader>
-                        <CardContent className="flex-grow">
-                            <div className="space-y-3">
-                                {dynamicActivities.map((activity, idx) => (
-                                    <div key={idx} className="border-l-4 border-blue-900 pl-3 py-2">
-                                        <p className="text-sm font-semibold text-blue-900">{activity.title}</p>
-                                        <p className="text-xs text-muted-foreground">{activity.date}</p>
-                                        <p className="text-xs content-black mt-1">{activity.description}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </CardContent>
-                    </Card>
-                </div>
             </div>
         </section>
     );

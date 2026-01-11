@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Plus, Trash2, Save, Loader2, Globe, FileEdit, ImageIcon } from 'lucide-react';
+import { Plus, Trash2, Save, Loader2, Globe, FileEdit, ImageIcon, Star, Calendar, Bell, FileText, Clock, BookOpen } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { VisualEditor } from '@/components/admin/visual-editor';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -75,6 +75,7 @@ const EDITABLE_PAGES = [
     { label: 'Activities: Cultural', id: 'activities-cultural' },
     { label: 'Activities: Co-Curricular', id: 'activities-co-curricular' },
     { label: 'Administration (Staff List)', id: 'administration' },
+    { label: 'Regional: Sidebar Cards', id: '8' },
 ];
 
 export default function ManageContentPage() {
@@ -92,6 +93,19 @@ export default function ManageContentPage() {
     const [pageContent, setPageContent] = useState<string>('');
     const [pageTitle, setPageTitle] = useState<string>('');
     const [pageImageUrl, setPageImageUrl] = useState<string>('');
+
+    // Specialized page-8 state
+    const [page8Data, setPage8Data] = useState<any>({
+        major_events_image: '',
+        major_events_alt: '',
+        major_events_text: [],
+        month_that_was_items: [],
+        announcements_text: '',
+        brochure_image: '',
+        brochure_alt: '',
+        upcoming_events_text: [],
+        blog_text: ''
+    });
 
     // Toggle State for Old vs New
     const [currentData, setCurrentData] = useState<{ title: string, content: string, imageUrl: string } | null>(null);
@@ -154,6 +168,33 @@ export default function ManageContentPage() {
                 imageUrl: newImage
             });
 
+            if (pageId === '8' && data.data) {
+                setPage8Data({
+                    major_events_image: data.data.major_events_image || '',
+                    major_events_alt: data.data.major_events_alt || '',
+                    major_events_text: data.data.major_events_text || [],
+                    month_that_was_items: data.data.month_that_was_items || [],
+                    announcements_text: data.data.announcements_text || '',
+                    brochure_image: data.data.brochure_image || '',
+                    brochure_alt: data.data.brochure_alt || '',
+                    upcoming_events_text: data.data.upcoming_events_text || [],
+                    blog_text: data.data.blog_text || ''
+                });
+            } else if (pageId === '8') {
+                const defaults = CMS_DEFAULTS['8'];
+                setPage8Data({
+                    major_events_image: defaults.major_events_image || '',
+                    major_events_alt: defaults.major_events_alt || '',
+                    major_events_text: defaults.major_events_text || [],
+                    month_that_was_items: defaults.month_that_was_items || [],
+                    announcements_text: defaults.announcements_text || '',
+                    brochure_image: defaults.brochure_image || '',
+                    brochure_alt: defaults.brochure_alt || '',
+                    upcoming_events_text: defaults.upcoming_events_text || [],
+                    blog_text: defaults.blog_text || ''
+                });
+            }
+
         } catch (error) {
             console.error('Error fetching page content:', error);
             // Even on error, try to show defaults
@@ -200,7 +241,7 @@ export default function ManageContentPage() {
         if (!selectedPage) return;
         setLoading(true);
         try {
-            const token = await auth.currentUser?.getIdToken();
+            const token = await auth?.currentUser?.getIdToken();
             const res = await fetch('/api/site-content', {
                 method: 'POST',
                 headers: {
@@ -209,7 +250,11 @@ export default function ManageContentPage() {
                 },
                 body: JSON.stringify({
                     section: `page-${selectedPage}`,
-                    data: { title: pageTitle, content: pageContent, imageUrl: pageImageUrl }
+                    data: selectedPage === '8' ? {
+                        ...page8Data,
+                        title: pageTitle,
+                        content: pageContent
+                    } : { title: pageTitle, content: pageContent, imageUrl: pageImageUrl }
                 })
             });
 
@@ -294,7 +339,7 @@ export default function ManageContentPage() {
                                     <Plus className="h-4 w-4 mr-2" /> Add Notice
                                 </Button>
                                 <Button size="sm" onClick={() => {
-                                    const token = auth.currentUser?.getIdToken().then(t => {
+                                    const token = auth?.currentUser?.getIdToken().then(t => {
                                         fetch('/api/site-content', {
                                             method: 'POST',
                                             headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${t}` },
@@ -358,7 +403,7 @@ export default function ManageContentPage() {
                                     <Plus className="h-4 w-4 mr-2" /> Add Activity
                                 </Button>
                                 <Button size="sm" onClick={() => {
-                                    const token = auth.currentUser?.getIdToken().then(t => {
+                                    const token = auth?.currentUser?.getIdToken().then(t => {
                                         fetch('/api/site-content', {
                                             method: 'POST',
                                             headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${t}` },
@@ -440,6 +485,180 @@ export default function ManageContentPage() {
                                             <FileEdit className="h-4 w-4 mr-2" /> {loading ? 'Saving...' : 'Update Page Content'}
                                         </Button>
                                     </div>
+
+                                    {/* page-8 Specialized Editor */}
+                                    {selectedPage === '8' && (
+                                        <div className="mt-12 space-y-12 border-t pt-12">
+                                            <div className="bg-blue-50/50 p-6 rounded-xl border border-blue-100">
+                                                <h3 className="text-xl font-bold text-blue-900 mb-6 flex items-center gap-2">
+                                                    <Star className="size-5" /> Major Events Card
+                                                </h3>
+                                                <div className="space-y-4">
+                                                    <div className="space-y-2">
+                                                        <Label>Major Events Image URL</Label>
+                                                        <Input
+                                                            value={page8Data.major_events_image}
+                                                            onChange={(e) => setPage8Data({ ...page8Data, major_events_image: e.target.value })}
+                                                            placeholder="/images/event.jpg"
+                                                        />
+                                                    </div>
+                                                    <div className="space-y-2">
+                                                        <Label>Event Items (Repeater)</Label>
+                                                        {page8Data.major_events_text.map((item: string, idx: number) => (
+                                                            <div key={idx} className="flex gap-2">
+                                                                <Input
+                                                                    value={item}
+                                                                    onChange={(e) => {
+                                                                        const newItems = [...page8Data.major_events_text];
+                                                                        newItems[idx] = e.target.value;
+                                                                        setPage8Data({ ...page8Data, major_events_text: newItems });
+                                                                    }}
+                                                                />
+                                                                <Button variant="ghost" size="icon" onClick={() => {
+                                                                    const newItems = page8Data.major_events_text.filter((_: any, i: number) => i !== idx);
+                                                                    setPage8Data({ ...page8Data, major_events_text: newItems });
+                                                                }}>
+                                                                    <Trash2 className="h-4 w-4 text-destructive" />
+                                                                </Button>
+                                                            </div>
+                                                        ))}
+                                                        <Button variant="outline" size="sm" onClick={() => setPage8Data({ ...page8Data, major_events_text: [...page8Data.major_events_text, ''] })}>
+                                                            <Plus className="h-4 w-4 mr-2" /> Add Event Item
+                                                        </Button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                                                <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                                                    <Calendar className="size-5" /> The Month That Was (Repeater)
+                                                </h3>
+                                                <div className="space-y-6">
+                                                    {page8Data.month_that_was_items.map((item: any, idx: number) => (
+                                                        <div key={idx} className="p-4 border rounded-lg bg-white relative space-y-4">
+                                                            <Button
+                                                                variant="ghost"
+                                                                size="icon"
+                                                                className="absolute top-2 right-2"
+                                                                onClick={() => {
+                                                                    const newItems = page8Data.month_that_was_items.filter((_: any, i: number) => i !== idx);
+                                                                    setPage8Data({ ...page8Data, month_that_was_items: newItems });
+                                                                }}
+                                                            >
+                                                                <Trash2 className="h-4 w-4 text-destructive" />
+                                                            </Button>
+                                                            <div className="grid grid-cols-2 gap-4">
+                                                                <div className="space-y-2">
+                                                                    <Label>Date/Short Date</Label>
+                                                                    <Input
+                                                                        value={item.date}
+                                                                        onChange={(e) => {
+                                                                            const newItems = [...page8Data.month_that_was_items];
+                                                                            newItems[idx] = { ...item, date: e.target.value };
+                                                                            setPage8Data({ ...page8Data, month_that_was_items: newItems });
+                                                                        }}
+                                                                    />
+                                                                </div>
+                                                                <div className="space-y-2">
+                                                                    <Label>Title</Label>
+                                                                    <Input
+                                                                        value={item.title}
+                                                                        onChange={(e) => {
+                                                                            const newItems = [...page8Data.month_that_was_items];
+                                                                            newItems[idx] = { ...item, title: e.target.value };
+                                                                            setPage8Data({ ...page8Data, month_that_was_items: newItems });
+                                                                        }}
+                                                                    />
+                                                                </div>
+                                                            </div>
+                                                            <div className="space-y-2">
+                                                                <Label>Short Text</Label>
+                                                                <Textarea
+                                                                    value={item.text}
+                                                                    onChange={(e) => {
+                                                                        const newItems = [...page8Data.month_that_was_items];
+                                                                        newItems[idx] = { ...item, text: e.target.value };
+                                                                        setPage8Data({ ...page8Data, month_that_was_items: newItems });
+                                                                    }}
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                    <Button variant="outline" onClick={() => setPage8Data({ ...page8Data, month_that_was_items: [...page8Data.month_that_was_items, { date: '', title: '', text: '' }] })}>
+                                                        <Plus className="h-4 w-4 mr-2" /> Add Month Activity
+                                                    </Button>
+                                                </div>
+                                            </div>
+
+                                            <div className="bg-red-50/30 p-6 rounded-xl border border-red-100">
+                                                <h3 className="text-xl font-bold text-red-900 mb-6 flex items-center gap-2">
+                                                    <Bell className="size-5" /> Announcements (WYSIWYG)
+                                                </h3>
+                                                <VisualEditor
+                                                    value={page8Data.announcements_text}
+                                                    onChange={(val) => setPage8Data({ ...page8Data, announcements_text: val })}
+                                                />
+                                            </div>
+
+                                            <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                                                <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                                                    <FileText className="size-5" /> Brochure Card
+                                                </h3>
+                                                <div className="space-y-2">
+                                                    <Label>Brochure Image URL</Label>
+                                                    <Input
+                                                        value={page8Data.brochure_image}
+                                                        onChange={(e) => setPage8Data({ ...page8Data, brochure_image: e.target.value })}
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <div className="bg-blue-900/5 p-6 rounded-xl border border-blue-900/10">
+                                                <h3 className="text-xl font-bold text-blue-900 mb-6 flex items-center gap-2">
+                                                    <Clock className="size-5" /> Upcoming Events (Repeater)
+                                                </h3>
+                                                <div className="space-y-4">
+                                                    {page8Data.upcoming_events_text.map((item: string, idx: number) => (
+                                                        <div key={idx} className="flex gap-2">
+                                                            <Input
+                                                                value={item}
+                                                                onChange={(e) => {
+                                                                    const newItems = [...page8Data.upcoming_events_text];
+                                                                    newItems[idx] = e.target.value;
+                                                                    setPage8Data({ ...page8Data, upcoming_events_text: newItems });
+                                                                }}
+                                                            />
+                                                            <Button variant="ghost" size="icon" onClick={() => {
+                                                                const newItems = page8Data.upcoming_events_text.filter((_: any, i: number) => i !== idx);
+                                                                setPage8Data({ ...page8Data, upcoming_events_text: newItems });
+                                                            }}>
+                                                                <Trash2 className="h-4 w-4 text-destructive" />
+                                                            </Button>
+                                                        </div>
+                                                    ))}
+                                                    <Button variant="outline" size="sm" onClick={() => setPage8Data({ ...page8Data, upcoming_events_text: [...page8Data.upcoming_events_text, ''] })}>
+                                                        <Plus className="h-4 w-4 mr-2" /> Add Upcoming Event
+                                                    </Button>
+                                                </div>
+                                            </div>
+
+                                            <div className="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                                                <h3 className="text-xl font-bold text-blue-900 mb-6 flex items-center gap-2">
+                                                    <BookOpen className="size-5" /> Blog Section (WYSIWYG)
+                                                </h3>
+                                                <VisualEditor
+                                                    value={page8Data.blog_text}
+                                                    onChange={(val) => setPage8Data({ ...page8Data, blog_text: val })}
+                                                />
+                                            </div>
+
+                                            <div className="flex justify-end pt-8 sticky bottom-4">
+                                                <Button size="lg" className="w-full md:w-auto shadow-xl" onClick={handleSavePage} disabled={loading}>
+                                                    <Save className="h-4 w-4 mr-2" /> {loading ? 'Saving All...' : 'Save All Sidebar Cards'}
+                                                </Button>
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             )}
                         </CardContent>
