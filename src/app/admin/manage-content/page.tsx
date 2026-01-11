@@ -146,7 +146,7 @@ export default function ManageContentPage() {
             let newTitle = '';
             let newImage = '';
 
-            if (data.data && (data.data.content || data.data.title)) {
+            if (data.data) {
                 newContent = data.data.content || '';
                 newTitle = data.data.title || '';
                 newImage = data.data.imageUrl || '';

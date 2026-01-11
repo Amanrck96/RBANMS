@@ -1,8 +1,12 @@
+"use client";
 import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, Mail, MapPin, Facebook, Twitter, Youtube, Instagram, Linkedin } from 'lucide-react';
+import { useSiteSettings } from '@/hooks/use-site-settings';
 
 export function SiteFooter() {
+  const { settings } = useSiteSettings();
+
   const quickLinks = [
     { name: 'Home', href: '/', highlight: true },
     { name: 'Industry Connect', href: '/industry-connect/internship' },
@@ -68,19 +72,25 @@ export function SiteFooter() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 mt-1 shrink-0" />
-                <span className="text-white/80">#12, Annaswamy Mudaliar Road, Bangalore 560042.</span>
+                <span className="text-white/80">{settings?.address || '#12, Annaswamy Mudaliar Road, Bangalore 560042.'}</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 shrink-0" />
-                <a href="mailto:info@rbanmsfgc.edu.in" className="text-white/80 hover:text-white transition-colors">
-                  Via e-mail: info@rbanmsfgc.edu.in
+                <a href={`mailto:${settings?.email || 'info@rbanmsfgc.edu.in'}`} className="text-white/80 hover:text-white transition-colors">
+                  Via e-mail: {settings?.email || 'info@rbanmsfgc.edu.in'}
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="h-5 w-5 shrink-0 mt-1" />
                 <div className="flex flex-col text-white/80">
-                  <span>Landline: <a href="tel:08041653395" className="hover:text-white transition-colors">080-41653395</a> / <a href="tel:08025512976" className="hover:text-white transition-colors">080-25512976</a></span>
-                  <span>Mobile: <a href="tel:7349251497" className="hover:text-white transition-colors">7349251497</a></span>
+                  {settings?.phone ? (
+                    <span>Phone: <a href={`tel:${settings.phone}`} className="hover:text-white transition-colors">{settings.phone}</a></span>
+                  ) : (
+                    <>
+                      <span>Landline: <a href="tel:08041653395" className="hover:text-white transition-colors">080-41653395</a> / <a href="tel:08025512976" className="hover:text-white transition-colors">080-25512976</a></span>
+                      <span>Mobile: <a href="tel:7349251497" className="hover:text-white transition-colors">7349251497</a></span>
+                    </>
+                  )}
                 </div>
               </li>
               <li className="flex items-center gap-3">

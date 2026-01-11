@@ -40,8 +40,11 @@ export async function POST(request: NextRequest) {
         const userDoc = await adminDb.collection('users').doc(uid).get();
         const userData = userDoc.data();
 
-        if (userData?.role !== 'super_admin') {
-            return NextResponse.json({ error: 'Forbidden: Super Admin only' }, { status: 403 });
+        console.log(`[SiteContent] Update attempt by user ${uid}, role: ${userData?.role}`);
+
+        if (userData?.role !== 'super_admin' && userData?.role !== 'admin') {
+            console.error(`[SiteContent] Permission denied for user ${uid}. Role: ${userData?.role}`);
+            return NextResponse.json({ error: 'Forbidden: Admin or Super Admin only' }, { status: 403 });
         }
 
         const { section, data } = await request.json();

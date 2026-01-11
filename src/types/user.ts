@@ -53,6 +53,6 @@ export const ROLE_PERMISSIONS: Record<UserRole, Permission> = {
         canManageUsers: false,
         canManageSettings: false,
         canUploadImages: true,
-        canEditAnyContent: false,
+        canEditAnyContent: true,
     },
 };

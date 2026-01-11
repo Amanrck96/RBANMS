@@ -25,10 +25,13 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { SearchDialog } from "@/components/search-dialog";
 import { headerLinks, dropdownItems } from "@/lib/navigation";
+import { useSiteSettings } from "@/hooks/use-site-settings";
 
 
 
 export function SiteHeader() {
+  const { settings } = useSiteSettings();
+
   return (
     <header aria-label="Main" className="w-full m-0 p-0">
       {/* First header: contact info */}
@@ -39,15 +42,21 @@ export function SiteHeader() {
             <div className="flex items-center gap-2 text-yellow-400">
               <Phone className="h-4 w-4" />
               <span className="flex flex-col md:flex-row md:gap-2 text-center md:text-left">
-                <span>Landline: <a href="tel:08041653395" className="hover:underline">080-41653395</a> / <a href="tel:08025512976" className="hover:underline">080-25512976</a></span>
-                <span className="hidden md:inline">|</span>
-                <span>Mobile: <a href="tel:7349251497" className="hover:underline">7349251497</a></span>
+                {settings?.phone ? (
+                  <span>Phone: <a href={`tel:${settings.phone}`} className="hover:underline">{settings.phone}</a></span>
+                ) : (
+                  <>
+                    <span>Landline: <a href="tel:08041653395" className="hover:underline">080-41653395</a> / <a href="tel:08025512976" className="hover:underline">080-25512976</a></span>
+                    <span className="hidden md:inline">|</span>
+                    <span>Mobile: <a href="tel:7349251497" className="hover:underline">7349251497</a></span>
+                  </>
+                )}
               </span>
             </div>
             <div className="hidden md:block h-4 w-px bg-white/20 mx-1" />
-            <a href="mailto:info@rbanmsfgc.edu.in" className="flex items-center gap-2 hover:underline underline-offset-4 text-yellow-400">
+            <a href={`mailto:${settings?.email || 'info@rbanmsfgc.edu.in'}`} className="flex items-center gap-2 hover:underline underline-offset-4 text-yellow-400">
               <Mail className="h-4 w-4" />
-              Via e-mail: info@rbanmsfgc.edu.in
+              Via e-mail: {settings?.email || 'info@rbanmsfgc.edu.in'}
             </a>
             <div className="h-4 w-px bg-white/20 mx-1" />
             <SearchDialog />
