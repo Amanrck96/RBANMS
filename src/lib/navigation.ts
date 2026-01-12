@@ -14,6 +14,7 @@ export const headerLinks = [
     { label: "IQAC", href: "/iqac" },
     { label: "NAAC", href: "/naac" },
     { label: "Gallery", href: "/gallery" },
+    { label: "Career", href: "/career" },
     { label: "Contact Us", href: "/contact" },
 ];
 

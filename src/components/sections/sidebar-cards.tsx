@@ -82,7 +82,7 @@ export function SidebarCards() {
                                     </CardHeader>
                                     <CardContent className="p-4 pt-4 flex-grow flex flex-col items-center justify-center">
                                         {brochure && (
-                                            <div className="relative w-48 aspect-[3/4.2] rounded-lg overflow-hidden shadow-lg border-2 border-white transform hover:rotate-1 transition-transform cursor-pointer group">
+                                            <div className="relative w-40 aspect-[3/4.2] rounded-lg overflow-hidden shadow-lg border-2 border-white transform hover:rotate-1 transition-transform cursor-pointer group">
                                                 <Image
                                                     src={brochure}
                                                     alt={data.brochure_alt || "Download Brochure"}
@@ -90,7 +90,7 @@ export function SidebarCards() {
                                                     className="object-cover"
                                                 />
                                                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                                    <span className="bg-white text-blue-900 px-4 py-1.5 rounded-full font-bold text-xs">Download PDF</span>
+                                                    <span className="bg-white text-blue-900 px-4 py-1.5 rounded-full font-bold text-[10px]">Download PDF</span>
                                                 </div>
                                             </div>
                                         )}
