@@ -22,7 +22,7 @@ export function AdditionalImagesCarousel({ intervalMs = 3500, className }: Addit
   useEffect(() => {
     async function fetchHero() {
       try {
-        const res = await fetch('/api/site-content?section=page-home-top-banner');
+        const res = await fetch('/api/site-content?section=page-home-top-banner', { cache: 'no-store' });
         const json = await res.json();
         if (json.data && (json.data.imageUrl || json.data.content)) {
           setDynamicHero(json.data);

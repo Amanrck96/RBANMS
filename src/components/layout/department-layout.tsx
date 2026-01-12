@@ -66,7 +66,7 @@ export function DepartmentLayout({
         if (!pageId) return;
         async function fetchPageData() {
             try {
-                const res = await fetch(`/api/site-content?section=page-${pageId}`);
+                const res = await fetch(`/api/site-content?section=page-${pageId}`, { cache: 'no-store' });
                 const json = await res.json();
                 if (json.data && json.data.imageUrl) {
                     setDynamicHeroImage(json.data.imageUrl);
@@ -175,7 +175,16 @@ export function DepartmentLayout({
                     <div className="container mx-auto px-4 md:px-8 py-12 min-h-[500px]">
                         {sections.map((section) => (
                             <TabsContent key={section.id} value={section.id} className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                                {section.content}
+                                {pageId ? (
+                                    <DynamicSection
+                                        pageId={`${pageId}-tab-${section.id}`}
+                                        defaultTitle={section.label}
+                                        defaultContent={section.content}
+                                        onlyContent
+                                    />
+                                ) : (
+                                    section.content
+                                )}
                             </TabsContent>
                         ))}
                     </div>

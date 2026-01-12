@@ -1,26 +1,13 @@
+'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { CellPageContent } from '@/components/cells/cell-page-content';
 
-export default function ComingSoonPage() {
+export default function GrievanceRedressalPage() {
   return (
-    <div className="container mx-auto px-4 py-12 md:py-16">
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-3xl md:text-4xl font-bold text-primary font-headline">Grievance Redressal Cell</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-6 text-foreground/90 leading-relaxed">
-            <p className="text-lg">
-              Mechanisms to address and resolve student grievances.
-            </p>
-          </div>
-        </CardContent>
-        <div className="mt-8 w-full aspect-[21/9] bg-muted relative rounded-xl overflow-hidden shadow-sm mx-auto max-w-5xl">
-          <div className="absolute inset-0 flex items-center justify-center bg-slate-200 text-slate-500">
-            <span className="text-lg font-medium">Featured Activity Image</span>
-          </div>
-        </div>
-      </Card>
-    </div>
+    <CellPageContent
+      pageId="cell-grievance"
+      defaultTitle="Grievance Redressal Cell"
+      defaultContent="Providing a transparent mechanism for students to voice concerns and complaints, ensuring timely resolution and maintaining institutional harmony."
+    />
   );
 }

@@ -20,7 +20,7 @@ export function DynamicSection({ pageId, defaultTitle, defaultContent, defaultIm
     useEffect(() => {
         async function fetchContent() {
             try {
-                const res = await fetch(`/api/site-content?section=page-${pageId}`);
+                const res = await fetch(`/api/site-content?section=page-${pageId}`, { cache: 'no-store' });
                 const json = await res.json();
                 if (json.data) {
                     setData(json.data);

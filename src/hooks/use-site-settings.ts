@@ -9,6 +9,14 @@ export interface SiteSettings {
     establishedYear: string;
     accreditation: string;
     affiliation: string;
+    logoUrl?: string;
+    socialLinks?: {
+        facebook?: string;
+        twitter?: string;
+        instagram?: string;
+        linkedin?: string;
+        youtube?: string;
+    };
 }
 
 export function useSiteSettings() {

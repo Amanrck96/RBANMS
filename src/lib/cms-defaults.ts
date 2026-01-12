@@ -20,32 +20,59 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'about-history': {
         title: 'History of the College',
         content: `
-            <p>RBANMS First Grade College was founded in 1983 as part of RBANM's Educational Charities to meet the growing educational needs of Bangalore. Our founder, Dharmarathnakara Rai Bahadur Arcot Narrainswamy Mudaliar, established educational institutions in 1873 with a vision of making education accessible to all.</p>
-            <p>We believe education is a collaborative journey. Our dedicated teachers teach, guide, mentor, and inspire students through academics and extracurricular activities.</p>
+            <div class="space-y-6">
+                <p>RBANM’s First Grade College was established by RBANM’s Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.</p>
+                <p>This is one of the many institutions established under the umbrella of the RBANM’s Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.</p>
+                <p>The college has been accredited by NAAC and is recognised under Section 2(f) and 12(b) of the UGC Act, 1956.</p>
+                <div class="mt-8">
+                    <h3 class="text-2xl font-bold text-[#b91c1c] mb-4">Our Commitment</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start"><span class="mr-2 text-[#b91c1c]">•</span>Provides a value-driven and holistic education, fostering intellectual, physical, mental, and spiritual growth.</li>
+                        <li class="flex items-start"><span class="mr-2 text-[#b91c1c]">•</span>Offers inclusive education, ensuring that students from all social and economic backgrounds receive quality learning opportunities.</li>
+                        <li class="flex items-start"><span class="mr-2 text-[#b91c1c]">•</span>Maintains discipline, punctuality, and responsibility in both students and staff.</li>
+                        <li class="flex items-start"><span class="mr-2 text-[#b91c1c]">•</span>Encourages students to pursue academic excellence with a sense of curiosity and passion.</li>
+                        <li class="flex items-start"><span class="mr-2 text-[#b91c1c]">•</span>Supports holistic development through sports, cultural activities, and NCC programs.</li>
+                        <li class="flex items-start"><span class="mr-2 text-[#b91c1c]">•</span>Engages students in community development and nation-building, shaping them into socially responsible citizens.</li>
+                    </ul>
+                </div>
+            </div>
         `
     },
     'about-vision': {
         title: 'Our Vision',
         content: `
-            <p>The vision of RBANMS is built upon three fundamental principles:</p>
-            <ul>
-                <li><strong>Equity:</strong> Ensuring every student has access to opportunities and resources.</li>
-                <li><strong>Justice:</strong> Upholding fairness and integrity in education.</li>
-                <li><strong>Equality:</strong> Providing inclusive education where everyone is treated with dignity.</li>
-            </ul>
+            <div class="space-y-8">
+                <p class="text-lg font-bold text-center text-gray-600 mb-10">The vision of RBANMS is built upon three fundamental principles:</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="flex flex-col items-start text-left">
+                        <h3 class="text-2xl font-bold text-[#b91c1c] mb-2">Equity</h3>
+                        <p class="text-gray-600">Ensuring that every student, regardless of their background, has access to the same opportunities, resources, and support needed to succeed.</p>
+                    </div>
+                    <div class="flex flex-col items-start text-left">
+                        <h3 class="text-2xl font-bold text-[#b91c1c] mb-2">Justice</h3>
+                        <p class="text-gray-600">Upholding fairness and integrity in education and society. RBANMS strives to create a learning environment where students are encouraged to act with honesty and respect.</p>
+                    </div>
+                    <div class="flex flex-col items-start text-left">
+                        <h3 class="text-2xl font-bold text-[#b91c1c] mb-2">Equality</h3>
+                        <p class="text-gray-600">Providing an inclusive education system where every individual is treated with dignity and given the same chances to achieve their fullest potential.</p>
+                    </div>
+                </div>
+            </div>
         `
     },
     'about-mission': {
         title: 'Our Mission',
         content: `
-            <p>Our mission is to provide quality education that empowers students to excel in life:</p>
-            <ul>
-                <li>Nurture confident and capable individuals</li>
-                <li>Deliver strong foundation in Arts, Science, and Commerce</li>
-                <li>Develop critical thinking and problem-solving skills</li>
-                <li>Foster leadership and social responsibility</li>
-                <li>Incorporate ethical standards and professionalism</li>
-            </ul>
+            <div class="space-y-6">
+                <p class="text-lg text-gray-600 mb-6">At RBANMS, we are committed to providing quality education that empowers students to excel in life, staying true to the visionary dream of our founder. Our mission is to:</p>
+                <ul class="space-y-4">
+                    <li class="flex items-start"><span class="mr-3 text-[#b91c1c] font-bold">✓</span><span class="text-gray-600 text-lg">Nurture young minds with knowledge, shaping them into confident and capable individuals.</span></li>
+                    <li class="flex items-start"><span class="mr-3 text-[#b91c1c] font-bold">✓</span><span class="text-gray-600 text-lg">Deliver a strong foundation in Arts, Science, and Commerce, equipping students with a broad and deep understanding of their fields.</span></li>
+                    <li class="flex items-start"><span class="mr-3 text-[#b91c1c] font-bold">✓</span><span class="text-gray-600 text-lg">Develop essential life skills like critical thinking, communication, and problem-solving.</span></li>
+                    <li class="flex items-start"><span class="mr-3 text-[#b91c1c] font-bold">✓</span><span class="text-gray-600 text-lg">Foster leadership qualities and social responsibility, preparing students to make meaningful contributions.</span></li>
+                    <li class="flex items-start"><span class="mr-3 text-[#b91c1c] font-bold">✓</span><span class="text-gray-600 text-lg">Incorporate ethical standards, professionalism, and a lifelong curiosity for learning.</span></li>
+                </ul>
+            </div>
         `
     },
     'about-director': {

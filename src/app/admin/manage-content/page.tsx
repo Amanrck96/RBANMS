@@ -13,7 +13,6 @@ import { useToast } from '@/hooks/use-toast';
 import { VisualEditor } from '@/components/admin/visual-editor';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { DynamicSection } from '@/components/dynamic-section';
 import { CMS_DEFAULTS } from '@/lib/cms-defaults';
 
 const EDITABLE_PAGES = [
@@ -62,6 +61,10 @@ const EDITABLE_PAGES = [
     { label: 'Cell: Examination Committee', id: 'cell-exam' },
     { label: 'Cell: IPC', id: 'cell-ipc' },
     { label: 'Cell: Manasa Counselling', id: 'cell-manasa' },
+    { label: 'Cell: Internal Compliance', id: 'cell-internal-compliance' },
+    { label: 'Cell: POSH', id: 'cell-posh' },
+    { label: 'Cell: SC/ST Cell', id: 'cell-sc-st' },
+    { label: 'Cell: Equal Opportunity', id: 'cell-equal-opportunity' },
     { label: 'Cell: Statutory (General)', id: 'cell-statutory' },
     { label: 'Cell: Others (General)', id: 'cell-others' },
 
@@ -110,6 +113,10 @@ export default function ManageContentPage() {
         blog_text: ''
     });
 
+    // Sub-sections (Tabs) state
+    const [subSections, setSubSections] = useState<{ id: string, label: string, content: string }[]>([]);
+    const [activeSubSection, setActiveSubSection] = useState<string>('');
+
     // Toggle State for Old vs New
     const [currentData, setCurrentData] = useState<{ title: string, content: string, imageUrl: string } | null>(null);
     const [viewMode, setViewMode] = useState<'current' | 'original'>('current');
@@ -141,7 +148,34 @@ export default function ManageContentPage() {
     const fetchPageContent = async (pageId: string) => {
         setLoading(true);
         setViewMode('current'); // Reset view mode anytime we switch pages
+        setSubSections([]); // Reset sub-sections
+        setActiveSubSection('');
+
         try {
+            // Check if this page has sub-sections (tabs)
+            const tabbedPages: Record<string, string[]> = {
+                'dept-commerce': ['why-bcom', 'highlights', 'vision-mission', 'skill-set', 'paper-titles', 'outcomes', 'activities', 'faculty'],
+                'dept-management': ['overview', 'highlights', 'outcomes', 'faculty'],
+                'dept-bca': ['overview', 'syllabus', 'faculty'],
+                'facilities': ['overview', 'computer-labs', 'sports-ground', 'auditorium', 'library', 'digital-library', 'classrooms', 'canteen', 'green-campus'],
+                'administration': ['overview', 'staff-list', 'photos']
+            };
+
+            const pageTabs = tabbedPages[pageId];
+            if (pageTabs) {
+                const fetchedSubSections = await Promise.all(pageTabs.map(async (tabId) => {
+                    const res = await fetch(`/api/site-content?section=page-${pageId}-tab-${tabId}`);
+                    const data = await res.json();
+                    return {
+                        id: tabId,
+                        label: tabId.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' '),
+                        content: data.data?.content || ''
+                    };
+                }));
+                setSubSections(fetchedSubSections);
+                if (fetchedSubSections.length > 0) setActiveSubSection(fetchedSubSections[0].id);
+            }
+
             const res = await fetch(`/api/site-content?section=page-${pageId}`);
             const data = await res.json();
 
@@ -476,13 +510,63 @@ export default function ManageContentPage() {
                                         </div>
                                     </div>
 
-                                    <div className="space-y-2">
-                                        <Label>Main Content (Visual Editor)</Label>
-                                        <VisualEditor
-                                            value={pageContent}
-                                            onChange={setPageContent}
-                                        />
-                                    </div>
+                                    {subSections.length > 0 && (
+                                        <div className="space-y-4 bg-slate-50 p-4 rounded-lg border border-slate-200">
+                                            <Label className="text-slate-900 font-bold">Page Sub-sections (Tabs)</Label>
+                                            <Tabs value={activeSubSection} onValueChange={setActiveSubSection} className="w-full">
+                                                <TabsList className="flex flex-wrap h-auto">
+                                                    {subSections.map(sub => (
+                                                        <TabsTrigger key={sub.id} value={sub.id} className="text-xs">{sub.label}</TabsTrigger>
+                                                    ))}
+                                                </TabsList>
+                                                {subSections.map(sub => (
+                                                    <TabsContent key={sub.id} value={sub.id} className="mt-4 space-y-4">
+                                                        <VisualEditor
+                                                            value={sub.content}
+                                                            onChange={(val) => {
+                                                                const newSubs = subSections.map(s => s.id === sub.id ? { ...s, content: val } : s);
+                                                                setSubSections(newSubs);
+                                                            }}
+                                                        />
+                                                        <div className="flex justify-end">
+                                                            <Button size="sm" onClick={async () => {
+                                                                setLoading(true);
+                                                                try {
+                                                                    const token = await auth?.currentUser?.getIdToken();
+                                                                    await fetch('/api/site-content', {
+                                                                        method: 'POST',
+                                                                        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                                                                        body: JSON.stringify({
+                                                                            section: `page-${selectedPage}-tab-${sub.id}`,
+                                                                            data: { content: sub.content }
+                                                                        })
+                                                                    });
+                                                                    toast({ title: 'Success', description: `${sub.label} updated` });
+                                                                } catch (e) {
+                                                                    toast({ title: 'Error', description: 'Update failed', variant: 'destructive' });
+                                                                } finally {
+                                                                    setLoading(false);
+                                                                }
+                                                            }} disabled={loading}>
+                                                                <Save className="h-4 w-4 mr-2" /> Save {sub.label}
+                                                            </Button>
+                                                        </div>
+                                                    </TabsContent>
+                                                ))}
+                                            </Tabs>
+                                        </div>
+                                    )}
+
+                                    {!subSections.length && (
+                                        <div className="space-y-2">
+                                            <Label>Main Content (Visual Editor)</Label>
+                                            <VisualEditor
+                                                value={pageContent}
+                                                onChange={setPageContent}
+                                            />
+                                        </div>
+                                    )}
+
                                     <div className="flex justify-end pt-4">
                                         <Button onClick={handleSavePage} disabled={loading}>
                                             <FileEdit className="h-4 w-4 mr-2" /> {loading ? 'Saving...' : 'Update Page Content'}

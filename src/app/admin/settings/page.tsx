@@ -20,6 +20,14 @@ type SiteSettings = {
     establishedYear: string;
     accreditation: string;
     affiliation: string;
+    logoUrl?: string;
+    socialLinks?: {
+        facebook?: string;
+        twitter?: string;
+        instagram?: string;
+        linkedin?: string;
+        youtube?: string;
+    };
 };
 
 export default function SettingsPage() {
@@ -34,7 +42,8 @@ export default function SettingsPage() {
         website: "www.rbanmsfgc.edu.in",
         establishedYear: "1983",
         accreditation: "NAAC Accredited",
-        affiliation: "Bangalore City University"
+        affiliation: "Bangalore City University",
+        socialLinks: {}
     });
 
     useEffect(() => {
@@ -46,7 +55,10 @@ export default function SettingsPage() {
             const res = await fetch('/api/site-content?section=site-settings');
             const data = await res.json();
             if (data.data) {
-                setSettings(data.data);
+                setSettings({
+                    ...data.data,
+                    socialLinks: data.data.socialLinks || {}
+                });
             }
         } catch (error) {
             console.error('Error fetching settings:', error);
@@ -78,11 +90,7 @@ export default function SettingsPage() {
                 throw new Error('Failed to update settings');
             }
         } catch (error) {
-            toast({
-                title: 'Error',
-                description: 'Failed to update settings',
-                variant: 'destructive'
-            });
+            alert('Failed to update settings: ' + error);
         } finally {
             setLoading(false);
         }
@@ -106,6 +114,7 @@ export default function SettingsPage() {
                 <TabsList>
                     <TabsTrigger value="general">General Information</TabsTrigger>
                     <TabsTrigger value="contact">Contact Details</TabsTrigger>
+                    <TabsTrigger value="socials">Social Links</TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="general" className="space-y-4">
@@ -116,11 +125,20 @@ export default function SettingsPage() {
                                 College Information
                             </CardTitle>
                             <CardDescription>
-                                Update basic information about your college
+                                Update basic information and branding
                             </CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-4">
                             <div className="grid gap-4">
+                                <div>
+                                    <Label htmlFor="logoUrl">Logo URL</Label>
+                                    <Input
+                                        id="logoUrl"
+                                        value={settings.logoUrl || ''}
+                                        onChange={(e) => setSettings({ ...settings, logoUrl: e.target.value })}
+                                        placeholder="/images/crest.png"
+                                    />
+                                </div>
                                 <div>
                                     <Label htmlFor="collegeName">College Name</Label>
                                     <Input
@@ -232,6 +250,60 @@ export default function SettingsPage() {
                                         value={settings.website}
                                         onChange={(e) => setSettings({ ...settings, website: e.target.value })}
                                         placeholder="www.college.edu"
+                                    />
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </TabsContent>
+
+                <TabsContent value="socials" className="space-y-4">
+                    <Card>
+                        <CardHeader>
+                            <CardTitle className="flex items-center gap-2">
+                                <Globe className="h-5 w-5" />
+                                Social Media Links
+                            </CardTitle>
+                            <CardDescription>
+                                Update URLs for your official social media profiles
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                            <div className="grid gap-4">
+                                <div>
+                                    <Label htmlFor="facebook">Facebook URL</Label>
+                                    <Input
+                                        id="facebook"
+                                        value={settings.socialLinks?.facebook || ''}
+                                        onChange={(e) => setSettings({ ...settings, socialLinks: { ...settings.socialLinks, facebook: e.target.value } })}
+                                        placeholder="https://facebook.com/..."
+                                    />
+                                </div>
+                                <div>
+                                    <Label htmlFor="instagram">Instagram URL</Label>
+                                    <Input
+                                        id="instagram"
+                                        value={settings.socialLinks?.instagram || ''}
+                                        onChange={(e) => setSettings({ ...settings, socialLinks: { ...settings.socialLinks, instagram: e.target.value } })}
+                                        placeholder="https://instagram.com/..."
+                                    />
+                                </div>
+                                <div>
+                                    <Label htmlFor="linkedin">LinkedIn URL</Label>
+                                    <Input
+                                        id="linkedin"
+                                        value={settings.socialLinks?.linkedin || ''}
+                                        onChange={(e) => setSettings({ ...settings, socialLinks: { ...settings.socialLinks, linkedin: e.target.value } })}
+                                        placeholder="https://linkedin.com/company/..."
+                                    />
+                                </div>
+                                <div>
+                                    <Label htmlFor="youtube">YouTube URL</Label>
+                                    <Input
+                                        id="youtube"
+                                        value={settings.socialLinks?.youtube || ''}
+                                        onChange={(e) => setSettings({ ...settings, socialLinks: { ...settings.socialLinks, youtube: e.target.value } })}
+                                        placeholder="https://youtube.com/c/..."
                                     />
                                 </div>
                             </div>
