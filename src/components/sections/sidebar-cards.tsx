@@ -81,19 +81,22 @@ export function SidebarCards() {
                                         </CardTitle>
                                     </CardHeader>
                                     <CardContent className="p-4 pt-4 flex-grow flex flex-col items-center justify-center">
-                                        {brochure && (
-                                            <div className="relative w-40 aspect-[3/4.2] rounded-lg overflow-hidden shadow-lg border-2 border-white transform hover:rotate-1 transition-transform cursor-pointer group">
-                                                <Image
-                                                    src={brochure}
-                                                    alt={data.brochure_alt || "Download Brochure"}
-                                                    fill
-                                                    className="object-cover"
-                                                />
-                                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                                    <span className="bg-white text-blue-900 px-4 py-1.5 rounded-full font-bold text-[10px]">Download PDF</span>
-                                                </div>
+                                        <a
+                                            href="https://drive.google.com/file/d/1CzrsV32FaXRc79ZHvfneH4dZbinqriDH/view?usp=sharing"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="relative w-40 aspect-[3/4.2] rounded-lg overflow-hidden shadow-lg border-2 border-white transform hover:scale-105 hover:rotate-1 transition-transform cursor-pointer group"
+                                        >
+                                            <Image
+                                                src="/images/college-brochure.png"
+                                                alt="College Brochure"
+                                                fill
+                                                className="object-cover"
+                                            />
+                                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                                <span className="bg-white text-blue-900 px-4 py-1.5 rounded-full font-bold text-[10px]">View Brochure</span>
                                             </div>
-                                        )}
+                                        </a>
                                     </CardContent>
                                 </Card>
                             </div>
