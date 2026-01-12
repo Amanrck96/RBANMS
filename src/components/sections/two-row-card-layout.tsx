@@ -295,7 +295,7 @@ export function TwoRowCardLayout() {
                                         </div>
 
                                         {/* Right Side - Image (Featured Magazine) */}
-                                        <div className="w-full sm:w-[320px] lg:w-[340px] shrink-0">
+                                        <div className="w-full sm:w-[280px] lg:w-[300px] shrink-0 self-center">
                                             <a
                                                 href="https://drive.google.com/file/d/1iZPsekFA8vT5qAVqkYK7mPBN9XXPodvv/view?usp=sharing"
                                                 target="_blank"
@@ -311,17 +311,14 @@ export function TwoRowCardLayout() {
                                                     />
                                                     {/* Hover Overlay */}
                                                     <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300 flex items-center justify-center">
-                                                        <div className="bg-white/95 text-primary px-8 py-3 rounded-full font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 shadow-2xl scale-90 group-hover:scale-100">
+                                                        <div className="bg-white/95 text-primary px-6 py-2 rounded-full font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 shadow-2xl scale-90 group-hover:scale-100 text-sm">
                                                             Read Magazine
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div className="text-center mt-4">
-                                                    <p className="text-sm font-bold text-primary group-hover:text-red-700 transition-colors">
+                                                <div className="text-center mt-3">
+                                                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest group-hover:text-primary transition-colors">
                                                         Phoenix Annual Magazine
-                                                    </p>
-                                                    <p className="text-xs text-muted-foreground mt-1">
-                                                        Click to Open PDF
                                                     </p>
                                                 </div>
                                             </a>
