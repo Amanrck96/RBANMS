@@ -79,6 +79,18 @@ const courses = [
     ],
     href: '/departments/english',
     isNew: true
+  },
+  {
+    icon: GraduationCap, // using GraduationCap for M.Com as it's a masters degree
+    title: 'Masters in Commerce (M.Com)',
+    description: 'This two year post-graduate degree provides an opportunity to upgrade a career in commerce and accounting. At RBANM’s FGC, the M.Com programme is designed to cater to working professionals.',
+    details: [
+      'Duration: 2 Years',
+      'Focus: Commerce, Accounting, Professional Development',
+      'Career Roles: Senior Accountant, Finance Manager, Corporate Professional'
+    ],
+    href: '/departments/commerce', // Assuming it belongs to commerce department
+    isNew: false
   }
 ];
 
