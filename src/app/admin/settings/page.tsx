@@ -27,6 +27,8 @@ type SiteSettings = {
         instagram?: string;
         linkedin?: string;
         youtube?: string;
+        pinterest?: string;
+        bluesky?: string;
     };
 };
 
@@ -280,6 +282,15 @@ export default function SettingsPage() {
                                     />
                                 </div>
                                 <div>
+                                    <Label htmlFor="twitter">Twitter/X URL</Label>
+                                    <Input
+                                        id="twitter"
+                                        value={settings.socialLinks?.twitter || ''}
+                                        onChange={(e) => setSettings({ ...settings, socialLinks: { ...settings.socialLinks, twitter: e.target.value } })}
+                                        placeholder="https://x.com/..."
+                                    />
+                                </div>
+                                <div>
                                     <Label htmlFor="instagram">Instagram URL</Label>
                                     <Input
                                         id="instagram"
@@ -304,6 +315,24 @@ export default function SettingsPage() {
                                         value={settings.socialLinks?.youtube || ''}
                                         onChange={(e) => setSettings({ ...settings, socialLinks: { ...settings.socialLinks, youtube: e.target.value } })}
                                         placeholder="https://youtube.com/c/..."
+                                    />
+                                </div>
+                                <div>
+                                    <Label htmlFor="pinterest">Pinterest URL</Label>
+                                    <Input
+                                        id="pinterest"
+                                        value={settings.socialLinks?.pinterest || ''}
+                                        onChange={(e) => setSettings({ ...settings, socialLinks: { ...settings.socialLinks, pinterest: e.target.value } })}
+                                        placeholder="https://pinterest.com/..."
+                                    />
+                                </div>
+                                <div>
+                                    <Label htmlFor="bluesky">Bluesky URL</Label>
+                                    <Input
+                                        id="bluesky"
+                                        value={settings.socialLinks?.bluesky || ''}
+                                        onChange={(e) => setSettings({ ...settings, socialLinks: { ...settings.socialLinks, bluesky: e.target.value } })}
+                                        placeholder="https://bsky.app/profile/..."
                                     />
                                 </div>
                             </div>

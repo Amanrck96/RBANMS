@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Mail, MapPin, Facebook, Twitter, Youtube, Instagram, Linkedin } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Twitter, Youtube, Instagram, Linkedin, Pin, Cloud } from 'lucide-react';
 import { useSiteSettings } from '@/hooks/use-site-settings';
 import { DynamicSection } from '@/components/dynamic-section';
 
@@ -106,45 +106,32 @@ export function SiteFooter() {
           {/* Social Media */}
           <div className="space-y-2">
             <h3 className="text-xl font-bold !text-yellow-400">Social Media</h3>
-            <div className="flex gap-4">
-              {settings?.socialLinks?.facebook && (
-                <a href={settings.socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="Facebook">
+            <div className="flex flex-wrap gap-4">
+              {(settings?.socialLinks?.facebook || !settings?.socialLinks) && (
+                <a href={settings?.socialLinks?.facebook || "#"} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="Facebook">
                   <Facebook className="h-6 w-6" />
                 </a>
               )}
-              {settings?.socialLinks?.youtube && (
-                <a href={settings.socialLinks.youtube} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="YouTube">
+              {(settings?.socialLinks?.youtube || !settings?.socialLinks) && (
+                <a href={settings?.socialLinks?.youtube || "#"} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="YouTube">
                   <Youtube className="h-6 w-6" />
                 </a>
               )}
-              {settings?.socialLinks?.instagram && (
-                <a href={settings.socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="Instagram">
-                  <Instagram className="h-6 w-6" />
-                </a>
-              )}
-              {settings?.socialLinks?.linkedin && (
-                <a href={settings.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="LinkedIn">
-                  <Linkedin className="h-6 w-6" />
-                </a>
-              )}
-              {settings?.socialLinks?.twitter && (
-                <a href={settings.socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="Twitter">
-                  <Twitter className="h-6 w-6" />
-                </a>
-              )}
-              {!settings?.socialLinks && (
-                <>
-                  <a href="#" className="text-white/80 hover:text-white transition-colors" aria-label="YouTube">
-                    <Youtube className="h-6 w-6" />
-                  </a>
-                  <a href="#" className="text-white/80 hover:text-white transition-colors" aria-label="Instagram">
-                    <Instagram className="h-6 w-6" />
-                  </a>
-                  <a href="#" className="text-white/80 hover:text-white transition-colors" aria-label="LinkedIn">
-                    <Linkedin className="h-6 w-6" />
-                  </a>
-                </>
-              )}
+              <a href={settings?.socialLinks?.instagram || "https://www.instagram.com/rbanmsfgcblr/"} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="Instagram">
+                <Instagram className="h-6 w-6" />
+              </a>
+              <a href={settings?.socialLinks?.linkedin || "https://www.linkedin.com/company/rbanmsfgcblr"} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="LinkedIn">
+                <Linkedin className="h-6 w-6" />
+              </a>
+              <a href={settings?.socialLinks?.twitter || "https://x.com/rbanmsfgcblr"} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="Twitter">
+                <Twitter className="h-6 w-6" />
+              </a>
+              <a href={settings?.socialLinks?.pinterest || "https://www.pinterest.com/rbanmsfgcblr/"} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="Pinterest">
+                <Pin className="h-6 w-6" />
+              </a>
+              <a href={settings?.socialLinks?.bluesky || "https://bsky.app/profile/rbanmsfgcblr.bsky.social"} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="Bluesky">
+                <Cloud className="h-6 w-6" />
+              </a>
             </div>
           </div>
         </div>

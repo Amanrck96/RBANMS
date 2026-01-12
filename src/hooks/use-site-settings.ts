@@ -16,6 +16,8 @@ export interface SiteSettings {
         instagram?: string;
         linkedin?: string;
         youtube?: string;
+        pinterest?: string;
+        bluesky?: string;
     };
 }
 
