@@ -39,7 +39,7 @@ export default function UsersPage() {
         setMessage('');
 
         try {
-            const token = await auth.currentUser?.getIdToken();
+            const token = await auth?.currentUser?.getIdToken();
             const response = await fetch('/api/users/create', {
                 method: 'POST',
                 headers: {
@@ -144,8 +144,8 @@ export default function UsersPage() {
 
                         {message && (
                             <div className={`p-3 text-sm rounded-md ${message.startsWith('Error')
-                                    ? 'bg-red-100 text-red-800 border border-red-200'
-                                    : 'bg-green-100 text-green-800 border border-green-200'
+                                ? 'bg-red-100 text-red-800 border border-red-200'
+                                : 'bg-green-100 text-green-800 border border-green-200'
                                 }`}>
                                 {message}
                             </div>

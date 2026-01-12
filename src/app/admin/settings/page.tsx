@@ -68,7 +68,7 @@ export default function SettingsPage() {
     const handleSave = async () => {
         setLoading(true);
         try {
-            const token = await auth.currentUser?.getIdToken();
+            const token = await auth?.currentUser?.getIdToken();
             const res = await fetch('/api/site-content', {
                 method: 'POST',
                 headers: {
