@@ -19,7 +19,10 @@ import { CMS_DEFAULTS } from '@/lib/cms-defaults';
 const EDITABLE_PAGES = [
     // Home Section
     { label: 'Home: Introduction', id: 'home-intro' },
-    { label: 'Home: Hero Section', id: 'home-hero' },
+    { label: 'Home: Hero/Carousel (Top)', id: 'home-top-banner' },
+    { label: 'Home: Main Body (Experience)', id: 'home-hero' },
+    { label: 'Header: Top Bar', id: 'header-top' },
+    { label: 'Footer: Copyright / Bottom', id: 'footer-about' },
     { label: 'About: Founder', id: 'about-founder' },
     { label: 'About: History', id: 'about-history' },
     { label: 'About: Vision', id: 'about-vision' },
@@ -75,7 +78,7 @@ const EDITABLE_PAGES = [
     { label: 'Activities: Cultural', id: 'activities-cultural' },
     { label: 'Activities: Co-Curricular', id: 'activities-co-curricular' },
     { label: 'Administration (Staff List)', id: 'administration' },
-    { label: 'Regional: Sidebar Cards', id: '8' },
+    { label: 'Home: Sidebar & Campus Updates', id: '8' },
 ];
 
 export default function ManageContentPage() {

@@ -26,6 +26,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { SearchDialog } from "@/components/search-dialog";
 import { headerLinks, dropdownItems } from "@/lib/navigation";
 import { useSiteSettings } from "@/hooks/use-site-settings";
+import { DynamicSection } from "@/components/dynamic-section";
 
 
 
@@ -34,6 +35,7 @@ export function SiteHeader() {
 
   return (
     <header aria-label="Main" className="w-full m-0 p-0">
+      <DynamicSection pageId="header-top" onlyContent />
       {/* First header: contact info */}
       <div className="w-full bg-blue-900 text-white border-b border-white/10">
         <div className="relative mx-auto max-w-7xl px-2 py-1 flex flex-col md:flex-row items-center md:justify-center gap-2 text-xs">

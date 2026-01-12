@@ -242,5 +242,18 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
             <p>Welcome to our blog section where we share insights, stories, and updates from our college community. Stay tuned for upcoming articles on academic excellence, student achievements, and educational initiatives that shape the future of learning.</p>
             <p>Blog content coming soon...</p>
         `
+    },
+    'header-top': {
+        title: 'Header Top Bar',
+        content: ''
+    },
+    'home-top-banner': {
+        title: 'Home Hero Carousel',
+        content: '',
+        imageUrl: '' // Use this for overriding the first slide or adding a featured slide
+    },
+    'footer-about': {
+        title: 'Footer Copyright',
+        content: '<p>&copy; 2025 RBANM\'s First Grade College. All Rights Reserved.</p>'
     }
 };
