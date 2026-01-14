@@ -12,17 +12,15 @@
         <div>
             <h3 class="text-yellow-400 font-bold mb-4 uppercase text-sm">Contact Us</h3>
             <p class="text-sm leading-relaxed">
-                #24, Haudin Road,<br>
-                Opp. Commercial Street,<br>
-                Bangalore - 560042
+                <?php echo get_field('footer_address', 'option') ?: '#24, Haudin Road,<br>Opp. Commercial Street,<br>Bangalore - 560042'; ?>
             </p>
         </div>
         <div>
             <h3 class="text-yellow-400 font-bold mb-4 uppercase text-sm">Follow Us</h3>
             <div class="flex gap-4">
-                <a href="#" class="hover:text-yellow-400"><i data-lucide="facebook"></i></a>
-                <a href="#" class="hover:text-yellow-400"><i data-lucide="instagram"></i></a>
-                <a href="#" class="hover:text-yellow-400"><i data-lucide="linkedin"></i></a>
+                <a href="<?php echo esc_url(get_field('footer_social_facebook', 'option') ?: '#'); ?>" class="hover:text-yellow-400"><i data-lucide="facebook"></i></a>
+                <a href="<?php echo esc_url(get_field('footer_social_instagram', 'option') ?: '#'); ?>" class="hover:text-yellow-400"><i data-lucide="instagram"></i></a>
+                <a href="<?php echo esc_url(get_field('footer_social_linkedin', 'option') ?: '#'); ?>" class="hover:text-yellow-400"><i data-lucide="linkedin"></i></a>
             </div>
         </div>
         <div>

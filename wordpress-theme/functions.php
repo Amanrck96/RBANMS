@@ -107,6 +107,16 @@ function rbanms_content_editor_page() {
  */
 if( function_exists('acf_add_local_field_group') ):
 
+// Theme Options Page
+acf_add_options_page(array(
+    'page_title'    => 'Theme General Settings',
+    'menu_title'    => 'Theme Options',
+    'menu_slug'     => 'theme-general-settings',
+    'capability'    => 'edit_posts',
+    'redirect'      => false
+));
+
+// Home Page Fields
 acf_add_local_field_group(array(
 	'key' => 'group_home_fields',
 	'title' => 'Home Page Content',
@@ -128,7 +138,7 @@ acf_add_local_field_group(array(
 			'label' => 'Hero Image',
 			'name' => 'home_hero_image',
 			'type' => 'image',
-            'return_format' => 'url',
+            'return_format' => 'array',
 		),
 		array(
 			'key' => 'field_right_column_card_title',
@@ -147,7 +157,7 @@ acf_add_local_field_group(array(
 			'label' => 'Right Column Image',
 			'name' => 'right_column_card_image',
 			'type' => 'image',
-            'return_format' => 'url',
+            'return_format' => 'array',
 		),
         array(
 			'key' => 'field_rbnam_experience_text',
@@ -165,6 +175,116 @@ acf_add_local_field_group(array(
 			),
 		),
 	),
+));
+
+// Theme Options Fields
+acf_add_local_field_group(array(
+    'key' => 'group_theme_options',
+    'title' => 'Theme Options',
+    'fields' => array(
+        // Header
+        array(
+            'key' => 'field_header_logo',
+            'label' => 'Header Logo',
+            'name' => 'header_logo',
+            'type' => 'image',
+            'return_format' => 'array',
+        ),
+        array(
+            'key' => 'field_header_phone',
+            'label' => 'Header Phone',
+            'name' => 'header_phone',
+            'type' => 'text',
+        ),
+        array(
+            'key' => 'field_header_email',
+            'label' => 'Header Email',
+            'name' => 'header_email',
+            'type' => 'email',
+        ),
+        // Footer
+        array(
+            'key' => 'field_footer_address',
+            'label' => 'Footer Address',
+            'name' => 'footer_address',
+            'type' => 'textarea',
+        ),
+        array(
+            'key' => 'field_footer_social_facebook',
+            'label' => 'Facebook URL',
+            'name' => 'footer_social_facebook',
+            'type' => 'url',
+        ),
+        array(
+            'key' => 'field_footer_social_instagram',
+            'label' => 'Instagram URL',
+            'name' => 'footer_social_instagram',
+            'type' => 'url',
+        ),
+        array(
+            'key' => 'field_footer_social_linkedin',
+            'label' => 'LinkedIn URL',
+            'name' => 'footer_social_linkedin',
+            'type' => 'url',
+        ),
+    ),
+    'location' => array(
+        array(
+            array(
+                'param' => 'options_page',
+                'operator' => '==',
+                'value' => 'theme-general-settings',
+            ),
+        ),
+    ),
+));
+
+// Page Fields
+acf_add_local_field_group(array(
+    'key' => 'group_page_fields',
+    'title' => 'Page Content',
+    'fields' => array(
+        array(
+            'key' => 'field_page_hero_image',
+            'label' => 'Page Hero Image',
+            'name' => 'page_hero_image',
+            'type' => 'image',
+            'return_format' => 'array',
+        ),
+        array(
+            'key' => 'field_page_hero_title',
+            'label' => 'Page Hero Title',
+            'name' => 'page_hero_title',
+            'type' => 'text',
+        ),
+        array(
+            'key' => 'field_page_sidebar_image',
+            'label' => 'Sidebar Image',
+            'name' => 'page_sidebar_image',
+            'type' => 'image',
+            'return_format' => 'array',
+        ),
+        array(
+            'key' => 'field_page_sidebar_text',
+            'label' => 'Sidebar Text',
+            'name' => 'page_sidebar_text',
+            'type' => 'textarea',
+        ),
+    ),
+    'location' => array(
+        array(
+            array(
+                'param' => 'post_type',
+                'operator' => '==',
+                'value' => 'page',
+            ),
+            array(
+                'param' => 'page_type',
+                'operator' => '!=',
+                'value' => 'front_page',
+            ),
+        ),
+    ),
 ));
 
 endif;
