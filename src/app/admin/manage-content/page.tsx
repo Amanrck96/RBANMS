@@ -14,75 +14,105 @@ import { VisualEditor } from '@/components/admin/visual-editor';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { CMS_DEFAULTS } from '@/lib/cms-defaults';
+import { ImageUpload } from '@/components/admin/image-upload';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
-const EDITABLE_PAGES = [
-    // Home Section
-    { label: 'Home: Introduction', id: 'home-intro' },
-    { label: 'Home: Hero/Carousel (Top)', id: 'home-top-banner' },
-    { label: 'Home: Main Body (Experience)', id: 'home-hero' },
-    { label: 'Header: Top Bar', id: 'header-top' },
-    { label: 'Footer: Copyright / Bottom', id: 'footer-about' },
-    { label: 'About: Founder', id: 'about-founder' },
-    { label: 'About: History', id: 'about-history' },
-    { label: 'About: Vision', id: 'about-vision' },
-    { label: 'About: Mission', id: 'about-mission' },
-    { label: 'About: Director Message', id: 'about-director' },
-    { label: 'About: Principal Message', id: 'about-principal' },
-    { label: 'About: Board Members', id: 'about-board' },
-
-    // Academics
-    { label: 'Academics: Courses Offered', id: 'academics-courses' },
-    { label: 'Academics: Rules & Regulations', id: 'academics-rules' },
-
-    // Departments
-    { label: 'Dept: Commerce', id: 'dept-commerce' },
-    { label: 'Dept: Commerce Sidebar', id: 'dept-commerce-sidebar' },
-    { label: 'Dept: Management (BBA)', id: 'dept-management' },
-    { label: 'Dept: Computer Applications (BCA)', id: 'dept-bca' },
-    { label: 'Dept: Arts', id: 'dept-arts' },
-    { label: 'Dept: English', id: 'dept-english' },
-    { label: 'Dept: Languages', id: 'dept-languages' },
-    { label: 'Dept: Physical Education', id: 'dept-physed' },
-
-    // Cells & Committees
-    { label: 'Cell: IQAC', id: 'cell-iqac' },
-    { label: 'Cell: NSS', id: 'cell-nss' },
-    { label: 'Cell: NCC Army', id: 'cell-ncc-army' },
-    { label: 'Cell: NCC Navy', id: 'cell-ncc-navy' },
-    { label: 'Cell: Women\'s Cell', id: 'cell-womens' },
-    { label: 'Cell: Eco Club', id: 'cell-eco' },
-    { label: 'Cell: Cultural Committee', id: 'cell-cultural' },
-    { label: 'Cell: Placement Cell', id: 'cell-placement' },
-    { label: 'Cell: Anti-Ragging', id: 'cell-antiragging' },
-    { label: 'Cell: Grievance Redressal', id: 'cell-grievance' },
-    { label: 'Cell: YRC & Scouts', id: 'cell-yrc' },
-    { label: 'Cell: AICTE Committee', id: 'cell-aicte' },
-    { label: 'Cell: Discipline Committee', id: 'cell-discipline' },
-    { label: 'Cell: Examination Committee', id: 'cell-exam' },
-    { label: 'Cell: IPC', id: 'cell-ipc' },
-    { label: 'Cell: Manasa Counselling', id: 'cell-manasa' },
-    { label: 'Cell: Internal Compliance', id: 'cell-internal-compliance' },
-    { label: 'Cell: POSH', id: 'cell-posh' },
-    { label: 'Cell: SC/ST Cell', id: 'cell-sc-st' },
-    { label: 'Cell: Equal Opportunity', id: 'cell-equal-opportunity' },
-    { label: 'Cell: Statutory (General)', id: 'cell-statutory' },
-    { label: 'Cell: Others (General)', id: 'cell-others' },
-
-    // More Pages
-    { label: 'Facilities', id: 'facilities' },
-    { label: 'Contact Info', id: 'contact-info' },
-    { label: 'Scholarships', id: 'scholarships' },
-    { label: 'Research', id: 'research' },
-    { label: 'NAAC', id: 'naac' },
-    { label: 'Gallery (Brief)', id: 'gallery' },
-    { label: 'Core Values', id: 'about-core-values' },
-    { label: 'Academic Structure', id: 'academics-structure' },
-    { label: 'Academics: Philosophy', id: 'academics-philosophy' },
-    { label: 'Activities: Cultural', id: 'activities-cultural' },
-    { label: 'Activities: Co-Curricular', id: 'activities-co-curricular' },
-    { label: 'Administration (Staff List)', id: 'administration' },
-    { label: 'Home: Sidebar & Campus Updates', id: '8' },
+const PAGE_GROUPS = [
+    {
+        name: 'Site Essentials',
+        pages: [
+            { label: 'Header: Top Bar', id: 'header-top' },
+            { label: 'Home: Introduction', id: 'home-intro' },
+            { label: 'Home: Hero/Carousel (Top)', id: 'home-top-banner' },
+            { label: 'Home: Main Body (Experience)', id: 'home-hero' },
+            { label: 'Home: Sidebar & Campus Updates', id: '8' },
+            { label: 'Footer: Content', id: 'footer-about' },
+        ]
+    },
+    {
+        name: 'About College',
+        pages: [
+            { label: 'The Founder', id: 'about-founder' },
+            { label: 'History & Heritage', id: 'about-history' },
+            { label: 'Vision & Mission', id: 'about-vision' },
+            { label: 'Board Members', id: 'about-board' },
+            { label: 'Director\'s Message', id: 'about-director' },
+            { label: 'Principal\'s Message', id: 'about-principal' },
+            { label: 'Core Values', id: 'about-core-values' },
+        ]
+    },
+    {
+        name: 'Academics',
+        pages: [
+            { label: 'Courses Offered', id: 'academics-courses' },
+            { label: 'Academic Structure', id: 'academics-structure' },
+            { label: 'Academic Philosophy', id: 'academics-philosophy' },
+            { label: 'Rules & Regulations', id: 'academics-rules' },
+        ]
+    },
+    {
+        name: 'Departments',
+        pages: [
+            { label: 'Dept: Commerce', id: 'dept-commerce' },
+            { label: 'Dept: Commerce Sidebar', id: 'dept-commerce-sidebar' },
+            { label: 'Dept: Management (BBA)', id: 'dept-management' },
+            { label: 'Dept: Computer Applications (BCA)', id: 'dept-bca' },
+            { label: 'Dept: Arts', id: 'dept-arts' },
+            { label: 'Dept: English', id: 'dept-english' },
+            { label: 'Dept: Languages', id: 'dept-languages' },
+            { label: 'Dept: Physical Education', id: 'dept-physed' },
+        ]
+    },
+    {
+        name: 'Cells & Committees',
+        pages: [
+            { label: 'IQAC', id: 'cell-iqac' },
+            { label: 'NSS', id: 'cell-nss' },
+            { label: 'NCC Army', id: 'cell-ncc-army' },
+            { label: 'NCC Navy', id: 'cell-ncc-navy' },
+            { label: 'Women\'s Cell', id: 'cell-womens' },
+            { label: 'Placement Cell', id: 'cell-placement' },
+            { label: 'Equal Opportunity', id: 'cell-equal-opportunity' },
+            { label: 'Grievance Redressal', id: 'cell-grievance' },
+            { label: 'Anti-Ragging', id: 'cell-antiragging' },
+            { label: 'POSH', id: 'cell-posh' },
+            { label: 'SC/ST Cell', id: 'cell-sc-st' },
+            { label: 'Internal Compliance', id: 'cell-internal-compliance' },
+            { label: 'Manasa Counselling', id: 'cell-manasa' },
+            { label: 'Cultural Committee', id: 'cell-cultural' },
+            { label: 'Eco Club', id: 'cell-eco' },
+            { label: 'AICTE Committee', id: 'cell-aicte' },
+            { label: 'Discipline Committee', id: 'cell-discipline' },
+            { label: 'Examination Committee', id: 'cell-exam' },
+            { label: 'IPC Committee', id: 'cell-ipc' },
+            { label: 'YRC & Scouts', id: 'cell-yrc' },
+            { label: 'Statutory (General)', id: 'cell-statutory' },
+            { label: 'Others (General)', id: 'cell-others' },
+        ]
+    },
+    {
+        name: 'Activities & Events',
+        pages: [
+            { label: 'Cultural Activities', id: 'activities-cultural' },
+            { label: 'Co-Curricular', id: 'activities-co-curricular' },
+        ]
+    },
+    {
+        name: 'Campus & More',
+        pages: [
+            { label: 'Facilities', id: 'facilities' },
+            { label: 'Scholarships', id: 'scholarships' },
+            { label: 'Research & Innovation', id: 'research' },
+            { label: 'NAAC Documentation', id: 'naac' },
+            { label: 'Contact Information', id: 'contact-info' },
+            { label: 'Gallery Brief', id: 'gallery' },
+            { label: 'Staff Directory', id: 'administration' },
+        ]
+    }
 ];
+
+const EDITABLE_PAGES = PAGE_GROUPS.flatMap(g => g.pages);
+
 
 export default function ManageContentPage() {
     const { user } = useAuth();
@@ -462,301 +492,297 @@ export default function ManageContentPage() {
                             <CardDescription>Select any page to modify its main text and information.</CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-6">
-                            <div className="space-y-2">
-                                <Label>Select Page Section</Label>
-                                <Select onValueChange={(val) => {
-                                    setSelectedPage(val);
-                                    fetchPageContent(val);
-                                }}>
-                                    <SelectTrigger>
-                                        <SelectValue placeholder="Choose a page to edit..." />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        {EDITABLE_PAGES.map((page) => (
-                                            <SelectItem key={page.id} value={page.id}>{page.label}</SelectItem>
-                                        ))}
-                                    </SelectContent>
-                                </Select>
-                            </div>
-
-                            {selectedPage && (
-                                <div className="space-y-6 pt-4 border-t">
-
-                                    <div className="flex justify-center pb-4">
-                                        <Tabs value={viewMode} onValueChange={handleViewModeChange} className="w-[300px]">
-                                            <TabsList className="grid w-full grid-cols-2">
-                                                <TabsTrigger value="current">New (Current)</TabsTrigger>
-                                                <TabsTrigger value="original">Old (Original)</TabsTrigger>
-                                            </TabsList>
-                                        </Tabs>
-                                    </div>
-
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div className="space-y-2">
-                                            <Label>Display Title</Label>
-                                            <Input
-                                                value={pageTitle}
-                                                onChange={(e) => setPageTitle(e.target.value)}
-                                                placeholder="Enter the main title for this section"
-                                            />
-                                        </div>
-                                        <div className="space-y-2">
-                                            <Label className="flex items-center gap-2"><ImageIcon size={14} /> Featured Image URL</Label>
-                                            <Input
-                                                value={pageImageUrl}
-                                                onChange={(e) => setPageImageUrl(e.target.value)}
-                                                placeholder="/images/example.jpg"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    {subSections.length > 0 && (
-                                        <div className="space-y-4 bg-slate-50 p-4 rounded-lg border border-slate-200">
-                                            <Label className="text-slate-900 font-bold">Page Sub-sections (Tabs)</Label>
-                                            <Tabs value={activeSubSection} onValueChange={setActiveSubSection} className="w-full">
-                                                <TabsList className="flex flex-wrap h-auto">
-                                                    {subSections.map(sub => (
-                                                        <TabsTrigger key={sub.id} value={sub.id} className="text-xs">{sub.label}</TabsTrigger>
-                                                    ))}
-                                                </TabsList>
-                                                {subSections.map(sub => (
-                                                    <TabsContent key={sub.id} value={sub.id} className="mt-4 space-y-4">
-                                                        <VisualEditor
-                                                            value={sub.content}
-                                                            onChange={(val) => {
-                                                                const newSubs = subSections.map(s => s.id === sub.id ? { ...s, content: val } : s);
-                                                                setSubSections(newSubs);
-                                                            }}
-                                                        />
-                                                        <div className="flex justify-end">
-                                                            <Button size="sm" onClick={async () => {
-                                                                setLoading(true);
-                                                                try {
-                                                                    const token = await auth?.currentUser?.getIdToken();
-                                                                    await fetch('/api/site-content', {
-                                                                        method: 'POST',
-                                                                        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
-                                                                        body: JSON.stringify({
-                                                                            section: `page-${selectedPage}-tab-${sub.id}`,
-                                                                            data: { content: sub.content }
-                                                                        })
-                                                                    });
-                                                                    toast({ title: 'Success', description: `${sub.label} updated` });
-                                                                } catch (e) {
-                                                                    toast({ title: 'Error', description: 'Update failed', variant: 'destructive' });
-                                                                } finally {
-                                                                    setLoading(false);
-                                                                }
-                                                            }} disabled={loading}>
-                                                                <Save className="h-4 w-4 mr-2" /> Save {sub.label}
-                                                            </Button>
-                                                        </div>
-                                                    </TabsContent>
-                                                ))}
-                                            </Tabs>
-                                        </div>
-                                    )}
-
-                                    {!subSections.length && (
-                                        <div className="space-y-2">
-                                            <Label>Main Content (Visual Editor)</Label>
-                                            <VisualEditor
-                                                value={pageContent}
-                                                onChange={setPageContent}
-                                            />
-                                        </div>
-                                    )}
-
-                                    <div className="flex justify-end pt-4">
-                                        <Button onClick={handleSavePage} disabled={loading}>
-                                            <FileEdit className="h-4 w-4 mr-2" /> {loading ? 'Saving...' : 'Update Page Content'}
-                                        </Button>
-                                    </div>
-
-                                    {/* page-8 Specialized Editor */}
-                                    {selectedPage === '8' && (
-                                        <div className="mt-12 space-y-12 border-t pt-12">
-                                            <div className="bg-blue-50/50 p-6 rounded-xl border border-blue-100">
-                                                <h3 className="text-xl font-bold text-blue-900 mb-6 flex items-center gap-2">
-                                                    <Star className="size-5" /> Major Events Card
-                                                </h3>
-                                                <div className="space-y-4">
-                                                    <div className="space-y-2">
-                                                        <Label>Major Events Image URL</Label>
-                                                        <Input
-                                                            value={page8Data.major_events_image}
-                                                            onChange={(e) => setPage8Data({ ...page8Data, major_events_image: e.target.value })}
-                                                            placeholder="/images/event.jpg"
-                                                        />
-                                                    </div>
-                                                    <div className="space-y-2">
-                                                        <Label>Event Items (Repeater)</Label>
-                                                        {page8Data.major_events_text.map((item: string, idx: number) => (
-                                                            <div key={idx} className="flex gap-2">
-                                                                <Input
-                                                                    value={item}
-                                                                    onChange={(e) => {
-                                                                        const newItems = [...page8Data.major_events_text];
-                                                                        newItems[idx] = e.target.value;
-                                                                        setPage8Data({ ...page8Data, major_events_text: newItems });
-                                                                    }}
-                                                                />
-                                                                <Button variant="ghost" size="icon" onClick={() => {
-                                                                    const newItems = page8Data.major_events_text.filter((_: any, i: number) => i !== idx);
-                                                                    setPage8Data({ ...page8Data, major_events_text: newItems });
-                                                                }}>
-                                                                    <Trash2 className="h-4 w-4 text-destructive" />
-                                                                </Button>
-                                                            </div>
-                                                        ))}
-                                                        <Button variant="outline" size="sm" onClick={() => setPage8Data({ ...page8Data, major_events_text: [...page8Data.major_events_text, ''] })}>
-                                                            <Plus className="h-4 w-4 mr-2" /> Add Event Item
-                                                        </Button>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                                                <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                                                    <Calendar className="size-5" /> The Month That Was (Repeater)
-                                                </h3>
-                                                <div className="space-y-6">
-                                                    {page8Data.month_that_was_items.map((item: any, idx: number) => (
-                                                        <div key={idx} className="p-4 border rounded-lg bg-white relative space-y-4">
-                                                            <Button
-                                                                variant="ghost"
-                                                                size="icon"
-                                                                className="absolute top-2 right-2"
+                            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                                <div className="lg:col-span-1 space-y-4">
+                                    <Label className="text-xs uppercase tracking-wider text-muted-foreground font-bold">Navigation</Label>
+                                    <ScrollArea className="h-[600px] pr-4">
+                                        <div className="space-y-6">
+                                            {PAGE_GROUPS.map((group) => (
+                                                <div key={group.name} className="space-y-2">
+                                                    <h3 className="text-xs font-bold text-slate-400 px-2">{group.name}</h3>
+                                                    <div className="space-y-1">
+                                                        {group.pages.map((page) => (
+                                                            <button
+                                                                key={page.id}
                                                                 onClick={() => {
-                                                                    const newItems = page8Data.month_that_was_items.filter((_: any, i: number) => i !== idx);
-                                                                    setPage8Data({ ...page8Data, month_that_was_items: newItems });
+                                                                    setSelectedPage(page.id);
+                                                                    fetchPageContent(page.id);
                                                                 }}
+                                                                className={`w-full text-left px-3 py-2 rounded-md text-sm transition-all ${selectedPage === page.id
+                                                                    ? 'bg-primary text-primary-foreground font-medium shadow-md'
+                                                                    : 'hover:bg-slate-100 text-slate-600'
+                                                                    }`}
                                                             >
-                                                                <Trash2 className="h-4 w-4 text-destructive" />
-                                                            </Button>
-                                                            <div className="grid grid-cols-2 gap-4">
-                                                                <div className="space-y-2">
-                                                                    <Label>Date/Short Date</Label>
-                                                                    <Input
-                                                                        value={item.date}
-                                                                        onChange={(e) => {
-                                                                            const newItems = [...page8Data.month_that_was_items];
-                                                                            newItems[idx] = { ...item, date: e.target.value };
-                                                                            setPage8Data({ ...page8Data, month_that_was_items: newItems });
-                                                                        }}
+                                                                {page.label}
+                                                            </button>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </ScrollArea>
+                                </div>
+
+                                <div className="lg:col-span-3">
+                                    {!selectedPage ? (
+                                        <div className="h-full flex flex-col items-center justify-center py-20 bg-slate-50/50 rounded-xl border-2 border-dashed border-slate-200">
+                                            <FileEdit size={48} className="text-slate-300 mb-4" />
+                                            <h3 className="text-lg font-medium text-slate-900">Choose a Section</h3>
+                                            <p className="text-slate-500 max-w-xs text-center mt-1">Select a page from the left sidebar to start editing its content and images.</p>
+                                        </div>
+                                    ) : (
+                                        <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
+                                            <div className="flex items-center justify-between bg-slate-900 text-white p-4 rounded-lg shadow-lg">
+                                                <div>
+                                                    <span className="text-xs font-bold text-blue-400 uppercase tracking-widest">Currently Editing</span>
+                                                    <h2 className="text-xl font-bold">{EDITABLE_PAGES.find(p => p.id === selectedPage)?.label}</h2>
+                                                </div>
+                                                <div className="flex gap-2">
+                                                    <Button variant="outline" size="sm" className="bg-white/10 border-white/20 text-white hover:bg-white/20" onClick={() => handleViewModeChange('original')}>
+                                                        Reset to Defaults
+                                                    </Button>
+                                                </div>
+                                            </div>
+
+                                            <Tabs defaultValue="content" className="w-full">
+                                                <TabsList className="grid w-full grid-cols-3">
+                                                    <TabsTrigger value="content">Main Content</TabsTrigger>
+                                                    <TabsTrigger value="media">Hero & Media</TabsTrigger>
+                                                    <TabsTrigger value="special" disabled={selectedPage !== '8'}>Special Fields</TabsTrigger>
+                                                </TabsList>
+
+                                                <TabsContent value="content" className="space-y-6 pt-4">
+                                                    <div className="space-y-2">
+                                                        <Label className="text-sm font-semibold text-slate-700">Display Title</Label>
+                                                        <Input
+                                                            value={pageTitle}
+                                                            onChange={(e) => setPageTitle(e.target.value)}
+                                                            placeholder="Enter the main title for this section"
+                                                            className="bg-white"
+                                                        />
+                                                    </div>
+
+                                                    {subSections.length > 0 ? (
+                                                        <div className="space-y-4 bg-slate-50 p-4 rounded-lg border border-slate-200">
+                                                            <Tabs value={activeSubSection} onValueChange={setActiveSubSection} className="w-full">
+                                                                <TabsList className="flex flex-wrap h-auto bg-slate-200/50 p-1">
+                                                                    {subSections.map(sub => (
+                                                                        <TabsTrigger key={sub.id} value={sub.id} className="text-xs data-[state=active]:bg-white">{sub.label}</TabsTrigger>
+                                                                    ))}
+                                                                </TabsList>
+                                                                {subSections.map(sub => (
+                                                                    <TabsContent key={sub.id} value={sub.id} className="mt-4 space-y-4">
+                                                                        <VisualEditor
+                                                                            value={sub.content}
+                                                                            onChange={(val) => {
+                                                                                const newSubs = subSections.map(s => s.id === sub.id ? { ...s, content: val } : s);
+                                                                                setSubSections(newSubs);
+                                                                            }}
+                                                                        />
+                                                                        <div className="flex justify-end gap-2">
+                                                                            <Button
+                                                                                size="sm"
+                                                                                variant="secondary"
+                                                                                onClick={() => {
+                                                                                    const defaults = (CMS_DEFAULTS as any)[`page-${selectedPage}-tab-${sub.id}`];
+                                                                                    if (defaults) {
+                                                                                        const newSubs = subSections.map(s => s.id === sub.id ? { ...s, content: defaults.content } : s);
+                                                                                        setSubSections(newSubs);
+                                                                                    }
+                                                                                }}
+                                                                            >
+                                                                                Reset Tab
+                                                                            </Button>
+                                                                            <Button size="sm" onClick={async () => {
+                                                                                setLoading(true);
+                                                                                try {
+                                                                                    const token = await auth?.currentUser?.getIdToken();
+                                                                                    await fetch('/api/site-content', {
+                                                                                        method: 'POST',
+                                                                                        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                                                                                        body: JSON.stringify({
+                                                                                            section: `page-${selectedPage}-tab-${sub.id}`,
+                                                                                            data: { content: sub.content }
+                                                                                        })
+                                                                                    });
+                                                                                    toast({ title: 'Success', description: `${sub.label} updated` });
+                                                                                } catch (e) {
+                                                                                    toast({ title: 'Error', description: 'Update failed', variant: 'destructive' });
+                                                                                } finally {
+                                                                                    setLoading(false);
+                                                                                }
+                                                                            }} disabled={loading}>
+                                                                                <Save className="h-4 w-4 mr-2" /> Save {sub.label}
+                                                                            </Button>
+                                                                        </div>
+                                                                    </TabsContent>
+                                                                ))}
+                                                            </Tabs>
+                                                        </div>
+                                                    ) : (
+                                                        <div className="space-y-2">
+                                                            <div className="flex items-center justify-between">
+                                                                <Label>Main Page Content</Label>
+                                                                <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">Visual HTML Editor</span>
+                                                            </div>
+                                                            <VisualEditor
+                                                                value={pageContent}
+                                                                onChange={setPageContent}
+                                                            />
+                                                        </div>
+                                                    )}
+                                                </TabsContent>
+
+                                                <TabsContent value="media" className="pt-4 space-y-8">
+                                                    <div className="p-6 border rounded-xl bg-slate-50/50">
+                                                        <ImageUpload
+                                                            label="Featured / Header Image"
+                                                            value={pageImageUrl}
+                                                            onChange={setPageImageUrl}
+                                                            folder={`pages/${selectedPage}`}
+                                                        />
+                                                        <p className="text-xs text-slate-500 mt-2">
+                                                            This image will appear at the top of the {EDITABLE_PAGES.find(p => p.id === selectedPage)?.label} page.
+                                                        </p>
+                                                    </div>
+                                                </TabsContent>
+
+                                                <TabsContent value="special" className="pt-4 space-y-12">
+                                                    {selectedPage === '8' ? (
+                                                        <div className="space-y-12">
+                                                            <div className="bg-blue-50/50 p-6 rounded-xl border border-blue-100">
+                                                                <h3 className="text-lg font-bold text-blue-900 mb-6 flex items-center gap-2">
+                                                                    <Star className="size-5" /> Major Events Highlight
+                                                                </h3>
+                                                                <div className="space-y-4">
+                                                                    <ImageUpload
+                                                                        label="Card Image"
+                                                                        value={page8Data.major_events_image}
+                                                                        onChange={(url) => setPage8Data({ ...page8Data, major_events_image: url })}
+                                                                        folder="home/sidebar"
                                                                     />
-                                                                </div>
-                                                                <div className="space-y-2">
-                                                                    <Label>Title</Label>
-                                                                    <Input
-                                                                        value={item.title}
-                                                                        onChange={(e) => {
-                                                                            const newItems = [...page8Data.month_that_was_items];
-                                                                            newItems[idx] = { ...item, title: e.target.value };
-                                                                            setPage8Data({ ...page8Data, month_that_was_items: newItems });
-                                                                        }}
-                                                                    />
+                                                                    <div className="space-y-2">
+                                                                        <Label className="text-xs font-bold uppercase">Event Items (Bullets)</Label>
+                                                                        {page8Data.major_events_text.map((item: string, idx: number) => (
+                                                                            <div key={idx} className="flex gap-2">
+                                                                                <Input
+                                                                                    value={item}
+                                                                                    onChange={(e) => {
+                                                                                        const newItems = [...page8Data.major_events_text];
+                                                                                        newItems[idx] = e.target.value;
+                                                                                        setPage8Data({ ...page8Data, major_events_text: newItems });
+                                                                                    }}
+                                                                                    className="bg-white"
+                                                                                />
+                                                                                <Button variant="ghost" size="icon" onClick={() => {
+                                                                                    const newItems = page8Data.major_events_text.filter((_: any, i: number) => i !== idx);
+                                                                                    setPage8Data({ ...page8Data, major_events_text: newItems });
+                                                                                }}>
+                                                                                    <Trash2 className="h-4 w-4 text-destructive" />
+                                                                                </Button>
+                                                                            </div>
+                                                                        ))}
+                                                                        <Button variant="outline" size="sm" className="w-full border-dashed" onClick={() => setPage8Data({ ...page8Data, major_events_text: [...page8Data.major_events_text, ''] })}>
+                                                                            <Plus className="h-3 w-3 mr-2" /> Add Item
+                                                                        </Button>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div className="space-y-2">
-                                                                <Label>Short Text</Label>
-                                                                <Textarea
-                                                                    value={item.text}
-                                                                    onChange={(e) => {
-                                                                        const newItems = [...page8Data.month_that_was_items];
-                                                                        newItems[idx] = { ...item, text: e.target.value };
-                                                                        setPage8Data({ ...page8Data, month_that_was_items: newItems });
-                                                                    }}
+
+                                                            <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                                                                <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+                                                                    <Calendar className="size-5" /> The Month That Was (Timeline)
+                                                                </h3>
+                                                                <div className="space-y-4">
+                                                                    {page8Data.month_that_was_items.map((item: any, idx: number) => (
+                                                                        <div key={idx} className="p-4 border rounded-lg bg-white relative space-y-4 shadow-sm group">
+                                                                            <Button
+                                                                                variant="ghost"
+                                                                                size="icon"
+                                                                                className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                                                                                onClick={() => {
+                                                                                    const newItems = page8Data.month_that_was_items.filter((_: any, i: number) => i !== idx);
+                                                                                    setPage8Data({ ...page8Data, month_that_was_items: newItems });
+                                                                                }}
+                                                                            >
+                                                                                <Trash2 className="h-4 w-4 text-destructive" />
+                                                                            </Button>
+                                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                <div className="space-y-1">
+                                                                                    <Label className="text-[10px] uppercase">Date Label</Label>
+                                                                                    <Input
+                                                                                        value={item.date}
+                                                                                        onChange={(e) => {
+                                                                                            const newItems = [...page8Data.month_that_was_items];
+                                                                                            newItems[idx] = { ...item, date: e.target.value };
+                                                                                            setPage8Data({ ...page8Data, month_that_was_items: newItems });
+                                                                                        }}
+                                                                                        placeholder="e.g. Nov 15"
+                                                                                    />
+                                                                                </div>
+                                                                                <div className="space-y-1">
+                                                                                    <Label className="text-[10px] uppercase">Event Title</Label>
+                                                                                    <Input
+                                                                                        value={item.title}
+                                                                                        onChange={(e) => {
+                                                                                            const newItems = [...page8Data.month_that_was_items];
+                                                                                            newItems[idx] = { ...item, title: e.target.value };
+                                                                                            setPage8Data({ ...page8Data, month_that_was_items: newItems });
+                                                                                        }}
+                                                                                        placeholder="Event name"
+                                                                                    />
+                                                                                </div>
+                                                                            </div>
+                                                                            <div className="space-y-1">
+                                                                                <Label className="text-[10px] uppercase">Description</Label>
+                                                                                <Textarea
+                                                                                    value={item.text}
+                                                                                    onChange={(e) => {
+                                                                                        const newItems = [...page8Data.month_that_was_items];
+                                                                                        newItems[idx] = { ...item, text: e.target.value };
+                                                                                        setPage8Data({ ...page8Data, month_that_was_items: newItems });
+                                                                                    }}
+                                                                                    className="h-20"
+                                                                                />
+                                                                            </div>
+                                                                        </div>
+                                                                    ))}
+                                                                    <Button variant="outline" className="w-full border-dashed" onClick={() => setPage8Data({ ...page8Data, month_that_was_items: [...page8Data.month_that_was_items, { date: '', title: '', text: '' }] })}>
+                                                                        <Plus className="h-4 w-4 mr-2" /> Add Timeline Entry
+                                                                    </Button>
+                                                                </div>
+                                                            </div>
+
+                                                            <div className="bg-red-50/30 p-6 rounded-xl border border-red-100">
+                                                                <h3 className="text-lg font-bold text-red-900 mb-6 flex items-center gap-2">
+                                                                    <Bell className="size-5" /> Announcements
+                                                                </h3>
+                                                                <VisualEditor
+                                                                    value={page8Data.announcements_text}
+                                                                    onChange={(val) => setPage8Data({ ...page8Data, announcements_text: val })}
                                                                 />
                                                             </div>
                                                         </div>
-                                                    ))}
-                                                    <Button variant="outline" onClick={() => setPage8Data({ ...page8Data, month_that_was_items: [...page8Data.month_that_was_items, { date: '', title: '', text: '' }] })}>
-                                                        <Plus className="h-4 w-4 mr-2" /> Add Month Activity
-                                                    </Button>
-                                                </div>
-                                            </div>
-
-                                            <div className="bg-red-50/30 p-6 rounded-xl border border-red-100">
-                                                <h3 className="text-xl font-bold text-red-900 mb-6 flex items-center gap-2">
-                                                    <Bell className="size-5" /> Announcements (WYSIWYG)
-                                                </h3>
-                                                <VisualEditor
-                                                    value={page8Data.announcements_text}
-                                                    onChange={(val) => setPage8Data({ ...page8Data, announcements_text: val })}
-                                                />
-                                            </div>
-
-                                            <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                                                <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                                                    <FileText className="size-5" /> Brochure Card
-                                                </h3>
-                                                <div className="space-y-2">
-                                                    <Label>Brochure Image URL</Label>
-                                                    <Input
-                                                        value={page8Data.brochure_image}
-                                                        onChange={(e) => setPage8Data({ ...page8Data, brochure_image: e.target.value })}
-                                                    />
-                                                </div>
-                                            </div>
-
-                                            <div className="bg-blue-900/5 p-6 rounded-xl border border-blue-900/10">
-                                                <h3 className="text-xl font-bold text-blue-900 mb-6 flex items-center gap-2">
-                                                    <Clock className="size-5" /> Upcoming Events (Repeater)
-                                                </h3>
-                                                <div className="space-y-4">
-                                                    {page8Data.upcoming_events_text.map((item: string, idx: number) => (
-                                                        <div key={idx} className="flex gap-2">
-                                                            <Input
-                                                                value={item}
-                                                                onChange={(e) => {
-                                                                    const newItems = [...page8Data.upcoming_events_text];
-                                                                    newItems[idx] = e.target.value;
-                                                                    setPage8Data({ ...page8Data, upcoming_events_text: newItems });
-                                                                }}
-                                                            />
-                                                            <Button variant="ghost" size="icon" onClick={() => {
-                                                                const newItems = page8Data.upcoming_events_text.filter((_: any, i: number) => i !== idx);
-                                                                setPage8Data({ ...page8Data, upcoming_events_text: newItems });
-                                                            }}>
-                                                                <Trash2 className="h-4 w-4 text-destructive" />
-                                                            </Button>
+                                                    ) : (
+                                                        <div className="text-center py-20 text-slate-400">
+                                                            No specialized fields for this section.
                                                         </div>
-                                                    ))}
-                                                    <Button variant="outline" size="sm" onClick={() => setPage8Data({ ...page8Data, upcoming_events_text: [...page8Data.upcoming_events_text, ''] })}>
-                                                        <Plus className="h-4 w-4 mr-2" /> Add Upcoming Event
-                                                    </Button>
-                                                </div>
-                                            </div>
+                                                    )}
+                                                </TabsContent>
+                                            </Tabs>
 
-                                            <div className="bg-blue-50 p-6 rounded-xl border border-blue-100">
-                                                <h3 className="text-xl font-bold text-blue-900 mb-6 flex items-center gap-2">
-                                                    <BookOpen className="size-5" /> Blog Section (WYSIWYG)
-                                                </h3>
-                                                <VisualEditor
-                                                    value={page8Data.blog_text}
-                                                    onChange={(val) => setPage8Data({ ...page8Data, blog_text: val })}
-                                                />
-                                            </div>
-
-                                            <div className="flex justify-end pt-8 sticky bottom-4">
-                                                <Button size="lg" className="w-full md:w-auto shadow-xl" onClick={handleSavePage} disabled={loading}>
-                                                    <Save className="h-4 w-4 mr-2" /> {loading ? 'Saving All...' : 'Save All Sidebar Cards'}
+                                            <div className="flex justify-end pt-8 border-t mt-8 sticky bottom-0 bg-white/80 py-4 backdrop-blur-sm z-20">
+                                                <Button size="lg" className="shadow-xl px-12" onClick={handleSavePage} disabled={loading}>
+                                                    <Save className="h-4 w-4 mr-2" /> {loading ? 'Saving Changes...' : 'Save All Changes'}
                                                 </Button>
                                             </div>
+
                                         </div>
                                     )}
                                 </div>
-                            )}
+                            </div>
                         </CardContent>
                     </Card>
-
-                    {!selectedPage && (
-                        <div className="text-center py-12 bg-gray-50 rounded-lg border-2 border-dashed">
-                            <FileEdit size={48} className="mx-auto text-gray-300 mb-4" />
-                            <p className="text-gray-500 italic">Select a page from the dropdown above to start editing.</p>
-                        </div>
-                    )}
                 </TabsContent>
             </Tabs>
         </div>

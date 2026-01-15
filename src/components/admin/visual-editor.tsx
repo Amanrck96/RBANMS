@@ -13,10 +13,14 @@ import {
     Quote,
     Type,
     Eye,
-    Code as CodeIcon
+    Code as CodeIcon,
+    ImageIcon,
+    Loader2
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { storage } from '@/lib/firebase-client';
+import { useToast } from '@/hooks/use-toast';
 
 interface VisualEditorProps {
     value: string;
@@ -27,6 +31,8 @@ interface VisualEditorProps {
 export function VisualEditor({ value, onChange, placeholder }: VisualEditorProps) {
     const editorRef = useRef<HTMLDivElement>(null);
     const [view, setView] = useState<'visual' | 'code'>('visual');
+    const [uploading, setUploading] = useState(false);
+    const { toast } = useToast();
 
     useEffect(() => {
         if (editorRef.current && editorRef.current.innerHTML !== value) {
@@ -45,6 +51,29 @@ export function VisualEditor({ value, onChange, placeholder }: VisualEditorProps
         if (editorRef.current) {
             onChange(editorRef.current.innerHTML);
         }
+    };
+
+    const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (!file || !storage) return;
+
+        setUploading(true);
+        const storageRef = ref(storage, `editor/${Date.now()}-${file.name}`);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on('state_changed',
+            null,
+            (error) => {
+                toast({ title: 'Error', description: 'Failed to upload image', variant: 'destructive' });
+                setUploading(false);
+            },
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                    execCommand('insertImage', downloadURL);
+                    setUploading(false);
+                });
+            }
+        );
     };
 
     const toggleView = (v: 'visual' | 'code') => {
@@ -132,6 +161,26 @@ export function VisualEditor({ value, onChange, placeholder }: VisualEditorProps
                 >
                     <Quote size={16} />
                 </Button>
+                <div className="w-px h-6 bg-gray-300 mx-1 self-center" />
+                <div className="relative">
+                    <input
+                        type="file"
+                        className="hidden"
+                        id="editor-image-upload"
+                        onChange={handleImageUpload}
+                        accept="image/*"
+                    />
+                    <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => document.getElementById('editor-image-upload')?.click()}
+                        disabled={uploading}
+                        title="Insert Image"
+                    >
+                        {uploading ? <Loader2 size={16} className="animate-spin" /> : <ImageIcon size={16} />}
+                    </Button>
+                </div>
                 <div className="ml-auto flex gap-1">
                     <Button
                         type="button"
@@ -161,7 +210,6 @@ export function VisualEditor({ value, onChange, placeholder }: VisualEditorProps
                         contentEditable
                         onInput={handleInput}
                         className="p-6 focus:outline-none prose prose-slate max-w-none min-h-[400px]"
-                        placeholder={placeholder}
                         dangerouslySetInnerHTML={{ __html: value }}
                     />
                 ) : (

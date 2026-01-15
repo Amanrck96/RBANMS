@@ -10,6 +10,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Settings, Mail, Phone, Globe, MapPin, Building } from 'lucide-react';
 import { auth } from '@/lib/firebase-client';
+import { ImageUpload } from '@/components/admin/image-upload';
 
 type SiteSettings = {
     collegeName: string;
@@ -133,12 +134,11 @@ export default function SettingsPage() {
                         <CardContent className="space-y-4">
                             <div className="grid gap-4">
                                 <div>
-                                    <Label htmlFor="logoUrl">Logo URL</Label>
-                                    <Input
-                                        id="logoUrl"
+                                    <ImageUpload
+                                        label="College Logo / Crest"
                                         value={settings.logoUrl || ''}
-                                        onChange={(e) => setSettings({ ...settings, logoUrl: e.target.value })}
-                                        placeholder="/images/crest.png"
+                                        onChange={(url) => setSettings({ ...settings, logoUrl: url })}
+                                        folder="branding"
                                     />
                                 </div>
                                 <div>

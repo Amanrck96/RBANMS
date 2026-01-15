@@ -11,9 +11,10 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
-import { ArrowLeft, Save } from 'lucide-react';
+import { Save, ArrowLeft, ImageIcon } from 'lucide-react';
 import Link from 'next/link';
 import { VisualEditor } from '@/components/admin/visual-editor';
+import { ImageUpload } from '@/components/admin/image-upload';
 
 export default function PostEditorPage() {
     const router = useRouter();
@@ -58,7 +59,7 @@ export default function PostEditorPage() {
         setLoading(true);
 
         try {
-            const token = await auth.currentUser?.getIdToken();
+            const token = await auth?.currentUser?.getIdToken();
             const url = '/api/posts';
             const method = isEditing ? 'PUT' : 'POST';
             const body = isEditing
@@ -141,27 +142,13 @@ export default function PostEditorPage() {
                             />
                         </div>
 
-                        <div className="space-y-2">
-                            <Label htmlFor="imageUrl">Image URL</Label>
-                            <Input
-                                id="imageUrl"
+                        <div className="space-y-4">
+                            <ImageUpload
+                                label="Featured Image"
                                 value={imageUrl}
-                                onChange={(e) => setImageUrl(e.target.value)}
-                                placeholder="https://example.com/image.jpg"
-                                disabled={loading}
+                                onChange={setImageUrl}
+                                folder="posts"
                             />
-                            {imageUrl && (
-                                <div className="mt-2">
-                                    <img
-                                        src={imageUrl}
-                                        alt="Preview"
-                                        className="max-w-sm rounded-lg border"
-                                        onError={(e) => {
-                                            e.currentTarget.style.display = 'none';
-                                        }}
-                                    />
-                                </div>
-                            )}
                         </div>
 
                         <div className="space-y-2">
