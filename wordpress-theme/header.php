@@ -27,17 +27,24 @@
     <!-- Contact Info Header -->
     <div class="w-full bg-blue-900 text-white border-b border-white/10">
         <div class="relative mx-auto max-w-7xl px-2 py-1 flex flex-col md:flex-row items-center md:justify-center gap-2 text-xs">
+            <?php
+                $header_logo = get_field('header_logo', 'option');
+                $header_logo_url = $header_logo ? $header_logo['url'] : get_template_directory_uri() . '/images/logo.png';
+                $header_logo_alt = $header_logo ? $header_logo['alt'] : 'Logo';
+                $header_phone = get_field('header_phone', 'option') ?: '080-48533572';
+                $header_email = get_field('header_email', 'option') ?: 'principal_rbanms@gmail.com';
+            ?>
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center gap-2 shrink-0">
                 <div class="bg-white p-1 rounded-sm">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="Logo" width="120" class="h-9 w-auto">
+                    <img src="<?php echo esc_url($header_logo_url); ?>" alt="<?php echo esc_attr($header_logo_alt); ?>" width="120" class="h-9 w-auto">
                 </div>
             </a>
             <div class="flex items-center gap-3 md:absolute md:right-2">
-                <a href="tel:080-48533572" class="flex items-center gap-2 hover:underline text-yellow-400">
-                    <i data-lucide="phone" class="h-4 w-4"></i> 080-48533572
+                <a href="tel:<?php echo esc_attr($header_phone); ?>" class="flex items-center gap-2 hover:underline text-yellow-400">
+                    <i data-lucide="phone" class="h-4 w-4"></i> <?php echo esc_html($header_phone); ?>
                 </a>
-                <a href="mailto:principal_rbanms@gmail.com" class="flex items-center gap-2 hover:underline text-yellow-400">
-                    <i data-lucide="mail" class="h-4 w-4"></i> principal_rbanms@gmail.com
+                <a href="mailto:<?php echo esc_attr($header_email); ?>" class="flex items-center gap-2 hover:underline text-yellow-400">
+                    <i data-lucide="mail" class="h-4 w-4"></i> <?php echo esc_html($header_email); ?>
                 </a>
             </div>
         </div>
