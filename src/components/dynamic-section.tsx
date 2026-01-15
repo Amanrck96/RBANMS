@@ -9,12 +9,12 @@ interface DynamicSectionProps {
     defaultTitle?: string;
     defaultContent?: React.ReactNode;
     defaultImageUrl?: string;
-    render?: (data: { title: string; content: string; imageUrl?: string }) => React.ReactNode;
+    render?: (data: { title: string; content: string; imageUrl?: string; tagline?: string; badgeText?: string;[key: string]: any }) => React.ReactNode;
     onlyContent?: boolean; // New prop to return only the HTML content
 }
 
 export function DynamicSection({ pageId, defaultTitle, defaultContent, defaultImageUrl, render, onlyContent }: DynamicSectionProps) {
-    const [data, setData] = useState<{ title: string; content: string; imageUrl?: string } | null>(null);
+    const [data, setData] = useState<{ title: string; content: string; imageUrl?: string; tagline?: string; badgeText?: string;[key: string]: any } | null>(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -58,10 +58,22 @@ export function DynamicSection({ pageId, defaultTitle, defaultContent, defaultIm
         <div className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
                 <div className={`${currentImageUrl ? 'md:col-span-8' : 'md:col-span-12'} space-y-6`}>
+                    {data?.badgeText && (
+                        <div className="mb-2">
+                            <span className="bg-yellow-500 text-black px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                                {data.badgeText}
+                            </span>
+                        </div>
+                    )}
                     {currentTitle && (
                         <h1 className="text-3xl md:text-4xl font-bold text-primary font-headline border-b pb-2">
                             {currentTitle}
                         </h1>
+                    )}
+                    {data?.tagline && (
+                        <p className="text-lg text-muted-foreground italic -mt-2 mb-4">
+                            {data.tagline}
+                        </p>
                     )}
                     {currentContent ? (
                         <div

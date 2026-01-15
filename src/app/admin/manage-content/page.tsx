@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Plus, Trash2, Save, Loader2, Globe, FileEdit, ImageIcon, Star, Calendar, Bell, FileText, Clock, BookOpen } from 'lucide-react';
+import { Plus, Trash2, Save, Loader2, Globe, FileEdit, ImageIcon, Star, Calendar, Bell, FileText, Clock, BookOpen, Settings, Users } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { VisualEditor } from '@/components/admin/visual-editor';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -144,6 +144,8 @@ export default function ManageContentPage() {
     const [pageContent, setPageContent] = useState<string>('');
     const [pageTitle, setPageTitle] = useState<string>('');
     const [pageImageUrl, setPageImageUrl] = useState<string>('');
+    const [pageTagline, setPageTagline] = useState<string>('');
+    const [pageBadgeText, setPageBadgeText] = useState<string>('');
 
     // Specialized page-8 state
     const [page8Data, setPage8Data] = useState<any>({
@@ -158,12 +160,14 @@ export default function ManageContentPage() {
         blog_text: ''
     });
 
+    const [facultyList, setFacultyList] = useState<any[]>([]);
+
     // Sub-sections (Tabs) state
     const [subSections, setSubSections] = useState<{ id: string, label: string, content: string }[]>([]);
     const [activeSubSection, setActiveSubSection] = useState<string>('');
 
     // Toggle State for Old vs New
-    const [currentData, setCurrentData] = useState<{ title: string, content: string, imageUrl: string } | null>(null);
+    const [currentData, setCurrentData] = useState<{ title: string, content: string, imageUrl: string, tagline?: string, badgeText?: string } | null>(null);
     const [viewMode, setViewMode] = useState<'current' | 'original'>('current');
 
     useEffect(() => {
@@ -247,11 +251,15 @@ export default function ManageContentPage() {
             setPageContent(newContent);
             setPageTitle(newTitle);
             setPageImageUrl(newImage);
+            setPageTagline(data.data?.tagline || '');
+            setPageBadgeText(data.data?.badgeText || '');
 
             setCurrentData({
                 title: newTitle,
                 content: newContent,
-                imageUrl: newImage
+                imageUrl: newImage,
+                tagline: data.data?.tagline || '',
+                badgeText: data.data?.badgeText || ''
             });
 
             if (pageId === '8' && data.data) {
@@ -279,6 +287,14 @@ export default function ManageContentPage() {
                     upcoming_events_text: defaults.upcoming_events_text || [],
                     blog_text: defaults.blog_text || ''
                 });
+            }
+
+            if (data.data?.faculty) {
+                setFacultyList(data.data.faculty);
+            } else if (CMS_DEFAULTS[pageId] && (CMS_DEFAULTS[pageId] as any).faculty) {
+                setFacultyList((CMS_DEFAULTS[pageId] as any).faculty);
+            } else {
+                setFacultyList([]);
             }
 
         } catch (error) {
@@ -309,6 +325,9 @@ export default function ManageContentPage() {
                 setPageTitle(currentData.title);
                 setPageContent(currentData.content);
                 setPageImageUrl(currentData.imageUrl);
+                setPageTagline(currentData.tagline || '');
+                setPageBadgeText(currentData.badgeText || '');
+                setFacultyList((currentData as any).faculty || []);
             }
         } else {
             // Load Old/Original
@@ -317,6 +336,9 @@ export default function ManageContentPage() {
                 setPageTitle(defaults.title);
                 setPageContent(defaults.content);
                 setPageImageUrl(defaults.imageUrl || '');
+                setPageTagline((defaults as any).tagline || '');
+                setPageBadgeText((defaults as any).badgeText || '');
+                setFacultyList((defaults as any).faculty || []);
             } else {
                 toast({ title: 'Info', description: 'No original content found for this page.' });
             }
@@ -339,8 +361,18 @@ export default function ManageContentPage() {
                     data: selectedPage === '8' ? {
                         ...page8Data,
                         title: pageTitle,
-                        content: pageContent
-                    } : { title: pageTitle, content: pageContent, imageUrl: pageImageUrl }
+                        content: pageContent,
+                        tagline: pageTagline,
+                        badgeText: pageBadgeText,
+                        faculty: facultyList
+                    } : {
+                        title: pageTitle,
+                        content: pageContent,
+                        imageUrl: pageImageUrl,
+                        tagline: pageTagline,
+                        badgeText: pageBadgeText,
+                        faculty: facultyList
+                    }
                 })
             });
 
@@ -350,8 +382,11 @@ export default function ManageContentPage() {
                 setCurrentData({
                     title: pageTitle,
                     content: pageContent,
-                    imageUrl: pageImageUrl
-                });
+                    imageUrl: pageImageUrl,
+                    tagline: pageTagline,
+                    badgeText: pageBadgeText,
+                    faculty: facultyList
+                } as any);
                 setViewMode('current');
             } else {
                 throw new Error('Failed to update');
@@ -567,7 +602,7 @@ export default function ManageContentPage() {
                                                 <TabsList className="grid w-full grid-cols-3">
                                                     <TabsTrigger value="content">Main Content</TabsTrigger>
                                                     <TabsTrigger value="media">Hero & Media</TabsTrigger>
-                                                    <TabsTrigger value="special" disabled={selectedPage !== '8'}>Special Fields</TabsTrigger>
+                                                    <TabsTrigger value="special">Special Fields</TabsTrigger>
                                                 </TabsList>
 
                                                 <TabsContent value="content" className="space-y-6 pt-4">
@@ -667,7 +702,92 @@ export default function ManageContentPage() {
                                                 </TabsContent>
 
                                                 <TabsContent value="special" className="pt-4 space-y-12">
-                                                    {selectedPage === '8' ? (
+                                                    <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                                                        <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+                                                            <Settings className="size-5" /> General Meta Fields
+                                                        </h3>
+                                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                            <div className="space-y-2">
+                                                                <Label className="text-sm font-semibold">Tagline / Brief Intro</Label>
+                                                                <Input
+                                                                    value={pageTagline}
+                                                                    onChange={(e) => setPageTagline(e.target.value)}
+                                                                    placeholder="Short tagline for below the title"
+                                                                />
+                                                            </div>
+                                                            <div className="space-y-2">
+                                                                <Label className="text-sm font-semibold">Badge Text</Label>
+                                                                <Input
+                                                                    value={pageBadgeText}
+                                                                    onChange={(e) => setPageBadgeText(e.target.value)}
+                                                                    placeholder="e.g. Department, Cell, Committee"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                        <div className="flex justify-end mt-4">
+                                                            <Button size="sm" onClick={handleSavePage} disabled={loading}>
+                                                                <Save className="h-4 w-4 mr-2" /> Save Meta Fields
+                                                            </Button>
+                                                        </div>
+                                                    </div>
+
+                                                    {selectedPage.startsWith('dept-') && (
+                                                        <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                                                            <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+                                                                <Users className="size-5" /> Faculty Profiles
+                                                            </h3>
+                                                            <div className="space-y-4">
+                                                                {facultyList.map((faculty, idx) => (
+                                                                    <div key={idx} className="p-4 border rounded-lg bg-white relative space-y-4 shadow-sm group">
+                                                                        <Button
+                                                                            variant="ghost" size="icon"
+                                                                            className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                                                                            onClick={() => setFacultyList(facultyList.filter((_, i) => i !== idx))}
+                                                                        >
+                                                                            <Trash2 className="h-4 w-4 text-destructive" />
+                                                                        </Button>
+                                                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                            <Input placeholder="Full Name" value={faculty.name} onChange={(e) => {
+                                                                                const newList = [...facultyList];
+                                                                                newList[idx].name = e.target.value;
+                                                                                setFacultyList(newList);
+                                                                            }} />
+                                                                            <Input placeholder="Designation / Role" value={faculty.role} onChange={(e) => {
+                                                                                const newList = [...facultyList];
+                                                                                newList[idx].role = e.target.value;
+                                                                                setFacultyList(newList);
+                                                                            }} />
+                                                                            <Input placeholder="Qualification" value={faculty.qual} onChange={(e) => {
+                                                                                const newList = [...facultyList];
+                                                                                newList[idx].qual = e.target.value;
+                                                                                setFacultyList(newList);
+                                                                            }} />
+                                                                            <Input placeholder="Email ID" value={faculty.email} onChange={(e) => {
+                                                                                const newList = [...facultyList];
+                                                                                newList[idx].email = e.target.value;
+                                                                                setFacultyList(newList);
+                                                                            }} />
+                                                                            <Input placeholder="Phone Number" value={faculty.phone} onChange={(e) => {
+                                                                                const newList = [...facultyList];
+                                                                                newList[idx].phone = e.target.value;
+                                                                                setFacultyList(newList);
+                                                                            }} />
+                                                                        </div>
+                                                                    </div>
+                                                                ))}
+                                                                <Button variant="outline" className="w-full border-dashed" onClick={() => setFacultyList([...facultyList, { name: '', role: '', qual: '', email: '', phone: '' }])}>
+                                                                    <Plus className="h-4 w-4 mr-2" /> Add Faculty Member
+                                                                </Button>
+                                                            </div>
+                                                            <div className="flex justify-end mt-4">
+                                                                <Button size="sm" onClick={handleSavePage} disabled={loading}>
+                                                                    <Save className="h-4 w-4 mr-2" /> Save Faculty List
+                                                                </Button>
+                                                            </div>
+                                                        </div>
+                                                    )}
+
+                                                    {selectedPage === '8' && (
                                                         <div className="space-y-12">
                                                             <div className="bg-blue-50/50 p-6 rounded-xl border border-blue-100">
                                                                 <h3 className="text-lg font-bold text-blue-900 mb-6 flex items-center gap-2">
@@ -681,7 +801,7 @@ export default function ManageContentPage() {
                                                                         folder="home/sidebar"
                                                                     />
                                                                     <div className="space-y-2">
-                                                                        <Label className="text-xs font-bold uppercase">Event Items (Bullets)</Label>
+                                                                        <Label className="text-xs font-bold uppercase">{"Event Items (Bullets)"}</Label>
                                                                         {page8Data.major_events_text.map((item: string, idx: number) => (
                                                                             <div key={idx} className="flex gap-2">
                                                                                 <Input
@@ -710,7 +830,7 @@ export default function ManageContentPage() {
 
                                                             <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                                                                 <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
-                                                                    <Calendar className="size-5" /> The Month That Was (Timeline)
+                                                                    <Calendar className="size-5" /> {"The Month That Was (Timeline)"}
                                                                 </h3>
                                                                 <div className="space-y-4">
                                                                     {page8Data.month_that_was_items.map((item: any, idx: number) => (
@@ -781,10 +901,6 @@ export default function ManageContentPage() {
                                                                     onChange={(val) => setPage8Data({ ...page8Data, announcements_text: val })}
                                                                 />
                                                             </div>
-                                                        </div>
-                                                    ) : (
-                                                        <div className="text-center py-20 text-slate-400">
-                                                            No specialized fields for this section.
                                                         </div>
                                                     )}
                                                 </TabsContent>
