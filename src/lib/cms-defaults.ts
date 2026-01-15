@@ -89,17 +89,178 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         title: 'Department of Commerce',
         content: '<p>Welcome to the Department of Commerce. Since 1984, we have been shaping capable graduates through practical learning and innovation, delivering education that meets global standards.</p>'
     },
+    'dept-commerce-sidebar': {
+        title: 'Department Team',
+        content: '<p>Our dedicated faculty and eager students.</p>',
+        imageUrl: '/images/departments/commerce/group_photo.jpg'
+    },
+    'page-dept-commerce-tab-why-bcom': {
+        title: 'Why B.COM?',
+        content: '<p>The Commerce stream builds strong fundamentals in accounting, finance, taxation, economics, and business management while developing digital, analytical, and communication skills.</p>'
+    },
+    'page-dept-commerce-tab-highlights': {
+        title: 'Highlights',
+        content: '<ul><li>Practical Learning</li><li>Add-on programmes</li><li>Strong Faculty</li><li>Industry Alignment</li><li>Clubs and Cells</li></ul>'
+    },
+    'page-dept-commerce-tab-vision': {
+        title: 'Vision & Mission',
+        content: '<p>Nurture competent, ethical, and socially responsible commerce graduates ready for a dynamic global business environment.</p>'
+    },
+    'page-dept-commerce-tab-skills': {
+        title: 'Skill Set Acquired',
+        content: '<ul><li>Financial Literacy</li><li>Business Fundamentals</li><li>Analytical Ability</li><li>Digital Competence</li><li>Communication Skills</li></ul>'
+    },
+    'page-dept-commerce-tab-matrix': {
+        title: 'Paper Titles',
+        content: '<p>Core papers across 6 semesters including Financial Accounting, Marketing, and GST.</p>'
+    },
+    'page-dept-commerce-tab-outcomes': {
+        title: 'Outcomes',
+        content: '<p>Gain fundamental knowledge of accounting, finance, taxation, and business management.</p>'
+    },
+    'page-dept-commerce-tab-activities': {
+        title: 'Activities',
+        content: '<p>Industrial visits, Magic Bus training, and NISM certifications.</p>'
+    },
+    'page-dept-commerce-tab-faculty': {
+        title: 'Faculty Profile',
+        content: '<p>Experienced Associate and Assistant Professors guide students with expertise.</p>'
+    },
+
+    // Dept Management (BBA)
     'dept-management': {
         title: 'Department of Management (BBA)',
         content: '<p>Developing future business leaders through comprehensive curriculum, industry exposure, and practical management skills.</p>'
     },
+    'page-dept-management-tab-why-bba': {
+        title: 'Why BBA?',
+        content: '<p>The BBA program is designed to provide a strong foundation in business management with specializations in HR and Marketing.</p>'
+    },
+    'page-dept-management-tab-skills': {
+        title: 'Skill Set Acquired',
+        content: '<p>Strategic thinking, leadership, professional communication, and marketing orientation.</p>'
+    },
+    'page-dept-management-tab-highlights': {
+        title: 'Highlights',
+        content: '<ul><li>Dual Specialization</li><li>Mentorship</li><li>Career Pathways</li><li>Certifications</li></ul>'
+    },
+    'page-dept-management-tab-vision': {
+        title: 'Vision & Mission',
+        content: '<p>Diversity & Inclusion, Equality, Career Opportunities, and Inclusive Excellence.</p>'
+    },
+    'page-dept-management-tab-matrix': {
+        title: 'Paper Titles',
+        content: '<p>Course matrix covering 6 semesters of management studies.</p>'
+    },
+    'page-dept-management-tab-objectives': {
+        title: 'Objectives',
+        content: '<p>Develop comprehensive business competencies with dual specialization.</p>'
+    },
+    'page-dept-management-tab-outcomes': {
+        title: 'Outcomes',
+        content: '<p>Business Acumen, HR Expertise, Marketing Competence, and Strategic Thinking.</p>'
+    },
+    'page-dept-management-tab-activities': {
+        title: 'Activities',
+        content: '<p>Certificate training, industry visits, and entrepreneurship lectures.</p>'
+    },
+    'page-dept-management-tab-faculty': {
+        title: 'Faculty Profile',
+        content: '<p>Experienced faculty members in Management and Accounting.</p>'
+    },
+
+    // Dept BCA
     'dept-bca': {
         title: 'Department of Computer Applications (BCA)',
-        content: '<p>Providing quality education in computer science and applications, preparing students for the dynamic IT industry with hands-on training and industry-relevant skills.</p>'
+        content: '<p>Providing quality education in computer science and applications.</p>'
     },
+    'page-dept-bca-tab-overview': {
+        title: 'Overview',
+        content: '<p>Strong foundation in software development and applications.</p>'
+    },
+    'page-dept-bca-tab-highlights': {
+        title: 'Highlights',
+        content: '<ul><li>Hands-on Labs</li><li>Industry Projects</li><li>Coding Clubs</li></ul>'
+    },
+    'page-dept-bca-tab-syllabus': {
+        title: 'Syllabus',
+        content: '<p>Comprehensive curriculum covering Programming, Web Tech, and AI.</p>'
+    },
+    'page-dept-bca-tab-faculty': {
+        title: 'Faculty Profile',
+        content: '<p>Experienced IT professionals and academicians.</p>'
+    },
+
+    // Dept Arts
     'dept-arts': {
         title: 'Department of Arts',
-        content: '<p>The Department of Arts offers diverse programs in Humanities and Social Sciences, fostering critical thinking, creativity, and cultural awareness.</p>'
+        content: '<p>Exploring the world through History, Economics, and Political Science.</p>'
+    },
+    'page-dept-arts-tab-highlights': {
+        title: 'Highlights',
+        content: '<p>Well-defined curriculum with emphasis on analytical reasoning.</p>'
+    },
+    'page-dept-arts-tab-skills': {
+        title: 'Skills Developed',
+        content: '<p>Critical thinking, public speaking, and research orientation.</p>'
+    },
+    'page-dept-arts-tab-vision': {
+        title: 'Vision & Mission',
+        content: '<p>To develop an academic environment for social sciences with intellectual discipline.</p>'
+    },
+    'page-dept-arts-tab-courses': {
+        title: 'Courses',
+        content: '<p>B.A with History, Economics, and Political Science.</p>'
+    },
+    'page-dept-arts-tab-objectives': {
+        title: 'Objectives',
+        content: '<p>Strengthen students\' practical understanding of economic and social concepts.</p>'
+    },
+    'page-dept-arts-tab-outcomes': {
+        title: 'Outcomes',
+        content: '<p>Disciplinary knowledge, application, and global competencies.</p>'
+    },
+    'page-dept-arts-tab-history': {
+        title: 'History',
+        content: '<p>Emphasis on context, continuity, and transformation.</p>'
+    },
+    'page-dept-arts-tab-economics': {
+        title: 'Economics',
+        content: '<p>Informed decisions about limited resources.</p>'
+    },
+    'page-dept-arts-tab-political-science': {
+        title: 'Political Science',
+        content: '<p>Evaluate political systems, policies, and institutions.</p>'
+    },
+    'page-dept-arts-tab-activities': {
+        title: 'Activities',
+        content: '<p>Eco-Wizz quiz, Mock Budget, and Educational visits.</p>'
+    },
+    'page-dept-arts-tab-faculty': {
+        title: 'Faculty Profile',
+        content: '<p>Distinguished professors and researchers in social sciences.</p>'
+    },
+
+    // Missing top-level pages
+    'alumni-activity': {
+        title: 'Alumni Activity',
+        content: '<p>Digital India support campaign and other community initiatives.</p>'
+    },
+    'career': {
+        title: 'Career Opportunities',
+        content: '<p>Join our team and be part of a legacy that values compassion and education.</p>'
+    },
+    'rti': {
+        title: 'RTI',
+        content: '<p>Right to Information details coming soon.</p>'
+    },
+    'governance': {
+        title: 'Governance',
+        content: '<p>Institutional governance and board details coming soon.</p>'
+    },
+    'code-of-conduct': {
+        title: 'Code of Conduct',
+        content: '<p>Professional and ethical standards for students and staff.</p>'
     },
     'dept-english': {
         title: 'Department of English',

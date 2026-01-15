@@ -36,9 +36,11 @@ const PAGE_GROUPS = [
             { label: 'History & Heritage', id: 'about-history' },
             { label: 'Vision & Mission', id: 'about-vision' },
             { label: 'Board Members', id: 'about-board' },
+            { label: 'Governance', id: 'governance' },
             { label: 'Director\'s Message', id: 'about-director' },
             { label: 'Principal\'s Message', id: 'about-principal' },
             { label: 'Core Values', id: 'about-core-values' },
+            { label: 'Code of Conduct', id: 'code-of-conduct' },
         ]
     },
     {
@@ -107,6 +109,19 @@ const PAGE_GROUPS = [
             { label: 'Contact Information', id: 'contact-info' },
             { label: 'Gallery Brief', id: 'gallery' },
             { label: 'Staff Directory', id: 'administration' },
+            { label: 'Career', id: 'career' },
+            { label: 'Alumni Activity', id: 'alumni-activity' },
+            { label: 'RTI', id: 'rti' },
+        ]
+    },
+    {
+        name: 'Industry Connect',
+        pages: [
+            { label: 'MoUs', id: 'industry-mou' },
+            { label: 'Internships', id: 'industry-internship' },
+            { label: 'Industry Visits', id: 'industry-visits' },
+            { label: 'Field Trips', id: 'industry-field-trip' },
+            { label: 'Add-on Programmes', id: 'industry-addon' },
         ]
     }
 ];
@@ -184,9 +199,13 @@ export default function ManageContentPage() {
         try {
             // Check if this page has sub-sections (tabs)
             const tabbedPages: Record<string, string[]> = {
-                'dept-commerce': ['why-bcom', 'highlights', 'vision-mission', 'skill-set', 'paper-titles', 'outcomes', 'activities', 'faculty'],
-                'dept-management': ['overview', 'highlights', 'outcomes', 'faculty'],
-                'dept-bca': ['overview', 'syllabus', 'faculty'],
+                'dept-commerce': ['why-bcom', 'highlights', 'vision', 'skills', 'matrix', 'outcomes', 'activities', 'faculty'],
+                'dept-management': ['why-bba', 'skills', 'highlights', 'vision', 'matrix', 'objectives', 'outcomes', 'activities', 'faculty'],
+                'dept-bca': ['highlights', 'vision', 'facilities', 'competency-training', 'certificate-courses', 'matrix', 'objectives', 'outcomes', 'faculty', 'forum'],
+                'dept-arts': ['highlights', 'skills', 'vision', 'courses', 'objectives', 'outcomes', 'history', 'economics', 'political-science', 'activities', 'faculty', 'contact'],
+                'dept-english': ['highlights', 'facilities', 'vision', 'programmes', 'certificate-courses', 'matrix', 'objectives', 'outcomes', 'natya', 'fourth-wall', 'phoenix', 'faculty', 'contact'],
+                'dept-languages': ['highlights', 'vision', 'objectives', 'outcomes', 'hindi', 'kannada', 'tamil', 'events', 'faculty', 'contact'],
+                'dept-physed': ['highlights', 'vision', 'facilities', 'courses', 'events', 'contact'],
                 'facilities': ['overview', 'computer-labs', 'sports-ground', 'auditorium', 'library', 'digital-library', 'classrooms', 'canteen', 'green-campus'],
                 'administration': ['overview', 'staff-list', 'photos']
             };

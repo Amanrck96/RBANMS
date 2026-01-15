@@ -4,8 +4,6 @@ import React from 'react';
 import { DepartmentLayout } from '@/components/layout/department-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Users, Image as ImageIcon } from 'lucide-react';
-import Image from 'next/image';
-import { DynamicSection } from '@/components/dynamic-section';
 
 export default function AdministrationPage() {
 
@@ -98,19 +96,11 @@ export default function AdministrationPage() {
   ];
 
   return (
-    <DynamicSection
+    <DepartmentLayout
+      title="Administration"
       pageId="administration"
-      render={(data) => (
-        <DepartmentLayout
-          title={data.title || "Administration"}
-          tagline={data.imageUrl ? undefined : (data.content ? "The Backbone of Our College" : "The Backbone of Our College. Efficient, responsive, and dedicated to supporting our academic environment.")}
-          heroImage={data.imageUrl}
-          sections={data.content ? [
-            { id: 'custom', label: 'Updates', content: <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: data.content }} /> },
-            ...sections
-          ] : sections}
-        />
-      )}
+      tagline="The Backbone of Our College. Efficient, responsive, and dedicated to supporting our academic environment."
+      sections={sections}
     />
   );
 }
