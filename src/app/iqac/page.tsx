@@ -82,34 +82,52 @@ export default function IQACPage() {
 
 
 
-  const meetingMinutesItems = [
-    { id: 'mm1', name: 'Meeting Minutes - 1', type: 'file' as const, url: 'https://drive.google.com/file/d/1mXOdjIHWx3RcQxI3Eeq4-cAM6O1_uQoZ/view?usp=drive_link' },
-    { id: 'mm2', name: 'Meeting Minutes - 2', type: 'file' as const, url: 'https://drive.google.com/file/d/1xr1H03XzCeFKn9kC_8hCm_LQmCG9H4xz/view?usp=drive_link' },
-    { id: 'mm3', name: 'Meeting Minutes - 3', type: 'file' as const, url: 'https://drive.google.com/file/d/1xWHMYWNc8Zl2Z1Tf3sGUDVowvl-HVO4C/view?usp=drive_link' },
-    { id: 'mm4', name: 'Meeting Minutes - 4', type: 'file' as const, url: 'https://drive.google.com/file/d/1ZOdsVXLKkd9J_LDeLqtApRtUvNP5kVYP/view?usp=drive_link' },
+  const constitutionItems = [
+    { id: 'c-24-25', name: '2024-25', type: 'file' as const, url: 'https://drive.google.com/file/d/14TNINSLEJGsYgsVmd5sP-YtFqCDHxRrI/view?usp=sharing' },
+    { id: 'c-23-24', name: '2023-24', type: 'file' as const, url: 'https://drive.google.com/file/d/1GuJ3uCUFypLJysN8zvACzIIAAD36fYYm/view?usp=sharing' },
+    { id: 'c-22-23', name: '2022-23', type: 'file' as const, url: 'https://drive.google.com/file/d/1Ia7zdXiygkSfhHndRx7YTew_n5fW49DH/view?usp=sharing' },
+    { id: 'c-21-22', name: '2021-22', type: 'file' as const, url: 'https://drive.google.com/file/d/1z1JmqoR0U1nAmutVIzxEZ7vjaRjkrIfd/view?usp=sharing' },
   ];
 
-  const constitutionItems = [
-    { id: 'c1', name: 'Constitution Document - 1', type: 'file' as const, url: 'https://drive.google.com/open?id=14TNINSLEJGsYgsVmd5sP-YtFqCDHxRrI&usp=drive_copy' },
-    { id: 'c2', name: 'Constitution Document - 2', type: 'file' as const, url: 'https://drive.google.com/open?id=1Ia7zdXiygkSfhHndRx7YTew_n5fW49DH&usp=drive_copy' },
-    { id: 'c3', name: 'Constitution Document - 3', type: 'file' as const, url: 'https://drive.google.com/open?id=1z1JmqoR0U1nAmutVIzxEZ7vjaRjkrIfd&usp=drive_copy' },
-    { id: 'c4', name: 'Constitution Document - 4', type: 'file' as const, url: 'https://drive.google.com/open?id=1GuJ3uCUFypLJysN8zvACzIIAAD36fYYm&usp=drive_copy' },
+  const annualSppItems = [
+    { id: 'spp-24-25', name: '2024-25', type: 'file' as const },
+    { id: 'spp-23-24', name: '2023-24', type: 'file' as const },
   ];
 
   const annualReportItems = [
-    { id: 'ar1', name: 'Annual Report - 1', type: 'file' as const, url: 'https://drive.google.com/open?id=1VB_okbRdhm8Ll2tTNj27kfBVkxg1xj9F&usp=drive_copy' },
-    { id: 'ar2', name: 'Annual Report - 2', type: 'file' as const, url: 'https://drive.google.com/open?id=1yCeCdJW-IJNq3r10gzKUqf5v0uXc-4-m&usp=drive_copy' },
-    { id: 'ar3', name: 'Annual Report - 3', type: 'file' as const, url: 'https://drive.google.com/open?id=1xRihwynDNNPEGmcRLjyVXhSVXETyNB26&usp=drive_copy' },
+    { id: 'ar-24-25', name: '2024-25', type: 'file' as const },
+    { id: 'ar-23-24', name: '2023-24', type: 'file' as const },
+  ];
+
+  const activitiesItems = [
+    { id: 'act-24-25', name: '2024-25', type: 'file' as const },
+    { id: 'act-23-24', name: '2023-24', type: 'file' as const },
+  ];
+
+  const cellMemberItems = [
+    { id: 'cm-24-25', name: '2024-25', type: 'file' as const },
+    { id: 'cm-23-24', name: '2023-24', type: 'file' as const },
+    { id: 'cm-22-23', name: '2022-23', type: 'file' as const },
+    { id: 'cm-21-22', name: '2021-22', type: 'file' as const },
+  ];
+
+  const aisheItems = [
+    { id: 'aishe-24-25', name: '2024-25', type: 'file' as const },
+    { id: 'aishe-23-24', name: '2023-24', type: 'file' as const },
+    { id: 'aishe-22-23', name: '2022-23', type: 'file' as const },
+    { id: 'aishe-21-22', name: '2021-22', type: 'file' as const },
   ];
 
   const documentsContent = (
     <div className="space-y-6">
-      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">DOCUMENTS</h2>
-      <div className="grid md:grid-cols-2 gap-6">
-        <DocumentFolder title="Meeting Minutes" items={meetingMinutesItems} />
+      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black uppercase">IQAC Documents</h2>
+      <div className="grid md:grid-cols-2 gap-8">
+        <DocumentFolder title="Constitution" items={constitutionItems} />
+        <DocumentFolder title="Annual SPP" items={annualSppItems} />
         <DocumentFolder title="Annual Report" items={annualReportItems} />
-        <DocumentFolder title="Constitution And Cell Members" items={constitutionItems} />
-        <DocumentFolder title="Feedback Reports" />
+        <DocumentFolder title="Activities" items={activitiesItems} />
+        <DocumentFolder title="Cell / Committee Members" items={cellMemberItems} />
+        <DocumentFolder title="AISHE Certificate" items={aisheItems} />
       </div>
     </div>
   );
