@@ -113,7 +113,7 @@ export function SiteFooter() {
                 </a>
               )}
               {(settings?.socialLinks?.youtube || !settings?.socialLinks) && (
-                <a href={settings?.socialLinks?.youtube || "#"} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="YouTube">
+                <a href={settings?.socialLinks?.youtube || "https://youtube.com/@rbanmsfgcblr"} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="YouTube">
                   <Youtube className="h-6 w-6" />
                 </a>
               )}
