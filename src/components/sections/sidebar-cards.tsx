@@ -4,7 +4,7 @@ import { DynamicSection } from '@/components/dynamic-section';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { Calendar, Bell, FileText, Star, Clock, BookOpen } from 'lucide-react';
+import { Calendar, Bell, FileText, Star, Clock, BookOpen, Youtube } from 'lucide-react';
 
 export function SidebarCards() {
     return (
@@ -164,6 +164,30 @@ export function SidebarCards() {
                                                 </div>
                                             ))}
                                         </div>
+                                    </CardContent>
+                                </Card>
+                                {/* YouTube Card */}
+                                <Card className="flex flex-col border-red-100 shadow-sm hover:shadow-md transition-shadow bg-red-50/10">
+                                    <CardHeader className="bg-red-50/50 pb-3 p-4">
+                                        <CardTitle className="text-red-700 flex items-center gap-2 text-base font-bold">
+                                            <Youtube className="size-4 text-red-600" /> Official YouTube
+                                        </CardTitle>
+                                    </CardHeader>
+                                    <CardContent className="p-4 pt-4 flex-grow flex flex-col items-center justify-center">
+                                        <a
+                                            href="https://youtube.com/@rbanmsfgcblr"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="group flex flex-col items-center gap-2"
+                                        >
+                                            <div className="size-12 rounded-full bg-red-600 flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform">
+                                                <Youtube className="size-6" />
+                                            </div>
+                                            <div className="text-center">
+                                                <p className="text-[11px] font-bold text-red-900 group-hover:underline">@rbanmsfgcblr</p>
+                                                <p className="text-[10px] text-red-700/70">Subscribe for Latest Updates</p>
+                                            </div>
+                                        </a>
                                     </CardContent>
                                 </Card>
                             </div>

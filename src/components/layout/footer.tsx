@@ -107,29 +107,25 @@ export function SiteFooter() {
           <div className="space-y-2">
             <h3 className="text-xl font-bold !text-yellow-400">Social Media</h3>
             <div className="flex flex-wrap gap-4">
-              {(settings?.socialLinks?.facebook || !settings?.socialLinks) && (
-                <a href={settings?.socialLinks?.facebook || "#"} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="Facebook">
-                  <Facebook className="h-6 w-6" />
-                </a>
-              )}
-              {(settings?.socialLinks?.youtube || !settings?.socialLinks) && (
-                <a href={settings?.socialLinks?.youtube || "https://youtube.com/@rbanmsfgcblr"} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="YouTube">
-                  <Youtube className="h-6 w-6" />
-                </a>
-              )}
-              <a href={settings?.socialLinks?.instagram || "https://www.instagram.com/rbanmsfgcblr/"} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="Instagram">
+              <a href={(!settings?.socialLinks?.facebook || settings?.socialLinks?.facebook === '#') ? "#" : settings.socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="Facebook">
+                <Facebook className="h-6 w-6" />
+              </a>
+              <a href={(!settings?.socialLinks?.youtube || settings?.socialLinks?.youtube === '#') ? "https://youtube.com/@rbanmsfgcblr" : settings.socialLinks.youtube} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="YouTube">
+                <Youtube className="h-6 w-6" />
+              </a>
+              <a href={(!settings?.socialLinks?.instagram || settings?.socialLinks?.instagram === '#') ? "https://www.instagram.com/rbanmsfgcblr/" : settings.socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="Instagram">
                 <Instagram className="h-6 w-6" />
               </a>
-              <a href={settings?.socialLinks?.linkedin || "https://www.linkedin.com/company/rbanmsfgcblr"} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="LinkedIn">
+              <a href={(!settings?.socialLinks?.linkedin || settings?.socialLinks?.linkedin === '#') ? "https://www.linkedin.com/company/rbanmsfgcblr" : settings.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="LinkedIn">
                 <Linkedin className="h-6 w-6" />
               </a>
-              <a href={settings?.socialLinks?.twitter || "https://x.com/rbanmsfgcblr"} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="Twitter">
+              <a href={(!settings?.socialLinks?.twitter || settings?.socialLinks?.twitter === '#') ? "https://x.com/rbanmsfgcblr" : settings.socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="Twitter">
                 <Twitter className="h-6 w-6" />
               </a>
-              <a href={settings?.socialLinks?.pinterest || "https://www.pinterest.com/rbanmsfgcblr/"} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="Pinterest">
+              <a href={(!settings?.socialLinks?.pinterest || settings?.socialLinks?.pinterest === '#') ? "https://www.pinterest.com/rbanmsfgcblr/" : settings.socialLinks.pinterest} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="Pinterest">
                 <Pin className="h-6 w-6" />
               </a>
-              <a href={settings?.socialLinks?.bluesky || "https://bsky.app/profile/rbanmsfgcblr.bsky.social"} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="Bluesky">
+              <a href={(!settings?.socialLinks?.bluesky || settings?.socialLinks?.bluesky === '#') ? "https://bsky.app/profile/rbanmsfgcblr.bsky.social" : settings.socialLinks.bluesky} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" aria-label="Bluesky">
                 <Cloud className="h-6 w-6" />
               </a>
             </div>
