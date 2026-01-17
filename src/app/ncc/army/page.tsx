@@ -1,39 +1,42 @@
+'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
+import { DynamicSection } from '@/components/dynamic-section';
 
 export default function ArmyPage() {
     return (
         <div className="container mx-auto px-4 py-12 md:py-16">
             <Card>
-                <CardHeader>
-                    <CardTitle className="text-3xl md:text-4xl font-bold text-primary font-headline">
-                        NCC – Army Wing
-                    </CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <div className="space-y-6 text-foreground/90 leading-relaxed">
-                        <p className="text-lg">
-                            The NCC Army Wing at RBNMS College is a premier youth grooming platform that focuses on character, comradeship, and discipline. Cadets receive training in military drills, map reading, and weapon handling, alongside developing soft skills and leadership qualities. We prepare youth for the armed forces and other uniformed services while fostering a strong spirit of national integration. Our cadets are trained to be resilient leaders ready to serve the nation with pride.
-                        </p>
-                        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 h-64 md:h-80 relative">
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img
-                                    src="/images/ncc/army_wing.jpg"
-                                    alt="NCC Army Wing Cadets"
-                                    className="w-full h-full object-cover"
-                                />
+                <CardContent className="pt-10">
+                    <DynamicSection
+                        pageId="cell-ncc-army"
+                        defaultTitle="NCC – Army Wing"
+                        defaultContent={
+                            <div className="space-y-6 text-foreground/90 leading-relaxed">
+                                <p className="text-lg">
+                                    The NCC Army Wing at RBNMS College is a premier youth grooming platform that focuses on character, comradeship, and discipline. Cadets receive training in military drills, map reading, and weapon handling, alongside developing soft skills and leadership qualities. We prepare youth for the armed forces and other uniformed services while fostering a strong spirit of national integration. Our cadets are trained to be resilient leaders ready to serve the nation with pride.
+                                </p>
+                                <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 h-64 md:h-80 relative">
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img
+                                            src="/images/ncc/army_wing.jpg"
+                                            alt="NCC Army Wing Cadets"
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
+                                    <div className="rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 h-64 md:h-80 relative">
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img
+                                            src="/images/ncc/army_firing.jpg"
+                                            alt="NCC Army Wing Firing Practice"
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
+                                </div>
                             </div>
-                            <div className="rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 h-64 md:h-80 relative">
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img
-                                    src="/images/ncc/army_firing.jpg"
-                                    alt="NCC Army Wing Firing Practice"
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                        </div>
-                    </div>
+                        }
+                    />
                 </CardContent>
             </Card>
         </div>

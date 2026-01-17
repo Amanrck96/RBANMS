@@ -330,6 +330,22 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         title: 'Internal Quality Assurance Cell (IQAC)',
         content: '<p>The driving force behind academic excellence, continuously monitoring and enhancing quality of teaching, learning, and infrastructure through NAAC compliance and best practices.</p>'
     },
+    'cell-yrc': {
+        title: 'YRCS (Youth Red Cross Society)',
+        content: '<p>The Youth Red Cross Society unit focuses on the protection of health and life, service to the sick, and promotion of international friendship through humanitarian values and community service.</p>'
+    },
+    'industry-field-trip': {
+        title: 'Field Trips',
+        content: '<p>Information about educational field trips coming soon.</p>'
+    },
+    'industry-visits': {
+        title: 'Industry Visits',
+        content: '<p>Information about industry visits and partnerships coming soon.</p>'
+    },
+    'industry-addon': {
+        title: 'Add-on Programmes',
+        content: '<p>Skill-building and certification programmes offered in collaboration with industry partners.</p>'
+    },
     'administration': {
         title: 'Administration',
         content: '<p>The backbone of our college - efficient, responsive, and dedicated to supporting the academic environment and student welfare.</p>'
