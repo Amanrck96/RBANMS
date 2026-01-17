@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import { Loader2 } from 'lucide-react';
 import Image from 'next/image';
+import { db } from '@/lib/firebase-client';
+import { doc, onSnapshot } from 'firebase/firestore';
 
 interface DynamicSectionProps {
     pageId: string;
@@ -18,20 +20,34 @@ export function DynamicSection({ pageId, defaultTitle, defaultContent, defaultIm
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        async function fetchContent() {
-            try {
-                const res = await fetch(`/api/site-content?section=page-${pageId}`, { cache: 'no-store' });
-                const json = await res.json();
-                if (json.data) {
-                    setData(json.data);
+        // Check if Firebase is initialized
+        if (!db) {
+            console.error('Firebase not initialized');
+            setLoading(false);
+            return;
+        }
+
+        // Set up real-time listener to Firebase
+        const docRef = doc(db, 'site-content', `page-${pageId}`);
+
+        const unsubscribe = onSnapshot(
+            docRef,
+            (snapshot) => {
+                if (snapshot.exists()) {
+                    setData(snapshot.data() as any);
+                } else {
+                    setData(null);
                 }
-            } catch (error) {
-                console.error('Failed to load dynamic content:', error);
-            } finally {
+                setLoading(false);
+            },
+            (error) => {
+                console.error('Real-time listener error:', error);
                 setLoading(false);
             }
-        }
-        fetchContent();
+        );
+
+        // Cleanup listener on unmount
+        return () => unsubscribe();
     }, [pageId]);
 
     if (loading) {

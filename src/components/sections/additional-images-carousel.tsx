@@ -18,20 +18,31 @@ export function AdditionalImagesCarousel({ intervalMs = 3500, className }: Addit
   // Dynamic Content State
   const [dynamicHero, setDynamicHero] = useState<{ content?: string; imageUrl?: string } | null>(null);
 
-  // Fetch dynamic hero content
+  // Real-time listener for dynamic hero content
   useEffect(() => {
-    async function fetchHero() {
-      try {
-        const res = await fetch('/api/site-content?section=page-home-top-banner', { cache: 'no-store' });
-        const json = await res.json();
-        if (json.data && (json.data.imageUrl || json.data.content)) {
-          setDynamicHero(json.data);
-        }
-      } catch (e) {
-        console.error("Failed to fetch dynamic hero:", e);
-      }
-    }
-    fetchHero();
+    import('@/lib/firebase-client').then(({ db }) => {
+      if (!db) return;
+
+      import('firebase/firestore').then(({ doc, onSnapshot }) => {
+        const docRef = doc(db, 'site-content', 'page-home-top-banner');
+
+        const unsubscribe = onSnapshot(
+          docRef,
+          (snapshot) => {
+            if (snapshot.exists() && (snapshot.data().imageUrl || snapshot.data().content)) {
+              setDynamicHero(snapshot.data() as any);
+            } else {
+              setDynamicHero(null);
+            }
+          },
+          (error) => {
+            console.error("Real-time hero listener error:", error);
+          }
+        );
+
+        return () => unsubscribe();
+      });
+    });
   }, []);
 
   // Use the new hero images

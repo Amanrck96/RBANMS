@@ -65,18 +65,36 @@ export function DepartmentLayout({
 
     useEffect(() => {
         if (!pageId) return;
-        async function fetchPageData() {
-            try {
-                const res = await fetch(`/api/site-content?section=page-${pageId}`, { cache: 'no-store' });
-                const json = await res.json();
-                if (json.data) {
-                    setDynamicData(json.data);
-                }
-            } catch (e) {
-                console.error("Failed to fetch dynamic page content:", e);
+
+        // Import Firebase client
+        import('@/lib/firebase-client').then(({ db }) => {
+            if (!db) {
+                console.error('Firebase not initialized');
+                return;
             }
-        }
-        fetchPageData();
+
+            // Import Firestore functions
+            import('firebase/firestore').then(({ doc, onSnapshot }) => {
+                const docRef = doc(db, 'site-content', `page-${pageId}`);
+
+                const unsubscribe = onSnapshot(
+                    docRef,
+                    (snapshot) => {
+                        if (snapshot.exists()) {
+                            setDynamicData(snapshot.data());
+                        } else {
+                            setDynamicData(null);
+                        }
+                    },
+                    (error) => {
+                        console.error("Real-time listener error:", error);
+                    }
+                );
+
+                // Cleanup on unmount
+                return () => unsubscribe();
+            });
+        });
     }, [pageId]);
 
     const effectiveHeroImage = dynamicData?.imageUrl || heroImage;
