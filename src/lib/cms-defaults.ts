@@ -153,15 +153,55 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     },
     'about-awards': {
         title: 'Awards & Recognition',
-        content: '<p>Information about awards and recognition received by the college and its students.</p>'
+        content: `
+            <p class="mb-6 text-lg">RBANNM's First Grade College has a long-standing tradition of excellence, recognized by various academic and social bodies. Our commitment to holistic education and community service has earned us numerous accolades.</p>
+            <div class="space-y-4">
+                <div class="border-l-4 border-yellow-500 pl-4 py-2 bg-yellow-50">
+                    <h3 class="font-bold text-xl text-primary">Best College for Holistic Education (2024)</h3>
+                    <p class="text-gray-700">Awarded by the Bangalore Education Trust for excellence in balancing academics with extracurricular development.</p>
+                </div>
+                <div class="border-l-4 border-green-500 pl-4 py-2 bg-green-50">
+                    <h3 class="font-bold text-xl text-primary">Green Campus Award (2023)</h3>
+                    <p class="text-gray-700">Recognized for our sustainable practices, including solar energy adoption and waste management initiatives.</p>
+                </div>
+                <div class="border-l-4 border-blue-500 pl-4 py-2 bg-blue-50">
+                    <h3 class="font-bold text-xl text-primary">NSS Best Unit Award</h3>
+                    <p class="text-gray-700">Our National Service Scheme unit has been consistently recognized for its impactful rural development camps and social awareness drives.</p>
+                </div>
+            </div>
+        `
     },
     'academics-index': {
         title: 'Academics',
-        content: '<p>Explore our academic structure, courses, and educational philosophy.</p>'
+        content: `
+            <p class="mb-4 text-lg">At RBANNM's First Grade College, academics is not just about clearing examinations; it is about igniting a passion for learning, developing critical thinking, and building a foundation for a successful career and a meaningful life.</p>
+            <p class="mb-4">Our academic structure is designed to be rigorous yet flexible, allowing students to explore their interests while mastering the core fundamentals of their chosen discipline. We offer undergraduate programs in Commerce, Management, Computer Applications, and Arts, all affiliated with Bangalore City University.</p>
+            <h3 class="text-xl font-bold text-primary mt-6 mb-3">Our Approach</h3>
+            <ul class="list-disc pl-5 space-y-2">
+                <li><strong>Student-Centric Learning:</strong> Focus on individual attention and mentorship.</li>
+                <li><strong>Innovative Pedagogy:</strong> Use of ICT tools, case studies, and project-based learning.</li>
+                <li><strong>Industry Integration:</strong> Regular guest lectures, workshops, and industrial visits.</li>
+                <li><strong>Value-Added Courses:</strong> Certification programs to enhance employability.</li>
+            </ul>
+        `
     },
     'academics-new-courses': {
         title: 'New Courses',
-        content: '<p>Details about newly introduced courses and programs will appear here.</p>'
+        content: `
+            <p class="mb-6 text-lg">In response to the changing demands of the industry and society, we continuously evolve our curriculum and introduce new programs. These courses are designed to equip students with cutting-edge skills and future-ready knowledge.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                    <h3 class="text-xl font-bold text-blue-900 mb-2">B.A. in Journalism & Mass Communication</h3>
+                    <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mb-3 font-semibold">New Introduction</span>
+                    <p class="text-gray-700 mb-3">A comprehensive program preparing students for the dynamic world of media, covering print, broadcast, and digital journalism.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                    <h3 class="text-xl font-bold text-blue-900 mb-2">B.Sc. in Data Science</h3>
+                    <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mb-3 font-semibold">Coming Soon</span>
+                    <p class="text-gray-700 mb-3">An upcoming interdisciplinary program focusing on big data, machine learning, and statistical analysis to meet the growing demand for data professionals.</p>
+                </div>
+            </div>
+        `
     },
     'academics-addon-courses': {
         title: 'Add-on Courses',
@@ -457,111 +497,186 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     // Missing top-level pages
     'alumni-activity': {
         title: 'Alumni Activity',
-        content: '<p>Digital India support campaign and other community initiatives.</p>'
+        content: `
+            <p class="mb-4 text-lg">Our alumni are our greatest ambassadors. They stay connected with their alma mater through various initiatives that benefit current students and society.</p>
+            <div class="space-y-4">
+               <div class="bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                    <h3 class="font-bold text-lg text-indigo-900">Mentorship Program</h3>
+                    <p class="text-gray-700">Senior alumni from top corporates guide final-year students on career choices and interview preparation.</p>
+               </div>
+               <div class="bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                    <h3 class="font-bold text-lg text-indigo-900">Annual Alumni Meet</h3>
+                    <p class="text-gray-700">A yearly gathering held on the second Saturday of January to reconnect, network, and celebrate shared memories.</p>
+               </div>
+               <div class="bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                    <h3 class="font-bold text-lg text-indigo-900">Community Outreach</h3>
+                    <p class="text-gray-700">Alumni-led initiatives including blood donation camps, digital literacy drives for the underprivileged, and environmental awareness campaigns.</p>
+               </div>
+            </div>
+        `
     },
     'career': {
         title: 'Career Opportunities',
-        content: '<p>Join our team and be part of a legacy that values compassion and education.</p>'
+        content: `
+            <p class="mb-4 text-lg">Join our team of dedicated educators and professionals.</p>
+            <p class="mb-4">At RBANM's First Grade College, we value passion, integrity, and a commitment to student success. If you are looking for a fulfilling career in academia or administration, we invite you to explore our current openings.</p>
+            <p><strong>Current Openings:</strong></p>
+            <ul class="list-disc pl-5 mb-4">
+                <li>Assistant Professor - Commerce</li>
+                <li>Lab Instructor - Computer Science</li>
+                <li>Office Assistant</li>
+            </ul>
+            <p>To apply, please email your resume to <a href="mailto:info@rbanmsfgc.edu.in" class="text-primary hover:underline">info@rbanmsfgc.edu.in</a>.</p>
+        `
     },
     'rti': {
-        title: 'RTI',
-        content: '<p>Right to Information details coming soon.</p>'
+        title: 'Right to Information (RTI)',
+        content: `
+            <p class="mb-4 text-lg">Transparency and accountability are the pillars of our governance.</p>
+            <p class="mb-4">Right to Information Act 2005 mandates timely response to citizen requests for government information. RBANM's First Grade College is committed to providing information to the public as per the provisions of the RTI Act.</p>
+            <h3 class="text-xl font-bold text-primary mt-6 mb-3">Public Information Officers</h3>
+            <table class="w-full border-collapse border border-gray-300 mt-2 text-sm">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="border border-gray-300 p-2 text-left">Role</th>
+                        <th class="border border-gray-300 p-2 text-left">Name</th>
+                        <th class="border border-gray-300 p-2 text-left">Contact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border border-gray-300 p-2">Appellate Authority</td>
+                        <td class="border border-gray-300 p-2">Dr. Shanti Iyer (Principal)</td>
+                        <td class="border border-gray-300 p-2">principal@rbanmsfgc.edu.in</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 p-2">Public Information Officer</td>
+                        <td class="border border-gray-300 p-2">Office Superintendent</td>
+                        <td class="border border-gray-300 p-2">office@rbanmsfgc.edu.in</td>
+                    </tr>
+                </tbody>
+            </table>
+        `
     },
     'governance': {
         title: 'Governance',
-        content: '<p>Institutional governance and board details coming soon.</p>'
+        content: `
+            <p class="mb-4 text-lg">Robust governance structure ensuring ethical management and academic excellence.</p>
+            <p class="mb-4">The college is managed by the RBANM's Educational Charities Trust, a body with over a century of service to society. The governance structure ensures that all institutional activities align with the vision and mission of our founder.</p>
+            <div class="space-y-6 mt-6">
+                <div class="bg-white p-5 rounded-lg border border-gray-200">
+                    <h3 class="text-xl font-bold text-blue-900 mb-2">Board of Trustees</h3>
+                    <p class="text-gray-700">Comprised of eminent personalities from various fields, the Board provides strategic direction and oversight to the institution.</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg border border-gray-200">
+                    <h3 class="text-xl font-bold text-blue-900 mb-2">Governing Council</h3>
+                    <p class="text-gray-700">Responsible for the administration and academic policies of the college, ensuring compliance with university and government regulations.</p>
+                </div>
+            </div>
+        `
     },
     'code-of-conduct': {
         title: 'Code of Conduct',
-        content: '<p>Professional and ethical standards for students and staff.</p>'
-    },
-    'dept-english': {
-        title: 'Department of English',
-        content: '<p>Dedicated to developing language proficiency, literary appreciation, and communication skills essential for academic and professional success.</p>'
-    },
-    'dept-languages': {
-        title: 'Department of Languages',
-        content: '<p>Promoting multilingual proficiency and cultural diversity through comprehensive language programs including Kannada, Hindi, Sanskrit, and other regional languages.</p>'
-    },
-    'dept-physed': {
-        title: 'Department of Physical Education',
-        content: '<p>Committed to holistic development through sports, fitness, and physical training programs that build discipline, teamwork, and healthy lifestyles.</p>'
-    },
-    'cell-nss': {
-        title: 'National Service Scheme (NSS)',
-        content: '<p>The NSS unit promotes social responsibility through community service, rural development programs, and nation-building activities. Students participate in camps, awareness drives, and social welfare projects.</p>'
-    },
-    'cell-ncc-army': {
-        title: 'NCC Army Wing',
-        content: '<p>The NCC Army Wing instills discipline, leadership, and patriotism among students through military training, adventure activities, and character building exercises.</p>'
-    },
-    'cell-ncc-navy': {
-        title: 'NCC Naval Wing',
-        content: '<p>The NCC Naval Wing provides unique maritime training opportunities, leadership development, and serves as a platform for students interested in naval careers.</p>'
-    },
-    'cell-ipc': {
-        title: 'Internal Placement Cell (IPC)',
-        content: '<p>The IPC bridges the gap between academics and industry by organizing training sessions, workshops, and recruitment drives to ensure our graduates are employable and confident.</p>'
-    },
-    'cell-manasa': {
-        title: 'Manasa – Counselling Cell',
-        content: '<p>Manasa prioritizes mental wellbeing and emotional support for students through professional counseling, stress management workshops, and peer support programs.</p>'
-    },
-    'cell-womens': {
-        title: 'Women\'s Cell',
-        content: '<p>Dedicated to empowering female students through awareness programs, skill development, safety initiatives, and support systems that promote gender equality.</p>'
-    },
-    'cell-eco': {
-        title: 'Eco Club',
-        content: '<p>Creating environmental awareness and promoting sustainable practices through tree plantation drives, waste management initiatives, and green campus activities.</p>'
-    },
-    'cell-cultural': {
-        title: 'Cultural Committee',
-        content: '<p>Celebrating creativity, talent, and diversity through cultural events, festivals, competitions, and platforms for students to showcase their artistic abilities.</p>'
-    },
-    'cell-antiragging': {
-        title: 'Anti-Ragging Committee',
-        content: '<p>Zero tolerance policy towards ragging. The committee ensures a safe campus environment through vigilance, awareness campaigns, and strict disciplinary action.</p>'
-    },
-    'cell-grievance': {
-        title: 'Grievance Redressal Cell',
-        content: '<p>Providing a transparent mechanism for students to voice concerns and complaints, ensuring timely resolution and maintaining institutional harmony.</p>'
-    },
-    'cell-aicte': {
-        title: 'AICTE Committee',
-        content: '<p>Ensuring compliance with AICTE norms and regulations, maintaining academic standards, and implementing quality enhancement initiatives as per regulatory requirements.</p>'
-    },
-    'cell-discipline': {
-        title: 'Discipline Committee',
-        content: '<p>Maintaining order, decorum, and professional conduct on campus through clear guidelines, fair enforcement, and character development programs.</p>'
-    },
-    'cell-exam': {
-        title: 'Examination Committee',
-        content: '<p>Ensuring transparency, fairness, and efficiency in all examination processes including conduct, evaluation, and result publication.</p>'
-    },
-    'cell-iqac': {
-        title: 'Internal Quality Assurance Cell (IQAC)',
-        content: '<p>The driving force behind academic excellence, continuously monitoring and enhancing quality of teaching, learning, and infrastructure through NAAC compliance and best practices.</p>'
-    },
-    'cell-yrc': {
-        title: 'YRCS (Youth Red Cross Society)',
-        content: '<p>The Youth Red Cross Society unit focuses on the protection of health and life, service to the sick, and promotion of international friendship through humanitarian values and community service.</p>'
+        content: `
+            <p class="mb-4">To maintain high standards of discipline and professionalism, all students and staff are expected to adhere to the college's code of conduct.</p>
+            <ul class="list-disc pl-5 space-y-2">
+                <li>Respect for all members of the college community.</li>
+                <li>Adherence to dress code and ID card regulations.</li>
+                <li>Prohibition of ragging in any form (Zero Tolerance).</li>
+                <li>Regular attendance and punctuality.</li>
+                <li>Responsible use of college facilities and resources.</li>
+            </ul>
+        `
     },
     'industry-field-trip': {
         title: 'Field Trips',
-        content: '<p>Information about educational field trips coming soon.</p>'
+        content: `
+            <p class="mb-6 text-lg">Experiential learning beyond the classroom boundaries.</p>
+            <p class="mb-4">Field trips are a vital part of our curriculum, providing students with practical insights and real-world exposure. They help bridge the gap between theoretical knowledge and its application.</p>
+            <div class="space-y-4">
+                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                    <div class="bg-blue-100 p-2 rounded-full text-blue-700 font-bold shrink-0">01</div>
+                    <div>
+                        <h4 class="font-bold text-lg">Historical Heritage Walks</h4>
+                        <p class="text-gray-600">Department of History organizes walks to historical sites in and around Bangalore to study architecture and culture.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                    <div class="bg-blue-100 p-2 rounded-full text-blue-700 font-bold shrink-0">02</div>
+                    <div>
+                        <h4 class="font-bold text-lg">Environmental Study Tours</h4>
+                        <p class="text-gray-600">The Eco Club and Department of Botany conduct trips to botanical gardens and nature reserves.</p>
+                    </div>
+                </div>
+            </div>
+        `
     },
     'industry-visits': {
         title: 'Industry Visits',
-        content: '<p>Information about industry visits and partnerships coming soon.</p>'
+        content: `
+            <p class="mb-6 text-lg">Connecting students with the corporate world.</p>
+            <p class="mb-4">Our approach to education includes regular interaction with the industry. Industrial visits provide students with an opportunity to observe corporate operations, understand work culture, and interact with industry professionals.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                <div class="border p-4 rounded-lg text-center hover:bg-blue-50 transition">
+                    <span class="block text-2xl font-bold text-primary mb-1">Tech Parks</span>
+                    <span class="text-sm text-gray-600">For BCA Students</span>
+                </div>
+                <div class="border p-4 rounded-lg text-center hover:bg-blue-50 transition">
+                    <span class="block text-2xl font-bold text-primary mb-1">Manufacturing Units</span>
+                    <span class="text-sm text-gray-600">For Management Students</span>
+                </div>
+                <div class="border p-4 rounded-lg text-center hover:bg-blue-50 transition">
+                    <span class="block text-2xl font-bold text-primary mb-1">Banks & Financial Inst.</span>
+                    <span class="text-sm text-gray-600">For Commerce Students</span>
+                </div>
+                <div class="border p-4 rounded-lg text-center hover:bg-blue-50 transition">
+                    <span class="block text-2xl font-bold text-primary mb-1">Media Houses</span>
+                    <span class="text-sm text-gray-600">For Journalism Students</span>
+                </div>
+            </div>
+        `
     },
     'industry-addon': {
         title: 'Add-on Programmes',
-        content: '<p>Skill-building and certification programmes offered in collaboration with industry partners.</p>'
+        content: `
+            <p class="mb-6 text-lg">We offer a range of value-added courses in collaboration with industry partners to bridge the skill gap and enhance employability.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                 <div class="border p-4 rounded hover:shadow-md transition bg-white">
+                    <h3 class="font-bold text-primary mb-1">Advanced Excel & Tally</h3>
+                    <p class="text-sm text-gray-600">For Commerce & Management students to master financial tools.</p>
+                 </div>
+                 <div class="border p-4 rounded hover:shadow-md transition bg-white">
+                    <h3 class="font-bold text-primary mb-1">Digital Marketing</h3>
+                    <p class="text-sm text-gray-600">Certification in SEO, SMM, and Content Marketing.</p>
+                 </div>
+                 <div class="border p-4 rounded hover:shadow-md transition bg-white">
+                    <h3 class="font-bold text-primary mb-1">Python for Everybody</h3>
+                    <p class="text-sm text-gray-600">Introductory programming course open to all streams.</p>
+                 </div>
+                 <div class="border p-4 rounded hover:shadow-md transition bg-white">
+                    <h3 class="font-bold text-primary mb-1">Soft Skills & Etiquette</h3>
+                    <p class="text-sm text-gray-600">Workshops on communication, team building, and corporate grooming.</p>
+                 </div>
+            </div>
+        `
     },
     'administration': {
         title: 'Administration',
-        content: '<p>The backbone of our college - efficient, responsive, and dedicated to supporting the academic environment and student welfare.</p>'
+        content: `
+            <p class="mb-6 text-lg">Our administrative team is the backbone of the college, ensuring smooth day-to-day operations and providing essential support to students and faculty.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-blue-900 mb-2">College Office</h3>
+                    <p class="text-gray-700 mb-2">Handles admissions, fee collection, and general enquiries.</p>
+                    <p class="text-sm font-semibold">Contact: office@rbanmsfgc.edu.in</p>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-blue-900 mb-2">Examination Section</h3>
+                    <p class="text-gray-700 mb-2">Manages internal assessments and university examinations.</p>
+                    <p class="text-sm font-semibold">Contact: exams@rbanmsfgc.edu.in</p>
+                </div>
+            </div>
+        `
     },
     'facilities': {
         title: 'Facilities',
@@ -640,7 +755,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         ],
         blog_text: `
             <p>Welcome to our blog section where we share insights, stories, and updates from our college community. Stay tuned for upcoming articles on academic excellence, student achievements, and educational initiatives that shape the future of learning.</p>
-            <p>Blog content coming soon...</p>
+            <p>We invite submissions from students and faculty. Please contact the editorial board for guidelines.</p>
         `
     },
     'header-top': {
