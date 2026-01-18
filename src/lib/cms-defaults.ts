@@ -11,9 +11,24 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'about-founder': {
         title: 'Our Founder',
         content: `
-            <p>Arcot Narrainswamy Mudaliar was a pioneering businessman, philanthropist, and social reformer whose life story embodies the values of equality, education, and social justice. Born in Arcot in 1827, he moved to Bangalore as a child, shouldering the responsibility of his family after his father's demise.</p>
-            <p>Despite his business success, what set Mudaliar apart was his progressive vision for society. In 1873, he founded the Free English Primary School in Bangalore Cantonment for non-white students—an assertion of the principle of equality at a time when education was a privilege of the elite.</p>
-            <p>Mudaliar also championed gender and caste equality with the founding of the Thirukulatar School in 1883 and the Govindammal Girls School in 1886.</p>
+            <div class="space-y-6 text-gray-800">
+                <p class="text-lg leading-relaxed"><strong>Arcot Narrainswamy Mudaliar</strong> was a pioneering businessman, philanthropist, and social reformer whose life story embodies the values of equality, education, and social justice. Born in Arcot in 1827, he moved to Bengaluru as a child, shouldering the responsibility of his family after his father’s demise. His entrepreneurial acumen led him to establish successful businesses, including Mysore Hall and Bangalore Agency, making him one of the wealthiest merchants of his time.</p>
+
+                <p>Despite his business success, what set Mudaliar apart was his progressive vision for society. Deeply influenced by the idea that wealth was a trust for the upliftment of the needy, he dedicated himself to philanthropy, particularly in education. In 1873, he founded the <strong>Free English Primary School</strong> in Bangalore Cantonment for non-white students—an assertion of the principle of equality at a time when education was a privilege of the elite. Remarkably, despite not being literate in English himself, he understood its value in empowering future generations.</p>
+
+                <h3 class="text-xl font-bold text-blue-900 mt-4">Champion of Equality</h3>
+                <p>Mudaliar also championed gender and caste equality, first, with the founding of the <strong>Thirukulatar School in 1883</strong>, which provided education to the most marginalized castes from untouchable communities, defying rigid social hierarchies that completely excluded them from mainstream education. In 1886, he established the <strong>Govindammal Girls School</strong>, recognizing that education was the key to women's empowerment, at a time when societal norms relegated women to domestic roles.</p>
+
+                <h3 class="text-xl font-bold text-blue-900 mt-4">Social & Humanitarian Impact</h3>
+                <p>His impact was not limited to education. Mudaliar established one of Bangalore’s earliest technical schools in 1897, breaking the barriers of hereditary professions and providing opportunities for skill development. His response to the devastating famine of 1876-1878 demonstrated his humanitarian spirit, as he set up feeding centers and later an orphanage, which evolved into a permanent hostel for the underprivileged.</p>
+
+                <p>Mudaliar’s reformist outlook was also reflected in his association with the <strong>Brahmo Samaj</strong>, an organization advocating against caste discrimination and ritualistic Hindu practices. His legacy of challenging caste hierarchies was carried forward by his descendants, who played a role in temple entry movements and supported the Indian independence struggle, including contributions to Mahatma Gandhi’s South African campaign.</p>
+
+                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-600 my-6">
+                    <h3 class="text-lg font-bold text-blue-900 mb-2">A Legacy That Inspires Generations</h3>
+                    <p class="italic text-gray-700">"Narrainswamy Mudaliar’s life and work prefigured many ideals later enshrined in the Indian Constitution, particularly the principles of equality and non-discrimination. His unwavering commitment to social reform, particularly in education, caste, and gender equality, places him among the visionary reformers of 19th-century India."</p>
+                </div>
+            </div>
         `,
         imageUrl: '/images/founder.jpg'
     },
@@ -96,27 +111,111 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     },
     'page-dept-commerce-tab-why-bcom': {
         title: 'Why B.COM?',
-        content: '<p>The Commerce stream builds strong fundamentals in accounting, finance, taxation, economics, and business management while developing digital, analytical, and communication skills.</p>'
+        content: `
+            <div class="bg-blue-50 border-l-4 border-blue-600 p-4 mb-4">
+                <p class="text-lg font-medium text-blue-900">The Bachelor of Commerce (B.Com) is the most sought-after course for students aspiring for a career in finance, banking, and business.</p>
+            </div>
+            <p class="mb-4">Our B.Com program goes beyond the textbook. It is designed to build a robust foundation in:</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="bg-white p-4 rounded border shadow-sm">
+                    <h4 class="font-bold text-gray-800">Financial Proficiency</h4>
+                    <p class="text-sm text-gray-600">Mastering Financial Accounting, Cost Accounting, and Corporate Accounting.</p>
+                </div>
+                <div class="bg-white p-4 rounded border shadow-sm">
+                    <h4 class="font-bold text-gray-800">Taxation Experts</h4>
+                    <p class="text-sm text-gray-600">In-depth knowledge of GST and Income Tax laws.</p>
+                </div>
+                <div class="bg-white p-4 rounded border shadow-sm">
+                    <h4 class="font-bold text-gray-800">Banking & Insurance</h4>
+                    <p class="text-sm text-gray-600">Understanding the modern banking system and insurance regulations.</p>
+                </div>
+                <div class="bg-white p-4 rounded border shadow-sm">
+                    <h4 class="font-bold text-gray-800">Business Laws</h4>
+                    <p class="text-sm text-gray-600">Legal frameworks governing corporate entities.</p>
+                </div>
+            </div>
+        `
     },
     'page-dept-commerce-tab-highlights': {
         title: 'Highlights',
-        content: '<ul><li>Practical Learning</li><li>Add-on programmes</li><li>Strong Faculty</li><li>Industry Alignment</li><li>Clubs and Cells</li></ul>'
+        content: `
+            <ul class="space-y-3">
+                <li class="flex items-start bg-slate-50 p-3 rounded"><span class="mr-3 text-green-600 font-bold">✓</span><div><strong>Practical Learning:</strong> Regular workshops on Tally Prime and Advanced Excel.</div></li>
+                <li class="flex items-start bg-slate-50 p-3 rounded"><span class="mr-3 text-green-600 font-bold">✓</span><div><strong>Industry Experts:</strong> Guest lectures by CAs and Finance Managers.</div></li>
+                <li class="flex items-start bg-slate-50 p-3 rounded"><span class="mr-3 text-green-600 font-bold">✓</span><div><strong>Career Focus:</strong> Dedicated placement training for roles in Banking and MNCs.</div></li>
+                <li class="flex items-start bg-slate-50 p-3 rounded"><span class="mr-3 text-green-600 font-bold">✓</span><div><strong>Commerce Club:</strong> 'Vanijya' club organizes fests, quizzes, and mock stock markets.</div></li>
+            </ul>
+        `
     },
     'page-dept-commerce-tab-vision': {
         title: 'Vision & Mission',
-        content: '<p>Nurture competent, ethical, and socially responsible commerce graduates ready for a dynamic global business environment.</p>'
+        content: `
+            <div class="space-y-6">
+                <div class="text-center bg-blue-50 p-6 rounded-xl">
+                   <h3 class="text-xl font-bold text-blue-900 mb-2">Vision</h3>
+                   <p class="text-lg italic text-blue-800">"To be a centre of excellence in Commerce education, nurturing values, ethics, and professional competence."</p>
+                </div>
+                <div class="grid gap-4">
+                    <h3 class="font-bold text-lg border-b pb-2">Mission</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                        <li>To provide a strong conceptual foundation in Commerce.</li>
+                        <li>To foster an entrepreneurial mindset among students.</li>
+                        <li>To instill ethical values and social responsibility in future business leaders.</li>
+                    </ul>
+                </div>
+            </div>
+        `
     },
     'page-dept-commerce-tab-skills': {
         title: 'Skill Set Acquired',
-        content: '<ul><li>Financial Literacy</li><li>Business Fundamentals</li><li>Analytical Ability</li><li>Digital Competence</li><li>Communication Skills</li></ul>'
+        content: `
+            <div class="flex flex-wrap gap-3">
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full font-semibold text-sm">Financial Analysis</span>
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full font-semibold text-sm">Taxation Compliance</span>
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full font-semibold text-sm">Tally & ERP</span>
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full font-semibold text-sm">Auditing</span>
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full font-semibold text-sm">Business Communication</span>
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full font-semibold text-sm">Market Research</span>
+            </div>
+        `
     },
     'page-dept-commerce-tab-matrix': {
         title: 'Paper Titles',
-        content: '<p>Core papers across 6 semesters including Financial Accounting, Marketing, and GST.</p>'
+        content: `
+            <p class="mb-4">The B.Com curriculum is spread across 6 semesters (NEP Syllabus).</p>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left border rounded-lg">
+                    <thead class="bg-gray-100 uppercase text-gray-700">
+                        <tr><th class="px-4 py-3">Sem</th><th class="px-4 py-3">Core Subjects (Key)</th></tr>
+                    </thead>
+                    <tbody class="divide-y">
+                        <tr class="bg-white"><td class="px-4 py-3 font-bold">1 & 2</td><td class="px-4 py-3">Financial Accounting, Management Principles, Digital Fluency</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 font-bold">3 & 4</td><td class="px-4 py-3">Corporate Accounting, Costing, Artificial Intelligence</td></tr>
+                        <tr class="bg-white"><td class="px-4 py-3 font-bold">5 & 6</td><td class="px-4 py-3">Income Tax, Auditing, GST, Financial Management</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        `
     },
     'page-dept-commerce-tab-outcomes': {
         title: 'Outcomes',
-        content: '<p>Gain fundamental knowledge of accounting, finance, taxation, and business management.</p>'
+        content: `
+            <div class="space-y-4">
+                <p>Upon graduation, a B.Com student will be able to:</p>
+                <div class="flex gap-3">
+                     <span class="text-2xl">📊</span>
+                     <p>Prepare and analyze financial statements of companies.</p>
+                </div>
+                <div class="flex gap-3">
+                     <span class="text-2xl">💰</span>
+                     <p>File tax returns (GST and Income Tax) independently.</p>
+                </div>
+                <div class="flex gap-3">
+                     <span class="text-2xl">👔</span>
+                     <p>Work effectively in corporate finance or audit teams.</p>
+                </div>
+            </div>
+        `
     },
     'page-dept-commerce-tab-activities': {
         title: 'Activities',
@@ -425,19 +524,50 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     // Dept BCA
     'dept-bca': {
         title: 'Department of Computer Applications (BCA)',
-        content: '<p>Providing quality education in computer science and applications.</p>'
+        content: '<p class="text-lg">The BCA Department is the technology hub of the college, dedicated to creating future-ready IT professionals with strong coding and analytical skills.</p>'
     },
     'page-dept-bca-tab-overview': {
         title: 'Overview',
-        content: '<p>Strong foundation in software development and applications.</p>'
+        content: `
+            <div class="bg-indigo-50 p-6 rounded-lg border-l-4 border-indigo-500">
+                <p class="text-lg font-medium text-indigo-900">The BCA program bridges the gap between academic knowledge and industry requirements in the IT sector.</p>
+            </div>
+            <p class="mt-4">It focuses on providing a sound theoretical background as well as good practical exposure to students in the relevant areas. It increases the employability of the students in the IT sector.</p>
+        `
     },
     'page-dept-bca-tab-highlights': {
         title: 'Highlights',
-        content: '<ul><li>Hands-on Labs</li><li>Industry Projects</li><li>Coding Clubs</li></ul>'
+        content: `
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white p-4 rounded border shadow-sm">
+                    <h4 class="font-bold text-gray-800">🖥️ High-Tech Labs</h4>
+                    <p class="text-sm text-gray-600">State-of-the-art computer labs with latest configuration and high-speed internet.</p>
+                </div>
+                <div class="bg-white p-4 rounded border shadow-sm">
+                    <h4 class="font-bold text-gray-800">🚀 Project Work</h4>
+                    <p class="text-sm text-gray-600">Mandatory live projects in final year using technologies like Python, Java, and React.</p>
+                </div>
+                <div class="bg-white p-4 rounded border shadow-sm">
+                    <h4 class="font-bold text-gray-800">💡 Tech-Manthan Club</h4>
+                    <p class="text-sm text-gray-600">Active student club organizing hackathons, IT quizzes, and coding debugging contests.</p>
+                </div>
+                <div class="bg-white p-4 rounded border shadow-sm">
+                    <h4 class="font-bold text-gray-800">🌐 Web Development</h4>
+                    <p class="text-sm text-gray-600">Special focus on Full Stack Development (MERN Stack) workshops.</p>
+                </div>
+            </div>
+        `
     },
     'page-dept-bca-tab-syllabus': {
         title: 'Syllabus',
-        content: '<p>Comprehensive curriculum covering Programming, Web Tech, and AI.</p>'
+        content: `
+            <p class="mb-3">The syllabus is updated regularly to align with Industry 4.0 standards.</p>
+            <ul class="space-y-2 list-disc pl-5">
+                <li><strong>Sem 1-2:</strong> C Programming, Data Structures, Web Design, Math for CS.</li>
+                <li><strong>Sem 3-4:</strong> Java, Python, Operating Systems, Database Management (DBMS).</li>
+                <li><strong>Sem 5-6:</strong> Artificial Intelligence, Cloud Computing, Cyber Security, Major Project.</li>
+            </ul>
+        `
     },
     'page-dept-bca-tab-faculty': {
         title: 'Faculty Profile',
@@ -681,26 +811,80 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'facilities': {
         title: 'Facilities',
         content: `
-            <p>RBANMS First Grade College offers state-of-the-art facilities to support academic excellence and holistic development:</p>
-            <ul>
-                <li><strong>Modern Classrooms:</strong> Well-equipped smart classrooms with audio-visual aids</li>
-                <li><strong>Library:</strong> Extensive collection of books, journals, and digital resources</li>
-                <li><strong>Computer Labs:</strong> Latest hardware and software for practical learning</li>
-                <li><strong>Sports Facilities:</strong> Playgrounds, indoor sports, and fitness equipment</li>
-                <li><strong>Auditorium:</strong> For seminars, cultural events, and guest lectures</li>
-            </ul>
+            <p class="mb-6 text-lg">RBANMS First Grade College offers state-of-the-art facilities designed to support academic excellence and holistic student development.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
+                    <div class="bg-blue-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-blue-600 font-bold">📚</div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">Central Library</h4>
+                        <p class="text-sm text-gray-600">Extensive collection of over 25,000 books, journals, and access to digital resources like INFLIBNET.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
+                    <div class="bg-green-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-green-600 font-bold">💻</div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">Computer Labs</h4>
+                        <p class="text-sm text-gray-600">Three high-tech labs with 100+ systems, high-speed internet, and latest software for practical learning.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
+                    <div class="bg-purple-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-purple-600 font-bold">🏟️</div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">Sports Complex</h4>
+                        <p class="text-sm text-gray-600">Expansive playground for cricket and football, plus indoor facilities for table tennis and badminton.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
+                    <div class="bg-yellow-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-yellow-600 font-bold">🎭</div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">Auditorium</h4>
+                        <p class="text-sm text-gray-600">A 500-seater modern auditorium with excellent acoustics for cultural events, seminars, and guest lectures.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
+                    <div class="bg-red-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-red-600 font-bold">🏫</div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">Smart Classrooms</h4>
+                        <p class="text-sm text-gray-600">ICT-enabled classrooms with projectors and audio systems to facilitate interactive learning.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
+                    <div class="bg-orange-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-orange-600 font-bold">☕</div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">Cafeteria</h4>
+                        <p class="text-sm text-gray-600">Hygienic and affordable food options available for students and staff in a clean environment.</p>
+                    </div>
+                </div>
+            </div>
         `
     },
     'scholarships': {
-        title: 'Scholarships',
+        title: 'Scholarships & Financial Aid',
         content: `
-            <p>We believe in making quality education accessible. Various scholarship opportunities are available:</p>
-            <ul>
-                <li>Government scholarships for SC/ST/OBC students</li>
-                <li>Merit-based scholarships</li>
-                <li>Need-based financial assistance</li>
-                <li>Sports and cultural achievement scholarships</li>
-            </ul>
+            <p class="mb-6 text-lg">We strictly believe that financial constraints should never hinder a student's education. RBANMS offers and facilitates various scholarship schemes.</p>
+            <div class="space-y-4">
+                <div class="border rounded-lg p-4 bg-white hover:shadow-md transition">
+                    <h3 class="text-lg font-bold text-primary mb-2">Government Scholarships</h3>
+                    <ul class="list-disc pl-5 text-gray-600 text-sm space-y-1">
+                        <li><strong>SSP (State Scholarship Portal):</strong> For SC/ST and OBC students of Karnataka.</li>
+                        <li><strong>NSP (National Scholarship Portal):</strong> For minority community students.</li>
+                        <li><strong>Labor Welfare Fund:</strong> For children of construction/unorganized sector workers.</li>
+                    </ul>
+                </div>
+                <div class="border rounded-lg p-4 bg-white hover:shadow-md transition">
+                    <h3 class="text-lg font-bold text-primary mb-2">Institutional Management Scholarships</h3>
+                    <p class="text-gray-600 text-sm mb-2">RBANMS Charities provides financial assistance to meritorious students from economically weaker sections.</p>
+                    <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Merit-Cum-Means</span>
+                </div>
+                <div class="border rounded-lg p-4 bg-white hover:shadow-md transition">
+                    <h3 class="text-lg font-bold text-primary mb-2">Endowment Awards</h3>
+                    <p class="text-gray-600 text-sm">Cash prizes and awards instituted by alumni and philanthropists for subject toppers and best outgoing students.</p>
+                </div>
+                <div class="p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                    <h4 class="font-bold text-yellow-800 mb-1">📢 How to Apply?</h4>
+                    <p class="text-sm text-yellow-900">Applications are typically opened at the beginning of the academic year. Contact the College Office or the Scholarship Committee Nodal Officer for assistance.</p>
+                </div>
+            </div>
         `
     },
     'naac': {
@@ -711,12 +895,43 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'academics-rules': {
         title: 'Academic Rules & Regulations',
         content: `
-            <ul>
-                <li>Minimum 75% attendance required</li>
-                <li>Regular internal assessments</li>
-                <li>Adherence to university examination guidelines</li>
-                <li>Code of conduct for students</li>
-            </ul>
+            <div class="space-y-6">
+                <div class="bg-red-50 p-5 rounded-lg border-l-4 border-red-500">
+                    <h3 class="font-bold text-red-900 mb-2">Attendance Policy</h3>
+                    <p class="text-gray-700 text-sm">As per Bangalore City University norms, a minimum of <strong>75% attendance</strong> is mandatory in each subject to appear for the end-semester examination. Students falling short will not be permitted to write the exams.</p>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg text-primary mb-3">Internal Assessment</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start bg-white p-3 rounded border"><span class="mr-2 font-bold text-blue-600">1.</span> Tests: Two rounds of internal tests are conducted every semester.</li>
+                        <li class="flex items-start bg-white p-3 rounded border"><span class="mr-2 font-bold text-blue-600">2.</span> Assignments: Subject-wise assignments and presentations are evaluated.</li>
+                        <li class="flex items-start bg-white p-3 rounded border"><span class="mr-2 font-bold text-blue-600">3.</span> Conduct: Marks are also awarded for classroom behavior and participation.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg text-primary mb-3">General Discipline</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-4 rounded items-center flex gap-3">
+                            <span class="text-2xl">🆔</span>
+                            <span class="text-sm font-medium">ID Cards must be worn at all times on campus.</span>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded items-center flex gap-3">
+                            <span class="text-2xl">📱</span>
+                            <span class="text-sm font-medium">Use of mobile phones in classrooms is strictly prohibited.</span>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded items-center flex gap-3">
+                            <span class="text-2xl">🚭</span>
+                            <span class="text-sm font-medium">The college campus is a tobacco and drug-free zone.</span>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded items-center flex gap-3">
+                            <span class="text-2xl">👗</span>
+                            <span class="text-sm font-medium">Students must adhere to the formal dress code.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         `
     },
     'home-hero': {
