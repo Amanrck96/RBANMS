@@ -4,6 +4,7 @@
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar, User } from 'lucide-react';
+import { DynamicSection } from '@/components/dynamic-section';
 import Link from 'next/link';
 import { Post } from '@/types/user';
 
@@ -30,10 +31,18 @@ export default function BlogPage() {
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Header */}
-            <header className="bg-gradient-to-r from-blue-900 to-blue-800 text-white py-12">
-                <div className="container mx-auto px-4">
-                    <h1 className="text-4xl font-bold mb-2">Blog</h1>
-                    <p className="text-blue-100">Latest updates and articles from RBANM&apos;s First Grade College</p>
+            {/* Header */}
+            <header className="bg-gradient-to-r from-blue-900 to-blue-800 text-white">
+                <div className="container mx-auto px-4 py-12">
+                    <DynamicSection
+                        pageId="blog-header"
+                        render={(data) => (
+                            <>
+                                <h1 className="text-4xl font-bold mb-2">{data.title || "Blog"}</h1>
+                                <p className="text-blue-100">{data.tagline || "Latest updates and articles from RBANM's First Grade College"}</p>
+                            </>
+                        )}
+                    />
                 </div>
             </header>
 

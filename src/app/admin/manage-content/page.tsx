@@ -22,17 +22,20 @@ const PAGE_GROUPS = [
         name: 'Site Essentials',
         pages: [
             { label: 'Header: Top Bar', id: 'header-top' },
-            { label: 'Home: Introduction', id: 'home-intro' },
-            { label: 'Home: Hero/Carousel (Top)', id: 'home-top-banner' },
-            { label: 'Home: Main Body (Experience)', id: 'home-hero' },
-            { label: 'Home: Sidebar & Campus Updates', id: '8' },
+            { label: 'College Intro (Home)', id: 'home-intro' },
+            { label: 'Home: Top Banner', id: 'home-top-banner' },
+            { label: 'Home: Hero Section', id: 'home-hero' },
+            { label: 'Home: Sidebar', id: '8' },
             { label: 'Footer: Content', id: 'footer-about' },
+            { label: 'Blog Header', id: 'blog-header' },
         ]
     },
     {
         name: 'About College',
         pages: [
+            { label: 'Introduction', id: 'about-intro' },
             { label: 'The Founder', id: 'about-founder' },
+            { label: 'Founder\'s Vision', id: 'about-founders-vision' },
             { label: 'History & Heritage', id: 'about-history' },
             { label: 'Vision & Mission', id: 'about-vision' },
             { label: 'Board Members', id: 'about-board' },
@@ -40,13 +43,17 @@ const PAGE_GROUPS = [
             { label: 'Director\'s Message', id: 'about-director' },
             { label: 'Principal\'s Message', id: 'about-principal' },
             { label: 'Core Values', id: 'about-core-values' },
+            { label: 'Awards & Recognition', id: 'about-awards' },
             { label: 'Code of Conduct', id: 'code-of-conduct' },
         ]
     },
     {
         name: 'Academics',
         pages: [
+            { label: 'Academics Overview', id: 'academics-index' },
             { label: 'Courses Offered', id: 'academics-courses' },
+            { label: 'New Courses', id: 'academics-new-courses' },
+            { label: 'Add-on Courses', id: 'academics-addon-courses' },
             { label: 'Academic Structure', id: 'academics-structure' },
             { label: 'Academic Philosophy', id: 'academics-philosophy' },
             { label: 'Rules & Regulations', id: 'academics-rules' },
@@ -106,10 +113,10 @@ const PAGE_GROUPS = [
             { label: 'Scholarships', id: 'scholarships' },
             { label: 'Research & Innovation', id: 'research' },
             { label: 'NAAC Documentation', id: 'naac' },
-            { label: 'Contact Information', id: 'contact-info' },
-            { label: 'Gallery Brief', id: 'gallery' },
-            { label: 'Staff Directory', id: 'administration' },
-            { label: 'Career', id: 'career' },
+            { label: 'Contact Info', id: 'contact-info' },
+            { label: 'Gallery Page', id: 'gallery' },
+            { label: 'Administration', id: 'administration' },
+            { label: 'Career / Jobs', id: 'career' },
             { label: 'Alumni Activity', id: 'alumni-activity' },
             { label: 'RTI', id: 'rti' },
         ]

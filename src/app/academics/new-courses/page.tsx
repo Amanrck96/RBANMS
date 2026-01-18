@@ -1,18 +1,18 @@
+'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
+import { DynamicSection } from '@/components/dynamic-section';
 
-export default function ComingSoonPage() {
+export default function NewCoursesPage() {
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <Card>
-        <CardHeader>
-          <CardTitle className="text-3xl md:text-4xl font-bold text-primary font-headline">New Courses</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-col items-center justify-center min-h-[40vh] text-center">
-            <h2 className="text-2xl font-semibold text-muted-foreground">Coming Soon</h2>
-            <p className="mt-2 text-foreground/80">This page is under construction. Please check back later!</p>
-          </div>
+        <CardContent className="pt-10">
+          <DynamicSection
+            pageId="academics-new-courses"
+            defaultTitle="New Courses"
+            defaultContent="<p>Details about newly introduced courses and programs will appear here.</p>"
+          />
         </CardContent>
       </Card>
     </div>

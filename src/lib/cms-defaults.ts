@@ -127,6 +127,102 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         content: '<p>Experienced Associate and Assistant Professors guide students with expertise.</p>'
     },
 
+    'about-intro': {
+        title: "About RBANM's First Grade College",
+        content: `
+            <p class="mb-4">RBANM’s First Grade College was established by RBANM’s Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.</p>
+            <p class="mb-4">This is one of the many institutions established under the umbrella of the RBANM’s Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.</p>
+            <p>The college has been accredited by NAAC and is recognised under Section 2(f) and 12(b) of the UGC Act, 1956.</p>
+        `
+    },
+    'about-founders-vision': {
+        title: "Founder's Vision",
+        content: '<p>Our founder, Dharmarathnakara Rai Bahadur Arcot Narrainswamy Mudaliar, envisioned an educational system that empowers the marginalized and fosters equality. His dream was to provide affordable, quality education to all sections of society, a legacy we strictly adhere to.</p>'
+    },
+    'about-core-values': {
+        title: 'Core Values',
+        content: `
+            <ul class="list-disc pl-6 space-y-4 text-lg text-gray-700">
+                <li><strong>Excellence:</strong> Striving for the highest standards in all aspects of education.</li>
+                <li><strong>Integrity:</strong> Upholding honesty and ethical behavior in our community.</li>
+                <li><strong>Inclusivity:</strong> Treating everyone with dignity and respect, embracing diversity.</li>
+                <li><strong>Social Responsibility:</strong> contributing to the well-being of society and the nation.</li>
+                <li><strong>Compassion:</strong> Fostering a supportive and caring environment for students and staff.</li>
+            </ul>
+        `
+    },
+    'about-awards': {
+        title: 'Awards & Recognition',
+        content: '<p>Information about awards and recognition received by the college and its students.</p>'
+    },
+    'academics-index': {
+        title: 'Academics',
+        content: '<p>Explore our academic structure, courses, and educational philosophy.</p>'
+    },
+    'academics-new-courses': {
+        title: 'New Courses',
+        content: '<p>Details about newly introduced courses and programs will appear here.</p>'
+    },
+    'academics-addon-courses': {
+        title: 'Add-on Courses',
+        content: `
+            <p class="mb-6 text-lg">Enhance your degree with our specialized certification and value-added courses designed to boost employability and skills.</p>
+            <div class="grid gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">BCA</h3>
+                    <div class="bg-slate-50 p-6 rounded-lg border">
+                        <h4 class="text-xl font-bold text-blue-900 mb-2">Web Development + Career Prep</h4>
+                        <p>Foundation course covering HTML, CSS, JavaScript, resume building, and job search strategies.</p>
+                    </div>
+                </div>
+                 <div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Commerce</h3>
+                    <div class="bg-slate-50 p-6 rounded-lg border">
+                        <h4 class="text-xl font-bold text-blue-900 mb-2">Tally and GST</h4>
+                        <p>Skill-building initiative focused on strengthening accounting and digital finance abilities.</p>
+                    </div>
+                </div>
+            </div>
+        `
+    },
+
+    // Dept Management (BBA)
+    'gallery': {
+        title: 'Gallery',
+        content: `
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <figure class="rounded-lg overflow-hidden border bg-white">
+                    <img src="/images/gallery/group-hiking.jpg" alt="Students on a hiking trip" class="w-full h-auto aspect-video object-cover" />
+                    <figcaption class="p-3 text-sm text-gray-600">Students on a hiking trip.</figcaption>
+                </figure>
+                <figure class="rounded-lg overflow-hidden border bg-white">
+                    <img src="/images/gallery/natya-singing-1.jpg" alt="Student performing at Natya event" class="w-full h-auto aspect-video object-cover" />
+                    <figcaption class="p-3 text-sm text-gray-600">Student performing at Natya event.</figcaption>
+                </figure>
+                <figure class="rounded-lg overflow-hidden border bg-white">
+                    <img src="/images/gallery/natya-singing-2.jpg" alt="Natya cultural performance" class="w-full h-auto aspect-video object-cover" />
+                    <figcaption class="p-3 text-sm text-gray-600">Natya cultural performance.</figcaption>
+                </figure>
+                <figure class="rounded-lg overflow-hidden border bg-white">
+                    <img src="/images/gallery/ncc-cadet.jpg" alt="NCC Cadet receiving badge" class="w-full h-auto aspect-video object-cover" />
+                    <figcaption class="p-3 text-sm text-gray-600">NCC Cadet receiving badge.</figcaption>
+                </figure>
+                <figure class="rounded-lg overflow-hidden border bg-white">
+                    <img src="/images/gallery/orientation-lamp.jpg" alt="Lighting the lamp at Orientation" class="w-full h-auto aspect-video object-cover" />
+                    <figcaption class="p-3 text-sm text-gray-600">Lighting the lamp at Orientation.</figcaption>
+                </figure>
+                 <figure class="rounded-lg overflow-hidden border bg-white">
+                    <img src="/images/gallery/aids-awareness-rally.jpg" alt="AIDS Awareness Campaign Rally" class="w-full h-auto aspect-video object-cover" />
+                    <figcaption class="p-3 text-sm text-gray-600">AIDS Awareness Campaign Rally.</figcaption>
+                </figure>
+            </div>
+        `
+    },
+    'blog-header': {
+        title: 'Blog',
+        tagline: 'Latest updates and articles from RBANM\'s First Grade College'
+    },
+
     // Dept Management (BBA)
     'dept-management': {
         title: 'Department of Management (BBA)',
