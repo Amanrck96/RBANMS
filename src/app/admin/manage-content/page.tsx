@@ -377,7 +377,9 @@ export default function ManageContentPage() {
                 setPageImageUrl(defaults.imageUrl || '');
                 setPageTagline((defaults as any).tagline || '');
                 setPageBadgeText((defaults as any).badgeText || '');
+                setPageBadgeText((defaults as any).badgeText || '');
                 setFacultyList((defaults as any).faculty || []);
+                toast({ title: 'Defaults Loaded', description: 'Editor content reset to original defaults. Click Save to apply.' });
             } else {
                 toast({ title: 'Info', description: 'No original content found for this page.' });
             }
@@ -727,6 +729,7 @@ export default function ManageContentPage() {
                                                                 <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">Visual HTML Editor</span>
                                                             </div>
                                                             <VisualEditor
+                                                                key={`${selectedPage}-${viewMode}`}
                                                                 value={pageContent}
                                                                 onChange={setPageContent}
                                                             />
