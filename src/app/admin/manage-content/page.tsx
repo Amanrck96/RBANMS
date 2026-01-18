@@ -367,16 +367,32 @@ export default function ManageContentPage() {
                 setPageTagline(currentData.tagline || '');
                 setPageBadgeText(currentData.badgeText || '');
                 setFacultyList((currentData as any).faculty || []);
+
+                // Reload sub-sections from current data if needed (complex implementation ommitted for simplicity, usually re-fetch)
+                // For now, we assume user keeps current unless they explicitly save defaults
+                if (subSections.length > 0) fetchPageContent(selectedPage);
             }
         } else {
             // Load Old/Original
             const defaults = CMS_DEFAULTS[selectedPage];
+
+            // Handle Tabbed Pages
+            if (subSections.length > 0) {
+                const newSubs = subSections.map(sub => {
+                    const tabDefaultKey = `page-${selectedPage}-tab-${sub.id}`;
+                    const tabDefaults = (CMS_DEFAULTS as any)[tabDefaultKey];
+                    return tabDefaults ? { ...sub, content: tabDefaults.content } : sub;
+                });
+                setSubSections(newSubs);
+                toast({ title: 'Tabs Reset', description: 'All tabs reset to default content.' });
+                return;
+            }
+
             if (defaults) {
                 setPageTitle(defaults.title);
                 setPageContent(defaults.content);
                 setPageImageUrl(defaults.imageUrl || '');
                 setPageTagline((defaults as any).tagline || '');
-                setPageBadgeText((defaults as any).badgeText || '');
                 setPageBadgeText((defaults as any).badgeText || '');
                 setFacultyList((defaults as any).faculty || []);
                 toast({ title: 'Defaults Loaded', description: 'Editor content reset to original defaults. Click Save to apply.' });
