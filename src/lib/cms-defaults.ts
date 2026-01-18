@@ -220,13 +220,130 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     },
     'blog-header': {
         title: 'Blog',
-        tagline: 'Latest updates and articles from RBANM\'s First Grade College'
+        tagline: 'Latest updates and articles from RBANM\'s First Grade College',
+        content: ''
     },
 
     // Dept Management (BBA)
     'dept-management': {
         title: 'Department of Management (BBA)',
         content: '<p>Developing future business leaders through comprehensive curriculum, industry exposure, and practical management skills.</p>'
+    },
+    'academics-courses': {
+        title: 'Courses Offered',
+        tagline: 'Discover our diverse range of undergraduate programs designed to empower you with knowledge, skills, and future-ready capabilities.',
+        content: `
+            <div class="space-y-12">
+                <!-- BCA -->
+                <div class="border-l-4 border-primary pl-6 py-2">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-2">Bachelor of Computer Applications (BCA)</h3>
+                    <p class="mb-4 text-gray-700">The BCA (Bachelor of Computer Applications) is a three-year undergraduate program that focuses on computer science, programming, software development, and IT applications. It is designed for students who aspire to build a career in the tech industry, covering subjects like database management, networking, web development, and cybersecurity.</p>
+                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
+                        <li><strong>Duration:</strong> 3 Years</li>
+                        <li><strong>Focus:</strong> Software Development, IT Applications</li>
+                        <li><strong>Career Roles:</strong> Software Developer, Web Designer, System Analyst</li>
+                    </ul>
+                </div>
+
+                <!-- B.Com -->
+                <div class="border-l-4 border-primary pl-6 py-2">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-2">Bachelor of Commerce (B.Com)</h3>
+                    <p class="mb-4 text-gray-700">The B.Com (Bachelor of Commerce) is a three-year undergraduate degree that provides in-depth knowledge of commerce, finance, accounting, taxation, and business law. It is ideal for students interested in banking, finance, and corporate sectors.</p>
+                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
+                        <li><strong>Duration:</strong> 3 Years</li>
+                        <li><strong>Focus:</strong> Commerce, Finance, Accounting</li>
+                        <li><strong>Career Roles:</strong> Accountant, Financial Analyst, Tax Consultant</li>
+                    </ul>
+                </div>
+
+                <!-- BBA -->
+                <div class="border-l-4 border-primary pl-6 py-2">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-2">Bachelor of Business Administration (BBA)</h3>
+                    <p class="mb-4 text-gray-700">The BBA (Bachelor of Business Administration) is a three-year undergraduate program focusing on management, entrepreneurship, marketing, finance, and human resources. It is designed for students who want to develop leadership and managerial skills for the corporate world.</p>
+                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
+                        <li><strong>Duration:</strong> 3 Years</li>
+                        <li><strong>Focus:</strong> Management, Entrepreneurship, Marketing</li>
+                        <li><strong>Career Roles:</strong> Business Analyst, HR Manager, Marketing Executive</li>
+                    </ul>
+                </div>
+
+                <!-- BA -->
+                <div class="border-l-4 border-primary pl-6 py-2">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-2">Bachelor of Arts (BA)</h3>
+                    <p class="mb-4 text-gray-700">The BA (Bachelor of Arts) is a three-year undergraduate degree with History, Political Science, and Economics. It provides a strong foundation in humanities and the social sciences, helping students develop critical thinking, research, and analytical skills.</p>
+                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
+                        <li><strong>Duration:</strong> 3 Years</li>
+                        <li><strong>Focus:</strong> Humanities, Social Sciences</li>
+                        <li><strong>Career Roles:</strong> Journalism, Teaching, Social Work</li>
+                    </ul>
+                </div>
+
+                <!-- BA Physical Education -->
+                <div class="border-l-4 border-primary pl-6 py-2">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="text-2xl font-bold text-blue-900">Bachelor of Arts (Physical Education)</h3>
+                        <span class="px-2 py-0.5 rounded text-xs font-bold bg-yellow-100 text-yellow-800 border border-yellow-200">New</span>
+                    </div>
+                    <p class="text-sm font-semibold text-primary mb-2">Physical Education with History & Political Science (Expected to begin in June 2026)</p>
+                    <p class="mb-4 text-gray-700">The BA in Physical Education combines sports science with humanities subjects like History and Political Science. This three-year undergraduate program is designed for students passionate about sports, fitness, and education. It covers sports psychology, exercise physiology, coaching techniques, and sports management alongside analytical subjects.</p>
+                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
+                        <li><strong>Duration:</strong> 3 Years</li>
+                        <li><strong>Focus:</strong> Sports Science, Humanities</li>
+                        <li><strong>Career Roles:</strong> Sports Coach, Fitness Trainer, Sports Administrator</li>
+                    </ul>
+                </div>
+
+                <!-- BA Journalism -->
+                <div class="border-l-4 border-primary pl-6 py-2">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="text-2xl font-bold text-blue-900">Bachelor of Arts (Journalism)</h3>
+                        <span class="px-2 py-0.5 rounded text-xs font-bold bg-yellow-100 text-yellow-800 border border-yellow-200">New</span>
+                    </div>
+                    <p class="text-sm font-semibold text-primary mb-2">Journalism, History & Economics (Expected to begin in June 2026)</p>
+                    <p class="mb-4 text-gray-700">The BA in Journalism with History and Economics is a three-year undergraduate program that blends media studies with social sciences. This specialization develops strong communication, research, and analytical skills essential for the media industry. Students learn news writing, reporting, media ethics, and digital journalism alongside historical context and economic analysis.</p>
+                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
+                        <li><strong>Duration:</strong> 3 Years</li>
+                        <li><strong>Focus:</strong> Media Studies, Social Sciences</li>
+                        <li><strong>Career Roles:</strong> Journalist, Content Creator, Media Producer</li>
+                    </ul>
+                </div>
+
+                <!-- M.Com -->
+                <div class="border-l-4 border-primary pl-6 py-2">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-2">Masters in Commerce (M.Com)</h3>
+                    <p class="mb-4 text-gray-700">This two year post-graduate degree provides an opportunity to upgrade a career in commerce and accounting. At RBANM’s FGC, the M.Com programme is designed to cater to working professionals.</p>
+                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
+                        <li><strong>Duration:</strong> 2 Years</li>
+                        <li><strong>Focus:</strong> Commerce, Accounting, Professional Development</li>
+                        <li><strong>Career Roles:</strong> Senior Accountant, Finance Manager, Corporate Professional</li>
+                    </ul>
+                </div>
+            </div>
+        `
+    },
+    'contact-info': {
+        title: 'Contact Information',
+        content: `
+            <div className="flex items-start gap-4 mb-3">
+                <span className="font-bold min-w-[80px]">Address:</span>
+                <p>Opposite Ulsoor Lake, 12 Annasawmy Mudaliar Road, Bangalore 560042</p>
+            </div>
+            <div className="flex items-center gap-4 mb-3">
+                <span className="font-bold min-w-[80px]">Email:</span>
+                <a href="mailto:info@rbanmsfgc.edu.in" className="text-primary hover:underline">info@rbanmsfgc.edu.in</a>
+            </div>
+            <div className="flex items-center gap-4 mb-3">
+                <span className="font-bold min-w-[80px]">Placement:</span>
+                <a href="mailto:priyamahesh09@gmail.com" className="text-primary hover:underline">priyamahesh09@gmail.com</a>
+            </div>
+            <div className="flex items-start gap-4 mb-3">
+                <span className="font-bold min-w-[80px]">Phone:</span>
+                <div>
+                   <p>Landline: 080-41653395 / 080-25512976</p>
+                   <p>Mobile: 7349251497</p>
+                </div>
+            </div>
+        `
     },
     'page-dept-management-tab-why-bba': {
         title: 'Why BBA?',
@@ -475,19 +592,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         title: 'NAAC Accreditation',
         content: '<p>RBANMS First Grade College is accredited by NAAC (National Assessment and Accreditation Council), demonstrating our commitment to maintaining high academic standards and quality education.</p>'
     },
-    'contact-info': {
-        title: 'Contact Information',
-        content: `
-            <p><strong>RBANMS First Grade College</strong></p>
-            <p>Address: Palace Road, Bangalore</p>
-            <p>Phone: [Phone Number]</p>
-            <p>Email: info@rbanmsfgc.edu.in</p>
-        `
-    },
-    'academics-courses': {
-        title: 'Courses Offered',
-        content: '<p>We offer undergraduate programs in Commerce (B.Com), Management (BBA), Computer Applications (BCA), and Arts with various specializations.</p>'
-    },
+
     'academics-rules': {
         title: 'Academic Rules & Regulations',
         content: `
