@@ -160,6 +160,12 @@ export default function ManageContentPage() {
         blog_text: ''
     });
 
+    const [naacData, setNaacData] = useState<any>({
+        certificateItems: [],
+        ssrItems: [],
+        aqarItems: []
+    });
+
     const [facultyList, setFacultyList] = useState<any[]>([]);
 
     // Sub-sections (Tabs) state
@@ -289,6 +295,31 @@ export default function ManageContentPage() {
                 });
             }
 
+            if (pageId === 'naac' && data.data) {
+                setNaacData({
+                    certificateItems: data.data.certificateItems || [],
+                    ssrItems: data.data.ssrItems || [],
+                    aqarItems: data.data.aqarItems || []
+                });
+            } else if (pageId === 'naac') {
+                setNaacData({
+                    certificateItems: [
+                        { id: 'c4-cert', name: 'Cycle - 4', type: 'file' },
+                        { id: 'c3-cert', name: 'Cycle - 3', type: 'file' },
+                        { id: 'c2-cert', name: 'Cycle - 2', type: 'file' },
+                        { id: 'c1-cert', name: 'Cycle - 1', type: 'file' },
+                    ],
+                    ssrItems: [
+                        { id: 'c4-ssr', name: 'Cycle - 4', type: 'file' },
+                    ],
+                    aqarItems: [
+                        { id: 'aqar-23-24', name: '2023-24', type: 'file' },
+                        { id: 'aqar-22-23', name: '2022-23', type: 'file' },
+                        { id: 'aqar-21-22', name: '2021-22', type: 'file' },
+                    ]
+                });
+            }
+
             if (data.data?.faculty) {
                 setFacultyList(data.data.faculty);
             } else if (CMS_DEFAULTS[pageId] && (CMS_DEFAULTS[pageId] as any).faculty) {
@@ -362,6 +393,14 @@ export default function ManageContentPage() {
                         ...page8Data,
                         title: pageTitle,
                         content: pageContent,
+                        tagline: pageTagline,
+                        badgeText: pageBadgeText,
+                        faculty: facultyList
+                    } : selectedPage === 'naac' ? {
+                        ...naacData,
+                        title: pageTitle,
+                        content: pageContent,
+                        imageUrl: pageImageUrl,
                         tagline: pageTagline,
                         badgeText: pageBadgeText,
                         faculty: facultyList
@@ -784,6 +823,70 @@ export default function ManageContentPage() {
                                                                     <Save className="h-4 w-4 mr-2" /> Save Faculty List
                                                                 </Button>
                                                             </div>
+                                                        </div>
+                                                    )}
+
+                                                    {selectedPage === 'naac' && (
+                                                        <div className="space-y-8">
+                                                            {['certificateItems', 'ssrItems', 'aqarItems'].map((listKey) => (
+                                                                <div key={listKey} className="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                                                                    <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2 uppercase">
+                                                                        <FileText className="size-5" /> {listKey.replace(/([A-Z])/g, ' $1').trim()}
+                                                                    </h3>
+                                                                    <div className="space-y-4">
+                                                                        {naacData[listKey].map((item: any, idx: number) => (
+                                                                            <div key={idx} className="p-4 border rounded-lg bg-white relative space-y-4 shadow-sm group">
+                                                                                <Button
+                                                                                    variant="ghost" size="icon"
+                                                                                    className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                                                                                    onClick={() => {
+                                                                                        const newList = naacData[listKey].filter((_: any, i: number) => i !== idx);
+                                                                                        setNaacData({ ...naacData, [listKey]: newList });
+                                                                                    }}
+                                                                                >
+                                                                                    <Trash2 className="h-4 w-4 text-destructive" />
+                                                                                </Button>
+                                                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                    <div className="space-y-1">
+                                                                                        <Label className="text-[10px] uppercase font-bold">Document Name</Label>
+                                                                                        <Input
+                                                                                            value={item.name}
+                                                                                            onChange={(e) => {
+                                                                                                const newList = [...naacData[listKey]];
+                                                                                                newList[idx] = { ...item, name: e.target.value };
+                                                                                                setNaacData({ ...naacData, [listKey]: newList });
+                                                                                            }}
+                                                                                            placeholder="e.g. Cycle - 4"
+                                                                                        />
+                                                                                    </div>
+                                                                                    <div className="space-y-1">
+                                                                                        <Label className="text-[10px] uppercase font-bold">Google Drive / PDF URL</Label>
+                                                                                        <Input
+                                                                                            value={item.url || ''}
+                                                                                            onChange={(e) => {
+                                                                                                const newList = [...naacData[listKey]];
+                                                                                                newList[idx] = { ...item, url: e.target.value };
+                                                                                                setNaacData({ ...naacData, [listKey]: newList });
+                                                                                            }}
+                                                                                            placeholder="https://drive.google.com/..."
+                                                                                        />
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        ))}
+                                                                        <Button
+                                                                            variant="outline"
+                                                                            className="w-full border-dashed"
+                                                                            onClick={() => {
+                                                                                const newList = [...naacData[listKey], { id: `${listKey}-${Date.now()}`, name: '', type: 'file', url: '' }];
+                                                                                setNaacData({ ...naacData, [listKey]: newList });
+                                                                            }}
+                                                                        >
+                                                                            <Plus className="h-4 w-4 mr-2" /> Add Document
+                                                                        </Button>
+                                                                    </div>
+                                                                </div>
+                                                            ))}
                                                         </div>
                                                     )}
 

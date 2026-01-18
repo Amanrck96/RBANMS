@@ -47,7 +47,7 @@ export function DocumentFolder({ title, items = [] }: DocumentFolderProps) {
                                         <a href={item.url} target="_blank" rel="noopener noreferrer">View</a>
                                     </Button>
                                 ) : (
-                                    <Button size="sm" variant="outline" className="ml-2 text-xs h-8">Download</Button>
+                                    <Button size="sm" variant="outline" className="ml-2 text-xs h-8 opacity-50 cursor-not-allowed">View</Button>
                                 )}
                             </div>
                         ))}
