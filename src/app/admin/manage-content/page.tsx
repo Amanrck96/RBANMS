@@ -355,50 +355,34 @@ export default function ManageContentPage() {
         }
     };
 
-    const handleViewModeChange = (mode: string) => {
-        const newMode = mode as 'current' | 'original';
-        setViewMode(newMode);
+    const handleLoadDefaults = () => {
+        // Handle Tabbed Pages
+        if (subSections.length > 0) {
+            const newSubs = subSections.map(sub => {
+                const tabDefaultKey = `page-${selectedPage}-tab-${sub.id}`;
+                const tabDefaults = (CMS_DEFAULTS as any)[tabDefaultKey];
+                return tabDefaults ? { ...sub, content: tabDefaults.content } : sub;
+            });
+            setSubSections(newSubs);
+            toast({ title: 'Template Loaded', description: 'Available full content template loaded. You can now edit and save.' });
+            return;
+        }
 
-        if (newMode === 'current') {
-            if (currentData) {
-                setPageTitle(currentData.title);
-                setPageContent(currentData.content);
-                setPageImageUrl(currentData.imageUrl);
-                setPageTagline(currentData.tagline || '');
-                setPageBadgeText(currentData.badgeText || '');
-                setFacultyList((currentData as any).faculty || []);
+        const defaults = CMS_DEFAULTS[selectedPage];
+        if (defaults) {
+            setPageTitle(defaults.title);
+            setPageContent(defaults.content);
+            setPageImageUrl(defaults.imageUrl || '');
+            setPageTagline((defaults as any).tagline || '');
+            setPageBadgeText((defaults as any).badgeText || '');
+            setFacultyList((defaults as any).faculty || []);
 
-                // Reload sub-sections from current data if needed (complex implementation ommitted for simplicity, usually re-fetch)
-                // For now, we assume user keeps current unless they explicitly save defaults
-                if (subSections.length > 0) fetchPageContent(selectedPage);
-            }
+            // Toggle view mode to force component refresh if needed
+            setViewMode('original');
+
+            toast({ title: 'Template Loaded', description: 'Full content template loaded. You can now edit and save.' });
         } else {
-            // Load Old/Original
-            const defaults = CMS_DEFAULTS[selectedPage];
-
-            // Handle Tabbed Pages
-            if (subSections.length > 0) {
-                const newSubs = subSections.map(sub => {
-                    const tabDefaultKey = `page-${selectedPage}-tab-${sub.id}`;
-                    const tabDefaults = (CMS_DEFAULTS as any)[tabDefaultKey];
-                    return tabDefaults ? { ...sub, content: tabDefaults.content } : sub;
-                });
-                setSubSections(newSubs);
-                toast({ title: 'Tabs Reset', description: 'All tabs reset to default content.' });
-                return;
-            }
-
-            if (defaults) {
-                setPageTitle(defaults.title);
-                setPageContent(defaults.content);
-                setPageImageUrl(defaults.imageUrl || '');
-                setPageTagline((defaults as any).tagline || '');
-                setPageBadgeText((defaults as any).badgeText || '');
-                setFacultyList((defaults as any).faculty || []);
-                toast({ title: 'Defaults Loaded', description: 'Editor content reset to original defaults. Click Save to apply.' });
-            } else {
-                toast({ title: 'Info', description: 'No original content found for this page.' });
-            }
+            toast({ title: 'Untitled', description: 'No default template found for this page.' });
         }
     };
 
@@ -458,6 +442,94 @@ export default function ManageContentPage() {
             }
         } catch (error) {
             toast({ title: 'Error', description: 'Failed to update page', variant: 'destructive' });
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    // Force Publish Helper
+    const handleForcePublishDefaults = async () => {
+        if (!selectedPage) return;
+
+        // Handle Tabbed Pages - Special Case
+        if (subSections.length > 0) {
+            if (!confirm('This will overwrite ALL tabs with default content immediately. Continue?')) return;
+            setLoading(true);
+            try {
+                const token = await auth?.currentUser?.getIdToken();
+                // Iterate and update all tabs
+                for (const sub of subSections) {
+                    const tabDefaultKey = `page-${selectedPage}-tab-${sub.id}`;
+                    const tabDefaults = (CMS_DEFAULTS as any)[tabDefaultKey];
+                    if (tabDefaults && tabDefaults.content) {
+                        await fetch('/api/site-content', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                            body: JSON.stringify({
+                                section: tabDefaultKey,
+                                data: { content: tabDefaults.content }
+                            })
+                        });
+                        // Update local state for this tab
+                        setSubSections(prev => prev.map(s => s.id === sub.id ? { ...s, content: tabDefaults.content } : s));
+                    }
+                }
+                toast({ title: 'Success', description: 'All tabs published with full content.' });
+            } catch (e) {
+                toast({ title: 'Error', description: 'Failed to publish tabs.', variant: 'destructive' });
+            } finally {
+                setLoading(false);
+            }
+            return;
+        }
+
+        // Standard Pages
+        const defaults = CMS_DEFAULTS[selectedPage];
+        if (!defaults) {
+            toast({ title: 'Unavailable', description: 'No default/full content available for this page.' });
+            return;
+        }
+
+        if (!confirm('This will immediately REPLACE the live content with the Full Default Version. Are you sure?')) return;
+
+        setLoading(true);
+        try {
+            const token = await auth?.currentUser?.getIdToken();
+            const res = await fetch('/api/site-content', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    section: `page-${selectedPage}`,
+                    data: {
+                        title: defaults.title,
+                        content: defaults.content,
+                        imageUrl: defaults.imageUrl || '',
+                        tagline: (defaults as any).tagline || '',
+                        badgeText: (defaults as any).badgeText || '',
+                        faculty: (defaults as any).faculty || []
+                    }
+                })
+            });
+
+            if (res.ok) {
+                toast({ title: 'Published!', description: 'Full content is now LIVE.' });
+                // Update local state to reflect the change
+                setPageTitle(defaults.title);
+                setPageContent(defaults.content);
+                setPageImageUrl(defaults.imageUrl || '');
+                setPageTagline((defaults as any).tagline || '');
+                setPageBadgeText((defaults as any).badgeText || '');
+                setFacultyList((defaults as any).faculty || []);
+                setCurrentData(defaults as any);
+                setViewMode('current');
+            } else {
+                throw new Error('Failed to update');
+            }
+        } catch (error) {
+            toast({ title: 'Error', description: 'Failed to publish content', variant: 'destructive' });
         } finally {
             setLoading(false);
         }
@@ -657,8 +729,11 @@ export default function ManageContentPage() {
                                                     <h2 className="text-xl font-bold">{EDITABLE_PAGES.find(p => p.id === selectedPage)?.label}</h2>
                                                 </div>
                                                 <div className="flex gap-2">
-                                                    <Button variant="outline" size="sm" className="bg-white/10 border-white/20 text-white hover:bg-white/20" onClick={() => handleViewModeChange('original')}>
-                                                        Reset to Defaults
+                                                    <Button variant="outline" size="sm" className="bg-red-500/10 border-red-500/20 text-red-100 hover:bg-red-500/20 hover:text-white" onClick={handleForcePublishDefaults}>
+                                                        ⚡ Publish Full Content (Auto)
+                                                    </Button>
+                                                    <Button variant="outline" size="sm" className="bg-white/10 border-white/20 text-white hover:bg-white/20" onClick={handleLoadDefaults}>
+                                                        Load Full Template
                                                     </Button>
                                                 </div>
                                             </div>
