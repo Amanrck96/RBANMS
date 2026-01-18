@@ -553,17 +553,64 @@ export default function ManageContentPage() {
     };
     const removeActivity = (index: number) => setActivities(activities.filter((_, i) => i !== index));
 
+    // Master Publish Helper
+    const handlePublishAllDefaults = async () => {
+        if (!confirm('⚠ CRITICAL WARNING ⚠\n\nThis will OVERWRITE ALL CONTENT on the ENTIRE WEBSITE with the default templates.\n\nThis is a destructive action for any custom edits you have made.\n\nAre you sure you want to proceed?')) return;
+
+        setLoading(true);
+        let count = 0;
+        const total = Object.keys(CMS_DEFAULTS).length;
+
+        try {
+            const token = await auth?.currentUser?.getIdToken();
+
+            for (const [key, data] of Object.entries(CMS_DEFAULTS)) {
+                let sectionId = key;
+                // Normalize section ID: If it doesn't represent a specialized key (like tabs which already have 'page-'), prepend 'page-'
+                if (!key.startsWith('page-')) {
+                    sectionId = `page-${key}`;
+                }
+
+                await fetch('/api/site-content', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                    body: JSON.stringify({
+                        section: sectionId,
+                        data: data
+                    })
+                });
+                count++;
+            }
+            toast({ title: 'Success', description: `All ${count} sections have been reset to full default content.` });
+            setTimeout(() => window.location.reload(), 2000);
+
+        } catch (e) {
+            console.error(e);
+            toast({ title: 'Error', description: 'Failed to complete bulk publish', variant: 'destructive' });
+        } finally {
+            setLoading(false);
+        }
+    };
+
     if (fetching) {
         return <div className="flex justify-center py-20"><Loader2 className="animate-spin" /></div>;
     }
 
     return (
         <div className="space-y-8 max-w-6xl mx-auto">
-            <div>
-                <h1 className="text-3xl font-bold flex items-center gap-2">
-                    <Globe className="text-primary" /> Manage Site Content
-                </h1>
-                <p className="text-muted-foreground mt-1">Super Admin Dashboard for editing any page content across the website.</p>
+            <div className="flex items-center justify-between">
+                <div>
+                    <h1 className="text-3xl font-bold flex items-center gap-2">
+                        <Globe className="text-primary" /> Manage Site Content
+                    </h1>
+                    <p className="text-muted-foreground mt-1">Super Admin Dashboard for editing any page content across the website.</p>
+                </div>
+                <div className="flex gap-2">
+                    <Button variant="destructive" onClick={handlePublishAllDefaults} disabled={loading}>
+                        {loading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Settings className="w-4 h-4 mr-2" />}
+                        Initialize / Ecosystem Reset
+                    </Button>
+                </div>
             </div>
 
             <Tabs defaultValue="homepage" className="space-y-6">
