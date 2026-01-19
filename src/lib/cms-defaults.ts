@@ -791,18 +791,6 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         title: 'Outcomes',
         content: '<p>Disciplinary knowledge, application, and global competencies.</p>'
     },
-    'page-dept-arts-tab-history': {
-        title: 'History',
-        content: '<p>Emphasis on context, continuity, and transformation.</p>'
-    },
-    'page-dept-arts-tab-economics': {
-        title: 'Economics',
-        content: '<p>Informed decisions about limited resources.</p>'
-    },
-    'page-dept-arts-tab-political-science': {
-        title: 'Political Science',
-        content: '<p>Evaluate political systems, policies, and institutions.</p>'
-    },
     'page-dept-arts-tab-activities': {
         title: 'Activities',
         content: '<p>Eco-Wizz quiz, Mock Budget, and Educational visits.</p>'

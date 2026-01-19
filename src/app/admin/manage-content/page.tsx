@@ -139,6 +139,7 @@ const EDITABLE_PAGES = PAGE_GROUPS.flatMap(g => g.pages);
 
 export default function ManageContentPage() {
     const { user } = useAuth();
+    const { toast } = useToast();
     const [fetching, setFetching] = useState(true);
     const [loading, setLoading] = useState(false);
 
