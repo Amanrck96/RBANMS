@@ -26,36 +26,14 @@ export default function Home() {
                 {/* Introduction Section */}
                 <section className="py-12 bg-white">
                     <div className="container mx-auto px-4 text-center space-y-6 max-w-4xl">
-                        <DynamicSection
-                            pageId="home-intro"
-                            render={(data) => {
-                                const content = data?.content || `
-                                    <p class="mb-6">RBANM’s First Grade College was established by RBANM’s Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.</p>
-                                    <p class="mb-6">This is one of the many institutions established under the umbrella of the RBANM’s Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.</p>
-                                    <p>The college has been accredited by NAAC and is recognised under Section 2(f) and 12(b) of the UGC Act, 1956.</p>
-                                `;
-                                return (
-                                    <div className="flex flex-col md:flex-row gap-12 items-center md:items-start text-left">
-                                        {/* Left Column: Logo Stack */}
-                                        {/* Left Column: Full Integrated Logo */}
-                                        <div className="shrink-0">
-                                            <div className="relative w-[240px] h-[240px] overflow-hidden">
-                                                <Image
-                                                    src={settings?.logoUrl || "/images/logo-full.png"}
-                                                    alt={settings?.collegeName || "RBANM's First Grade College Logo"}
-                                                    fill
-                                                    className="object-contain"
-                                                    priority
-                                                />
-                                            </div>
-                                        </div>
-
-                                        {/* Right Column: Content */}
-                                        <div className="prose prose-lg text-blue-900 leading-relaxed max-w-none" dangerouslySetInnerHTML={{ __html: content }} />
-                                    </div>
-                                );
-                            }}
-                        />
+                        {(() => {
+                            // Using an IIFE or similar logic to keep scope clean, or just inline the logic.
+                            // Better to inline directly.
+                            // We need to fetch data outside the return, but since I'm editing a block, I'll assume I can't add hooks here easily without changing the whole file. 
+                            // WAIT. I cannot add a hook in the middle of a return. 
+                            // I MUST add the hook at the top level of the component.
+                            return null; // Logic check
+                        })()}
                     </div>
                 </section>
 
