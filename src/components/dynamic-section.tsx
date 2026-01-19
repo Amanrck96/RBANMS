@@ -62,8 +62,8 @@ export function DynamicSection({ pageId, defaultTitle, defaultContent, defaultIm
         return <>{render(data || {} as any)}</>;
     }
 
-    if (onlyContent && data?.content) {
-        return <div dangerouslySetInnerHTML={{ __html: data.content }} />;
+    if (onlyContent) {
+        return data?.content ? <div dangerouslySetInnerHTML={{ __html: data.content }} /> : null;
     }
 
     const currentTitle = data?.title || defaultTitle;
