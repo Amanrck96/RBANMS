@@ -164,6 +164,7 @@ export default function ManageContentPage() {
         announcements_text: '',
         brochure_image: '',
         brochure_alt: '',
+        brochure_link: '',
         upcoming_events_text: [],
         blog_text: ''
     });
@@ -299,6 +300,7 @@ export default function ManageContentPage() {
                         announcements_text: data.data.announcements_text || defaults?.announcements_text || '',
                         brochure_image: data.data.brochure_image || defaults?.brochure_image || '',
                         brochure_alt: data.data.brochure_alt || defaults?.brochure_alt || '',
+                        brochure_link: data.data.brochure_link || defaults?.brochure_link || '',
                         upcoming_events_text: data.data.upcoming_events_text || defaults?.upcoming_events_text || [],
                         blog_text: data.data.blog_text || defaults?.blog_text || ''
                     });
@@ -311,6 +313,7 @@ export default function ManageContentPage() {
                         announcements_text: defaults?.announcements_text || '',
                         brochure_image: defaults?.brochure_image || '',
                         brochure_alt: defaults?.brochure_alt || '',
+                        brochure_link: defaults?.brochure_link || '',
                         upcoming_events_text: defaults?.upcoming_events_text || [],
                         blog_text: defaults?.blog_text || ''
                     });
@@ -383,21 +386,22 @@ export default function ManageContentPage() {
         }
 
         const defaults = CMS_DEFAULTS[selectedPage];
-        if (defaults) {
-            setPageTitle(defaults.title);
-            setPageContent(defaults.content);
-            setPageImageUrl(defaults.imageUrl || '');
-            setPageTagline((defaults as any).tagline || '');
-            setPageBadgeText((defaults as any).badgeText || '');
-            setFacultyList((defaults as any).faculty || []);
-
-            // Toggle view mode to force component refresh if needed
-            setViewMode('original');
-
-            toast({ title: 'Template Loaded', description: 'Full content template loaded. You can now edit and save.' });
-        } else {
-            toast({ title: 'Untitled', description: 'No default template found for this page.' });
+        if (!defaults) {
+            toast({ title: 'Unavailable', description: 'No default template found for this page.' });
+            return;
         }
+
+        setPageTitle(defaults.title);
+        setPageContent(defaults.content);
+        setPageImageUrl(defaults.imageUrl || '');
+        setPageTagline((defaults as any).tagline || '');
+        setPageBadgeText((defaults as any).badgeText || '');
+        setFacultyList((defaults as any).faculty || []);
+
+        // Toggle view mode to force component refresh if needed
+        setViewMode('original');
+
+        toast({ title: 'Template Loaded', description: 'Full content template loaded. You can now edit and save.' });
     };
 
     const handleSavePage = async () => {
@@ -598,9 +602,29 @@ export default function ManageContentPage() {
             toast({ title: 'Success', description: `All ${count} sections have been reset to full default content.` });
             setTimeout(() => window.location.reload(), 2000);
 
-        } catch (e) {
-            console.error(e);
-            toast({ title: 'Error', description: 'Failed to complete bulk publish', variant: 'destructive' });
+        } catch (error) {
+            toast({ title: 'Error', description: 'Failed to publish all defaults.', variant: 'destructive' });
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleSaveGlobal = async (section: 'notices' | 'activities', items: any[]) => {
+        setLoading(true);
+        try {
+            const token = await auth?.currentUser?.getIdToken();
+            const res = await fetch('/api/site-content', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                body: JSON.stringify({ section, data: { items } })
+            });
+            if (res.ok) {
+                toast({ title: 'Success', description: `${section.charAt(0).toUpperCase() + section.slice(1)} updated` });
+            } else {
+                throw new Error('Failed to update');
+            }
+        } catch (error) {
+            toast({ title: 'Error', description: `Failed to update ${section}`, variant: 'destructive' });
         } finally {
             setLoading(false);
         }
@@ -657,15 +681,7 @@ export default function ManageContentPage() {
                                 <Button variant="outline" size="sm" onClick={addNotice}>
                                     <Plus className="h-4 w-4 mr-2" /> Add Notice
                                 </Button>
-                                <Button size="sm" onClick={() => {
-                                    const token = auth?.currentUser?.getIdToken().then(t => {
-                                        fetch('/api/site-content', {
-                                            method: 'POST',
-                                            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${t}` },
-                                            body: JSON.stringify({ section: 'notices', data: { items: notices } })
-                                        }).then(() => toast({ title: 'Success', description: 'Notices updated' }));
-                                    });
-                                }} disabled={loading}>
+                                <Button size="sm" onClick={() => handleSaveGlobal('notices', notices)} disabled={loading}>
                                     <Save className="h-4 w-4 mr-2" /> Save Notices
                                 </Button>
                             </div>
@@ -721,15 +737,7 @@ export default function ManageContentPage() {
                                 <Button variant="outline" size="sm" onClick={addActivity}>
                                     <Plus className="h-4 w-4 mr-2" /> Add Activity
                                 </Button>
-                                <Button size="sm" onClick={() => {
-                                    const token = auth?.currentUser?.getIdToken().then(t => {
-                                        fetch('/api/site-content', {
-                                            method: 'POST',
-                                            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${t}` },
-                                            body: JSON.stringify({ section: 'activities', data: { items: activities } })
-                                        }).then(() => toast({ title: 'Success', description: 'Activities updated' }));
-                                    });
-                                }} disabled={loading}>
+                                <Button size="sm" onClick={() => handleSaveGlobal('activities', activities)} disabled={loading}>
                                     <Save className="h-4 w-4 mr-2" /> Save Activities
                                 </Button>
                             </div>
@@ -1096,8 +1104,72 @@ export default function ManageContentPage() {
 
                                                             <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                                                                 <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
-                                                                    <Calendar className="size-5" /> {"The Month That Was (Timeline)"}
+                                                                    <Clock className="size-5" /> {"Upcoming Events"}
                                                                 </h3>
+                                                                <div className="space-y-2">
+                                                                    {page8Data.upcoming_events_text.map((item: string, idx: number) => (
+                                                                        <div key={idx} className="flex gap-2">
+                                                                            <Input
+                                                                                value={item}
+                                                                                onChange={(e) => {
+                                                                                    const newItems = [...page8Data.upcoming_events_text];
+                                                                                    newItems[idx] = e.target.value;
+                                                                                    setPage8Data({ ...page8Data, upcoming_events_text: newItems });
+                                                                                }}
+                                                                                placeholder="Event description"
+                                                                            />
+                                                                            <Button variant="ghost" size="icon" onClick={() => {
+                                                                                const newItems = page8Data.upcoming_events_text.filter((_: any, i: number) => i !== idx);
+                                                                                setPage8Data({ ...page8Data, upcoming_events_text: newItems });
+                                                                            }}>
+                                                                                <Trash2 className="h-4 w-4 text-destructive" />
+                                                                            </Button>
+                                                                        </div>
+                                                                    ))}
+                                                                    <Button variant="outline" size="sm" className="w-full border-dashed" onClick={() => setPage8Data({ ...page8Data, upcoming_events_text: [...page8Data.upcoming_events_text, ''] })}>
+                                                                        <Plus className="h-3 w-3 mr-2" /> Add Upcoming Event
+                                                                    </Button>
+                                                                </div>
+                                                            </div>
+
+                                                            <div className="bg-indigo-50/50 p-6 rounded-xl border border-indigo-100">
+                                                                <h3 className="text-lg font-bold text-indigo-900 mb-6 flex items-center gap-2">
+                                                                    <FileText className="size-5" /> {"College Brochure"}
+                                                                </h3>
+                                                                <div className="space-y-4">
+                                                                    <ImageUpload
+                                                                        label="Brochure Cover Image"
+                                                                        value={page8Data.brochure_image}
+                                                                        onChange={(url) => setPage8Data({ ...page8Data, brochure_image: url })}
+                                                                        folder="home/sidebar"
+                                                                    />
+                                                                    <div className="space-y-2">
+                                                                        <Label className="text-xs font-bold uppercase">Google Drive / View Link</Label>
+                                                                        <Input
+                                                                            value={page8Data.brochure_link}
+                                                                            onChange={(e) => setPage8Data({ ...page8Data, brochure_link: e.target.value })}
+                                                                            placeholder="https://drive.google.com/..."
+                                                                        />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div className="bg-red-50/30 p-6 rounded-xl border border-red-100">
+                                                                <h3 className="text-lg font-bold text-red-900 mb-6 flex items-center gap-2">
+                                                                    <Bell className="size-5" /> Announcements (Fallback)
+                                                                </h3>
+                                                                <p className="text-[10px] text-red-700/70 mb-4 font-mono uppercase">Note: Global Notices override this section on the live site.</p>
+                                                                <VisualEditor
+                                                                    value={page8Data.announcements_text}
+                                                                    onChange={(val) => setPage8Data({ ...page8Data, announcements_text: val })}
+                                                                />
+                                                            </div>
+
+                                                            <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 opacity-60">
+                                                                <h3 className="text-lg font-bold text-slate-900 mb-2 flex items-center gap-2">
+                                                                    <Calendar className="size-5" /> {"Timeline (Fallback)"}
+                                                                </h3>
+                                                                <p className="text-[10px] text-slate-500 mb-4 font-mono uppercase italic">Note: Global Activities currently override this timeline on the front-end.</p>
                                                                 <div className="space-y-4">
                                                                     {page8Data.month_that_was_items.map((item: any, idx: number) => (
                                                                         <div key={idx} className="p-4 border rounded-lg bg-white relative space-y-4 shadow-sm group">
@@ -1156,16 +1228,6 @@ export default function ManageContentPage() {
                                                                         <Plus className="h-4 w-4 mr-2" /> Add Timeline Entry
                                                                     </Button>
                                                                 </div>
-                                                            </div>
-
-                                                            <div className="bg-red-50/30 p-6 rounded-xl border border-red-100">
-                                                                <h3 className="text-lg font-bold text-red-900 mb-6 flex items-center gap-2">
-                                                                    <Bell className="size-5" /> Announcements
-                                                                </h3>
-                                                                <VisualEditor
-                                                                    value={page8Data.announcements_text}
-                                                                    onChange={(val) => setPage8Data({ ...page8Data, announcements_text: val })}
-                                                                />
                                                             </div>
                                                         </div>
                                                     )}

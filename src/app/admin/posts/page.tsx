@@ -114,7 +114,7 @@ export default function PostsPage() {
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-2">
-                                        <Link href={`/admin/posts/edit/${post.id}`}>
+                                        <Link href={`/admin/posts/${post.id}`}>
                                             <Button variant="outline" size="sm">
                                                 <Edit size={16} className="mr-2" />
                                                 Edit
