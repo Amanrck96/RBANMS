@@ -233,10 +233,20 @@ export default function ManageContentPage() {
                 const fetchedSubSections = await Promise.all(pageTabs.map(async (tabId) => {
                     const res = await fetch(`/api/site-content?section=page-${pageId}-tab-${tabId}`);
                     const data = await res.json();
+                    
+                    let content = '';
+                    if (data.data?.content) {
+                        content = data.data.content;
+                    } else {
+                        // Fallback to CMS Defaults for tabs
+                        const tabDefault = (CMS_DEFAULTS as any)[`page-${pageId}-tab-${tabId}`];
+                        content = tabDefault?.content || '';
+                    }
+
                     return {
                         id: tabId,
                         label: tabId.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' '),
-                        content: data.data?.content || ''
+                        content: content
                     };
                 }));
                 setSubSections(fetchedSubSections);
@@ -276,31 +286,33 @@ export default function ManageContentPage() {
                 badgeText: data.data?.badgeText || ''
             });
 
-            if (pageId === '8' && data.data) {
-                setPage8Data({
-                    major_events_image: data.data.major_events_image || '',
-                    major_events_alt: data.data.major_events_alt || '',
-                    major_events_text: data.data.major_events_text || [],
-                    month_that_was_items: data.data.month_that_was_items || [],
-                    announcements_text: data.data.announcements_text || '',
-                    brochure_image: data.data.brochure_image || '',
-                    brochure_alt: data.data.brochure_alt || '',
-                    upcoming_events_text: data.data.upcoming_events_text || [],
-                    blog_text: data.data.blog_text || ''
-                });
-            } else if (pageId === '8') {
-                const defaults = CMS_DEFAULTS['8'];
-                setPage8Data({
-                    major_events_image: defaults.major_events_image || '',
-                    major_events_alt: defaults.major_events_alt || '',
-                    major_events_text: defaults.major_events_text || [],
-                    month_that_was_items: defaults.month_that_was_items || [],
-                    announcements_text: defaults.announcements_text || '',
-                    brochure_image: defaults.brochure_image || '',
-                    brochure_alt: defaults.brochure_alt || '',
-                    upcoming_events_text: defaults.upcoming_events_text || [],
-                    blog_text: defaults.blog_text || ''
-                });
+            if (pageId === '8') {
+                const defaults = (CMS_DEFAULTS as any)['8'];
+                if (data.data) {
+                    setPage8Data({
+                        major_events_image: data.data.major_events_image || defaults?.major_events_image || '',
+                        major_events_alt: data.data.major_events_alt || defaults?.major_events_alt || '',
+                        major_events_text: data.data.major_events_text || defaults?.major_events_text || [],
+                        month_that_was_items: data.data.month_that_was_items || defaults?.month_that_was_items || [],
+                        announcements_text: data.data.announcements_text || defaults?.announcements_text || '',
+                        brochure_image: data.data.brochure_image || defaults?.brochure_image || '',
+                        brochure_alt: data.data.brochure_alt || defaults?.brochure_alt || '',
+                        upcoming_events_text: data.data.upcoming_events_text || defaults?.upcoming_events_text || [],
+                        blog_text: data.data.blog_text || defaults?.blog_text || ''
+                    });
+                } else {
+                    setPage8Data({
+                        major_events_image: defaults?.major_events_image || '',
+                        major_events_alt: defaults?.major_events_alt || '',
+                        major_events_text: defaults?.major_events_text || [],
+                        month_that_was_items: defaults?.month_that_was_items || [],
+                        announcements_text: defaults?.announcements_text || '',
+                        brochure_image: defaults?.brochure_image || '',
+                        brochure_alt: defaults?.brochure_alt || '',
+                        upcoming_events_text: defaults?.upcoming_events_text || [],
+                        blog_text: defaults?.blog_text || ''
+                    });
+                }
             }
 
             if (pageId === 'naac' && data.data) {
