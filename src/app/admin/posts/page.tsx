@@ -36,7 +36,7 @@ export default function PostsPage() {
         if (!confirm('Are you sure you want to delete this post?')) return;
 
         try {
-            const token = await auth.currentUser?.getIdToken();
+            const token = await auth?.currentUser?.getIdToken();
             const response = await fetch(`/api/posts?id=${postId}`, {
                 method: 'DELETE',
                 headers: {
