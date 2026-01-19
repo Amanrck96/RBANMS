@@ -10,6 +10,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { DynamicSection } from '@/components/dynamic-section';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Users, Mail, Phone } from 'lucide-react';
+import { db } from '@/lib/firebase-client';
+import { doc, onSnapshot } from 'firebase/firestore';
 
 interface NavItem {
     label: string;
@@ -64,37 +66,25 @@ export function DepartmentLayout({
     const [dynamicData, setDynamicData] = useState<any>(null);
 
     useEffect(() => {
-        if (!pageId) return;
+        if (!pageId || !db) return;
 
-        // Import Firebase client
-        import('@/lib/firebase-client').then(({ db }) => {
-            if (!db) {
-                console.error('Firebase not initialized');
-                return;
+        const docRef = doc(db, 'site-content', `page-${pageId}`);
+
+        const unsubscribe = onSnapshot(
+            docRef,
+            (snapshot) => {
+                if (snapshot.exists()) {
+                    setDynamicData(snapshot.data());
+                } else {
+                    setDynamicData(null);
+                }
+            },
+            (error) => {
+                console.error("Real-time Department listener error:", error);
             }
+        );
 
-            // Import Firestore functions
-            import('firebase/firestore').then(({ doc, onSnapshot }) => {
-                const docRef = doc(db, 'site-content', `page-${pageId}`);
-
-                const unsubscribe = onSnapshot(
-                    docRef,
-                    (snapshot) => {
-                        if (snapshot.exists()) {
-                            setDynamicData(snapshot.data());
-                        } else {
-                            setDynamicData(null);
-                        }
-                    },
-                    (error) => {
-                        console.error("Real-time listener error:", error);
-                    }
-                );
-
-                // Cleanup on unmount
-                return () => unsubscribe();
-            });
-        });
+        return () => unsubscribe();
     }, [pageId]);
 
     const effectiveHeroImage = dynamicData?.imageUrl || heroImage;

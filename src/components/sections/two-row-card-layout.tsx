@@ -6,6 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, ChevronUp, Check } from 'lucide-react';
 import { DynamicSection } from '@/components/dynamic-section';
+import { db } from '@/lib/firebase-client';
+import { doc, onSnapshot } from 'firebase/firestore';
 
 const advantages = [
     "Managed by a trusted and highly respected Educational Charities Trust",
@@ -43,27 +45,26 @@ export function TwoRowCardLayout() {
     const [dynamicActivities, setDynamicActivities] = useState<any[]>(defaultActivities);
 
     useEffect(() => {
-        const fetchContent = async () => {
-            try {
-                // Fetch Notices
-                const noticesRes = await fetch('/api/site-content?section=notices');
-                const noticesData = await noticesRes.json();
-                if (noticesData.data?.items) {
-                    setDynamicNotices(noticesData.data.items);
-                }
+        if (!db) return;
 
-                // Fetch Activities
-                const activitiesRes = await fetch('/api/site-content?section=activities');
-                const activitiesData = await activitiesRes.json();
-                if (activitiesData.data?.items) {
-                    setDynamicActivities(activitiesData.data.items);
-                }
-            } catch (error) {
-                console.error('Error fetching dynamic content:', error);
+        // Listener for global notices
+        const noticesUnsubscribe = onSnapshot(doc(db, 'site-content', 'notices'), (snapshot) => {
+            if (snapshot.exists()) {
+                setDynamicNotices(snapshot.data().items || []);
             }
-        };
+        });
 
-        fetchContent();
+        // Listener for global activities
+        const activitiesUnsubscribe = onSnapshot(doc(db, 'site-content', 'activities'), (snapshot) => {
+            if (snapshot.exists()) {
+                setDynamicActivities(snapshot.data().items || []);
+            }
+        });
+
+        return () => {
+            noticesUnsubscribe();
+            activitiesUnsubscribe();
+        };
     }, []);
 
     const toggleCard = (cardId: string) => {
