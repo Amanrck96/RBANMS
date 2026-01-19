@@ -8,6 +8,8 @@ import { Button } from '@/components/ui/button';
 import { Calendar, User, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { Post } from '@/types/user';
+import { db } from '@/lib/firebase-client';
+import { collection, query, where, onSnapshot, limit } from 'firebase/firestore';
 
 export default function BlogPostPage() {
     const params = useParams();
@@ -16,24 +18,40 @@ export default function BlogPostPage() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetchPost();
-    }, [params.slug]);
-
-    const fetchPost = async () => {
-        try {
-            const response = await fetch('/api/posts?published=true');
-            const data = await response.json();
-            const foundPost = data.posts?.find((p: Post) => p.slug === params.slug);
-
-            if (foundPost) {
-                setPost(foundPost);
-            }
-        } catch (error) {
-            console.error('Failed to fetch post:', error);
-        } finally {
+        if (!db || !params.slug) {
             setLoading(false);
+            return;
         }
-    };
+
+        const postsQuery = query(
+            collection(db, 'posts'),
+            where('slug', '==', params.slug),
+            where('published', '==', true),
+            limit(1)
+        );
+
+        const unsubscribe = onSnapshot(
+            postsQuery,
+            (snapshot) => {
+                if (!snapshot.empty) {
+                    const postData = snapshot.docs[0].data();
+                    setPost({
+                        id: snapshot.docs[0].id,
+                        ...postData
+                    } as Post);
+                } else {
+                    setPost(null);
+                }
+                setLoading(false);
+            },
+            (error) => {
+                console.error('Real-time post listener error:', error);
+                setLoading(false);
+            }
+        );
+
+        return () => unsubscribe();
+    }, [params.slug]);
 
     if (loading) {
         return (

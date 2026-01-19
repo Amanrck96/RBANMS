@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { db } from '@/lib/firebase-client';
+import { doc, onSnapshot } from 'firebase/firestore';
 
 export interface SiteSettings {
     collegeName: string;
@@ -26,21 +28,30 @@ export function useSiteSettings() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchSettings = async () => {
-            try {
-                const res = await fetch('/api/site-content?section=site-settings');
-                const data = await res.json();
-                if (data.data) {
-                    setSettings(data.data);
+        if (!db) {
+            setLoading(false);
+            return;
+        }
+
+        const docRef = doc(db, 'site-content', 'site-settings');
+
+        const unsubscribe = onSnapshot(
+            docRef,
+            (snapshot) => {
+                if (snapshot.exists()) {
+                    setSettings(snapshot.data() as SiteSettings);
+                } else {
+                    setSettings(null);
                 }
-            } catch (error) {
-                console.error('Error fetching site settings:', error);
-            } finally {
+                setLoading(false);
+            },
+            (error) => {
+                console.error('Real-time settings listener error:', error);
                 setLoading(false);
             }
-        };
+        );
 
-        fetchSettings();
+        return () => unsubscribe();
     }, []);
 
     return { settings, loading };

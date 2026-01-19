@@ -7,26 +7,43 @@ import { Calendar, User } from 'lucide-react';
 import { DynamicSection } from '@/components/dynamic-section';
 import Link from 'next/link';
 import { Post } from '@/types/user';
+import { db } from '@/lib/firebase-client';
+import { collection, query, where, orderBy, onSnapshot } from 'firebase/firestore';
 
 export default function BlogPage() {
     const [posts, setPosts] = useState<Post[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetchPosts();
-    }, []);
-
-    const fetchPosts = async () => {
-        try {
-            const response = await fetch('/api/posts?published=true');
-            const data = await response.json();
-            setPosts(data.posts || []);
-        } catch (error) {
-            console.error('Failed to fetch posts:', error);
-        } finally {
+        if (!db) {
             setLoading(false);
+            return;
         }
-    };
+
+        const postsQuery = query(
+            collection(db, 'posts'),
+            where('published', '==', true),
+            orderBy('createdAt', 'desc')
+        );
+
+        const unsubscribe = onSnapshot(
+            postsQuery,
+            (snapshot) => {
+                const postsList = snapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                })) as Post[];
+                setPosts(postsList);
+                setLoading(false);
+            },
+            (error) => {
+                console.error('Real-time posts listener error:', error);
+                setLoading(false);
+            }
+        );
+
+        return () => unsubscribe();
+    }, []);
 
     return (
         <div className="min-h-screen bg-gray-50">

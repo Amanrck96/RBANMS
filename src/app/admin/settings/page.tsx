@@ -9,7 +9,8 @@ import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Settings, Mail, Phone, Globe, MapPin, Building } from 'lucide-react';
-import { auth } from '@/lib/firebase-client';
+import { auth, db } from '@/lib/firebase-client';
+import { doc, onSnapshot } from 'firebase/firestore';
 import { ImageUpload } from '@/components/admin/image-upload';
 
 type SiteSettings = {
@@ -50,23 +51,27 @@ export default function SettingsPage() {
     });
 
     useEffect(() => {
-        fetchSettings();
-    }, []);
+        if (!db) return;
 
-    const fetchSettings = async () => {
-        try {
-            const res = await fetch('/api/site-content?section=site-settings');
-            const data = await res.json();
-            if (data.data) {
-                setSettings({
-                    ...data.data,
-                    socialLinks: data.data.socialLinks || {}
-                });
+        const docRef = doc(db, 'site-content', 'site-settings');
+
+        const unsubscribe = onSnapshot(
+            docRef,
+            (snapshot) => {
+                if (snapshot.exists()) {
+                    setSettings({
+                        ...snapshot.data() as SiteSettings,
+                        socialLinks: (snapshot.data() as any).socialLinks || {}
+                    });
+                }
+            },
+            (error) => {
+                console.error('Real-time settings listener error:', error);
             }
-        } catch (error) {
-            console.error('Error fetching settings:', error);
-        }
-    };
+        );
+
+        return () => unsubscribe();
+    }, []);
 
     const handleSave = async () => {
         setLoading(true);

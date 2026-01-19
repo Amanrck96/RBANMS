@@ -5,8 +5,37 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Calendar, Bell, FileText, Star, Clock, BookOpen, Youtube } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { db } from '@/lib/firebase-client';
+import { doc, onSnapshot } from 'firebase/firestore';
 
 export function SidebarCards() {
+    const [globalNotices, setGlobalNotices] = useState<string[] | null>(null);
+    const [globalActivities, setGlobalActivities] = useState<any[] | null>(null);
+
+    useEffect(() => {
+        if (!db) return;
+
+        // Listener for global notices
+        const noticesUnsubscribe = onSnapshot(doc(db, 'site-content', 'notices'), (snapshot) => {
+            if (snapshot.exists()) {
+                setGlobalNotices(snapshot.data().items || []);
+            }
+        });
+
+        // Listener for global activities
+        const activitiesUnsubscribe = onSnapshot(doc(db, 'site-content', 'activities'), (snapshot) => {
+            if (snapshot.exists()) {
+                setGlobalActivities(snapshot.data().items || []);
+            }
+        });
+
+        return () => {
+            noticesUnsubscribe();
+            activitiesUnsubscribe();
+        };
+    }, []);
+
     return (
         <DynamicSection
             pageId="8"
@@ -16,7 +45,9 @@ export function SidebarCards() {
                     image: '/images/hero/hero-1.jpg',
                     items: ['Annual Sports Day', 'Cultural Fest 2026', 'Inter-college Debate']
                 };
-                const monthThatWas = data?.month_that_was_items || [
+
+                // PREFER GLOBAL ACTIVITIES IF AVAILABLE
+                const monthThatWas = globalActivities || data?.month_that_was_items || [
                     { date: 'Nov 6', title: 'Field Visit & Guest Lecture', text: 'Final year BBA/BCA visit to Tech Institute. BCom lecture on Financial Mgmt.' },
                     { date: 'Nov 7', title: 'MILANA', text: 'Inter high school / PU cultural competition' },
                     { date: 'Nov 8-9', title: 'Holiday', text: 'College Holiday' },
@@ -24,23 +55,32 @@ export function SidebarCards() {
                     { date: 'Nov 13', title: 'SPICMACAY', text: 'Cultural presentation' },
                     { date: 'Nov 14-22', title: 'Pre-Final Examinations', text: 'Conducted for all classes' },
                 ];
-                const announcements = data?.announcements_text || `
-                    <ul className="list-disc pl-4 space-y-2">
+
+                // PREFER GLOBAL NOTICES IF AVAILABLE, format as HTML ul if it's an array
+                let announcements = data?.announcements_text;
+                if (globalNotices && globalNotices.length > 0) {
+                    announcements = `<ul class="list-disc pl-4 space-y-2">
+                        ${globalNotices.map(notice => `<li>${notice}</li>`).join('')}
+                    </ul>`;
+                } else if (!announcements) {
+                    announcements = `
+                    <ul class="list-disc pl-4 space-y-2">
                         <li>Admissions open for AY 2026-27. For a Campus Tour, email info@rbanmsfgc.edu.in.</li>
                         <li>College will remain closed on 12th and 13th January.</li>
                         <li>The Even Semester for AY 2025-26 will begin on January 19.</li>
                         <li>Regular classes for all courses will commence on January 27.</li>
                     </ul>`;
-                const brochure = data?.brochure_image || '/images/phoenix-magazine.png';
+                }
+
                 const upcomingEvents = data?.upcoming_events_text || [
                     'Internal Assessment - Jan 20',
                     'Republic Day Celebration - Jan 26',
                     'Industrial Visit - Feb 05'
                 ];
-                const blog = data?.blog_text || '<p>Welcome to our blog section where we share insights, stories, and updates from our college community.</p><p>Blog content coming soon...</p>';
 
                 return (
                     <div className="w-full">
+                        ...
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 items-stretch">
                             {/* Left Column: Major Events & Brochure */}
                             <div className="flex flex-col gap-5 h-full">
