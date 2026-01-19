@@ -139,9 +139,8 @@ const EDITABLE_PAGES = PAGE_GROUPS.flatMap(g => g.pages);
 
 export default function ManageContentPage() {
     const { user } = useAuth();
-    const { toast } = useToast();
-    const [loading, setLoading] = useState(false);
     const [fetching, setFetching] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     // Global State
     const [notices, setNotices] = useState<string[]>([]);
@@ -187,6 +186,8 @@ export default function ManageContentPage() {
     useEffect(() => {
         if (user) {
             fetchGlobalContent();
+        } else if (!useAuth().loading) {
+            setFetching(false);
         }
     }, [user]);
 
@@ -233,7 +234,7 @@ export default function ManageContentPage() {
                 const fetchedSubSections = await Promise.all(pageTabs.map(async (tabId) => {
                     const res = await fetch(`/api/site-content?section=page-${pageId}-tab-${tabId}`);
                     const data = await res.json();
-                    
+
                     let content = '';
                     if (data.data?.content) {
                         content = data.data.content;

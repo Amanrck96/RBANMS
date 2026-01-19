@@ -102,7 +102,8 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     },
     'dept-commerce': {
         title: 'Department of Commerce',
-        content: '<p>Welcome to the Department of Commerce. Since 1984, we have been shaping capable graduates through practical learning and innovation, delivering education that meets global standards.</p>'
+        content: '<p>Welcome to the Department of Commerce. Since 1984, we have been shaping capable graduates through practical learning and innovation, delivering education that meets global standards.</p>',
+        tagline: 'Empowering students with strong fundamentals in accounting, finance, and business management since 1984.'
     },
     'dept-commerce-sidebar': {
         title: 'Department Team',
@@ -217,13 +218,13 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
             </div>
         `
     },
-    'page-dept-commerce-tab-activities': {
-        title: 'Activities',
-        content: '<p>Industrial visits, Magic Bus training, and NISM certifications.</p>'
-    },
     'page-dept-commerce-tab-faculty': {
         title: 'Faculty Profile',
         content: '<p>Experienced Associate and Assistant Professors guide students with expertise.</p>'
+    },
+    'page-dept-commerce-tab-activities': {
+        title: 'Activities',
+        content: '<p>Industrial visits, Magic Bus training, and NISM certifications.</p>'
     },
 
     'about-intro': {
@@ -366,6 +367,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     // Dept Management (BBA)
     'dept-management': {
         title: 'Department of Management (BBA)',
+        tagline: 'Small business leaders through comprehensive curriculum, industry exposure, and practical management skills.',
         content: '<p>Developing future business leaders through comprehensive curriculum, industry exposure, and practical management skills.</p>'
     },
     'academics-courses': {
@@ -502,7 +504,19 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     },
     'page-dept-management-tab-matrix': {
         title: 'Paper Titles',
-        content: '<p>Course matrix covering 6 semesters of management studies.</p>'
+        content: `
+            <div class="space-y-4">
+                <p>Curriculum spread across 6 semesters (NEP Syllabus) with Dual Specialization in HR and Marketing.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="border p-3 rounded"><strong>Sem 1:</strong> Principles of Management, Market Analysis, Statistics I, Financial Accounting</div>
+                    <div class="border p-3 rounded"><strong>Sem 2:</strong> HRM Practices, Indian Financial System, Statistics II, Corporate Accounting</div>
+                    <div class="border p-3 rounded"><strong>Sem 3:</strong> Cost Accounting, Organizational Behaviour, Marketing Principles, Business Comm</div>
+                    <div class="border p-3 rounded"><strong>Sem 4:</strong> Business Law, Research Methodology, Financial Management, CRM</div>
+                    <div class="border p-3 rounded"><strong>Sem 5:</strong> Operations Management, Income Tax I, HR Development, Consumer Behaviour</div>
+                    <div class="border p-3 rounded"><strong>Sem 6:</strong> International Business, Income Tax II, Advertising & Media, Compensation Mgmt</div>
+                </div>
+            </div>
+        `
     },
     'page-dept-management-tab-objectives': {
         title: 'Objectives',
@@ -519,6 +533,143 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'page-dept-management-tab-faculty': {
         title: 'Faculty Profile',
         content: '<p>Experienced faculty members in Management and Accounting.</p>'
+    },
+
+    // Dept English
+    'dept-english': {
+        title: 'Department of English',
+        tagline: 'Nurturing linguistic proficiency and literary appreciation through a comprehensive and engaging curriculum.',
+        content: '<p>The Department of English at RBANM’s First Grade College is committed to fostering a love for language and literature while developing critical thinking and communication skills essential for the modern world.</p>'
+    },
+    'page-dept-english-tab-highlights': {
+        title: 'Highlights',
+        content: '<ul><li>Regular workshops on creative writing and theater.</li><li>Strong focus on communication skills and personality development.</li><li>Active student clubs like Natya and Fourth Wall.</li><li>Regular guest lectures by eminent scholars and authors.</li></ul>'
+    },
+    'page-dept-english-tab-facilities': {
+        title: 'Facilities',
+        content: '<p>The department uses ICT-enabled classrooms and the college’s well-equipped library to enhance the learning experience.</p>'
+    },
+    'page-dept-english-tab-vision': {
+        title: 'Vision & Mission',
+        content: '<p>To empower students with a masterly over the English language and a deep appreciation for the diversity of human experience reflected in literature.</p>'
+    },
+    'page-dept-english-tab-programmes': {
+        title: 'Programmes',
+        content: '<p>The department offers English as a mandatory language subject for all undergraduate courses (B.Com, BBA, BCA, BA).</p>'
+    },
+    'page-dept-english-tab-certificate-courses': {
+        title: 'Certificate Courses',
+        content: '<p>Value-added courses in Business Communication and Creative Writing are offered to enhance employability.</p>'
+    },
+    'page-dept-english-tab-matrix': {
+        title: 'Paper Titles',
+        content: '<p>Course matrix covering English and Additional English subjects across 4-6 semesters depends on the course.</p>'
+    },
+    'page-dept-english-tab-objectives': {
+        title: 'Objectives',
+        content: '<p>To develop students’ ability to communicate effectively in English and to engage critically with literary texts.</p>'
+    },
+    'page-dept-english-tab-outcomes': {
+        title: 'Outcomes',
+        content: '<p>Graduates will demonstrate proficiency in English communication and critical analysis of various literary genres.</p>'
+    },
+    'page-dept-english-tab-natya': {
+        title: 'Natya',
+        content: '<p>The Natya club provides a platform for students to showcase their talents in theater, music, and dance.</p>'
+    },
+    'page-dept-english-tab-fourth-wall': {
+        title: 'Fourth Wall',
+        content: '<p>A theater group dedicated to exploring contemporary social issues through dramatic performances.</p>'
+    },
+    'page-dept-english-tab-phoenix': {
+        title: 'Phoenix Club',
+        content: '<p>A literary club that encourages students to express their creativity through writing and poetry.</p>'
+    },
+    'page-dept-english-tab-faculty': {
+        title: 'Faculty Profile',
+        content: '<p>Experienced faculty members dedicated to student mentorship and academic excellence.</p>'
+    },
+    'page-dept-english-tab-contact': {
+        title: 'Contact Information',
+        content: '<p>Email: english@rbanmsfgc.edu.in</p>'
+    },
+
+    // Dept Languages
+    'dept-languages': {
+        title: 'Department of Languages',
+        tagline: 'Promoting linguistic diversity and cultural understanding through the study of Kannada, Hindi, and Tamil.',
+        content: '<p>The Department of Languages plays a vital role in preserving and promoting India’s rich linguistic heritage while developing students’ communication skills in their mother tongues and other regional languages.</p>'
+    },
+    'page-dept-languages-tab-highlights': {
+        title: 'Highlights',
+        content: '<ul><li>Celebration of cultural festivals and language days.</li><li>Language labs and interactive learning sessions.</li><li>Promotion of regional literature and arts.</li></ul>'
+    },
+    'page-dept-languages-tab-vision': {
+        title: 'Vision & Mission',
+        content: '<p>To foster a deep appreciation for linguistic diversity and to equip students with the skills required to communicate effectively in various languages.</p>'
+    },
+    'page-dept-languages-tab-objectives': {
+        title: 'Objectives',
+        content: '<p>To develop linguistic proficiency and cultural awareness among students through the study of regional languages.</p>'
+    },
+    'page-dept-languages-tab-outcomes': {
+        title: 'Outcomes',
+        content: '<p>Students will demonstrate proficiency in their chosen languages and a nuanced understanding of the associated cultures.</p>'
+    },
+    'page-dept-languages-tab-hindi': {
+        title: 'Hindi',
+        content: '<p>Promoting the national language through literary events and language proficiency classes.</p>'
+    },
+    'page-dept-languages-tab-kannada': {
+        title: 'Kannada',
+        content: '<p>Focusing on the rich heritage of Kannada literature and the state’s cultural traditions.</p>'
+    },
+    'page-dept-languages-tab-tamil': {
+        title: 'Tamil',
+        content: '<p>Exploring the ancient and diverse literary traditions of the Tamil language.</p>'
+    },
+    'page-dept-languages-tab-events': {
+        title: 'Events',
+        content: '<p>Annual language festivals, poetry readings, and debate competitions.</p>'
+    },
+    'page-dept-languages-tab-faculty': {
+        title: 'Faculty Profile',
+        content: '<p>Dedicated language experts specializing in various regional literatures.</p>'
+    },
+    'page-dept-languages-tab-contact': {
+        title: 'Contact Information',
+        content: '<p>Email: languages@rbanmsfgc.edu.in</p>'
+    },
+
+    // Dept Physical Education
+    'dept-physed': {
+        title: 'Department of Physical Education',
+        tagline: 'Fostering physical fitness, sportsmanship, and holistic well-being among students.',
+        content: '<p>The Department of Physical Education is dedicated to promoting a culture of health and fitness through a wide range of sports and recreational activities.</p>'
+    },
+    'page-dept-physed-tab-highlights': {
+        title: 'Highlights',
+        content: '<ul><li>Annual Sports Day and inter-departmental tournaments.</li><li>Excellent facilities for both indoor and outdoor sports.</li><li>Consistent achievements in university-level sports competitions.</li></ul>'
+    },
+    'page-dept-physed-tab-vision': {
+        title: 'Vision & Mission',
+        content: '<p>To inspire every student to adopt a healthy and active lifestyle through participation in sports and physical activities.</p>'
+    },
+    'page-dept-physed-tab-facilities': {
+        title: 'Facilities',
+        content: '<p>Large playground for outdoor sports and well-equipped indoor sports facilities.</p>'
+    },
+    'page-dept-physed-tab-courses': {
+        title: 'Courses',
+        content: '<p>Physical Education is offered as an elective and a value-added course for undergraduate students.</p>'
+    },
+    'page-dept-physed-tab-events': {
+        title: 'Events',
+        content: '<p>Organization of sports festivals, fitness workshops, and athletic meets.</p>'
+    },
+    'page-dept-physed-tab-contact': {
+        title: 'Contact Information',
+        content: '<p>Email: sports@rbanmsfgc.edu.in</p>'
     },
 
     // Dept BCA
@@ -573,6 +724,43 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         title: 'Faculty Profile',
         content: '<p>Experienced IT professionals and academicians.</p>'
     },
+    'page-dept-bca-tab-facilities': {
+        title: 'Facilities',
+        content: '<p>Multiple high-tech labs with the latest configurations and software for hands-on learning.</p>'
+    },
+    'page-dept-bca-tab-competency-training': {
+        title: 'Competency Training',
+        content: '<p>Specialized training in trending technologies like Cloud Computing and AI.</p>'
+    },
+    'page-dept-bca-tab-certificate-courses': {
+        title: 'Certificate Courses',
+        content: '<p>Value-added courses in Web Development, Python Programming, and Cyber Security.</p>'
+    },
+    'page-dept-bca-tab-matrix': {
+        title: 'Paper Titles',
+        content: `
+            <div class="space-y-4">
+                <p>Core subjects designed for full-stack software development competency.</p>
+                <ul class="space-y-2">
+                    <li><strong>Sem 1-2:</strong> C Programming, Data Structures, Web Design, Discrete Mathematics.</li>
+                    <li><strong>Sem 3-4:</strong> Object Oriented Programming (Java), Python, DBMS (MySQL), Operating Systems.</li>
+                    <li><strong>Sem 5-6:</strong> Software Engineering, Cloud Computing, AI & Machine Learning, Cyber Security, Major Project.</li>
+                </ul>
+            </div>
+        `
+    },
+    'page-dept-bca-tab-objectives': {
+        title: 'Objectives',
+        content: '<p>To bridge the gap between academic knowledge and industry requirements in the IT sector.</p>'
+    },
+    'page-dept-bca-tab-outcomes': {
+        title: 'Outcomes',
+        content: '<p>Graduates will be proficient in software development, database management, and networking.</p>'
+    },
+    'page-dept-bca-tab-forum': {
+        title: 'BCA Forum',
+        content: '<p>A student-led forum for technical workshops, hackathons, and guest lectures.</p>'
+    },
 
     // Dept Arts
     'dept-arts': {
@@ -622,6 +810,22 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'page-dept-arts-tab-faculty': {
         title: 'Faculty Profile',
         content: '<p>Distinguished professors and researchers in social sciences.</p>'
+    },
+    'page-dept-arts-tab-contact': {
+        title: 'Contact Information',
+        content: '<p>Email: arts@rbanmsfgc.edu.in</p>'
+    },
+    'page-dept-arts-tab-history': {
+        title: 'History',
+        content: '<p>The study of History provides students with a sense of context, continuity, and transformation. Our curriculum covers Ancient, Medieval, and Modern Indian History alongside European and World History.</p>'
+    },
+    'page-dept-arts-tab-economics': {
+        title: 'Economics',
+        content: '<p>Developing analytical skills to understand economic theories, market behaviors, and fiscal policies. Students explore Microeconomics, Macroeconomics, and Indian Economic development.</p>'
+    },
+    'page-dept-arts-tab-political-science': {
+        title: 'Political Science',
+        content: '<p>Understanding political systems, constitutions, and international relations. The course covers Political Theory, Indian Polity, and Comparative Politics.</p>'
     },
 
     // Missing top-level pages
