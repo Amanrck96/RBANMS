@@ -9,6 +9,10 @@ import { Badge } from '@/components/ui/badge';
 import { db } from '@/lib/firebase-client';
 import { doc, onSnapshot } from 'firebase/firestore';
 
+// Disable static generation for this page
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 const courses = [
   {
     icon: Computer,
