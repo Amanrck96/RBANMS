@@ -298,7 +298,7 @@ export function TwoRowCardLayout() {
                                         {/* Right Side - Image (Featured Magazine) */}
                                         <div className="w-full sm:w-[280px] lg:w-[300px] shrink-0 self-center">
                                             <a
-                                                href="https://drive.google.com/file/d/1iZPsekFA8vT5qAVqkYK7mPBN9XXPodvv/view?usp=sharing"
+                                                href={data.mag_link || "https://drive.google.com/file/d/1iZPsekFA8vT5qAVqkYK7mPBN9XXPodvv/view?usp=sharing"}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="block group"

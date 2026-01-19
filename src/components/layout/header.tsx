@@ -69,6 +69,18 @@ export function SiteHeader() {
       {/* Second header: logo + navigation */}
       <nav className="w-full border-b border-white/10 bg-[#800000]" role="navigation">
         <div className="mx-auto max-w-7xl px-2 py-1 flex items-center gap-2">
+          {/* Logo */}
+          <Link href="/" className="shrink-0 flex items-center gap-2 mr-2">
+            <div className="relative w-[120px] h-[40px] md:w-[150px] md:h-[50px]">
+              <Image
+                src={settings?.logoUrl || "/images/logo-full.png"}
+                alt={settings?.collegeName || "RBANM's First Grade College Logo"}
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+          </Link>
 
           {/* Desktop Links */}
           <ul className="hidden lg:flex flex-nowrap items-center gap-1 text-xs text-white">

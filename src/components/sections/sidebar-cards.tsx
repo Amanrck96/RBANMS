@@ -41,29 +41,30 @@ export function SidebarCards() {
             pageId="8"
             render={(data: any) => {
                 // Ensure data structure exists with defaults if DB is empty
-                const majorEvents = data?.major_events || {
-                    image: '/images/hero/hero-1.jpg',
-                    items: ['Annual Sports Day', 'Cultural Fest 2026', 'Inter-college Debate']
-                };
+                const majorEventImage = data?.major_events_image || data?.major_events?.image || '/images/hero/hero-1.jpg';
+                const majorEventItems = data?.major_events_text || data?.major_events?.items || ['Annual Sports Day', 'Cultural Fest 2026', 'Inter-college Debate'];
+
+                const brochureImage = data?.brochure_image || '/images/college-brochure.png';
+                const brochureLink = data?.brochure_link || "https://drive.google.com/file/d/1CzrsV32FaXRc79ZHvfneH4dZbinqriDH/view?usp=sharing";
 
                 // PREFER GLOBAL ACTIVITIES IF AVAILABLE
-                const monthThatWas = globalActivities || data?.month_that_was_items || [
+                const monthThatWas = (globalActivities && globalActivities.length > 0) ? globalActivities : (data?.month_that_was_items || [
                     { date: 'Nov 6', title: 'Field Visit & Guest Lecture', text: 'Final year BBA/BCA visit to Tech Institute. BCom lecture on Financial Mgmt.' },
                     { date: 'Nov 7', title: 'MILANA', text: 'Inter high school / PU cultural competition' },
                     { date: 'Nov 8-9', title: 'Holiday', text: 'College Holiday' },
                     { date: 'Nov 12', title: 'Guest Lecture', text: 'Digital Marketing' },
                     { date: 'Nov 13', title: 'SPICMACAY', text: 'Cultural presentation' },
                     { date: 'Nov 14-22', title: 'Pre-Final Examinations', text: 'Conducted for all classes' },
-                ];
+                ]);
 
-                // PREFER GLOBAL NOTICES IF AVAILABLE, format as HTML ul if it's an array
-                let announcements = data?.announcements_text;
+                // PREFER GLOBAL NOTICES IF AVAILABLE
+                let announcements = '';
                 if (globalNotices && globalNotices.length > 0) {
                     announcements = `<ul class="list-disc pl-4 space-y-2">
                         ${globalNotices.map(notice => `<li>${notice}</li>`).join('')}
                     </ul>`;
-                } else if (!announcements) {
-                    announcements = `
+                } else {
+                    announcements = data?.announcements_text || `
                     <ul class="list-disc pl-4 space-y-2">
                         <li>Admissions open for AY 2026-27. For a Campus Tour, email info@rbanmsfgc.edu.in.</li>
                         <li>College will remain closed on 12th and 13th January.</li>
@@ -80,7 +81,6 @@ export function SidebarCards() {
 
                 return (
                     <div className="w-full">
-                        ...
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 items-stretch">
                             {/* Left Column: Major Events & Brochure */}
                             <div className="flex flex-col gap-5 h-full">
@@ -92,10 +92,10 @@ export function SidebarCards() {
                                         </CardTitle>
                                     </CardHeader>
                                     <CardContent className="p-4 pt-4 flex-grow space-y-3">
-                                        {majorEvents.image && (
+                                        {majorEventImage && (
                                             <div className="relative aspect-video w-full rounded-md overflow-hidden border shadow-sm">
                                                 <Image
-                                                    src={majorEvents.image}
+                                                    src={majorEventImage}
                                                     alt={data.major_events_alt || "Major Events"}
                                                     fill
                                                     className="object-cover"
@@ -103,7 +103,7 @@ export function SidebarCards() {
                                             </div>
                                         )}
                                         <ul className="space-y-2">
-                                            {majorEvents.items?.map((item: string, i: number) => (
+                                            {majorEventItems?.map((item: string, i: number) => (
                                                 <li key={i} className="flex gap-2 text-sm text-slate-700 leading-tight">
                                                     <div className="mt-1.5 size-1.5 rounded-full bg-blue-600 shrink-0" />
                                                     {item}
@@ -122,13 +122,13 @@ export function SidebarCards() {
                                     </CardHeader>
                                     <CardContent className="p-4 pt-4 flex-grow flex flex-col items-center justify-center">
                                         <a
-                                            href="https://drive.google.com/file/d/1CzrsV32FaXRc79ZHvfneH4dZbinqriDH/view?usp=sharing"
+                                            href={brochureLink}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="relative w-40 aspect-[3/4.2] rounded-lg overflow-hidden shadow-lg border-2 border-white transform hover:scale-105 hover:rotate-1 transition-transform cursor-pointer group"
                                         >
                                             <Image
-                                                src="/images/college-brochure.png"
+                                                src={brochureImage}
                                                 alt="College Brochure"
                                                 fill
                                                 className="object-cover"

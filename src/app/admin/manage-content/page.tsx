@@ -197,8 +197,8 @@ export default function ManageContentPage() {
         setFetching(true);
         try {
             const [nRes, aRes] = await Promise.all([
-                fetch('/api/site-content?section=notices'),
-                fetch('/api/site-content?section=activities')
+                fetch('/api/site-content?section=notices', { cache: 'no-store' }),
+                fetch('/api/site-content?section=activities', { cache: 'no-store' })
             ]);
             const nData = await nRes.json();
             const aData = await aRes.json();
@@ -256,7 +256,7 @@ export default function ManageContentPage() {
                 if (fetchedSubSections.length > 0) setActiveSubSection(fetchedSubSections[0].id);
             }
 
-            const res = await fetch(`/api/site-content?section=page-${pageId}`);
+            const res = await fetch(`/api/site-content?section=page-${pageId}`, { cache: 'no-store' });
             const data = await res.json();
 
             let newContent = '';
@@ -497,6 +497,36 @@ export default function ManageContentPage() {
                 toast({ title: 'Error', description: 'Failed to publish tabs.', variant: 'destructive' });
             } finally {
                 setLoading(false);
+            }
+
+            // ALSO PUBLISH THE PARENT PAGE DEFAULTS (Title, Tagline, etc.)
+            const parentDefaults = CMS_DEFAULTS[selectedPage];
+            if (parentDefaults) {
+                try {
+                    const token = await auth?.currentUser?.getIdToken();
+                    await fetch('/api/site-content', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                        body: JSON.stringify({
+                            section: `page-${selectedPage}`,
+                            data: {
+                                title: parentDefaults.title,
+                                imageUrl: parentDefaults.imageUrl || '',
+                                tagline: parentDefaults.tagline || '',
+                                badgeText: (parentDefaults as any).badgeText || '',
+                                faculty: (parentDefaults as any).faculty || []
+                            }
+                        })
+                    });
+                    // Update state
+                    setPageTitle(parentDefaults.title);
+                    setPageImageUrl(parentDefaults.imageUrl || '');
+                    setPageTagline(parentDefaults.tagline || '');
+                    setPageBadgeText((parentDefaults as any).badgeText || '');
+                    setFacultyList((parentDefaults as any).faculty || []);
+                } catch (e) {
+                    console.error("Error publishing parent defaults:", e);
+                }
             }
             return;
         }

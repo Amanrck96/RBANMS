@@ -8,8 +8,10 @@ import { AdditionalImagesCarousel } from '@/components/sections/additional-image
 import { TwoRowCardLayout } from '@/components/sections/two-row-card-layout';
 import { DynamicSection } from '@/components/dynamic-section';
 import { SidebarCards } from '@/components/sections/sidebar-cards';
+import { useSiteSettings } from '@/hooks/use-site-settings';
 
 export default function Home() {
+    const { settings } = useSiteSettings();
     return (
         <div className="flex min-h-screen flex-col">
             <SiteHeader />
@@ -39,8 +41,8 @@ export default function Home() {
                                         <div className="shrink-0">
                                             <div className="relative w-[240px] h-[240px] overflow-hidden">
                                                 <Image
-                                                    src="/images/logo-full.png"
-                                                    alt="RBANM's First Grade College Logo"
+                                                    src={settings?.logoUrl || "/images/logo-full.png"}
+                                                    alt={settings?.collegeName || "RBANM's First Grade College Logo"}
                                                     fill
                                                     className="object-contain"
                                                     priority
