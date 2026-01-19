@@ -643,17 +643,42 @@ export default function ManageContentPage() {
         setLoading(true);
         try {
             const token = await auth?.currentUser?.getIdToken();
-            const res = await fetch('/api/site-content', {
+
+            // 1. Save to the global collection (Legacy support)
+            await fetch('/api/site-content', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
                 body: JSON.stringify({ section, data: { items } })
             });
-            if (res.ok) {
-                toast({ title: 'Success', description: `${section.charAt(0).toUpperCase() + section.slice(1)} updated` });
-            } else {
-                throw new Error('Failed to update');
+
+            // 2. ALSO save to page-8 to ensure sync with SidebarCards
+            const page8Snapshot = await fetch('/api/site-content?section=page-8');
+            const page8DataRes = await page8Snapshot.json();
+            const currentPage8 = page8DataRes.data || {};
+
+            let updatedPage8 = { ...currentPage8 };
+            if (section === 'notices') {
+                updatedPage8.announcements_text = `<ul class="list-disc pl-4 space-y-2">
+                    ${items.map(notice => `<li>${notice}</li>`).join('')}
+                </ul>`;
+            } else if (section === 'activities') {
+                updatedPage8.month_that_was_items = items.map(a => ({
+                    date: a.date,
+                    title: a.title,
+                    text: a.description
+                }));
             }
+
+            await fetch('/api/site-content', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                body: JSON.stringify({ section: 'page-8', data: updatedPage8 })
+            });
+
+            toast({ title: 'Success', description: `${section.charAt(0).toUpperCase() + section.slice(1)} updated and synced with Sidebar.` });
+
         } catch (error) {
+            console.error(error);
             toast({ title: 'Error', description: `Failed to update ${section}`, variant: 'destructive' });
         } finally {
             setLoading(false);

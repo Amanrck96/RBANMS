@@ -10,32 +10,6 @@ import { db } from '@/lib/firebase-client';
 import { doc, onSnapshot } from 'firebase/firestore';
 
 export function SidebarCards() {
-    const [globalNotices, setGlobalNotices] = useState<string[] | null>(null);
-    const [globalActivities, setGlobalActivities] = useState<any[] | null>(null);
-
-    useEffect(() => {
-        if (!db) return;
-
-        // Listener for global notices
-        const noticesUnsubscribe = onSnapshot(doc(db, 'site-content', 'notices'), (snapshot) => {
-            if (snapshot.exists()) {
-                setGlobalNotices(snapshot.data().items || []);
-            }
-        });
-
-        // Listener for global activities
-        const activitiesUnsubscribe = onSnapshot(doc(db, 'site-content', 'activities'), (snapshot) => {
-            if (snapshot.exists()) {
-                setGlobalActivities(snapshot.data().items || []);
-            }
-        });
-
-        return () => {
-            noticesUnsubscribe();
-            activitiesUnsubscribe();
-        };
-    }, []);
-
     return (
         <DynamicSection
             pageId="8"
@@ -47,31 +21,23 @@ export function SidebarCards() {
                 const brochureImage = data?.brochure_image || '/images/college-brochure.png';
                 const brochureLink = data?.brochure_link || "https://drive.google.com/file/d/1CzrsV32FaXRc79ZHvfneH4dZbinqriDH/view?usp=sharing";
 
-                // PREFER GLOBAL ACTIVITIES IF AVAILABLE
-                const monthThatWas = (globalActivities && globalActivities.length > 0) ? globalActivities : (data?.month_that_was_items || [
+                // Use data from page-8 exclusively
+                const monthThatWas = data?.month_that_was_items || [
                     { date: 'Nov 6', title: 'Field Visit & Guest Lecture', text: 'Final year BBA/BCA visit to Tech Institute. BCom lecture on Financial Mgmt.' },
                     { date: 'Nov 7', title: 'MILANA', text: 'Inter high school / PU cultural competition' },
                     { date: 'Nov 8-9', title: 'Holiday', text: 'College Holiday' },
                     { date: 'Nov 12', title: 'Guest Lecture', text: 'Digital Marketing' },
                     { date: 'Nov 13', title: 'SPICMACAY', text: 'Cultural presentation' },
                     { date: 'Nov 14-22', title: 'Pre-Final Examinations', text: 'Conducted for all classes' },
-                ]);
+                ];
 
-                // PREFER GLOBAL NOTICES IF AVAILABLE
-                let announcements = '';
-                if (globalNotices && globalNotices.length > 0) {
-                    announcements = `<ul class="list-disc pl-4 space-y-2">
-                        ${globalNotices.map(notice => `<li>${notice}</li>`).join('')}
-                    </ul>`;
-                } else {
-                    announcements = data?.announcements_text || `
+                const announcements = data?.announcements_text || `
                     <ul class="list-disc pl-4 space-y-2">
                         <li>Admissions open for AY 2026-27. For a Campus Tour, email info@rbanmsfgc.edu.in.</li>
                         <li>College will remain closed on 12th and 13th January.</li>
                         <li>The Even Semester for AY 2025-26 will begin on January 19.</li>
                         <li>Regular classes for all courses will commence on January 27.</li>
                     </ul>`;
-                }
 
                 const upcomingEvents = data?.upcoming_events_text || [
                     'Internal Assessment - Jan 20',

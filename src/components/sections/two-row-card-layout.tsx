@@ -41,31 +41,6 @@ const defaultActivities = [
 
 export function TwoRowCardLayout() {
     const [expandedCard, setExpandedCard] = useState<string | null>(null);
-    const [dynamicNotices, setDynamicNotices] = useState<string[]>(defaultNotices);
-    const [dynamicActivities, setDynamicActivities] = useState<any[]>(defaultActivities);
-
-    useEffect(() => {
-        if (!db) return;
-
-        // Listener for global notices
-        const noticesUnsubscribe = onSnapshot(doc(db, 'site-content', 'notices'), (snapshot) => {
-            if (snapshot.exists()) {
-                setDynamicNotices(snapshot.data().items || []);
-            }
-        });
-
-        // Listener for global activities
-        const activitiesUnsubscribe = onSnapshot(doc(db, 'site-content', 'activities'), (snapshot) => {
-            if (snapshot.exists()) {
-                setDynamicActivities(snapshot.data().items || []);
-            }
-        });
-
-        return () => {
-            noticesUnsubscribe();
-            activitiesUnsubscribe();
-        };
-    }, []);
 
     const toggleCard = (cardId: string) => {
         setExpandedCard(expandedCard === cardId ? null : cardId);
