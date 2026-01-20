@@ -132,11 +132,62 @@ export default function IQACPage() {
     </div>
   );
 
+  // Dynamic Data State
+  const [tabContent, setTabContent] = React.useState<Record<string, string>>({});
+
+  React.useEffect(() => {
+    let unsubs: (() => void)[] = [];
+    let mounted = true;
+
+    const fetchTabs = async () => {
+      try {
+        const { db } = await import('@/lib/firebase-client');
+        const { doc, onSnapshot } = await import('firebase/firestore');
+
+        if (!mounted || !db) return;
+
+        const tabs = ['objectives', 'functions', 'major-contributions', 'documents'];
+        unsubs = tabs.map(tabId => {
+          return onSnapshot(doc(db, 'site-content', `page-cell-iqac-tab-${tabId}`), (snap) => {
+            if (mounted && snap.exists() && snap.data().content) {
+              setTabContent(prev => ({ ...prev, [tabId]: snap.data().content }));
+            }
+          });
+        });
+      } catch (error) {
+        console.error("Error initializing IQAC tabs:", error);
+      }
+    };
+
+    fetchTabs();
+
+    return () => {
+      mounted = false;
+      unsubs.forEach(u => u());
+    };
+  }, []);
+
   const sections = [
-    { id: 'objectives', label: 'Objectives', content: objectivesContent },
-    { id: 'functions', label: 'Functions', content: functionsContent },
-    { id: 'major-contributions', label: 'Major Contributions', content: contributionsContent },
-    { id: 'documents', label: 'Documents', content: documentsContent },
+    {
+      id: 'objectives',
+      label: 'Objectives',
+      content: tabContent['objectives'] ? <div dangerouslySetInnerHTML={{ __html: tabContent['objectives'] }} className="prose prose-lg max-w-none" /> : objectivesContent
+    },
+    {
+      id: 'functions',
+      label: 'Functions',
+      content: tabContent['functions'] ? <div dangerouslySetInnerHTML={{ __html: tabContent['functions'] }} className="prose prose-lg max-w-none" /> : functionsContent
+    },
+    {
+      id: 'major-contributions',
+      label: 'Major Contributions',
+      content: tabContent['major-contributions'] ? <div dangerouslySetInnerHTML={{ __html: tabContent['major-contributions'] }} className="prose prose-lg max-w-none" /> : contributionsContent
+    },
+    {
+      id: 'documents',
+      label: 'Documents',
+      content: tabContent['documents'] ? <div dangerouslySetInnerHTML={{ __html: tabContent['documents'] }} className="prose prose-lg max-w-none" /> : documentsContent
+    },
   ];
 
   return (
