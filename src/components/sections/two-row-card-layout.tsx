@@ -242,32 +242,28 @@ export function TwoRowCardLayout() {
                                     <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
                                         {/* Left Side - Checkmarks List */}
                                         <div className="flex-grow w-full lg:w-3/5">
-                                            {data.content ? (
-                                                <div className="prose prose-lg max-w-none text-muted-foreground font-bold" dangerouslySetInnerHTML={{ __html: data.content }} />
-                                            ) : (
-                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 md:gap-y-6">
-                                                    <ul className="space-y-4 md:space-y-6">
-                                                        {col1.map((advantage, index) => (
-                                                            <li key={index} className="flex items-start">
-                                                                <div className="mt-1 shrink-0">
-                                                                    <Check className="h-5 w-5 text-red-700 stroke-[3]" />
-                                                                </div>
-                                                                <span className="ml-3 text-black font-semibold text-sm md:text-base leading-snug text-left">{advantage}</span>
-                                                            </li>
-                                                        ))}
-                                                    </ul>
-                                                    <ul className="space-y-4 md:space-y-6">
-                                                        {col2.map((advantage, index) => (
-                                                            <li key={index} className="flex items-start">
-                                                                <div className="mt-1 shrink-0">
-                                                                    <Check className="h-5 w-5 text-red-700 stroke-[3]" />
-                                                                </div>
-                                                                <span className="ml-3 text-black font-semibold text-sm md:text-base leading-snug text-left">{advantage}</span>
-                                                            </li>
-                                                        ))}
-                                                    </ul>
-                                                </div>
-                                            )}
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 md:gap-y-6">
+                                                <ul className="space-y-4 md:space-y-6">
+                                                    {col1.map((advantage, index) => (
+                                                        <li key={index} className="flex items-start">
+                                                            <div className="mt-1 shrink-0">
+                                                                <Check className="h-5 w-5 text-red-700 stroke-[3]" />
+                                                            </div>
+                                                            <span className="ml-3 text-black font-semibold text-sm md:text-base leading-snug text-left">{advantage}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                                <ul className="space-y-4 md:space-y-6">
+                                                    {col2.map((advantage, index) => (
+                                                        <li key={index} className="flex items-start">
+                                                            <div className="mt-1 shrink-0">
+                                                                <Check className="h-5 w-5 text-red-700 stroke-[3]" />
+                                                            </div>
+                                                            <span className="ml-3 text-black font-semibold text-sm md:text-base leading-snug text-left">{advantage}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
                                         </div>
 
                                         {/* Right Side - Image (Featured Magazine) */}
