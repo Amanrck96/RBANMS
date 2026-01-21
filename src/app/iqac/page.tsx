@@ -36,12 +36,6 @@ export default function IQACPage() {
     { id: 'cm-21-22', name: '2021-22', type: 'file' as const, url: 'https://drive.google.com/file/d/1z1JmqoR0U1nAmutVIzxEZ7vjaRjkrIfd/view?usp=sharing' },
   ];
 
-  const minutesOfMeetingItems = [
-    { id: 'mom-24-25', name: '2024-25', type: 'file' as const, url: 'https://drive.google.com/file/d/1mXOdjIHWx3RcQxI3Eeq4-cAM6O1_uQoZ/view?usp=sharing' },
-    { id: 'mom-23-24', name: '2023-24', type: 'file' as const, url: 'https://drive.google.com/file/d/1xr1H03XzCeFKn9kC_8hCm_LQmCG9H4xz/view?usp=sharing' },
-    { id: 'mom-22-23', name: '2022-23', type: 'file' as const, url: 'https://drive.google.com/file/d/1xWHMYWNc8Zl2Z1Tf3sGUDVowvl-HVO4C/view?usp=sharing' },
-    { id: 'mom-21-22', name: '2021-22', type: 'file' as const, url: 'https://drive.google.com/file/d/1ZOdsVXLKkd9J_LDeLqtApRtUvNP5kVYP/view?usp=sharing' },
-  ];
 
   const aisheItems = [
     { id: 'aishe-24-25', name: '2024-25', type: 'file' as const },
@@ -72,33 +66,6 @@ export default function IQACPage() {
                     <div className="bg-blue-50/50 p-6 rounded-xl border border-blue-100 prose prose-blue max-w-none" dangerouslySetInnerHTML={{ __html: data.content }} />
                   )}
 
-                  {/* Image Grid - Provided Google Drive Links */}
-                  <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 h-64 relative group">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src="https://lh3.googleusercontent.com/d/1VB_okbRdhm8Ll2tTNj27kfBVkxg1xj9F"
-                        alt="IQAC Activity Image 1"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                    </div>
-                    <div className="rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 h-64 relative group">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src="https://lh3.googleusercontent.com/d/1xRihwynDNNPEGmcRLjyVXhSVXETyNB26"
-                        alt="IQAC Activity Image 2"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                    </div>
-                    <div className="rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 h-64 relative group">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src="https://lh3.googleusercontent.com/d/1yCeCdJW-IJNq3r10gzKUqf5v0uXc-4-m"
-                        alt="IQAC Activity Image 3"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                    </div>
-                  </div>
 
                   <div className="grid grid-cols-1 gap-8 mt-12">
                     {/* Objectives */}
@@ -159,7 +126,6 @@ export default function IQACPage() {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                       <DocumentFolder title="Constitution" items={constitutionItems} />
                       <DocumentFolder title="Cell / Committee Members" items={cellMemberItems} />
-                      <DocumentFolder title="Minutes of Meeting" items={minutesOfMeetingItems} />
                       <DocumentFolder title="Annual SPP" items={annualSppItems} />
                       <DocumentFolder title="Annual Report" items={annualReportItems} />
                       <DocumentFolder title="Activities" items={activitiesItems} />
