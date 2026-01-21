@@ -7,14 +7,14 @@ import { DynamicSection } from '@/components/dynamic-section';
 export default function NAACPage() {
 
   const defaultCertificateItems = [
-    { id: 'c4-cert', name: 'Cycle - 4', type: 'file' as const },
-    { id: 'c3-cert', name: 'Cycle - 3', type: 'file' as const },
-    { id: 'c2-cert', name: 'Cycle - 2', type: 'file' as const },
-    { id: 'c1-cert', name: 'Cycle - 1', type: 'file' as const },
+    { id: 'c4-cert', name: 'Cycle - 4 (Valid up to Feb 2028)', type: 'file' as const, url: 'https://drive.google.com/file/d/1p8XTQ5vo3Qk9rRoWWrfsDNlXrqY3wUEq/view?usp=sharing' },
+    { id: 'c3-cert', name: 'Cycle - 3', type: 'file' as const, url: 'https://drive.google.com/file/d/1VQUzoE5vVt0DHPmqHPBckSOyCEJSrpzM/view?usp=sharing' },
+    { id: 'c2-cert', name: 'Cycle - 2', type: 'file' as const, url: 'https://drive.google.com/file/d/1rw9sWy3Euzqq5nMIRKOjcjm52-6tEH7K/view?usp=sharing' },
+    { id: 'c1-cert', name: 'Cycle - 1 (2004)', type: 'file' as const, url: 'https://drive.google.com/file/d/1H7_5lRqjoGL9pin6Wb7m1Nizw6ku5qOc/view?usp=sharing' },
   ];
 
   const defaultSsrItems = [
-    { id: 'c4-ssr', name: 'Cycle - 4', type: 'file' as const },
+    { id: 'ssr-2022', name: 'SSR (Aug 2022)', type: 'file' as const, url: 'https://drive.google.com/file/d/18b7Qbb8pW6Ien3-e5HROO2h_r4NiFW8O/view?usp=sharing' },
   ];
 
   const defaultAqarItems = [

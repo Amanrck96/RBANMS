@@ -328,21 +328,11 @@ export default function ManageContentPage() {
                     aqarItems: data.data.aqarItems || []
                 });
             } else if (pageId === 'naac') {
+                const defaults = CMS_DEFAULTS['naac'] as any;
                 setNaacData({
-                    certificateItems: [
-                        { id: 'c4-cert', name: 'Cycle - 4', type: 'file' },
-                        { id: 'c3-cert', name: 'Cycle - 3', type: 'file' },
-                        { id: 'c2-cert', name: 'Cycle - 2', type: 'file' },
-                        { id: 'c1-cert', name: 'Cycle - 1', type: 'file' },
-                    ],
-                    ssrItems: [
-                        { id: 'c4-ssr', name: 'Cycle - 4', type: 'file' },
-                    ],
-                    aqarItems: [
-                        { id: 'aqar-23-24', name: '2023-24', type: 'file' },
-                        { id: 'aqar-22-23', name: '2022-23', type: 'file' },
-                        { id: 'aqar-21-22', name: '2021-22', type: 'file' },
-                    ]
+                    certificateItems: defaults?.certificateItems || [],
+                    ssrItems: defaults?.ssrItems || [],
+                    aqarItems: defaults?.aqarItems || []
                 });
             }
 
@@ -398,6 +388,29 @@ export default function ManageContentPage() {
         setPageTagline((defaults as any).tagline || '');
         setPageBadgeText((defaults as any).badgeText || '');
         setFacultyList((defaults as any).faculty || []);
+
+        if (selectedPage === 'naac') {
+            setNaacData({
+                certificateItems: (defaults as any).certificateItems || [],
+                ssrItems: (defaults as any).ssrItems || [],
+                aqarItems: (defaults as any).aqarItems || []
+            });
+        }
+
+        if (selectedPage === '8') {
+            setPage8Data({
+                major_events_image: (defaults as any).major_events_image || '',
+                major_events_alt: (defaults as any).major_events_alt || '',
+                major_events_text: (defaults as any).major_events_text || [],
+                month_that_was_items: (defaults as any).month_that_was_items || [],
+                announcements_text: (defaults as any).announcements_text || '',
+                brochure_image: (defaults as any).brochure_image || '',
+                brochure_alt: (defaults as any).brochure_alt || '',
+                brochure_link: (defaults as any).brochure_link || '',
+                upcoming_events_text: (defaults as any).upcoming_events_text || [],
+                blog_text: (defaults as any).blog_text || ''
+            });
+        }
 
         // Toggle view mode to force component refresh if needed
         setViewMode('original');

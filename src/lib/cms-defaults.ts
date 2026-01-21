@@ -1081,7 +1081,22 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     },
     'naac': {
         title: 'NAAC Accreditation',
-        content: '<p>RBANMS First Grade College is accredited by NAAC (National Assessment and Accreditation Council), demonstrating our commitment to maintaining high academic standards and quality education.</p>'
+        tagline: 'National Assessment and Accreditation Council (NAAC) Documentation',
+        content: '<p>RBANMS First Grade College is accredited by NAAC (National Assessment and Accreditation Council), demonstrating our commitment to maintaining high academic standards and quality education.</p>',
+        certificateItems: [
+            { id: 'c4-cert', name: 'Cycle - 4 (Valid up to Feb 2028)', type: 'file', url: 'https://drive.google.com/file/d/1p8XTQ5vo3Qk9rRoWWrfsDNlXrqY3wUEq/view?usp=sharing' },
+            { id: 'c3-cert', name: 'Cycle - 3', type: 'file', url: 'https://drive.google.com/file/d/1VQUzoE5vVt0DHPmqHPBckSOyCEJSrpzM/view?usp=sharing' },
+            { id: 'c2-cert', name: 'Cycle - 2', type: 'file', url: 'https://drive.google.com/file/d/1rw9sWy3Euzqq5nMIRKOjcjm52-6tEH7K/view?usp=sharing' },
+            { id: 'c1-cert', name: 'Cycle - 1 (2004)', type: 'file', url: 'https://drive.google.com/file/d/1H7_5lRqjoGL9pin6Wb7m1Nizw6ku5qOc/view?usp=sharing' },
+        ],
+        ssrItems: [
+            { id: 'ssr-2022', name: 'SSR (Aug 2022)', type: 'file', url: 'https://drive.google.com/file/d/18b7Qbb8pW6Ien3-e5HROO2h_r4NiFW8O/view?usp=sharing' },
+        ],
+        aqarItems: [
+            { id: 'aqar-23-24', name: '2023-24', type: 'file' },
+            { id: 'aqar-22-23', name: '2022-23', type: 'file' },
+            { id: 'aqar-21-22', name: '2021-22', type: 'file' },
+        ]
     },
 
     'academics-rules': {
