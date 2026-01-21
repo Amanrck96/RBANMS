@@ -1512,11 +1512,100 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     },
     'academics-structure': {
         title: 'Academic Structure',
-        content: '<p>Information about our institutional academic structure coming soon.</p>'
+        content: '<p>Our academic structure follows the Bangalore City University guidelines with NEP integration.</p>'
     },
     'academics-philosophy': {
         title: 'Philosophy of Teaching',
-        content: '<p>Information about our teaching philosophy and methodology coming soon.</p>'
+        content: '<p>Our teaching philosophy is student-centric, focusing on holistic development and practical application.</p>'
+    },
+    'facilities': {
+        title: 'Our Facilities',
+        tagline: 'Creating an environment for better productivity and performance.',
+        content: '<p>We provide world-class infrastructure to support academic and extracurricular activities.</p>'
+    },
+    'page-facilities-tab-overview': {
+        title: 'Overview',
+        content: `
+            <div class="space-y-6 text-lg leading-relaxed">
+                <p>Creating an environment for better productivity and performance. Infrastructural Abundance: It is part of the basic policy of the promoters that infrastructural self-sufficiency is a pre-requisite for better productivity and performance in all the activities, more so for academic activities.</p>
+                <p>The Management has always been creating and updating academic and building infrastructure to meet the standards from time to time and to make life easy and stress-free in the campus.</p>
+            </div>
+        `
+    },
+    'page-facilities-tab-computer-labs': {
+        title: 'Computer Labs',
+        content: `
+            <div class="grid md:grid-cols-2 gap-6 items-center">
+                <div>
+                    <p>There are three computer labs on campus: two for the exclusive use of BCA students, and one used as a Design Lab for students of Journalism, and those who are part of the Editorial/ Design Team, the Phoenix Club.</p>
+                    <p class="mt-4">These labs have been the main learning resource in providing students with practical exposure for the syllabus of Bangalore University and to go beyond it.</p>
+                </div>
+                <img src="/images/facilities/lab.jpg" alt="Computer Lab" class="rounded-lg shadow-md" />
+            </div>
+        `
+    },
+    'page-facilities-tab-sports-ground': {
+        title: 'Sports Ground',
+        content: `
+            <div class="grid md:grid-cols-2 gap-6 items-center">
+                <div>
+                    <p>The college has a large ground on campus, dedicated to sports. This area is regularly used for throwball, volleyball, basketball, kho kho, and more. The grounds are also used for NCC parades.</p>
+                    <p class="mt-4">In addition, the sports students have access to the SUFC and Karnataka Cricket Club that are situated on land owned by RBANMs Educational Charities.</p>
+                </div>
+                <img src="/images/facilities/ground.jpg" alt="Sports Ground" class="rounded-lg shadow-md" />
+            </div>
+        `
+    },
+    'page-facilities-tab-auditorium': {
+        title: 'Auditorium',
+        content: `
+            <div class="space-y-4">
+                <p>Believing that experience on stage does wonders for the personality and individual growth of students, the college has two performance spaces:</p>
+                <ul class="list-disc pl-5 mt-2 space-y-1">
+                    <li>A seminar hall for small, intimate gatherings, such as the Natya club and guest lectures</li>
+                    <li>A large auditorium to host events such as Orientation, Freshers’ Day, and other cultural activities.</li>
+                </ul>
+            </div>
+        `
+    },
+    'page-facilities-tab-library': {
+        title: 'Library',
+        content: `
+            <div class="space-y-6">
+                <p>The college library is large, with more than 40,000 volumes of books on all subjects. The collection supports the curriculum and is built through student-teacher suggestions.</p>
+                <div class="grid grid-cols-2 gap-4 bg-slate-50 p-6 rounded-lg">
+                    <div>
+                        <h4 class="font-bold border-b mb-2">Highlights</h4>
+                        <ul class="list-disc pl-5 text-sm">
+                            <li>Reference Service</li>
+                            <li>Reprographic Service</li>
+                            <li>Internet Facilities</li>
+                            <li>Open Access Service</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold border-b mb-2">Timings</h4>
+                        <p class="text-sm">8 A.M. to 5 P.M.</p>
+                    </div>
+                </div>
+            </div>
+        `
+    },
+    'page-facilities-tab-digital-library': {
+        title: 'Digital Library',
+        content: '<p>The digital library provides access to online databases, textbooks, articles, and audio-video materials via platforms like N-List, DELNET, and NDL.</p>'
+    },
+    'page-facilities-tab-classrooms': {
+        title: 'Classrooms',
+        content: '<p>Spread over three floors, the college has well equipped, brightly lit classrooms with old-style bench seating, combining modern facilities with heritage charm.</p>'
+    },
+    'page-facilities-tab-canteen': {
+        title: 'Canteen',
+        content: '<p>The canteen on campus provides hygienic and affordable meals and snacks to students, staff, and guests.</p>'
+    },
+    'page-facilities-tab-green-campus': {
+        title: 'Green Campus',
+        content: '<p>A stress-free environment full of lawns, trees, and flower plants, providing an eco-friendly atmosphere in the heart of town.</p>'
     },
 
     'cell-iqac': {
