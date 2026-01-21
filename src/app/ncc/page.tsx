@@ -22,13 +22,20 @@ export default function NCCPage() {
                 <CardContent className="p-0">
                     <DynamicSection
                         pageId="cell-ncc"
-                        defaultTitle="National Cadet Corps (NCC)"
-                        defaultContent={
+                        render={(data) => (
                             <div className="space-y-12">
                                 <div className="p-8 md:p-12 space-y-6">
+                                    <h1 className="text-5xl font-bold text-primary font-headline">
+                                        {data.title || "National Cadet Corps (NCC)"}
+                                    </h1>
                                     <p className="text-xl text-foreground/80 leading-relaxed max-w-4xl">
                                         The National Cadet Corps (NCC) at RBNMS College is a premier youth organization that strives to develop the qualities of character, courage, comradeship, discipline, leadership, and the ideal of selfless service among the youth of the country. We offer both Army and Navy wings, providing cadets with diverse opportunities for personal growth and adventure.
                                     </p>
+
+                                    {/* Dynamic Admin Content */}
+                                    {data.content && (
+                                        <div className="bg-blue-50/50 p-6 rounded-xl border border-blue-100 prose prose-blue max-w-none" dangerouslySetInnerHTML={{ __html: data.content }} />
+                                    )}
                                 </div>
 
                                 {/* Wings Grid */}
@@ -39,11 +46,11 @@ export default function NCCPage() {
                                                 <Shield className="h-8 w-8" />
                                             </div>
                                             <h2 className="text-3xl font-bold text-primary font-headline">Army Wing</h2>
-                                            <p className="text-foreground/70 leading-relaxed">
-                                                Focused on land-based military training, character development, and discipline through drills and field exercises.
+                                            <p className="text-foreground/70 leading-relaxed text-lg">
+                                                Focused on land-based military training, character development, and discipline through drills and field exercises. We prepare cadets for the Indian Army and various defense services.
                                             </p>
                                         </div>
-                                        <Button asChild className="mt-8 group/btn">
+                                        <Button asChild className="mt-8 group/btn" size="lg">
                                             <Link href="/ncc/army">
                                                 Explore Army Wing <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                                             </Link>
@@ -55,11 +62,11 @@ export default function NCCPage() {
                                                 <Anchor className="h-8 w-8" />
                                             </div>
                                             <h2 className="text-3xl font-bold text-primary font-headline">Navy Wing</h2>
-                                            <p className="text-foreground/70 leading-relaxed">
-                                                Specialized training in naval drills, boat pulling, and swimming, fostering a spirit of adventure and piracy? No, patriotism!
+                                            <p className="text-foreground/70 leading-relaxed text-lg">
+                                                Specialized training in naval drills, boat pulling, and swimming. Our cadets get exposure to marine life and technical aspects of the Indian Navy.
                                             </p>
                                         </div>
-                                        <Button asChild className="mt-8 group/btn">
+                                        <Button asChild className="mt-8 group/btn" size="lg">
                                             <Link href="/ncc/navy">
                                                 Explore Navy Wing <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                                             </Link>
@@ -70,7 +77,9 @@ export default function NCCPage() {
                                 {/* Documents Section */}
                                 <div className="p-8 md:p-12 bg-slate-50/50">
                                     <div className="flex items-center gap-3 mb-8">
-                                        <FileText className="h-8 w-8 text-primary" />
+                                        <div className="p-2 bg-primary rounded-lg text-white">
+                                            <FileText className="h-6 w-6" />
+                                        </div>
                                         <h2 className="text-3xl font-bold text-black uppercase tracking-tight">NCC Reports & Documents</h2>
                                     </div>
                                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -78,7 +87,7 @@ export default function NCCPage() {
                                     </div>
                                 </div>
                             </div>
-                        }
+                        )}
                     />
                 </CardContent>
             </Card>

@@ -78,6 +78,7 @@ const PAGE_GROUPS = [
         pages: [
             { label: 'IQAC', id: 'cell-iqac' },
             { label: 'NSS', id: 'cell-nss' },
+            { label: 'NCC (Landing Page)', id: 'cell-ncc' },
             { label: 'NCC Army', id: 'cell-ncc-army' },
             { label: 'NCC Navy', id: 'cell-ncc-navy' },
             { label: 'Women\'s Cell', id: 'cell-womens' },
@@ -228,8 +229,7 @@ export default function ManageContentPage() {
                 'dept-languages': ['highlights', 'vision', 'objectives', 'outcomes', 'hindi', 'kannada', 'tamil', 'events', 'faculty', 'contact'],
                 'dept-physed': ['highlights', 'vision', 'facilities', 'courses', 'events', 'contact'],
                 'facilities': ['overview', 'computer-labs', 'sports-ground', 'auditorium', 'library', 'digital-library', 'classrooms', 'canteen', 'green-campus'],
-                'administration': ['overview', 'staff-list', 'photos'],
-                'cell-iqac': ['objectives', 'functions', 'major-contributions', 'documents']
+                'administration': ['overview', 'staff-list', 'photos']
             };
 
             const pageTabs = tabbedPages[pageId];

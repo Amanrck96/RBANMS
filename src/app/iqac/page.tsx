@@ -56,13 +56,21 @@ export default function IQACPage() {
         <CardContent className="pt-10">
           <DynamicSection
             pageId="cell-iqac"
-            defaultTitle="Internal Quality Assurance Cell (IQAC)"
-            defaultContent={
+            render={(data) => (
               <div className="space-y-12">
                 <div className="space-y-6 text-foreground/90 leading-relaxed">
+                  <h1 className="text-4xl font-bold text-primary font-headline mb-6">
+                    {data.title || "Internal Quality Assurance Cell (IQAC)"}
+                  </h1>
+
                   <p className="text-lg">
                     The Internal Quality Assurance Cell (IQAC) at RBNMS College is the driving force behind our pursuit of academic excellence. Dedicated to maintaining high standards, the cell continuously monitors and enhances the quality of teaching, learning, and infrastructure. By implementing best practices and coordinating with accreditation bodies like NAAC, the IQAC ensures that the institution evolves to meet global educational standards while fostering a culture of continuous improvement for both faculty and students.
                   </p>
+
+                  {/* Dynamic Admin Content */}
+                  {data.content && (
+                    <div className="bg-blue-50/50 p-6 rounded-xl border border-blue-100 prose prose-blue max-w-none" dangerouslySetInnerHTML={{ __html: data.content }} />
+                  )}
 
                   {/* Image Grid - Provided Google Drive Links */}
                   <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -160,7 +168,7 @@ export default function IQACPage() {
                   </div>
                 </div>
               </div>
-            }
+            )}
           />
         </CardContent>
       </Card>
