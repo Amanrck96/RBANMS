@@ -7,20 +7,20 @@ import { DynamicSection } from '@/components/dynamic-section';
 export default function NAACPage() {
 
   const defaultCertificateItems = [
-    { id: 'c4-cert', name: 'Cycle - 4 (Valid up to Feb 2028)', type: 'file' as const, url: 'https://drive.google.com/file/d/1p8XTQ5vo3Qk9rRoWWrfsDNlXrqY3wUEq/view?usp=sharing' },
+    { id: 'c4-cert', name: 'Cycle - 4', type: 'file' as const, url: 'https://drive.google.com/file/d/1p8XTQ5vo3Qk9rRoWWrfsDNlXrqY3wUEq/view?usp=sharing' },
     { id: 'c3-cert', name: 'Cycle - 3', type: 'file' as const, url: 'https://drive.google.com/file/d/1VQUzoE5vVt0DHPmqHPBckSOyCEJSrpzM/view?usp=sharing' },
     { id: 'c2-cert', name: 'Cycle - 2', type: 'file' as const, url: 'https://drive.google.com/file/d/1rw9sWy3Euzqq5nMIRKOjcjm52-6tEH7K/view?usp=sharing' },
-    { id: 'c1-cert', name: 'Cycle - 1 (2004)', type: 'file' as const, url: 'https://drive.google.com/file/d/1H7_5lRqjoGL9pin6Wb7m1Nizw6ku5qOc/view?usp=sharing' },
+    { id: 'c1-cert', name: 'Cycle - 1', type: 'file' as const, url: 'https://drive.google.com/file/d/1H7_5lRqjoGL9pin6Wb7m1Nizw6ku5qOc/view?usp=sharing' },
   ];
 
   const defaultSsrItems = [
-    { id: 'ssr-2022', name: 'SSR (Aug 2022)', type: 'file' as const, url: 'https://drive.google.com/file/d/18b7Qbb8pW6Ien3-e5HROO2h_r4NiFW8O/view?usp=sharing' },
+    { id: 'ssr-2022', name: 'Cycle - 4', type: 'file' as const, url: 'https://drive.google.com/file/d/18b7Qbb8pW6Ien3-e5HROO2h_r4NiFW8O/view?usp=sharing' },
   ];
 
   const defaultAqarItems = [
-    { id: 'aqar-23-24', name: '2023-24', type: 'file' as const },
-    { id: 'aqar-22-23', name: '2022-23', type: 'file' as const },
-    { id: 'aqar-21-22', name: '2021-22', type: 'file' as const },
+    { id: 'aqar-23-24', name: '2023-24 (Coming Soon)', type: 'file' as const },
+    { id: 'aqar-22-23', name: '2022-23 (Coming Soon)', type: 'file' as const },
+    { id: 'aqar-21-22', name: '2021-22 (Coming Soon)', type: 'file' as const },
   ];
 
   return (
