@@ -1194,6 +1194,225 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         content: '<p>&copy; 2025 RBANM\'s First Grade College. All Rights Reserved.</p>'
     },
 
+    'about-board': {
+        title: 'Board Members',
+        content: `
+            <div class="flex flex-col items-center justify-center min-h-[40vh] text-center">
+                <h2 class="text-2xl font-semibold text-muted-foreground">Coming Soon</h2>
+                <p class="mt-2 text-foreground/80">This page is under construction. Please check back later!</p>
+            </div>
+        `
+    },
+    'cell-sc-st': {
+        title: 'SC/ST Cell',
+        badgeText: 'Statutory Cell',
+        content: '<p>Providing support and guidance to students from SC/ST communities, ensuring they access all eligible benefits and opportunities.</p>'
+    },
+    'cell-posh': {
+        title: 'Prevention of Sexual Harassment (POSH)',
+        badgeText: 'Statutory Cell',
+        content: '<p>Committed to providing a safe and respectful environment for all staff and students, with zero tolerance for harassment.</p>'
+    },
+    'cell-internal-compliance': {
+        title: 'Internal Compliance Committee',
+        badgeText: 'Statutory Committee',
+        content: '<p>Ensuring institutional transparency and compliance with academic and administrative standards.</p>'
+    },
+    'cell-grievance': {
+        title: 'Grievance Redressal Cell',
+        badgeText: 'Statutory Cell',
+        content: '<p>Providing a transparent mechanism for students to voice concerns and complaints, ensuring timely resolution and maintaining institutional harmony.</p>'
+    },
+    'cell-equal-opportunity': {
+        title: 'Equal Opportunity Cell',
+        badgeText: 'Statutory Cell',
+        content: '<p>Dedicated to promoting equality and social justice, ensuring all students have equal access to academic and extra-curricular opportunities.</p>'
+    },
+    'cell-antiragging': {
+        title: 'Anti-Ragging Committee',
+        badgeText: 'Statutory Committee',
+        content: '<p>RBNMS College maintains a zero-tolerance policy towards ragging. The Anti-Ragging Committee works vigilantly to ensure the college campus remains a ragging-free zone. We strictly enforce UGC regulations and state laws to protect new students from any form of physical or mental harassment. Through counselling and strict monitoring, we guarantee a friendly and welcoming atmosphere where every student feels safe and comfortable from their very first day.</p>'
+    },
+    'cell-exam': {
+        title: 'Examination Committee',
+        badgeText: 'Committee',
+        content: '<p>The Examination Committee is the backbone of the college\'s evaluation system, ensuring transparency, fairness, and efficiency in all internal and external assessments. We are responsible for scheduling exams, securing question papers, and managing the conduct of tests in strict accordance with university norms. By maintaining the integrity of the examination process, we ensure that student performance is assessed accurately and impartially, upholding the academic credibility of RBNMS College.</p>'
+    },
+    'cell-eco': {
+        title: 'Eco Club',
+        badgeText: 'Club',
+        content: '<p>Dedicated to environmental awareness and sustainable practices within the campus and community.</p>'
+    },
+    'cell-aicte': {
+        title: 'AICTE Committee',
+        badgeText: 'Committee',
+        content: '<p>The AICTE Committee ensures that the college adheres to the norms and standards set by the All India Council for Technical Education where applicable. This body oversees the compliance of technical and management programs with national regulatory requirements. We focus on maintaining the quality of curriculum, infrastructure, and faculty qualifications to meet statutory standards. The committee serves as a bridge between the institution and regulatory bodies, ensuring seamless approval processes and academic quality.</p>'
+    },
+    'cell-yrc': {
+        title: 'YRCS (Youth Red Cross Society)',
+        badgeText: 'Society',
+        content: '<p>The Youth Red Cross Society unit focuses on the protection of health and life, service to the sick, and promotion of international friendship. Our student volunteers are trained in first aid, disaster management, and community health hygiene. We regularly organize blood donation camps and health check-ups. The YRCS at RBNMS encourages students to embrace humanitarian values, fostering a spirit of compassion and readiness to help those in distress.</p>'
+    },
+    'cell-womens': {
+        title: 'Women Cell',
+        badgeText: 'Cell',
+        content: '<p>The Women Cell at RBNMS College is dedicated to empowering female students and staff by creating a supportive and inclusive campus environment. The cell serves as a platform for women to voice their concerns and aspirations, fostering confidence and leadership skills. We organize seminars, workshops, and awareness programs focusing on gender equity, women\'s rights, and health. We are committed to ensuring that women feel safe, respected, and valued in all their endeavors on campus and beyond.</p>'
+    },
+    'cell-cultural': {
+        title: 'Cultural Committee',
+        badgeText: 'Committee',
+        content: '<p>The Cultural Committee brings the campus to life by celebrating creativity, talent, and diversity. We organize annual fests, inter-class competitions, and celebrations of national and regional festivals. The committee provides a platform for students to showcase their skills in music, dance, theater, and fine arts. By balancing academics with cultural expression, we ensure the holistic development of our students, making their college experience vibrant and memorable.</p>'
+    },
+    'cell-manasa': {
+        title: 'Manasa Counseling Cell',
+        badgeText: 'Cell',
+        content: '<p>The Manasa Counselling Cell provides a safe and confidential space for students to seek guidance and support for their emotional and mental well-being. Our professional counselors offer listening, empathy, and practical strategies to help students navigate personal challenges, academic stress, and transition into college life. We are dedicated to ensuring that every student has the mental health resources they need to thrive and succeed in all aspects of their lives.</p>'
+    },
+    'cell-ipc': {
+        title: 'IPC (Internal Placement Cell)',
+        badgeText: 'Cell',
+        content: '<p>The Internal Placement Cell (IPC) bridges the gap between academic learning and industry requirements. We are committed to preparing students for their careers by organizing training sessions, workshops, and recruitment drives. The cell actively liaises with top companies to facilitate internship and job opportunities, ensuring our graduates are employable and confident. Our goal is to guide every student toward the right career path, equipping them with the professional skills needed to succeed in a competitive job market.</p>'
+    },
+    'cell-discipline': {
+        title: 'Discipline Committee',
+        badgeText: 'Committee',
+        content: '<p>The Discipline Committee at RBANMS First Grade College is committed to maintaining a learning environment built on respect, integrity, and accountability. Our task is to ensure that all students and staff adhere to the college\'s code of conduct, fostering a safe and orderly campus. We work closely with students to promote self-discipline and positive behavior, ensuring that everyone has the opportunity to learn and grow in an environment that is conducive to academic excellence and personal development.</p>'
+    },
+    'cell-nss': {
+        title: 'National Service Scheme (NSS)',
+        badgeText: 'Activity',
+        content: '<p>Engaging students in social service and community development activities, fostering a sense of social responsibility.</p>'
+    },
+    'cell-ncc-navy': {
+        title: 'NCC Navy Wing',
+        badgeText: 'Activity',
+        content: '<p>Providing naval-oriented training and fostering a sense of discipline and patriotism among the youth.</p>'
+    },
+    'cell-ncc-army': {
+        title: 'NCC Army Wing',
+        badgeText: 'Activity',
+        content: '<p>Developing character, comradeship, discipline, and leadership among students through military-style training and social service.</p>'
+    },
+    'cell-ncc': {
+        title: 'National Cadet Corps (NCC)',
+        badgeText: 'Activity',
+        content: '<p>The National Cadet Corps (NCC) at RBNMS College is a premier youth organization that strives to develop the qualities of character, courage, comradeship, discipline, leadership, and the ideal of selfless service among the youth of the country. We offer both Army and Navy wings, providing cadets with diverse opportunities for personal growth and adventure.</p>'
+    },
+
+    'page-administration-tab-overview': {
+        title: 'Administration Overview',
+        content: `
+            <div class="space-y-6 text-black text-justify text-lg leading-relaxed">
+                <p>Our non-teaching staff serve as the backbone of the college. Their steady work keeps our academic environment organized, responsive, and efficient. From administrative support to campus maintenance and student services, they handle essential operations with professionalism and care.</p>
+                <p>Their diligence ensures that classrooms are ready, records are accurate, processes run smoothly, and every member of the community gets the support they need. Much of their work happens behind the scenes, yet it is vital to the college’s daily functioning and long-term growth.</p>
+            </div>
+        `
+    },
+    'page-administration-tab-staff-list': {
+        title: 'Staff Details',
+        content: `
+            <div class="overflow-x-auto">
+                <table class="w-full text-base text-left text-black">
+                    <thead class="bg-primary/10 font-bold text-black border-b-2 border-primary">
+                        <tr>
+                            <th class="p-3">Name</th>
+                            <th class="p-3">Designation</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-primary/20">
+                        <tr><td class="p-3 font-medium">Mrs. DEEPA . V</td><td class="p-3">Head - Office Admin</td></tr>
+                        <tr><td class="p-3 font-medium">Mr. KUMAR R.H</td><td class="p-3">Accounts Officer</td></tr>
+                        <tr><td class="p-3 font-medium">Mr. PRASANT KUMAR BISWAL</td><td class="p-3">Maintenance In Charge</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        `
+    },
+    'page-administration-tab-photos': {
+        title: 'Group Photographs',
+        content: '<p>Administration staff group photographs coming soon.</p>'
+    },
+
+    'industry-mou': {
+        title: 'Memorandum of Understanding (MoU)',
+        content: '<p>Information about our institutional MoUs coming soon.</p>'
+    },
+    'industry-internship': {
+        title: 'Internships',
+        content: '<p>Information about our student internship programs coming soon.</p>'
+    },
+    'industry-visits': {
+        title: 'Industrial Visits',
+        content: '<p>Information about our industrial visit programs coming soon.</p>'
+    },
+    'industry-field-trip': {
+        title: 'Field Trips',
+        content: '<p>Information about our academic field trips coming soon.</p>'
+    },
+    'industry-addon': {
+        title: 'Industrial Add-on Programmes',
+        content: '<p>Information about our specialized industrial training programmes coming soon.</p>'
+    },
+
+    'academics-index': {
+        title: 'Academics',
+        content: '<p class="text-lg">Explore our academic structure, courses, and educational philosophy.</p>'
+    },
+    'academics-courses': {
+        title: 'Courses Offered',
+        tagline: 'Discover our diverse range of undergraduate programs designed to empower you with knowledge, skills, and future-ready capabilities.',
+        badgeText: 'Academic Excellence',
+        content: ''
+    },
+    'academics-new-courses': {
+        title: 'New Courses',
+        content: '<p>Information about our upcoming and newly launched courses coming soon.</p>'
+    },
+    'academics-addon-courses': {
+        title: 'Add-on Courses',
+        content: '<p>Information about our value-added/add-on certificate courses coming soon.</p>'
+    },
+    'academics-structure': {
+        title: 'Academic Structure',
+        content: '<p>Information about our institutional academic structure coming soon.</p>'
+    },
+    'academics-philosophy': {
+        title: 'Philosophy of Teaching',
+        content: '<p>Information about our teaching philosophy and methodology coming soon.</p>'
+    },
+    'academics-rules': {
+        title: 'Academic Rules & Regulations',
+        content: '<p>Information about institutional academic rules and regulations coming soon.</p>'
+    },
+
+    'code-of-conduct': {
+        title: 'Code of Conduct',
+        content: '<p>Information about our institutional code of conduct for students and staff coming soon.</p>'
+    },
+    'rti': {
+        title: 'Right to Information (RTI)',
+        content: '<p>Information regarding RTI act compliance and nodal officers coming soon.</p>'
+    },
+    'alumni-activity': {
+        title: 'Alumni Activities',
+        content: '<p>Information about our alumni association and their activities coming soon.</p>'
+    },
+    'career': {
+        title: 'Careers at RBANMS',
+        content: '<p>Explore career opportunities at RBANM\'s First Grade College. Information about current openings coming soon.</p>'
+    },
+    'contact-info': {
+        title: 'Contact Us',
+        content: '<p>Get in touch with us for any queries or information.</p>'
+    },
+    'gallery': {
+        title: 'Photo Gallery',
+        tagline: 'Glimpses of life at RBANM\'s First Grade College.',
+        content: ''
+    },
+
+
+
     // IQAC Defaults
     'cell-iqac': {
         title: 'Internal Quality Assurance Cell (IQAC)',

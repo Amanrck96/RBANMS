@@ -229,7 +229,8 @@ export default function ManageContentPage() {
                 'dept-languages': ['highlights', 'vision', 'objectives', 'outcomes', 'hindi', 'kannada', 'tamil', 'events', 'faculty', 'contact'],
                 'dept-physed': ['highlights', 'vision', 'facilities', 'courses', 'events', 'contact'],
                 'facilities': ['overview', 'computer-labs', 'sports-ground', 'auditorium', 'library', 'digital-library', 'classrooms', 'canteen', 'green-campus'],
-                'administration': ['overview', 'staff-list', 'photos']
+                'administration': ['overview', 'staff-list', 'photos'],
+                'cell-iqac': ['objectives', 'functions', 'major-contributions', 'documents']
             };
 
             const pageTabs = tabbedPages[pageId];
