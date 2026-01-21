@@ -622,11 +622,6 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         tagline: 'Small business leaders through comprehensive curriculum, industry exposure, and practical management skills.',
         content: '<p>Developing future business leaders through comprehensive curriculum, industry exposure, and practical management skills.</p>'
     },
-    'academics-courses': {
-        title: 'Courses Offered',
-        tagline: 'Discover our diverse range of undergraduate programs designed to empower you with knowledge, skills, and future-ready capabilities.',
-        content: 'Full default content moved to detailed entries.'
-    },
     'contact-info': {
         title: 'Contact Information',
         content: `
@@ -1464,38 +1459,9 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         content: '<p>The National Cadet Corps (NCC) at RBNMS College is a premier youth organization that strives to develop the qualities of character, courage, comradeship, discipline, leadership, and the ideal of selfless service among the youth of the country. We offer both Army and Navy wings, providing cadets with diverse opportunities for personal growth and adventure.</p>'
     },
 
-    'page-administration-tab-overview': {
-        title: 'Administration Overview',
-        content: `
-            <div class="space-y-6 text-black text-justify text-lg leading-relaxed">
-                <p>Our non-teaching staff serve as the backbone of the college. Their steady work keeps our academic environment organized, responsive, and efficient. From administrative support to campus maintenance and student services, they handle essential operations with professionalism and care.</p>
-                <p>Their diligence ensures that classrooms are ready, records are accurate, processes run smoothly, and every member of the community gets the support they need. Much of their work happens behind the scenes, yet it is vital to the college’s daily functioning and long-term growth.</p>
-            </div>
-        `
-    },
-    'page-administration-tab-staff-list': {
-        title: 'Staff Details',
-        content: `
-            <div class="overflow-x-auto">
-                <table class="w-full text-base text-left text-black">
-                    <thead class="bg-primary/10 font-bold text-black border-b-2 border-primary">
-                        <tr>
-                            <th class="p-3">Name</th>
-                            <th class="p-3">Designation</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-primary/20">
-                        <tr><td class="p-3 font-medium">Mrs. DEEPA . V</td><td class="p-3">Head - Office Admin</td></tr>
-                        <tr><td class="p-3 font-medium">Mr. KUMAR R.H</td><td class="p-3">Accounts Officer</td></tr>
-                        <tr><td class="p-3 font-medium">Mr. PRASANT KUMAR BISWAL</td><td class="p-3">Maintenance In Charge</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        `
-    },
     'page-administration-tab-photos': {
-        title: 'Group Photographs',
-        content: '<p>Administration staff group photographs coming soon.</p>'
+        title: 'Staff Photos',
+        content: '<p>Group photographs of our dedicated administrative and support team.</p>'
     },
 
 
