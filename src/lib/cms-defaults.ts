@@ -100,6 +100,182 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         content: 'The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. Our objective is to create efficient academicians, innovative entrepreneurs, and responsible citizens.',
         imageUrl: '/images/migrated/principal-whatsapp.jpeg'
     },
+    'academics-courses': {
+        title: 'Courses Offered',
+        tagline: 'Discover our diverse range of undergraduate programs designed to empower you with knowledge, skills, and future-ready capabilities.',
+        badgeText: 'Academic Excellence',
+        content: `
+            <div class="grid grid-cols-1 gap-8">
+                <!-- BCA -->
+                <div class="border-2 rounded-xl overflow-hidden hover:border-blue-600 transition-all bg-white">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="p-8 bg-slate-50 md:w-1/4 flex flex-col items-center justify-center text-center">
+                            <div class="p-4 bg-white rounded-full shadow-sm mb-4"><i class="lucide-computer h-10 w-10 text-blue-900"></i></div>
+                            <h3 class="font-bold text-xl text-blue-900">Bachelor of Computer Applications</h3>
+                            <span class="text-slate-500 font-semibold">(BCA)</span>
+                        </div>
+                        <div class="flex-1 p-8">
+                            <h4 class="text-2xl font-bold mb-4">Bachelor of Computer Applications (BCA)</h4>
+                            <p class="text-slate-600 mb-6">The BCA is a three-year undergraduate program that focuses on computer science, programming, software development, and IT applications.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Duration: 3 Years</div>
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Focus: Software Development</div>
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Career: Software Developer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- B.Com -->
+                <div class="border-2 rounded-xl overflow-hidden hover:border-blue-600 transition-all bg-white">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="p-8 bg-slate-50 md:w-1/4 flex flex-col items-center justify-center text-center">
+                            <div class="p-4 bg-white rounded-full shadow-sm mb-4"><i class="lucide-briefcase h-10 w-10 text-blue-900"></i></div>
+                            <h3 class="font-bold text-xl text-blue-900">Bachelor of Commerce</h3>
+                            <span class="text-slate-500 font-semibold">(B.Com)</span>
+                        </div>
+                        <div class="flex-1 p-8">
+                            <h4 class="text-2xl font-bold mb-4">Bachelor of Commerce (B.Com)</h4>
+                            <p class="text-slate-600 mb-6">The B.Com provides in-depth knowledge of commerce, finance, accounting, taxation, and business law.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Duration: 3 Years</div>
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Focus: Commerce & Finance</div>
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Career: Accountant/Analyst</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- BBA -->
+                <div class="border-2 rounded-xl overflow-hidden hover:border-blue-600 transition-all bg-white">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="p-8 bg-slate-50 md:w-1/4 flex flex-col items-center justify-center text-center">
+                            <div class="p-4 bg-white rounded-full shadow-sm mb-4"><i class="lucide-landmark h-10 w-10 text-blue-900"></i></div>
+                            <h3 class="font-bold text-xl text-blue-900">Bachelor of Business Administration</h3>
+                            <span class="text-slate-500 font-semibold">(BBA)</span>
+                        </div>
+                        <div class="flex-1 p-8">
+                            <h4 class="text-2xl font-bold mb-4">Bachelor of Business Administration (BBA)</h4>
+                            <p class="text-slate-600 mb-6">The BBA focuses on management, entrepreneurship, marketing, finance, and human resources.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Duration: 3 Years</div>
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Focus: Management</div>
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Career: Business Analyst</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- BA -->
+                <div class="border-2 rounded-xl overflow-hidden hover:border-blue-600 transition-all bg-white">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="p-8 bg-slate-50 md:w-1/4 flex flex-col items-center justify-center text-center">
+                            <div class="p-4 bg-white rounded-full shadow-sm mb-4"><i class="lucide-book-open h-10 w-10 text-blue-900"></i></div>
+                            <h3 class="font-bold text-xl text-blue-900">Bachelor of Arts</h3>
+                            <span class="text-slate-500 font-semibold">(BA)</span>
+                        </div>
+                        <div class="flex-1 p-8">
+                            <h4 class="text-2xl font-bold mb-4">Bachelor of Arts (BA)</h4>
+                            <p class="text-slate-600 mb-6">The BA with History, Political Science, and Economics provides a strong foundation in humanities.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Duration: 3 Years</div>
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Focus: Humanities</div>
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Career: Journalism/Teaching</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- M.Com -->
+                <div class="border-2 rounded-xl overflow-hidden hover:border-blue-600 transition-all bg-white">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="p-8 bg-slate-50 md:w-1/4 flex flex-col items-center justify-center text-center">
+                            <div class="p-4 bg-white rounded-full shadow-sm mb-4"><i class="lucide-graduation-cap h-10 w-10 text-blue-900"></i></div>
+                            <h3 class="font-bold text-xl text-blue-900">Masters in Commerce</h3>
+                            <span class="text-slate-500 font-semibold">(M.Com)</span>
+                        </div>
+                        <div class="flex-1 p-8">
+                            <h4 class="text-2xl font-bold mb-4">Masters in Commerce (M.Com)</h4>
+                            <p class="text-slate-600 mb-6">A two-year post-graduate degree designed for upgraded careers in commerce and accounting.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Duration: 2 Years</div>
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Focus: Advanced Commerce</div>
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Career: Finance Manager</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `
+    },
+    'administration': {
+        title: 'Administration',
+        tagline: 'The Backbone of Our College. Efficient, responsive, and dedicated to supporting our academic environment.',
+        content: '<p>Our non-teaching staff handle essential operations with professionalism and care.</p>'
+    },
+    'page-administration-tab-overview': {
+        title: 'Overview',
+        content: `
+            <div class="space-y-6 text-gray-800 text-justify leading-relaxed">
+                <p>Our non-teaching staff serve as the backbone of the college. Their steady work keeps our academic environment organized, responsive, and efficient. From administrative support to campus maintenance and student services, they handle essential operations with professionalism and care.</p>
+                <p>Their diligence ensures that classrooms are ready, records are accurate, processes run smoothly, and every member of the community gets the support they need.</p>
+            </div>
+        `
+    },
+    'page-administration-tab-staff-list': {
+        title: 'Staff List',
+        content: `
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border">
+                    <thead class="bg-slate-100 font-bold">
+                        <tr><th class="p-3">Name</th><th class="p-3">Designation</th></tr>
+                    </thead>
+                    <tbody class="divide-y">
+                        <tr><td class="p-3">Mrs. DEEPA . V</td><td class="p-3">Head - Office Admin</td></tr>
+                        <tr><td class="p-3">Mr. KUMAR R.H</td><td class="p-3">Accounts Officer</td></tr>
+                        <tr><td class="p-3">Mr. PRASANT KUMAR BISWAL</td><td class="p-3">Maintenance In Charge</td></tr>
+                        <tr><td class="p-3">Mr. BHASKARAN. M</td><td class="p-3">Office Assistant</td></tr>
+                        <tr><td class="p-3">Mr. PUTTARAJU. H. E</td><td class="p-3">Librarian</td></tr>
+                        <tr><td class="p-3">Mr. SHIVANNA. N</td><td class="p-3">Sports Attender & Gardener</td></tr>
+                        <tr><td class="p-3">Mr. PANDY SELVAN</td><td class="p-3">Office Attender</td></tr>
+                        <tr><td class="p-3">Mr. EMMANUEL SHREYAS. S</td><td class="p-3">Reception</td></tr>
+                        <tr><td class="p-3">Mrs. ARPITHA S</td><td class="p-3">Office Assistant</td></tr>
+                        <tr><td class="p-3">Ms. MARY CELESTINA. J</td><td class="p-3">IQAC Assistant</td></tr>
+                        <tr><td class="p-3">Mr. RAMESH</td><td class="p-3">Accounts Officer</td></tr>
+                        <tr><td class="p-3">Mr. SRINIVAS E</td><td class="p-3">Office Assistant</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        `
+    },
+    'page-administration-tab-photos': {
+        title: 'Staff Photos',
+        content: '<p>Group photographs of our dedicated administrative and support team.</p>'
+    },
+    'scholarships': {
+        title: 'Scholarships',
+        content: `
+            <div class="space-y-8">
+                <p class="text-lg">It is the mandate of our Founder and the mission of our college to make sure that no meritorious student is left behind.</p>
+                <div class="p-6 bg-slate-50 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">At the time of admissions, discounts will be given to:</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Alumni of RBANMs Institutions</li>
+                        <li>Children of the staff of RBANMs Institutions</li>
+                        <li>Meritorious NCC cadets who will continue with NCC in college</li>
+                        <li>Meritorious and active Sports students</li>
+                        <li>Any student of extraordinary merit in any field</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-slate-50 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">In the Second Year, scholarships are awarded if:</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Attended college regularly</li>
+                        <li>Significant progress in academics</li>
+                        <li>Participated in college events</li>
+                        <li>Financial challenges at home</li>
+                        <li>No other financial support from other sources</li>
+                    </ul>
+                </div>
+            </div>
+        `
+    },
     'dept-commerce': {
         title: 'Department of Commerce',
         content: '<p>Welcome to the Department of Commerce. Since 1984, we have been shaping capable graduates through practical learning and innovation, delivering education that meets global standards.</p>',
@@ -285,6 +461,82 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
             </ul>
         `
     },
+    'activities-cultural': {
+        title: 'Cultural Activities',
+        content: `
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="border rounded-lg overflow-hidden bg-white hover:shadow-md transition-shadow">
+                    <img src="https://placehold.co/600x400?text=Natya" alt="Natya" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg mb-2">Natya</h4>
+                        <p class="text-sm text-gray-600 mb-4">The dramatics club fostering stagecraft and performance.</p>
+                        <a href="#" class="text-blue-600 font-bold hover:underline">Read More →</a>
+                    </div>
+                </div>
+                <div class="border rounded-lg overflow-hidden bg-white hover:shadow-md transition-shadow">
+                    <img src="https://placehold.co/600x400?text=Theatre" alt="Theatre" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg mb-2">Theatre</h4>
+                        <p class="text-sm text-gray-600 mb-4">Exploring theatre arts through workshops and productions.</p>
+                        <a href="#" class="text-blue-600 font-bold hover:underline">Read More →</a>
+                    </div>
+                </div>
+                <div class="border rounded-lg overflow-hidden bg-white hover:shadow-md transition-shadow">
+                    <img src="https://placehold.co/600x400?text=Music" alt="Music" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg mb-2">Music</h4>
+                        <p class="text-sm text-gray-600 mb-4">Vocal and instrumental ensembles, performances, and learning.</p>
+                        <a href="#" class="text-blue-600 font-bold hover:underline">Read More →</a>
+                    </div>
+                </div>
+                <!-- ... other items ... -->
+            </div>
+        `
+    },
+    'activities-co-curricular': {
+        title: 'Co-Curricular Activities',
+        content: `
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="border rounded-lg overflow-hidden bg-white hover:shadow-md transition-shadow">
+                    <img src="https://placehold.co/600x400?text=YRCS" alt="YRCS" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg mb-2">YRCS</h4>
+                        <p class="text-sm text-gray-600 mb-4">Youth Red Cross Society activities and volunteering.</p>
+                        <a href="#" class="text-blue-600 font-bold hover:underline">Read More →</a>
+                    </div>
+                </div>
+                <div class="border rounded-lg overflow-hidden bg-white hover:shadow-md transition-shadow">
+                    <img src="https://placehold.co/600x400?text=NSS" alt="NSS" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg mb-2">NSS</h4>
+                        <p class="text-sm text-gray-600 mb-4">National Service Scheme social outreach and service.</p>
+                        <a href="#" class="text-blue-600 font-bold hover:underline">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        `
+    },
+    'events': {
+        title: 'Events',
+        content: `
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="border rounded-xl overflow-hidden bg-white shadow-sm flex flex-col">
+                    <div class="bg-gray-50 p-4 border-b flex items-center justify-between">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-blue-900">02</div>
+                            <div class="text-xs uppercase text-gray-500 font-bold">Sep</div>
+                        </div>
+                        <h4 class="font-bold text-gray-800 text-lg ml-4">Annual Athletics Meet</h4>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <p class="text-sm text-gray-600 mb-4">Cordially invites you all for the Annual Athletics Meet on 2nd September, 2022.</p>
+                        <a href="#" class="text-blue-600 text-sm font-bold">Read More →</a>
+                    </div>
+                </div>
+                <!-- ... other events ... -->
+            </div>
+        `
+    },
     'academics-new-courses': {
         title: 'New Courses',
         content: `
@@ -373,94 +625,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'academics-courses': {
         title: 'Courses Offered',
         tagline: 'Discover our diverse range of undergraduate programs designed to empower you with knowledge, skills, and future-ready capabilities.',
-        content: `
-            <div class="space-y-12">
-                <!-- BCA -->
-                <div class="border-l-4 border-primary pl-6 py-2">
-                    <h3 class="text-2xl font-bold text-blue-900 mb-2">Bachelor of Computer Applications (BCA)</h3>
-                    <p class="mb-4 text-gray-700">The BCA (Bachelor of Computer Applications) is a three-year undergraduate program that focuses on computer science, programming, software development, and IT applications. It is designed for students who aspire to build a career in the tech industry, covering subjects like database management, networking, web development, and cybersecurity.</p>
-                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
-                        <li><strong>Duration:</strong> 3 Years</li>
-                        <li><strong>Focus:</strong> Software Development, IT Applications</li>
-                        <li><strong>Career Roles:</strong> Software Developer, Web Designer, System Analyst</li>
-                    </ul>
-                </div>
-
-                <!-- B.Com -->
-                <div class="border-l-4 border-primary pl-6 py-2">
-                    <h3 class="text-2xl font-bold text-blue-900 mb-2">Bachelor of Commerce (B.Com)</h3>
-                    <p class="mb-4 text-gray-700">The B.Com (Bachelor of Commerce) is a three-year undergraduate degree that provides in-depth knowledge of commerce, finance, accounting, taxation, and business law. It is ideal for students interested in banking, finance, and corporate sectors.</p>
-                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
-                        <li><strong>Duration:</strong> 3 Years</li>
-                        <li><strong>Focus:</strong> Commerce, Finance, Accounting</li>
-                        <li><strong>Career Roles:</strong> Accountant, Financial Analyst, Tax Consultant</li>
-                    </ul>
-                </div>
-
-                <!-- BBA -->
-                <div class="border-l-4 border-primary pl-6 py-2">
-                    <h3 class="text-2xl font-bold text-blue-900 mb-2">Bachelor of Business Administration (BBA)</h3>
-                    <p class="mb-4 text-gray-700">The BBA (Bachelor of Business Administration) is a three-year undergraduate program focusing on management, entrepreneurship, marketing, finance, and human resources. It is designed for students who want to develop leadership and managerial skills for the corporate world.</p>
-                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
-                        <li><strong>Duration:</strong> 3 Years</li>
-                        <li><strong>Focus:</strong> Management, Entrepreneurship, Marketing</li>
-                        <li><strong>Career Roles:</strong> Business Analyst, HR Manager, Marketing Executive</li>
-                    </ul>
-                </div>
-
-                <!-- BA -->
-                <div class="border-l-4 border-primary pl-6 py-2">
-                    <h3 class="text-2xl font-bold text-blue-900 mb-2">Bachelor of Arts (BA)</h3>
-                    <p class="mb-4 text-gray-700">The BA (Bachelor of Arts) is a three-year undergraduate degree with History, Political Science, and Economics. It provides a strong foundation in humanities and the social sciences, helping students develop critical thinking, research, and analytical skills.</p>
-                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
-                        <li><strong>Duration:</strong> 3 Years</li>
-                        <li><strong>Focus:</strong> Humanities, Social Sciences</li>
-                        <li><strong>Career Roles:</strong> Journalism, Teaching, Social Work</li>
-                    </ul>
-                </div>
-
-                <!-- BA Physical Education -->
-                <div class="border-l-4 border-primary pl-6 py-2">
-                    <div class="flex items-center gap-2 mb-2">
-                        <h3 class="text-2xl font-bold text-blue-900">Bachelor of Arts (Physical Education)</h3>
-                        <span class="px-2 py-0.5 rounded text-xs font-bold bg-yellow-100 text-yellow-800 border border-yellow-200">New</span>
-                    </div>
-                    <p class="text-sm font-semibold text-primary mb-2">Physical Education with History & Political Science (Expected to begin in June 2026)</p>
-                    <p class="mb-4 text-gray-700">The BA in Physical Education combines sports science with humanities subjects like History and Political Science. This three-year undergraduate program is designed for students passionate about sports, fitness, and education. It covers sports psychology, exercise physiology, coaching techniques, and sports management alongside analytical subjects.</p>
-                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
-                        <li><strong>Duration:</strong> 3 Years</li>
-                        <li><strong>Focus:</strong> Sports Science, Humanities</li>
-                        <li><strong>Career Roles:</strong> Sports Coach, Fitness Trainer, Sports Administrator</li>
-                    </ul>
-                </div>
-
-                <!-- BA Journalism -->
-                <div class="border-l-4 border-primary pl-6 py-2">
-                    <div class="flex items-center gap-2 mb-2">
-                        <h3 class="text-2xl font-bold text-blue-900">Bachelor of Arts (Journalism)</h3>
-                        <span class="px-2 py-0.5 rounded text-xs font-bold bg-yellow-100 text-yellow-800 border border-yellow-200">New</span>
-                    </div>
-                    <p class="text-sm font-semibold text-primary mb-2">Journalism, History & Economics (Expected to begin in June 2026)</p>
-                    <p class="mb-4 text-gray-700">The BA in Journalism with History and Economics is a three-year undergraduate program that blends media studies with social sciences. This specialization develops strong communication, research, and analytical skills essential for the media industry. Students learn news writing, reporting, media ethics, and digital journalism alongside historical context and economic analysis.</p>
-                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
-                        <li><strong>Duration:</strong> 3 Years</li>
-                        <li><strong>Focus:</strong> Media Studies, Social Sciences</li>
-                        <li><strong>Career Roles:</strong> Journalist, Content Creator, Media Producer</li>
-                    </ul>
-                </div>
-
-                <!-- M.Com -->
-                <div class="border-l-4 border-primary pl-6 py-2">
-                    <h3 class="text-2xl font-bold text-blue-900 mb-2">Masters in Commerce (M.Com)</h3>
-                    <p class="mb-4 text-gray-700">This two year post-graduate degree provides an opportunity to upgrade a career in commerce and accounting. At RBANM’s FGC, the M.Com programme is designed to cater to working professionals.</p>
-                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
-                        <li><strong>Duration:</strong> 2 Years</li>
-                        <li><strong>Focus:</strong> Commerce, Accounting, Professional Development</li>
-                        <li><strong>Career Roles:</strong> Senior Accountant, Finance Manager, Corporate Professional</li>
-                    </ul>
-                </div>
-            </div>
-        `
+        content: 'Full default content moved to detailed entries.'
     },
     'contact-info': {
         title: 'Contact Information',
@@ -1333,6 +1498,10 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         content: '<p>Administration staff group photographs coming soon.</p>'
     },
 
+
+
+
+    // IQAC Defaults
     'industry-mou': {
         title: 'Memorandum of Understanding (MoU)',
         content: '<p>Information about our institutional MoUs coming soon.</p>'
@@ -1340,37 +1509,6 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'industry-internship': {
         title: 'Internships',
         content: '<p>Information about our student internship programs coming soon.</p>'
-    },
-    'industry-visits': {
-        title: 'Industrial Visits',
-        content: '<p>Information about our industrial visit programs coming soon.</p>'
-    },
-    'industry-field-trip': {
-        title: 'Field Trips',
-        content: '<p>Information about our academic field trips coming soon.</p>'
-    },
-    'industry-addon': {
-        title: 'Industrial Add-on Programmes',
-        content: '<p>Information about our specialized industrial training programmes coming soon.</p>'
-    },
-
-    'academics-index': {
-        title: 'Academics',
-        content: '<p class="text-lg">Explore our academic structure, courses, and educational philosophy.</p>'
-    },
-    'academics-courses': {
-        title: 'Courses Offered',
-        tagline: 'Discover our diverse range of undergraduate programs designed to empower you with knowledge, skills, and future-ready capabilities.',
-        badgeText: 'Academic Excellence',
-        content: ''
-    },
-    'academics-new-courses': {
-        title: 'New Courses',
-        content: '<p>Information about our upcoming and newly launched courses coming soon.</p>'
-    },
-    'academics-addon-courses': {
-        title: 'Add-on Courses',
-        content: '<p>Information about our value-added/add-on certificate courses coming soon.</p>'
     },
     'academics-structure': {
         title: 'Academic Structure',
@@ -1380,40 +1518,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         title: 'Philosophy of Teaching',
         content: '<p>Information about our teaching philosophy and methodology coming soon.</p>'
     },
-    'academics-rules': {
-        title: 'Academic Rules & Regulations',
-        content: '<p>Information about institutional academic rules and regulations coming soon.</p>'
-    },
 
-    'code-of-conduct': {
-        title: 'Code of Conduct',
-        content: '<p>Information about our institutional code of conduct for students and staff coming soon.</p>'
-    },
-    'rti': {
-        title: 'Right to Information (RTI)',
-        content: '<p>Information regarding RTI act compliance and nodal officers coming soon.</p>'
-    },
-    'alumni-activity': {
-        title: 'Alumni Activities',
-        content: '<p>Information about our alumni association and their activities coming soon.</p>'
-    },
-    'career': {
-        title: 'Careers at RBANMS',
-        content: '<p>Explore career opportunities at RBANM\'s First Grade College. Information about current openings coming soon.</p>'
-    },
-    'contact-info': {
-        title: 'Contact Us',
-        content: '<p>Get in touch with us for any queries or information.</p>'
-    },
-    'gallery': {
-        title: 'Photo Gallery',
-        tagline: 'Glimpses of life at RBANM\'s First Grade College.',
-        content: ''
-    },
-
-
-
-    // IQAC Defaults
     'cell-iqac': {
         title: 'Internal Quality Assurance Cell (IQAC)',
         tagline: 'The Internal Quality Assurance Cell (IQAC) at RBNMS College is the driving force behind our pursuit of academic excellence.',

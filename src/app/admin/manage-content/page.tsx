@@ -104,6 +104,7 @@ const PAGE_GROUPS = [
     {
         name: 'Activities & Events',
         pages: [
+            { label: 'Events Page', id: 'events' },
             { label: 'Cultural Activities', id: 'activities-cultural' },
             { label: 'Co-Curricular', id: 'activities-co-curricular' },
         ]
