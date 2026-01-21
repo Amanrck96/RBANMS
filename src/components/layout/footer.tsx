@@ -63,7 +63,7 @@ export function SiteFooter() {
               <li><Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">Gallery</Link></li>
               <li><Link href="/events" className="text-sm text-white/80 hover:text-white transition-colors">Events</Link></li>
               <li><Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">News</Link></li>
-              <li><Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">Placement</Link></li>
+              <li><Link href="/cells-committees/others/ipc" className="text-sm text-white/80 hover:text-white transition-colors">Placement</Link></li>
             </ul>
           </div>
 
