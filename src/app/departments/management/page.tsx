@@ -285,7 +285,7 @@ export default function ManagementDepartmentPage() {
     { id: "skills", label: "Skill Set Acquired", content: skillSetContent },
     { id: "highlights", label: "Highlights", content: highlightsContent },
     { id: "vision", label: "Vision & Mission", content: visionContent },
-    { id: "matrix", label: "Paper Titles", content: matrixContent },
+    { id: "matrix", label: "Course Matrix", content: matrixContent },
     { id: "objectives", label: "Objectives", content: objContent },
     { id: "outcomes", label: "Programme Outcome", content: outcomesContent },
     { id: "activities", label: "Activities", content: activitiesContent },
