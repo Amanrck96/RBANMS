@@ -34,6 +34,7 @@ interface DepartmentLayoutProps {
     heroImage?: string;
     heroImageAlt?: string;
     pageId?: string;
+    hideContentInHeader?: boolean;
 }
 
 const departments = [
@@ -60,7 +61,8 @@ export function DepartmentLayout({
     badgeText = "Department",
     heroImage,
     heroImageAlt,
-    pageId
+    pageId,
+    hideContentInHeader = false
 }: DepartmentLayoutProps) {
 
     const [dynamicData, setDynamicData] = useState<any>(null);
@@ -89,7 +91,9 @@ export function DepartmentLayout({
 
     const effectiveHeroImage = dynamicData?.imageUrl || heroImage;
     const effectiveTitle = dynamicData?.title || title;
-    const effectiveTagline = dynamicData?.tagline || (dynamicData?.content ? undefined : tagline); // If there's content but no tagline, content will be used below
+    // Basic tagline fallback logic: dynamic tagline > static tagline. 
+    // Content fallback handling is done in render prop.
+    const effectiveTagline = dynamicData?.tagline || tagline;
     const effectiveBadge = dynamicData?.badgeText || badgeText;
 
     const HeaderContent = ({ showSidebar = false }: { showSidebar?: boolean }) => (
@@ -134,9 +138,11 @@ export function DepartmentLayout({
                                 <DynamicSection
                                     pageId={pageId}
                                     defaultContent={<p>{effectiveTagline}</p>}
-                                    render={(data) => (
-                                        <p>{data.tagline || (data.content ? <div dangerouslySetInnerHTML={{ __html: data.content }} /> : effectiveTagline)}</p>
-                                    )}
+                                    render={(data) => {
+                                        if (data.tagline) return <p>{data.tagline}</p>;
+                                        if (!hideContentInHeader && data.content) return <div dangerouslySetInnerHTML={{ __html: data.content }} />;
+                                        return effectiveTagline ? <p>{effectiveTagline}</p> : null;
+                                    }}
                                 />
                             ) : effectiveTagline && (
                                 <p>{effectiveTagline}</p>
