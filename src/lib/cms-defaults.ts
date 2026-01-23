@@ -1041,8 +1041,8 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
 
     'cell-iqac': {
         title: 'Internal Quality Assurance Cell (IQAC)',
-        tagline: 'The Internal Quality Assurance Cell (IQAC) at RBNMS College is the driving force behind our pursuit of academic excellence.',
-        content: '<p>Dedicated to maintaining high standards, the cell continuously monitors and enhances the quality of teaching, learning, and infrastructure.</p>'
+        tagline: '',
+        content: '<p>The Internal Quality Assurance Cell (IQAC) at RBNMS College is the driving force behind our pursuit of academic excellence. Dedicated to maintaining high standards, the cell continuously monitors and enhances the quality of teaching, learning, and infrastructure. By implementing best practices and coordinating with accreditation bodies like NAAC, the IQAC ensures that the institution evolves to meet global educational standards while fostering a culture of continuous improvement for both faculty and students.</p>'
     },
     'page-cell-iqac-tab-objectives': {
         title: 'Objectives',
