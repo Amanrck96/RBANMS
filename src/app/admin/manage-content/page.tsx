@@ -28,27 +28,20 @@ const PAGE_GROUPS = [
         ]
     },
     {
-        name: 'Site Essentials (Global)',
-        pages: [
-            { label: 'Header: Top Bar', id: 'header-top' },
-            { label: 'Footer: Content', id: 'footer-about' },
-            { label: 'Blog Header', id: 'blog-header' },
-        ]
-    },
-    {
         name: 'About College',
         pages: [
-            { label: 'Introduction', id: 'about-intro' },
+            { label: 'About: Introduction', id: 'about-intro' },
             { label: 'The Founder', id: 'about-founder' },
             { label: 'Founder\'s Vision', id: 'about-founders-vision' },
             { label: 'History & Heritage', id: 'about-history' },
             { label: 'Vision', id: 'about-vision' },
             { label: 'Mission', id: 'about-mission' },
+            { label: 'Core Values', id: 'about-core-values' },
             { label: 'Board Members', id: 'about-board' },
             { label: 'Governance', id: 'governance' },
+            { label: 'College Administration (Page)', id: 'administration' },
             { label: 'Director\'s Message', id: 'about-director' },
             { label: 'Principal\'s Message', id: 'about-principal' },
-            { label: 'Core Values', id: 'about-core-values' },
             { label: 'Awards & Recognition', id: 'about-awards' },
             { label: 'Code of Conduct', id: 'code-of-conduct' },
         ]
@@ -80,8 +73,8 @@ const PAGE_GROUPS = [
             { label: 'English: Sidebar', id: 'dept-english-sidebar' },
             { label: 'Languages: Main', id: 'dept-languages' },
             { label: 'Languages: Sidebar', id: 'dept-languages-sidebar' },
-            { label: 'Physical Education: Main', id: 'dept-physed' },
-            { label: 'Physical Education: Sidebar', id: 'dept-physed-sidebar' },
+            { label: 'Physical Education & Sports: Main', id: 'dept-physed' },
+            { label: 'Physical Education & Sports: Sidebar', id: 'dept-physed-sidebar' },
         ]
     },
     {
@@ -122,26 +115,33 @@ const PAGE_GROUPS = [
         ]
     },
     {
-        name: 'Activities & Events',
-        pages: [
-            { label: 'Events Page', id: 'events' },
-            { label: 'Cultural Activities', id: 'activities-cultural' },
-            { label: 'Co-Curricular', id: 'activities-co-curricular' },
-        ]
-    },
-    {
-        name: 'Campus & More',
+        name: 'Student Corner',
         pages: [
             { label: 'Facilities', id: 'facilities' },
             { label: 'Scholarships', id: 'scholarships' },
-            { label: 'Research & Innovation', id: 'research' },
-            { label: 'NAAC Documentation', id: 'naac' },
-            { label: 'Contact Info', id: 'contact-info' },
-            { label: 'Gallery Page', id: 'gallery' },
-            { label: 'Administration', id: 'administration' },
             { label: 'Career / Jobs', id: 'career' },
             { label: 'Alumni Activity', id: 'alumni-activity' },
+            { label: 'Events Page', id: 'events' },
+            { label: 'Cultural Activities', id: 'activities-cultural' },
+            { label: 'Co-Curricular', id: 'activities-co-curricular' },
+            { label: 'Gallery Page', id: 'gallery' },
+        ]
+    },
+    {
+        name: 'Resources & Contact',
+        pages: [
+            { label: 'Research & Innovation', id: 'research' },
+            { label: 'NAAC Documentation', id: 'naac' },
             { label: 'RTI', id: 'rti' },
+            { label: 'Contact Info', id: 'contact-info' },
+        ]
+    },
+    {
+        name: 'Global Site Config',
+        pages: [
+            { label: 'Header: Top Bar', id: 'header-top' },
+            { label: 'Footer: Content', id: 'footer-about' },
+            { label: 'Blog Header', id: 'blog-header' },
         ]
     },
     {

@@ -1381,4 +1381,11 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
             </div>
         `
     },
+    // --- Student Corner Sidebars (Optional if layout uses them) ---
+    'facilities-sidebar': { title: 'Facilities Sidebar', imageUrl: '/images/logo.png', content: '' },
+    'scholarships-sidebar': { title: 'Scholarships Sidebar', imageUrl: '/images/logo.png', content: '' },
+    'research-sidebar': { title: 'Research Sidebar', imageUrl: '/images/logo.png', content: '' },
+    'career-sidebar': { title: 'Career Sidebar', imageUrl: '/images/logo.png', content: '' },
+    'gallery-sidebar': { title: 'Gallery Sidebar', imageUrl: '/images/logo.png', content: '' },
+    'alumni-activity-sidebar': { title: 'Alumni Sidebar', imageUrl: '/images/logo.png', content: '' },
 };
