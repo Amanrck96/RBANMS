@@ -100,132 +100,151 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         content: 'The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. Our objective is to create efficient academicians, innovative entrepreneurs, and responsible citizens.',
         imageUrl: '/images/migrated/principal-whatsapp.jpeg'
     },
-    'dept-commerce': {
-        title: 'Department of Commerce',
-        content: '<p>Welcome to the Department of Commerce. Since 1984, we have been shaping capable graduates through practical learning and innovation, delivering education that meets global standards.</p>',
-        tagline: 'Empowering students with strong fundamentals in accounting, finance, and business management since 1984.'
-    },
-    'dept-commerce-sidebar': {
-        title: 'Department Team',
-        content: '<p>Our dedicated faculty and eager students.</p>',
-        imageUrl: '/images/departments/commerce/group_photo.jpg'
-    },
-    'page-dept-commerce-tab-why-bcom': {
-        title: 'Why B.COM?',
+    'academics-courses': {
+        title: 'Courses Offered',
+        tagline: 'Discover our diverse range of undergraduate programs designed to empower you with knowledge, skills, and future-ready capabilities.',
+        badgeText: 'Academic Excellence',
         content: `
-            <div class="bg-blue-50 border-l-4 border-blue-600 p-4 mb-4">
-                <p class="text-lg font-medium text-blue-900">The Bachelor of Commerce (B.Com) is the most sought-after course for students aspiring for a career in finance, banking, and business.</p>
-            </div>
-            <p class="mb-4">Our B.Com program goes beyond the textbook. It is designed to build a robust foundation in:</p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="bg-white p-4 rounded border shadow-sm">
-                    <h4 class="font-bold text-gray-800">Financial Proficiency</h4>
-                    <p class="text-sm text-gray-600">Mastering Financial Accounting, Cost Accounting, and Corporate Accounting.</p>
+            <div class="grid grid-cols-1 gap-8">
+                <!-- BCA -->
+                <div class="border-2 rounded-xl overflow-hidden hover:border-blue-600 transition-all bg-white">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="p-8 bg-slate-50 md:w-1/4 flex flex-col items-center justify-center text-center">
+                            <div class="p-4 bg-white rounded-full shadow-sm mb-4"><i class="lucide-computer h-10 w-10 text-blue-900"></i></div>
+                            <h3 class="font-bold text-xl text-blue-900">Bachelor of Computer Applications</h3>
+                            <span class="text-slate-500 font-semibold">(BCA)</span>
+                        </div>
+                        <div class="flex-1 p-8">
+                            <h4 class="text-2xl font-bold mb-4">Bachelor of Computer Applications (BCA)</h4>
+                            <p class="text-slate-600 mb-6">The BCA is a three-year undergraduate program that focuses on computer science, programming, software development, and IT applications.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Duration: 3 Years</div>
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Focus: Software Development</div>
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Career: Software Developer</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-white p-4 rounded border shadow-sm">
-                    <h4 class="font-bold text-gray-800">Taxation Experts</h4>
-                    <p class="text-sm text-gray-600">In-depth knowledge of GST and Income Tax laws.</p>
+                <!-- B.Com -->
+                <div class="border-2 rounded-xl overflow-hidden hover:border-blue-600 transition-all bg-white">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="p-8 bg-slate-50 md:w-1/4 flex flex-col items-center justify-center text-center">
+                            <div class="p-4 bg-white rounded-full shadow-sm mb-4"><i class="lucide-briefcase h-10 w-10 text-blue-900"></i></div>
+                            <h3 class="font-bold text-xl text-blue-900">Bachelor of Commerce</h3>
+                            <span class="text-slate-500 font-semibold">(B.Com)</span>
+                        </div>
+                        <div class="flex-1 p-8">
+                            <h4 class="text-2xl font-bold mb-4">Bachelor of Commerce (B.Com)</h4>
+                            <p class="text-slate-600 mb-6">The B.Com provides in-depth knowledge of commerce, finance, accounting, taxation, and business law.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Duration: 3 Years</div>
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Focus: Commerce & Finance</div>
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Career: Accountant/Analyst</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-white p-4 rounded border shadow-sm">
-                    <h4 class="font-bold text-gray-800">Banking & Insurance</h4>
-                    <p class="text-sm text-gray-600">Understanding the modern banking system and insurance regulations.</p>
+                <!-- BBA -->
+                <div class="border-2 rounded-xl overflow-hidden hover:border-blue-600 transition-all bg-white">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="p-8 bg-slate-50 md:w-1/4 flex flex-col items-center justify-center text-center">
+                            <div class="p-4 bg-white rounded-full shadow-sm mb-4"><i class="lucide-landmark h-10 w-10 text-blue-900"></i></div>
+                            <h3 class="font-bold text-xl text-blue-900">Bachelor of Business Administration</h3>
+                            <span class="text-slate-500 font-semibold">(BBA)</span>
+                        </div>
+                        <div class="flex-1 p-8">
+                            <h4 class="text-2xl font-bold mb-4">Bachelor of Business Administration (BBA)</h4>
+                            <p class="text-slate-600 mb-6">The BBA focuses on management, entrepreneurship, marketing, finance, and human resources.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Duration: 3 Years</div>
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Focus: Management</div>
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Career: Business Analyst</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-white p-4 rounded border shadow-sm">
-                    <h4 class="font-bold text-gray-800">Business Laws</h4>
-                    <p class="text-sm text-gray-600">Legal frameworks governing corporate entities.</p>
+                <!-- BA -->
+                <div class="border-2 rounded-xl overflow-hidden hover:border-blue-600 transition-all bg-white">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="p-8 bg-slate-50 md:w-1/4 flex flex-col items-center justify-center text-center">
+                            <div class="p-4 bg-white rounded-full shadow-sm mb-4"><i class="lucide-book-open h-10 w-10 text-blue-900"></i></div>
+                            <h3 class="font-bold text-xl text-blue-900">Bachelor of Arts</h3>
+                            <span class="text-slate-500 font-semibold">(BA)</span>
+                        </div>
+                        <div class="flex-1 p-8">
+                            <h4 class="text-2xl font-bold mb-4">Bachelor of Arts (BA)</h4>
+                            <p class="text-slate-600 mb-6">The BA with History, Political Science, and Economics provides a strong foundation in humanities.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Duration: 3 Years</div>
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Focus: Humanities</div>
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Career: Journalism/Teaching</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- M.Com -->
+                <div class="border-2 rounded-xl overflow-hidden hover:border-blue-600 transition-all bg-white">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="p-8 bg-slate-50 md:w-1/4 flex flex-col items-center justify-center text-center">
+                            <div class="p-4 bg-white rounded-full shadow-sm mb-4"><i class="lucide-graduation-cap h-10 w-10 text-blue-900"></i></div>
+                            <h3 class="font-bold text-xl text-blue-900">Masters in Commerce</h3>
+                            <span class="text-slate-500 font-semibold">(M.Com)</span>
+                        </div>
+                        <div class="flex-1 p-8">
+                            <h4 class="text-2xl font-bold mb-4">Masters in Commerce (M.Com)</h4>
+                            <p class="text-slate-600 mb-6">A two-year post-graduate degree designed for upgraded careers in commerce and accounting.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Duration: 2 Years</div>
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Focus: Advanced Commerce</div>
+                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Career: Finance Manager</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         `
     },
-    'page-dept-commerce-tab-highlights': {
-        title: 'Highlights',
+
+    'page-administration-tab-overview': {
+        title: 'Overview',
         content: `
-            <ul class="space-y-3">
-                <li class="flex items-start bg-slate-50 p-3 rounded"><span class="mr-3 text-green-600 font-bold">✓</span><div><strong>Practical Learning:</strong> Regular workshops on Tally Prime and Advanced Excel.</div></li>
-                <li class="flex items-start bg-slate-50 p-3 rounded"><span class="mr-3 text-green-600 font-bold">✓</span><div><strong>Industry Experts:</strong> Guest lectures by CAs and Finance Managers.</div></li>
-                <li class="flex items-start bg-slate-50 p-3 rounded"><span class="mr-3 text-green-600 font-bold">✓</span><div><strong>Career Focus:</strong> Dedicated placement training for roles in Banking and MNCs.</div></li>
-                <li class="flex items-start bg-slate-50 p-3 rounded"><span class="mr-3 text-green-600 font-bold">✓</span><div><strong>Commerce Club:</strong> 'Vanijya' club organizes fests, quizzes, and mock stock markets.</div></li>
-            </ul>
-        `
-    },
-    'page-dept-commerce-tab-vision': {
-        title: 'Vision & Mission',
-        content: `
-            <div class="space-y-6">
-                <div class="text-center bg-blue-50 p-6 rounded-xl">
-                   <h3 class="text-xl font-bold text-blue-900 mb-2">Vision</h3>
-                   <p class="text-lg italic text-blue-800">"To be a centre of excellence in Commerce education, nurturing values, ethics, and professional competence."</p>
-                </div>
-                <div class="grid gap-4">
-                    <h3 class="font-bold text-lg border-b pb-2">Mission</h3>
-                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                        <li>To provide a strong conceptual foundation in Commerce.</li>
-                        <li>To foster an entrepreneurial mindset among students.</li>
-                        <li>To instill ethical values and social responsibility in future business leaders.</li>
-                    </ul>
-                </div>
+            <div class="space-y-6 text-gray-800 text-justify leading-relaxed">
+                <p>Our non-teaching staff serve as the backbone of the college. Their steady work keeps our academic environment organized, responsive, and efficient. From administrative support to campus maintenance and student services, they handle essential operations with professionalism and care.</p>
+                <p>Their diligence ensures that classrooms are ready, records are accurate, processes run smoothly, and every member of the community gets the support they need.</p>
             </div>
         `
     },
-    'page-dept-commerce-tab-skills': {
-        title: 'Skill Set Acquired',
+    'page-administration-tab-staff-list': {
+        title: 'Staff List',
         content: `
-            <div class="flex flex-wrap gap-3">
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full font-semibold text-sm">Financial Analysis</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full font-semibold text-sm">Taxation Compliance</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full font-semibold text-sm">Tally & ERP</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full font-semibold text-sm">Auditing</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full font-semibold text-sm">Business Communication</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full font-semibold text-sm">Market Research</span>
-            </div>
-        `
-    },
-    'page-dept-commerce-tab-matrix': {
-        title: 'Paper Titles',
-        content: `
-            <p class="mb-4">The B.Com curriculum is spread across 6 semesters (NEP Syllabus).</p>
             <div class="overflow-x-auto">
-                <table class="w-full text-sm text-left border rounded-lg">
-                    <thead class="bg-gray-100 uppercase text-gray-700">
-                        <tr><th class="px-4 py-3">Sem</th><th class="px-4 py-3">Core Subjects (Key)</th></tr>
+                <table class="w-full text-left border">
+                    <thead class="bg-slate-100 font-bold">
+                        <tr><th class="p-3">Name</th><th class="p-3">Designation</th></tr>
                     </thead>
                     <tbody class="divide-y">
-                        <tr class="bg-white"><td class="px-4 py-3 font-bold">1 & 2</td><td class="px-4 py-3">Financial Accounting, Management Principles, Digital Fluency</td></tr>
-                        <tr class="bg-gray-50"><td class="px-4 py-3 font-bold">3 & 4</td><td class="px-4 py-3">Corporate Accounting, Costing, Artificial Intelligence</td></tr>
-                        <tr class="bg-white"><td class="px-4 py-3 font-bold">5 & 6</td><td class="px-4 py-3">Income Tax, Auditing, GST, Financial Management</td></tr>
+                        <tr><td class="p-3">Mrs. DEEPA . V</td><td class="p-3">Head - Office Admin</td></tr>
+                        <tr><td class="p-3">Mr. KUMAR R.H</td><td class="p-3">Accounts Officer</td></tr>
+                        <tr><td class="p-3">Mr. PRASANT KUMAR BISWAL</td><td class="p-3">Maintenance In Charge</td></tr>
+                        <tr><td class="p-3">Mr. BHASKARAN. M</td><td class="p-3">Office Assistant</td></tr>
+                        <tr><td class="p-3">Mr. PUTTARAJU. H. E</td><td class="p-3">Librarian</td></tr>
+                        <tr><td class="p-3">Mr. SHIVANNA. N</td><td class="p-3">Sports Attender & Gardener</td></tr>
+                        <tr><td class="p-3">Mr. PANDY SELVAN</td><td class="p-3">Office Attender</td></tr>
+                        <tr><td class="p-3">Mr. EMMANUEL SHREYAS. S</td><td class="p-3">Reception</td></tr>
+                        <tr><td class="p-3">Mrs. ARPITHA S</td><td class="p-3">Office Assistant</td></tr>
+                        <tr><td class="p-3">Ms. MARY CELESTINA. J</td><td class="p-3">IQAC Assistant</td></tr>
+                        <tr><td class="p-3">Mr. RAMESH</td><td class="p-3">Accounts Officer</td></tr>
+                        <tr><td class="p-3">Mr. SRINIVAS E</td><td class="p-3">Office Assistant</td></tr>
                     </tbody>
                 </table>
             </div>
         `
     },
-    'page-dept-commerce-tab-outcomes': {
-        title: 'Outcomes',
-        content: `
-            <div class="space-y-4">
-                <p>Upon graduation, a B.Com student will be able to:</p>
-                <div class="flex gap-3">
-                     <span class="text-2xl">📊</span>
-                     <p>Prepare and analyze financial statements of companies.</p>
-                </div>
-                <div class="flex gap-3">
-                     <span class="text-2xl">💰</span>
-                     <p>File tax returns (GST and Income Tax) independently.</p>
-                </div>
-                <div class="flex gap-3">
-                     <span class="text-2xl">👔</span>
-                     <p>Work effectively in corporate finance or audit teams.</p>
-                </div>
-            </div>
-        `
+    'page-administration-tab-photos': {
+        title: 'Staff Photos',
+        content: '<p>Group photographs of our dedicated administrative and support team.</p>'
     },
-    'page-dept-commerce-tab-faculty': {
-        title: 'Faculty Profile',
-        content: '<p>Experienced Associate and Assistant Professors guide students with expertise.</p>'
-    },
-    'page-dept-commerce-tab-activities': {
-        title: 'Activities',
-        content: '<p>Industrial visits, Magic Bus training, and NISM certifications.</p>'
-    },
+
 
     'about-intro': {
         title: "About RBANM's First Grade College",
@@ -283,6 +302,82 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
                 <li><strong>Industry Integration:</strong> Regular guest lectures, workshops, and industrial visits.</li>
                 <li><strong>Value-Added Courses:</strong> Certification programs to enhance employability.</li>
             </ul>
+        `
+    },
+    'activities-cultural': {
+        title: 'Cultural Activities',
+        content: `
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="border rounded-lg overflow-hidden bg-white hover:shadow-md transition-shadow">
+                    <img src="https://placehold.co/600x400?text=Natya" alt="Natya" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg mb-2">Natya</h4>
+                        <p class="text-sm text-gray-600 mb-4">The dramatics club fostering stagecraft and performance.</p>
+                        <a href="#" class="text-blue-600 font-bold hover:underline">Read More →</a>
+                    </div>
+                </div>
+                <div class="border rounded-lg overflow-hidden bg-white hover:shadow-md transition-shadow">
+                    <img src="https://placehold.co/600x400?text=Theatre" alt="Theatre" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg mb-2">Theatre</h4>
+                        <p class="text-sm text-gray-600 mb-4">Exploring theatre arts through workshops and productions.</p>
+                        <a href="#" class="text-blue-600 font-bold hover:underline">Read More →</a>
+                    </div>
+                </div>
+                <div class="border rounded-lg overflow-hidden bg-white hover:shadow-md transition-shadow">
+                    <img src="https://placehold.co/600x400?text=Music" alt="Music" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg mb-2">Music</h4>
+                        <p class="text-sm text-gray-600 mb-4">Vocal and instrumental ensembles, performances, and learning.</p>
+                        <a href="#" class="text-blue-600 font-bold hover:underline">Read More →</a>
+                    </div>
+                </div>
+                <!-- ... other items ... -->
+            </div>
+        `
+    },
+    'activities-co-curricular': {
+        title: 'Co-Curricular Activities',
+        content: `
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="border rounded-lg overflow-hidden bg-white hover:shadow-md transition-shadow">
+                    <img src="https://placehold.co/600x400?text=YRCS" alt="YRCS" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg mb-2">YRCS</h4>
+                        <p class="text-sm text-gray-600 mb-4">Youth Red Cross Society activities and volunteering.</p>
+                        <a href="#" class="text-blue-600 font-bold hover:underline">Read More →</a>
+                    </div>
+                </div>
+                <div class="border rounded-lg overflow-hidden bg-white hover:shadow-md transition-shadow">
+                    <img src="https://placehold.co/600x400?text=NSS" alt="NSS" class="w-full h-48 object-cover" />
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg mb-2">NSS</h4>
+                        <p class="text-sm text-gray-600 mb-4">National Service Scheme social outreach and service.</p>
+                        <a href="#" class="text-blue-600 font-bold hover:underline">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        `
+    },
+    'events': {
+        title: 'Events',
+        content: `
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="border rounded-xl overflow-hidden bg-white shadow-sm flex flex-col">
+                    <div class="bg-gray-50 p-4 border-b flex items-center justify-between">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-blue-900">02</div>
+                            <div class="text-xs uppercase text-gray-500 font-bold">Sep</div>
+                        </div>
+                        <h4 class="font-bold text-gray-800 text-lg ml-4">Annual Athletics Meet</h4>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <p class="text-sm text-gray-600 mb-4">Cordially invites you all for the Annual Athletics Meet on 2nd September, 2022.</p>
+                        <a href="#" class="text-blue-600 text-sm font-bold">Read More →</a>
+                    </div>
+                </div>
+                <!-- ... other events ... -->
+            </div>
         `
     },
     'academics-new-courses': {
@@ -365,103 +460,6 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     },
 
     // Dept Management (BBA)
-    'dept-management': {
-        title: 'Department of Management (BBA)',
-        tagline: 'Small business leaders through comprehensive curriculum, industry exposure, and practical management skills.',
-        content: '<p>Developing future business leaders through comprehensive curriculum, industry exposure, and practical management skills.</p>'
-    },
-    'academics-courses': {
-        title: 'Courses Offered',
-        tagline: 'Discover our diverse range of undergraduate programs designed to empower you with knowledge, skills, and future-ready capabilities.',
-        content: `
-            <div class="space-y-12">
-                <!-- BCA -->
-                <div class="border-l-4 border-primary pl-6 py-2">
-                    <h3 class="text-2xl font-bold text-blue-900 mb-2">Bachelor of Computer Applications (BCA)</h3>
-                    <p class="mb-4 text-gray-700">The BCA (Bachelor of Computer Applications) is a three-year undergraduate program that focuses on computer science, programming, software development, and IT applications. It is designed for students who aspire to build a career in the tech industry, covering subjects like database management, networking, web development, and cybersecurity.</p>
-                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
-                        <li><strong>Duration:</strong> 3 Years</li>
-                        <li><strong>Focus:</strong> Software Development, IT Applications</li>
-                        <li><strong>Career Roles:</strong> Software Developer, Web Designer, System Analyst</li>
-                    </ul>
-                </div>
-
-                <!-- B.Com -->
-                <div class="border-l-4 border-primary pl-6 py-2">
-                    <h3 class="text-2xl font-bold text-blue-900 mb-2">Bachelor of Commerce (B.Com)</h3>
-                    <p class="mb-4 text-gray-700">The B.Com (Bachelor of Commerce) is a three-year undergraduate degree that provides in-depth knowledge of commerce, finance, accounting, taxation, and business law. It is ideal for students interested in banking, finance, and corporate sectors.</p>
-                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
-                        <li><strong>Duration:</strong> 3 Years</li>
-                        <li><strong>Focus:</strong> Commerce, Finance, Accounting</li>
-                        <li><strong>Career Roles:</strong> Accountant, Financial Analyst, Tax Consultant</li>
-                    </ul>
-                </div>
-
-                <!-- BBA -->
-                <div class="border-l-4 border-primary pl-6 py-2">
-                    <h3 class="text-2xl font-bold text-blue-900 mb-2">Bachelor of Business Administration (BBA)</h3>
-                    <p class="mb-4 text-gray-700">The BBA (Bachelor of Business Administration) is a three-year undergraduate program focusing on management, entrepreneurship, marketing, finance, and human resources. It is designed for students who want to develop leadership and managerial skills for the corporate world.</p>
-                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
-                        <li><strong>Duration:</strong> 3 Years</li>
-                        <li><strong>Focus:</strong> Management, Entrepreneurship, Marketing</li>
-                        <li><strong>Career Roles:</strong> Business Analyst, HR Manager, Marketing Executive</li>
-                    </ul>
-                </div>
-
-                <!-- BA -->
-                <div class="border-l-4 border-primary pl-6 py-2">
-                    <h3 class="text-2xl font-bold text-blue-900 mb-2">Bachelor of Arts (BA)</h3>
-                    <p class="mb-4 text-gray-700">The BA (Bachelor of Arts) is a three-year undergraduate degree with History, Political Science, and Economics. It provides a strong foundation in humanities and the social sciences, helping students develop critical thinking, research, and analytical skills.</p>
-                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
-                        <li><strong>Duration:</strong> 3 Years</li>
-                        <li><strong>Focus:</strong> Humanities, Social Sciences</li>
-                        <li><strong>Career Roles:</strong> Journalism, Teaching, Social Work</li>
-                    </ul>
-                </div>
-
-                <!-- BA Physical Education -->
-                <div class="border-l-4 border-primary pl-6 py-2">
-                    <div class="flex items-center gap-2 mb-2">
-                        <h3 class="text-2xl font-bold text-blue-900">Bachelor of Arts (Physical Education)</h3>
-                        <span class="px-2 py-0.5 rounded text-xs font-bold bg-yellow-100 text-yellow-800 border border-yellow-200">New</span>
-                    </div>
-                    <p class="text-sm font-semibold text-primary mb-2">Physical Education with History & Political Science (Expected to begin in June 2026)</p>
-                    <p class="mb-4 text-gray-700">The BA in Physical Education combines sports science with humanities subjects like History and Political Science. This three-year undergraduate program is designed for students passionate about sports, fitness, and education. It covers sports psychology, exercise physiology, coaching techniques, and sports management alongside analytical subjects.</p>
-                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
-                        <li><strong>Duration:</strong> 3 Years</li>
-                        <li><strong>Focus:</strong> Sports Science, Humanities</li>
-                        <li><strong>Career Roles:</strong> Sports Coach, Fitness Trainer, Sports Administrator</li>
-                    </ul>
-                </div>
-
-                <!-- BA Journalism -->
-                <div class="border-l-4 border-primary pl-6 py-2">
-                    <div class="flex items-center gap-2 mb-2">
-                        <h3 class="text-2xl font-bold text-blue-900">Bachelor of Arts (Journalism)</h3>
-                        <span class="px-2 py-0.5 rounded text-xs font-bold bg-yellow-100 text-yellow-800 border border-yellow-200">New</span>
-                    </div>
-                    <p class="text-sm font-semibold text-primary mb-2">Journalism, History & Economics (Expected to begin in June 2026)</p>
-                    <p class="mb-4 text-gray-700">The BA in Journalism with History and Economics is a three-year undergraduate program that blends media studies with social sciences. This specialization develops strong communication, research, and analytical skills essential for the media industry. Students learn news writing, reporting, media ethics, and digital journalism alongside historical context and economic analysis.</p>
-                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
-                        <li><strong>Duration:</strong> 3 Years</li>
-                        <li><strong>Focus:</strong> Media Studies, Social Sciences</li>
-                        <li><strong>Career Roles:</strong> Journalist, Content Creator, Media Producer</li>
-                    </ul>
-                </div>
-
-                <!-- M.Com -->
-                <div class="border-l-4 border-primary pl-6 py-2">
-                    <h3 class="text-2xl font-bold text-blue-900 mb-2">Masters in Commerce (M.Com)</h3>
-                    <p class="mb-4 text-gray-700">This two year post-graduate degree provides an opportunity to upgrade a career in commerce and accounting. At RBANM’s FGC, the M.Com programme is designed to cater to working professionals.</p>
-                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
-                        <li><strong>Duration:</strong> 2 Years</li>
-                        <li><strong>Focus:</strong> Commerce, Accounting, Professional Development</li>
-                        <li><strong>Career Roles:</strong> Senior Accountant, Finance Manager, Corporate Professional</li>
-                    </ul>
-                </div>
-            </div>
-        `
-    },
     'contact-info': {
         title: 'Contact Information',
         content: `
@@ -486,336 +484,15 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
             </div>
         `
     },
-    'page-dept-management-tab-why-bba': {
-        title: 'Why BBA?',
-        content: '<p>The BBA program is designed to provide a strong foundation in business management with specializations in HR and Marketing.</p>'
-    },
-    'page-dept-management-tab-skills': {
-        title: 'Skill Set Acquired',
-        content: '<p>Strategic thinking, leadership, professional communication, and marketing orientation.</p>'
-    },
-    'page-dept-management-tab-highlights': {
-        title: 'Highlights',
-        content: '<ul><li>Dual Specialization</li><li>Mentorship</li><li>Career Pathways</li><li>Certifications</li></ul>'
-    },
-    'page-dept-management-tab-vision': {
-        title: 'Vision & Mission',
-        content: '<p>Diversity & Inclusion, Equality, Career Opportunities, and Inclusive Excellence.</p>'
-    },
-    'page-dept-management-tab-matrix': {
-        title: 'Paper Titles',
-        content: `
-            <div class="space-y-4">
-                <p>Curriculum spread across 6 semesters (NEP Syllabus) with Dual Specialization in HR and Marketing.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="border p-3 rounded"><strong>Sem 1:</strong> Principles of Management, Market Analysis, Statistics I, Financial Accounting</div>
-                    <div class="border p-3 rounded"><strong>Sem 2:</strong> HRM Practices, Indian Financial System, Statistics II, Corporate Accounting</div>
-                    <div class="border p-3 rounded"><strong>Sem 3:</strong> Cost Accounting, Organizational Behaviour, Marketing Principles, Business Comm</div>
-                    <div class="border p-3 rounded"><strong>Sem 4:</strong> Business Law, Research Methodology, Financial Management, CRM</div>
-                    <div class="border p-3 rounded"><strong>Sem 5:</strong> Operations Management, Income Tax I, HR Development, Consumer Behaviour</div>
-                    <div class="border p-3 rounded"><strong>Sem 6:</strong> International Business, Income Tax II, Advertising & Media, Compensation Mgmt</div>
-                </div>
-            </div>
-        `
-    },
-    'page-dept-management-tab-objectives': {
-        title: 'Objectives',
-        content: '<p>Develop comprehensive business competencies with dual specialization.</p>'
-    },
-    'page-dept-management-tab-outcomes': {
-        title: 'Outcomes',
-        content: '<p>Business Acumen, HR Expertise, Marketing Competence, and Strategic Thinking.</p>'
-    },
-    'page-dept-management-tab-activities': {
-        title: 'Activities',
-        content: '<p>Certificate training, industry visits, and entrepreneurship lectures.</p>'
-    },
-    'page-dept-management-tab-faculty': {
-        title: 'Faculty Profile',
-        content: '<p>Experienced faculty members in Management and Accounting.</p>'
-    },
 
     // Dept English
-    'dept-english': {
-        title: 'Department of English',
-        tagline: 'Nurturing linguistic proficiency and literary appreciation through a comprehensive and engaging curriculum.',
-        content: '<p>The Department of English at RBANM’s First Grade College is committed to fostering a love for language and literature while developing critical thinking and communication skills essential for the modern world.</p>'
-    },
-    'page-dept-english-tab-highlights': {
-        title: 'Highlights',
-        content: '<ul><li>Regular workshops on creative writing and theater.</li><li>Strong focus on communication skills and personality development.</li><li>Active student clubs like Natya and Fourth Wall.</li><li>Regular guest lectures by eminent scholars and authors.</li></ul>'
-    },
-    'page-dept-english-tab-facilities': {
-        title: 'Facilities',
-        content: '<p>The department uses ICT-enabled classrooms and the college’s well-equipped library to enhance the learning experience.</p>'
-    },
-    'page-dept-english-tab-vision': {
-        title: 'Vision & Mission',
-        content: '<p>To empower students with a masterly over the English language and a deep appreciation for the diversity of human experience reflected in literature.</p>'
-    },
-    'page-dept-english-tab-programmes': {
-        title: 'Programmes',
-        content: '<p>The department offers English as a mandatory language subject for all undergraduate courses (B.Com, BBA, BCA, BA).</p>'
-    },
-    'page-dept-english-tab-certificate-courses': {
-        title: 'Certificate Courses',
-        content: '<p>Value-added courses in Business Communication and Creative Writing are offered to enhance employability.</p>'
-    },
-    'page-dept-english-tab-matrix': {
-        title: 'Paper Titles',
-        content: '<p>Course matrix covering English and Additional English subjects across 4-6 semesters depends on the course.</p>'
-    },
-    'page-dept-english-tab-objectives': {
-        title: 'Objectives',
-        content: '<p>To develop students’ ability to communicate effectively in English and to engage critically with literary texts.</p>'
-    },
-    'page-dept-english-tab-outcomes': {
-        title: 'Outcomes',
-        content: '<p>Graduates will demonstrate proficiency in English communication and critical analysis of various literary genres.</p>'
-    },
-    'page-dept-english-tab-natya': {
-        title: 'Natya',
-        content: '<p>The Natya club provides a platform for students to showcase their talents in theater, music, and dance.</p>'
-    },
-    'page-dept-english-tab-fourth-wall': {
-        title: 'Fourth Wall',
-        content: '<p>A theater group dedicated to exploring contemporary social issues through dramatic performances.</p>'
-    },
-    'page-dept-english-tab-phoenix': {
-        title: 'Phoenix Club',
-        content: '<p>A literary club that encourages students to express their creativity through writing and poetry.</p>'
-    },
-    'page-dept-english-tab-faculty': {
-        title: 'Faculty Profile',
-        content: '<p>Experienced faculty members dedicated to student mentorship and academic excellence.</p>'
-    },
-    'page-dept-english-tab-contact': {
-        title: 'Contact Information',
-        content: '<p>Email: english@rbanmsfgc.edu.in</p>'
-    },
 
     // Dept Languages
-    'dept-languages': {
-        title: 'Department of Languages',
-        tagline: 'Promoting linguistic diversity and cultural understanding through the study of Kannada, Hindi, and Tamil.',
-        content: '<p>The Department of Languages plays a vital role in preserving and promoting India’s rich linguistic heritage while developing students’ communication skills in their mother tongues and other regional languages.</p>'
-    },
-    'page-dept-languages-tab-highlights': {
-        title: 'Highlights',
-        content: '<ul><li>Celebration of cultural festivals and language days.</li><li>Language labs and interactive learning sessions.</li><li>Promotion of regional literature and arts.</li></ul>'
-    },
-    'page-dept-languages-tab-vision': {
-        title: 'Vision & Mission',
-        content: '<p>To foster a deep appreciation for linguistic diversity and to equip students with the skills required to communicate effectively in various languages.</p>'
-    },
-    'page-dept-languages-tab-objectives': {
-        title: 'Objectives',
-        content: '<p>To develop linguistic proficiency and cultural awareness among students through the study of regional languages.</p>'
-    },
-    'page-dept-languages-tab-outcomes': {
-        title: 'Outcomes',
-        content: '<p>Students will demonstrate proficiency in their chosen languages and a nuanced understanding of the associated cultures.</p>'
-    },
-    'page-dept-languages-tab-hindi': {
-        title: 'Hindi',
-        content: '<p>Promoting the national language through literary events and language proficiency classes.</p>'
-    },
-    'page-dept-languages-tab-kannada': {
-        title: 'Kannada',
-        content: '<p>Focusing on the rich heritage of Kannada literature and the state’s cultural traditions.</p>'
-    },
-    'page-dept-languages-tab-tamil': {
-        title: 'Tamil',
-        content: '<p>Exploring the ancient and diverse literary traditions of the Tamil language.</p>'
-    },
-    'page-dept-languages-tab-events': {
-        title: 'Events',
-        content: '<p>Annual language festivals, poetry readings, and debate competitions.</p>'
-    },
-    'page-dept-languages-tab-faculty': {
-        title: 'Faculty Profile',
-        content: '<p>Dedicated language experts specializing in various regional literatures.</p>'
-    },
-    'page-dept-languages-tab-contact': {
-        title: 'Contact Information',
-        content: '<p>Email: languages@rbanmsfgc.edu.in</p>'
-    },
 
     // Dept Physical Education
-    'dept-physed': {
-        title: 'Department of Physical Education',
-        tagline: 'Fostering physical fitness, sportsmanship, and holistic well-being among students.',
-        content: '<p>The Department of Physical Education is dedicated to promoting a culture of health and fitness through a wide range of sports and recreational activities.</p>'
-    },
-    'page-dept-physed-tab-highlights': {
-        title: 'Highlights',
-        content: '<ul><li>Annual Sports Day and inter-departmental tournaments.</li><li>Excellent facilities for both indoor and outdoor sports.</li><li>Consistent achievements in university-level sports competitions.</li></ul>'
-    },
-    'page-dept-physed-tab-vision': {
-        title: 'Vision & Mission',
-        content: '<p>To inspire every student to adopt a healthy and active lifestyle through participation in sports and physical activities.</p>'
-    },
-    'page-dept-physed-tab-facilities': {
-        title: 'Facilities',
-        content: '<p>Large playground for outdoor sports and well-equipped indoor sports facilities.</p>'
-    },
-    'page-dept-physed-tab-courses': {
-        title: 'Courses',
-        content: '<p>Physical Education is offered as an elective and a value-added course for undergraduate students.</p>'
-    },
-    'page-dept-physed-tab-events': {
-        title: 'Events',
-        content: '<p>Organization of sports festivals, fitness workshops, and athletic meets.</p>'
-    },
-    'page-dept-physed-tab-contact': {
-        title: 'Contact Information',
-        content: '<p>Email: sports@rbanmsfgc.edu.in</p>'
-    },
 
     // Dept BCA
-    'dept-bca': {
-        title: 'Department of Computer Applications (BCA)',
-        content: '<p class="text-lg">The BCA Department is the technology hub of the college, dedicated to creating future-ready IT professionals with strong coding and analytical skills.</p>'
-    },
-    'page-dept-bca-tab-overview': {
-        title: 'Overview',
-        content: `
-            <div class="bg-indigo-50 p-6 rounded-lg border-l-4 border-indigo-500">
-                <p class="text-lg font-medium text-indigo-900">The BCA program bridges the gap between academic knowledge and industry requirements in the IT sector.</p>
-            </div>
-            <p class="mt-4">It focuses on providing a sound theoretical background as well as good practical exposure to students in the relevant areas. It increases the employability of the students in the IT sector.</p>
-        `
-    },
-    'page-dept-bca-tab-highlights': {
-        title: 'Highlights',
-        content: `
-             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-white p-4 rounded border shadow-sm">
-                    <h4 class="font-bold text-gray-800">🖥️ High-Tech Labs</h4>
-                    <p class="text-sm text-gray-600">State-of-the-art computer labs with latest configuration and high-speed internet.</p>
-                </div>
-                <div class="bg-white p-4 rounded border shadow-sm">
-                    <h4 class="font-bold text-gray-800">🚀 Project Work</h4>
-                    <p class="text-sm text-gray-600">Mandatory live projects in final year using technologies like Python, Java, and React.</p>
-                </div>
-                <div class="bg-white p-4 rounded border shadow-sm">
-                    <h4 class="font-bold text-gray-800">💡 Tech-Manthan Club</h4>
-                    <p class="text-sm text-gray-600">Active student club organizing hackathons, IT quizzes, and coding debugging contests.</p>
-                </div>
-                <div class="bg-white p-4 rounded border shadow-sm">
-                    <h4 class="font-bold text-gray-800">🌐 Web Development</h4>
-                    <p class="text-sm text-gray-600">Special focus on Full Stack Development (MERN Stack) workshops.</p>
-                </div>
-            </div>
-        `
-    },
-    'page-dept-bca-tab-syllabus': {
-        title: 'Syllabus',
-        content: `
-            <p class="mb-3">The syllabus is updated regularly to align with Industry 4.0 standards.</p>
-            <ul class="space-y-2 list-disc pl-5">
-                <li><strong>Sem 1-2:</strong> C Programming, Data Structures, Web Design, Math for CS.</li>
-                <li><strong>Sem 3-4:</strong> Java, Python, Operating Systems, Database Management (DBMS).</li>
-                <li><strong>Sem 5-6:</strong> Artificial Intelligence, Cloud Computing, Cyber Security, Major Project.</li>
-            </ul>
-        `
-    },
-    'page-dept-bca-tab-faculty': {
-        title: 'Faculty Profile',
-        content: '<p>Experienced IT professionals and academicians.</p>'
-    },
-    'page-dept-bca-tab-facilities': {
-        title: 'Facilities',
-        content: '<p>Multiple high-tech labs with the latest configurations and software for hands-on learning.</p>'
-    },
-    'page-dept-bca-tab-competency-training': {
-        title: 'Competency Training',
-        content: '<p>Specialized training in trending technologies like Cloud Computing and AI.</p>'
-    },
-    'page-dept-bca-tab-certificate-courses': {
-        title: 'Certificate Courses',
-        content: '<p>Value-added courses in Web Development, Python Programming, and Cyber Security.</p>'
-    },
-    'page-dept-bca-tab-matrix': {
-        title: 'Paper Titles',
-        content: `
-            <div class="space-y-4">
-                <p>Core subjects designed for full-stack software development competency.</p>
-                <ul class="space-y-2">
-                    <li><strong>Sem 1-2:</strong> C Programming, Data Structures, Web Design, Discrete Mathematics.</li>
-                    <li><strong>Sem 3-4:</strong> Object Oriented Programming (Java), Python, DBMS (MySQL), Operating Systems.</li>
-                    <li><strong>Sem 5-6:</strong> Software Engineering, Cloud Computing, AI & Machine Learning, Cyber Security, Major Project.</li>
-                </ul>
-            </div>
-        `
-    },
-    'page-dept-bca-tab-objectives': {
-        title: 'Objectives',
-        content: '<p>To bridge the gap between academic knowledge and industry requirements in the IT sector.</p>'
-    },
-    'page-dept-bca-tab-outcomes': {
-        title: 'Outcomes',
-        content: '<p>Graduates will be proficient in software development, database management, and networking.</p>'
-    },
-    'page-dept-bca-tab-forum': {
-        title: 'BCA Forum',
-        content: '<p>A student-led forum for technical workshops, hackathons, and guest lectures.</p>'
-    },
-
     // Dept Arts
-    'dept-arts': {
-        title: 'Department of Arts',
-        content: '<p>Exploring the world through History, Economics, and Political Science.</p>'
-    },
-    'page-dept-arts-tab-highlights': {
-        title: 'Highlights',
-        content: '<p>Well-defined curriculum with emphasis on analytical reasoning.</p>'
-    },
-    'page-dept-arts-tab-skills': {
-        title: 'Skills Developed',
-        content: '<p>Critical thinking, public speaking, and research orientation.</p>'
-    },
-    'page-dept-arts-tab-vision': {
-        title: 'Vision & Mission',
-        content: '<p>To develop an academic environment for social sciences with intellectual discipline.</p>'
-    },
-    'page-dept-arts-tab-courses': {
-        title: 'Courses',
-        content: '<p>B.A with History, Economics, and Political Science.</p>'
-    },
-    'page-dept-arts-tab-objectives': {
-        title: 'Objectives',
-        content: '<p>Strengthen students\' practical understanding of economic and social concepts.</p>'
-    },
-    'page-dept-arts-tab-outcomes': {
-        title: 'Outcomes',
-        content: '<p>Disciplinary knowledge, application, and global competencies.</p>'
-    },
-    'page-dept-arts-tab-activities': {
-        title: 'Activities',
-        content: '<p>Eco-Wizz quiz, Mock Budget, and Educational visits.</p>'
-    },
-    'page-dept-arts-tab-faculty': {
-        title: 'Faculty Profile',
-        content: '<p>Distinguished professors and researchers in social sciences.</p>'
-    },
-    'page-dept-arts-tab-contact': {
-        title: 'Contact Information',
-        content: '<p>Email: arts@rbanmsfgc.edu.in</p>'
-    },
-    'page-dept-arts-tab-history': {
-        title: 'History',
-        content: '<p>The study of History provides students with a sense of context, continuity, and transformation. Our curriculum covers Ancient, Medieval, and Modern Indian History alongside European and World History.</p>'
-    },
-    'page-dept-arts-tab-economics': {
-        title: 'Economics',
-        content: '<p>Developing analytical skills to understand economic theories, market behaviors, and fiscal policies. Students explore Microeconomics, Macroeconomics, and Indian Economic development.</p>'
-    },
-    'page-dept-arts-tab-political-science': {
-        title: 'Political Science',
-        content: '<p>Understanding political systems, constitutions, and international relations. The course covers Political Theory, Indian Polity, and Comparative Politics.</p>'
-    },
-
     // Missing top-level pages
     'alumni-activity': {
         title: 'Alumni Activity',
@@ -1000,131 +677,97 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
             </div>
         `
     },
-    'facilities': {
-        title: 'Facilities',
-        content: `
-            <p class="mb-6 text-lg">RBANMS First Grade College offers state-of-the-art facilities designed to support academic excellence and holistic student development.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
-                    <div class="bg-blue-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-blue-600 font-bold">📚</div>
-                    <div>
-                        <h4 class="font-bold text-lg mb-1">Central Library</h4>
-                        <p class="text-sm text-gray-600">Extensive collection of over 25,000 books, journals, and access to digital resources like INFLIBNET.</p>
-                    </div>
-                </div>
-                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
-                    <div class="bg-green-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-green-600 font-bold">💻</div>
-                    <div>
-                        <h4 class="font-bold text-lg mb-1">Computer Labs</h4>
-                        <p class="text-sm text-gray-600">Three high-tech labs with 100+ systems, high-speed internet, and latest software for practical learning.</p>
-                    </div>
-                </div>
-                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
-                    <div class="bg-purple-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-purple-600 font-bold">🏟️</div>
-                    <div>
-                        <h4 class="font-bold text-lg mb-1">Sports Complex</h4>
-                        <p class="text-sm text-gray-600">Expansive playground for cricket and football, plus indoor facilities for table tennis and badminton.</p>
-                    </div>
-                </div>
-                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
-                    <div class="bg-yellow-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-yellow-600 font-bold">🎭</div>
-                    <div>
-                        <h4 class="font-bold text-lg mb-1">Auditorium</h4>
-                        <p class="text-sm text-gray-600">A 500-seater modern auditorium with excellent acoustics for cultural events, seminars, and guest lectures.</p>
-                    </div>
-                </div>
-                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
-                    <div class="bg-red-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-red-600 font-bold">🏫</div>
-                    <div>
-                        <h4 class="font-bold text-lg mb-1">Smart Classrooms</h4>
-                        <p class="text-sm text-gray-600">ICT-enabled classrooms with projectors and audio systems to facilitate interactive learning.</p>
-                    </div>
-                </div>
-                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
-                    <div class="bg-orange-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-orange-600 font-bold">☕</div>
-                    <div>
-                        <h4 class="font-bold text-lg mb-1">Cafeteria</h4>
-                        <p class="text-sm text-gray-600">Hygienic and affordable food options available for students and staff in a clean environment.</p>
-                    </div>
-                </div>
-            </div>
-        `
-    },
+
     'scholarships': {
         title: 'Scholarships & Financial Aid',
         content: `
-            <p class="mb-6 text-lg">We strictly believe that financial constraints should never hinder a student's education. RBANMS offers and facilitates various scholarship schemes.</p>
-            <div class="space-y-4">
-                <div class="border rounded-lg p-4 bg-white hover:shadow-md transition">
-                    <h3 class="text-lg font-bold text-primary mb-2">Government Scholarships</h3>
-                    <ul class="list-disc pl-5 text-gray-600 text-sm space-y-1">
-                        <li><strong>SSP (State Scholarship Portal):</strong> For SC/ST and OBC students of Karnataka.</li>
-                        <li><strong>NSP (National Scholarship Portal):</strong> For minority community students.</li>
-                        <li><strong>Labor Welfare Fund:</strong> For children of construction/unorganized sector workers.</li>
-                    </ul>
-                </div>
-                <div class="border rounded-lg p-4 bg-white hover:shadow-md transition">
-                    <h3 class="text-lg font-bold text-primary mb-2">Institutional Management Scholarships</h3>
-                    <p class="text-gray-600 text-sm mb-2">RBANMS Charities provides financial assistance to meritorious students from economically weaker sections.</p>
-                    <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Merit-Cum-Means</span>
-                </div>
-                <div class="border rounded-lg p-4 bg-white hover:shadow-md transition">
-                    <h3 class="text-lg font-bold text-primary mb-2">Endowment Awards</h3>
-                    <p class="text-gray-600 text-sm">Cash prizes and awards instituted by alumni and philanthropists for subject toppers and best outgoing students.</p>
-                </div>
-                <div class="p-4 bg-yellow-50 rounded-lg border border-yellow-200">
-                    <h4 class="font-bold text-yellow-800 mb-1">📢 How to Apply?</h4>
-                    <p class="text-sm text-yellow-900">Applications are typically opened at the beginning of the academic year. Contact the College Office or the Scholarship Committee Nodal Officer for assistance.</p>
-                </div>
-            </div>
-        `
+                                                                                    < p class="mb-6 text-lg" > We strictly believe that financial constraints should never hinder a student's education. RBANMS offers and facilitates various scholarship schemes.</p>
+                                                                                        < div class="space-y-4" >
+                                                                                            <div class="border rounded-lg p-4 bg-white hover:shadow-md transition" >
+                                                                                                <h3 class="text-lg font-bold text-primary mb-2" > Government Scholarships </h3>
+                                                                                                    < ul class="list-disc pl-5 text-gray-600 text-sm space-y-1" >
+                                                                                                        <li><strong>SSP(State Scholarship Portal): </strong> For SC/ST and OBC students of Karnataka.</li>
+                                                                                                            < li > <strong>NSP(National Scholarship Portal): </strong> For minority community students.</li >
+                                                                                                                <li><strong>Labor Welfare Fund: </strong> For children of construction/unorganized sector workers.</li>
+                                                                                                                    </ul>
+                                                                                                                    </div>
+                                                                                                                    < div class="border rounded-lg p-4 bg-white hover:shadow-md transition" >
+                                                                                                                        <h3 class="text-lg font-bold text-primary mb-2" > Institutional Management Scholarships </h3>
+                                                                                                                            < p class="text-gray-600 text-sm mb-2" > RBANMS Charities provides financial assistance to meritorious students from economically weaker sections.</p>
+                                                                                                                                < span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded" > Merit - Cum - Means </span>
+                                                                                                                                    </div>
+                                                                                                                                    < div class="border rounded-lg p-4 bg-white hover:shadow-md transition" >
+                                                                                                                                        <h3 class="text-lg font-bold text-primary mb-2" > Endowment Awards </h3>
+                                                                                                                                            < p class="text-gray-600 text-sm" > Cash prizes and awards instituted by alumni and philanthropists for subject toppers and best outgoing students.</p>
+                                                                                                                                                </div>
+                                                                                                                                                < div class="p-4 bg-yellow-50 rounded-lg border border-yellow-200" >
+                                                                                                                                                    <h4 class="font-bold text-yellow-800 mb-1" >📢 How to Apply ? </h4>
+                                                                                                                                                        < p class="text-sm text-yellow-900" > Applications are typically opened at the beginning of the academic year.Contact the College Office or the Scholarship Committee Nodal Officer for assistance.</p>
+                                                                                                                                                            </div>
+                                                                                                                                                            </div>
+                                                                                                                                                                `
     },
     'naac': {
         title: 'NAAC Accreditation',
-        content: '<p>RBANMS First Grade College is accredited by NAAC (National Assessment and Accreditation Council), demonstrating our commitment to maintaining high academic standards and quality education.</p>'
+        tagline: 'National Assessment and Accreditation Council (NAAC) Documentation',
+        content: '<p>RBANMS First Grade College is accredited by NAAC (National Assessment and Accreditation Council), demonstrating our commitment to maintaining high academic standards and quality education.</p>',
+        certificateItems: [
+            { id: 'c4-cert', name: 'Cycle - 4', type: 'file', url: 'https://drive.google.com/file/d/1p8XTQ5vo3Qk9rRoWWrfsDNlXrqY3wUEq/view?usp=sharing' },
+            { id: 'c3-cert', name: 'Cycle - 3', type: 'file', url: 'https://drive.google.com/file/d/1VQUzoE5vVt0DHPmqHPBckSOyCEJSrpzM/view?usp=sharing' },
+            { id: 'c2-cert', name: 'Cycle - 2', type: 'file', url: 'https://drive.google.com/file/d/1rw9sWy3Euzqq5nMIRKOjcjm52-6tEH7K/view?usp=sharing' },
+            { id: 'c1-cert', name: 'Cycle - 1', type: 'file', url: 'https://drive.google.com/file/d/1H7_5lRqjoGL9pin6Wb7m1Nizw6ku5qOc/view?usp=sharing' },
+        ],
+        ssrItems: [
+            { id: 'ssr-2022', name: 'Cycle - 4', type: 'file', url: 'https://drive.google.com/file/d/18b7Qbb8pW6Ien3-e5HROO2h_r4NiFW8O/view?usp=sharing' },
+        ],
+        aqarItems: [
+            { id: 'aqar-23-24', name: '2023-24 (Coming Soon)', type: 'file' },
+            { id: 'aqar-22-23', name: '2022-23 (Coming Soon)', type: 'file' },
+            { id: 'aqar-21-22', name: '2021-22 (Coming Soon)', type: 'file' },
+        ]
     },
 
     'academics-rules': {
         title: 'Academic Rules & Regulations',
         content: `
-            <div class="space-y-6">
-                <div class="bg-red-50 p-5 rounded-lg border-l-4 border-red-500">
-                    <h3 class="font-bold text-red-900 mb-2">Attendance Policy</h3>
-                    <p class="text-gray-700 text-sm">As per Bangalore City University norms, a minimum of <strong>75% attendance</strong> is mandatory in each subject to appear for the end-semester examination. Students falling short will not be permitted to write the exams.</p>
-                </div>
-                
-                <div>
-                    <h3 class="font-bold text-lg text-primary mb-3">Internal Assessment</h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start bg-white p-3 rounded border"><span class="mr-2 font-bold text-blue-600">1.</span> Tests: Two rounds of internal tests are conducted every semester.</li>
-                        <li class="flex items-start bg-white p-3 rounded border"><span class="mr-2 font-bold text-blue-600">2.</span> Assignments: Subject-wise assignments and presentations are evaluated.</li>
-                        <li class="flex items-start bg-white p-3 rounded border"><span class="mr-2 font-bold text-blue-600">3.</span> Conduct: Marks are also awarded for classroom behavior and participation.</li>
-                    </ul>
-                </div>
+                                                                                                                                                            < div class= "space-y-6" >
+                                                                                                                                                            <div class= "bg-red-50 p-5 rounded-lg border-l-4 border-red-500" >
+                                                                                                                                                            <h3 class= "font-bold text-red-900 mb-2" > Attendance Policy </h3>
+                                                                                                                                                                < p class="text-gray-700 text-sm" > As per Bangalore City University norms, a minimum of < strong > 75 % attendance < /strong> is mandatory in each subject to appear for the end-semester examination. Students falling short will not be permitted to write the exams.</p >
+                                                                                                                                                                    </div>
 
-                <div>
-                    <h3 class="font-bold text-lg text-primary mb-3">General Discipline</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bg-gray-50 p-4 rounded items-center flex gap-3">
-                            <span class="text-2xl">🆔</span>
-                            <span class="text-sm font-medium">ID Cards must be worn at all times on campus.</span>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded items-center flex gap-3">
-                            <span class="text-2xl">📱</span>
-                            <span class="text-sm font-medium">Use of mobile phones in classrooms is strictly prohibited.</span>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded items-center flex gap-3">
-                            <span class="text-2xl">🚭</span>
-                            <span class="text-sm font-medium">The college campus is a tobacco and drug-free zone.</span>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded items-center flex gap-3">
-                            <span class="text-2xl">👗</span>
-                            <span class="text-sm font-medium">Students must adhere to the formal dress code.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `
+                                                                                                                                                                    < div >
+                                                                                                                                                                    <h3 class="font-bold text-lg text-primary mb-3" > Internal Assessment </h3>
+                                                                                                                                                                        < ul class="space-y-3" >
+                                                                                                                                                                            <li class="flex items-start bg-white p-3 rounded border" > <span class="mr-2 font-bold text-blue-600" > 1. < /span> Tests: Two rounds of internal tests are conducted every semester.</li >
+                                                                                                                                                                                <li class="flex items-start bg-white p-3 rounded border" > <span class="mr-2 font-bold text-blue-600" > 2. < /span> Assignments: Subject-wise assignments and presentations are evaluated.</li >
+                                                                                                                                                                                    <li class="flex items-start bg-white p-3 rounded border" > <span class="mr-2 font-bold text-blue-600" > 3. < /span> Conduct: Marks are also awarded for classroom behavior and participation.</li >
+                                                                                                                                                                                        </ul>
+                                                                                                                                                                                        </div>
+
+                                                                                                                                                                                        < div >
+                                                                                                                                                                                        <h3 class="font-bold text-lg text-primary mb-3" > General Discipline </h3>
+                                                                                                                                                                                            < div class="grid grid-cols-1 md:grid-cols-2 gap-4" >
+                                                                                                                                                                                                <div class="bg-gray-50 p-4 rounded items-center flex gap-3" >
+                                                                                                                                                                                                    <span class="text-2xl" >🆔</span>
+                                                                                                                                                                                                        < span class="text-sm font-medium" > ID Cards must be worn at all times on campus.</span>
+                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                            < div class="bg-gray-50 p-4 rounded items-center flex gap-3" >
+                                                                                                                                                                                                                <span class="text-2xl" >📱</span>
+                                                                                                                                                                                                                    < span class="text-sm font-medium" > Use of mobile phones in classrooms is strictly prohibited.</span>
+                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                        < div class="bg-gray-50 p-4 rounded items-center flex gap-3" >
+                                                                                                                                                                                                                            <span class="text-2xl" >🚭</span>
+                                                                                                                                                                                                                                < span class="text-sm font-medium" > The college campus is a tobacco and drug - free zone.</span>
+                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                    < div class="bg-gray-50 p-4 rounded items-center flex gap-3" >
+                                                                                                                                                                                                                                        <span class="text-2xl" >👗</span>
+                                                                                                                                                                                                                                            < span class="text-sm font-medium" > Students must adhere to the formal dress code.</span>
+                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                    `
     },
     'home-hero': {
         title: 'Welcome to RBANMS',
@@ -1146,13 +789,13 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
             { title: "Tribute to Bharatiyar", date: "November 29, 2025", text: "An event by the Department of Languages - Tamil" }
         ],
         announcements_text: `
-            <ul class="space-y-2 list-disc list-inside">
-                <li>Admissions open for AY 2026-27. For a Campus Tour, email info@rbanmsfgc.edu.in.</li>
-                <li>The Even Semester for AY 2025-26 will begin on January 16, 2026 for Faculty and all Final Year students.</li>
-                <li>Regular classes for all courses will commence on January 27.</li>
-                <li>Second and First Year students will begin classes on January 27.</li>
-            </ul>
-        `,
+                                                                                                                                                                                                                                                < ul class="space-y-2 list-disc list-inside" >
+                                                                                                                                                                                                                                                    <li>Admissions open for AY 2026 - 27. For a Campus Tour, email info @rbanmsfgc.edu.in.</li>
+                                                                                                                                                                                                                                                        < li > The Even Semester for AY 2025 - 26 will begin on January 16, 2026 for Faculty and all Final Year students.</li>
+                                                                                                                                                                                                                                                            < li > Regular classes for all courses will commence on January 27. </li>
+                                                                                                                                                                                                                                                                < li > Second and First Year students will begin classes on January 27. </li>
+                                                                                                                                                                                                                                                                    </ul>
+                                                                                                                                                                                                                                                                        `,
         brochure_image: '/images/phoenix-magazine.png',
         brochure_alt: 'College Magazine',
         upcoming_events_text: [
@@ -1161,9 +804,9 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
             'Industrial Visit - Feb 05'
         ],
         blog_text: `
-            <p>Welcome to our blog section where we share insights, stories, and updates from our college community. Stay tuned for upcoming articles on academic excellence, student achievements, and educational initiatives that shape the future of learning.</p>
-            <p>We invite submissions from students and faculty. Please contact the editorial board for guidelines.</p>
-        `
+                                                                                                                                                                                                                                                                    < p > Welcome to our blog section where we share insights, stories, and updates from our college community.Stay tuned for upcoming articles on academic excellence, student achievements, and educational initiatives that shape the future of learning.</p>
+                                                                                                                                                                                                                                                                        < p > We invite submissions from students and faculty.Please contact the editorial board for guidelines.</p>
+                                                                                                                                                                                                                                                                            `
     },
     'header-top': {
         title: 'Header Top Bar',
@@ -1177,5 +820,397 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'footer-about': {
         title: 'Footer Copyright',
         content: '<p>&copy; 2025 RBANM\'s First Grade College. All Rights Reserved.</p>'
+    },
+
+    'about-board': {
+        title: 'Board Members',
+        content: `
+                                                                                                                                                                                                                                                                            < div class= "flex flex-col items-center justify-center min-h-[40vh] text-center" >
+                                                                                                                                                                                                                                                                            <h2 class= "text-2xl font-semibold text-muted-foreground" > Coming Soon </h2>
+                                                                                                                                                                                                                                                                                < p class="mt-2 text-foreground/80" > This page is under construction.Please check back later! </p>
+                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                        `
+    },
+    'cell-sc-st': {
+        title: 'SC/ST Cell',
+        badgeText: 'Statutory Cell',
+        content: '<p>Providing support and guidance to students from SC/ST communities, ensuring they access all eligible benefits and opportunities.</p>'
+    },
+    'cell-posh': {
+        title: 'Prevention of Sexual Harassment (POSH)',
+        badgeText: 'Statutory Cell',
+        content: '<p>Committed to providing a safe and respectful environment for all staff and students, with zero tolerance for harassment.</p>'
+    },
+    'cell-internal-compliance': {
+        title: 'Internal Compliance Committee',
+        badgeText: 'Statutory Committee',
+        content: '<p>Ensuring institutional transparency and compliance with academic and administrative standards.</p>'
+    },
+    'cell-grievance': {
+        title: 'Grievance Redressal Cell',
+        badgeText: 'Statutory Cell',
+        content: '<p>Providing a transparent mechanism for students to voice concerns and complaints, ensuring timely resolution and maintaining institutional harmony.</p>'
+    },
+    'cell-equal-opportunity': {
+        title: 'Equal Opportunity Cell',
+        badgeText: 'Statutory Cell',
+        content: '<p>Dedicated to promoting equality and social justice, ensuring all students have equal access to academic and extra-curricular opportunities.</p>'
+    },
+    'cell-antiragging': {
+        title: 'Anti-Ragging Committee',
+        badgeText: 'Statutory Committee',
+        content: '<p>RBNMS College maintains a zero-tolerance policy towards ragging. The Anti-Ragging Committee works vigilantly to ensure the college campus remains a ragging-free zone. We strictly enforce UGC regulations and state laws to protect new students from any form of physical or mental harassment. Through counselling and strict monitoring, we guarantee a friendly and welcoming atmosphere where every student feels safe and comfortable from their very first day.</p>'
+    },
+    'cell-exam': {
+        title: 'Examination Committee',
+        badgeText: 'Committee',
+        content: '<p>The Examination Committee is the backbone of the college\'s evaluation system, ensuring transparency, fairness, and efficiency in all internal and external assessments. We are responsible for scheduling exams, securing question papers, and managing the conduct of tests in strict accordance with university norms. By maintaining the integrity of the examination process, we ensure that student performance is assessed accurately and impartially, upholding the academic credibility of RBNMS College.</p>'
+    },
+    'cell-eco': {
+        title: 'Eco Club',
+        badgeText: 'Club',
+        content: '<p>Dedicated to environmental awareness and sustainable practices within the campus and community.</p>'
+    },
+    'cell-aicte': {
+        title: 'AICTE Committee',
+        badgeText: 'Committee',
+        content: '<p>The AICTE Committee ensures that the college adheres to the norms and standards set by the All India Council for Technical Education where applicable. This body oversees the compliance of technical and management programs with national regulatory requirements. We focus on maintaining the quality of curriculum, infrastructure, and faculty qualifications to meet statutory standards. The committee serves as a bridge between the institution and regulatory bodies, ensuring seamless approval processes and academic quality.</p>'
+    },
+    'cell-yrc': {
+        title: 'YRCS (Youth Red Cross Society)',
+        badgeText: 'Society',
+        content: '<p>The Youth Red Cross Society unit focuses on the protection of health and life, service to the sick, and promotion of international friendship. Our student volunteers are trained in first aid, disaster management, and community health hygiene. We regularly organize blood donation camps and health check-ups. The YRCS at RBNMS encourages students to embrace humanitarian values, fostering a spirit of compassion and readiness to help those in distress.</p>'
+    },
+    'cell-womens': {
+        title: 'Women Cell',
+        badgeText: 'Cell',
+        content: '<p>The Women Cell at RBNMS College is dedicated to empowering female students and staff by creating a supportive and inclusive campus environment. The cell serves as a platform for women to voice their concerns and aspirations, fostering confidence and leadership skills. We organize seminars, workshops, and awareness programs focusing on gender equity, women\'s rights, and health. We are committed to ensuring that women feel safe, respected, and valued in all their endeavors on campus and beyond.</p>'
+    },
+    'cell-cultural': {
+        title: 'Cultural Committee',
+        badgeText: 'Committee',
+        content: '<p>The Cultural Committee brings the campus to life by celebrating creativity, talent, and diversity. We organize annual fests, inter-class competitions, and celebrations of national and regional festivals. The committee provides a platform for students to showcase their skills in music, dance, theater, and fine arts. By balancing academics with cultural expression, we ensure the holistic development of our students, making their college experience vibrant and memorable.</p>'
+    },
+    'cell-manasa': {
+        title: 'Manasa Counseling Cell',
+        badgeText: 'Cell',
+        content: '<p>The Manasa Counselling Cell provides a safe and confidential space for students to seek guidance and support for their emotional and mental well-being. Our professional counselors offer listening, empathy, and practical strategies to help students navigate personal challenges, academic stress, and transition into college life. We are dedicated to ensuring that every student has the mental health resources they need to thrive and succeed in all aspects of their lives.</p>'
+    },
+    'cell-ipc': {
+        title: 'IPC (Internal Placement Cell)',
+        badgeText: 'Cell',
+        content: '<p>The Internal Placement Cell (IPC) bridges the gap between academic learning and industry requirements. We are committed to preparing students for their careers by organizing training sessions, workshops, and recruitment drives. The cell actively liaises with top companies to facilitate internship and job opportunities, ensuring our graduates are employable and confident. Our goal is to guide every student toward the right career path, equipping them with the professional skills needed to succeed in a competitive job market.</p>'
+    },
+    'cell-discipline': {
+        title: 'Discipline Committee',
+        badgeText: 'Committee',
+        content: '<p>The Discipline Committee at RBANMS First Grade College is committed to maintaining a learning environment built on respect, integrity, and accountability. Our task is to ensure that all students and staff adhere to the college\'s code of conduct, fostering a safe and orderly campus. We work closely with students to promote self-discipline and positive behavior, ensuring that everyone has the opportunity to learn and grow in an environment that is conducive to academic excellence and personal development.</p>'
+    },
+    'cell-nss': {
+        title: 'National Service Scheme (NSS)',
+        badgeText: 'Activity',
+        content: '<p>Engaging students in social service and community development activities, fostering a sense of social responsibility.</p>'
+    },
+    'cell-ncc-navy': {
+        title: 'NCC Navy Wing',
+        badgeText: 'Activity',
+        content: '<p>Providing naval-oriented training and fostering a sense of discipline and patriotism among the youth.</p>'
+    },
+    'cell-ncc-army': {
+        title: 'NCC Army Wing',
+        badgeText: 'Activity',
+        content: '<p>Developing character, comradeship, discipline, and leadership among students through military-style training and social service.</p>'
+    },
+    'cell-ncc': {
+        title: 'National Cadet Corps (NCC)',
+        badgeText: 'Activity',
+        content: '<p>The National Cadet Corps (NCC) at RBNMS College is a premier youth organization that strives to develop the qualities of character, courage, comradeship, discipline, leadership, and the ideal of selfless service among the youth of the country. We offer both Army and Navy wings, providing cadets with diverse opportunities for personal growth and adventure.</p>'
+    },
+
+
+
+
+
+
+    // IQAC Defaults
+    'industry-mou': {
+        title: 'Memorandum of Understanding (MoU)',
+        content: '<p>Information about our institutional MoUs coming soon.</p>'
+    },
+    'industry-internship': {
+        title: 'Internships',
+        content: '<p>Information about our student internship programs coming soon.</p>'
+    },
+    'academics-structure': {
+        title: 'Academic Structure',
+        content: '<p>Our academic structure follows the Bangalore City University guidelines with NEP integration.</p>'
+    },
+    'academics-philosophy': {
+        title: 'Philosophy of Teaching',
+        content: '<p>Our teaching philosophy is student-centric, focusing on holistic development and practical application.</p>'
+    },
+    'facilities': {
+        title: 'Our Facilities',
+        tagline: 'Creating an environment for better productivity and performance.',
+        content: '<p>We provide world-class infrastructure to support academic and extracurricular activities.</p>'
+    },
+    'page-facilities-tab-overview': {
+        title: 'Overview',
+        content: `
+                                                                                                                                                                                                                                                                                    < div class="space-y-6 text-lg leading-relaxed" >
+                                                                                                                                                                                                                                                                                        <p>Creating an environment for better productivity and performance.Infrastructural Abundance: It is part of the basic policy of the promoters that infrastructural self - sufficiency is a pre - requisite for better productivity and performance in all the activities, more so for academic activities.</p>
+                                                                                                                                                                                                                                                                                            < p > The Management has always been creating and updating academic and building infrastructure to meet the standards from time to time and to make life easy and stress - free in the campus.</p>
+                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                    `
+    },
+    'page-facilities-tab-computer-labs': {
+        title: 'Computer Labs',
+        content: `
+                                                                                                                                                                                                                                                                                                < div class="grid md:grid-cols-2 gap-6 items-center" >
+                                                                                                                                                                                                                                                                                                    <div>
+                                                                                                                                                                                                                                                                                                    <p>There are three computer labs on campus: two for the exclusive use of BCA students, and one used as a Design Lab for students of Journalism, and those who are part of the Editorial / Design Team, the Phoenix Club.</p>
+                                                                                                                                                                                                                                                                                                        < p class="mt-4" > These labs have been the main learning resource in providing students with practical exposure for the syllabus of Bangalore University and to go beyond it.</p>
+                                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                                            < img src = "/images/facilities/lab.jpg" alt = "Computer Lab" class="rounded-lg shadow-md" />
+                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                                    `
+    },
+    'page-facilities-tab-sports-ground': {
+        title: 'Sports Ground',
+        content: `
+                                                                                                                                                                                                                                                                                                                < div class="grid md:grid-cols-2 gap-6 items-center" >
+                                                                                                                                                                                                                                                                                                                    <div>
+                                                                                                                                                                                                                                                                                                                    <p>The college has a large ground on campus, dedicated to sports.This area is regularly used for throwball, volleyball, basketball, kho kho, and more.The grounds are also used for NCC parades.</p>
+                                                                                                                                                                                                                                                                                                                        < p class= "mt-4" > In addition, the sports students have access to the SUFC and Karnataka Cricket Club that are situated on land owned by RBANMs Educational Charities.</p>
+                                                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                                                            < img src = "/images/facilities/ground.jpg" alt = "Sports Ground" class="rounded-lg shadow-md" />
+                                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                                                    `
+    },
+    'page-facilities-tab-auditorium': {
+        title: 'Auditorium',
+        content: `
+                                                                                                                                                                                                                                                                                                                                < div class="space-y-4" >
+                                                                                                                                                                                                                                                                                                                                    <p>Believing that experience on stage does wonders for the personality and individual growth of students, the college has two performance spaces: </p>
+                                                                                                                                                                                                                                                                                                                                        < ul class="list-disc pl-5 mt-2 space-y-1" >
+                                                                                                                                                                                                                                                                                                                                            <li>A seminar hall for small, intimate gatherings, such as the Natya club and guest lectures </li>
+                                                                                                                                                                                                                                                                                                                                                < li > A large auditorium to host events such as Orientation, Freshers’ Day, and other cultural activities.</li>
+                                                                                                                                                                                                                                                                                                                                                    </ul>
+                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                        `
+    },
+    'page-facilities-tab-library': {
+        title: 'Library',
+        content: `
+                                                                                                                                                                                                                                                                                                                                                    < div class="space-y-6" >
+                                                                                                                                                                                                                                                                                                                                                        <p>The college library is large, with more than 40,000 volumes of books on all subjects.The collection supports the curriculum and is built through student - teacher suggestions.</p>
+                                                                                                                                                                                                                                                                                                                                                            < div class="grid grid-cols-2 gap-4 bg-slate-50 p-6 rounded-lg" >
+                                                                                                                                                                                                                                                                                                                                                                <div>
+                                                                                                                                                                                                                                                                                                                                                                <h4 class="font-bold border-b mb-2" > Highlights </h4>
+                                                                                                                                                                                                                                                                                                                                                                    < ul class="list-disc pl-5 text-sm" >
+                                                                                                                                                                                                                                                                                                                                                                        <li>Reference Service </li>
+                                                                                                                                                                                                                                                                                                                                                                            < li > Reprographic Service </li>
+                                                                                                                                                                                                                                                                                                                                                                                < li > Internet Facilities </li>
+                                                                                                                                                                                                                                                                                                                                                                                    < li > Open Access Service </li>
+                                                                                                                                                                                                                                                                                                                                                                                        </ul>
+                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                                                        < div >
+                                                                                                                                                                                                                                                                                                                                                                                        <h4 class="font-bold border-b mb-2" > Timings </h4>
+                                                                                                                                                                                                                                                                                                                                                                                            < p class="text-sm" > 8 A.M.to 5 P.M.</p>
+                                                                                                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                                                                                                                    `
+    },
+    'page-facilities-tab-digital-library': {
+        title: 'Digital Library',
+        content: '<p>The digital library provides access to online databases, textbooks, articles, and audio-video materials via platforms like N-List, DELNET, and NDL.</p>'
+    },
+    'page-facilities-tab-classrooms': {
+        title: 'Classrooms',
+        content: '<p>Spread over three floors, the college has well equipped, brightly lit classrooms with old-style bench seating, combining modern facilities with heritage charm.</p>'
+    },
+    'page-facilities-tab-canteen': {
+        title: 'Canteen',
+        content: '<p>The canteen on campus provides hygienic and affordable meals and snacks to students, staff, and guests.</p>'
+    },
+    'page-facilities-tab-green-campus': {
+        title: 'Green Campus',
+        content: '<p>A stress-free environment full of lawns, trees, and flower plants, providing an eco-friendly atmosphere in the heart of town.</p>'
+    },
+
+    'cell-iqac': {
+        title: 'Internal Quality Assurance Cell (IQAC)',
+        tagline: 'The Internal Quality Assurance Cell (IQAC) at RBNMS College is the driving force behind our pursuit of academic excellence.',
+        content: '<p>Dedicated to maintaining high standards, the cell continuously monitors and enhances the quality of teaching, learning, and infrastructure.</p>'
+    },
+    'page-cell-iqac-tab-objectives': {
+        title: 'Objectives',
+        content: `
+                                                                                                                                                                                                                                                                                                                                                                                                < div class="space-y-6" >
+                                                                                                                                                                                                                                                                                                                                                                                                    <ul class="list-disc pl-5 space-y-2 text-lg" >
+                                                                                                                                                                                                                                                                                                                                                                                                        <li>To develop a system for conscious, consistent and catalytic action to improve the academic and administrative performance of the institution.</li>
+                                                                                                                                                                                                                                                                                                                                                                                                            < li > To promote measures for institutional functioning towards quality enhancement through internalization of quality culture and institutionalization of best practices.</li>
+                                                                                                                                                                                                                                                                                                                                                                                                                </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                    `
+    },
+    'page-cell-iqac-tab-functions': {
+        title: 'Functions',
+        content: `
+                                                                                                                                                                                                                                                                                                                                                                                                                < div class="space-y-6" >
+                                                                                                                                                                                                                                                                                                                                                                                                                    <ul class="list-disc pl-5 space-y-2 text-lg" >
+                                                                                                                                                                                                                                                                                                                                                                                                                        <li>Development and application of quality benchmarks / parameters for various academic and administrative activities of the institution </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                            < li > Facilitating the creation of a learner - centric environment conducive to quality education and faculty maturation to adopt the required knowledge and technology for participatory teaching and learning process </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                < li > Arrangement for feedback response from students, parents and other stakeholders on quality - related institutional processes </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                    < li > Dissemination of information on various quality parameters of higher education </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                        < li > Organization of inter and intra institutional workshops, seminars on quality related themes and promotion of quality circles </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                            < li > Documentation of the various programmes / activities leading to quality improvement </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                < li > Acting as a nodal agency of the Institution for coordinating quality - related activities, including adoption and dissemination of best practices </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    < li > Development and maintenance of institutional database through MIS for the purpose of maintaining / enhancing the institutional quality </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        < li > Development of Quality Culture in the institution </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            < li > Preparation of the Annual Quality Assurance Report(AQAR) as per guidelines and parameters of NAAC, to be submitted to NAAC </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                    `
+    },
+    'page-cell-iqac-tab-major-contributions': {
+        title: 'Major Contributions',
+        content: `
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                < div class="space-y-4 text-lg" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <p><strong>NIRF Participation: </strong> The College participates in the NIRF ranking every year.</p >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p><strong>AISHE: </strong> Data is uploaded to the All India Survey on Higher Education portal every year.</p >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p><strong>Feedback: </strong> Feedback is collected from various stakeholders like students, parents, alumni, and employers, analyzed, and action taken report is prepared and uploaded on the website.</p >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <p><strong>Result Analysis: </strong> Result analysis is done after every semester to identify advanced learners and slow learners.</p >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <p><strong>Audit: </strong> Academic and Administrative Audit is conducted to evaluate the performance of the institution.</p >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <strong>Fidelity to the requirements of NAAC: </strong>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            < ul class="list-disc pl-8 mt-2" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <li>AQAR is submitted every year.</li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    < li > SSR is submitted for the accreditation process(First Cycle, Second Cycle, Third Cycle, and Fourth Cycle).</li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            `
+    },
+    'page-cell-iqac-tab-documents': {
+        title: 'Documents',
+        content: `
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        < div class="space-y-6" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <h2 class="text-3xl font-bold border-l-4 border-primary pl-4 text-black uppercase" > IQAC Documents </h2>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                < div class="grid md:grid-cols-2 gap-8" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="border rounded p-4" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <h3 class="font-bold border-b pb-2 mb-2" > Constitution </h3>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            < ul class="space-y-1" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <li><a href="https://drive.google.com/file/d/14TNINSLEJGsYgsVmd5sP-YtFqCDHxRrI/view?usp=sharing" class="text-blue-600 hover:underline" > 2024 - 25 < /a></li >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><a href="https://drive.google.com/file/d/1GuJ3uCUFypLJysN8zvACzIIAAD36fYYm/view?usp=sharing" class="text-blue-600 hover:underline" > 2023 - 24 < /a></li >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><a href="https://drive.google.com/file/d/1Ia7zdXiygkSfhHndRx7YTew_n5fW49DH/view?usp=sharing" class="text-blue-600 hover:underline" > 2022 - 23 < /a></li >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><a href="https://drive.google.com/file/d/1z1JmqoR0U1nAmutVIzxEZ7vjaRjkrIfd/view?usp=sharing" class="text-blue-600 hover:underline" > 2021 - 22 < /a></li >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                < div class="border rounded p-4" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <h3 class="font-bold border-b pb-2 mb-2" > Annual SPP </h3>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        < ul class="space-y-1" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><span class="text-gray-500" > 2024 - 25(Coming Soon) < /span></li >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <li><span class="text-gray-500" > 2023 - 24(Coming Soon) < /span></li >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    < div class="border rounded p-4" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <h3 class="font-bold border-b pb-2 mb-2" > Annual Report </h3>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            < ul class="space-y-1" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <li><span class="text-gray-500" > 2024 - 25(Coming Soon) < /span></li >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><span class="text-gray-500" > 2023 - 24(Coming Soon) < /span></li >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        < div class="border rounded p-4" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <h3 class="font-bold border-b pb-2 mb-2" > Activities </h3>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                < ul class="space-y-1" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><span class="text-gray-500" > 2024 - 25(Coming Soon) < /span></li >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><span class="text-gray-500" > 2023 - 24(Coming Soon) < /span></li >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            < div class="border rounded p-4" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <h3 class="font-bold border-b pb-2 mb-2" > Cell / Committee Members </h3>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    < ul class="space-y-1" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><span class="text-gray-500" > 2024 - 25(Coming Soon) < /span></li >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><span class="text-gray-500" > 2023 - 24(Coming Soon) < /span></li >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <li><span class="text-gray-500" > 2022 - 23(Coming Soon) < /span></li >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><span class="text-gray-500" > 2021 - 22(Coming Soon) < /span></li >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        < div class="border rounded p-4" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <h3 class="font-bold border-b pb-2 mb-2" > AISHE Certificate </h3>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                < ul class="space-y-1" >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><span class="text-gray-500" > 2024 - 25(Coming Soon) < /span></li >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li><span class="text-gray-500" > 2023 - 24(Coming Soon) < /span></li >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li><span class="text-gray-500" > 2022 - 23(Coming Soon) < /span></li >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <li><span class="text-gray-500" > 2021 - 22(Coming Soon) < /span></li >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         `
+    },
+    'cell-statutory': {
+        title: 'Statutory Cells & Committees',
+        content: `
+            <div class="space-y-6">
+                <p class="text-lg">The statutory committees at RBANMS First Grade College are established in accordance with UGC and University regulations to ensure institutional transparency, student welfare, and a safe learning environment.</p>
+                <p>These committees handle critical aspects such as anti-ragging, grievance redressal, and prevention of sexual harassment, ensuring that the college remains a space of mutual respect and equal opportunity.</p>
+            </div>
+        `
+    },
+    'cell-others': {
+        title: 'Other Cells & Clubs',
+        content: `
+            <div class="space-y-6">
+                <p class="text-lg">Beyond academics and statutory requirements, RBANMS provides a vibrant ecosystem of various other cells and clubs that allow students to explore their interests, develop leadership skills, and contribute to social causes.</p>
+                <p>From the Eco Club protecting our environment to the Cultural Committee celebrating our heritage, these platforms ensure the holistic development of every student.</p>
+            </div>
+        `
+    },
+    'research': {
+        title: 'Research & Innovation',
+        content: `
+            <div class="space-y-6">
+                <p class="text-lg text-justify leading-relaxed">RBANM’S First Grade College is committed to promoting a culture of research and innovation among its faculty and students. We believe that an inquiry-driven environment is essential for academic excellence and for preparing students to meet the challenges of a rapidly changing world.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                    <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                        <h3 class="text-xl font-bold text-blue-900 mb-4 font-headline">Key Objectives</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <span class="text-blue-600 mt-1">●</span>
+                                <span class="text-gray-700">To encourage faculty and students to undertake research projects.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-blue-600 mt-1">●</span>
+                                <span class="text-gray-700">To facilitate participation in national and international conferences.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-blue-600 mt-1">●</span>
+                                <span class="text-gray-700">To support the publication of research papers in reputed journals.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-blue-600 mt-1">●</span>
+                                <span class="text-gray-700">To organize workshops on research methodology and ethics.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                        <h3 class="text-xl font-bold text-blue-900 mb-4 font-headline">Research Areas</h3>
+                        <p class="text-gray-700 mb-4">Our faculty members are actively involved in research across multiple disciplines, including:</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-white border border-blue-200 rounded-full text-blue-800 text-sm">Commerce & Management</span>
+                            <span class="px-3 py-1 bg-white border border-blue-200 rounded-full text-blue-800 text-sm">Computer Applications</span>
+                            <span class="px-3 py-1 bg-white border border-blue-200 rounded-full text-blue-800 text-sm">Economic Policy</span>
+                            <span class="px-3 py-1 bg-white border border-blue-200 rounded-full text-blue-800 text-sm">Social Sciences</span>
+                            <span class="px-3 py-1 bg-white border border-blue-200 rounded-full text-blue-800 text-sm">Linguistics & Literature</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `
     }
 };

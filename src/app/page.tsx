@@ -6,12 +6,15 @@ import { SiteHeader } from '@/components/layout/header';
 import { SiteFooter } from '@/components/layout/footer';
 import { AdditionalImagesCarousel } from '@/components/sections/additional-images-carousel';
 import { TwoRowCardLayout } from '@/components/sections/two-row-card-layout';
-import { DynamicSection } from '@/components/dynamic-section';
 import { SidebarCards } from '@/components/sections/sidebar-cards';
 import { useSiteSettings } from '@/hooks/use-site-settings';
+import { usePageContent } from '@/hooks/use-page-content';
+import { Loader2 } from 'lucide-react';
 
 export default function Home() {
     const { settings } = useSiteSettings();
+    const { data: introData, loading: introLoading } = usePageContent('home-intro');
+
     return (
         <div className="flex min-h-screen flex-col">
             <SiteHeader />
@@ -26,10 +29,13 @@ export default function Home() {
                 {/* Introduction Section */}
                 <section className="py-12 bg-white">
                     <div className="container mx-auto px-4 text-center space-y-6 max-w-4xl">
-                        <DynamicSection
-                            pageId="home-intro"
-                            render={(data) => {
-                                const content = data?.content || `
+                        {introLoading ? (
+                            <div className="flex justify-center py-8">
+                                <Loader2 className="animate-spin text-primary h-8 w-8" />
+                            </div>
+                        ) : (
+                            (() => {
+                                const content = introData?.content || `
                                     <p class="mb-6">RBANM’s First Grade College was established by RBANM’s Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.</p>
                                     <p class="mb-6">This is one of the many institutions established under the umbrella of the RBANM’s Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.</p>
                                     <p>The college has been accredited by NAAC and is recognised under Section 2(f) and 12(b) of the UGC Act, 1956.</p>
@@ -54,8 +60,8 @@ export default function Home() {
                                         <div className="prose prose-lg text-blue-900 leading-relaxed max-w-none" dangerouslySetInnerHTML={{ __html: content }} />
                                     </div>
                                 );
-                            }}
-                        />
+                            })()
+                        )}
                     </div>
                 </section>
 

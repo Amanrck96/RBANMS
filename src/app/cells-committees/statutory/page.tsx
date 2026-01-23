@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { getCellCategory } from '@/lib/cells'
+import { DynamicSection } from '@/components/dynamic-section'
 
 export default function StatutoryCellsPage() {
   const category = getCellCategory('statutory')!
@@ -13,7 +14,8 @@ export default function StatutoryCellsPage() {
           <CardTitle className="text-3xl md:text-4xl font-bold text-primary font-headline">Statutory</CardTitle>
         </CardHeader>
         <CardContent className="pt-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+          <DynamicSection pageId="cell-statutory" onlyContent />
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {category.items.map((item) => (
               <Link key={item.slug} href={`/cells-committees/statutory/${item.slug}`} className="group">
                 <div className="h-full rounded-lg border shadow-sm overflow-hidden flex flex-col bg-background">
