@@ -122,7 +122,93 @@ export default function PhysicalEducationPage() {
     </div>
   );
 
-  // 4. Events
+  // 4. Course Objectives
+  const objectivesContent = (
+    <div className="max-w-3xl mx-auto">
+      <Card className="h-full bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-8">
+        <CardContent className="space-y-6">
+          <Target className="h-16 w-16 mx-auto text-primary" />
+          <h3 className="text-3xl font-bold">COURSE OBJECTIVES</h3>
+          <ul className="text-black leading-relaxed text-lg text-left list-disc pl-8 space-y-2">
+            <li>To promote physical fitness, health, and overall well-being among students.</li>
+            <li>To develop motor skills, coordination, and agility through structured sports activities.</li>
+            <li>To instill values of teamwork, discipline, sportsmanship, and perseverance.</li>
+            <li>To provide opportunities for students to excel in various sports at college, university, and state levels.</li>
+            <li>To create awareness about the importance of physical activity, nutrition, and mental health.</li>
+            <li>To encourage lifelong participation in sports and physical activities for a healthy lifestyle.</li>
+          </ul>
+        </CardContent>
+      </Card>
+    </div>
+  );
+
+  // 5. Programme Outcome
+  const outcomesContent = (
+    <div className="max-w-3xl mx-auto">
+      <Card className="h-full bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-8">
+        <CardContent className="space-y-6">
+          <Trophy className="h-16 w-16 mx-auto text-primary" />
+          <h3 className="text-3xl font-bold">PROGRAMME OUTCOME</h3>
+          <ul className="text-black leading-relaxed text-lg text-left list-disc pl-8 space-y-2">
+            <li><strong>Physical Fitness:</strong> Demonstrate improved physical fitness, strength, endurance, and flexibility through regular training and participation in sports.</li>
+            <li><strong>Sports Skills:</strong> Develop proficiency in various sports and games, understanding rules, techniques, and strategies.</li>
+            <li><strong>Teamwork & Leadership:</strong> Exhibit strong teamwork, collaboration, leadership qualities, and the ability to work effectively in group settings.</li>
+            <li><strong>Sportsmanship:</strong> Display ethical behavior, fair play, respect for opponents, and grace in both victory and defeat.</li>
+            <li><strong>Health Awareness:</strong> Understand the importance of nutrition, mental health, injury prevention, and overall wellness.</li>
+            <li><strong>Competitive Spirit:</strong> Participate confidently in inter-collegiate and university-level competitions, representing the institution with pride.</li>
+            <li><strong>Lifelo long Fitness:</strong> Adopt physical activity as an integral part of daily life, promoting long-term health and well-being.</li>
+          </ul>
+        </CardContent>
+      </Card>
+    </div>
+  );
+
+  // 6. Certificate Courses
+  const certCoursesContent = (
+    <div className="space-y-6">
+      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4">CERTIFICATE COURSES</h2>
+      <div className="grid md:grid-cols-2 gap-6">
+        <Card className="bg-white border-2 border-primary text-black">
+          <CardHeader>
+            <CardTitle className="text-primary">Fitness & Wellness</CardTitle>
+            <CardDescription className="text-black font-semibold">Certificate Program</CardDescription>
+          </CardHeader>
+          <CardContent className="text-sm text-black">
+            <p>Comprehensive program covering physical fitness, nutrition, mental wellness, and healthy lifestyle practices. Students learn about exercise science, diet planning, and stress management techniques.</p>
+          </CardContent>
+        </Card>
+        <Card className="bg-white border-2 border-primary text-black">
+          <CardHeader>
+            <CardTitle className="text-primary">Yoga & Meditation</CardTitle>
+            <CardDescription className="text-black font-semibold">Add-on Course</CardDescription>
+          </CardHeader>
+          <CardContent className="text-sm text-black">
+            <p>Learn various yoga asanas, pranayama techniques, and meditation practices. Understand the philosophy of yoga, its health benefits, and how to incorporate it into daily life for physical and mental well-being.</p>
+          </CardContent>
+        </Card>
+        <Card className="bg-white border-2 border-primary text-black">
+          <CardHeader>
+            <CardTitle className="text-primary">Sports Coaching</CardTitle>
+            <CardDescription className="text-black font-semibold">Certification Program</CardDescription>
+          </CardHeader>
+          <CardContent className="text-sm text-black">
+            <p>Training program for students interested in sports coaching and physical education teaching. Covers training methodologies, sports psychology, injury management, and coaching ethics.</p>
+          </CardContent>
+        </Card>
+        <Card className="bg-white border-2 border-primary text-black">
+          <CardHeader>
+            <CardTitle className="text-primary">First Aid & Sports Medicine</CardTitle>
+            <CardDescription className="text-black font-semibold">Workshop Series</CardDescription>
+          </CardHeader>
+          <CardContent className="text-sm text-black">
+            <p>Learn essential first aid techniques, injury prevention, and basic sports medicine. Includes hands-on training in CPR, wound care, and managing common sports injuries.</p>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+
+  // 7. Events
   const eventsContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4">Events & Achievements</h2>
@@ -153,7 +239,7 @@ export default function PhysicalEducationPage() {
     </div>
   );
 
-  // 4b. Courses
+  // 8. Courses
   const coursesContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4">COURSES OFFERED</h2>
@@ -167,7 +253,26 @@ export default function PhysicalEducationPage() {
     </div>
   );
 
-  // 5. Contact
+  // 9. Faculty Profile
+  const facultyContent = (
+    <div className="space-y-6">
+      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">FACULTY PROFILE</h2>
+      <Card className="bg-white border-2 border-primary text-black">
+        <CardContent className="pt-6">
+          <div className="text-center space-y-4">
+            <div className="w-20 h-20 bg-primary/10 rounded-full mx-auto flex items-center justify-center mb-4">
+              <Users className="h-10 w-10 text-primary" />
+            </div>
+            <h3 className="text-xl font-bold text-black">Physical Education Faculty</h3>
+            <p className="text-black">Our dedicated physical education instructors bring years of experience in sports coaching, physical training, and student development.</p>
+            <p className="text-sm text-black italic mt-4">For detailed faculty information, please contact the Department of Physical Education.</p>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+
+  // 10. Contact
   const contactContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4">Contact</h2>
@@ -182,9 +287,13 @@ export default function PhysicalEducationPage() {
   const sections = [
     { id: "highlights", label: "Highlights", content: highlightsContent },
     { id: "vision", label: "Vision", content: visionContent },
-    { id: "facilities", label: "Sports Facilities", content: facilitiesContent },
-    { id: "courses", label: "Courses", content: coursesContent },
+    { id: "facilities", label: "Facilities", content: facilitiesContent },
+    { id: "objectives", label: "Course Objectives", content: objectivesContent },
+    { id: "outcomes", label: "Programme Outcome", content: outcomesContent },
+    { id: "certificate-courses", label: "Certificate Courses", content: certCoursesContent },
     { id: "events", label: "Events", content: eventsContent },
+    { id: "courses", label: "Courses", content: coursesContent },
+    { id: "faculty", label: "Faculty Profile", content: facultyContent },
     { id: "contact", label: "Contact", content: contactContent },
   ];
 

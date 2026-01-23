@@ -45,7 +45,31 @@ export default function LanguagesDepartmentPage() {
     </div>
   );
 
-  // 2. Vision & Mission
+  // 2. Facilities
+  const facilitiesContent = (
+    <div className="space-y-6">
+      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">FACILITIES</h2>
+      <Card className="bg-white border-2 border-primary text-black">
+        <CardContent className="pt-6">
+          <ul className="space-y-4">
+            {[
+              "Well-stocked library with extensive collection of regional language literature, reference materials, and journals",
+              "Language learning resources including audio-visual materials and digital content",
+              "Access to college auditorium and seminar halls for cultural events and literary programs",
+              "Classroom facilities equipped for interactive language learning",
+              "Cultural activity spaces for traditional performances and celebrations"
+            ].map((item, i) => (
+              <li key={i} className="flex gap-3 text-base text-black">
+                <span className="text-primary font-bold">•</span> {item}
+              </li>
+            ))}
+          </ul>
+        </CardContent>
+      </Card>
+    </div>
+  );
+
+  // 3. Vision & Mission
   const visionContent = (
     <div className="mx-auto w-full max-w-3xl border-2 border-dashed border-primary/30 rounded-xl p-8 bg-white text-center">
       <h3 className="text-3xl font-bold flex items-center justify-center gap-2 mb-6 text-black">
@@ -71,7 +95,27 @@ export default function LanguagesDepartmentPage() {
     </div>
   );
 
-  // 3. Objectives
+  // 4. Certificate Courses
+  const certCoursesContent = (
+    <div className="space-y-6">
+      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">CERTIFICATE COURSES</h2>
+      <Card className="bg-white border-2 border-primary text-black">
+        <CardContent className="pt-6">
+          <p className="text-lg text-black mb-4">The Department of Languages offers various certificate and add-on courses to enhance language proficiency and cultural understanding:</p>
+          <ul className="list-disc pl-5 space-y-2 text-black text-lg">
+            <li>Advanced Hindi/Kannada/Tamil Proficiency Certificate</li>
+            <li>Translation Skills Workshop</li>
+            <li>Literary Analysis and Creative Writing</li>
+            <li>Cultural Studies and Heritage Programs</li>
+            <li>Language Teaching Methodology (for aspiring teachers)</li>
+          </ul>
+          <p className="text-sm text-black mt-4 italic">Note: Certificate courses are offered periodically based on student interest and faculty availability. Contact the department for current offerings.</p>
+        </CardContent>
+      </Card>
+    </div>
+  );
+
+  // 5. Objectives
   const objContent = (
     <div className="max-w-3xl mx-auto">
       <Card className="h-full bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-8">
@@ -90,7 +134,7 @@ export default function LanguagesDepartmentPage() {
     </div>
   );
 
-  // 4. Outcomes
+  // 6. Outcomes
   const outcomesContent = (
     <div className="max-w-3xl mx-auto">
       <Card className="h-full bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-8">
@@ -137,7 +181,7 @@ export default function LanguagesDepartmentPage() {
     </div>
   );
 
-  // 5. Hindi
+  // 7. Hindi
   const hindiContent = (
     <div className="space-y-6">
       <Card className="border-2 border-primary bg-white">
@@ -149,7 +193,7 @@ export default function LanguagesDepartmentPage() {
     </div>
   );
 
-  // 6. Kannada
+  // 8. Kannada
   const kannadaContent = (
     <div className="space-y-6">
       <Card className="border-2 border-primary bg-white">
@@ -161,7 +205,7 @@ export default function LanguagesDepartmentPage() {
     </div>
   );
 
-  // 7. Tamil
+  // 9. Tamil
   const tamilContent = (
     <div className="space-y-6">
       <Card className="border-2 border-primary bg-white">
@@ -175,7 +219,7 @@ export default function LanguagesDepartmentPage() {
     </div>
   );
 
-  // 8. Events
+  // 10. Events
   const eventsContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">EVENTS</h2>
@@ -192,7 +236,7 @@ export default function LanguagesDepartmentPage() {
     </div>
   );
 
-  // 9. Faculty
+  // 11. Faculty
   const facultyContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">OUR FACULTY</h2>
@@ -231,7 +275,7 @@ export default function LanguagesDepartmentPage() {
     </div>
   );
 
-  // 10. Contact
+  // 12. Contact
   const contactContent = (
     <div className="max-w-lg mx-auto text-center" id="contact">
       <h2 className="text-3xl font-bold mb-8 text-black">CONTACT</h2>
@@ -255,7 +299,9 @@ export default function LanguagesDepartmentPage() {
 
   const sections = [
     { id: "highlights", label: "Highlights", content: highlightsContent },
+    { id: "facilities", label: "Facilities", content: facilitiesContent },
     { id: "vision", label: "Vision & Mission", content: visionContent },
+    { id: "certificate-courses", label: "Certificate Courses", content: certCoursesContent },
     { id: "objectives", label: "Course Objectives", content: objContent },
     { id: "outcomes", label: "Programme Outcome", content: outcomesContent },
     { id: "hindi", label: "Hindi", content: hindiContent },
