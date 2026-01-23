@@ -16,18 +16,9 @@ export default function IQACPage() {
         </CardHeader>
         <CardContent className="text-black space-y-4">
           <div className="space-y-6">
-            <p className="text-lg leading-relaxed">
-              The primary aim of IQAC is to develop a system for conscious, consistent and catalytic action to improve the academic and administrative performance of the institution.
-            </p>
             <ul className="list-disc pl-5 space-y-2 text-lg">
-              <li>To develop a quality culture as the prime concern for the Institution</li>
-              <li>To facilitate the creation of a learner-centric environment conducive to quality education and Faculty development</li>
-              <li>To arrange for feedback responses from students, parents and other stakeholders on quality related institutional processes</li>
-              <li>To disseminate information on various quality parameters to all stakeholders</li>
-              <li>To organize inter and intra institutional workshops, seminars on quality related themes and promotion of quality circles</li>
-              <li>To document various activities of the institutions leading to quality improvement</li>
-              <li>To act as a nodal agency of the Institution for coordinating quality related activities including adoption and dissemination of best practices</li>
-              <li>To develop and apply quality benchmarks/parameters for various academic and administrative activities of the Institution</li>
+              <li>To develop a system for conscious, consistent and catalytic action to improve the academic and administrative performance of the institution.</li>
+              <li>To promote measures for institutional functioning towards quality enhancement through internalization of quality culture and institutionalization of best practices.</li>
             </ul>
           </div>
         </CardContent>
@@ -46,9 +37,6 @@ export default function IQACPage() {
         </CardHeader>
         <CardContent className="text-black space-y-4">
           <div className="space-y-6">
-            <p className="text-lg leading-relaxed">
-              IQAC shall evolve mechanisms and procedures for ensuring optimal standards.
-            </p>
             <ul className="list-disc pl-5 space-y-2 text-lg">
               <li>Development and application of quality benchmarks/parameters for various academic and administrative activities of the institution</li>
               <li>Facilitating the creation of a learner-centric environment conducive to quality education and faculty maturation to adopt the required knowledge and technology for participatory teaching and learning process</li>
@@ -58,6 +46,7 @@ export default function IQACPage() {
               <li>Documentation of the various programmes/activities leading to quality improvement</li>
               <li>Acting as a nodal agency of the Institution for coordinating quality-related activities, including adoption and dissemination of best practices</li>
               <li>Development and maintenance of institutional database through MIS for the purpose of maintaining/enhancing the institutional quality</li>
+              <li>Development of Quality Culture in the institution</li>
               <li>Preparation of the Annual Quality Assurance Report (AQAR) as per guidelines and parameters of NAAC, to be submitted to NAAC</li>
             </ul>
           </div>
@@ -76,17 +65,19 @@ export default function IQACPage() {
           </CardTitle>
         </CardHeader>
         <CardContent className="text-black space-y-4">
-          <div className="space-y-6">
-            <ul className="list-disc pl-5 space-y-2 text-lg">
-              <li>Ensures timely, efficient and progressive performance of academic, administrative and financial tasks</li>
-              <li>Ensures the adequacy, maintenance and proper allocation of support structure and services</li>
-              <li>Facilitates a heightened level of clarity and focus in institutional functioning towards quality enhancement</li>
-              <li>Ensures enhancement and coordination among various activities including curricular and co-curricular aspects</li>
-              <li>Ensures the adequacy, maintenance and functioning of the support structure and services of the institution</li>
-              <li>Provides a sound basis for decision-making to improve institutional functioning</li>
-              <li>Acts as a dynamic system for quality changes in HEIs</li>
-              <li>Builds an organised methodology of documentation and internal communication</li>
-            </ul>
+          <div className="space-y-4 text-lg">
+            <p><strong>NIRF Participation:</strong> The College participates in the NIRF ranking every year.</p>
+            <p><strong>AISHE:</strong> Data is uploaded to the All India Survey on Higher Education portal every year.</p>
+            <p><strong>Feedback:</strong> Feedback is collected from various stakeholders like students, parents, alumni, and employers, analyzed, and action taken report is prepared and uploaded on the website.</p>
+            <p><strong>Result Analysis:</strong> Result analysis is done after every semester to identify advanced learners and slow learners.</p>
+            <p><strong>Audit:</strong> Academic and Administrative Audit is conducted to evaluate the performance of the institution.</p>
+            <p>
+              <strong>Fidelity to the requirements of NAAC:</strong>
+              <ul className="list-disc pl-8 mt-2">
+                <li>AQAR is submitted every year.</li>
+                <li>SSR is submitted for the accreditation process (First Cycle, Second Cycle, Third Cycle, and Fourth Cycle).</li>
+              </ul>
+            </p>
           </div>
         </CardContent>
       </Card>
