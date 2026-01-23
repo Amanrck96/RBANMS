@@ -24,7 +24,7 @@ export default function FacilitiesPage() {
       <Card className="bg-white border-2 border-primary">
         <CardContent className="pt-6 text-black text-lg leading-relaxed">
           <p>Creating an environment for better productivity and performance. Infrastructural Abundance: It is part of the basic policy of the promoters that infrastructural self-sufficiency is a pre-requisite for better productivity and performance in all the activities, more so for academic activities.</p>
-          <p className="mt-4">The Management has always been creating and updating academic and building infrastructure to meet the standards from time to time and to make life easy and stress-free in the campus. Today every bit of the vacant space is covered with lawns, trees, flower plants and gardens. It is an environment friendly campus, full of greenery, set in the heart of town.</p>
+          <p className="mt-4">The Management has always been creating and updating academic and building infrastructure to meet the standards from time to time and to make life easy and stress-free in the campus.</p>
         </CardContent>
       </Card>
     </div>
@@ -99,23 +99,20 @@ export default function FacilitiesPage() {
           <CardDescription className="text-black font-semibold">Timing: 8 A.M. to 5 P.M.</CardDescription>
         </CardHeader>
         <CardContent className="text-black space-y-4">
-          <div className="grid md:grid-cols-2 gap-6">
+          <p>The college library is large, with more than 40,000 volumes of books on all subjects. The collection supports the curriculum and is built through student-teacher suggestions.</p>
+          <div className="grid grid-cols-2 gap-4 bg-slate-50 p-6 rounded-lg">
             <div>
-              <h4 className="font-semibold text-black mb-2">Highlights</h4>
-              <ul className="list-disc pl-5 space-y-1 text-sm mb-4">
+              <h4 className="font-bold border-b mb-2">Highlights</h4>
+              <ul className="list-disc pl-5 text-sm">
                 <li>Reference Service</li>
                 <li>Reprographic Service</li>
                 <li>Internet Facilities</li>
-                <li>Tie up with British Council Library</li>
-                <li>Bangalore University Institutional membership</li>
                 <li>Open Access Service</li>
-                <li>Book Bank Facilities</li>
               </ul>
-              <p>The college library is large, with more than 40,000 volumes of books on all subjects. The collection supports the curriculum and is built through student-teacher suggestions.</p>
-              <p className="mt-2">The library is fully computerized with database search cataloging and offers borrowing facilities.</p>
             </div>
-            <div className="aspect-video bg-gray-100 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center h-full">
-              <span className="text-gray-500 flex items-center gap-2"><ImageIcon className="h-5 w-5" /> Image Space</span>
+            <div>
+              <h4 className="font-bold border-b mb-2">Timings</h4>
+              <p className="text-sm">8 A.M. to 5 P.M.</p>
             </div>
           </div>
         </CardContent>
