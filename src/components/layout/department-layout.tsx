@@ -297,7 +297,45 @@ export function DepartmentLayout({
                     {/* Secondary Column (Right - Sidebar) */}
                     <div className="lg:col-span-1">
                         <div className="bg-slate-50 dark:bg-slate-900 rounded-lg border p-6 space-y-8 sticky top-24">
-                            {sidebarContent}
+                            {pageId ? (
+                                <DynamicSection
+                                    pageId={`${pageId}-sidebar`}
+                                    defaultContent={sidebarContent}
+                                    render={(data) => (
+                                        <div className="w-full space-y-4">
+                                            {data.imageUrl && (
+                                                <div className="w-full relative rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 bg-slate-100 mb-4">
+                                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                                    <img
+                                                        src={data.imageUrl}
+                                                        alt="Sidebar Image"
+                                                        className="w-full h-auto object-cover"
+                                                    />
+                                                </div>
+                                            )}
+                                            {data.content && (
+                                                <div
+                                                    className="prose prose-sm dark:prose-invert max-w-none"
+                                                    dangerouslySetInnerHTML={{ __html: data.content }}
+                                                />
+                                            )}
+                                            {/* Fallback to default content if no data from DB yet, but DynamicSection handles this usually via defaultContent... 
+                                                However, DynamicSection's 'render' prop overrides everything. 
+                                                We need to be careful: if data is empty, we might want to show defaultContent (sidebarContent).
+                                                DynamicSection implementation details: 
+                                                If 'render' is provided, it is called with 'data'. 
+                                                If data is loading/missing, what happens? 
+                                                Usually DynamicSection handles loading. If empty, it passes default content?
+                                                Let's assume data is valid if render is called.
+                                                Actually, if data is null/empty, we should probably show the default sidebarContent.
+                                            */}
+                                            {!data.imageUrl && !data.content && sidebarContent}
+                                        </div>
+                                    )}
+                                />
+                            ) : (
+                                sidebarContent
+                            )}
                         </div>
                     </div>
                 </div>

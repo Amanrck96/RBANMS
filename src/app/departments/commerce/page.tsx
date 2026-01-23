@@ -24,29 +24,14 @@ export default function CommerceDepartmentPage() {
   // ... (existing code) ...
 
   const sidebarContent = (
-    <DynamicSection
-      pageId="dept-commerce-sidebar"
-      defaultImageUrl="/images/departments/commerce/group_photo.jpg"
-      render={(data) => (
-        <div className="w-full relative rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 bg-slate-100">
-          {data.imageUrl && (
-            /* eslint-disable-next-line @next/next/no-img-element */
-            <img
-              src={data.imageUrl}
-              alt="Department of Commerce Faculty and Activities"
-              className="w-full h-auto object-cover"
-            />
-          )}
-          {data.content && (
-            <div
-              className="p-4 prose prose-sm dark:prose-invert max-w-none bg-white/90"
-              dangerouslySetInnerHTML={{ __html: data.content }}
-            />
-          )}
-        </div>
-      )}
-      onlyContent={false} // We handle rendering via render prop
-    />
+    <div className="w-full relative rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 bg-slate-100">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/departments/commerce/group_photo.jpg"
+        alt="Department of Commerce Faculty and Activities"
+        className="w-full h-auto object-cover"
+      />
+    </div>
   );
   const whyBcomContent = (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
