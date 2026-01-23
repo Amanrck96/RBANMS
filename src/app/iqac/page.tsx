@@ -140,8 +140,21 @@ export default function IQACPage() {
           </CardHeader>
           <CardContent className="pt-4">
             <ul className="space-y-2">
-              <li className="text-gray-500">2024-25 (Coming Soon)</li>
-              <li className="text-gray-500">2023-24 (Coming Soon)</li>
+              <li>
+                <a href="https://drive.google.com/open?id=1VB_okbRdhm8Ll2tTNj27kfBVkxg1xj9F&usp=drive_copy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-2">
+                  <ExternalLink className="h-4 w-4" /> 2024-25
+                </a>
+              </li>
+              <li>
+                <a href="https://drive.google.com/open?id=1yCeCdJW-IJNq3r10gzKUqf5v0uXc-4-m&usp=drive_copy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-2">
+                  <ExternalLink className="h-4 w-4" /> 2023-24
+                </a>
+              </li>
+              <li>
+                <a href="https://drive.google.com/open?id=1xRihwynDNNPEGmcRLjyVXhSVXETyNB26&usp=drive_copy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-2">
+                  <ExternalLink className="h-4 w-4" /> 2022-23
+                </a>
+              </li>
             </ul>
           </CardContent>
         </Card>
