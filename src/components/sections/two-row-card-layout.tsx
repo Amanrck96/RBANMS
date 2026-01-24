@@ -140,7 +140,7 @@ export function TwoRowCardLayout() {
                                             dangerouslySetInnerHTML={{ __html: data.summary || 'Education must go beyond the syllabus and help prepare students for life so that their professional success is balanced with their personal, emotional, and spiritual wellbeing. Our student-centric approach keeps the campus energetic and purposeful.' }}
                                         />
 
-                                        {expandedCard === 'director' && !data.content && (
+                                        {expandedCard === 'director' && (
                                             <div className="mt-3 space-y-3">
                                                 <p>
                                                     At RBANM&apos;s First Grade College, we believe in nurturing not just academicians but well-rounded individuals who are equipped to face the challenges of the modern world. Our comprehensive approach to education ensures that students develop critical thinking, creativity, and leadership skills.
@@ -195,7 +195,7 @@ export function TwoRowCardLayout() {
                                             dangerouslySetInnerHTML={{ __html: data.summary || 'The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. The key objective of education at RBANM\'s First Grade College is to create efficient academicians, innovative entrepreneurs, and responsible citizens.' }}
                                         />
 
-                                        {expandedCard === 'principal' && !data.content && (
+                                        {expandedCard === 'principal' && (
                                             <div className="mt-3 space-y-3">
                                                 <p>
                                                     We are dedicated to fostering an educational experience that goes beyond textbooks. Our focus is on holistic development that encompasses intellectual growth, emotional maturity, and social responsibility.
