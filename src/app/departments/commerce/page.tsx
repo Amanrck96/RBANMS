@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { DepartmentLayout } from '@/components/layout/department-layout';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -17,22 +15,9 @@ import {
   GraduationCap
 } from 'lucide-react';
 
-import { DynamicSection } from '@/components/dynamic-section';
-
 export default function CommerceDepartmentPage() {
 
-  // ... (existing code) ...
-
-  const sidebarContent = (
-    <div className="w-full relative rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 bg-slate-100">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/images/departments/commerce/group_photo.jpg"
-        alt="Department of Commerce Faculty and Activities"
-        className="w-full h-auto object-cover"
-      />
-    </div>
-  );
+  // 1. Why B.COM?
   const whyBcomContent = (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="space-y-6 text-justify prose prose-lg dark:prose-invert max-w-none text-black">
@@ -152,7 +137,7 @@ export default function CommerceDepartmentPage() {
     </div>
   );
 
-  // 5. Paper Titles
+  // 5. Course Matrix
   const matrixContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 mb-8 text-black">COURSE MATRIX: CORE PAPERS</h2>
@@ -278,7 +263,6 @@ export default function CommerceDepartmentPage() {
     </div>
   );
 
-
   const sections = [
     { id: "why-bcom", label: "Why B.COM?", content: whyBcomContent },
     { id: "highlights", label: "Highlights", content: highlightsContent },
@@ -293,9 +277,7 @@ export default function CommerceDepartmentPage() {
   return (
     <DepartmentLayout
       title="Department of Commerce"
-      pageId="dept-commerce"
       tagline="Welcome to the Department of Commerce. The Commerce Department at RBANM’s First Grade College has been shaping capable and confident graduates since 1984. It offers a strong undergraduate program built on practical learning and steady innovation. The goal is clear: to improve every year and deliver education that meets global standards. Teaching blends traditional lectures with student centred methods that build real understanding. Role-plays, simulations, group work, discussions, debates, and case-based learning make the classroom active and engaging. The department also takes pride in practices that support all round development. Students gain exposure through service learning, peer mentoring, mental health and wellness initiatives, social outreach, research paper opportunities, a bridge course for non-commerce learners, and skill enhancement programs aligned with industry expectations."
-      sidebarContent={sidebarContent}
       sections={sections}
     />
   );
