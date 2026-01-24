@@ -1,34 +1,101 @@
-'use client';
 
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Book, CheckSquare, Languages, BrainCircuit } from 'lucide-react';
 import Link from 'next/link';
-import { DynamicSection } from '@/components/dynamic-section';
 
-export default function AcademicsIndexPage() {
-  const links = [
-    { label: 'Academic Structure', href: '/academics/academic-structure' },
-    { label: 'Courses Offered', href: '/academics/courses-offered' },
-    { label: 'New Courses', href: '/academics/new-courses' },
-    { label: 'Add-on Courses', href: '/academics/add-on-courses' },
-    { label: 'Philosophy of Teaching', href: '/academics/philosophy-of-teaching' },
-  ];
+const structure = {
+  duration: "There are 6 semesters to be covered for an undergraduate degree, with 2 semesters per academic year.",
+  courses: [
+    {
+      title: "Core Subject Courses",
+      icon: Book,
+      description: "Core courses in the chosen discipline. Options at RBANM's, depending on eligibility:",
+      options: [
+        { name: "Bachelor of Arts – B.A.", href: "/departments/arts" },
+        { name: "Bachelor of Commerce – B.Com.", href: "/departments/commerce" },
+        { name: "Bachelor of Business Management – B.B.A.", href: "/departments/management" },
+        { name: "Bachelor of Computer Applications – B.C.A.", href: "/departments/computer-applications" },
+      ],
+    },
+    {
+      title: "Compulsory English",
+      icon: Languages,
+      description: "Compulsory English courses over the first 4 semesters.",
+      href: "/departments/english",
+    },
+    {
+      title: "Compulsory Language",
+      icon: Languages,
+      description: "Compulsory Language courses over the first 4 semesters. Options include:",
+      options: [
+        { name: "Hindi" },
+        { name: "Kannada" },
+        { name: "Tamil" },
+        { name: "Additional English" },
+      ] as { name: string; href?: string }[],
+      href: "/departments/languages",
+    },
+    {
+      title: "Other Compulsory Courses",
+      icon: CheckSquare,
+      description: "Compulsory courses in subjects like Constitution, and Environmental Science as directed by Bengaluru City University.",
+    },
+    {
+      title: "Skill-Based & Vocational Courses",
+      icon: BrainCircuit,
+      description: "Offered in collaboration with external trainers. On completion of these courses, students earn a certificate of recognition.",
+      href: "/industry-connect/addon-programmes"
+    }
+  ],
+};
 
+
+export default function AcademicStructurePage() {
   return (
-    <div className="container mx-auto px-4 py-12">
-      <DynamicSection
-        pageId="academics-index"
-        defaultTitle="Academics"
-        defaultContent="<p className='text-lg mb-8'>Explore our academic structure, courses, and educational philosophy.</p>"
-      />
+    <div className="container mx-auto px-4 py-12 md:py-16">
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-3xl md:text-4xl font-bold text-primary font-headline">Academic Structure</CardTitle>
+        </CardHeader>
+        <CardContent className="pt-6 space-y-8">
+          <p className="text-lg text-muted-foreground">{structure.duration}</p>
+          <p className="text-lg text-muted-foreground">Each semester has the following courses:</p>
 
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8">
-        {links.map((l) => (
-          <li key={l.href} className="border rounded p-4 hover:bg-muted transition-colors">
-            <Link href={l.href} className="text-primary hover:underline font-semibold block h-full flex items-center">
-              {l.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
+          <div className="space-y-6">
+            {structure.courses.map((course, index) => (
+              <div key={index} className="flex items-start gap-4 p-4 border rounded-lg bg-secondary/50">
+                <course.icon className="h-8 w-8 text-primary mt-1" />
+                <div className="flex-1">
+                  <h3 className="font-bold text-xl text-primary">{course.title}</h3>
+                  <p className="text-muted-foreground mt-1">{course.description}</p>
+                  {course.options && (
+                    <ul className="mt-2 list-disc list-inside space-y-1">
+                      {course.options.map(opt => (
+                        <li key={opt.name}>
+                          {opt.href ? (
+                            <Link href={opt.href} className="text-primary hover:underline">
+                              {opt.name}
+                            </Link>
+                          ) : (
+                            <span className="text-muted-foreground">{opt.name}</span>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {course.href && !course.options && (
+                    <Link href={course.href} className="text-sm text-primary hover:underline mt-2 inline-block">
+                      Learn More
+                    </Link>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </CardContent>
+      </Card>
     </div>
   );
 }
+
