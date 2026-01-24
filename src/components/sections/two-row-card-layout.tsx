@@ -276,7 +276,7 @@ export function TwoRowCardLayout() {
                                             >
                                                 <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white transition-all duration-500 group-hover:shadow-primary/20 group-hover:scale-[1.03]">
                                                     <Image
-                                                        src={data.imageUrl || "/images/phoenix-magazine.png"}
+                                                        src="/images/phoenix-magazine-updated.png"
                                                         alt="RBANM Annual Magazine - Phoenix"
                                                         fill
                                                         className="object-cover"
