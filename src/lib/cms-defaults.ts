@@ -1361,36 +1361,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
                   </div>
                 </div>
 
-                <!-- Minutes of Meeting -->
-                <div class="border-2 border-primary rounded-lg overflow-hidden flex flex-col h-full bg-white">
-                  <div class="p-6 bg-slate-50 border-b">
-                     <h3 class="text-2xl font-semibold leading-none tracking-tight text-primary">Minutes of Meeting</h3>
-                  </div>
-                  <div class="p-6 pt-4">
-                    <ul class="space-y-2">
-                      <li>
-                        <a href="https://drive.google.com/open?id=1mXOdjIHWx3RcQxI3Eeq4-cAM6O1_uQoZ&usp=drive_copy" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline flex items-center gap-2">
-                           2024-25
-                        </a>
-                      </li>
-                      <li>
-                        <a href="https://drive.google.com/open?id=1xr1H03XzCeFKn9kC_8hCm_LQmCG9H4xz&usp=drive_copy" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline flex items-center gap-2">
-                           2023-24
-                        </a>
-                      </li>
-                      <li>
-                        <a href="https://drive.google.com/open?id=1xWHMYWNc8Zl2Z1Tf3sGUDVowvl-HVO4C&usp=drive_copy" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline flex items-center gap-2">
-                           2022-23
-                        </a>
-                      </li>
-                      <li>
-                        <a href="https://drive.google.com/open?id=1ZOdsVXLKkd9J_LDeLqtApRtUvNP5kVYP&usp=drive_copy" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline flex items-center gap-2">
-                           2021-22
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+
 
                 <!-- AISHE Certificate -->
                 <div class="border-2 border-primary rounded-lg overflow-hidden flex flex-col h-full bg-white">

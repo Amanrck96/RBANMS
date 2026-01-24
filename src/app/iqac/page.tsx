@@ -227,36 +227,7 @@ export default function IQACPage() {
           </CardContent>
         </Card>
 
-        {/* Minutes of Meeting */}
-        <Card className="border-2 border-primary">
-          <CardHeader className="bg-slate-50">
-            <CardTitle className="text-primary">Minutes of Meeting</CardTitle>
-          </CardHeader>
-          <CardContent className="pt-4">
-            <ul className="space-y-2">
-              <li>
-                <a href="https://drive.google.com/open?id=1mXOdjIHWx3RcQxI3Eeq4-cAM6O1_uQoZ&usp=drive_copy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-2">
-                  <ExternalLink className="h-4 w-4" /> 2024-25
-                </a>
-              </li>
-              <li>
-                <a href="https://drive.google.com/open?id=1xr1H03XzCeFKn9kC_8hCm_LQmCG9H4xz&usp=drive_copy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-2">
-                  <ExternalLink className="h-4 w-4" /> 2023-24
-                </a>
-              </li>
-              <li>
-                <a href="https://drive.google.com/open?id=1xWHMYWNc8Zl2Z1Tf3sGUDVowvl-HVO4C&usp=drive_copy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-2">
-                  <ExternalLink className="h-4 w-4" /> 2022-23
-                </a>
-              </li>
-              <li>
-                <a href="https://drive.google.com/open?id=1ZOdsVXLKkd9J_LDeLqtApRtUvNP5kVYP&usp=drive_copy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-2">
-                  <ExternalLink className="h-4 w-4" /> 2021-22
-                </a>
-              </li>
-            </ul>
-          </CardContent>
-        </Card>
+
 
         {/* AISHE Certificate */}
         <Card className="border-2 border-primary">
