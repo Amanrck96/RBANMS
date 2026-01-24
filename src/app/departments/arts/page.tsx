@@ -98,6 +98,8 @@ export default function ArtsDepartmentPage() {
         <CardContent className="pt-6">
           <ul className="space-y-3 list-decimal pl-5 text-lg">
             <li>B.A. with History, Economics, and Political Science</li>
+            <li>B.A. with Physical Education, History, and Political Science (Applied for)</li>
+            <li>B.A. with Journalism, History, and Economics (Applied for)</li>
             <li>Compulsory Course in Constitutional Values, for all streams</li>
           </ul>
         </CardContent>
@@ -315,17 +317,6 @@ export default function ArtsDepartmentPage() {
     </div>
   );
 
-  const sidebarContent = (
-    <div className="w-full relative rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 bg-slate-100">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/images/departments/arts/group_photo.jpg"
-        alt="Department of Arts Faculty and Activities"
-        className="w-full h-auto object-cover"
-      />
-    </div>
-  );
-
   const sections = [
     { id: "highlights", label: "Highlights", content: highlightsContent },
     { id: "skills", label: "Skills Developed", content: skillsContent },
@@ -344,9 +335,7 @@ export default function ArtsDepartmentPage() {
   return (
     <DepartmentLayout
       title="Department of Arts"
-      pageId="dept-arts"
       tagline="Welcome to the Department of Arts. We explore the World Through History, Economics and Political Science. In the Department of Arts, learning becomes a journey into understanding societies, ideas, systems and human thought. Our classrooms are vibrant spaces where curiosity meets scholarship, where discussions evolve into insights and every student grows into an observer, analyst and responsible citizen. Pursuing Arts is not just about studying past events, economic structures or political institution, it is about developing the ability to interpret change, evaluate issues and engage meaningfully with the world. To that end, we cultivate an inclusive and lively academic environment where every student’s perspective is valued and intellectual exploration encouraged. Beyond traditional teaching, we enrich learning through field visits, interactive sessions, projects, seminars, debates, group discussions, model parliaments, economic simulations and cross-disciplinary academic events, making the study of Arts dynamic, relevant and engaging."
-      sidebarContent={sidebarContent}
       sections={sections}
     />
   );
