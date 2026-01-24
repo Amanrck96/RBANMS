@@ -1,6 +1,7 @@
 import React from 'react';
 import { DepartmentLayout } from '@/components/layout/department-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { DocumentFolder } from '@/components/ui/document-folder';
 import { Target, Settings, TrendingUp, FileText, ExternalLink } from 'lucide-react';
 
 export default function IQACPage() {
@@ -109,140 +110,54 @@ export default function IQACPage() {
   );
 
   // 4. Documents Tab
+  // Document Data Definitions
+  const constitutionItems = [
+    { id: 'const-24-25', name: '2024-25', type: 'file' as const, url: 'https://drive.google.com/file/d/14TNINSLEJGsYgsVmd5sP-YtFqCDHxRrI/view?usp=sharing' },
+    { id: 'const-23-24', name: '2023-24', type: 'file' as const, url: 'https://drive.google.com/file/d/1GuJ3uCUFypLJysN8zvACzIIAAD36fYYm/view?usp=sharing' },
+    { id: 'const-22-23', name: '2022-23', type: 'file' as const, url: 'https://drive.google.com/file/d/1Ia7zdXiygkSfhHndRx7YTew_n5fW49DH/view?usp=sharing' },
+    { id: 'const-21-22', name: '2021-22', type: 'file' as const, url: 'https://drive.google.com/file/d/1z1JmqoR0U1nAmutVIzxEZ7vjaRjkrIfd/view?usp=sharing' },
+  ];
+
+  const sppItems = [
+    { id: 'spp-24-25', name: '2024-25 (Coming Soon)', type: 'file' as const },
+    { id: 'spp-23-24', name: '2023-24 (Coming Soon)', type: 'file' as const },
+  ];
+
+  const annualReportItems = [
+    { id: 'ar-24-25', name: '2024-25', type: 'file' as const, url: 'https://drive.google.com/open?id=1VB_okbRdhm8Ll2tTNj27kfBVkxg1xj9F&usp=drive_copy' },
+    { id: 'ar-23-24', name: '2023-24', type: 'file' as const, url: 'https://drive.google.com/open?id=1yCeCdJW-IJNq3r10gzKUqf5v0uXc-4-m&usp=drive_copy' },
+    { id: 'ar-22-23', name: '2022-23', type: 'file' as const, url: 'https://drive.google.com/open?id=1xRihwynDNNPEGmcRLjyVXhSVXETyNB26&usp=drive_copy' },
+  ];
+
+  const activitiesItems = [
+    { id: 'act-24-25', name: '2024-25 (Coming Soon)', type: 'file' as const },
+    { id: 'act-23-24', name: '2023-24 (Coming Soon)', type: 'file' as const },
+  ];
+
+  const membersItems = [
+    { id: 'mem-24-25', name: '2024-25', type: 'file' as const, url: 'https://drive.google.com/open?id=14TNINSLEJGsYgsVmd5sP-YtFqCDHxRrI&usp=drive_copy' },
+    { id: 'mem-23-24', name: '2023-24', type: 'file' as const, url: 'https://drive.google.com/open?id=1GuJ3uCUFypLJysN8zvACzIIAAD36fYYm&usp=drive_copy' },
+    { id: 'mem-22-23', name: '2022-23', type: 'file' as const, url: 'https://drive.google.com/open?id=1Ia7zdXiygkSfhHndRx7YTew_n5fW49DH&usp=drive_copy' },
+    { id: 'mem-21-22', name: '2021-22', type: 'file' as const, url: 'https://drive.google.com/open?id=1z1JmqoR0U1nAmutVIzxEZ7vjaRjkrIfd&usp=drive_copy' },
+  ];
+
+  const aisheItems = [
+    { id: 'aishe-24-25', name: '2024-25 (Coming Soon)', type: 'file' as const },
+    { id: 'aishe-23-24', name: '2023-24 (Coming Soon)', type: 'file' as const },
+    { id: 'aishe-22-23', name: '2022-23 (Coming Soon)', type: 'file' as const },
+    { id: 'aishe-21-22', name: '2021-22 (Coming Soon)', type: 'file' as const },
+  ];
+
   const documentsContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black uppercase">IQAC DOCUMENTS</h2>
-      <div className="grid md:grid-cols-2 gap-8">
-        {/* Constitution */}
-        <Card className="border-2 border-primary">
-          <CardHeader className="bg-slate-50">
-            <CardTitle className="text-primary">Constitution</CardTitle>
-          </CardHeader>
-          <CardContent className="pt-4">
-            <ul className="space-y-2">
-              <li>
-                <a href="https://drive.google.com/file/d/14TNINSLEJGsYgsVmd5sP-YtFqCDHxRrI/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-2">
-                  <ExternalLink className="h-4 w-4" /> 2024-25
-                </a>
-              </li>
-              <li>
-                <a href="https://drive.google.com/file/d/1GuJ3uCUFypLJysN8zvACzIIAAD36fYYm/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-2">
-                  <ExternalLink className="h-4 w-4" /> 2023-24
-                </a>
-              </li>
-              <li>
-                <a href="https://drive.google.com/file/d/1Ia7zdXiygkSfhHndRx7YTew_n5fW49DH/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-2">
-                  <ExternalLink className="h-4 w-4" /> 2022-23
-                </a>
-              </li>
-              <li>
-                <a href="https://drive.google.com/file/d/1z1JmqoR0U1nAmutVIzxEZ7vjaRjkrIfd/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-2">
-                  <ExternalLink className="h-4 w-4" /> 2021-22
-                </a>
-              </li>
-            </ul>
-          </CardContent>
-        </Card>
-
-        {/* Annual SPP */}
-        <Card className="border-2 border-primary">
-          <CardHeader className="bg-slate-50">
-            <CardTitle className="text-primary">Annual SPP</CardTitle>
-          </CardHeader>
-          <CardContent className="pt-4">
-            <ul className="space-y-2">
-              <li className="text-gray-500">2024-25 (Coming Soon)</li>
-              <li className="text-gray-500">2023-24 (Coming Soon)</li>
-            </ul>
-          </CardContent>
-        </Card>
-
-        {/* Annual Report */}
-        <Card className="border-2 border-primary">
-          <CardHeader className="bg-slate-50">
-            <CardTitle className="text-primary">Annual Report</CardTitle>
-          </CardHeader>
-          <CardContent className="pt-4">
-            <ul className="space-y-2">
-              <li>
-                <a href="https://drive.google.com/open?id=1VB_okbRdhm8Ll2tTNj27kfBVkxg1xj9F&usp=drive_copy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-2">
-                  <ExternalLink className="h-4 w-4" /> 2024-25
-                </a>
-              </li>
-              <li>
-                <a href="https://drive.google.com/open?id=1yCeCdJW-IJNq3r10gzKUqf5v0uXc-4-m&usp=drive_copy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-2">
-                  <ExternalLink className="h-4 w-4" /> 2023-24
-                </a>
-              </li>
-              <li>
-                <a href="https://drive.google.com/open?id=1xRihwynDNNPEGmcRLjyVXhSVXETyNB26&usp=drive_copy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-2">
-                  <ExternalLink className="h-4 w-4" /> 2022-23
-                </a>
-              </li>
-            </ul>
-          </CardContent>
-        </Card>
-
-        {/* Activities */}
-        <Card className="border-2 border-primary">
-          <CardHeader className="bg-slate-50">
-            <CardTitle className="text-primary">Activities</CardTitle>
-          </CardHeader>
-          <CardContent className="pt-4">
-            <ul className="space-y-2">
-              <li className="text-gray-500">2024-25 (Coming Soon)</li>
-              <li className="text-gray-500">2023-24 (Coming Soon)</li>
-            </ul>
-          </CardContent>
-        </Card>
-
-        {/* Cell/Committee Members */}
-        <Card className="border-2 border-primary">
-          <CardHeader className="bg-slate-50">
-            <CardTitle className="text-primary">Cell / Committee Members</CardTitle>
-          </CardHeader>
-          <CardContent className="pt-4">
-            <ul className="space-y-2">
-              <li>
-                <a href="https://drive.google.com/open?id=14TNINSLEJGsYgsVmd5sP-YtFqCDHxRrI&usp=drive_copy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-2">
-                  <ExternalLink className="h-4 w-4" /> 2024-25
-                </a>
-              </li>
-              <li>
-                <a href="https://drive.google.com/open?id=1GuJ3uCUFypLJysN8zvACzIIAAD36fYYm&usp=drive_copy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-2">
-                  <ExternalLink className="h-4 w-4" /> 2023-24
-                </a>
-              </li>
-              <li>
-                <a href="https://drive.google.com/open?id=1Ia7zdXiygkSfhHndRx7YTew_n5fW49DH&usp=drive_copy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-2">
-                  <ExternalLink className="h-4 w-4" /> 2022-23
-                </a>
-              </li>
-              <li>
-                <a href="https://drive.google.com/open?id=1z1JmqoR0U1nAmutVIzxEZ7vjaRjkrIfd&usp=drive_copy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-2">
-                  <ExternalLink className="h-4 w-4" /> 2021-22
-                </a>
-              </li>
-            </ul>
-          </CardContent>
-        </Card>
-
-
-
-        {/* AISHE Certificate */}
-        <Card className="border-2 border-primary">
-          <CardHeader className="bg-slate-50">
-            <CardTitle className="text-primary">AISHE Certificate</CardTitle>
-          </CardHeader>
-          <CardContent className="pt-4">
-            <ul className="space-y-2">
-              <li className="text-gray-500">2024-25 (Coming Soon)</li>
-              <li className="text-gray-500">2023-24 (Coming Soon)</li>
-              <li className="text-gray-500">2022-23 (Coming Soon)</li>
-              <li className="text-gray-500">2021-22 (Coming Soon)</li>
-            </ul>
-          </CardContent>
-        </Card>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <DocumentFolder title="Constitution" items={constitutionItems} />
+        <DocumentFolder title="Annual SPP" items={sppItems} />
+        <DocumentFolder title="Annual Report" items={annualReportItems} />
+        <DocumentFolder title="Activities" items={activitiesItems} />
+        <DocumentFolder title="Cell / Committee Members" items={membersItems} />
+        <DocumentFolder title="AISHE Certificate" items={aisheItems} />
       </div>
     </div>
   );
