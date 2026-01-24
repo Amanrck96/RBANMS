@@ -2,7 +2,6 @@ import React from 'react';
 import { DepartmentLayout } from '@/components/layout/department-layout';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import Image from 'next/image';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   Briefcase,
@@ -131,7 +130,7 @@ export default function ManagementDepartmentPage() {
     </div>
   );
 
-  // 5. Paper Titles
+  // 5. Course Matrix
   const matrixContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 mb-8 text-black">COURSE MATRIX</h2>
@@ -231,15 +230,6 @@ export default function ManagementDepartmentPage() {
   const facultyContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">OUR FACULTY</h2>
-      <div className="mb-6 relative w-full aspect-[16/9] md:aspect-[21/9] rounded-xl overflow-hidden shadow-md">
-        <Image
-          src="/images/departments/management-faculty.jpg"
-          alt="Department of Management Faculty"
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {[
           { name: "Prof. Priya K", role: "Head of the Department – Management", qual: "MBA, MMM, (Ph.D)", email: "priyamahesh09@gmail.com", phone: "9880213203" },
@@ -268,18 +258,6 @@ export default function ManagementDepartmentPage() {
     </div>
   );
 
-  const sidebarContent = (
-    <div className="w-full aspect-[4/3] relative rounded-xl overflow-hidden shadow-lg border-2 border-primary/20">
-      <Image
-        src="/images/departments/management-faculty.jpg"
-        alt="Department of Management Faculty"
-        fill
-        className="object-cover"
-        priority
-      />
-    </div>
-  );
-
   const sections = [
     { id: "why-bba", label: "Why BBA?", content: whyBbaContent },
     { id: "skills", label: "Skill Set Acquired", content: skillSetContent },
@@ -295,9 +273,7 @@ export default function ManagementDepartmentPage() {
   return (
     <DepartmentLayout
       title="Department of Management Studies"
-      pageId="dept-management"
       tagline="Welcome to the Department of Management Studies. At RBANM’s First Grade College, the Department of Management blends the art of people management with the science of market dynamics. Bachelor of Business Administration (BBA) program, with dual specializations in Human Resources and Marketing, equips students with the skills to lead, innovate, and adapt in today’s evolving business environment. The curriculum integrates theoretical knowledge with practical exposure, ensuring graduates are prepared for both corporate and entrepreneurial roles. Through interactive learning, real-world projects, and mentorship from experienced faculty, students develop the confidence and competence required to excel in competitive global markets."
-      sidebarContent={sidebarContent}
       sections={sections}
     />
   );
