@@ -796,7 +796,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
                                                                                                                                                                                                                                                                 < li > Second and First Year students will begin classes on January 27. </li>
                                                                                                                                                                                                                                                                     </ul>
                                                                                                                                                                                                                                                                         `,
-        brochure_image: '/images/phoenix-magazine.png',
+        brochure_image: '/images/college-brochure-updated.png',
         brochure_alt: 'College Magazine',
         upcoming_events_text: [
             'Internal Assessment - Jan 20',

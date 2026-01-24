@@ -8,6 +8,7 @@ import { Calendar, Bell, FileText, Star, Clock, BookOpen } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { db } from '@/lib/firebase-client';
 import { doc, onSnapshot } from 'firebase/firestore';
+import { CMS_DEFAULTS } from '@/lib/cms-defaults';
 
 export function SidebarCards() {
     return (
@@ -18,7 +19,7 @@ export function SidebarCards() {
                 const majorEventImage = data?.major_events_image || data?.major_events?.image || '/images/hero/hero-1.jpg';
                 const majorEventItems = data?.major_events_text || data?.major_events?.items || ['Annual Sports Day', 'Cultural Fest 2026', 'Inter-college Debate'];
 
-                const brochureImage = data?.brochure_image || '/images/college-brochure.png';
+                const brochureImage = data?.brochure_image || CMS_DEFAULTS['8'].brochure_image || '/images/college-brochure-updated.png';
                 const brochureLink = data?.brochure_link || "https://drive.google.com/file/d/1CzrsV32FaXRc79ZHvfneH4dZbinqriDH/view?usp=sharing";
 
                 // Use data from page-8 exclusively
