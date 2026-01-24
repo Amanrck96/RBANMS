@@ -943,7 +943,36 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     },
     'academics-structure': {
         title: 'Academic Structure',
-        content: '<p>Our academic structure follows the Bangalore City University guidelines with NEP integration.</p>'
+        content: `
+            <p class="text-lg mb-6">There are 6 semesters to be covered for an undergraduate degree, with 2 semesters per academic year.</p>
+            <p class="text-lg mb-8">Each semester has the following courses:</p>
+            <div class="space-y-6">
+                <div class="flex items-start gap-4 p-4 border rounded-lg bg-gray-50">
+                    <div>
+                        <h3 class="font-bold text-xl text-primary">Core Subject Courses</h3>
+                        <p class="text-gray-600 mt-1">Core courses in the chosen discipline. Options at RBANM's include B.A., B.Com., B.B.A., and B.C.A.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 border rounded-lg bg-gray-50">
+                    <div>
+                        <h3 class="font-bold text-xl text-primary">Compulsory English</h3>
+                        <p class="text-gray-600 mt-1">Compulsory English courses over the first 4 semesters.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 border rounded-lg bg-gray-50">
+                    <div>
+                        <h3 class="font-bold text-xl text-primary">Compulsory Language</h3>
+                        <p class="text-gray-600 mt-1">Compulsory Language courses over the first 4 semesters (Hindi, Kannada, Tamil, or Additional English).</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 border rounded-lg bg-gray-50">
+                    <div>
+                        <h3 class="font-bold text-xl text-primary">Skill-Based & Vocational Courses</h3>
+                        <p class="text-gray-600 mt-1">Offered in collaboration with external trainers with certificate of recognition.</p>
+                    </div>
+                </div>
+            </div>
+        `
     },
     'academics-philosophy': {
         title: 'Philosophy of Teaching',
