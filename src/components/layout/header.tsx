@@ -81,7 +81,7 @@ export function SiteHeader() {
                     <DropdownMenuTrigger asChild>
                       <button
                         type="button"
-                        className="flex items-center gap-0.5 hover:bg-white/10 rounded px-1.5 py-0.5 text-white font-normal normal-case whitespace-nowrap"
+                        className="flex items-center gap-0.5 hover:bg-white/10 rounded px-1.5 py-0.5 !text-white font-normal normal-case whitespace-nowrap"
                       >
                         <span className="hover:underline underline-offset-4">{link.label}</span>
                         <ChevronDown className="h-3 w-3" />
@@ -93,7 +93,7 @@ export function SiteHeader() {
                           <div key={item.label} className="px-2 py-2">
                             <Link
                               href={item.href!}
-                              className="block text-white font-semibold hover:underline underline-offset-4"
+                              className="block !text-white font-semibold hover:underline underline-offset-4"
                             >
                               {item.label}
                             </Link>
@@ -104,7 +104,7 @@ export function SiteHeader() {
                                     {child.label}
                                   </DropdownMenuItem>
                                 ) : (
-                                  <DropdownMenuItem key={child.href ?? child.label} asChild className="text-white focus:bg-white/10 focus:text-white">
+                                  <DropdownMenuItem key={child.href ?? child.label} asChild className="!text-white focus:bg-white/10 focus:text-white">
                                     <Link href={child.href!}>{child.label}</Link>
                                   </DropdownMenuItem>
                                 )
@@ -116,7 +116,7 @@ export function SiteHeader() {
                             {item.label}
                           </DropdownMenuItem>
                         ) : (
-                          <DropdownMenuItem key={item.href ?? item.label} asChild className="text-white focus:bg-white/10 focus:text-white">
+                          <DropdownMenuItem key={item.href ?? item.label} asChild className="!text-white focus:bg-white/10 focus:text-white">
                             <Link href={item.href!}>{item.label}</Link>
                           </DropdownMenuItem>
                         )
@@ -124,7 +124,7 @@ export function SiteHeader() {
                     </DropdownMenuContent>
                   </DropdownMenu>
                 ) : (
-                  <Link href={link.href} className="hover:underline underline-offset-4 normal-case hover:bg-white/10 px-1.5 py-0.5 rounded whitespace-nowrap">
+                  <Link href={link.href} className="!text-white hover:underline underline-offset-4 normal-case hover:bg-white/10 px-1.5 py-0.5 rounded whitespace-nowrap">
                     {link.label}
                   </Link>
                 )}
@@ -157,7 +157,7 @@ export function SiteHeader() {
                             <Accordion type="single" collapsible className="border-white/10">
                               <AccordionItem value={link.label} className="border-white/10">
                                 <AccordionTrigger className="text-white text-base !font-normal font-body hover:underline underline-offset-4 normal-case hover:no-underline">
-                                  <span className="block w-full rounded px-2 py-1.5 text-white text-base !font-normal font-body hover:bg-white/10 text-left">
+                                  <span className="block w-full rounded px-2 py-1.5 !text-white text-base !font-normal font-body hover:bg-white/10 text-left">
                                     {link.label}
                                   </span>
                                 </AccordionTrigger>
@@ -167,7 +167,7 @@ export function SiteHeader() {
                                       <li key={(item.href ?? item.label)}>
                                         {item.children && item.children.length ? (
                                           <div>
-                                            <Link href={item.href!} className="block px-2 py-1.5 text-white font-semibold hover:bg-white/10 hover:underline underline-offset-4">
+                                            <Link href={item.href!} className="block px-2 py-1.5 !text-white font-semibold hover:bg-white/10 hover:underline underline-offset-4">
                                               {item.label}
                                             </Link>
                                             <ul className="mt-1 space-y-1 pl-2">
@@ -180,7 +180,7 @@ export function SiteHeader() {
                                                   ) : (
                                                     <Link
                                                       href={child.href!}
-                                                      className="block rounded px-2 py-1.5 text-white text-base font-normal font-body hover:bg-white/10"
+                                                      className="block rounded px-2 py-1.5 !text-white text-base font-normal font-body hover:bg-white/10"
                                                     >
                                                       {child.label}
                                                     </Link>
@@ -212,7 +212,7 @@ export function SiteHeader() {
                           ) : (
                             <Link
                               href={link.href}
-                              className="block rounded px-2 py-2 text-white text-base font-normal font-body hover:bg-white/10 hover:underline underline-offset-4 normal-case"
+                              className="block rounded px-2 py-2 !text-white text-base font-normal font-body hover:bg-white/10 hover:underline underline-offset-4 normal-case"
                             >
                               {link.label}
                             </Link>
