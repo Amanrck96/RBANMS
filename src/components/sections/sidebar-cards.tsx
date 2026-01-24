@@ -19,7 +19,7 @@ export function SidebarCards() {
                 const majorEventImage = data?.major_events_image || data?.major_events?.image || '/images/hero/hero-1.jpg';
                 const majorEventItems = data?.major_events_text || data?.major_events?.items || ['Annual Sports Day', 'Cultural Fest 2026', 'Inter-college Debate'];
 
-                const brochureImage = data?.brochure_image || CMS_DEFAULTS['8'].brochure_image || '/images/college-brochure-updated.png';
+                const brochureImage = '/images/college-brochure-updated.png';
                 const brochureLink = data?.brochure_link || "https://drive.google.com/file/d/1CzrsV32FaXRc79ZHvfneH4dZbinqriDH/view?usp=sharing";
 
                 // Use data from page-8 exclusively
