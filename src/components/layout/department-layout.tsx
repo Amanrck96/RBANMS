@@ -8,8 +8,6 @@ import { Badge } from '@/components/ui/badge';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { DynamicSection } from '@/components/dynamic-section';
-import { SiteHeader } from '@/components/layout/header';
-import { SiteFooter } from '@/components/layout/footer';
 
 interface NavItem {
     label: string;
@@ -150,7 +148,6 @@ export function DepartmentLayout({
     if (sections && sections.length > 0) {
         return (
             <div className="flex min-h-screen flex-col bg-background text-foreground font-sans">
-                <SiteHeader />
                 <main className="flex-grow">
                     {/* 1. Full-width Header Band */}
                     <HeaderContent showSidebar={true} />
@@ -185,7 +182,6 @@ export function DepartmentLayout({
                         </div>
                     </Tabs>
                 </main>
-                <SiteFooter />
             </div>
         );
     }
@@ -199,7 +195,6 @@ export function DepartmentLayout({
 
     return (
         <div className="flex min-h-screen flex-col bg-background text-foreground font-sans">
-            <SiteHeader />
             <main className="flex-grow">
                 {/* 1. Full-width Header Band */}
                 <HeaderContent />
@@ -276,7 +271,6 @@ export function DepartmentLayout({
                     )}
                 </div>
             </main>
-            <SiteFooter />
         </div>
     );
 }

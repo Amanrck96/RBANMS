@@ -75,6 +75,11 @@ main :where(p, li, span, small, strong, em, td, th, figcaption, label) {
   color: #000 !important;
 }
 
+header :where(p, li, span, small, strong, em, a, button, div, section),
+footer :where(p, li, span, small, strong, em, a, button, div, section) {
+  color: inherit !important;
+}
+
 /* Body content icons: set to maroon across pages */
 main :where(svg) {
   color: #800000 !important;

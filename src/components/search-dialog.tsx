@@ -245,7 +245,7 @@ export function SearchDialog() {
                     className="flex items-center justify-center p-2 text-white hover:bg-white/10 rounded-full transition-colors"
                     aria-label="Search website"
                 >
-                    <Search className="h-5 w-5" />
+                    <Search className="h-5 w-5 !text-white" />
                 </button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[550px] p-0 gap-0">

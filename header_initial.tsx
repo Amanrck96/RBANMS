@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, Mail, ChevronDown, Menu } from "lucide-react";
@@ -42,7 +42,7 @@ export function SiteHeader() {
           {/* Logo */}
           <div className="flex flex-col md:flex-row items-center gap-3 w-full justify-end">
             <div className="flex items-center gap-2 text-yellow-400">
-              <Phone className="h-4 w-4 !text-yellow-400" />
+              <Phone className="h-4 w-4" />
               <span className="flex flex-col md:flex-row md:gap-2 text-center md:text-left">
                 {settings?.phone ? (
                   <span>Phone: <a href={`tel:${settings.phone}`} className="hover:underline">{settings.phone}</a></span>
@@ -57,7 +57,7 @@ export function SiteHeader() {
             </div>
             <div className="hidden md:block h-4 w-px bg-white/20 mx-1" />
             <a href={`mailto:${settings?.email || 'info@rbanmsfgc.edu.in'}`} className="flex items-center gap-2 hover:underline underline-offset-4 text-yellow-400">
-              <Mail className="h-4 w-4 !text-yellow-400" />
+              <Mail className="h-4 w-4" />
               Via e-mail: {settings?.email || 'info@rbanmsfgc.edu.in'}
             </a>
             <div className="h-4 w-px bg-white/20 mx-1" />
@@ -75,16 +75,16 @@ export function SiteHeader() {
           {/* Desktop Links */}
           <ul className="hidden lg:flex flex-nowrap items-center gap-1 text-xs text-white">
             {headerLinks.map((link) => (
-              <li key={link.href} className="shrink-0 !text-white">
+              <li key={link.href} className="shrink-0">
                 {dropdownItems[link.label]?.length ? (
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <button
                         type="button"
-                        className="flex items-center gap-0.5 hover:bg-white/10 rounded px-1.5 py-0.5 !text-white font-normal normal-case whitespace-nowrap group"
+                        className="flex items-center gap-0.5 hover:bg-white/10 rounded px-1.5 py-0.5 !text-white font-normal normal-case whitespace-nowrap"
                       >
-                        <span className="hover:underline underline-offset-4 !text-white">{link.label}</span>
-                        <ChevronDown className="h-3 w-3 !text-white" />
+                        <span className="hover:underline underline-offset-4">{link.label}</span>
+                        <ChevronDown className="h-3 w-3" />
                       </button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="start" className="bg-[#800000] border-white/10 text-white">
@@ -139,9 +139,9 @@ export function SiteHeader() {
                 <button
                   type="button"
                   aria-label="Open navigation menu"
-                  className="inline-flex items-center justify-center rounded-md border border-white/30 px-3 py-2 text-white shadow-sm hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-900 [&_svg]:!text-white"
+                  className="inline-flex items-center justify-center rounded-md border border-white/30 px-3 py-2 text-white shadow-sm hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-900"
                 >
-                  <Menu className="h-5 w-5 !text-white" />
+                  <Menu className="h-5 w-5" />
                 </button>
               </SheetTrigger>
               <SheetContent side="left" className="bg-[#800000] border-r-white/10 text-white">
@@ -156,7 +156,7 @@ export function SiteHeader() {
                           {dropdownItems[link.label]?.length ? (
                             <Accordion type="single" collapsible className="border-white/10">
                               <AccordionItem value={link.label} className="border-white/10">
-                                <AccordionTrigger className="!text-white text-base !font-normal font-body hover:underline underline-offset-4 normal-case hover:no-underline [&_svg]:!text-white">
+                                <AccordionTrigger className="text-white text-base !font-normal font-body hover:underline underline-offset-4 normal-case hover:no-underline">
                                   <span className="block w-full rounded px-2 py-1.5 !text-white text-base !font-normal font-body hover:bg-white/10 text-left">
                                     {link.label}
                                   </span>
@@ -197,7 +197,7 @@ export function SiteHeader() {
                                           ) : (
                                             <Link
                                               href={item.href!}
-                                              className="block rounded px-2 py-1.5 !text-white text-base font-normal font-body hover:bg-white/10"
+                                              className="block rounded px-2 py-1.5 text-white text-base font-normal font-body hover:bg-white/10"
                                             >
                                               {item.label}
                                             </Link>
