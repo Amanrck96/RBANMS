@@ -2,7 +2,6 @@ import React from 'react';
 import { DepartmentLayout } from '@/components/layout/department-layout';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import Image from 'next/image';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   Languages,
@@ -45,31 +44,7 @@ export default function LanguagesDepartmentPage() {
     </div>
   );
 
-  // 2. Facilities
-  const facilitiesContent = (
-    <div className="space-y-6">
-      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">FACILITIES</h2>
-      <Card className="bg-white border-2 border-primary text-black">
-        <CardContent className="pt-6">
-          <ul className="space-y-4">
-            {[
-              "Well-stocked library with extensive collection of regional language literature, reference materials, and journals",
-              "Language learning resources including audio-visual materials and digital content",
-              "Access to college auditorium and seminar halls for cultural events and literary programs",
-              "Classroom facilities equipped for interactive language learning",
-              "Cultural activity spaces for traditional performances and celebrations"
-            ].map((item, i) => (
-              <li key={i} className="flex gap-3 text-base text-black">
-                <span className="text-primary font-bold">•</span> {item}
-              </li>
-            ))}
-          </ul>
-        </CardContent>
-      </Card>
-    </div>
-  );
-
-  // 3. Vision & Mission
+  // 2. Vision & Mission
   const visionContent = (
     <div className="mx-auto w-full max-w-3xl border-2 border-dashed border-primary/30 rounded-xl p-8 bg-white text-center">
       <h3 className="text-3xl font-bold flex items-center justify-center gap-2 mb-6 text-black">
@@ -95,27 +70,7 @@ export default function LanguagesDepartmentPage() {
     </div>
   );
 
-  // 4. Certificate Courses
-  const certCoursesContent = (
-    <div className="space-y-6">
-      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">CERTIFICATE COURSES</h2>
-      <Card className="bg-white border-2 border-primary text-black">
-        <CardContent className="pt-6">
-          <p className="text-lg text-black mb-4">The Department of Languages offers various certificate and add-on courses to enhance language proficiency and cultural understanding:</p>
-          <ul className="list-disc pl-5 space-y-2 text-black text-lg">
-            <li>Advanced Hindi/Kannada/Tamil Proficiency Certificate</li>
-            <li>Translation Skills Workshop</li>
-            <li>Literary Analysis and Creative Writing</li>
-            <li>Cultural Studies and Heritage Programs</li>
-            <li>Language Teaching Methodology (for aspiring teachers)</li>
-          </ul>
-          <p className="text-sm text-black mt-4 italic">Note: Certificate courses are offered periodically based on student interest and faculty availability. Contact the department for current offerings.</p>
-        </CardContent>
-      </Card>
-    </div>
-  );
-
-  // 5. Objectives
+  // 3. Objectives
   const objContent = (
     <div className="max-w-3xl mx-auto">
       <Card className="h-full bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-8">
@@ -134,7 +89,7 @@ export default function LanguagesDepartmentPage() {
     </div>
   );
 
-  // 6. Outcomes
+  // 4. Outcomes
   const outcomesContent = (
     <div className="max-w-3xl mx-auto">
       <Card className="h-full bg-white text-black border-2 border-primary flex flex-col justify-center text-center p-8">
@@ -181,7 +136,7 @@ export default function LanguagesDepartmentPage() {
     </div>
   );
 
-  // 7. Hindi
+  // 5. Hindi
   const hindiContent = (
     <div className="space-y-6">
       <Card className="border-2 border-primary bg-white">
@@ -193,7 +148,7 @@ export default function LanguagesDepartmentPage() {
     </div>
   );
 
-  // 8. Kannada
+  // 6. Kannada
   const kannadaContent = (
     <div className="space-y-6">
       <Card className="border-2 border-primary bg-white">
@@ -205,7 +160,7 @@ export default function LanguagesDepartmentPage() {
     </div>
   );
 
-  // 9. Tamil
+  // 7. Tamil
   const tamilContent = (
     <div className="space-y-6">
       <Card className="border-2 border-primary bg-white">
@@ -219,7 +174,7 @@ export default function LanguagesDepartmentPage() {
     </div>
   );
 
-  // 10. Events
+  // 8. Events
   const eventsContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">EVENTS</h2>
@@ -236,19 +191,10 @@ export default function LanguagesDepartmentPage() {
     </div>
   );
 
-  // 11. Faculty
+  // 9. Faculty
   const facultyContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">OUR FACULTY</h2>
-      <div className="mb-6 relative w-full aspect-[16/9] md:aspect-[21/9] rounded-xl overflow-hidden shadow-md">
-        <Image
-          src="/images/departments/languages-faculty.jpg"
-          alt="Department of Languages Faculty and Staff"
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
           { name: "Dr. Sunil Kumar", role: "Head of the Department Languages, Asst. Professor - Hindi", qual: "M.A. , B.Ed ,Ph.D.", email: "sunilkumarshetty1977@gmail.com" },
@@ -275,7 +221,7 @@ export default function LanguagesDepartmentPage() {
     </div>
   );
 
-  // 12. Contact
+  // 10. Contact
   const contactContent = (
     <div className="max-w-lg mx-auto text-center" id="contact">
       <h2 className="text-3xl font-bold mb-8 text-black">CONTACT</h2>
@@ -285,23 +231,9 @@ export default function LanguagesDepartmentPage() {
     </div>
   );
 
-  const sidebarContent = (
-    <div className="w-full aspect-[4/3] relative rounded-xl overflow-hidden shadow-lg border-2 border-primary/20">
-      <Image
-        src="/images/departments/languages-faculty.jpg"
-        alt="Department of Languages Faculty"
-        fill
-        className="object-cover"
-        priority
-      />
-    </div>
-  );
-
   const sections = [
     { id: "highlights", label: "Highlights", content: highlightsContent },
-    { id: "facilities", label: "Facilities", content: facilitiesContent },
     { id: "vision", label: "Vision & Mission", content: visionContent },
-    { id: "certificate-courses", label: "Certificate Courses", content: certCoursesContent },
     { id: "objectives", label: "Course Objectives", content: objContent },
     { id: "outcomes", label: "Programme Outcome", content: outcomesContent },
     { id: "hindi", label: "Hindi", content: hindiContent },
@@ -315,9 +247,7 @@ export default function LanguagesDepartmentPage() {
   return (
     <DepartmentLayout
       title="Department of Languages"
-      pageId="dept-languages"
       tagline="Welcome to the Department of Languages. At RBANM’s First Grade College, Language Study is offered as a second language, other than the compulsory course in English. This is as prescribed by Bengaluru City University for students across all steams of BA, BCA, B.COM, and BBA. The language option offered are: Tamil, Kannada, Hindi, Additional English (only for eligible students, conducted by the Department of English)"
-      sidebarContent={sidebarContent}
       sections={sections}
     />
   );
