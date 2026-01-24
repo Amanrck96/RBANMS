@@ -1,19 +1,13 @@
-
-import { SiteHeader } from '@/components/layout/header';
-import { SiteFooter } from '@/components/layout/footer';
-
 export default function FacilitiesLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen flex-col">
-      <SiteHeader />
-      <main className="flex-grow bg-background">
+    <div className="flex min-h-screen flex-col bg-background">
+      <main className="flex-grow">
         {children}
       </main>
-      <SiteFooter />
     </div>
   );
 }
