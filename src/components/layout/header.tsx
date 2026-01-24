@@ -41,23 +41,23 @@ export function SiteHeader() {
         <div className="relative mx-auto max-w-7xl px-2 py-1 flex flex-col md:flex-row items-center md:justify-center gap-2 text-xs">
           {/* Logo */}
           <div className="flex flex-col md:flex-row items-center gap-3 w-full justify-end">
-            <div className="flex items-center gap-2 text-yellow-400">
-              <Phone className="h-4 w-4 !text-yellow-400" />
+            <div className="flex items-center gap-2 text-[#FFD700]">
+              <Phone className="h-4 w-4 text-[#FFD700]" />
               <span className="flex flex-col md:flex-row md:gap-2 text-center md:text-left">
                 {settings?.phone ? (
-                  <span>Phone: <a href={`tel:${settings.phone}`} className="hover:underline">{settings.phone}</a></span>
+                  <span>Phone: <a href={`tel:${settings.phone}`} className="hover:underline text-[#FFD700]"> {settings.phone}</a></span>
                 ) : (
                   <>
-                    <span>Landline: <a href="tel:08041653395" className="hover:underline">080-41653395</a> / <a href="tel:08025512976" className="hover:underline">080-25512976</a></span>
-                    <span className="hidden md:inline">|</span>
-                    <span>Mobile: <a href="tel:7349251497" className="hover:underline">7349251497</a></span>
+                    <span>Landline: <a href="tel:08041653395" className="hover:underline text-[#FFD700]">080-41653395</a> / <a href="tel:08025512976" className="hover:underline text-[#FFD700]">080-25512976</a></span>
+                    <span className="hidden md:inline text-[#FFD700]">|</span>
+                    <span>Mobile: <a href="tel:7349251497" className="hover:underline text-[#FFD700]">7349251497</a></span>
                   </>
                 )}
               </span>
             </div>
             <div className="hidden md:block h-4 w-px bg-white/20 mx-1" />
-            <a href={`mailto:${settings?.email || 'info@rbanmsfgc.edu.in'}`} className="flex items-center gap-2 hover:underline underline-offset-4 text-yellow-400">
-              <Mail className="h-4 w-4 !text-yellow-400" />
+            <a href={`mailto:${settings?.email || 'info@rbanmsfgc.edu.in'}`} className="flex items-center gap-2 hover:underline underline-offset-4 text-[#FFD700]">
+              <Mail className="h-4 w-4 text-[#FFD700]" />
               Via e-mail: {settings?.email || 'info@rbanmsfgc.edu.in'}
             </a>
             <div className="h-4 w-px bg-white/20 mx-1" />
@@ -227,6 +227,6 @@ export function SiteHeader() {
           </div>
         </div>
       </nav>
-    </header>
+    </header >
   );
 }
