@@ -83,7 +83,7 @@ export function TwoRowCardLayout() {
                                     <div className="text-left text-sm content-black mb-4">
                                         <div
                                             className={expandedCard !== 'founder' ? 'line-clamp-3' : ''}
-                                            dangerouslySetInnerHTML={{ __html: data.content || 'Our founder Dharmarathnakara Rai Bahadur Arcot Narrainswamy Mudaliar embarked on his vision of social regeneration, providing for all classes and castes in the fields of education and social welfare.' }}
+                                            dangerouslySetInnerHTML={{ __html: data.summary || 'Our founder Dharmarathnakara Rai Bahadur Arcot Narrainswamy Mudaliar embarked on his vision of social regeneration, providing for all classes and castes in the fields of education and social welfare.' }}
                                         />
 
                                         {expandedCard === 'founder' && (
@@ -137,7 +137,7 @@ export function TwoRowCardLayout() {
                                     <div className="text-left text-sm content-black mb-4">
                                         <div
                                             className={expandedCard !== 'director' ? 'line-clamp-4' : ''}
-                                            dangerouslySetInnerHTML={{ __html: data.content || 'Education must go beyond the syllabus and help prepare students for life so that their professional success is balanced with their personal, emotional, and spiritual wellbeing. Our student-centric approach keeps the campus energetic and purposeful.' }}
+                                            dangerouslySetInnerHTML={{ __html: data.summary || 'Education must go beyond the syllabus and help prepare students for life so that their professional success is balanced with their personal, emotional, and spiritual wellbeing. Our student-centric approach keeps the campus energetic and purposeful.' }}
                                         />
 
                                         {expandedCard === 'director' && !data.content && (
@@ -192,7 +192,7 @@ export function TwoRowCardLayout() {
                                     <div className="text-left text-sm content-black mb-4">
                                         <div
                                             className={expandedCard !== 'principal' ? 'line-clamp-4' : ''}
-                                            dangerouslySetInnerHTML={{ __html: data.content || 'The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. The key objective of education at RBANM\'s First Grade College is to create efficient academicians, innovative entrepreneurs, and responsible citizens.' }}
+                                            dangerouslySetInnerHTML={{ __html: data.summary || 'The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. The key objective of education at RBANM\'s First Grade College is to create efficient academicians, innovative entrepreneurs, and responsible citizens.' }}
                                         />
 
                                         {expandedCard === 'principal' && !data.content && (
