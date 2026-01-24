@@ -9,6 +9,7 @@ import { TwoRowCardLayout } from '@/components/sections/two-row-card-layout';
 import { SidebarCards } from '@/components/sections/sidebar-cards';
 import { useSiteSettings } from '@/hooks/use-site-settings';
 import { usePageContent } from '@/hooks/use-page-content';
+import { DynamicSection } from '@/components/dynamic-section';
 import { Loader2 } from 'lucide-react';
 
 export default function Home() {
@@ -71,9 +72,14 @@ export default function Home() {
                 {/* Campus Updates & Info Section */}
                 <section className="py-12 bg-white pb-24">
                     <div className="container mx-auto px-4">
-                        <h2 className="text-3xl font-bold text-blue-900 mb-12 font-headline uppercase tracking-wide border-l-8 border-blue-900 pl-6">
-                            Campus Updates & Info
-                        </h2>
+                        <DynamicSection
+                            pageId="8"
+                            render={(data: any) => (
+                                <h2 className="text-3xl font-bold text-blue-900 mb-12 font-headline uppercase tracking-wide border-l-8 border-blue-900 pl-6">
+                                    {data.title || "Campus Updates & Info"}
+                                </h2>
+                            )}
+                        />
                         <SidebarCards />
                     </div>
                 </section>

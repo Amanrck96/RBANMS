@@ -142,6 +142,7 @@ const PAGE_GROUPS = [
             { label: 'Header: Top Bar', id: 'header-top' },
             { label: 'Footer: Content', id: 'footer-about' },
             { label: 'Blog Header', id: 'blog-header' },
+            { label: 'Global Site Settings', id: 'site-settings' },
         ]
     },
     {
@@ -189,6 +190,26 @@ export default function ManageContentPage() {
         brochure_link: '',
         upcoming_events_text: [],
         blog_text: ''
+    });
+
+    // Specialized home-hero state
+    const [homeHeroData, setHomeHeroData] = useState<any>({
+        advantages: [],
+        mag_link: '',
+        mag_image: ''
+    });
+
+    const [siteSettings, setSiteSettings] = useState<any>({
+        collegeName: '',
+        email: '',
+        phone: '',
+        address: '',
+        socialLinks: {
+            facebook: '', twitter: '', instagram: '', linkedin: '', youtube: '', pinterest: '', bluesky: ''
+        },
+        footerTitles: {
+            quickLinks: '', campus: '', contact: '', social: ''
+        }
     });
 
     const [naacData, setNaacData] = useState<any>({
@@ -343,6 +364,39 @@ export default function ManageContentPage() {
                 }
             }
 
+            if (pageId === 'home-hero') {
+                const defaults = (CMS_DEFAULTS as any)['home-hero'];
+                if (data.data) {
+                    setHomeHeroData({
+                        advantages: data.data.advantages || defaults?.advantages || [],
+                        mag_link: data.data.mag_link || defaults?.mag_link || '',
+                        mag_image: data.data.mag_image || defaults?.mag_image || ''
+                    });
+                } else {
+                    setHomeHeroData({
+                        advantages: defaults?.advantages || [],
+                        mag_link: defaults?.mag_link || '',
+                        mag_image: defaults?.mag_image || ''
+                    });
+                }
+            }
+
+            if (pageId === 'site-settings') {
+                const defaults = (CMS_DEFAULTS as any)['site-settings'];
+                setSiteSettings({
+                    collegeName: data.data?.collegeName || defaults?.collegeName || '',
+                    email: data.data?.email || defaults?.email || '',
+                    phone: data.data?.phone || defaults?.phone || '',
+                    address: data.data?.address || defaults?.address || '',
+                    socialLinks: data.data?.socialLinks || defaults?.socialLinks || {
+                        facebook: '', twitter: '', instagram: '', linkedin: '', youtube: '', pinterest: '', bluesky: ''
+                    },
+                    footerTitles: data.data?.footerTitles || defaults?.footerTitles || {
+                        quickLinks: 'Quick Links', campus: 'Campus', contact: 'Contact Us', social: 'Social Media'
+                    }
+                });
+            }
+
             if (pageId === 'naac' && data.data) {
                 setNaacData({
                     certificateItems: data.data.certificateItems || [],
@@ -434,6 +488,25 @@ export default function ManageContentPage() {
             });
         }
 
+        if (selectedPage === 'home-hero') {
+            setHomeHeroData({
+                advantages: (defaults as any).advantages || [],
+                mag_link: (defaults as any).mag_link || '',
+                mag_image: (defaults as any).mag_image || ''
+            });
+        }
+
+        if (selectedPage === 'site-settings') {
+            setSiteSettings({
+                collegeName: (defaults as any).collegeName || '',
+                email: (defaults as any).email || '',
+                phone: (defaults as any).phone || '',
+                address: (defaults as any).address || '',
+                socialLinks: (defaults as any).socialLinks || {},
+                footerTitles: (defaults as any).footerTitles || {}
+            });
+        }
+
         // Toggle view mode to force component refresh if needed
         setViewMode('original');
 
@@ -468,6 +541,16 @@ export default function ManageContentPage() {
                         tagline: pageTagline,
                         badgeText: pageBadgeText,
                         faculty: facultyList
+                    } : selectedPage === 'home-hero' ? {
+                        title: pageTitle,
+                        content: pageContent,
+                        imageUrl: pageImageUrl,
+                        advantages: homeHeroData.advantages,
+                        mag_link: homeHeroData.mag_link,
+                        mag_image: homeHeroData.mag_image
+                    } : selectedPage === 'site-settings' ? {
+                        ...siteSettings,
+                        title: pageTitle
                     } : {
                         title: pageTitle,
                         content: pageContent,
@@ -490,6 +573,11 @@ export default function ManageContentPage() {
                     badgeText: pageBadgeText,
                     faculty: facultyList
                 } as any);
+                setFetching(false); // Trigger global refetch if needed
+                if (selectedPage === 'site-settings') {
+                    // Force refresh or notify
+                    toast({ title: 'Settings Saved', description: 'Global Site Settings updated. Refresh pages to see changes.' });
+                }
                 setViewMode('current');
             } else {
                 throw new Error('Failed to update');
@@ -1318,6 +1406,141 @@ export default function ManageContentPage() {
                                                                     <Button variant="outline" className="w-full border-dashed" onClick={() => setPage8Data({ ...page8Data, month_that_was_items: [...page8Data.month_that_was_items, { date: '', title: '', text: '' }] })}>
                                                                         <Plus className="h-4 w-4 mr-2" /> Add Timeline Entry
                                                                     </Button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    )}
+
+                                                    {selectedPage === 'home-hero' && (
+                                                        <div className="space-y-6">
+                                                            <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                                                                <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+                                                                    <Star className="size-5" /> {"The RBANM's Experience (List)"}
+                                                                </h3>
+                                                                {/* Existing Advantages Editor */}
+                                                                <div className="space-y-2 mb-6">
+                                                                    {homeHeroData.advantages.map((item: string, idx: number) => (
+                                                                        <div key={idx} className="flex gap-2">
+                                                                            <Input
+                                                                                value={item}
+                                                                                onChange={(e) => {
+                                                                                    const newItems = [...homeHeroData.advantages];
+                                                                                    newItems[idx] = e.target.value;
+                                                                                    setHomeHeroData({ ...homeHeroData, advantages: newItems });
+                                                                                }}
+                                                                                className="bg-white"
+                                                                            />
+                                                                            <Button variant="ghost" size="icon" onClick={() => {
+                                                                                const newItems = homeHeroData.advantages.filter((_: any, i: number) => i !== idx);
+                                                                                setHomeHeroData({ ...homeHeroData, advantages: newItems });
+                                                                            }}>
+                                                                                <Trash2 className="h-4 w-4 text-destructive" />
+                                                                            </Button>
+                                                                        </div>
+                                                                    ))}
+                                                                    <Button variant="outline" size="sm" className="w-full border-dashed" onClick={() => setHomeHeroData({ ...homeHeroData, advantages: [...homeHeroData.advantages, ''] })}>
+                                                                        <Plus className="h-3 w-3 mr-2" /> Add Experience Point
+                                                                    </Button>
+                                                                </div>
+                                                            </div>
+
+                                                            <div className="bg-purple-50/50 p-6 rounded-xl border border-purple-100">
+                                                                <h3 className="text-lg font-bold text-purple-900 mb-6 flex items-center gap-2">
+                                                                    <FileText className="size-5" /> Featured Magazine
+                                                                </h3>
+                                                                <div className="space-y-4">
+                                                                    <ImageUpload
+                                                                        label="Magazine Cover Image"
+                                                                        value={homeHeroData.mag_image}
+                                                                        onChange={(url) => setHomeHeroData({ ...homeHeroData, mag_image: url })}
+                                                                        folder="home/featured"
+                                                                    />
+                                                                    <div className="space-y-2">
+                                                                        <Label>Magazine Link (Google Drive / PDF)</Label>
+                                                                        <Input
+                                                                            value={homeHeroData.mag_link}
+                                                                            onChange={(e) => setHomeHeroData({ ...homeHeroData, mag_link: e.target.value })}
+                                                                            placeholder="https://..."
+                                                                        />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    )}
+
+                                                    {selectedPage === 'site-settings' && (
+                                                        <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 space-y-8">
+                                                            <div className="space-y-4">
+                                                                <h3 className="text-lg font-bold border-b pb-2">Institution Details</h3>
+                                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                    <div className="space-y-2">
+                                                                        <Label>College Name</Label>
+                                                                        <Input value={siteSettings.collegeName} onChange={(e) => setSiteSettings({ ...siteSettings, collegeName: e.target.value })} />
+                                                                    </div>
+                                                                    <div className="space-y-2">
+                                                                        <Label>Email Address</Label>
+                                                                        <Input value={siteSettings.email} onChange={(e) => setSiteSettings({ ...siteSettings, email: e.target.value })} />
+                                                                    </div>
+                                                                    <div className="space-y-2">
+                                                                        <Label>Phone Number</Label>
+                                                                        <Input value={siteSettings.phone} onChange={(e) => setSiteSettings({ ...siteSettings, phone: e.target.value })} />
+                                                                    </div>
+                                                                    <div className="space-y-2">
+                                                                        <Label>Address</Label>
+                                                                        <Input value={siteSettings.address} onChange={(e) => setSiteSettings({ ...siteSettings, address: e.target.value })} />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div className="space-y-4">
+                                                                <h3 className="text-lg font-bold border-b pb-2">Social Media Links</h3>
+                                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                    <div className="space-y-2">
+                                                                        <Label>Facebook</Label>
+                                                                        <Input value={siteSettings.socialLinks.facebook} onChange={(e) => setSiteSettings({ ...siteSettings, socialLinks: { ...siteSettings.socialLinks, facebook: e.target.value } })} />
+                                                                    </div>
+                                                                    <div className="space-y-2">
+                                                                        <Label>Twitter / X</Label>
+                                                                        <Input value={siteSettings.socialLinks.twitter} onChange={(e) => setSiteSettings({ ...siteSettings, socialLinks: { ...siteSettings.socialLinks, twitter: e.target.value } })} />
+                                                                    </div>
+                                                                    <div className="space-y-2">
+                                                                        <Label>Instagram</Label>
+                                                                        <Input value={siteSettings.socialLinks.instagram} onChange={(e) => setSiteSettings({ ...siteSettings, socialLinks: { ...siteSettings.socialLinks, instagram: e.target.value } })} />
+                                                                    </div>
+                                                                    <div className="space-y-2">
+                                                                        <Label>LinkedIn</Label>
+                                                                        <Input value={siteSettings.socialLinks.linkedin} onChange={(e) => setSiteSettings({ ...siteSettings, socialLinks: { ...siteSettings.socialLinks, linkedin: e.target.value } })} />
+                                                                    </div>
+                                                                    <div className="space-y-2">
+                                                                        <Label>YouTube</Label>
+                                                                        <Input value={siteSettings.socialLinks.youtube} onChange={(e) => setSiteSettings({ ...siteSettings, socialLinks: { ...siteSettings.socialLinks, youtube: e.target.value } })} />
+                                                                    </div>
+                                                                    <div className="space-y-2">
+                                                                        <Label>Bluesky</Label>
+                                                                        <Input value={siteSettings.socialLinks.bluesky} onChange={(e) => setSiteSettings({ ...siteSettings, socialLinks: { ...siteSettings.socialLinks, bluesky: e.target.value } })} />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div className="space-y-4">
+                                                                <h3 className="text-lg font-bold border-b pb-2">Footer Section Titles</h3>
+                                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                    <div className="space-y-2">
+                                                                        <Label>Quick Links Title</Label>
+                                                                        <Input value={siteSettings.footerTitles?.quickLinks} onChange={(e) => setSiteSettings({ ...siteSettings, footerTitles: { ...siteSettings.footerTitles, quickLinks: e.target.value } })} placeholder="Quick Links" />
+                                                                    </div>
+                                                                    <div className="space-y-2">
+                                                                        <Label>Campus Title</Label>
+                                                                        <Input value={siteSettings.footerTitles?.campus} onChange={(e) => setSiteSettings({ ...siteSettings, footerTitles: { ...siteSettings.footerTitles, campus: e.target.value } })} placeholder="Campus" />
+                                                                    </div>
+                                                                    <div className="space-y-2">
+                                                                        <Label>Contact Title</Label>
+                                                                        <Input value={siteSettings.footerTitles?.contact} onChange={(e) => setSiteSettings({ ...siteSettings, footerTitles: { ...siteSettings.footerTitles, contact: e.target.value } })} placeholder="Contact Us" />
+                                                                    </div>
+                                                                    <div className="space-y-2">
+                                                                        <Label>Social Media Title</Label>
+                                                                        <Input value={siteSettings.footerTitles?.social} onChange={(e) => setSiteSettings({ ...siteSettings, footerTitles: { ...siteSettings.footerTitles, social: e.target.value } })} placeholder="Social Media" />
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>

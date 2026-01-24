@@ -772,7 +772,46 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'home-hero': {
         title: 'Welcome to RBANMS',
         content: '<h1>Empowering Generations Since 1883</h1><p>A legacy of excellence in education and character building.</p>',
-        imageUrl: '/images/hero/hero-2.jpg'
+        imageUrl: '/images/hero/hero-2.jpg',
+        mag_link: 'https://drive.google.com/file/d/1iZPsekFA8vT5qAVqkYK7mPBN9XXPodvv/view?usp=sharing',
+        mag_image: '/images/phoenix-magazine-updated.png',
+        advantages: [
+            "Managed by a trusted and highly respected Educational Charities Trust",
+            "Located in the heart of Bangalore City, accessible with Metro, BMTC buses, and private vehicles",
+            "Learning spaces that are green and environmentally friendly",
+            "Well-equipped classrooms, labs, and AV rooms",
+            "Dedicated and qualified in-house faculty",
+            "Eminent guest faculty from various fields of expertise",
+            "Add-on and certificate courses to enhance professional skills",
+            "Encouragement and support for Sports, with in-house facilities and ample space",
+            "Access to professional training centres for cricket and football",
+            "Encouragement of NCC related activities",
+            "Meaningful engagement with community development through NSS",
+            "Support of the Arts through workshops, and access to several performance spaces",
+        ]
+    },
+    'site-settings': {
+        title: 'Global Site Settings',
+        content: '',
+        collegeName: "RBANM's First Grade College",
+        email: 'info@rbanmsfgc.edu.in',
+        phone: '080-41653395',
+        address: '#12, Annaswamy Mudaliar Road, Bangalore 560042.',
+        socialLinks: {
+            facebook: '#',
+            twitter: 'https://x.com/rbanmsfgcblr',
+            instagram: 'https://www.instagram.com/rbanmsfgcblr/',
+            linkedin: 'https://www.linkedin.com/company/rbanmsfgcblr',
+            youtube: 'https://youtube.com/@rbanmsfgcblr',
+            pinterest: 'https://www.pinterest.com/rbanmsfgcblr/',
+            bluesky: 'https://bsky.app/profile/rbanmsfgcblr.bsky.social'
+        },
+        footerTitles: {
+            quickLinks: 'Quick Links',
+            campus: 'Campus',
+            contact: 'Contact Us',
+            social: 'Social Media'
+        }
     },
     '8': {
         title: 'Campus Updates',

@@ -33,7 +33,7 @@ export function useSiteSettings() {
             return;
         }
 
-        const docRef = doc(db, 'site-content', 'site-settings');
+        const docRef = doc(db, 'site-content', 'page-site-settings');
 
         const unsubscribe = onSnapshot(
             docRef,

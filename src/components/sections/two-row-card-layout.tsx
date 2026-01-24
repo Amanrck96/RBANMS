@@ -231,74 +231,81 @@ export function TwoRowCardLayout() {
                 <div className="flex justify-center mb-6">
                     <DynamicSection
                         pageId="home-hero"
-                        render={(data: any) => (
-                            <Card className="w-full max-w-7xl border-none shadow-none bg-transparent">
-                                <CardHeader className="text-center pb-10">
-                                    <CardTitle className="text-[clamp(2rem,4vw,2.5rem)] font-bold text-black font-headline">
-                                        {data.title || "The RBANM's Experience"}
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent className="px-4 md:px-6">
-                                    <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
-                                        {/* Left Side - Checkmarks List */}
-                                        <div className="flex-grow w-full lg:w-3/5">
-                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 md:gap-y-6">
-                                                <ul className="space-y-4 md:space-y-6">
-                                                    {col1.map((advantage, index) => (
-                                                        <li key={index} className="flex items-start">
-                                                            <div className="mt-1 shrink-0">
-                                                                <Check className="h-5 w-5 text-red-700 stroke-[3]" />
-                                                            </div>
-                                                            <span className="ml-3 text-black font-semibold text-sm md:text-base leading-snug text-left">{advantage}</span>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                                <ul className="space-y-4 md:space-y-6">
-                                                    {col2.map((advantage, index) => (
-                                                        <li key={index} className="flex items-start">
-                                                            <div className="mt-1 shrink-0">
-                                                                <Check className="h-5 w-5 text-red-700 stroke-[3]" />
-                                                            </div>
-                                                            <span className="ml-3 text-black font-semibold text-sm md:text-base leading-snug text-left">{advantage}</span>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        </div>
+                        render={(data: any) => {
+                            const list = data.advantages || advantages;
+                            const midPoint = Math.ceil(list.length / 2);
+                            const col1 = list.slice(0, midPoint);
+                            const col2 = list.slice(midPoint);
 
-                                        {/* Right Side - Image (Featured Magazine) */}
-                                        <div className="w-full sm:w-[280px] lg:w-[300px] shrink-0 self-center">
-                                            <a
-                                                href={data.mag_link || "https://drive.google.com/file/d/1iZPsekFA8vT5qAVqkYK7mPBN9XXPodvv/view?usp=sharing"}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="block group"
-                                            >
-                                                <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white transition-all duration-500 group-hover:shadow-primary/20 group-hover:scale-[1.03]">
-                                                    <Image
-                                                        src="/images/phoenix-magazine-updated.png"
-                                                        alt="RBANM Annual Magazine - Phoenix"
-                                                        fill
-                                                        className="object-cover"
-                                                    />
-                                                    {/* Hover Overlay */}
-                                                    <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300 flex items-center justify-center">
-                                                        <div className="bg-white/95 text-primary px-6 py-2 rounded-full font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 shadow-2xl scale-90 group-hover:scale-100 text-sm">
-                                                            Read Magazine
+                            return (
+                                <Card className="w-full max-w-7xl border-none shadow-none bg-transparent">
+                                    <CardHeader className="text-center pb-10">
+                                        <CardTitle className="text-[clamp(2rem,4vw,2.5rem)] font-bold text-black font-headline">
+                                            {data.title || "The RBANM's Experience"}
+                                        </CardTitle>
+                                    </CardHeader>
+                                    <CardContent className="px-4 md:px-6">
+                                        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
+                                            {/* Left Side - Checkmarks List */}
+                                            <div className="flex-grow w-full lg:w-3/5">
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 md:gap-y-6">
+                                                    <ul className="space-y-4 md:space-y-6">
+                                                        {col1.map((advantage: string, index: number) => (
+                                                            <li key={`col1-${index}`} className="flex items-start">
+                                                                <div className="mt-1 shrink-0">
+                                                                    <Check className="h-5 w-5 text-red-700 stroke-[3]" />
+                                                                </div>
+                                                                <span className="ml-3 text-black font-semibold text-sm md:text-base leading-snug text-left">{advantage}</span>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                    <ul className="space-y-4 md:space-y-6">
+                                                        {col2.map((advantage: string, index: number) => (
+                                                            <li key={`col2-${index}`} className="flex items-start">
+                                                                <div className="mt-1 shrink-0">
+                                                                    <Check className="h-5 w-5 text-red-700 stroke-[3]" />
+                                                                </div>
+                                                                <span className="ml-3 text-black font-semibold text-sm md:text-base leading-snug text-left">{advantage}</span>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            {/* Right Side - Image (Featured Magazine) */}
+                                            <div className="w-full sm:w-[280px] lg:w-[300px] shrink-0 self-center">
+                                                <a
+                                                    href={data.mag_link || "https://drive.google.com/file/d/1iZPsekFA8vT5qAVqkYK7mPBN9XXPodvv/view?usp=sharing"}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="block group"
+                                                >
+                                                    <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white transition-all duration-500 group-hover:shadow-primary/20 group-hover:scale-[1.03]">
+                                                        <Image
+                                                            src={data.mag_image || "/images/phoenix-magazine-updated.png"}
+                                                            alt="RBANM Annual Magazine - Phoenix"
+                                                            fill
+                                                            className="object-cover"
+                                                        />
+                                                        {/* Hover Overlay */}
+                                                        <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300 flex items-center justify-center">
+                                                            <div className="bg-white/95 text-primary px-6 py-2 rounded-full font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 shadow-2xl scale-90 group-hover:scale-100 text-sm">
+                                                                Read Magazine
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div className="text-center mt-3">
-                                                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest group-hover:text-primary transition-colors">
-                                                        Phoenix Annual Magazine
-                                                    </p>
-                                                </div>
-                                            </a>
+                                                    <div className="text-center mt-3">
+                                                        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest group-hover:text-primary transition-colors">
+                                                            Phoenix Annual Magazine
+                                                        </p>
+                                                    </div>
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        )}
+                                    </CardContent>
+                                </Card>
+                            );
+                        }}
                     />
                 </div>
             </div>
