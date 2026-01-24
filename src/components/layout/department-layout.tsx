@@ -8,10 +8,6 @@ import { Badge } from '@/components/ui/badge';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { DynamicSection } from '@/components/dynamic-section';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Users, Mail, Phone } from 'lucide-react';
-import { db } from '@/lib/firebase-client';
-import { doc, onSnapshot } from 'firebase/firestore';
 
 interface NavItem {
     label: string;
@@ -34,7 +30,6 @@ interface DepartmentLayoutProps {
     heroImage?: string;
     heroImageAlt?: string;
     pageId?: string;
-    hideContentInHeader?: boolean;
 }
 
 const departments = [
@@ -61,40 +56,29 @@ export function DepartmentLayout({
     badgeText = "Department",
     heroImage,
     heroImageAlt,
-    pageId,
-    hideContentInHeader = false
+    pageId
 }: DepartmentLayoutProps) {
 
-    const [dynamicData, setDynamicData] = useState<any>(null);
+    // Dynamic Hero Image State
+    const [dynamicHeroImage, setDynamicHeroImage] = useState<string | null>(null);
 
     useEffect(() => {
-        if (!pageId || !db) return;
-
-        const docRef = doc(db, 'site-content', `page-${pageId}`);
-
-        const unsubscribe = onSnapshot(
-            docRef,
-            (snapshot) => {
-                if (snapshot.exists()) {
-                    setDynamicData(snapshot.data());
-                } else {
-                    setDynamicData(null);
+        if (!pageId) return;
+        async function fetchPageData() {
+            try {
+                const res = await fetch(`/api/site-content?section=page-${pageId}`);
+                const json = await res.json();
+                if (json.data && json.data.imageUrl) {
+                    setDynamicHeroImage(json.data.imageUrl);
                 }
-            },
-            (error) => {
-                console.error("Real-time Department listener error:", error);
+            } catch (e) {
+                console.error("Failed to fetch dynamic page content:", e);
             }
-        );
-
-        return () => unsubscribe();
+        }
+        fetchPageData();
     }, [pageId]);
 
-    const effectiveHeroImage = dynamicData?.imageUrl || heroImage;
-    const effectiveTitle = dynamicData?.title || title;
-    // Basic tagline fallback logic: dynamic tagline > static tagline. 
-    // Content fallback handling is done in render prop.
-    const effectiveTagline = dynamicData?.tagline || tagline;
-    const effectiveBadge = dynamicData?.badgeText || badgeText;
+    const effectiveHeroImage = dynamicHeroImage || heroImage;
 
     const HeaderContent = ({ showSidebar = false }: { showSidebar?: boolean }) => (
         <div className={cn(
@@ -107,7 +91,7 @@ export function DepartmentLayout({
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                             src={effectiveHeroImage}
-                            alt={heroImageAlt || effectiveTitle}
+                            alt={heroImageAlt || title}
                             className="w-full h-full object-cover"
                         />
                     </div>
@@ -122,32 +106,33 @@ export function DepartmentLayout({
                             "mb-4 border-none",
                             effectiveHeroImage ? "bg-yellow-500 text-black hover:bg-yellow-400" : "bg-yellow-500 text-black hover:bg-yellow-400"
                         )}>
-                            {effectiveBadge}
+                            {badgeText}
                         </Badge>
                         <h1 className={cn(
                             "text-4xl md:text-5xl font-bold font-headline tracking-tight",
                             effectiveHeroImage ? "text-white drop-shadow-md" : "text-black"
                         )}>
-                            {effectiveTitle}
+                            {title}
                         </h1>
-                        <div className={cn(
-                            "mt-4 text-lg md:text-xl leading-relaxed",
-                            effectiveHeroImage ? "text-white/90 drop-shadow-sm" : "text-black"
-                        )}>
-                            {pageId ? (
+                        {pageId ? (
+                            <div className={cn(
+                                "mt-4 text-lg md:text-xl leading-relaxed",
+                                effectiveHeroImage ? "text-white/90 drop-shadow-sm" : "text-black"
+                            )}>
                                 <DynamicSection
                                     pageId={pageId}
-                                    defaultContent={<p>{effectiveTagline}</p>}
-                                    render={(data) => {
-                                        if (data.tagline) return <p>{data.tagline}</p>;
-                                        if (!hideContentInHeader && data.content) return <div dangerouslySetInnerHTML={{ __html: data.content }} />;
-                                        return effectiveTagline ? <p>{effectiveTagline}</p> : null;
-                                    }}
+                                    defaultContent={<p>{tagline}</p>}
+                                    onlyContent
                                 />
-                            ) : effectiveTagline && (
-                                <p>{effectiveTagline}</p>
-                            )}
-                        </div>
+                            </div>
+                        ) : tagline && (
+                            <p className={cn(
+                                "mt-4 text-lg md:text-xl leading-relaxed",
+                                effectiveHeroImage ? "text-white/90 drop-shadow-sm" : "text-black"
+                            )}>
+                                {tagline}
+                            </p>
+                        )}
                     </div>
                     {showSidebar && sidebarContent && (
                         <div className="md:col-span-1 mt-8 md:mt-0">
@@ -190,52 +175,7 @@ export function DepartmentLayout({
                     <div className="container mx-auto px-4 md:px-8 py-12 min-h-[500px]">
                         {sections.map((section) => (
                             <TabsContent key={section.id} value={section.id} className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                                <div className="animate-in fade-in duration-500">
-                                    {section.id === 'faculty' && dynamicData?.faculty && dynamicData.faculty.length > 0 ? (
-                                        <div className="space-y-6">
-                                            <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">OUR FACULTY</h2>
-                                            {dynamicData.imageUrl && (
-                                                <div className="mb-6 relative w-full aspect-[16/9] md:aspect-[21/9] rounded-xl overflow-hidden shadow-md">
-                                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                                    <img
-                                                        src={dynamicData.imageUrl}
-                                                        alt="Department Faculty"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                            )}
-                                            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                                {dynamicData.faculty.map((faculty: any, i: number) => (
-                                                    <Card key={i} className="text-center bg-white border-2 border-primary text-black hover:bg-primary/5 transition-colors">
-                                                        <CardHeader>
-                                                            <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto flex items-center justify-center mb-4">
-                                                                <Users className="h-8 w-8 text-primary" />
-                                                            </div>
-                                                            <CardTitle className="text-lg text-black">{faculty.name}</CardTitle>
-                                                            <CardDescription className="text-primary font-medium">{faculty.role}</CardDescription>
-                                                        </CardHeader>
-                                                        <CardContent>
-                                                            <p className="text-xs text-black mb-2 font-semibold">{faculty.qual}</p>
-                                                            <div className="flex flex-col items-center gap-1 text-xs text-black">
-                                                                {faculty.email && <span className="flex items-center gap-1"><Mail className="h-3 w-3" /> {faculty.email}</span>}
-                                                                {faculty.phone && <span className="flex items-center gap-1"><Phone className="h-3 w-3" /> {faculty.phone}</span>}
-                                                            </div>
-                                                        </CardContent>
-                                                    </Card>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    ) : pageId ? (
-                                        <DynamicSection
-                                            pageId={`${pageId}-tab-${section.id}`}
-                                            defaultTitle={section.label}
-                                            defaultContent={section.content}
-                                            onlyContent
-                                        />
-                                    ) : (
-                                        section.content
-                                    )}
-                                </div>
+                                {section.content}
                             </TabsContent>
                         ))}
                     </div>
@@ -303,45 +243,7 @@ export function DepartmentLayout({
                     {/* Secondary Column (Right - Sidebar) */}
                     <div className="lg:col-span-1">
                         <div className="bg-slate-50 dark:bg-slate-900 rounded-lg border p-6 space-y-8 sticky top-24">
-                            {pageId ? (
-                                <DynamicSection
-                                    pageId={`${pageId}-sidebar`}
-                                    defaultContent={sidebarContent}
-                                    render={(data) => (
-                                        <div className="w-full space-y-4">
-                                            {data.imageUrl && (
-                                                <div className="w-full relative rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 bg-slate-100 mb-4">
-                                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                                    <img
-                                                        src={data.imageUrl}
-                                                        alt="Sidebar Image"
-                                                        className="w-full h-auto object-cover"
-                                                    />
-                                                </div>
-                                            )}
-                                            {data.content && (
-                                                <div
-                                                    className="prose prose-sm dark:prose-invert max-w-none"
-                                                    dangerouslySetInnerHTML={{ __html: data.content }}
-                                                />
-                                            )}
-                                            {/* Fallback to default content if no data from DB yet, but DynamicSection handles this usually via defaultContent... 
-                                                However, DynamicSection's 'render' prop overrides everything. 
-                                                We need to be careful: if data is empty, we might want to show defaultContent (sidebarContent).
-                                                DynamicSection implementation details: 
-                                                If 'render' is provided, it is called with 'data'. 
-                                                If data is loading/missing, what happens? 
-                                                Usually DynamicSection handles loading. If empty, it passes default content?
-                                                Let's assume data is valid if render is called.
-                                                Actually, if data is null/empty, we should probably show the default sidebarContent.
-                                            */}
-                                            {!data.imageUrl && !data.content && sidebarContent}
-                                        </div>
-                                    )}
-                                />
-                            ) : (
-                                sidebarContent
-                            )}
+                            {sidebarContent}
                         </div>
                     </div>
                 </div>
@@ -359,12 +261,6 @@ export function DepartmentLayout({
                 )}
 
                 {/* 5. Additional Full Width Content (Courses, Faculty, etc) */}
-                {children && (
-                    <div className="pt-8 space-y-16 border-t">
-                        {children}
-                    </div>
-                )}
-
                 {children && (
                     <div className="pt-8 space-y-16 border-t">
                         {children}

@@ -153,6 +153,20 @@ export default function PhysicalEducationPage() {
     </div>
   );
 
+  // 4b. Courses
+  const coursesContent = (
+    <div className="space-y-6">
+      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4">COURSES OFFERED</h2>
+      <Card className="bg-white border-2 border-primary text-black">
+        <CardContent className="pt-6">
+          <ul className="space-y-3 list-decimal pl-5 text-lg">
+            <li>B.A. with Physical Education, History, and Political Science (Applied for)</li>
+          </ul>
+        </CardContent>
+      </Card>
+    </div>
+  );
+
   // 5. Contact
   const contactContent = (
     <div className="space-y-6">
@@ -169,6 +183,7 @@ export default function PhysicalEducationPage() {
     { id: "highlights", label: "Highlights", content: highlightsContent },
     { id: "vision", label: "Vision", content: visionContent },
     { id: "facilities", label: "Sports Facilities", content: facilitiesContent },
+    { id: "courses", label: "Courses", content: coursesContent },
     { id: "events", label: "Events", content: eventsContent },
     { id: "contact", label: "Contact", content: contactContent },
   ];
@@ -176,6 +191,7 @@ export default function PhysicalEducationPage() {
   return (
     <DepartmentLayout
       title="Department of Physical Education"
+      pageId="dept-physed"
       tagline="Welcome to our department, a vibrant community where every voice is heard and every story matters. We believe that learning is a shared journey of discovery, where diverse perspectives come together to spark creativity and understanding. Whether you are here to master a new skill, explore rich traditions, or shape your future career, you will find a supportive environment that nurtures your growth and inspires you to reach your full potential."
       sections={sections}
     />

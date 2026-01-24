@@ -2,6 +2,7 @@ import React from 'react';
 import { DepartmentLayout } from '@/components/layout/department-layout';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import Image from 'next/image';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   BookOpen,
@@ -99,6 +100,16 @@ export default function EnglishDepartmentPage() {
           <Badge key={i} className="text-lg py-3 px-6 bg-white text-black border-2 border-primary hover:bg-primary hover:text-white transition-colors cursor-default">{prog}</Badge>
         ))}
       </div>
+      <div className="mt-6">
+        <Card className="bg-white border-2 border-primary text-black">
+          <CardHeader><CardTitle className="text-xl">Degree Courses</CardTitle></CardHeader>
+          <CardContent>
+            <ul className="list-decimal pl-5 text-lg">
+              <li>B.A. with Journalism, History, and Economics (Applied for)</li>
+            </ul>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 
@@ -138,7 +149,7 @@ export default function EnglishDepartmentPage() {
     </div>
   );
 
-  // 6. Course Matrix
+  // 6. Paper Titles
   const matrixContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 mb-8 text-black">COURSE MATRIX</h2>
@@ -326,6 +337,15 @@ export default function EnglishDepartmentPage() {
   const facultyContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">FACULTY</h2>
+      <div className="mb-6 relative w-full aspect-[16/9] md:aspect-[21/9] rounded-xl overflow-hidden shadow-md">
+        <Image
+          src="/images/departments/english-faculty.jpg"
+          alt="Department of English & Communication Faculty"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
           { name: "Ms. Simran", role: "Assistant Professor, Head, Dept of English & Communication", qual: "M.A English, KSET", email: "s.simranwrites@gmail.com" },
@@ -360,13 +380,25 @@ export default function EnglishDepartmentPage() {
     </div>
   );
 
+  const sidebarContent = (
+    <div className="w-full aspect-[4/3] relative rounded-xl overflow-hidden shadow-lg border-2 border-primary/20">
+      <Image
+        src="/images/departments/english-faculty.jpg"
+        alt="Department of English Faculty"
+        fill
+        className="object-cover"
+        priority
+      />
+    </div>
+  );
+
   const sections = [
     { id: "highlights", label: "Highlights", content: highlightsContent },
     { id: "facilities", label: "Facilities", content: facilitiesContent },
     { id: "vision", label: "Vision & Mission", content: visionContent },
     { id: "programmes", label: "Programmes", content: programmesContent },
     { id: "certificate-courses", label: "Certificate Courses", content: certCoursesContent },
-    { id: "matrix", label: "Course Matrix", content: matrixContent },
+    { id: "matrix", label: "Paper Titles", content: matrixContent },
     { id: "objectives", label: "Course Objectives", content: objContent },
     { id: "outcomes", label: "Programme Outcome", content: outcomesContent },
     { id: "natya", label: "Natya", content: natyaContent },
@@ -379,7 +411,9 @@ export default function EnglishDepartmentPage() {
   return (
     <DepartmentLayout
       title="Department of English & Communications"
+      pageId="dept-english"
       tagline="Welcome to the Department of English & Communications. At the Department of English, words are not just letters, they are doorways. Here, our classrooms become lively arenas where lecture meets critical thinking and every student becomes both reader and explorer. We believe studying English is not merely about mastering grammar or passing exams, it’s about shaping minds that question, analyze and express. We foster an inclusive and vibrant community where every student’s curiosity is welcome. Beyond textbooks, we integrate interactive sessions, creative writing workshops, group discussions, debates, public speaking activities, theatre and occasional literary events, making the study of English as dynamic and alive as the language itself."
+      sidebarContent={sidebarContent}
       sections={sections}
     />
   );

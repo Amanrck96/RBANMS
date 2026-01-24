@@ -2,6 +2,7 @@ import React from 'react';
 import { DepartmentLayout } from '@/components/layout/department-layout';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import Image from 'next/image';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   Languages,
@@ -195,6 +196,15 @@ export default function LanguagesDepartmentPage() {
   const facultyContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">OUR FACULTY</h2>
+      <div className="mb-6 relative w-full aspect-[16/9] md:aspect-[21/9] rounded-xl overflow-hidden shadow-md">
+        <Image
+          src="/images/departments/languages-faculty.jpg"
+          alt="Department of Languages Faculty and Staff"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
           { name: "Dr. Sunil Kumar", role: "Head of the Department Languages, Asst. Professor - Hindi", qual: "M.A. , B.Ed ,Ph.D.", email: "sunilkumarshetty1977@gmail.com" },
@@ -231,6 +241,18 @@ export default function LanguagesDepartmentPage() {
     </div>
   );
 
+  const sidebarContent = (
+    <div className="w-full aspect-[4/3] relative rounded-xl overflow-hidden shadow-lg border-2 border-primary/20">
+      <Image
+        src="/images/departments/languages-faculty.jpg"
+        alt="Department of Languages Faculty"
+        fill
+        className="object-cover"
+        priority
+      />
+    </div>
+  );
+
   const sections = [
     { id: "highlights", label: "Highlights", content: highlightsContent },
     { id: "vision", label: "Vision & Mission", content: visionContent },
@@ -247,7 +269,9 @@ export default function LanguagesDepartmentPage() {
   return (
     <DepartmentLayout
       title="Department of Languages"
+      pageId="dept-languages"
       tagline="Welcome to the Department of Languages. At RBANM’s First Grade College, Language Study is offered as a second language, other than the compulsory course in English. This is as prescribed by Bengaluru City University for students across all steams of BA, BCA, B.COM, and BBA. The language option offered are: Tamil, Kannada, Hindi, Additional English (only for eligible students, conducted by the Department of English)"
+      sidebarContent={sidebarContent}
       sections={sections}
     />
   );

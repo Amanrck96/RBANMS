@@ -149,7 +149,7 @@ export default function ComputerApplicationsDeptPage() {
     </div>
   );
 
-  // 6. Course Matrix
+  // 6. Paper Titles
   const matrixContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 mb-8 text-black">COURSE MATRIX</h2>
@@ -276,13 +276,24 @@ export default function ComputerApplicationsDeptPage() {
     </div>
   );
 
+  const sidebarContent = (
+    <div className="w-full aspect-[4/3] relative rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 bg-slate-100">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/departments/bca_dept.jpg"
+        alt="Department of Computer Applications Featured Image"
+        className="w-full h-full object-cover"
+      />
+    </div>
+  );
+
   const sections = [
     { id: "highlights", label: "Highlights", content: highlightsContent },
     { id: "vision", label: "Vision & Mission", content: visionContent },
     { id: "facilities", label: "Facilities", content: facilitiesContent },
     { id: "competency-training", label: "Competency Training", content: compTrainingContent },
     { id: "certificate-courses", label: "Certificate Courses", content: certCoursesContent },
-    { id: "matrix", label: "Course Matrix", content: matrixContent },
+    { id: "matrix", label: "Paper Titles", content: matrixContent },
     { id: "objectives", label: "Objectives", content: objContent },
     { id: "outcomes", label: "Programme Outcome", content: outcomesContent },
     { id: "faculty", label: "Faculty Profile", content: facultyContent },
@@ -292,7 +303,9 @@ export default function ComputerApplicationsDeptPage() {
   return (
     <DepartmentLayout
       title="Department of Computer Applications"
+      pageId="dept-bca"
       tagline="Welcome to the Department of Computer Applications. At the Department of Computer Applications, technology is not just a subject, it's a gateway to innovation. Here, our classrooms transform into dynamic learning spaces where concepts meet creativity, and every student becomes both a problem-solver and a creator. We believe studying Computer Applications is not merely about coding or completing assignments; it’s about shaping analytical minds that design, develop, question, and innovate. We nurture an inclusive and vibrant environment where every student’s curiosity is valued and encouraged. Beyond textbooks, we integrate hands-on lab sessions, coding workshops, project-based learning, industry interactions, technical quizzes, seminars, hackathons, and tech-driven events—making the study of Computer Applications as engaging, relevant, and future-focused as the digital world itself."
+      sidebarContent={sidebarContent}
       sections={sections}
       ctaContent={<div className="text-center"><p className="font-bold">Contact:</p><p>rbanmsfgc.bca@gmail.com</p></div>}
     />
