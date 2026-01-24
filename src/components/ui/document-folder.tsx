@@ -33,7 +33,7 @@ export function DocumentFolder({ title, items = [] }: DocumentFolderProps) {
                 ) : (
                     <div className="grid gap-2">
                         {items.map((item) => (
-                            <div key={item.id} className="flex items-center p-3 rounded-md bg-slate-50 hover:bg-slate-100 transition-colors border">
+                            <div key={item.id} className="flex items-center p-3 rounded-md bg-white hover:bg-gray-50 transition-colors border">
                                 <FileText className="h-8 w-8 text-red-500 mr-3" />
                                 <div className="flex-1 overflow-hidden">
                                     <div className="font-medium truncate text-sm">{item.name}</div>

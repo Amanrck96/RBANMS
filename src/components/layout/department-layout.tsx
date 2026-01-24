@@ -82,8 +82,8 @@ export function DepartmentLayout({
 
     const HeaderContent = ({ showSidebar = false }: { showSidebar?: boolean }) => (
         <div className={cn(
-            "w-full py-12 md:py-20 px-4 md:px-8 shadow-sm border-b relative overflow-hidden",
-            effectiveHeroImage ? "text-white" : "bg-white text-black"
+            "w-full py-12 md:py-20 px-4 md:px-8 shadow-sm border-b relative overflow-hidden bg-white",
+            effectiveHeroImage ? "text-white" : "text-black"
         )}>
             {effectiveHeroImage && (
                 <>
@@ -147,14 +147,14 @@ export function DepartmentLayout({
     // If sections are provided, we use the Tabbed Layout
     if (sections && sections.length > 0) {
         return (
-            <div className="flex min-h-screen flex-col bg-background text-foreground font-sans">
+            <div className="flex min-h-screen flex-col bg-white text-foreground font-sans">
                 <main className="flex-grow">
                     {/* 1. Full-width Header Band */}
                     <HeaderContent showSidebar={true} />
 
                     {/* Tabbed Interface */}
                     <Tabs defaultValue={sections[0].id} className="w-full">
-                        <div className="border-b bg-muted/30 sticky top-0 z-20 backdrop-blur-sm">
+                        <div className="border-b bg-white sticky top-0 z-20 backdrop-blur-sm">
                             <div className="container mx-auto">
                                 <ScrollArea className="w-full whitespace-nowrap">
                                     <TabsList className="flex w-full min-w-max h-auto bg-transparent p-0 justify-start">
@@ -162,7 +162,7 @@ export function DepartmentLayout({
                                             <TabsTrigger
                                                 key={section.id}
                                                 value={section.id}
-                                                className="flex-1 inline-flex items-center justify-center px-6 py-4 text-sm font-medium transition-colors hover:bg-muted/50 border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:bg-primary/5 data-[state=active]:font-bold rounded-none"
+                                                className="flex-1 inline-flex items-center justify-center px-6 py-4 text-sm font-medium transition-colors hover:bg-gray-50 border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:bg-primary/5 data-[state=active]:font-bold rounded-none"
                                             >
                                                 {section.label}
                                             </TabsTrigger>
@@ -194,13 +194,13 @@ export function DepartmentLayout({
     }));
 
     return (
-        <div className="flex min-h-screen flex-col bg-background text-foreground font-sans">
+        <div className="flex min-h-screen flex-col bg-white text-foreground font-sans">
             <main className="flex-grow">
                 {/* 1. Full-width Header Band */}
                 <HeaderContent />
 
                 {/* 2. Navigation/Tabs Strip (Legacy) */}
-                <div className="w-full border-b bg-muted/30 sticky top-0 z-20 backdrop-blur-sm">
+                <div className="w-full border-b bg-white sticky top-0 z-20 backdrop-blur-sm">
                     <div className="container mx-auto">
                         <ScrollArea className="w-full whitespace-nowrap">
                             <div className="flex w-full min-w-max">

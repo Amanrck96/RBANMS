@@ -28,7 +28,7 @@ export default function CommerceDepartmentPage() {
       pageId="dept-commerce-sidebar"
       defaultImageUrl="/images/departments/commerce/group_photo.jpg"
       render={(data) => (
-        <div className="w-full relative rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 bg-slate-100">
+        <div className="w-full relative rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 bg-white">
           {data.imageUrl && (
             /* eslint-disable-next-line @next/next/no-img-element */
             <img

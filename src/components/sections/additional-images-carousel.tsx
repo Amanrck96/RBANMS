@@ -126,7 +126,7 @@ export function AdditionalImagesCarousel({ intervalMs = 3500, className }: Addit
                     sizes="100vw"
                     priority={idx === 0}
                   />
-                  <div className="absolute inset-0 bg-black/10" />
+                  <div className="absolute inset-0" />
                 </div>
               </CarouselItem>
             ))}

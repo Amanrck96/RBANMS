@@ -17,7 +17,7 @@ export function BannerImages() {
   ];
 
   return (
-    <section className="w-full bg-muted">
+    <section className="w-full bg-white">
       <div className="relative w-full h-[280px] md:h-[420px]">
         <div className="absolute inset-0 grid grid-cols-1 md:grid-cols-3">
           {images.map((img, idx) => (

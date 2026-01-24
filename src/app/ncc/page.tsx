@@ -75,7 +75,7 @@ export default function NCCPage() {
                                 </div>
 
                                 {/* Documents Section */}
-                                <div className="p-8 md:p-12 bg-slate-50/50">
+                                <div className="p-8 md:p-12 bg-white border-t">
                                     <div className="flex items-center gap-3 mb-8">
                                         <div className="p-2 bg-primary rounded-lg text-white">
                                             <FileText className="h-6 w-6" />

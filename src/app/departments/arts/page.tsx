@@ -316,7 +316,7 @@ export default function ArtsDepartmentPage() {
   );
 
   const sidebarContent = (
-    <div className="w-full relative rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 bg-slate-100">
+    <div className="w-full relative rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 bg-white">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/images/departments/arts/group_photo.jpg"

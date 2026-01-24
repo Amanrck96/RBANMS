@@ -27,7 +27,7 @@ export default function PhysicalEducationPage() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
-        <Card className="bg-slate-50 border-slate-200">
+        <Card className="bg-white border-slate-200">
           <CardHeader><CardTitle className="text-xl">Highlights</CardTitle></CardHeader>
           <CardContent>
             <ul className="space-y-3">
@@ -46,7 +46,7 @@ export default function PhysicalEducationPage() {
           </CardContent>
         </Card>
 
-        <Card className="bg-slate-50 border-slate-200">
+        <Card className="bg-white border-slate-200">
           <CardHeader><CardTitle className="text-xl">Sports Activities</CardTitle></CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-2">
@@ -126,7 +126,7 @@ export default function PhysicalEducationPage() {
   const eventsContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4">Events & Achievements</h2>
-      <div className="bg-slate-50 p-6 rounded-xl border space-y-6">
+      <div className="bg-white p-6 rounded-xl border space-y-6">
         <div className="flex gap-4 items-start">
           <div className="bg-white p-3 rounded-full shadow-sm">
             <Timer className="h-6 w-6 text-primary" />

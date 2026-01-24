@@ -89,7 +89,7 @@ export default function IQACPage() {
             </ul>
 
             <h3 className="text-xl font-bold text-primary mt-6 mb-4">Institutional Achievements</h3>
-            <div className="space-y-4 text-lg bg-slate-50 p-6 rounded-lg">
+            <div className="space-y-4 text-lg bg-white p-6 rounded-lg border">
               <p><strong>NIRF Participation:</strong> The College participates in the NIRF ranking every year.</p>
               <p><strong>AISHE:</strong> Data is uploaded to the All India Survey on Higher Education portal every year.</p>
               <p><strong>Feedback:</strong> Feedback is collected from various stakeholders like students, parents, alumni, and employers, analyzed, and action taken report is prepared and uploaded on the website.</p>
