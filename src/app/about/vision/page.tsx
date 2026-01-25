@@ -83,31 +83,31 @@ export default function VisionPage() {
               </div>
 
               {/* Founder's Dream Section */}
-              <div className="relative rounded-[2rem] overflow-hidden bg-primary p-12 lg:p-20 text-white text-center shadow-2xl">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
+              <div className="relative rounded-[2rem] overflow-hidden bg-white p-12 lg:p-20 text-center shadow-2xl border border-gray-100">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl" />
 
                 <div className="relative z-10 max-w-3xl mx-auto space-y-8">
                   <div className="space-y-2">
-                    <h2 className="text-3xl md:text-4xl font-bold font-headline">The Founder's Dream</h2>
-                    <p className="text-white/80 text-lg">Continuing a legacy of selfless service since 1873.</p>
+                    <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">The Founder's Dream</h2>
+                    <p className="text-muted-foreground text-lg">Continuing a legacy of selfless service since 1873.</p>
                   </div>
-                  <p className="text-xl md:text-2xl leading-relaxed font-medium italic opacity-95">
+                  <p className="text-xl md:text-2xl leading-relaxed font-medium italic text-gray-700">
                     "Our vision is to continue the dream of our founder, Rai Bahadur Arcot Narrainswamy Mudaliar, in creating a society where education is a gift accessible to all, empowering generations to lead meaningful lives."
                   </p>
                   <div className="flex justify-center gap-4 pt-4">
                     <div className="flex flex-col items-center">
-                      <div className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center mb-2">
-                        <Target className="h-5 w-5" />
+                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mb-2">
+                        <Target className="h-5 w-5 text-primary" />
                       </div>
-                      <span className="text-xs uppercase tracking-widest font-bold">Focus</span>
+                      <span className="text-xs uppercase tracking-widest font-bold text-gray-500">Focus</span>
                     </div>
-                    <div className="w-px h-12 bg-white/20" />
+                    <div className="w-px h-12 bg-gray-200" />
                     <div className="flex flex-col items-center">
-                      <div className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center mb-2">
-                        <Compass className="h-5 w-5" />
+                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mb-2">
+                        <Compass className="h-5 w-5 text-primary" />
                       </div>
-                      <span className="text-xs uppercase tracking-widest font-bold">Guided</span>
+                      <span className="text-xs uppercase tracking-widest font-bold text-gray-500">Guided</span>
                     </div>
                   </div>
                 </div>
