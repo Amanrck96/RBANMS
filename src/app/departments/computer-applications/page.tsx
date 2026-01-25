@@ -293,7 +293,7 @@ export default function ComputerApplicationsDeptPage() {
     { id: "facilities", label: "Facilities", content: facilitiesContent },
     { id: "competency-training", label: "Competency Training", content: compTrainingContent },
     { id: "certificate-courses", label: "Certificate Courses", content: certCoursesContent },
-    { id: "matrix", label: "Paper Titles", content: matrixContent },
+    { id: "matrix", label: "MATRIX", content: matrixContent },
     { id: "objectives", label: "Objectives", content: objContent },
     { id: "outcomes", label: "Programme Outcome", content: outcomesContent },
     { id: "faculty", label: "Faculty Profile", content: facultyContent },

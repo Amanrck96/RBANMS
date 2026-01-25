@@ -398,7 +398,7 @@ export default function EnglishDepartmentPage() {
     { id: "vision", label: "Vision & Mission", content: visionContent },
     { id: "programmes", label: "Programmes", content: programmesContent },
     { id: "certificate-courses", label: "Certificate Courses", content: certCoursesContent },
-    { id: "matrix", label: "Paper Titles", content: matrixContent },
+    { id: "matrix", label: "MATRIX", content: matrixContent },
     { id: "objectives", label: "Course Objectives", content: objContent },
     { id: "outcomes", label: "Programme Outcome", content: outcomesContent },
     { id: "natya", label: "Natya", content: natyaContent },

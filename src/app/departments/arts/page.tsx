@@ -160,7 +160,7 @@ export default function ArtsDepartmentPage() {
         </CardContent>
       </Card>
 
-      <h3 className="text-2xl font-bold mt-8 mb-4 text-black">Paper Titles – History</h3>
+      <h3 className="text-2xl font-bold mt-8 mb-4 text-black">MATRIX – History</h3>
       <div className="bg-white p-6 rounded-xl border-2 border-primary">
         <Tabs defaultValue="sem1" className="w-full">
           <TabsList className="grid w-full grid-cols-2 md:grid-cols-6 h-auto p-1 bg-white shadow-sm mb-8 border border-primary/20">
@@ -189,7 +189,7 @@ export default function ArtsDepartmentPage() {
         </CardContent>
       </Card>
 
-      <h3 className="text-2xl font-bold mt-8 mb-4 text-black text-primary">Paper Titles - Economics</h3>
+      <h3 className="text-2xl font-bold mt-8 mb-4 text-black text-primary">MATRIX - Economics</h3>
       <div className="bg-white p-6 rounded-xl border-2 border-primary">
         <Tabs defaultValue="sem1" className="w-full">
           <TabsList className="grid w-full grid-cols-2 md:grid-cols-6 h-auto p-1 bg-white shadow-sm mb-8 border border-primary/20">
@@ -218,7 +218,7 @@ export default function ArtsDepartmentPage() {
         </CardContent>
       </Card>
 
-      <h3 className="text-2xl font-bold mt-8 mb-4 text-black">Paper Titles – Political Science</h3>
+      <h3 className="text-2xl font-bold mt-8 mb-4 text-black">MATRIX – Political Science</h3>
       <div className="bg-white p-6 rounded-xl border-2 border-primary">
         <Tabs defaultValue="sem1" className="w-full">
           <TabsList className="grid w-full grid-cols-2 md:grid-cols-6 h-auto p-1 bg-white shadow-sm mb-8 border border-primary/20">

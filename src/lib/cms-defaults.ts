@@ -104,105 +104,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         title: 'Courses Offered',
         tagline: 'Discover our diverse range of undergraduate programs designed to empower you with knowledge, skills, and future-ready capabilities.',
         badgeText: 'Academic Excellence',
-        content: `
-            <div class="grid grid-cols-1 gap-8">
-                <!-- BCA -->
-                <div class="border-2 rounded-xl overflow-hidden hover:border-blue-600 transition-all bg-white">
-                    <div class="flex flex-col md:flex-row">
-                        <div class="p-8 bg-slate-50 md:w-1/4 flex flex-col items-center justify-center text-center">
-                            <div class="p-4 bg-white rounded-full shadow-sm mb-4"><i class="lucide-computer h-10 w-10 text-blue-900"></i></div>
-                            <h3 class="font-bold text-xl text-blue-900">Bachelor of Computer Applications</h3>
-                            <span class="text-slate-500 font-semibold">(BCA)</span>
-                        </div>
-                        <div class="flex-1 p-8">
-                            <h4 class="text-2xl font-bold mb-4">Bachelor of Computer Applications (BCA)</h4>
-                            <p class="text-slate-600 mb-6">The BCA is a three-year undergraduate program that focuses on computer science, programming, software development, and IT applications.</p>
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Duration: 3 Years</div>
-                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Focus: Software Development</div>
-                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Career: Software Developer</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- B.Com -->
-                <div class="border-2 rounded-xl overflow-hidden hover:border-blue-600 transition-all bg-white">
-                    <div class="flex flex-col md:flex-row">
-                        <div class="p-8 bg-slate-50 md:w-1/4 flex flex-col items-center justify-center text-center">
-                            <div class="p-4 bg-white rounded-full shadow-sm mb-4"><i class="lucide-briefcase h-10 w-10 text-blue-900"></i></div>
-                            <h3 class="font-bold text-xl text-blue-900">Bachelor of Commerce</h3>
-                            <span class="text-slate-500 font-semibold">(B.Com)</span>
-                        </div>
-                        <div class="flex-1 p-8">
-                            <h4 class="text-2xl font-bold mb-4">Bachelor of Commerce (B.Com)</h4>
-                            <p class="text-slate-600 mb-6">The B.Com provides in-depth knowledge of commerce, finance, accounting, taxation, and business law.</p>
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Duration: 3 Years</div>
-                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Focus: Commerce & Finance</div>
-                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Career: Accountant/Analyst</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- BBA -->
-                <div class="border-2 rounded-xl overflow-hidden hover:border-blue-600 transition-all bg-white">
-                    <div class="flex flex-col md:flex-row">
-                        <div class="p-8 bg-slate-50 md:w-1/4 flex flex-col items-center justify-center text-center">
-                            <div class="p-4 bg-white rounded-full shadow-sm mb-4"><i class="lucide-landmark h-10 w-10 text-blue-900"></i></div>
-                            <h3 class="font-bold text-xl text-blue-900">Bachelor of Business Administration</h3>
-                            <span class="text-slate-500 font-semibold">(BBA)</span>
-                        </div>
-                        <div class="flex-1 p-8">
-                            <h4 class="text-2xl font-bold mb-4">Bachelor of Business Administration (BBA)</h4>
-                            <p class="text-slate-600 mb-6">The BBA focuses on management, entrepreneurship, marketing, finance, and human resources.</p>
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Duration: 3 Years</div>
-                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Focus: Management</div>
-                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Career: Business Analyst</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- BA -->
-                <div class="border-2 rounded-xl overflow-hidden hover:border-blue-600 transition-all bg-white">
-                    <div class="flex flex-col md:flex-row">
-                        <div class="p-8 bg-slate-50 md:w-1/4 flex flex-col items-center justify-center text-center">
-                            <div class="p-4 bg-white rounded-full shadow-sm mb-4"><i class="lucide-book-open h-10 w-10 text-blue-900"></i></div>
-                            <h3 class="font-bold text-xl text-blue-900">Bachelor of Arts</h3>
-                            <span class="text-slate-500 font-semibold">(BA)</span>
-                        </div>
-                        <div class="flex-1 p-8">
-                            <h4 class="text-2xl font-bold mb-4">Bachelor of Arts (BA)</h4>
-                            <p class="text-slate-600 mb-6">The BA with History, Political Science, and Economics provides a strong foundation in humanities.</p>
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Duration: 3 Years</div>
-                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Focus: Humanities</div>
-                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Career: Journalism/Teaching</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- M.Com -->
-                <div class="border-2 rounded-xl overflow-hidden hover:border-blue-600 transition-all bg-white">
-                    <div class="flex flex-col md:flex-row">
-                        <div class="p-8 bg-slate-50 md:w-1/4 flex flex-col items-center justify-center text-center">
-                            <div class="p-4 bg-white rounded-full shadow-sm mb-4"><i class="lucide-graduation-cap h-10 w-10 text-blue-900"></i></div>
-                            <h3 class="font-bold text-xl text-blue-900">Masters in Commerce</h3>
-                            <span class="text-slate-500 font-semibold">(M.Com)</span>
-                        </div>
-                        <div class="flex-1 p-8">
-                            <h4 class="text-2xl font-bold mb-4">Masters in Commerce (M.Com)</h4>
-                            <p class="text-slate-600 mb-6">A two-year post-graduate degree designed for upgraded careers in commerce and accounting.</p>
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Duration: 2 Years</div>
-                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Focus: Advanced Commerce</div>
-                                <div class="bg-slate-100 p-3 rounded text-sm font-medium">Career: Finance Manager</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `
+        content: ''
     },
     'administration': {
         title: 'Administration',
@@ -357,7 +259,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         `
     },
     'page-dept-commerce-tab-matrix': {
-        title: 'Paper Titles',
+        title: 'MATRIX',
         content: `
             <p class="mb-4">The B.Com curriculum is spread across 6 semesters (NEP Syllabus).</p>
             <div class="overflow-x-auto">
@@ -668,7 +570,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         content: '<p>Diversity & Inclusion, Equality, Career Opportunities, and Inclusive Excellence.</p>'
     },
     'page-dept-management-tab-matrix': {
-        title: 'Paper Titles',
+        title: 'MATRIX',
         content: `
             <div class="space-y-4">
                 <p>Curriculum spread across 6 semesters (NEP Syllabus) with Dual Specialization in HR and Marketing.</p>
@@ -727,7 +629,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         content: '<p>Value-added courses in Business Communication and Creative Writing are offered to enhance employability.</p>'
     },
     'page-dept-english-tab-matrix': {
-        title: 'Paper Titles',
+        title: 'MATRIX',
         content: '<p>Course matrix covering English and Additional English subjects across 4-6 semesters depends on the course.</p>'
     },
     'page-dept-english-tab-objectives': {
