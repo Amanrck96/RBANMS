@@ -231,15 +231,7 @@ export default function ManagementDepartmentPage() {
   const facultyContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">OUR FACULTY</h2>
-      <div className="mb-6 relative w-full aspect-[16/9] md:aspect-[21/9] rounded-xl overflow-hidden shadow-md">
-        <Image
-          src="/images/departments/management-faculty.jpg"
-          alt="Department of Management Faculty"
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
+
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {[
           { name: "Prof. Priya K", role: "Head of the Department – Management", qual: "MBA, MMM, (Ph.D)", email: "priyamahesh09@gmail.com", phone: "9880213203" },

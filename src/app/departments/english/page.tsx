@@ -337,15 +337,7 @@ export default function EnglishDepartmentPage() {
   const facultyContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">FACULTY</h2>
-      <div className="mb-6 relative w-full aspect-[16/9] md:aspect-[21/9] rounded-xl overflow-hidden shadow-md">
-        <Image
-          src="/images/departments/english-faculty.jpg"
-          alt="Department of English & Communication Faculty"
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
+
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
           { name: "Ms. Simran", role: "Assistant Professor, Head, Dept of English & Communication", qual: "M.A English, KSET", email: "s.simranwrites@gmail.com" },
