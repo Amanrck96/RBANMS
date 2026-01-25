@@ -3,52 +3,55 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowRight, Computer, Briefcase, Landmark, BookOpen, Dumbbell, Newspaper, GraduationCap } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { usePageContent } from '@/hooks/use-page-content';
 import { Loader2 } from 'lucide-react';
+import { ArrowRight, Monitor, Calculator, Briefcase, BookOpen, GraduationCap } from 'lucide-react';
 
 const courses = [
   {
-    icon: Computer,
+    icon: Monitor,
     title: 'Bachelor of Computer Applications (BCA)',
-    description: 'The BCA (Bachelor of Computer Applications) is a three-year undergraduate program that focuses on computer science, programming, software development, and IT applications. It is designed for students who aspire to build a career in the tech industry, covering subjects like database management, networking, web development, and cybersecurity.',
+    description: 'The BCA is a three-year undergraduate program that focuses on computer science, programming, software development, and IT applications.',
+    duration: '3 Years',
+    focus: 'Software Development',
+    career: 'Software Developer',
     href: '/departments/computer-applications',
   },
   {
-    icon: Briefcase,
+    icon: Calculator,
     title: 'Bachelor of Commerce (B.Com)',
-    description: 'The B.Com (Bachelor of Commerce) is a three-year undergraduate degree that provides in-depth knowledge of commerce, finance, accounting, taxation, and business law. It is ideal for students interested in banking, finance, and corporate sectors.',
+    description: 'The B.Com provides in-depth knowledge of commerce, finance, accounting, taxation, and business law.',
+    duration: '3 Years',
+    focus: 'Commerce & Finance',
+    career: 'Accountant/Analyst',
     href: '/departments/commerce',
   },
   {
-    icon: Landmark,
+    icon: Briefcase,
     title: 'Bachelor of Business Administration (BBA)',
-    description: 'The BBA (Bachelor of Business Administration) is a three-year undergraduate program focusing on management, entrepreneurship, marketing, finance, and human resources. It is designed for students who want to develop leadership and managerial skills for the corporate world.',
+    description: 'The BBA focuses on management, entrepreneurship, marketing, finance, and human resources.',
+    duration: '3 Years',
+    focus: 'Management',
+    career: 'Business Analyst',
     href: '/departments/management',
   },
   {
     icon: BookOpen,
     title: 'Bachelor of Arts (BA)',
-    description: 'The BA (Bachelor of Arts) is a three-year undergraduate degree with History, Political Science, and Economics. It provides a strong foundation in humanities and the social sciences, helping students develop critical thinking, research, and analytical skills.',
+    description: 'The BA with History, Political Science, and Economics provides a strong foundation in humanities.',
+    duration: '3 Years',
+    focus: 'Humanities',
+    career: 'Journalism/Teaching',
     href: '/departments/arts',
-  },
-  {
-    icon: Dumbbell,
-    title: 'Bachelor of Arts (Physical Education with History & Political Science)',
-    description: 'The BA in Physical Education combines sports science with humanities subjects like History and Political Science. This three-year undergraduate program is designed for students passionate about sports, fitness, and education. It covers sports psychology, exercise physiology, coaching techniques, and sports management alongside analytical subjects. Graduates can pursue careers as physical education teachers, sports coaches, fitness trainers, sports administrators, and athletic trainers. Further studies like M.P.Ed (Master of Physical Education) or certifications in sports nutrition, yoga, or sports management can enhance career prospects.',
-    href: '/departments/physical-education',
-  },
-  {
-    icon: Newspaper,
-    title: 'Bachelor of Arts (Journalism, History & Economics)',
-    description: 'The BA in Journalism with History and Economics is a three-year undergraduate program that blends media studies with social sciences. This specialization develops strong communication, research, and analytical skills essential for the media industry. Students learn news writing, reporting, media ethics, and digital journalism alongside historical context and economic analysis. Career opportunities include journalism, content creation, news reporting, editorial work, media production, and public relations. Further studies like Master in Journalism, Mass Communication, or specialized courses in digital media and broadcast journalism can lead to senior roles in media organizations.',
-    href: '/departments/english',
   },
   {
     icon: GraduationCap,
     title: 'Masters in Commerce (M.Com)',
-    description: 'This two year post-graduate degree provides an opportunity to upgrade a career in commerce and accounting. At RBANM’s FGC, the M.Com programme is designed to cater to working professionals.',
+    description: 'A two-year post-graduate degree designed for upgraded careers in commerce and accounting.',
+    duration: '2 Years',
+    focus: 'Advanced Commerce',
+    career: 'Finance Manager',
     href: '/departments/commerce',
   }
 ];
@@ -86,24 +89,21 @@ export default function CoursesOfferedPage() {
           </p>
         </div>
 
-        {content && (
-          <div className="prose prose-lg max-w-none text-gray-800 mb-16" dangerouslySetInnerHTML={{ __html: content }} />
-        )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {courses.map((course, index) => (
             <Link
               key={index}
               href={course.href}
               className="group block h-full"
             >
-              <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 h-full flex flex-col transition-all duration-300 hover:shadow-md hover:border-blue-100">
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:border-blue-200 hover:-translate-y-1">
                 <div className="flex items-start gap-4 mb-6">
-                  <div className="h-12 w-12 rounded-full bg-red-50 flex-shrink-0 flex items-center justify-center">
-                    <course.icon className="h-6 w-6 text-red-900" />
+                  <div className="h-14 w-14 rounded-2xl bg-blue-50 flex-shrink-0 flex items-center justify-center transition-colors group-hover:bg-blue-600">
+                    <course.icon className="h-7 w-7 text-blue-900 transition-colors group-hover:text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-blue-950 leading-tight">
+                    <h3 className="text-2xl font-bold text-blue-950 leading-tight">
                       {course.title}
                     </h3>
                   </div>
@@ -113,9 +113,24 @@ export default function CoursesOfferedPage() {
                   {course.description}
                 </p>
 
-                <div className="mt-auto pt-6 border-t border-gray-100">
-                  <span className="inline-flex items-center text-sm font-medium text-gray-900 group-hover:text-blue-700 transition-colors">
-                    Click here for details
+                <div className="grid grid-cols-3 gap-4 mb-8 pt-6 border-t border-gray-50">
+                  <div className="space-y-1">
+                    <span className="text-[10px] uppercase tracking-wider font-bold text-gray-400">Duration</span>
+                    <p className="text-sm font-semibold text-blue-900">{course.duration}</p>
+                  </div>
+                  <div className="space-y-1">
+                    <span className="text-[10px] uppercase tracking-wider font-bold text-gray-400">Focus</span>
+                    <p className="text-sm font-semibold text-blue-900">{course.focus}</p>
+                  </div>
+                  <div className="space-y-1">
+                    <span className="text-[10px] uppercase tracking-wider font-bold text-gray-400">Career</span>
+                    <p className="text-sm font-semibold text-blue-900">{course.career}</p>
+                  </div>
+                </div>
+
+                <div className="mt-auto pt-6 border-t border-gray-100 flex items-center justify-between">
+                  <span className="inline-flex items-center text-sm font-semibold text-blue-600 group-hover:text-blue-800 transition-colors">
+                    View Department Details
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
                 </div>
