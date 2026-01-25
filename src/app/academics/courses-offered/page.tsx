@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { usePageContent } from '@/hooks/use-page-content';
 import { Loader2 } from 'lucide-react';
-import { ArrowRight, Monitor, Calculator, Briefcase, BookOpen, GraduationCap } from 'lucide-react';
+import { ArrowRight, Monitor, Calculator, Briefcase, BookOpen, GraduationCap, Newspaper, Database } from 'lucide-react';
 
 const courses = [
   {
@@ -53,6 +53,24 @@ const courses = [
     focus: 'Advanced Commerce',
     career: 'Finance Manager',
     href: '/departments/commerce',
+  },
+  {
+    icon: Newspaper,
+    title: 'B.A. in Journalism',
+    description: 'A comprehensive program preparing students for the dynamic world of media, covering print, broadcast, and digital journalism.',
+    duration: '3 Years',
+    focus: 'Media & Communication',
+    career: 'Journalist/Editor',
+    href: '/academics/new-courses',
+  },
+  {
+    icon: Database,
+    title: 'B.Sc. in Data Science',
+    description: 'An interdisciplinary program focusing on big data, machine learning, and statistical analysis to meet the growing demand for data professionals.',
+    duration: '3 Years',
+    focus: 'Data Analytics',
+    career: 'Data Scientist',
+    href: '/academics/new-courses',
   }
 ];
 
