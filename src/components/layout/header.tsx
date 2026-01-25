@@ -44,21 +44,15 @@ export function SiteHeader() {
             <div className="flex items-center gap-2 text-[#FFD700]">
               <Phone className="h-4 w-4 text-[#FFD700]" />
               <span className="flex flex-col md:flex-row md:gap-2 text-center md:text-left">
-                {settings?.phone ? (
-                  <span>Phone: <a href={`tel:${settings.phone}`} className="hover:underline text-[#FFD700]"> {settings.phone}</a></span>
-                ) : (
-                  <>
-                    <span>Landline: <a href="tel:08041653395" className="hover:underline text-[#FFD700]">080-41653395</a> / <a href="tel:08025512976" className="hover:underline text-[#FFD700]">080-25512976</a></span>
-                    <span className="hidden md:inline text-[#FFD700]">|</span>
-                    <span>Mobile: <a href="tel:7349251497" className="hover:underline text-[#FFD700]">7349251497</a></span>
-                  </>
-                )}
+                <span>Landline: <a href="tel:08041653395" className="hover:underline text-[#FFD700]">080-41653395</a> / <a href="tel:08025512976" className="hover:underline text-[#FFD700]">080-25512976</a></span>
+                <span className="hidden md:inline text-[#FFD700]">|</span>
+                <span>Mobile: <a href="tel:7349251497" className="hover:underline text-[#FFD700]">7349251497</a></span>
               </span>
             </div>
             <div className="hidden md:block h-4 w-px bg-white/20 mx-1" />
-            <a href={`mailto:${settings?.email || 'info@rbanmsfgc.edu.in'}`} className="flex items-center gap-2 hover:underline underline-offset-4 text-[#FFD700]">
+            <a href="mailto:info@rbanmsfgc.edu.in" className="flex items-center gap-2 hover:underline underline-offset-4 text-[#FFD700]">
               <Mail className="h-4 w-4 text-[#FFD700]" />
-              Via e-mail: {settings?.email || 'info@rbanmsfgc.edu.in'}
+              Via e-mail: info@rbanmsfgc.edu.in
             </a>
             <div className="h-4 w-px bg-white/20 mx-1" />
             <SearchDialog />

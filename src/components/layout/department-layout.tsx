@@ -81,44 +81,18 @@ export function DepartmentLayout({
     const effectiveHeroImage = dynamicHeroImage || heroImage;
 
     const HeaderContent = ({ showSidebar = false }: { showSidebar?: boolean }) => (
-        <div className={cn(
-            "w-full py-12 md:py-20 px-4 md:px-8 shadow-sm border-b relative overflow-hidden bg-white",
-            effectiveHeroImage ? "text-white" : "text-black"
-        )}>
-            {effectiveHeroImage && (
-                <>
-                    <div className="absolute inset-0 w-full h-full">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                            src={effectiveHeroImage}
-                            alt={heroImageAlt || title}
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                    <div className="absolute inset-0 bg-black/60 z-10" />
-                </>
-            )}
-
-            <div className={cn("container mx-auto relative", effectiveHeroImage && "z-20")}>
+        <div className="w-full py-12 md:py-20 px-4 md:px-8 shadow-sm border-b relative overflow-hidden bg-white text-black">
+            <div className="container mx-auto relative">
                 <div className="grid md:grid-cols-3 gap-12 items-center">
                     <div className="md:col-span-2">
-                        <Badge className={cn(
-                            "mb-4 border-none",
-                            effectiveHeroImage ? "bg-yellow-500 text-black hover:bg-yellow-400" : "bg-yellow-500 text-black hover:bg-yellow-400"
-                        )}>
+                        <Badge className="mb-4 border-none bg-yellow-500 text-black hover:bg-yellow-400">
                             {badgeText}
                         </Badge>
-                        <h1 className={cn(
-                            "text-4xl md:text-5xl font-bold font-headline tracking-tight",
-                            effectiveHeroImage ? "text-white drop-shadow-md" : "text-black"
-                        )}>
+                        <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tight text-black">
                             {title}
                         </h1>
                         {pageId ? (
-                            <div className={cn(
-                                "mt-4 text-lg md:text-xl leading-relaxed",
-                                effectiveHeroImage ? "text-white/90 drop-shadow-sm" : "text-black"
-                            )}>
+                            <div className="mt-4 text-lg md:text-xl leading-relaxed text-black">
                                 <DynamicSection
                                     pageId={pageId}
                                     defaultContent={<p>{tagline}</p>}
@@ -126,10 +100,7 @@ export function DepartmentLayout({
                                 />
                             </div>
                         ) : tagline && (
-                            <p className={cn(
-                                "mt-4 text-lg md:text-xl leading-relaxed",
-                                effectiveHeroImage ? "text-white/90 drop-shadow-sm" : "text-black"
-                            )}>
+                            <p className="mt-4 text-lg md:text-xl leading-relaxed text-black">
                                 {tagline}
                             </p>
                         )}
