@@ -52,13 +52,7 @@ export default function ArmyPage() {
                                         </div>
                                     </div>
 
-                                    {/* Documents Section */}
-                                    <div className="mt-16 pt-12 border-t">
-                                        <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black uppercase mb-8">NCC Reports & Documents</h2>
-                                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                            <DocumentFolder title="Activity Reports" items={reportItems} />
-                                        </div>
-                                    </div>
+                                    {/* Documents Section Removed */}
                                 </div>
                             </div>
                         )}

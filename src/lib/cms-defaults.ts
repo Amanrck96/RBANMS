@@ -1,4 +1,4 @@
-
+﻿
 export const CMS_DEFAULTS: Record<string, { title: string; content: string; imageUrl?: string;[key: string]: any }> = {
     'home-intro': {
         title: 'Introduction',
@@ -12,21 +12,21 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         title: 'Our Founder',
         content: `
             <div class="space-y-6 text-gray-800">
-                <p class="text-lg leading-relaxed"><strong>Arcot Narrainswamy Mudaliar</strong> was a pioneering businessman, philanthropist, and social reformer whose life story embodies the values of equality, education, and social justice. Born in Arcot in 1827, he moved to Bengaluru as a child, shouldering the responsibility of his family after his father’s demise. His entrepreneurial acumen led him to establish successful businesses, including Mysore Hall and Bangalore Agency, making him one of the wealthiest merchants of his time.</p>
+                <p class="text-lg leading-relaxed"><strong>Arcot Narrainswamy Mudaliar</strong> was a pioneering businessman, philanthropist, and social reformer whose life story embodies the values of equality, education, and social justice. Born in Arcot in 1827, he moved to Bengaluru as a child, shouldering the responsibility of his family after his fatherΓÇÖs demise. His entrepreneurial acumen led him to establish successful businesses, including Mysore Hall and Bangalore Agency, making him one of the wealthiest merchants of his time.</p>
 
-                <p>Despite his business success, what set Mudaliar apart was his progressive vision for society. Deeply influenced by the idea that wealth was a trust for the upliftment of the needy, he dedicated himself to philanthropy, particularly in education. In 1873, he founded the <strong>Free English Primary School</strong> in Bangalore Cantonment for non-white students—an assertion of the principle of equality at a time when education was a privilege of the elite. Remarkably, despite not being literate in English himself, he understood its value in empowering future generations.</p>
+                <p>Despite his business success, what set Mudaliar apart was his progressive vision for society. Deeply influenced by the idea that wealth was a trust for the upliftment of the needy, he dedicated himself to philanthropy, particularly in education. In 1873, he founded the <strong>Free English Primary School</strong> in Bangalore Cantonment for non-white studentsΓÇöan assertion of the principle of equality at a time when education was a privilege of the elite. Remarkably, despite not being literate in English himself, he understood its value in empowering future generations.</p>
 
                 <h3 class="text-xl font-bold text-blue-900 mt-4">Champion of Equality</h3>
                 <p>Mudaliar also championed gender and caste equality, first, with the founding of the <strong>Thirukulatar School in 1883</strong>, which provided education to the most marginalized castes from untouchable communities, defying rigid social hierarchies that completely excluded them from mainstream education. In 1886, he established the <strong>Govindammal Girls School</strong>, recognizing that education was the key to women's empowerment, at a time when societal norms relegated women to domestic roles.</p>
 
                 <h3 class="text-xl font-bold text-blue-900 mt-4">Social & Humanitarian Impact</h3>
-                <p>His impact was not limited to education. Mudaliar established one of Bangalore’s earliest technical schools in 1897, breaking the barriers of hereditary professions and providing opportunities for skill development. His response to the devastating famine of 1876-1878 demonstrated his humanitarian spirit, as he set up feeding centers and later an orphanage, which evolved into a permanent hostel for the underprivileged.</p>
+                <p>His impact was not limited to education. Mudaliar established one of BangaloreΓÇÖs earliest technical schools in 1897, breaking the barriers of hereditary professions and providing opportunities for skill development. His response to the devastating famine of 1876-1878 demonstrated his humanitarian spirit, as he set up feeding centers and later an orphanage, which evolved into a permanent hostel for the underprivileged.</p>
 
-                <p>Mudaliar’s reformist outlook was also reflected in his association with the <strong>Brahmo Samaj</strong>, an organization advocating against caste discrimination and ritualistic Hindu practices. His legacy of challenging caste hierarchies was carried forward by his descendants, who played a role in temple entry movements and supported the Indian independence struggle, including contributions to Mahatma Gandhi’s South African campaign.</p>
+                <p>MudaliarΓÇÖs reformist outlook was also reflected in his association with the <strong>Brahmo Samaj</strong>, an organization advocating against caste discrimination and ritualistic Hindu practices. His legacy of challenging caste hierarchies was carried forward by his descendants, who played a role in temple entry movements and supported the Indian independence struggle, including contributions to Mahatma GandhiΓÇÖs South African campaign.</p>
 
                 <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-600 my-6">
                     <h3 class="text-lg font-bold text-blue-900 mb-2">A Legacy That Inspires Generations</h3>
-                    <p class="italic text-gray-700">"Narrainswamy Mudaliar’s life and work prefigured many ideals later enshrined in the Indian Constitution, particularly the principles of equality and non-discrimination. His unwavering commitment to social reform, particularly in education, caste, and gender equality, places him among the visionary reformers of 19th-century India."</p>
+                    <p class="italic text-gray-700">"Narrainswamy MudaliarΓÇÖs life and work prefigured many ideals later enshrined in the Indian Constitution, particularly the principles of equality and non-discrimination. His unwavering commitment to social reform, particularly in education, caste, and gender equality, places him among the visionary reformers of 19th-century India."</p>
                 </div>
             </div>
         `,
@@ -36,18 +36,18 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         title: 'History of the College',
         content: `
             <div class="space-y-6">
-                <p>RBANM’s First Grade College was established by RBANM’s Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.</p>
-                <p>This is one of the many institutions established under the umbrella of the RBANM’s Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.</p>
+                <p>RBANMΓÇÖs First Grade College was established by RBANMΓÇÖs Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.</p>
+                <p>This is one of the many institutions established under the umbrella of the RBANMΓÇÖs Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.</p>
                 <p>The college has been accredited by NAAC and is recognised under Section 2(f) and 12(b) of the UGC Act, 1956.</p>
                 <div class="mt-8">
                     <h3 class="text-2xl font-bold text-[#b91c1c] mb-4">Our Commitment</h3>
                     <ul class="space-y-3">
-                        <li class="flex items-start"><span class="mr-2 text-[#b91c1c]">•</span>Provides a value-driven and holistic education, fostering intellectual, physical, mental, and spiritual growth.</li>
-                        <li class="flex items-start"><span class="mr-2 text-[#b91c1c]">•</span>Offers inclusive education, ensuring that students from all social and economic backgrounds receive quality learning opportunities.</li>
-                        <li class="flex items-start"><span class="mr-2 text-[#b91c1c]">•</span>Maintains discipline, punctuality, and responsibility in both students and staff.</li>
-                        <li class="flex items-start"><span class="mr-2 text-[#b91c1c]">•</span>Encourages students to pursue academic excellence with a sense of curiosity and passion.</li>
-                        <li class="flex items-start"><span class="mr-2 text-[#b91c1c]">•</span>Supports holistic development through sports, cultural activities, and NCC programs.</li>
-                        <li class="flex items-start"><span class="mr-2 text-[#b91c1c]">•</span>Engages students in community development and nation-building, shaping them into socially responsible citizens.</li>
+                        <li class="flex items-start"><span class="mr-2 text-[#b91c1c]">ΓÇó</span>Provides a value-driven and holistic education, fostering intellectual, physical, mental, and spiritual growth.</li>
+                        <li class="flex items-start"><span class="mr-2 text-[#b91c1c]">ΓÇó</span>Offers inclusive education, ensuring that students from all social and economic backgrounds receive quality learning opportunities.</li>
+                        <li class="flex items-start"><span class="mr-2 text-[#b91c1c]">ΓÇó</span>Maintains discipline, punctuality, and responsibility in both students and staff.</li>
+                        <li class="flex items-start"><span class="mr-2 text-[#b91c1c]">ΓÇó</span>Encourages students to pursue academic excellence with a sense of curiosity and passion.</li>
+                        <li class="flex items-start"><span class="mr-2 text-[#b91c1c]">ΓÇó</span>Supports holistic development through sports, cultural activities, and NCC programs.</li>
+                        <li class="flex items-start"><span class="mr-2 text-[#b91c1c]">ΓÇó</span>Engages students in community development and nation-building, shaping them into socially responsible citizens.</li>
                     </ul>
                 </div>
             </div>
@@ -81,11 +81,11 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
             <div class="space-y-6">
                 <p class="text-lg text-gray-600 mb-6">At RBANMS, we are committed to providing quality education that empowers students to excel in life, staying true to the visionary dream of our founder. Our mission is to:</p>
                 <ul class="space-y-4">
-                    <li class="flex items-start"><span class="mr-3 text-[#b91c1c] font-bold">✓</span><span class="text-gray-600 text-lg">Nurture young minds with knowledge, shaping them into confident and capable individuals.</span></li>
-                    <li class="flex items-start"><span class="mr-3 text-[#b91c1c] font-bold">✓</span><span class="text-gray-600 text-lg">Deliver a strong foundation in Arts, Science, and Commerce, equipping students with a broad and deep understanding of their fields.</span></li>
-                    <li class="flex items-start"><span class="mr-3 text-[#b91c1c] font-bold">✓</span><span class="text-gray-600 text-lg">Develop essential life skills like critical thinking, communication, and problem-solving.</span></li>
-                    <li class="flex items-start"><span class="mr-3 text-[#b91c1c] font-bold">✓</span><span class="text-gray-600 text-lg">Foster leadership qualities and social responsibility, preparing students to make meaningful contributions.</span></li>
-                    <li class="flex items-start"><span class="mr-3 text-[#b91c1c] font-bold">✓</span><span class="text-gray-600 text-lg">Incorporate ethical standards, professionalism, and a lifelong curiosity for learning.</span></li>
+                    <li class="flex items-start"><span class="mr-3 text-[#b91c1c] font-bold">Γ£ô</span><span class="text-gray-600 text-lg">Nurture young minds with knowledge, shaping them into confident and capable individuals.</span></li>
+                    <li class="flex items-start"><span class="mr-3 text-[#b91c1c] font-bold">Γ£ô</span><span class="text-gray-600 text-lg">Deliver a strong foundation in Arts, Science, and Commerce, equipping students with a broad and deep understanding of their fields.</span></li>
+                    <li class="flex items-start"><span class="mr-3 text-[#b91c1c] font-bold">Γ£ô</span><span class="text-gray-600 text-lg">Develop essential life skills like critical thinking, communication, and problem-solving.</span></li>
+                    <li class="flex items-start"><span class="mr-3 text-[#b91c1c] font-bold">Γ£ô</span><span class="text-gray-600 text-lg">Foster leadership qualities and social responsibility, preparing students to make meaningful contributions.</span></li>
+                    <li class="flex items-start"><span class="mr-3 text-[#b91c1c] font-bold">Γ£ô</span><span class="text-gray-600 text-lg">Incorporate ethical standards, professionalism, and a lifelong curiosity for learning.</span></li>
                 </ul>
             </div>
         `
@@ -204,7 +204,11 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
             </div>
         `
     },
-
+    'administration': {
+        title: 'Administration',
+        tagline: 'The Backbone of Our College. Efficient, responsive, and dedicated to supporting our academic environment.',
+        content: '<p>Our non-teaching staff handle essential operations with professionalism and care.</p>'
+    },
     'page-administration-tab-overview': {
         title: 'Overview',
         content: `
@@ -244,13 +248,166 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         title: 'Staff Photos',
         content: '<p>Group photographs of our dedicated administrative and support team.</p>'
     },
-
+    'scholarships': {
+        title: 'Scholarships',
+        content: `
+            <div class="space-y-8">
+                <p class="text-lg">It is the mandate of our Founder and the mission of our college to make sure that no meritorious student is left behind.</p>
+                <div class="p-6 bg-slate-50 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">At the time of admissions, discounts will be given to:</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Alumni of RBANMs Institutions</li>
+                        <li>Children of the staff of RBANMs Institutions</li>
+                        <li>Meritorious NCC cadets who will continue with NCC in college</li>
+                        <li>Meritorious and active Sports students</li>
+                        <li>Any student of extraordinary merit in any field</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-slate-50 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">In the Second Year, scholarships are awarded if:</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Attended college regularly</li>
+                        <li>Significant progress in academics</li>
+                        <li>Participated in college events</li>
+                        <li>Financial challenges at home</li>
+                        <li>No other financial support from other sources</li>
+                    </ul>
+                </div>
+            </div>
+        `
+    },
+    'dept-commerce': {
+        title: 'Department of Commerce',
+        content: '<p>Welcome to the Department of Commerce. Since 1984, we have been shaping capable graduates through practical learning and innovation, delivering education that meets global standards.</p>',
+        tagline: 'Empowering students with strong fundamentals in accounting, finance, and business management since 1984.'
+    },
+    'dept-commerce-sidebar': {
+        title: 'Department Team',
+        content: '<p>Our dedicated faculty and eager students.</p>',
+        imageUrl: '/images/departments/commerce/group_photo.jpg'
+    },
+    'page-dept-commerce-tab-why-bcom': {
+        title: 'Why B.COM?',
+        content: `
+            <div class="bg-blue-50 border-l-4 border-blue-600 p-4 mb-4">
+                <p class="text-lg font-medium text-blue-900">The Bachelor of Commerce (B.Com) is the most sought-after course for students aspiring for a career in finance, banking, and business.</p>
+            </div>
+            <p class="mb-4">Our B.Com program goes beyond the textbook. It is designed to build a robust foundation in:</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="bg-white p-4 rounded border shadow-sm">
+                    <h4 class="font-bold text-gray-800">Financial Proficiency</h4>
+                    <p class="text-sm text-gray-600">Mastering Financial Accounting, Cost Accounting, and Corporate Accounting.</p>
+                </div>
+                <div class="bg-white p-4 rounded border shadow-sm">
+                    <h4 class="font-bold text-gray-800">Taxation Experts</h4>
+                    <p class="text-sm text-gray-600">In-depth knowledge of GST and Income Tax laws.</p>
+                </div>
+                <div class="bg-white p-4 rounded border shadow-sm">
+                    <h4 class="font-bold text-gray-800">Banking & Insurance</h4>
+                    <p class="text-sm text-gray-600">Understanding the modern banking system and insurance regulations.</p>
+                </div>
+                <div class="bg-white p-4 rounded border shadow-sm">
+                    <h4 class="font-bold text-gray-800">Business Laws</h4>
+                    <p class="text-sm text-gray-600">Legal frameworks governing corporate entities.</p>
+                </div>
+            </div>
+        `
+    },
+    'page-dept-commerce-tab-highlights': {
+        title: 'Highlights',
+        content: `
+            <ul class="space-y-3">
+                <li class="flex items-start bg-slate-50 p-3 rounded"><span class="mr-3 text-green-600 font-bold">Γ£ô</span><div><strong>Practical Learning:</strong> Regular workshops on Tally Prime and Advanced Excel.</div></li>
+                <li class="flex items-start bg-slate-50 p-3 rounded"><span class="mr-3 text-green-600 font-bold">Γ£ô</span><div><strong>Industry Experts:</strong> Guest lectures by CAs and Finance Managers.</div></li>
+                <li class="flex items-start bg-slate-50 p-3 rounded"><span class="mr-3 text-green-600 font-bold">Γ£ô</span><div><strong>Career Focus:</strong> Dedicated placement training for roles in Banking and MNCs.</div></li>
+                <li class="flex items-start bg-slate-50 p-3 rounded"><span class="mr-3 text-green-600 font-bold">Γ£ô</span><div><strong>Commerce Club:</strong> 'Vanijya' club organizes fests, quizzes, and mock stock markets.</div></li>
+            </ul>
+        `
+    },
+    'page-dept-commerce-tab-vision': {
+        title: 'Vision & Mission',
+        content: `
+            <div class="space-y-6">
+                <div class="text-center bg-blue-50 p-6 rounded-xl">
+                   <h3 class="text-xl font-bold text-blue-900 mb-2">Vision</h3>
+                   <p class="text-lg italic text-blue-800">"To be a centre of excellence in Commerce education, nurturing values, ethics, and professional competence."</p>
+                </div>
+                <div class="grid gap-4">
+                    <h3 class="font-bold text-lg border-b pb-2">Mission</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                        <li>To provide a strong conceptual foundation in Commerce.</li>
+                        <li>To foster an entrepreneurial mindset among students.</li>
+                        <li>To instill ethical values and social responsibility in future business leaders.</li>
+                    </ul>
+                </div>
+            </div>
+        `
+    },
+    'page-dept-commerce-tab-skills': {
+        title: 'Skill Set Acquired',
+        content: `
+            <div class="flex flex-wrap gap-3">
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full font-semibold text-sm">Financial Analysis</span>
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full font-semibold text-sm">Taxation Compliance</span>
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full font-semibold text-sm">Tally & ERP</span>
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full font-semibold text-sm">Auditing</span>
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full font-semibold text-sm">Business Communication</span>
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full font-semibold text-sm">Market Research</span>
+            </div>
+        `
+    },
+    'page-dept-commerce-tab-matrix': {
+        title: 'Paper Titles',
+        content: `
+            <p class="mb-4">The B.Com curriculum is spread across 6 semesters (NEP Syllabus).</p>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left border rounded-lg">
+                    <thead class="bg-gray-100 uppercase text-gray-700">
+                        <tr><th class="px-4 py-3">Sem</th><th class="px-4 py-3">Core Subjects (Key)</th></tr>
+                    </thead>
+                    <tbody class="divide-y">
+                        <tr class="bg-white"><td class="px-4 py-3 font-bold">1 & 2</td><td class="px-4 py-3">Financial Accounting, Management Principles, Digital Fluency</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 font-bold">3 & 4</td><td class="px-4 py-3">Corporate Accounting, Costing, Artificial Intelligence</td></tr>
+                        <tr class="bg-white"><td class="px-4 py-3 font-bold">5 & 6</td><td class="px-4 py-3">Income Tax, Auditing, GST, Financial Management</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        `
+    },
+    'page-dept-commerce-tab-outcomes': {
+        title: 'Outcomes',
+        content: `
+            <div class="space-y-4">
+                <p>Upon graduation, a B.Com student will be able to:</p>
+                <div class="flex gap-3">
+                     <span class="text-2xl">≡ƒôè</span>
+                     <p>Prepare and analyze financial statements of companies.</p>
+                </div>
+                <div class="flex gap-3">
+                     <span class="text-2xl">≡ƒÆ░</span>
+                     <p>File tax returns (GST and Income Tax) independently.</p>
+                </div>
+                <div class="flex gap-3">
+                     <span class="text-2xl">≡ƒæö</span>
+                     <p>Work effectively in corporate finance or audit teams.</p>
+                </div>
+            </div>
+        `
+    },
+    'page-dept-commerce-tab-faculty': {
+        title: 'Faculty Profile',
+        content: '<p>Experienced Associate and Assistant Professors guide students with expertise.</p>'
+    },
+    'page-dept-commerce-tab-activities': {
+        title: 'Activities',
+        content: '<p>Industrial visits, Magic Bus training, and NISM certifications.</p>'
+    },
 
     'about-intro': {
         title: "About RBANM's First Grade College",
         content: `
-            <p class="mb-4">RBANM’s First Grade College was established by RBANM’s Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.</p>
-            <p class="mb-4">This is one of the many institutions established under the umbrella of the RBANM’s Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.</p>
+            <p class="mb-4">RBANMΓÇÖs First Grade College was established by RBANMΓÇÖs Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.</p>
+            <p class="mb-4">This is one of the many institutions established under the umbrella of the RBANMΓÇÖs Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.</p>
             <p>The college has been accredited by NAAC and is recognised under Section 2(f) and 12(b) of the UGC Act, 1956.</p>
         `
     },
@@ -313,7 +470,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
                     <div class="p-4">
                         <h4 class="font-bold text-lg mb-2">Natya</h4>
                         <p class="text-sm text-gray-600 mb-4">The dramatics club fostering stagecraft and performance.</p>
-                        <a href="#" class="text-blue-600 font-bold hover:underline">Read More →</a>
+                        <a href="#" class="text-blue-600 font-bold hover:underline">Read More ΓåÆ</a>
                     </div>
                 </div>
                 <div class="border rounded-lg overflow-hidden bg-white hover:shadow-md transition-shadow">
@@ -321,7 +478,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
                     <div class="p-4">
                         <h4 class="font-bold text-lg mb-2">Theatre</h4>
                         <p class="text-sm text-gray-600 mb-4">Exploring theatre arts through workshops and productions.</p>
-                        <a href="#" class="text-blue-600 font-bold hover:underline">Read More →</a>
+                        <a href="#" class="text-blue-600 font-bold hover:underline">Read More ΓåÆ</a>
                     </div>
                 </div>
                 <div class="border rounded-lg overflow-hidden bg-white hover:shadow-md transition-shadow">
@@ -329,7 +486,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
                     <div class="p-4">
                         <h4 class="font-bold text-lg mb-2">Music</h4>
                         <p class="text-sm text-gray-600 mb-4">Vocal and instrumental ensembles, performances, and learning.</p>
-                        <a href="#" class="text-blue-600 font-bold hover:underline">Read More →</a>
+                        <a href="#" class="text-blue-600 font-bold hover:underline">Read More ΓåÆ</a>
                     </div>
                 </div>
                 <!-- ... other items ... -->
@@ -345,7 +502,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
                     <div class="p-4">
                         <h4 class="font-bold text-lg mb-2">YRCS</h4>
                         <p class="text-sm text-gray-600 mb-4">Youth Red Cross Society activities and volunteering.</p>
-                        <a href="#" class="text-blue-600 font-bold hover:underline">Read More →</a>
+                        <a href="#" class="text-blue-600 font-bold hover:underline">Read More ΓåÆ</a>
                     </div>
                 </div>
                 <div class="border rounded-lg overflow-hidden bg-white hover:shadow-md transition-shadow">
@@ -353,7 +510,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
                     <div class="p-4">
                         <h4 class="font-bold text-lg mb-2">NSS</h4>
                         <p class="text-sm text-gray-600 mb-4">National Service Scheme social outreach and service.</p>
-                        <a href="#" class="text-blue-600 font-bold hover:underline">Read More →</a>
+                        <a href="#" class="text-blue-600 font-bold hover:underline">Read More ΓåÆ</a>
                     </div>
                 </div>
             </div>
@@ -373,7 +530,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
                     </div>
                     <div class="p-6 flex-grow">
                         <p class="text-sm text-gray-600 mb-4">Cordially invites you all for the Annual Athletics Meet on 2nd September, 2022.</p>
-                        <a href="#" class="text-blue-600 text-sm font-bold">Read More →</a>
+                        <a href="#" class="text-blue-600 text-sm font-bold">Read More ΓåÆ</a>
                     </div>
                 </div>
                 <!-- ... other events ... -->
@@ -460,6 +617,16 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     },
 
     // Dept Management (BBA)
+    'dept-management': {
+        title: 'Department of Management (BBA)',
+        tagline: 'Small business leaders through comprehensive curriculum, industry exposure, and practical management skills.',
+        content: '<p>Developing future business leaders through comprehensive curriculum, industry exposure, and practical management skills.</p>'
+    },
+    'academics-courses': {
+        title: 'Courses Offered',
+        tagline: 'Discover our diverse range of undergraduate programs designed to empower you with knowledge, skills, and future-ready capabilities.',
+        content: 'Full default content moved to detailed entries.'
+    },
     'contact-info': {
         title: 'Contact Information',
         content: `
@@ -484,15 +651,336 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
             </div>
         `
     },
+    'page-dept-management-tab-why-bba': {
+        title: 'Why BBA?',
+        content: '<p>The BBA program is designed to provide a strong foundation in business management with specializations in HR and Marketing.</p>'
+    },
+    'page-dept-management-tab-skills': {
+        title: 'Skill Set Acquired',
+        content: '<p>Strategic thinking, leadership, professional communication, and marketing orientation.</p>'
+    },
+    'page-dept-management-tab-highlights': {
+        title: 'Highlights',
+        content: '<ul><li>Dual Specialization</li><li>Mentorship</li><li>Career Pathways</li><li>Certifications</li></ul>'
+    },
+    'page-dept-management-tab-vision': {
+        title: 'Vision & Mission',
+        content: '<p>Diversity & Inclusion, Equality, Career Opportunities, and Inclusive Excellence.</p>'
+    },
+    'page-dept-management-tab-matrix': {
+        title: 'Paper Titles',
+        content: `
+            <div class="space-y-4">
+                <p>Curriculum spread across 6 semesters (NEP Syllabus) with Dual Specialization in HR and Marketing.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="border p-3 rounded"><strong>Sem 1:</strong> Principles of Management, Market Analysis, Statistics I, Financial Accounting</div>
+                    <div class="border p-3 rounded"><strong>Sem 2:</strong> HRM Practices, Indian Financial System, Statistics II, Corporate Accounting</div>
+                    <div class="border p-3 rounded"><strong>Sem 3:</strong> Cost Accounting, Organizational Behaviour, Marketing Principles, Business Comm</div>
+                    <div class="border p-3 rounded"><strong>Sem 4:</strong> Business Law, Research Methodology, Financial Management, CRM</div>
+                    <div class="border p-3 rounded"><strong>Sem 5:</strong> Operations Management, Income Tax I, HR Development, Consumer Behaviour</div>
+                    <div class="border p-3 rounded"><strong>Sem 6:</strong> International Business, Income Tax II, Advertising & Media, Compensation Mgmt</div>
+                </div>
+            </div>
+        `
+    },
+    'page-dept-management-tab-objectives': {
+        title: 'Objectives',
+        content: '<p>Develop comprehensive business competencies with dual specialization.</p>'
+    },
+    'page-dept-management-tab-outcomes': {
+        title: 'Outcomes',
+        content: '<p>Business Acumen, HR Expertise, Marketing Competence, and Strategic Thinking.</p>'
+    },
+    'page-dept-management-tab-activities': {
+        title: 'Activities',
+        content: '<p>Certificate training, industry visits, and entrepreneurship lectures.</p>'
+    },
+    'page-dept-management-tab-faculty': {
+        title: 'Faculty Profile',
+        content: '<p>Experienced faculty members in Management and Accounting.</p>'
+    },
 
     // Dept English
+    'dept-english': {
+        title: 'Department of English',
+        tagline: 'Nurturing linguistic proficiency and literary appreciation through a comprehensive and engaging curriculum.',
+        content: '<p>The Department of English at RBANMΓÇÖs First Grade College is committed to fostering a love for language and literature while developing critical thinking and communication skills essential for the modern world.</p>'
+    },
+    'page-dept-english-tab-highlights': {
+        title: 'Highlights',
+        content: '<ul><li>Regular workshops on creative writing and theater.</li><li>Strong focus on communication skills and personality development.</li><li>Active student clubs like Natya and Fourth Wall.</li><li>Regular guest lectures by eminent scholars and authors.</li></ul>'
+    },
+    'page-dept-english-tab-facilities': {
+        title: 'Facilities',
+        content: '<p>The department uses ICT-enabled classrooms and the collegeΓÇÖs well-equipped library to enhance the learning experience.</p>'
+    },
+    'page-dept-english-tab-vision': {
+        title: 'Vision & Mission',
+        content: '<p>To empower students with a masterly over the English language and a deep appreciation for the diversity of human experience reflected in literature.</p>'
+    },
+    'page-dept-english-tab-programmes': {
+        title: 'Programmes',
+        content: '<p>The department offers English as a mandatory language subject for all undergraduate courses (B.Com, BBA, BCA, BA).</p>'
+    },
+    'page-dept-english-tab-certificate-courses': {
+        title: 'Certificate Courses',
+        content: '<p>Value-added courses in Business Communication and Creative Writing are offered to enhance employability.</p>'
+    },
+    'page-dept-english-tab-matrix': {
+        title: 'Paper Titles',
+        content: '<p>Course matrix covering English and Additional English subjects across 4-6 semesters depends on the course.</p>'
+    },
+    'page-dept-english-tab-objectives': {
+        title: 'Objectives',
+        content: '<p>To develop studentsΓÇÖ ability to communicate effectively in English and to engage critically with literary texts.</p>'
+    },
+    'page-dept-english-tab-outcomes': {
+        title: 'Outcomes',
+        content: '<p>Graduates will demonstrate proficiency in English communication and critical analysis of various literary genres.</p>'
+    },
+    'page-dept-english-tab-natya': {
+        title: 'Natya',
+        content: '<p>The Natya club provides a platform for students to showcase their talents in theater, music, and dance.</p>'
+    },
+    'page-dept-english-tab-fourth-wall': {
+        title: 'Fourth Wall',
+        content: '<p>A theater group dedicated to exploring contemporary social issues through dramatic performances.</p>'
+    },
+    'page-dept-english-tab-phoenix': {
+        title: 'Phoenix Club',
+        content: '<p>A literary club that encourages students to express their creativity through writing and poetry.</p>'
+    },
+    'page-dept-english-tab-faculty': {
+        title: 'Faculty Profile',
+        content: '<p>Experienced faculty members dedicated to student mentorship and academic excellence.</p>'
+    },
+    'page-dept-english-tab-contact': {
+        title: 'Contact Information',
+        content: '<p>Email: english@rbanmsfgc.edu.in</p>'
+    },
 
     // Dept Languages
+    'dept-languages': {
+        title: 'Department of Languages',
+        tagline: 'Promoting linguistic diversity and cultural understanding through the study of Kannada, Hindi, and Tamil.',
+        content: '<p>The Department of Languages plays a vital role in preserving and promoting IndiaΓÇÖs rich linguistic heritage while developing studentsΓÇÖ communication skills in their mother tongues and other regional languages.</p>'
+    },
+    'page-dept-languages-tab-highlights': {
+        title: 'Highlights',
+        content: '<ul><li>Celebration of cultural festivals and language days.</li><li>Language labs and interactive learning sessions.</li><li>Promotion of regional literature and arts.</li></ul>'
+    },
+    'page-dept-languages-tab-vision': {
+        title: 'Vision & Mission',
+        content: '<p>To foster a deep appreciation for linguistic diversity and to equip students with the skills required to communicate effectively in various languages.</p>'
+    },
+    'page-dept-languages-tab-objectives': {
+        title: 'Objectives',
+        content: '<p>To develop linguistic proficiency and cultural awareness among students through the study of regional languages.</p>'
+    },
+    'page-dept-languages-tab-outcomes': {
+        title: 'Outcomes',
+        content: '<p>Students will demonstrate proficiency in their chosen languages and a nuanced understanding of the associated cultures.</p>'
+    },
+    'page-dept-languages-tab-hindi': {
+        title: 'Hindi',
+        content: '<p>Promoting the national language through literary events and language proficiency classes.</p>'
+    },
+    'page-dept-languages-tab-kannada': {
+        title: 'Kannada',
+        content: '<p>Focusing on the rich heritage of Kannada literature and the stateΓÇÖs cultural traditions.</p>'
+    },
+    'page-dept-languages-tab-tamil': {
+        title: 'Tamil',
+        content: '<p>Exploring the ancient and diverse literary traditions of the Tamil language.</p>'
+    },
+    'page-dept-languages-tab-events': {
+        title: 'Events',
+        content: '<p>Annual language festivals, poetry readings, and debate competitions.</p>'
+    },
+    'page-dept-languages-tab-faculty': {
+        title: 'Faculty Profile',
+        content: '<p>Dedicated language experts specializing in various regional literatures.</p>'
+    },
+    'page-dept-languages-tab-contact': {
+        title: 'Contact Information',
+        content: '<p>Email: languages@rbanmsfgc.edu.in</p>'
+    },
 
     // Dept Physical Education
+    'dept-physed': {
+        title: 'Department of Physical Education',
+        tagline: 'Fostering physical fitness, sportsmanship, and holistic well-being among students.',
+        content: '<p>The Department of Physical Education is dedicated to promoting a culture of health and fitness through a wide range of sports and recreational activities.</p>'
+    },
+    'page-dept-physed-tab-highlights': {
+        title: 'Highlights',
+        content: '<ul><li>Annual Sports Day and inter-departmental tournaments.</li><li>Excellent facilities for both indoor and outdoor sports.</li><li>Consistent achievements in university-level sports competitions.</li></ul>'
+    },
+    'page-dept-physed-tab-vision': {
+        title: 'Vision & Mission',
+        content: '<p>To inspire every student to adopt a healthy and active lifestyle through participation in sports and physical activities.</p>'
+    },
+    'page-dept-physed-tab-facilities': {
+        title: 'Facilities',
+        content: '<p>Large playground for outdoor sports and well-equipped indoor sports facilities.</p>'
+    },
+    'page-dept-physed-tab-courses': {
+        title: 'Courses',
+        content: '<p>Physical Education is offered as an elective and a value-added course for undergraduate students.</p>'
+    },
+    'page-dept-physed-tab-events': {
+        title: 'Events',
+        content: '<p>Organization of sports festivals, fitness workshops, and athletic meets.</p>'
+    },
+    'page-dept-physed-tab-contact': {
+        title: 'Contact Information',
+        content: '<p>Email: sports@rbanmsfgc.edu.in</p>'
+    },
 
     // Dept BCA
+    'dept-bca': {
+        title: 'Department of Computer Applications (BCA)',
+        content: '<p class="text-lg">The BCA Department is the technology hub of the college, dedicated to creating future-ready IT professionals with strong coding and analytical skills.</p>'
+    },
+    'page-dept-bca-tab-overview': {
+        title: 'Overview',
+        content: `
+            <div class="bg-indigo-50 p-6 rounded-lg border-l-4 border-indigo-500">
+                <p class="text-lg font-medium text-indigo-900">The BCA program bridges the gap between academic knowledge and industry requirements in the IT sector.</p>
+            </div>
+            <p class="mt-4">It focuses on providing a sound theoretical background as well as good practical exposure to students in the relevant areas. It increases the employability of the students in the IT sector.</p>
+        `
+    },
+    'page-dept-bca-tab-highlights': {
+        title: 'Highlights',
+        content: `
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white p-4 rounded border shadow-sm">
+                    <h4 class="font-bold text-gray-800">≡ƒûÑ∩╕Å High-Tech Labs</h4>
+                    <p class="text-sm text-gray-600">State-of-the-art computer labs with latest configuration and high-speed internet.</p>
+                </div>
+                <div class="bg-white p-4 rounded border shadow-sm">
+                    <h4 class="font-bold text-gray-800">≡ƒÜÇ Project Work</h4>
+                    <p class="text-sm text-gray-600">Mandatory live projects in final year using technologies like Python, Java, and React.</p>
+                </div>
+                <div class="bg-white p-4 rounded border shadow-sm">
+                    <h4 class="font-bold text-gray-800">≡ƒÆí Tech-Manthan Club</h4>
+                    <p class="text-sm text-gray-600">Active student club organizing hackathons, IT quizzes, and coding debugging contests.</p>
+                </div>
+                <div class="bg-white p-4 rounded border shadow-sm">
+                    <h4 class="font-bold text-gray-800">≡ƒîÉ Web Development</h4>
+                    <p class="text-sm text-gray-600">Special focus on Full Stack Development (MERN Stack) workshops.</p>
+                </div>
+            </div>
+        `
+    },
+    'page-dept-bca-tab-syllabus': {
+        title: 'Syllabus',
+        content: `
+            <p class="mb-3">The syllabus is updated regularly to align with Industry 4.0 standards.</p>
+            <ul class="space-y-2 list-disc pl-5">
+                <li><strong>Sem 1-2:</strong> C Programming, Data Structures, Web Design, Math for CS.</li>
+                <li><strong>Sem 3-4:</strong> Java, Python, Operating Systems, Database Management (DBMS).</li>
+                <li><strong>Sem 5-6:</strong> Artificial Intelligence, Cloud Computing, Cyber Security, Major Project.</li>
+            </ul>
+        `
+    },
+    'page-dept-bca-tab-faculty': {
+        title: 'Faculty Profile',
+        content: '<p>Experienced IT professionals and academicians.</p>'
+    },
+    'page-dept-bca-tab-facilities': {
+        title: 'Facilities',
+        content: '<p>Multiple high-tech labs with the latest configurations and software for hands-on learning.</p>'
+    },
+    'page-dept-bca-tab-competency-training': {
+        title: 'Competency Training',
+        content: '<p>Specialized training in trending technologies like Cloud Computing and AI.</p>'
+    },
+    'page-dept-bca-tab-certificate-courses': {
+        title: 'Certificate Courses',
+        content: '<p>Value-added courses in Web Development, Python Programming, and Cyber Security.</p>'
+    },
+    'page-dept-bca-tab-matrix': {
+        title: 'Paper Titles',
+        content: `
+            <div class="space-y-4">
+                <p>Core subjects designed for full-stack software development competency.</p>
+                <ul class="space-y-2">
+                    <li><strong>Sem 1-2:</strong> C Programming, Data Structures, Web Design, Discrete Mathematics.</li>
+                    <li><strong>Sem 3-4:</strong> Object Oriented Programming (Java), Python, DBMS (MySQL), Operating Systems.</li>
+                    <li><strong>Sem 5-6:</strong> Software Engineering, Cloud Computing, AI & Machine Learning, Cyber Security, Major Project.</li>
+                </ul>
+            </div>
+        `
+    },
+    'page-dept-bca-tab-objectives': {
+        title: 'Objectives',
+        content: '<p>To bridge the gap between academic knowledge and industry requirements in the IT sector.</p>'
+    },
+    'page-dept-bca-tab-outcomes': {
+        title: 'Outcomes',
+        content: '<p>Graduates will be proficient in software development, database management, and networking.</p>'
+    },
+    'page-dept-bca-tab-forum': {
+        title: 'BCA Forum',
+        content: '<p>A student-led forum for technical workshops, hackathons, and guest lectures.</p>'
+    },
+
     // Dept Arts
+    'dept-arts': {
+        title: 'Department of Arts',
+        content: '<p>Exploring the world through History, Economics, and Political Science.</p>'
+    },
+    'page-dept-arts-tab-highlights': {
+        title: 'Highlights',
+        content: '<p>Well-defined curriculum with emphasis on analytical reasoning.</p>'
+    },
+    'page-dept-arts-tab-skills': {
+        title: 'Skills Developed',
+        content: '<p>Critical thinking, public speaking, and research orientation.</p>'
+    },
+    'page-dept-arts-tab-vision': {
+        title: 'Vision & Mission',
+        content: '<p>To develop an academic environment for social sciences with intellectual discipline.</p>'
+    },
+    'page-dept-arts-tab-courses': {
+        title: 'Courses',
+        content: '<p>B.A with History, Economics, and Political Science.</p>'
+    },
+    'page-dept-arts-tab-objectives': {
+        title: 'Objectives',
+        content: '<p>Strengthen students\' practical understanding of economic and social concepts.</p>'
+    },
+    'page-dept-arts-tab-outcomes': {
+        title: 'Outcomes',
+        content: '<p>Disciplinary knowledge, application, and global competencies.</p>'
+    },
+    'page-dept-arts-tab-activities': {
+        title: 'Activities',
+        content: '<p>Eco-Wizz quiz, Mock Budget, and Educational visits.</p>'
+    },
+    'page-dept-arts-tab-faculty': {
+        title: 'Faculty Profile',
+        content: '<p>Distinguished professors and researchers in social sciences.</p>'
+    },
+    'page-dept-arts-tab-contact': {
+        title: 'Contact Information',
+        content: '<p>Email: arts@rbanmsfgc.edu.in</p>'
+    },
+    'page-dept-arts-tab-history': {
+        title: 'History',
+        content: '<p>The study of History provides students with a sense of context, continuity, and transformation. Our curriculum covers Ancient, Medieval, and Modern Indian History alongside European and World History.</p>'
+    },
+    'page-dept-arts-tab-economics': {
+        title: 'Economics',
+        content: '<p>Developing analytical skills to understand economic theories, market behaviors, and fiscal policies. Students explore Microeconomics, Macroeconomics, and Indian Economic development.</p>'
+    },
+    'page-dept-arts-tab-political-science': {
+        title: 'Political Science',
+        content: '<p>Understanding political systems, constitutions, and international relations. The course covers Political Theory, Indian Polity, and Comparative Politics.</p>'
+    },
+
     // Missing top-level pages
     'alumni-activity': {
         title: 'Alumni Activity',
@@ -677,35 +1165,84 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
             </div>
         `
     },
-
+    'facilities': {
+        title: 'Facilities',
+        content: `
+            <p class="mb-6 text-lg">RBANMS First Grade College offers state-of-the-art facilities designed to support academic excellence and holistic student development.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
+                    <div class="bg-blue-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-blue-600 font-bold">≡ƒôÜ</div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">Central Library</h4>
+                        <p class="text-sm text-gray-600">Extensive collection of over 25,000 books, journals, and access to digital resources like INFLIBNET.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
+                    <div class="bg-green-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-green-600 font-bold">≡ƒÆ╗</div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">Computer Labs</h4>
+                        <p class="text-sm text-gray-600">Three high-tech labs with 100+ systems, high-speed internet, and latest software for practical learning.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
+                    <div class="bg-purple-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-purple-600 font-bold">≡ƒÅƒ∩╕Å</div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">Sports Complex</h4>
+                        <p class="text-sm text-gray-600">Expansive playground for cricket and football, plus indoor facilities for table tennis and badminton.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
+                    <div class="bg-yellow-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-yellow-600 font-bold">≡ƒÄ¡</div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">Auditorium</h4>
+                        <p class="text-sm text-gray-600">A 500-seater modern auditorium with excellent acoustics for cultural events, seminars, and guest lectures.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
+                    <div class="bg-red-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-red-600 font-bold">≡ƒÅ½</div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">Smart Classrooms</h4>
+                        <p class="text-sm text-gray-600">ICT-enabled classrooms with projectors and audio systems to facilitate interactive learning.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
+                    <div class="bg-orange-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-orange-600 font-bold">Γÿò</div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">Cafeteria</h4>
+                        <p class="text-sm text-gray-600">Hygienic and affordable food options available for students and staff in a clean environment.</p>
+                    </div>
+                </div>
+            </div>
+        `
+    },
     'scholarships': {
         title: 'Scholarships & Financial Aid',
         content: `
-                                                                                    < p class="mb-6 text-lg" > We strictly believe that financial constraints should never hinder a student's education. RBANMS offers and facilitates various scholarship schemes.</p>
-                                                                                        < div class="space-y-4" >
-                                                                                            <div class="border rounded-lg p-4 bg-white hover:shadow-md transition" >
-                                                                                                <h3 class="text-lg font-bold text-primary mb-2" > Government Scholarships </h3>
-                                                                                                    < ul class="list-disc pl-5 text-gray-600 text-sm space-y-1" >
-                                                                                                        <li><strong>SSP(State Scholarship Portal): </strong> For SC/ST and OBC students of Karnataka.</li>
-                                                                                                            < li > <strong>NSP(National Scholarship Portal): </strong> For minority community students.</li >
-                                                                                                                <li><strong>Labor Welfare Fund: </strong> For children of construction/unorganized sector workers.</li>
-                                                                                                                    </ul>
-                                                                                                                    </div>
-                                                                                                                    < div class="border rounded-lg p-4 bg-white hover:shadow-md transition" >
-                                                                                                                        <h3 class="text-lg font-bold text-primary mb-2" > Institutional Management Scholarships </h3>
-                                                                                                                            < p class="text-gray-600 text-sm mb-2" > RBANMS Charities provides financial assistance to meritorious students from economically weaker sections.</p>
-                                                                                                                                < span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded" > Merit - Cum - Means </span>
-                                                                                                                                    </div>
-                                                                                                                                    < div class="border rounded-lg p-4 bg-white hover:shadow-md transition" >
-                                                                                                                                        <h3 class="text-lg font-bold text-primary mb-2" > Endowment Awards </h3>
-                                                                                                                                            < p class="text-gray-600 text-sm" > Cash prizes and awards instituted by alumni and philanthropists for subject toppers and best outgoing students.</p>
-                                                                                                                                                </div>
-                                                                                                                                                < div class="p-4 bg-yellow-50 rounded-lg border border-yellow-200" >
-                                                                                                                                                    <h4 class="font-bold text-yellow-800 mb-1" >📢 How to Apply ? </h4>
-                                                                                                                                                        < p class="text-sm text-yellow-900" > Applications are typically opened at the beginning of the academic year.Contact the College Office or the Scholarship Committee Nodal Officer for assistance.</p>
-                                                                                                                                                            </div>
-                                                                                                                                                            </div>
-                                                                                                                                                                `
+            <p class="mb-6 text-lg">We strictly believe that financial constraints should never hinder a student's education. RBANMS offers and facilitates various scholarship schemes.</p>
+            <div class="space-y-4">
+                <div class="border rounded-lg p-4 bg-white hover:shadow-md transition">
+                    <h3 class="text-lg font-bold text-primary mb-2">Government Scholarships</h3>
+                    <ul class="list-disc pl-5 text-gray-600 text-sm space-y-1">
+                        <li><strong>SSP (State Scholarship Portal):</strong> For SC/ST and OBC students of Karnataka.</li>
+                        <li><strong>NSP (National Scholarship Portal):</strong> For minority community students.</li>
+                        <li><strong>Labor Welfare Fund:</strong> For children of construction/unorganized sector workers.</li>
+                    </ul>
+                </div>
+                <div class="border rounded-lg p-4 bg-white hover:shadow-md transition">
+                    <h3 class="text-lg font-bold text-primary mb-2">Institutional Management Scholarships</h3>
+                    <p class="text-gray-600 text-sm mb-2">RBANMS Charities provides financial assistance to meritorious students from economically weaker sections.</p>
+                    <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Merit-Cum-Means</span>
+                </div>
+                <div class="border rounded-lg p-4 bg-white hover:shadow-md transition">
+                    <h3 class="text-lg font-bold text-primary mb-2">Endowment Awards</h3>
+                    <p class="text-gray-600 text-sm">Cash prizes and awards instituted by alumni and philanthropists for subject toppers and best outgoing students.</p>
+                </div>
+                <div class="p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                    <h4 class="font-bold text-yellow-800 mb-1">≡ƒôó How to Apply?</h4>
+                    <p class="text-sm text-yellow-900">Applications are typically opened at the beginning of the academic year. Contact the College Office or the Scholarship Committee Nodal Officer for assistance.</p>
+                </div>
+            </div>
+        `
     },
     'naac': {
         title: 'NAAC Accreditation',
@@ -730,88 +1267,49 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'academics-rules': {
         title: 'Academic Rules & Regulations',
         content: `
-                                                                                                                                                            < div class= "space-y-6" >
-                                                                                                                                                            <div class= "bg-red-50 p-5 rounded-lg border-l-4 border-red-500" >
-                                                                                                                                                            <h3 class= "font-bold text-red-900 mb-2" > Attendance Policy </h3>
-                                                                                                                                                                < p class="text-gray-700 text-sm" > As per Bangalore City University norms, a minimum of < strong > 75 % attendance < /strong> is mandatory in each subject to appear for the end-semester examination. Students falling short will not be permitted to write the exams.</p >
-                                                                                                                                                                    </div>
+            <div class="space-y-6">
+                <div class="bg-red-50 p-5 rounded-lg border-l-4 border-red-500">
+                    <h3 class="font-bold text-red-900 mb-2">Attendance Policy</h3>
+                    <p class="text-gray-700 text-sm">As per Bangalore City University norms, a minimum of <strong>75% attendance</strong> is mandatory in each subject to appear for the end-semester examination. Students falling short will not be permitted to write the exams.</p>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg text-primary mb-3">Internal Assessment</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start bg-white p-3 rounded border"><span class="mr-2 font-bold text-blue-600">1.</span> Tests: Two rounds of internal tests are conducted every semester.</li>
+                        <li class="flex items-start bg-white p-3 rounded border"><span class="mr-2 font-bold text-blue-600">2.</span> Assignments: Subject-wise assignments and presentations are evaluated.</li>
+                        <li class="flex items-start bg-white p-3 rounded border"><span class="mr-2 font-bold text-blue-600">3.</span> Conduct: Marks are also awarded for classroom behavior and participation.</li>
+                    </ul>
+                </div>
 
-                                                                                                                                                                    < div >
-                                                                                                                                                                    <h3 class="font-bold text-lg text-primary mb-3" > Internal Assessment </h3>
-                                                                                                                                                                        < ul class="space-y-3" >
-                                                                                                                                                                            <li class="flex items-start bg-white p-3 rounded border" > <span class="mr-2 font-bold text-blue-600" > 1. < /span> Tests: Two rounds of internal tests are conducted every semester.</li >
-                                                                                                                                                                                <li class="flex items-start bg-white p-3 rounded border" > <span class="mr-2 font-bold text-blue-600" > 2. < /span> Assignments: Subject-wise assignments and presentations are evaluated.</li >
-                                                                                                                                                                                    <li class="flex items-start bg-white p-3 rounded border" > <span class="mr-2 font-bold text-blue-600" > 3. < /span> Conduct: Marks are also awarded for classroom behavior and participation.</li >
-                                                                                                                                                                                        </ul>
-                                                                                                                                                                                        </div>
-
-                                                                                                                                                                                        < div >
-                                                                                                                                                                                        <h3 class="font-bold text-lg text-primary mb-3" > General Discipline </h3>
-                                                                                                                                                                                            < div class="grid grid-cols-1 md:grid-cols-2 gap-4" >
-                                                                                                                                                                                                <div class="bg-gray-50 p-4 rounded items-center flex gap-3" >
-                                                                                                                                                                                                    <span class="text-2xl" >🆔</span>
-                                                                                                                                                                                                        < span class="text-sm font-medium" > ID Cards must be worn at all times on campus.</span>
-                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                            < div class="bg-gray-50 p-4 rounded items-center flex gap-3" >
-                                                                                                                                                                                                                <span class="text-2xl" >📱</span>
-                                                                                                                                                                                                                    < span class="text-sm font-medium" > Use of mobile phones in classrooms is strictly prohibited.</span>
-                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                        < div class="bg-gray-50 p-4 rounded items-center flex gap-3" >
-                                                                                                                                                                                                                            <span class="text-2xl" >🚭</span>
-                                                                                                                                                                                                                                < span class="text-sm font-medium" > The college campus is a tobacco and drug - free zone.</span>
-                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                    < div class="bg-gray-50 p-4 rounded items-center flex gap-3" >
-                                                                                                                                                                                                                                        <span class="text-2xl" >👗</span>
-                                                                                                                                                                                                                                            < span class="text-sm font-medium" > Students must adhere to the formal dress code.</span>
-                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                    `
+                <div>
+                    <h3 class="font-bold text-lg text-primary mb-3">General Discipline</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-4 rounded items-center flex gap-3">
+                            <span class="text-2xl">≡ƒåö</span>
+                            <span class="text-sm font-medium">ID Cards must be worn at all times on campus.</span>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded items-center flex gap-3">
+                            <span class="text-2xl">≡ƒô▒</span>
+                            <span class="text-sm font-medium">Use of mobile phones in classrooms is strictly prohibited.</span>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded items-center flex gap-3">
+                            <span class="text-2xl">≡ƒÜ¡</span>
+                            <span class="text-sm font-medium">The college campus is a tobacco and drug-free zone.</span>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded items-center flex gap-3">
+                            <span class="text-2xl">≡ƒæù</span>
+                            <span class="text-sm font-medium">Students must adhere to the formal dress code.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `
     },
     'home-hero': {
         title: 'Welcome to RBANMS',
         content: '<h1>Empowering Generations Since 1883</h1><p>A legacy of excellence in education and character building.</p>',
-        imageUrl: '/images/hero/hero-2.jpg',
-        mag_link: 'https://drive.google.com/file/d/1iZPsekFA8vT5qAVqkYK7mPBN9XXPodvv/view?usp=sharing',
-        mag_image: '/images/phoenix-magazine-updated.png',
-        advantages: [
-            "Managed by a trusted and highly respected Educational Charities Trust",
-            "Located in the heart of Bangalore City, accessible with Metro, BMTC buses, and private vehicles",
-            "Learning spaces that are green and environmentally friendly",
-            "Well-equipped classrooms, labs, and AV rooms",
-            "Dedicated and qualified in-house faculty",
-            "Eminent guest faculty from various fields of expertise",
-            "Add-on and certificate courses to enhance professional skills",
-            "Encouragement and support for Sports, with in-house facilities and ample space",
-            "Access to professional training centres for cricket and football",
-            "Encouragement of NCC related activities",
-            "Meaningful engagement with community development through NSS",
-            "Support of the Arts through workshops, and access to several performance spaces",
-        ]
-    },
-    'site-settings': {
-        title: 'Global Site Settings',
-        content: '',
-        collegeName: "RBANM's First Grade College",
-        email: 'info@rbanmsfgc.edu.in',
-        phone: '080-41653395',
-        address: '#12, Annaswamy Mudaliar Road, Bangalore 560042.',
-        socialLinks: {
-            facebook: '#',
-            twitter: 'https://x.com/rbanmsfgcblr',
-            instagram: 'https://www.instagram.com/rbanmsfgcblr/',
-            linkedin: 'https://www.linkedin.com/company/rbanmsfgcblr',
-            youtube: 'https://youtube.com/@rbanmsfgcblr',
-            pinterest: 'https://www.pinterest.com/rbanmsfgcblr/',
-            bluesky: 'https://bsky.app/profile/rbanmsfgcblr.bsky.social'
-        },
-        footerTitles: {
-            quickLinks: 'Quick Links',
-            campus: 'Campus',
-            contact: 'Contact Us',
-            social: 'Social Media'
-        }
+        imageUrl: '/images/hero/hero-2.jpg'
     },
     '8': {
         title: 'Campus Updates',
@@ -828,14 +1326,14 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
             { title: "Tribute to Bharatiyar", date: "November 29, 2025", text: "An event by the Department of Languages - Tamil" }
         ],
         announcements_text: `
-                                                                                                                                                                                                                                                < ul class="space-y-2 list-disc list-inside" >
-                                                                                                                                                                                                                                                    <li>Admissions open for AY 2026 - 27. For a Campus Tour, email info @rbanmsfgc.edu.in.</li>
-                                                                                                                                                                                                                                                        < li > The Even Semester for AY 2025 - 26 will begin on January 16, 2026 for Faculty and all Final Year students.</li>
-                                                                                                                                                                                                                                                            < li > Regular classes for all courses will commence on January 27. </li>
-                                                                                                                                                                                                                                                                < li > Second and First Year students will begin classes on January 27. </li>
-                                                                                                                                                                                                                                                                    </ul>
-                                                                                                                                                                                                                                                                        `,
-        brochure_image: '/images/college-brochure-updated.png',
+            <ul class="space-y-2 list-disc list-inside">
+                <li>Admissions open for AY 2026-27. For a Campus Tour, email info@rbanmsfgc.edu.in.</li>
+                <li>The Even Semester for AY 2025-26 will begin on January 16, 2026 for Faculty and all Final Year students.</li>
+                <li>Regular classes for all courses will commence on January 27.</li>
+                <li>Second and First Year students will begin classes on January 27.</li>
+            </ul>
+        `,
+        brochure_image: '/images/phoenix-magazine.png',
         brochure_alt: 'College Magazine',
         upcoming_events_text: [
             'Internal Assessment - Jan 20',
@@ -843,9 +1341,9 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
             'Industrial Visit - Feb 05'
         ],
         blog_text: `
-                                                                                                                                                                                                                                                                    < p > Welcome to our blog section where we share insights, stories, and updates from our college community.Stay tuned for upcoming articles on academic excellence, student achievements, and educational initiatives that shape the future of learning.</p>
-                                                                                                                                                                                                                                                                        < p > We invite submissions from students and faculty.Please contact the editorial board for guidelines.</p>
-                                                                                                                                                                                                                                                                            `
+            <p>Welcome to our blog section where we share insights, stories, and updates from our college community. Stay tuned for upcoming articles on academic excellence, student achievements, and educational initiatives that shape the future of learning.</p>
+            <p>We invite submissions from students and faculty. Please contact the editorial board for guidelines.</p>
+        `
     },
     'header-top': {
         title: 'Header Top Bar',
@@ -864,11 +1362,11 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'about-board': {
         title: 'Board Members',
         content: `
-                                                                                                                                                                                                                                                                            < div class= "flex flex-col items-center justify-center min-h-[40vh] text-center" >
-                                                                                                                                                                                                                                                                            <h2 class= "text-2xl font-semibold text-muted-foreground" > Coming Soon </h2>
-                                                                                                                                                                                                                                                                                < p class="mt-2 text-foreground/80" > This page is under construction.Please check back later! </p>
-                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                        `
+            <div class="flex flex-col items-center justify-center min-h-[40vh] text-center">
+                <h2 class="text-2xl font-semibold text-muted-foreground">Coming Soon</h2>
+                <p class="mt-2 text-foreground/80">This page is under construction. Please check back later!</p>
+            </div>
+        `
     },
     'cell-sc-st': {
         title: 'SC/ST Cell',
@@ -966,7 +1464,39 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         content: '<p>The National Cadet Corps (NCC) at RBNMS College is a premier youth organization that strives to develop the qualities of character, courage, comradeship, discipline, leadership, and the ideal of selfless service among the youth of the country. We offer both Army and Navy wings, providing cadets with diverse opportunities for personal growth and adventure.</p>'
     },
 
-
+    'page-administration-tab-overview': {
+        title: 'Administration Overview',
+        content: `
+            <div class="space-y-6 text-black text-justify text-lg leading-relaxed">
+                <p>Our non-teaching staff serve as the backbone of the college. Their steady work keeps our academic environment organized, responsive, and efficient. From administrative support to campus maintenance and student services, they handle essential operations with professionalism and care.</p>
+                <p>Their diligence ensures that classrooms are ready, records are accurate, processes run smoothly, and every member of the community gets the support they need. Much of their work happens behind the scenes, yet it is vital to the collegeΓÇÖs daily functioning and long-term growth.</p>
+            </div>
+        `
+    },
+    'page-administration-tab-staff-list': {
+        title: 'Staff Details',
+        content: `
+            <div class="overflow-x-auto">
+                <table class="w-full text-base text-left text-black">
+                    <thead class="bg-primary/10 font-bold text-black border-b-2 border-primary">
+                        <tr>
+                            <th class="p-3">Name</th>
+                            <th class="p-3">Designation</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-primary/20">
+                        <tr><td class="p-3 font-medium">Mrs. DEEPA . V</td><td class="p-3">Head - Office Admin</td></tr>
+                        <tr><td class="p-3 font-medium">Mr. KUMAR R.H</td><td class="p-3">Accounts Officer</td></tr>
+                        <tr><td class="p-3 font-medium">Mr. PRASANT KUMAR BISWAL</td><td class="p-3">Maintenance In Charge</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        `
+    },
+    'page-administration-tab-photos': {
+        title: 'Group Photographs',
+        content: '<p>Administration staff group photographs coming soon.</p>'
+    },
 
 
 
@@ -982,36 +1512,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     },
     'academics-structure': {
         title: 'Academic Structure',
-        content: `
-            <p class="text-lg mb-6">There are 6 semesters to be covered for an undergraduate degree, with 2 semesters per academic year.</p>
-            <p class="text-lg mb-8">Each semester has the following courses:</p>
-            <div class="space-y-6">
-                <div class="flex items-start gap-4 p-4 border rounded-lg bg-gray-50">
-                    <div>
-                        <h3 class="font-bold text-xl text-primary">Core Subject Courses</h3>
-                        <p class="text-gray-600 mt-1">Core courses in the chosen discipline. Options at RBANM's include B.A., B.Com., B.B.A., and B.C.A.</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-4 p-4 border rounded-lg bg-gray-50">
-                    <div>
-                        <h3 class="font-bold text-xl text-primary">Compulsory English</h3>
-                        <p class="text-gray-600 mt-1">Compulsory English courses over the first 4 semesters.</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-4 p-4 border rounded-lg bg-gray-50">
-                    <div>
-                        <h3 class="font-bold text-xl text-primary">Compulsory Language</h3>
-                        <p class="text-gray-600 mt-1">Compulsory Language courses over the first 4 semesters (Hindi, Kannada, Tamil, or Additional English).</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-4 p-4 border rounded-lg bg-gray-50">
-                    <div>
-                        <h3 class="font-bold text-xl text-primary">Skill-Based & Vocational Courses</h3>
-                        <p class="text-gray-600 mt-1">Offered in collaboration with external trainers with certificate of recognition.</p>
-                    </div>
-                </div>
-            </div>
-        `
+        content: '<p>Our academic structure follows the Bangalore City University guidelines with NEP integration.</p>'
     },
     'academics-philosophy': {
         title: 'Philosophy of Teaching',
@@ -1025,70 +1526,70 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'page-facilities-tab-overview': {
         title: 'Overview',
         content: `
-                                                                                                                                                                                                                                                                                    < div class="space-y-6 text-lg leading-relaxed" >
-                                                                                                                                                                                                                                                                                        <p>Creating an environment for better productivity and performance.Infrastructural Abundance: It is part of the basic policy of the promoters that infrastructural self - sufficiency is a pre - requisite for better productivity and performance in all the activities, more so for academic activities.</p>
-                                                                                                                                                                                                                                                                                            < p > The Management has always been creating and updating academic and building infrastructure to meet the standards from time to time and to make life easy and stress - free in the campus.</p>
-                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                    `
+            <div class="space-y-6 text-lg leading-relaxed">
+                <p>Creating an environment for better productivity and performance. Infrastructural Abundance: It is part of the basic policy of the promoters that infrastructural self-sufficiency is a pre-requisite for better productivity and performance in all the activities, more so for academic activities.</p>
+                <p>The Management has always been creating and updating academic and building infrastructure to meet the standards from time to time and to make life easy and stress-free in the campus.</p>
+            </div>
+        `
     },
     'page-facilities-tab-computer-labs': {
         title: 'Computer Labs',
         content: `
-                                                                                                                                                                                                                                                                                                < div class="grid md:grid-cols-2 gap-6 items-center" >
-                                                                                                                                                                                                                                                                                                    <div>
-                                                                                                                                                                                                                                                                                                    <p>There are three computer labs on campus: two for the exclusive use of BCA students, and one used as a Design Lab for students of Journalism, and those who are part of the Editorial / Design Team, the Phoenix Club.</p>
-                                                                                                                                                                                                                                                                                                        < p class="mt-4" > These labs have been the main learning resource in providing students with practical exposure for the syllabus of Bangalore University and to go beyond it.</p>
-                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                            < img src = "/images/facilities/lab.jpg" alt = "Computer Lab" class="rounded-lg shadow-md" />
-                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                    `
+            <div class="grid md:grid-cols-2 gap-6 items-center">
+                <div>
+                    <p>There are three computer labs on campus: two for the exclusive use of BCA students, and one used as a Design Lab for students of Journalism, and those who are part of the Editorial/ Design Team, the Phoenix Club.</p>
+                    <p class="mt-4">These labs have been the main learning resource in providing students with practical exposure for the syllabus of Bangalore University and to go beyond it.</p>
+                </div>
+                <img src="/images/facilities/lab.jpg" alt="Computer Lab" class="rounded-lg shadow-md" />
+            </div>
+        `
     },
     'page-facilities-tab-sports-ground': {
         title: 'Sports Ground',
         content: `
-                                                                                                                                                                                                                                                                                                                < div class="grid md:grid-cols-2 gap-6 items-center" >
-                                                                                                                                                                                                                                                                                                                    <div>
-                                                                                                                                                                                                                                                                                                                    <p>The college has a large ground on campus, dedicated to sports.This area is regularly used for throwball, volleyball, basketball, kho kho, and more.The grounds are also used for NCC parades.</p>
-                                                                                                                                                                                                                                                                                                                        < p class= "mt-4" > In addition, the sports students have access to the SUFC and Karnataka Cricket Club that are situated on land owned by RBANMs Educational Charities.</p>
-                                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                                            < img src = "/images/facilities/ground.jpg" alt = "Sports Ground" class="rounded-lg shadow-md" />
-                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                    `
+            <div class="grid md:grid-cols-2 gap-6 items-center">
+                <div>
+                    <p>The college has a large ground on campus, dedicated to sports. This area is regularly used for throwball, volleyball, basketball, kho kho, and more. The grounds are also used for NCC parades.</p>
+                    <p class="mt-4">In addition, the sports students have access to the SUFC and Karnataka Cricket Club that are situated on land owned by RBANMs Educational Charities.</p>
+                </div>
+                <img src="/images/facilities/ground.jpg" alt="Sports Ground" class="rounded-lg shadow-md" />
+            </div>
+        `
     },
     'page-facilities-tab-auditorium': {
         title: 'Auditorium',
         content: `
-                                                                                                                                                                                                                                                                                                                                < div class="space-y-4" >
-                                                                                                                                                                                                                                                                                                                                    <p>Believing that experience on stage does wonders for the personality and individual growth of students, the college has two performance spaces: </p>
-                                                                                                                                                                                                                                                                                                                                        < ul class="list-disc pl-5 mt-2 space-y-1" >
-                                                                                                                                                                                                                                                                                                                                            <li>A seminar hall for small, intimate gatherings, such as the Natya club and guest lectures </li>
-                                                                                                                                                                                                                                                                                                                                                < li > A large auditorium to host events such as Orientation, Freshers’ Day, and other cultural activities.</li>
-                                                                                                                                                                                                                                                                                                                                                    </ul>
-                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                        `
+            <div class="space-y-4">
+                <p>Believing that experience on stage does wonders for the personality and individual growth of students, the college has two performance spaces:</p>
+                <ul class="list-disc pl-5 mt-2 space-y-1">
+                    <li>A seminar hall for small, intimate gatherings, such as the Natya club and guest lectures</li>
+                    <li>A large auditorium to host events such as Orientation, FreshersΓÇÖ Day, and other cultural activities.</li>
+                </ul>
+            </div>
+        `
     },
     'page-facilities-tab-library': {
         title: 'Library',
         content: `
-                                                                                                                                                                                                                                                                                                                                                    < div class="space-y-6" >
-                                                                                                                                                                                                                                                                                                                                                        <p>The college library is large, with more than 40,000 volumes of books on all subjects.The collection supports the curriculum and is built through student - teacher suggestions.</p>
-                                                                                                                                                                                                                                                                                                                                                            < div class="grid grid-cols-2 gap-4 bg-slate-50 p-6 rounded-lg" >
-                                                                                                                                                                                                                                                                                                                                                                <div>
-                                                                                                                                                                                                                                                                                                                                                                <h4 class="font-bold border-b mb-2" > Highlights </h4>
-                                                                                                                                                                                                                                                                                                                                                                    < ul class="list-disc pl-5 text-sm" >
-                                                                                                                                                                                                                                                                                                                                                                        <li>Reference Service </li>
-                                                                                                                                                                                                                                                                                                                                                                            < li > Reprographic Service </li>
-                                                                                                                                                                                                                                                                                                                                                                                < li > Internet Facilities </li>
-                                                                                                                                                                                                                                                                                                                                                                                    < li > Open Access Service </li>
-                                                                                                                                                                                                                                                                                                                                                                                        </ul>
-                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                        < div >
-                                                                                                                                                                                                                                                                                                                                                                                        <h4 class="font-bold border-b mb-2" > Timings </h4>
-                                                                                                                                                                                                                                                                                                                                                                                            < p class="text-sm" > 8 A.M.to 5 P.M.</p>
-                                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                                                    `
+            <div class="space-y-6">
+                <p>The college library is large, with more than 40,000 volumes of books on all subjects. The collection supports the curriculum and is built through student-teacher suggestions.</p>
+                <div class="grid grid-cols-2 gap-4 bg-slate-50 p-6 rounded-lg">
+                    <div>
+                        <h4 class="font-bold border-b mb-2">Highlights</h4>
+                        <ul class="list-disc pl-5 text-sm">
+                            <li>Reference Service</li>
+                            <li>Reprographic Service</li>
+                            <li>Internet Facilities</li>
+                            <li>Open Access Service</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold border-b mb-2">Timings</h4>
+                        <p class="text-sm">8 A.M. to 5 P.M.</p>
+                    </div>
+                </div>
+            </div>
+        `
     },
     'page-facilities-tab-digital-library': {
         title: 'Digital Library',
@@ -1109,100 +1610,17 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
 
     'cell-iqac': {
         title: 'Internal Quality Assurance Cell (IQAC)',
-        tagline: '',
-        content: '<p>The Internal Quality Assurance Cell (IQAC) at RBNMS College is the driving force behind our pursuit of academic excellence. Dedicated to maintaining high standards, the cell continuously monitors and enhances the quality of teaching, learning, and infrastructure. By implementing best practices and coordinating with accreditation bodies like NAAC, the IQAC ensures that the institution evolves to meet global educational standards while fostering a culture of continuous improvement for both faculty and students.</p>'
-    },
-    'cell-statutory': {
-        title: 'Statutory Cells & Committees',
-        content: `
-            <div class="space-y-6">
-                <p class="text-lg">The statutory committees at RBANMS First Grade College are established in accordance with UGC and University regulations to ensure institutional transparency, student welfare, and a safe learning environment.</p>
-                <p>These committees handle critical aspects such as anti-ragging, grievance redressal, and prevention of sexual harassment, ensuring that the college remains a space of mutual respect and equal opportunity.</p>
-            </div>
-        `
-    },
-    'cell-others': {
-        title: 'Other Cells & Clubs',
-        content: `
-            <div class="space-y-6">
-                <p class="text-lg">Beyond academics and statutory requirements, RBANMS provides a vibrant ecosystem of various other cells and clubs that allow students to explore their interests, develop leadership skills, and contribute to social causes.</p>
-                <p>From the Eco Club protecting our environment to the Cultural Committee celebrating our heritage, these platforms ensure the holistic development of every student.</p>
-            </div>
-        `
-    },
-    'research': {
-        title: 'Research & Innovation',
-        content: `
-            <div class="space-y-6">
-                <p class="text-lg text-justify leading-relaxed">RBANM’S First Grade College is committed to promoting a culture of research and innovation among its faculty and students. We believe that an inquiry-driven environment is essential for academic excellence and for preparing students to meet the challenges of a rapidly changing world.</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-                    <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
-                        <h3 class="text-xl font-bold text-blue-900 mb-4 font-headline">Key Objectives</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start gap-3">
-                                <span class="text-blue-600 mt-1">●</span>
-                                <span class="text-gray-700">To encourage faculty and students to undertake research projects.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-blue-600 mt-1">●</span>
-                                <span class="text-gray-700">To facilitate participation in national and international conferences.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-blue-600 mt-1">●</span>
-                                <span class="text-gray-700">To support the publication of research papers in reputed journals.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-blue-600 mt-1">●</span>
-                                <span class="text-gray-700">To organize workshops on research methodology and ethics.</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
-                        <h3 class="text-xl font-bold text-blue-900 mb-4 font-headline">Research Areas</h3>
-                        <p class="text-gray-700 mb-4">Our faculty members are actively involved in research across multiple disciplines, including:</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-white border border-blue-200 rounded-full text-blue-800 text-sm">Commerce & Management</span>
-                            <span class="px-3 py-1 bg-white border border-blue-200 rounded-full text-blue-800 text-sm">Computer Applications</span>
-                            <span class="px-3 py-1 bg-white border border-blue-200 rounded-full text-blue-800 text-sm">Economic Policy</span>
-                            <span class="px-3 py-1 bg-white border border-blue-200 rounded-full text-blue-800 text-sm">Social Sciences</span>
-                            <span class="px-3 py-1 bg-white border border-blue-200 rounded-full text-blue-800 text-sm">Linguistics & Literature</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `
+        tagline: 'The Internal Quality Assurance Cell (IQAC) at RBNMS College is the driving force behind our pursuit of academic excellence.',
+        content: '<p>Dedicated to maintaining high standards, the cell continuously monitors and enhances the quality of teaching, learning, and infrastructure.</p>'
     },
     'page-cell-iqac-tab-objectives': {
         title: 'Objectives',
         content: `
             <div class="space-y-6">
-              <div class="bg-white border-2 border-primary rounded-lg shadow-sm">
-                <div class="p-6 border-b flex items-center gap-2">
-                   <h3 class="text-xl font-bold text-black flex items-center gap-2">
-                     Objectives
-                   </h3>
-                </div>
-                <div class="p-6 text-black space-y-4">
-                  <div class="space-y-6">
-                    <p class="text-lg leading-relaxed">
-                      The primary aim of IQAC is to develop a system for conscious, consistent and catalytic action to improve the academic and administrative performance of the institution.
-                    </p>
-                    <ul class="list-disc pl-5 space-y-2 text-lg">
-                      <li>To develop a quality culture as the prime concern for the Institution</li>
-                      <li>To facilitate the creation of a learner-centric environment conducive to quality education and Faculty development</li>
-                      <li>To arrange for feedback responses from students, parents and other stakeholders on quality related institutional processes</li>
-                      <li>To disseminate information on various quality parameters to all stakeholders</li>
-                      <li>To organize inter and intra institutional workshops, seminars on quality related themes and promotion of quality circles</li>
-                      <li>To document various activities of the institutions leading to quality improvement</li>
-                      <li>To act as a nodal agency of the Institution for coordinating quality related activities including adoption and dissemination of best practices</li>
-                      <li>To develop and apply quality benchmarks/parameters for various academic and administrative activities of the Institution</li>
-                      <li>To promote measures for institutional functioning towards quality enhancement through internalization of quality culture and institutionalization of best practices.</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+                <ul class="list-disc pl-5 space-y-2 text-lg">
+                    <li>To develop a system for conscious, consistent and catalytic action to improve the academic and administrative performance of the institution.</li>
+                    <li>To promote measures for institutional functioning towards quality enhancement through internalization of quality culture and institutionalization of best practices.</li>
+                </ul>
             </div>
         `
     },
@@ -1210,73 +1628,37 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         title: 'Functions',
         content: `
             <div class="space-y-6">
-              <div class="bg-white border-2 border-primary rounded-lg shadow-sm">
-                <div class="p-6 border-b flex items-center gap-2">
-                  <h3 class="text-xl font-bold text-black flex items-center gap-2">
-                    Functions
-                  </h3>
-                </div>
-                <div class="p-6 text-black space-y-4">
-                  <div class="space-y-6">
-                    <ul class="list-disc pl-5 space-y-2 text-lg">
-                      <li>Development and application of quality benchmarks/parameters for various academic and administrative activities of the institution</li>
-                      <li>Facilitating the creation of a learner-centric environment conducive to quality education and faculty maturation to adopt the required knowledge and technology for participatory teaching and learning process</li>
-                      <li>Arrangement for feedback response from students, parents and other stakeholders on quality-related institutional processes</li>
-                      <li>Dissemination of information on various quality parameters of higher education</li>
-                      <li>Organization of inter and intra institutional workshops, seminars on quality related themes and promotion of quality circles</li>
-                      <li>Documentation of the various programmes/activities leading to quality improvement</li>
-                      <li>Acting as a nodal agency of the Institution for coordinating quality-related activities, including adoption and dissemination of best practices</li>
-                      <li>Development and maintenance of institutional database through MIS for the purpose of maintaining/enhancing the institutional quality</li>
-                      <li>Development of Quality Culture in the institution</li>
-                      <li>Preparation of the Annual Quality Assurance Report (AQAR) as per guidelines and parameters of NAAC, to be submitted to NAAC</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+                <ul class="list-disc pl-5 space-y-2 text-lg">
+                    <li>Development and application of quality benchmarks/parameters for various academic and administrative activities of the institution</li>
+                    <li>Facilitating the creation of a learner-centric environment conducive to quality education and faculty maturation to adopt the required knowledge and technology for participatory teaching and learning process</li>
+                    <li>Arrangement for feedback response from students, parents and other stakeholders on quality-related institutional processes</li>
+                    <li>Dissemination of information on various quality parameters of higher education</li>
+                    <li>Organization of inter and intra institutional workshops, seminars on quality related themes and promotion of quality circles</li>
+                    <li>Documentation of the various programmes/activities leading to quality improvement</li>
+                    <li>Acting as a nodal agency of the Institution for coordinating quality-related activities, including adoption and dissemination of best practices</li>
+                    <li>Development and maintenance of institutional database through MIS for the purpose of maintaining /enhancing the institutional quality</li>
+                    <li>Development of Quality Culture in the institution</li>
+                    <li>Preparation of the Annual Quality Assurance Report (AQAR) as per guidelines and parameters of NAAC, to be submitted to NAAC</li>
+                </ul>
             </div>
         `
     },
     'page-cell-iqac-tab-major-contributions': {
         title: 'Major Contributions',
         content: `
-            <div class="space-y-6">
-              <div class="bg-white border-2 border-primary rounded-lg shadow-sm">
-                <div class="p-6 border-b flex items-center gap-2">
-                  <h3 class="text-xl font-bold text-black flex items-center gap-2">
-                    Major Contributions
-                  </h3>
-                </div>
-                <div class="p-6 text-black space-y-4">
-                  <div class="space-y-6">
-                    <ul class="list-disc pl-5 space-y-2 text-lg mb-6">
-                      <li>Ensures timely, efficient and progressive performance of academic, administrative and financial tasks</li>
-                      <li>Ensures the adequacy, maintenance and proper allocation of support structure and services</li>
-                      <li>Facilitates a heightened level of clarity and focus in institutional functioning towards quality enhancement</li>
-                      <li>Ensures enhancement and coordination among various activities including curricular and co-curricular aspects</li>
-                      <li>Ensures the adequacy, maintenance and functioning of the support structure and services of the institution</li>
-                      <li>Provides a sound basis for decision-making to improve institutional functioning</li>
-                      <li>Acts as a dynamic system for quality changes in HEIs</li>
-                      <li>Builds an organised methodology of documentation and internal communication</li>
+            <div class="space-y-4 text-lg">
+                <p><strong>NIRF Participation:</strong> The College participates in the NIRF ranking every year.</p>
+                <p><strong>AISHE:</strong> Data is uploaded to the All India Survey on Higher Education portal every year.</p>
+                <p><strong>Feedback:</strong> Feedback is collected from various stakeholders like students, parents, alumni, and employers, analyzed, and action taken report is prepared and uploaded on the website.</p>
+                <p><strong>Result Analysis:</strong> Result analysis is done after every semester to identify advanced learners and slow learners.</p>
+                <p><strong>Audit:</strong> Academic and Administrative Audit is conducted to evaluate the performance of the institution.</p>
+                <p>
+                    <strong>Fidelity to the requirements of NAAC:</strong>
+                    <ul class="list-disc pl-8 mt-2">
+                        <li>AQAR is submitted every year.</li>
+                        <li>SSR is submitted for the accreditation process (First Cycle, Second Cycle, Third Cycle, and Fourth Cycle).</li>
                     </ul>
-
-                    <h3 class="text-xl font-bold text-primary mt-6 mb-4">Institutional Achievements</h3>
-                    <div class="space-y-4 text-lg bg-slate-50 p-6 rounded-lg">
-                      <p><strong>NIRF Participation:</strong> The College participates in the NIRF ranking every year.</p>
-                      <p><strong>AISHE:</strong> Data is uploaded to the All India Survey on Higher Education portal every year.</p>
-                      <p><strong>Feedback:</strong> Feedback is collected from various stakeholders like students, parents, alumni, and employers, analyzed, and action taken report is prepared and uploaded on the website.</p>
-                      <p><strong>Result Analysis:</strong> Result analysis is done after every semester to identify advanced learners and slow learners.</p>
-                      <p><strong>Audit:</strong> Academic and Administrative Audit is conducted to evaluate the performance of the institution.</p>
-                      <div>
-                        <strong>Fidelity to the requirements of NAAC:</strong>
-                        <ul class="list-disc pl-8 mt-2">
-                          <li>AQAR is submitted every year.</li>
-                          <li>SSR is submitted for the accreditation process (First Cycle, Second Cycle, Third Cycle, and Fourth Cycle).</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                </p>
             </div>
         `
     },
@@ -1284,147 +1666,58 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         title: 'Documents',
         content: `
             <div class="space-y-6">
-              <h2 class="text-3xl font-bold border-l-4 border-primary pl-4 text-black uppercase">IQAC DOCUMENTS</h2>
-              <div class="grid md:grid-cols-2 gap-8">
-                <!-- Constitution -->
-                <div class="border-2 border-primary rounded-lg overflow-hidden flex flex-col h-full bg-white">
-                  <div class="p-6 bg-slate-50 border-b">
-                    <h3 class="text-2xl font-semibold leading-none tracking-tight text-primary">Constitution</h3>
-                  </div>
-                  <div class="p-6 pt-4">
-                    <ul class="space-y-2">
-                      <li>
-                        <a href="https://drive.google.com/file/d/14TNINSLEJGsYgsVmd5sP-YtFqCDHxRrI/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline flex items-center gap-2">
-                           2024-25
-                        </a>
-                      </li>
-                      <li>
-                        <a href="https://drive.google.com/file/d/1GuJ3uCUFypLJysN8zvACzIIAAD36fYYm/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline flex items-center gap-2">
-                           2023-24
-                        </a>
-                      </li>
-                      <li>
-                        <a href="https://drive.google.com/file/d/1Ia7zdXiygkSfhHndRx7YTew_n5fW49DH/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline flex items-center gap-2">
-                           2022-23
-                        </a>
-                      </li>
-                      <li>
-                        <a href="https://drive.google.com/file/d/1z1JmqoR0U1nAmutVIzxEZ7vjaRjkrIfd/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline flex items-center gap-2">
-                           2021-22
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
+                <h2 class="text-3xl font-bold border-l-4 border-primary pl-4 text-black uppercase">IQAC Documents</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                     <div class="border rounded p-4">
+                        <h3 class="font-bold border-b pb-2 mb-2">Constitution</h3>
+                        <ul class="space-y-1">
+                            <li><a href="https://drive.google.com/file/d/14TNINSLEJGsYgsVmd5sP-YtFqCDHxRrI/view?usp=sharing" class="text-blue-600 hover:underline">2024-25</a></li>
+                            <li><a href="https://drive.google.com/file/d/1GuJ3uCUFypLJysN8zvACzIIAAD36fYYm/view?usp=sharing" class="text-blue-600 hover:underline">2023-24</a></li>
+                            <li><a href="https://drive.google.com/file/d/1Ia7zdXiygkSfhHndRx7YTew_n5fW49DH/view?usp=sharing" class="text-blue-600 hover:underline">2022-23</a></li>
+                            <li><a href="https://drive.google.com/file/d/1z1JmqoR0U1nAmutVIzxEZ7vjaRjkrIfd/view?usp=sharing" class="text-blue-600 hover:underline">2021-22</a></li>
+                        </ul>
+                     </div>
+                     <div class="border rounded p-4">
+                        <h3 class="font-bold border-b pb-2 mb-2">Annual SPP</h3>
+                         <ul class="space-y-1">
+                            <li><span class="text-gray-500">2024-25 (Coming Soon)</span></li>
+                            <li><span class="text-gray-500">2023-24 (Coming Soon)</span></li>
+                        </ul>
+                     </div>
+                      <div class="border rounded p-4">
+                        <h3 class="font-bold border-b pb-2 mb-2">Annual Report</h3>
+                        <ul class="space-y-1">
+                            <li><span class="text-gray-500">2024-25 (Coming Soon)</span></li>
+                            <li><span class="text-gray-500">2023-24 (Coming Soon)</span></li>
+                        </ul>
+                     </div>
+                      <div class="border rounded p-4">
+                        <h3 class="font-bold border-b pb-2 mb-2">Activities</h3>
+                        <ul class="space-y-1">
+                            <li><span class="text-gray-500">2024-25 (Coming Soon)</span></li>
+                            <li><span class="text-gray-500">2023-24 (Coming Soon)</span></li>
+                        </ul>
+                     </div>
+                     <div class="border rounded p-4">
+                        <h3 class="font-bold border-b pb-2 mb-2">Cell / Committee Members</h3>
+                        <ul class="space-y-1">
+                            <li><span class="text-gray-500">2024-25 (Coming Soon)</span></li>
+                            <li><span class="text-gray-500">2023-24 (Coming Soon)</span></li>
+                            <li><span class="text-gray-500">2022-23 (Coming Soon)</span></li>
+                            <li><span class="text-gray-500">2021-22 (Coming Soon)</span></li>
+                        </ul>
+                     </div>
+                     <div class="border rounded p-4">
+                        <h3 class="font-bold border-b pb-2 mb-2">AISHE Certificate</h3>
+                         <ul class="space-y-1">
+                            <li><span class="text-gray-500">2024-25 (Coming Soon)</span></li>
+                            <li><span class="text-gray-500">2023-24 (Coming Soon)</span></li>
+                            <li><span class="text-gray-500">2022-23 (Coming Soon)</span></li>
+                            <li><span class="text-gray-500">2021-22 (Coming Soon)</span></li>
+                        </ul>
+                     </div>
                 </div>
-
-                <!-- Annual SPP -->
-                <div class="border-2 border-primary rounded-lg overflow-hidden flex flex-col h-full bg-white">
-                  <div class="p-6 bg-slate-50 border-b">
-                    <h3 class="text-2xl font-semibold leading-none tracking-tight text-primary">Annual SPP</h3>
-                  </div>
-                  <div class="p-6 pt-4">
-                    <ul class="space-y-2">
-                      <li class="text-gray-500">2024-25 (Coming Soon)</li>
-                      <li class="text-gray-500">2023-24 (Coming Soon)</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- Annual Report -->
-                <div class="border-2 border-primary rounded-lg overflow-hidden flex flex-col h-full bg-white">
-                  <div class="p-6 bg-slate-50 border-b">
-                    <h3 class="text-2xl font-semibold leading-none tracking-tight text-primary">Annual Report</h3>
-                  </div>
-                  <div class="p-6 pt-4">
-                    <ul class="space-y-2">
-                      <li>
-                        <a href="https://drive.google.com/open?id=1VB_okbRdhm8Ll2tTNj27kfBVkxg1xj9F&usp=drive_copy" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline flex items-center gap-2">
-                           2024-25
-                        </a>
-                      </li>
-                      <li>
-                        <a href="https://drive.google.com/open?id=1yCeCdJW-IJNq3r10gzKUqf5v0uXc-4-m&usp=drive_copy" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline flex items-center gap-2">
-                           2023-24
-                        </a>
-                      </li>
-                      <li>
-                        <a href="https://drive.google.com/open?id=1xRihwynDNNPEGmcRLjyVXhSVXETyNB26&usp=drive_copy" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline flex items-center gap-2">
-                           2022-23
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- Activities -->
-                <div class="border-2 border-primary rounded-lg overflow-hidden flex flex-col h-full bg-white">
-                  <div class="p-6 bg-slate-50 border-b">
-                    <h3 class="text-2xl font-semibold leading-none tracking-tight text-primary">Activities</h3>
-                  </div>
-                  <div class="p-6 pt-4">
-                     <ul class="space-y-2">
-                        <li class="text-gray-500">2024-25 (Coming Soon)</li>
-                        <li class="text-gray-500">2023-24 (Coming Soon)</li>
-                     </ul>
-                  </div>
-                </div>
-
-                <!-- Cell/Committee Members -->
-                <div class="border-2 border-primary rounded-lg overflow-hidden flex flex-col h-full bg-white">
-                  <div class="p-6 bg-slate-50 border-b">
-                    <h3 class="text-2xl font-semibold leading-none tracking-tight text-primary">Cell / Committee Members</h3>
-                  </div>
-                  <div class="p-6 pt-4">
-                    <ul class="space-y-2">
-                      <li>
-                        <a href="https://drive.google.com/open?id=14TNINSLEJGsYgsVmd5sP-YtFqCDHxRrI&usp=drive_copy" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline flex items-center gap-2">
-                           2024-25
-                        </a>
-                      </li>
-                      <li>
-                        <a href="https://drive.google.com/open?id=1GuJ3uCUFypLJysN8zvACzIIAAD36fYYm&usp=drive_copy" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline flex items-center gap-2">
-                           2023-24
-                        </a>
-                      </li>
-                      <li>
-                        <a href="https://drive.google.com/open?id=1Ia7zdXiygkSfhHndRx7YTew_n5fW49DH&usp=drive_copy" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline flex items-center gap-2">
-                           2022-23
-                        </a>
-                      </li>
-                      <li>
-                        <a href="https://drive.google.com/open?id=1z1JmqoR0U1nAmutVIzxEZ7vjaRjkrIfd&usp=drive_copy" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline flex items-center gap-2">
-                           2021-22
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-
-
-                <!-- AISHE Certificate -->
-                <div class="border-2 border-primary rounded-lg overflow-hidden flex flex-col h-full bg-white">
-                  <div class="p-6 bg-slate-50 border-b">
-                     <h3 class="text-2xl font-semibold leading-none tracking-tight text-primary">AISHE Certificate</h3>
-                  </div>
-                  <div class="p-6 pt-4">
-                     <ul class="space-y-2">
-                        <li class="text-gray-500">2024-25 (Coming Soon)</li>
-                        <li class="text-gray-500">2023-24 (Coming Soon)</li>
-                        <li class="text-gray-500">2022-23 (Coming Soon)</li>
-                        <li class="text-gray-500">2021-22 (Coming Soon)</li>
-                     </ul>
-                  </div>
-                </div>
-              </div>
             </div>
         `
-    },
-    // --- Student Corner Sidebars (Optional if layout uses them) ---
-    'facilities-sidebar': { title: 'Facilities Sidebar', imageUrl: '/images/logo.png', content: '' },
-    'scholarships-sidebar': { title: 'Scholarships Sidebar', imageUrl: '/images/logo.png', content: '' },
-    'research-sidebar': { title: 'Research Sidebar', imageUrl: '/images/logo.png', content: '' },
-    'career-sidebar': { title: 'Career Sidebar', imageUrl: '/images/logo.png', content: '' },
-    'gallery-sidebar': { title: 'Gallery Sidebar', imageUrl: '/images/logo.png', content: '' },
-    'alumni-activity-sidebar': { title: 'Alumni Sidebar', imageUrl: '/images/logo.png', content: '' },
+    }
 };

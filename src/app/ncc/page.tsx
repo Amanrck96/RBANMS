@@ -74,18 +74,7 @@ export default function NCCPage() {
                                     </div>
                                 </div>
 
-                                {/* Documents Section */}
-                                <div className="p-8 md:p-12 bg-white border-t">
-                                    <div className="flex items-center gap-3 mb-8">
-                                        <div className="p-2 bg-primary rounded-lg text-white">
-                                            <FileText className="h-6 w-6" />
-                                        </div>
-                                        <h2 className="text-3xl font-bold text-black uppercase tracking-tight">NCC Reports & Documents</h2>
-                                    </div>
-                                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                        <DocumentFolder title="Activity Reports" items={reportItems} />
-                                    </div>
-                                </div>
+                                {/* Documents Section Removed */}
                             </div>
                         )}
                     />
