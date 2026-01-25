@@ -100,84 +100,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         content: 'The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. Our objective is to create efficient academicians, innovative entrepreneurs, and responsible citizens.',
         imageUrl: '/images/migrated/principal-whatsapp.jpeg'
     },
-    'academics-courses': {
-        title: 'Courses Offered',
-        tagline: 'Discover our diverse range of undergraduate programs designed to empower you with knowledge, skills, and future-ready capabilities.',
-        badgeText: 'Academic Excellence',
-        content: ''
-    },
-    'administration': {
-        title: 'Administration',
-        tagline: 'The Backbone of Our College. Efficient, responsive, and dedicated to supporting our academic environment.',
-        content: '<p>Our non-teaching staff handle essential operations with professionalism and care.</p>'
-    },
-    'page-administration-tab-overview': {
-        title: 'Overview',
-        content: `
-            <div class="space-y-6 text-gray-800 text-justify leading-relaxed">
-                <p>Our non-teaching staff serve as the backbone of the college. Their steady work keeps our academic environment organized, responsive, and efficient. From administrative support to campus maintenance and student services, they handle essential operations with professionalism and care.</p>
-                <p>Their diligence ensures that classrooms are ready, records are accurate, processes run smoothly, and every member of the community gets the support they need.</p>
-            </div>
-        `
-    },
-    'page-administration-tab-staff-list': {
-        title: 'Staff List',
-        content: `
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border">
-                    <thead class="bg-slate-100 font-bold">
-                        <tr><th class="p-3">Name</th><th class="p-3">Designation</th></tr>
-                    </thead>
-                    <tbody class="divide-y">
-                        <tr><td class="p-3">Mrs. DEEPA . V</td><td class="p-3">Head - Office Admin</td></tr>
-                        <tr><td class="p-3">Mr. KUMAR R.H</td><td class="p-3">Accounts Officer</td></tr>
-                        <tr><td class="p-3">Mr. PRASANT KUMAR BISWAL</td><td class="p-3">Maintenance In Charge</td></tr>
-                        <tr><td class="p-3">Mr. BHASKARAN. M</td><td class="p-3">Office Assistant</td></tr>
-                        <tr><td class="p-3">Mr. PUTTARAJU. H. E</td><td class="p-3">Librarian</td></tr>
-                        <tr><td class="p-3">Mr. SHIVANNA. N</td><td class="p-3">Sports Attender & Gardener</td></tr>
-                        <tr><td class="p-3">Mr. PANDY SELVAN</td><td class="p-3">Office Attender</td></tr>
-                        <tr><td class="p-3">Mr. EMMANUEL SHREYAS. S</td><td class="p-3">Reception</td></tr>
-                        <tr><td class="p-3">Mrs. ARPITHA S</td><td class="p-3">Office Assistant</td></tr>
-                        <tr><td class="p-3">Ms. MARY CELESTINA. J</td><td class="p-3">IQAC Assistant</td></tr>
-                        <tr><td class="p-3">Mr. RAMESH</td><td class="p-3">Accounts Officer</td></tr>
-                        <tr><td class="p-3">Mr. SRINIVAS E</td><td class="p-3">Office Assistant</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        `
-    },
-    'page-administration-tab-photos': {
-        title: 'Staff Photos',
-        content: '<p>Group photographs of our dedicated administrative and support team.</p>'
-    },
-    'scholarships': {
-        title: 'Scholarships',
-        content: `
-            <div class="space-y-8">
-                <p class="text-lg">It is the mandate of our Founder and the mission of our college to make sure that no meritorious student is left behind.</p>
-                <div class="p-6 bg-slate-50 rounded-lg">
-                    <h3 class="text-xl font-bold mb-4">At the time of admissions, discounts will be given to:</h3>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li>Alumni of RBANMs Institutions</li>
-                        <li>Children of the staff of RBANMs Institutions</li>
-                        <li>Meritorious NCC cadets who will continue with NCC in college</li>
-                        <li>Meritorious and active Sports students</li>
-                        <li>Any student of extraordinary merit in any field</li>
-                    </ul>
-                </div>
-                <div class="p-6 bg-slate-50 rounded-lg">
-                    <h3 class="text-xl font-bold mb-4">In the Second Year, scholarships are awarded if:</h3>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li>Attended college regularly</li>
-                        <li>Significant progress in academics</li>
-                        <li>Participated in college events</li>
-                        <li>Financial challenges at home</li>
-                        <li>No other financial support from other sources</li>
-                    </ul>
-                </div>
-            </div>
-        `
-    },
+
     'dept-commerce': {
         title: 'Department of Commerce',
         content: '<p>Welcome to the Department of Commerce. Since 1984, we have been shaping capable graduates through practical learning and innovation, delivering education that meets global standards.</p>',
@@ -527,7 +450,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'academics-courses': {
         title: 'Courses Offered',
         tagline: 'Discover our diverse range of undergraduate programs designed to empower you with knowledge, skills, and future-ready capabilities.',
-        content: 'Full default content moved to detailed entries.'
+        content: '<p>At RBANM’s First Grade College, we offer a variety of undergraduate and postgraduate programmes designed to prepare students for the challenges of the professional world. Our curriculum is aligned with industry standards and focuses on holistic development.</p>'
     },
     'contact-info': {
         title: 'Contact Information',
@@ -1067,56 +990,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
             </div>
         `
     },
-    'facilities': {
-        title: 'Facilities',
-        content: `
-            <p class="mb-6 text-lg">RBANMS First Grade College offers state-of-the-art facilities designed to support academic excellence and holistic student development.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
-                    <div class="bg-blue-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-blue-600 font-bold">≡ƒôÜ</div>
-                    <div>
-                        <h4 class="font-bold text-lg mb-1">Central Library</h4>
-                        <p class="text-sm text-gray-600">Extensive collection of over 25,000 books, journals, and access to digital resources like INFLIBNET.</p>
-                    </div>
-                </div>
-                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
-                    <div class="bg-green-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-green-600 font-bold">≡ƒÆ╗</div>
-                    <div>
-                        <h4 class="font-bold text-lg mb-1">Computer Labs</h4>
-                        <p class="text-sm text-gray-600">Three high-tech labs with 100+ systems, high-speed internet, and latest software for practical learning.</p>
-                    </div>
-                </div>
-                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
-                    <div class="bg-purple-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-purple-600 font-bold">≡ƒÅƒ∩╕Å</div>
-                    <div>
-                        <h4 class="font-bold text-lg mb-1">Sports Complex</h4>
-                        <p class="text-sm text-gray-600">Expansive playground for cricket and football, plus indoor facilities for table tennis and badminton.</p>
-                    </div>
-                </div>
-                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
-                    <div class="bg-yellow-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-yellow-600 font-bold">≡ƒÄ¡</div>
-                    <div>
-                        <h4 class="font-bold text-lg mb-1">Auditorium</h4>
-                        <p class="text-sm text-gray-600">A 500-seater modern auditorium with excellent acoustics for cultural events, seminars, and guest lectures.</p>
-                    </div>
-                </div>
-                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
-                    <div class="bg-red-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-red-600 font-bold">≡ƒÅ½</div>
-                    <div>
-                        <h4 class="font-bold text-lg mb-1">Smart Classrooms</h4>
-                        <p class="text-sm text-gray-600">ICT-enabled classrooms with projectors and audio systems to facilitate interactive learning.</p>
-                    </div>
-                </div>
-                <div class="bg-white p-5 rounded-lg border shadow-sm flex gap-4">
-                    <div class="bg-orange-100 p-3 rounded-full h-12 w-12 flex items-center justify-center text-orange-600 font-bold">Γÿò</div>
-                    <div>
-                        <h4 class="font-bold text-lg mb-1">Cafeteria</h4>
-                        <p class="text-sm text-gray-600">Hygienic and affordable food options available for students and staff in a clean environment.</p>
-                    </div>
-                </div>
-            </div>
-        `
-    },
+
     'scholarships': {
         title: 'Scholarships & Financial Aid',
         content: `
