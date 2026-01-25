@@ -299,7 +299,7 @@ export default function CommerceDepartmentPage() {
     { id: "highlights", label: "Highlights", content: highlightsContent },
     { id: "vision", label: "Vision & Mission", content: visionContent },
     { id: "skills", label: "Skill Set Acquired", content: skillsContent },
-    { id: "matrix", label: "MATRIX", content: matrixContent },
+    { id: "matrix", label: "Course Matrix", content: matrixContent },
     { id: "outcomes", label: "Outcomes", content: outcomesContent },
     { id: "activities", label: "Activities", content: activitiesContent },
     { id: "faculty", label: "Faculty Profile", content: facultyContent },
