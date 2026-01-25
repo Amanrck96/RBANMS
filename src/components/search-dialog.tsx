@@ -238,6 +238,23 @@ export function SearchDialog() {
         setResults(filtered);
     }, [query, allItems]);
 
+    const [mounted, setMounted] = React.useState(false);
+
+    React.useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) {
+        return (
+            <button
+                className="flex items-center justify-center p-2 text-white hover:bg-white/10 rounded-full transition-colors"
+                aria-label="Search website"
+            >
+                <Search className="h-5 w-5 !text-white" />
+            </button>
+        );
+    }
+
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
