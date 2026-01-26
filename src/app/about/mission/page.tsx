@@ -4,6 +4,29 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Target, BookOpen, Wrench, Users, ShieldCheck } from 'lucide-react';
 import { DynamicSection } from '@/components/dynamic-section';
 
+const missionPoints = [
+  {
+    icon: Target,
+    text: 'Nurture young minds with knowledge, shaping them into confident and capable individuals.',
+  },
+  {
+    icon: BookOpen,
+    text: 'Deliver a strong foundation in Arts, Science, and Commerce, equipping students with a broad and deep understanding of their fields.',
+  },
+  {
+    icon: Wrench,
+    text: 'Develop essential life skills like critical thinking, communication, and problem-solving, that help students adapt and thrive in an ever-changing world.',
+  },
+  {
+    icon: Users,
+    text: 'Foster leadership qualities and social responsibility, preparing students to make meaningful contributions to their professions and society.',
+  },
+  {
+    icon: ShieldCheck,
+    text: 'Incorporate ethical standards, professionalism, and a lifelong curiosity for learning across arts, sciences, and humanities.',
+  },
+];
+
 export default function MissionPage() {
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
@@ -12,21 +35,23 @@ export default function MissionPage() {
           <DynamicSection
             pageId="about-mission"
             defaultTitle="Our Mission"
-            render={(data) => (
-              <div dangerouslySetInnerHTML={{
-                __html: data?.content || `
-            <div class="space-y-6">
-                <p class="text-lg text-gray-600 mb-6">At RBANMS, we are committed to providing quality education that empowers students to excel in life, staying true to the visionary dream of our founder. Our mission is to:</p>
-                <ul class="space-y-4">
-                    <li class="flex items-start"><span class="mr-3 text-[#b91c1c] font-bold">✓</span><span class="text-gray-600 text-lg">Nurture young minds with knowledge, shaping them into confident and capable individuals.</span></li>
-                    <li class="flex items-start"><span class="mr-3 text-[#b91c1c] font-bold">✓</span><span class="text-gray-600 text-lg">Deliver a strong foundation in Arts, Science, and Commerce, equipping students with a broad and deep understanding of their fields.</span></li>
-                    <li class="flex items-start"><span class="mr-3 text-[#b91c1c] font-bold">✓</span><span class="text-gray-600 text-lg">Develop essential life skills like critical thinking, communication, and problem-solving.</span></li>
-                    <li class="flex items-start"><span class="mr-3 text-[#b91c1c] font-bold">✓</span><span class="text-gray-600 text-lg">Foster leadership qualities and social responsibility, preparing students to make meaningful contributions.</span></li>
-                    <li class="flex items-start"><span class="mr-3 text-[#b91c1c] font-bold">✓</span><span class="text-gray-600 text-lg">Incorporate ethical standards, professionalism, and a lifelong curiosity for learning.</span></li>
+            defaultContent={
+              <>
+                <p className="text-lg text-muted-foreground mb-6">
+                  At RBANMS, we are committed to providing quality education that empowers students to excel in life, staying true to the visionary dream of our founder. Our mission is to:
+                </p>
+                <ul className="space-y-4">
+                  {missionPoints.map((point, index) => (
+                    <li key={index} className="flex items-start">
+                      <div className="p-2 bg-primary/10 rounded-full mr-4">
+                        <point.icon className="h-6 w-6 text-accent" />
+                      </div>
+                      <span className="flex-1 text-muted-foreground text-lg">{point.text}</span>
+                    </li>
+                  ))}
                 </ul>
-            </div>
-              ` }} />
-            )}
+              </>
+            }
           />
         </CardContent>
       </Card>
