@@ -14,6 +14,7 @@ const defaultStructure = {
       description: "Core courses in the chosen discipline. Options at RBANM's, depending on eligibility:",
       options: [
         { name: "Bachelor of Arts – B.A.", href: "/departments/arts" },
+        { name: "Bachelor of Arts (Physical Education) – B.A.", href: "/departments/physical-education" },
         { name: "Bachelor of Commerce – B.Com.", href: "/departments/commerce" },
         { name: "Bachelor of Business Management – B.B.A.", href: "/departments/management" },
         { name: "Bachelor of Computer Applications – B.C.A.", href: "/departments/computer-applications" },

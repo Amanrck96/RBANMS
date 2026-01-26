@@ -158,10 +158,24 @@ export default function PhysicalEducationPage() {
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4">COURSES OFFERED</h2>
       <Card className="bg-white border-2 border-primary text-black">
-        <CardContent className="pt-6">
-          <ul className="space-y-3 list-decimal pl-5 text-lg">
-            <li>B.A. with Physical Education, History, and Political Science (Applied for)</li>
-          </ul>
+        <CardHeader>
+          <div className="flex items-center gap-4">
+            <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center">
+              <Dumbbell className="h-6 w-6 text-primary" />
+            </div>
+            <div>
+              <CardTitle className="text-xl">Bachelor of Arts (Physical Education with History & Political Science)</CardTitle>
+              <CardDescription className="text-primary font-semibold">Expected to begin in June 2026</CardDescription>
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <p className="text-muted-foreground leading-relaxed">
+            The BA in Physical Education combines sports science with humanities subjects like History and Political Science. This three-year undergraduate program is designed for students passionate about sports, fitness, and education.
+          </p>
+          <p className="text-muted-foreground leading-relaxed">
+            It covers sports psychology, exercise physiology, coaching techniques, and sports management alongside analytical subjects. Graduates can pursue careers as physical education teachers, sports coaches, fitness trainers, sports administrators, and athletic trainers. Further studies like M.P.Ed (Master of Physical Education) or certifications in sports nutrition, yoga, or sports management can enhance career prospects.
+          </p>
         </CardContent>
       </Card>
     </div>
