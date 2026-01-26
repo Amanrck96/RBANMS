@@ -196,15 +196,6 @@ export default function LanguagesDepartmentPage() {
   const facultyContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">OUR FACULTY</h2>
-      <div className="mb-6 relative w-full aspect-[16/9] md:aspect-[21/9] rounded-xl overflow-hidden shadow-md">
-        <Image
-          src="/images/departments/languages-faculty.jpg"
-          alt="Department of Languages Faculty and Staff"
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
           { name: "Dr. Sunil Kumar", role: "Head of the Department Languages, Asst. Professor - Hindi", qual: "M.A. , B.Ed ,Ph.D.", email: "sunilkumarshetty1977@gmail.com" },
