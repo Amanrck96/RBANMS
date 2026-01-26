@@ -66,9 +66,9 @@
   - All headings and CardTitle components render in blue
   - This applies across the site to meet the requirement
 */
-:where(h1, h2, h3, h4, h5, h6),
-.card-title {
-  color: #000 !important;
+main :where(h1, h2, h3, h4, h5, h6),
+main .card-title {
+  color: #1e3a8a !important;
 }
 
 main :where(p, li, span, small, strong, em, td, th, figcaption, label) {
