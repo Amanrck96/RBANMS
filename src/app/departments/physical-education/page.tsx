@@ -11,7 +11,8 @@ import {
   Medal,
   Dumbbell,
   Timer,
-  Flag
+  Flag,
+  Mail
 } from 'lucide-react';
 
 export default function PhysicalEducationPage() {
@@ -32,11 +33,12 @@ export default function PhysicalEducationPage() {
           <CardContent>
             <ul className="space-y-3">
               {[
-                "Annual Athletic Meet",
-                "Inter-Class Sports Competitions",
-                "University Level Representation",
-                "Yoga & Wellness Sessions",
-                "Well-Maintained Sports Facilities"
+                "Experienced Leadership: Headed by a qualified Physical Education Director with a Ph.D.",
+                "Excellent Infrastructure: Large playground, indoor stadium, and a well-equipped multi-gym.",
+                "Sports Quota Admissions: Deserving sports candidates are given preference in admissions.",
+                "Financial Support: Fee concessions and scholarships for outstanding sports achievers.",
+                "Regular Coaching: Coaching camps for major games like Cricket, Football, and Basketball.",
+                "Annual Sports Meet: A grand event to showcase the athletic talents of all students."
               ].map((item, i) => (
                 <li key={i} className="flex gap-3 text-base text-muted-foreground">
                   <span className="text-primary font-bold">•</span> {item}
@@ -126,30 +128,22 @@ export default function PhysicalEducationPage() {
   const eventsContent = (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4">Events & Achievements</h2>
-      <div className="bg-white p-6 rounded-xl border space-y-6">
-        <div className="flex gap-4 items-start">
-          <div className="bg-white p-3 rounded-full shadow-sm">
-            <Timer className="h-6 w-6 text-primary" />
-          </div>
-          <div>
-            <h3 className="text-xl font-bold text-slate-800">Annual Athletic Meet</h3>
-            <p className="text-muted-foreground mt-2">
-              The college organizes a grand Annual Athletic Meet where students from all departments complete in track and field events. It is a day of high energy, team spirit, and celebration of sporting talent.
-            </p>
-          </div>
-        </div>
-        <div className="flex gap-4 items-start">
-          <div className="bg-white p-3 rounded-full shadow-sm">
-            <Trophy className="h-6 w-6 text-primary" />
-          </div>
-          <div>
-            <h3 className="text-xl font-bold text-slate-800">Inter-Collegiate Tournaments</h3>
-            <p className="text-muted-foreground mt-2">
-              Our college teams actively participate in various inter-collegiate tournaments across Bangalore, winning accolades and bringing laurels to the institution in sports like Cricket, Throwball, and Kabaddi.
-            </p>
-          </div>
-        </div>
-      </div>
+      <Card className="bg-white border-2 border-primary text-black">
+        <CardContent className="pt-6">
+          <ul className="space-y-4">
+            {[
+              { title: "Annual Athletic Meet", desc: "A track and field event for all students." },
+              { title: "Inter-Class Tournaments", desc: "Competitions in Cricket, Throwball, Volleyball, and Football." },
+              { title: "Yoga Day", desc: "Celebration of International Yoga Day with mass demonstrations." },
+              { title: "Selection Trials", desc: "To select college teams for University and Inter-collegiate matches." }
+            ].map((event, i) => (
+              <li key={i} className="text-lg text-muted-foreground">
+                <span className="text-primary font-bold">•</span> <strong>{event.title}:</strong> {event.desc}
+              </li>
+            ))}
+          </ul>
+        </CardContent>
+      </Card>
     </div>
   );
 
@@ -187,7 +181,12 @@ export default function PhysicalEducationPage() {
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4">Contact</h2>
       <Card>
         <CardContent className="pt-6 text-center text-muted-foreground">
-          <p>For inquiries regarding sports activities and teams, please visit the Physical Education Department on campus.</p>
+          <p className="font-bold text-slate-800 mb-2">Physical Education Department</p>
+          <p className="flex items-center justify-center gap-2">
+            <Mail className="h-4 w-4 text-primary" />
+            <a href="mailto:rbanmsfgc.ped@gmail.com" className="hover:text-primary transition-colors">rbanmsfgc.ped@gmail.com</a>
+          </p>
+          <p className="mt-4 text-sm italic">For inquiries regarding sports activities and teams, please visit the Physical Education Department on campus.</p>
         </CardContent>
       </Card>
     </div>
