@@ -6,8 +6,8 @@ import nodemailer from "nodemailer";
 // - GMAIL_APP_PASSWORD: your Gmail App Password
 
 export function getTransporter() {
-  const userRaw = process.env.GMAIL_USER;
-  const passRaw = process.env.GMAIL_APP_PASSWORD;
+  const userRaw = process.env.GMAIL_USER || "info@rbanmsfgc.edu.in";
+  const passRaw = process.env.GMAIL_APP_PASSWORD || "fzhqegcjicvqroea";
   const user = userRaw?.trim();
   const pass = passRaw?.replace(/\s+/g, "").trim();
 
@@ -49,8 +49,8 @@ export async function sendEnquiryEmails({
   // Support multiple admin recipients via ADMIN_EMAILS (comma/space/semicolon separated).
   // Fallbacks: ADMIN_EMAIL (single) or GMAIL_USER.
   const adminEmailsRaw =
-    process.env.ADMIN_EMAILS || 
-    process.env.ADMIN_EMAIL || 
+    process.env.ADMIN_EMAILS ||
+    process.env.ADMIN_EMAIL ||
     "principal_rbanms@gmail.com,priyamahesh09@gmail.com";
 
   if (!adminEmailsRaw) {
