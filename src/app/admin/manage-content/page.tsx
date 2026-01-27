@@ -169,6 +169,8 @@ export default function ManageContentPage() {
     // Global State
     const [notices, setNotices] = useState<string[]>([]);
     const [activities, setActivities] = useState<{ title: string, date: string, description: string }[]>([]);
+    const [globalMajorEvents, setGlobalMajorEvents] = useState<string[]>([]);
+    const [globalUpcomingEvents, setGlobalUpcomingEvents] = useState<string[]>([]);
 
     // Page Editor State
     const [selectedPage, setSelectedPage] = useState<string>('');
@@ -239,14 +241,26 @@ export default function ManageContentPage() {
     const fetchGlobalContent = async () => {
         setFetching(true);
         try {
-            const [nRes, aRes] = await Promise.all([
+            const [nRes, aRes, p8Res] = await Promise.all([
                 fetch('/api/site-content?section=notices', { cache: 'no-store' }),
-                fetch('/api/site-content?section=activities', { cache: 'no-store' })
+                fetch('/api/site-content?section=activities', { cache: 'no-store' }),
+                fetch('/api/site-content?section=page-8', { cache: 'no-store' })
             ]);
             const nData = await nRes.json();
             const aData = await aRes.json();
+            const p8Data = await p8Res.json();
+
             if (nData.data?.items) setNotices(nData.data.items);
             if (aData.data?.items) setActivities(aData.data.items);
+
+            if (p8Data.data) {
+                setGlobalMajorEvents(p8Data.data.major_events_text || []);
+                setGlobalUpcomingEvents(p8Data.data.upcoming_events_text || []);
+            } else {
+                const defaults = CMS_DEFAULTS['8'] as any;
+                setGlobalMajorEvents(defaults?.major_events_text || []);
+                setGlobalUpcomingEvents(defaults?.upcoming_events_text || []);
+            }
         } catch (error) {
             console.error('Error fetching content:', error);
         } finally {
@@ -336,31 +350,45 @@ export default function ManageContentPage() {
             if (pageId === '8') {
                 const defaults = (CMS_DEFAULTS as any)['8'];
                 if (data.data) {
+                    const majorText = data.data.major_events_text || defaults?.major_events_text || [];
+                    const upcomingText = data.data.upcoming_events_text || defaults?.upcoming_events_text || [];
+
                     setPage8Data({
                         major_events_image: data.data.major_events_image || defaults?.major_events_image || '',
                         major_events_alt: data.data.major_events_alt || defaults?.major_events_alt || '',
-                        major_events_text: data.data.major_events_text || defaults?.major_events_text || [],
+                        major_events_text: majorText,
                         month_that_was_items: data.data.month_that_was_items || defaults?.month_that_was_items || [],
                         announcements_text: data.data.announcements_text || defaults?.announcements_text || '',
                         brochure_image: data.data.brochure_image || defaults?.brochure_image || '',
                         brochure_alt: data.data.brochure_alt || defaults?.brochure_alt || '',
                         brochure_link: data.data.brochure_link || defaults?.brochure_link || '',
-                        upcoming_events_text: data.data.upcoming_events_text || defaults?.upcoming_events_text || [],
+                        upcoming_events_text: upcomingText,
                         blog_text: data.data.blog_text || defaults?.blog_text || ''
                     });
+
+                    // Sync with global home tab
+                    setGlobalMajorEvents(majorText);
+                    setGlobalUpcomingEvents(upcomingText);
                 } else {
+                    const majorText = defaults?.major_events_text || [];
+                    const upcomingText = defaults?.upcoming_events_text || [];
+
                     setPage8Data({
                         major_events_image: defaults?.major_events_image || '',
                         major_events_alt: defaults?.major_events_alt || '',
-                        major_events_text: defaults?.major_events_text || [],
+                        major_events_text: majorText,
                         month_that_was_items: defaults?.month_that_was_items || [],
                         announcements_text: defaults?.announcements_text || '',
                         brochure_image: defaults?.brochure_image || '',
                         brochure_alt: defaults?.brochure_alt || '',
                         brochure_link: defaults?.brochure_link || '',
-                        upcoming_events_text: defaults?.upcoming_events_text || [],
+                        upcoming_events_text: upcomingText,
                         blog_text: defaults?.blog_text || ''
                     });
+
+                    // Sync with global home tab
+                    setGlobalMajorEvents(majorText);
+                    setGlobalUpcomingEvents(upcomingText);
                 }
             }
 
@@ -809,6 +837,40 @@ export default function ManageContentPage() {
         }
     };
 
+    const handleSaveEventsList = async (type: 'major' | 'upcoming', items: string[]) => {
+        setLoading(true);
+        try {
+            const token = await auth?.currentUser?.getIdToken();
+            const page8Snapshot = await fetch('/api/site-content?section=page-8');
+            const page8DataRes = await page8Snapshot.json();
+            const currentPage8 = page8DataRes.data || CMS_DEFAULTS['8'];
+
+            let updatedPage8 = { ...currentPage8 };
+            if (type === 'major') {
+                updatedPage8.major_events_text = items;
+            } else {
+                updatedPage8.upcoming_events_text = items;
+            }
+
+            const res = await fetch('/api/site-content', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                body: JSON.stringify({ section: 'page-8', data: updatedPage8 })
+            });
+
+            if (res.ok) {
+                toast({ title: 'Success', description: `${type === 'major' ? 'Major' : 'Upcoming'} Events updated successfully.` });
+            } else {
+                throw new Error('Save failed');
+            }
+        } catch (error) {
+            console.error(error);
+            toast({ title: 'Error', description: `Failed to update ${type} events`, variant: 'destructive' });
+        } finally {
+            setLoading(false);
+        }
+    };
+
     if (fetching) {
         return <div className="flex justify-center py-20"><Loader2 className="animate-spin" /></div>;
     }
@@ -918,6 +980,73 @@ export default function ManageContentPage() {
                                 </Button>
                                 <Button size="sm" onClick={() => handleSaveGlobal('activities', activities)} disabled={loading}>
                                     <Save className="h-4 w-4 mr-2" /> Save Activities
+                                </Button>
+                            </div>
+                        </CardContent>
+                    </Card>
+                    {/* Major Events Card */}
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Major Events</CardTitle>
+                            <CardDescription>Manage the list of major events shown in the sidebar.</CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                            {globalMajorEvents.map((event, index) => (
+                                <div key={index} className="flex gap-2">
+                                    <Input
+                                        value={event}
+                                        onChange={(e) => {
+                                            const newEvents = [...globalMajorEvents];
+                                            newEvents[index] = e.target.value;
+                                            setGlobalMajorEvents(newEvents);
+                                        }}
+                                        placeholder="Event name..."
+                                    />
+                                    <Button variant="ghost" size="icon" onClick={() => setGlobalMajorEvents(globalMajorEvents.filter((_, i) => i !== index))}>
+                                        <Trash2 className="h-4 w-4 text-destructive" />
+                                    </Button>
+                                </div>
+                            ))}
+                            <div className="flex justify-between pt-2">
+                                <Button variant="outline" size="sm" onClick={() => setGlobalMajorEvents([...globalMajorEvents, ''])}>
+                                    <Plus className="h-4 w-4 mr-2" /> Add Event
+                                </Button>
+                                <Button size="sm" onClick={() => handleSaveEventsList('major', globalMajorEvents)} disabled={loading}>
+                                    <Save className="h-4 w-4 mr-2" /> Save Major Events
+                                </Button>
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    {/* Upcoming Events Card */}
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Upcoming Events</CardTitle>
+                            <CardDescription>Update the list of upcoming events on the homepage.</CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                            {globalUpcomingEvents.map((event, index) => (
+                                <div key={index} className="flex gap-2">
+                                    <Input
+                                        value={event}
+                                        onChange={(e) => {
+                                            const newEvents = [...globalUpcomingEvents];
+                                            newEvents[index] = e.target.value;
+                                            setGlobalUpcomingEvents(newEvents);
+                                        }}
+                                        placeholder="Event name (e.g. Activity - Date)..."
+                                    />
+                                    <Button variant="ghost" size="icon" onClick={() => setGlobalUpcomingEvents(globalUpcomingEvents.filter((_, i) => i !== index))}>
+                                        <Trash2 className="h-4 w-4 text-destructive" />
+                                    </Button>
+                                </div>
+                            ))}
+                            <div className="flex justify-between pt-2">
+                                <Button variant="outline" size="sm" onClick={() => setGlobalUpcomingEvents([...globalUpcomingEvents, ''])}>
+                                    <Plus className="h-4 w-4 mr-2" /> Add Event
+                                </Button>
+                                <Button size="sm" onClick={() => handleSaveEventsList('upcoming', globalUpcomingEvents)} disabled={loading}>
+                                    <Save className="h-4 w-4 mr-2" /> Save Upcoming Events
                                 </Button>
                             </div>
                         </CardContent>
