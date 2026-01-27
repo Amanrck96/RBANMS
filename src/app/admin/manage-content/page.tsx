@@ -169,6 +169,7 @@ export default function ManageContentPage() {
     // Global State
     const [notices, setNotices] = useState<string[]>([]);
     const [activities, setActivities] = useState<{ title: string, date: string, description: string }[]>([]);
+    const [monthLabel, setMonthLabel] = useState<string>('');
     const [globalMajorEvents, setGlobalMajorEvents] = useState<string[]>([]);
     const [globalUpcomingEvents, setGlobalUpcomingEvents] = useState<string[]>([]);
 
@@ -182,6 +183,7 @@ export default function ManageContentPage() {
 
     // Specialized page-8 state
     const [page8Data, setPage8Data] = useState<any>({
+        month_label: '',
         major_events_image: '',
         major_events_alt: '',
         major_events_text: [],
@@ -256,10 +258,12 @@ export default function ManageContentPage() {
             if (p8Data.data) {
                 setGlobalMajorEvents(p8Data.data.major_events_text || []);
                 setGlobalUpcomingEvents(p8Data.data.upcoming_events_text || []);
+                setMonthLabel(p8Data.data.month_label || 'November 2025');
             } else {
                 const defaults = CMS_DEFAULTS['8'] as any;
                 setGlobalMajorEvents(defaults?.major_events_text || []);
                 setGlobalUpcomingEvents(defaults?.upcoming_events_text || []);
+                setMonthLabel(defaults?.month_label || 'November 2025');
             }
         } catch (error) {
             console.error('Error fetching content:', error);
@@ -352,8 +356,10 @@ export default function ManageContentPage() {
                 if (data.data) {
                     const majorText = data.data.major_events_text || defaults?.major_events_text || [];
                     const upcomingText = data.data.upcoming_events_text || defaults?.upcoming_events_text || [];
+                    const mLabel = data.data.month_label || defaults?.month_label || 'November 2025';
 
                     setPage8Data({
+                        month_label: mLabel,
                         major_events_image: data.data.major_events_image || defaults?.major_events_image || '',
                         major_events_alt: data.data.major_events_alt || defaults?.major_events_alt || '',
                         major_events_text: majorText,
@@ -369,11 +375,14 @@ export default function ManageContentPage() {
                     // Sync with global home tab
                     setGlobalMajorEvents(majorText);
                     setGlobalUpcomingEvents(upcomingText);
+                    setMonthLabel(mLabel);
                 } else {
                     const majorText = defaults?.major_events_text || [];
                     const upcomingText = defaults?.upcoming_events_text || [];
+                    const mLabel = defaults?.month_label || 'November 2025';
 
                     setPage8Data({
+                        month_label: mLabel,
                         major_events_image: defaults?.major_events_image || '',
                         major_events_alt: defaults?.major_events_alt || '',
                         major_events_text: majorText,
@@ -389,6 +398,7 @@ export default function ManageContentPage() {
                     // Sync with global home tab
                     setGlobalMajorEvents(majorText);
                     setGlobalUpcomingEvents(upcomingText);
+                    setMonthLabel(mLabel);
                 }
             }
 
@@ -814,6 +824,7 @@ export default function ManageContentPage() {
                     ${items.map(notice => `<li>${notice}</li>`).join('')}
                 </ul>`;
             } else if (section === 'activities') {
+                updatedPage8.month_label = monthLabel;
                 updatedPage8.month_that_was_items = items.map(a => ({
                     date: a.date,
                     title: a.title,
@@ -931,9 +942,20 @@ export default function ManageContentPage() {
 
                     {/* The Month That Was Card */}
                     <Card>
-                        <CardHeader>
-                            <CardTitle>The Month That Was</CardTitle>
-                            <CardDescription>Latest college activities and events.</CardDescription>
+                        <CardHeader className="flex flex-row items-center justify-between">
+                            <div>
+                                <CardTitle>The Month That Was</CardTitle>
+                                <CardDescription>Latest college activities and events.</CardDescription>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <Label className="text-xs font-bold uppercase whitespace-nowrap">Month Display:</Label>
+                                <Input
+                                    className="w-40 h-8 text-xs"
+                                    value={monthLabel}
+                                    onChange={(e) => setMonthLabel(e.target.value)}
+                                    placeholder="e.g. November 2025"
+                                />
+                            </div>
                         </CardHeader>
                         <CardContent className="space-y-6">
                             {activities.map((activity, index) => (
@@ -1474,9 +1496,20 @@ export default function ManageContentPage() {
                                                             </div>
 
                                                             <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 opacity-60">
-                                                                <h3 className="text-lg font-bold text-slate-900 mb-2 flex items-center gap-2">
-                                                                    <Calendar className="size-5" /> {"Timeline (Fallback)"}
-                                                                </h3>
+                                                                <div className="flex items-center justify-between mb-2">
+                                                                    <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                                                                        <Calendar className="size-5" /> {"Timeline (Fallback)"}
+                                                                    </h3>
+                                                                    <div className="flex items-center gap-2">
+                                                                        <Label className="text-xs font-bold uppercase">Month Label:</Label>
+                                                                        <Input
+                                                                            className="w-40 h-8 text-xs bg-white"
+                                                                            value={page8Data.month_label}
+                                                                            onChange={(e) => setPage8Data({ ...page8Data, month_label: e.target.value })}
+                                                                            placeholder="November 2025"
+                                                                        />
+                                                                    </div>
+                                                                </div>
                                                                 <p className="text-[10px] text-slate-500 mb-4 font-mono uppercase italic">Note: Global Activities currently override this timeline on the front-end.</p>
                                                                 <div className="space-y-4">
                                                                     {page8Data.month_that_was_items.map((item: any, idx: number) => (
