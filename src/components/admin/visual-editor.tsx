@@ -34,9 +34,20 @@ export function VisualEditor({ value, onChange, placeholder }: VisualEditorProps
     const [uploading, setUploading] = useState(false);
     const { toast } = useToast();
 
+    const cleanHTML = (html: string) => {
+        if (!html) return '';
+        // Fix mangled tags like < p ... > to <p ...>
+        return html
+            .replace(/<\s+([a-zA-Z0-9]+)/g, '<$1') // Fix open tags: < p -> <p
+            .replace(/<\s+\/([a-zA-Z0-9]+)\s*>/g, '</$1>') // Fix close tags: < / p > -> </p>
+            .replace(/([a-zA-Z0-9]+)\s+>/g, '$1>') // Fix end of tags: p > -> p>
+            .replace(/<\s+([a-zA-Z0-9]+)\s+([^>]*)\s*>/g, '<$1 $2>'); // Fix tags with attributes
+    };
+
     useEffect(() => {
-        if (editorRef.current && editorRef.current.innerHTML !== value) {
-            editorRef.current.innerHTML = value || '';
+        const cleanedValue = cleanHTML(value);
+        if (editorRef.current && editorRef.current.innerHTML !== cleanedValue) {
+            editorRef.current.innerHTML = cleanedValue || '';
         }
     }, [value]);
 

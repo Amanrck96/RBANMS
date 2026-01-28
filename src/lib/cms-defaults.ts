@@ -365,17 +365,71 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'academics-new-courses': {
         title: 'New Courses',
         content: `
-            <p class="mb-6 text-lg">In response to the changing demands of the industry and society, we continuously evolve our curriculum and introduce new programs. These courses are designed to equip students with cutting-edge skills and future-ready knowledge.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                    <h3 class="text-xl font-bold text-blue-900 mb-2">B.A. in Journalism & Mass Communication</h3>
-                    <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mb-3 font-semibold">New Introduction</span>
-                    <p class="text-gray-700 mb-3">A comprehensive program preparing students for the dynamic world of media, covering print, broadcast, and digital journalism.</p>
+            <p class="mb-8 text-lg text-gray-700">Explore our latest undergraduate programs designed to meet the evolving needs of the media and sports industries.</p>
+            
+            <div class="space-y-12">
+                <!-- Course 1 -->
+                <div class="bg-white rounded-2xl border-2 border-primary/10 shadow-sm overflow-hidden hover:shadow-md transition-all duration-300">
+                    <div class="p-8">
+                        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                            <h3 class="text-2xl font-bold text-primary font-headline">Bachelor of Arts (Journalism, History & Economics)</h3>
+                            <span class="px-4 py-1 bg-green-100 text-green-700 text-xs font-bold uppercase rounded-full">New Batch Available</span>
+                        </div>
+                        
+                        <p class="text-gray-700 leading-relaxed mb-8">The BA in Journalism with History and Economics is a three-year undergraduate program that blends media studies with social sciences. This specialization develops strong communication, research, and analytical skills essential for the media industry. Students learn news writing, reporting, media ethics, and digital journalism alongside historical context and economic analysis. Career opportunities include journalism, content creation, news reporting, editorial work, media production, and public relations. Further studies like Master in Journalism, Mass Communication, or specialized courses in digital media and broadcast journalism can lead to senior roles in media organizations.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-gray-100">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary font-bold">3Y</div>
+                                <div><p class="text-[10px] uppercase font-bold text-gray-400">Duration</p><p class="font-bold">3 Years</p></div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary font-bold">MC</div>
+                                <div><p class="text-[10px] uppercase font-bold text-gray-400">Focus</p><p class="font-bold">Media & Communication</p></div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary font-bold">JE</div>
+                                <div><p class="text-[10px] uppercase font-bold text-gray-400">Career</p><p class="font-bold">Journalist / Editor</p></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 flex justify-end">
+                            <a href="/departments/arts" class="inline-flex items-center text-primary font-bold hover:gap-2 transition-all">View Department Details <span class="ml-2">→</span></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                    <h3 class="text-xl font-bold text-blue-900 mb-2">B.Sc. in Data Science</h3>
-                    <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mb-3 font-semibold">Coming Soon</span>
-                    <p class="text-gray-700 mb-3">An upcoming interdisciplinary program focusing on big data, machine learning, and statistical analysis to meet the growing demand for data professionals.</p>
+
+                <!-- Course 2 -->
+                <div class="bg-white rounded-2xl border-2 border-primary/10 shadow-sm overflow-hidden hover:shadow-md transition-all duration-300">
+                    <div class="p-8">
+                        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                            <h3 class="text-2xl font-bold text-primary font-headline">Bachelor of Arts (Physical Education with History & Political Science)</h3>
+                            <span class="px-4 py-1 bg-yellow-100 text-yellow-700 text-xs font-bold uppercase rounded-full">Begins June 2026</span>
+                        </div>
+                        
+                        <div class="bg-yellow-50 text-yellow-800 px-4 py-2 rounded-lg text-sm mb-6 inline-block font-medium">Expected to begin in June 2026</div>
+
+                        <p class="text-gray-700 leading-relaxed mb-8">The BA in Physical Education combines sports science with humanities subjects like History and Political Science. This three-year undergraduate program is designed for students passionate about sports, fitness, and education. It covers sports psychology, exercise physiology, coaching techniques, and sports management alongside analytical subjects. Graduates can pursue careers as physical education teachers, sports coaches, fitness trainers, sports administrators, and athletic trainers. Further studies like M.P.Ed (Master of Physical Education) or certifications in sports nutrition, yoga, or sports management can enhance career prospects.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-gray-100">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary font-bold">3Y</div>
+                                <div><p class="text-[10px] uppercase font-bold text-gray-400">Duration</p><p class="font-bold">3 Years</p></div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary font-bold">SH</div>
+                                <div><p class="text-[10px] uppercase font-bold text-gray-400">Focus</p><p class="font-bold">Sports & Humanities</p></div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary font-bold">PC</div>
+                                <div><p class="text-[10px] uppercase font-bold text-gray-400">Career</p><p class="font-bold">PE Teacher / Coach</p></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 flex justify-end">
+                            <a href="/departments/physical-education" class="inline-flex items-center text-primary font-bold hover:gap-2 transition-all">View Department Details <span class="ml-2">→</span></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         `
