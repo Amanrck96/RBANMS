@@ -31,13 +31,6 @@ const defaultNotices = [
     "Regular classes for all courses will commence on January 27."
 ];
 
-const defaultActivities = [
-    { title: "MILANA: Cultural Competition", date: "November 7, 2025", description: "Inter-high school and PU cultural competition" },
-    { title: "NAADAHABBA Folk Festival", date: "November 19, 2025", description: "Presenting folk dances of Karnataka at Sabha" },
-    { title: "SPICMACAY Presentations", date: "November 13 & 27, 2025", description: "Classical music and Sattriya Dance performances" },
-    { title: "Field Visits & Guest Lectures", date: "November 2025", description: "Visits to Innovation Institute and lectures on AI & Digital Marketing" },
-    { title: "Pre-Final Examinations", date: "November 14-22, 2025", description: "Internal assessments for all departments" }
-];
 
 export function TwoRowCardLayout() {
     const [expandedCard, setExpandedCard] = useState<string | null>(null);

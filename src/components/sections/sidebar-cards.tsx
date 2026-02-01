@@ -116,7 +116,7 @@ export function SidebarCards() {
                                             <div className="flex items-center gap-2">
                                                 <Calendar className="size-4 text-primary" /> The Month That Was
                                             </div>
-                                            <span className="text-xs font-normal text-muted-foreground ml-6">November 2025</span>
+                                            <span className="text-xs font-normal text-muted-foreground ml-6">{data?.month_label || 'November 2025'}</span>
                                         </CardTitle>
                                     </CardHeader>
                                     <CardContent className="p-4 pt-4 flex-grow">

@@ -1147,6 +1147,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         major_events_image: '/images/hero/hero-1.jpg',
         major_events_alt: 'Campus Event',
         major_events_text: ['Annual Sports Day', 'Cultural Fest 2026', 'Inter-college Debate'],
+        month_label: 'November 2025',
         month_that_was_items: [
             { title: "MILANA", date: "November 7, 2025", text: "Inter high school / PU cultural competition hosted at FGC" },
             { title: "SPICMACAY - Saraikela Chhau", date: "November 13, 2025", text: "Folk Dance from Odisha, Lecture-Demonstration" },
