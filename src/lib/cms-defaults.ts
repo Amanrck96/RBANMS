@@ -524,7 +524,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
             <div className="flex items-start gap-4 mb-3">
                 <span className="font-bold min-w-[80px]">Phone:</span>
                 <div>
-                   <p>Landline: 080-41653395 / 080-25512976</p>
+                   <p>Landline: 080-25512976 / 080-48533572</p>
                    <p>Mobile: 7349251497</p>
                 </div>
             </div>

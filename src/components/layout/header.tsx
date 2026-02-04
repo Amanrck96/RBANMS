@@ -44,7 +44,7 @@ export function SiteHeader() {
             <div className="flex items-center gap-2 text-[#FFD700]">
               <Phone className="h-4 w-4 text-[#FFD700]" />
               <span className="flex flex-col md:flex-row md:gap-2 text-center md:text-left">
-                <span>Landline: <a href="tel:08041653395" className="hover:underline text-[#FFD700]">080-41653395</a> / <a href="tel:08025512976" className="hover:underline text-[#FFD700]">080-25512976</a></span>
+                <span>Landline: <a href="tel:08025512976" className="hover:underline text-[#FFD700]">080-25512976</a> / <a href="tel:08048533572" className="hover:underline text-[#FFD700]">080-48533572</a></span>
                 <span className="hidden md:inline text-[#FFD700]">|</span>
                 <span>Mobile: <a href="tel:7349251497" className="hover:underline text-[#FFD700]">7349251497</a></span>
               </span>

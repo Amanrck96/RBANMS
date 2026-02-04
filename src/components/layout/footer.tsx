@@ -84,14 +84,9 @@ export function SiteFooter() {
               <li className="flex items-start gap-3">
                 <Phone className="h-5 w-5 shrink-0 mt-1" />
                 <div className="flex flex-col text-white/80">
-                  {settings?.phone ? (
-                    <span>Phone: <a href={`tel:${settings.phone}`} className="hover:text-white transition-colors">{settings.phone}</a></span>
-                  ) : (
-                    <>
-                      <span>Landline: <a href="tel:08041653395" className="hover:text-white transition-colors">080-41653395</a> / <a href="tel:08025512976" className="hover:text-white transition-colors">080-25512976</a></span>
-                      <span>Mobile: <a href="tel:7349251497" className="hover:text-white transition-colors">7349251497</a></span>
-                    </>
-                  )}
+                  {/* Always use hardcoded values to support multi-line format requested by user, ignoring settings.phone */}
+                  <span>Landline: <a href="tel:08025512976" className="hover:text-white transition-colors">080-25512976</a> / <a href="tel:08048533572" className="hover:text-white transition-colors">080-48533572</a></span>
+                  <span>Mobile: <a href="tel:7349251497" className="hover:text-white transition-colors">7349251497</a></span>
                 </div>
               </li>
               <li className="flex items-center gap-3">

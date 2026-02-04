@@ -117,7 +117,7 @@ export default function ContactPage() {
                         <div className="flex items-start gap-4">
                           <Phone className="h-6 w-6 text-primary mt-1" />
                           <div className="flex flex-col text-muted-foreground">
-                            <span>Landline: <a href="tel:08041653395" className="hover:text-primary">080-41653395</a> / <a href="tel:08025512976" className="hover:text-primary">080-25512976</a></span>
+                            <span>Landline: <a href="tel:08025512976" className="hover:text-primary">080-25512976</a> / <a href="tel:08048533572" className="hover:text-primary">080-48533572</a></span>
                             <span>Mobile: <a href="tel:7349251497" className="hover:text-primary">7349251497</a></span>
                           </div>
                         </div>
