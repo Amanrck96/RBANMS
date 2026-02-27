@@ -17,7 +17,7 @@ interface NavItem {
 
 interface DepartmentLayoutProps {
     title: string;
-    tagline?: string;
+    tagline?: React.ReactNode;
     activeTab?: string;
     contentLeft?: React.ReactNode;
     ctaContent?: React.ReactNode;
@@ -95,14 +95,14 @@ export function DepartmentLayout({
                             <div className="mt-4 text-lg md:text-xl leading-relaxed text-black">
                                 <DynamicSection
                                     pageId={pageId}
-                                    defaultContent={<p>{tagline}</p>}
+                                    defaultContent={typeof tagline === 'string' ? <p>{tagline}</p> : (tagline || <div />)}
                                     onlyContent
                                 />
                             </div>
                         ) : tagline && (
-                            <p className="mt-4 text-lg md:text-xl leading-relaxed text-black">
-                                {tagline}
-                            </p>
+                            <div className="mt-4 text-lg md:text-xl leading-relaxed text-black">
+                                {typeof tagline === 'string' ? <p>{tagline}</p> : tagline}
+                            </div>
                         )}
                     </div>
                     {showSidebar && sidebarContent && (
@@ -171,30 +171,32 @@ export function DepartmentLayout({
                 <HeaderContent />
 
                 {/* 2. Navigation/Tabs Strip (Legacy) */}
-                <div className="w-full border-b bg-white sticky top-0 z-20 backdrop-blur-sm">
-                    <div className="container mx-auto">
-                        <ScrollArea className="w-full whitespace-nowrap">
-                            <div className="flex w-full min-w-max">
-                                {navigationItems.map((item, idx) => (
-                                    <Link
-                                        key={idx}
-                                        href={item.href}
-                                        className={cn(
-                                            "flex-1 inline-flex items-center justify-center px-6 py-4 text-sm font-medium transition-colors hover:bg-muted/50 border-b-2 whitespace-nowrap",
-                                            item.isActive
-                                                ? "border-primary text-primary bg-primary/5 font-bold"
-                                                : "border-transparent text-muted-foreground hover:text-foreground"
-                                        )}
-                                    >
-                                        {item.label}
-                                    </Link>
-                                )
-                                )}
-                            </div>
-                            <ScrollBar orientation="horizontal" />
-                        </ScrollArea>
+                {navigationItems.length > 0 && (
+                    <div className="w-full border-b bg-white sticky top-0 z-20 backdrop-blur-sm">
+                        <div className="container mx-auto">
+                            <ScrollArea className="w-full whitespace-nowrap">
+                                <div className="flex w-full min-w-max">
+                                    {navigationItems.map((item, idx) => (
+                                        <Link
+                                            key={idx}
+                                            href={item.href}
+                                            className={cn(
+                                                "flex-1 inline-flex items-center justify-center px-6 py-4 text-sm font-medium transition-colors hover:bg-muted/50 border-b-2 whitespace-nowrap",
+                                                item.isActive
+                                                    ? "border-primary text-primary bg-primary/5 font-bold"
+                                                    : "border-transparent text-muted-foreground hover:text-foreground"
+                                            )}
+                                        >
+                                            {item.label}
+                                        </Link>
+                                    )
+                                    )}
+                                </div>
+                                <ScrollBar orientation="horizontal" />
+                            </ScrollArea>
+                        </div>
                     </div>
-                </div>
+                )}
 
                 <div className="container mx-auto px-4 md:px-8 py-12 space-y-16">
                     {/* 3. Main Content Area */}

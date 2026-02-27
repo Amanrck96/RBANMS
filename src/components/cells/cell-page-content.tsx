@@ -21,30 +21,14 @@ export function CellPageContent({ pageId, defaultTitle, defaultContent }: CellPa
         </div>
     );
 
-    // We want the content to appear in the main body, not the header.
-    // So we pass 'hideContentInHeader' to DepartmentLayout.
-    // And we render the content purely in the body using the SAME pageId.
-    const mainBody = (
-        <DynamicSection
-            pageId={pageId}
-            defaultContent={<div dangerouslySetInnerHTML={{ __html: defaultContent }} />}
-            render={(data) => (
-                <div
-                    className="prose prose-lg dark:prose-invert max-w-none text-foreground/90 leading-relaxed"
-                    dangerouslySetInnerHTML={{ __html: data.content || defaultContent }}
-                />
-            )}
-        />
-    );
-
     return (
         <DepartmentLayout
             pageId={pageId}
             title={defaultTitle}
             badgeText="Cell / Committee"
             sidebarContent={sidebarDefault}
-            contentLeft={mainBody}
-            hideContentInHeader={true}
+            tagline={<div dangerouslySetInnerHTML={{ __html: defaultContent }} />}
+            navItems={[]}
         />
     );
 }
