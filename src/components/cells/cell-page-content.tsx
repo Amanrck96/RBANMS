@@ -7,9 +7,10 @@ interface CellPageContentProps {
     pageId: string;
     defaultTitle: string;
     defaultContent: string;
+    sections?: { id: string; label: string; content: React.ReactNode }[];
 }
 
-export function CellPageContent({ pageId, defaultTitle, defaultContent }: CellPageContentProps) {
+export function CellPageContent({ pageId, defaultTitle, defaultContent, sections }: CellPageContentProps) {
     const sidebarDefault = (
         <div className="w-full relative rounded-xl overflow-hidden shadow-lg border-2 border-primary/20 bg-slate-100">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -29,6 +30,7 @@ export function CellPageContent({ pageId, defaultTitle, defaultContent }: CellPa
             sidebarContent={sidebarDefault}
             tagline={<div dangerouslySetInnerHTML={{ __html: defaultContent }} />}
             navItems={[]}
+            sections={sections}
         />
     );
 }
