@@ -1,6 +1,7 @@
 'use client';
 
 import { CellPageContent } from '@/components/cells/cell-page-content';
+import Image from 'next/image';
 
 export default function GrievanceRedressalPage() {
   const overviewContent = (
@@ -19,7 +20,7 @@ export default function GrievanceRedressalPage() {
         <span className="font-semibold text-lg">2/02/2025</span>
       </div>
       <p className="text-lg leading-relaxed text-justify">
-        The <strong>Grievance Redressal Cell</strong> for the A. Y. 2025-26 (Even Semester) is reconstituted since Asst. Professor. Gayathri is on maternity leave. However, other members of the committee remain unchanged. The names of the reconstituted of Grievance Redressal Cell members are mentioned below.
+        The <strong>Grievance Redressal Cell</strong> for the A. Y. 2025-26 (Even Semester) is reconstituted. The names of the reconstituted Grievance Redressal Cell members are mentioned below.
       </p>
 
       <div className="overflow-x-auto rounded-lg border">
@@ -64,6 +65,18 @@ export default function GrievanceRedressalPage() {
       <p className="text-lg text-justify leading-relaxed mt-4">
         The Grievance Redressal Cell is hereby informed to conduct a meeting to discuss on working plans for the academic year 2025-26.
       </p>
+
+      <div className="mt-8 border-t pt-8">
+        <h3 className="text-2xl font-bold text-primary mb-6">Original Office Order Document</h3>
+        <div className="relative w-full max-w-4xl mx-auto rounded-lg overflow-hidden border shadow-md bg-slate-50 p-2">
+          {/* Note: Save the provided image as office-order.png in the public/images/cells/ folder */}
+          <img
+            src="/images/cells/office-order.png"
+            alt="Grievance Redressal Cell Office Order"
+            className="w-full h-auto object-contain rounded"
+          />
+        </div>
+      </div>
     </div>
   );
 
