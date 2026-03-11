@@ -9,11 +9,7 @@ export default function AICTEPage() {
         <DynamicSection
             pageId="aicte"
             render={(data) => {
-        const defaultDocuments = [
-          { id: 'aicte-2022-23', name: 'AICTE 2022-23', type: 'file' as const, url: 'https://drive.google.com/open?id=1s9-_i4uk5_U1NzHROz7V1cpC9H3-eI9s&usp=drive_copy' },
-          { id: 'aicte-2023-24', name: 'AICTE 2023-24', type: 'file' as const, url: 'https://drive.google.com/open?id=1cGw4cRkUAD6RrVqZG6a0N02ik-XroaRX&usp=drive_copy' },
-          { id: 'aicte-2024-25', name: 'AICTE 2024-25', type: 'file' as const, url: 'https://drive.google.com/open?id=16_M5YTmRoQkMd_HwkwVBHyz-Rtve8Pzh&usp=drive_copy' }
-        ];
+        const defaultDocuments = data.certificateItems || [];
 
         const documentsContent = (
           <div className="space-y-6">

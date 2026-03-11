@@ -1,4 +1,4 @@
-﻿
+
 export const CMS_DEFAULTS: Record<string, { title: string; content: string; imageUrl?: string;[key: string]: any }> = {
     'home-intro': {
         title: 'Introduction',
@@ -1550,5 +1550,17 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
                 </div>
             </div>
         `
+    },
+    'aicte': {
+        title: 'AICTE',
+        tagline: 'All India Council for Technical Education (AICTE)',
+        content: '<p>Information regarding AICTE updates and approvals will be available here.</p>',
+        certificateItems: [
+            { id: 'aicte-2022-23', name: 'AICTE 2022-23', type: 'file' as const, url: 'https://drive.google.com/open?id=1s9-_i4uk5_U1NzHROz7V1cpC9H3-eI9s&usp=drive_copy' },
+            { id: 'aicte-2023-24', name: 'AICTE 2023-24', type: 'file' as const, url: 'https://drive.google.com/open?id=1cGw4cRkUAD6RrVqZG6a0N02ik-XroaRX&usp=drive_copy' },
+            { id: 'aicte-2024-25', name: 'AICTE 2024-25', type: 'file' as const, url: 'https://drive.google.com/open?id=16_M5YTmRoQkMd_HwkwVBHyz-Rtve8Pzh&usp=drive_copy' }
+        ],
+        ssrItems: [],
+        aqarItems: []
     }
 };

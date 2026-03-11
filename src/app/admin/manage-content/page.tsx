@@ -105,6 +105,7 @@ const PAGE_GROUPS = [
             { label: 'Eco Club', id: 'cell-eco' },
             { label: 'Eco Club Sidebar', id: 'cell-eco-sidebar' },
             { label: 'AICTE Committee', id: 'cell-aicte' },
+            { label: 'AICTE Documentation', id: 'aicte' },
             { label: 'Discipline Committee', id: 'cell-discipline' },
             { label: 'Examination Committee', id: 'cell-exam' },
             { label: 'Internal Placement Cell (IPC)', id: 'cell-ipc' },
@@ -435,14 +436,14 @@ export default function ManageContentPage() {
                 });
             }
 
-            if (pageId === 'naac' && data.data) {
+            if ((pageId === 'naac' || pageId === 'aicte') && data.data) {
                 setNaacData({
                     certificateItems: data.data.certificateItems || [],
                     ssrItems: data.data.ssrItems || [],
                     aqarItems: data.data.aqarItems || []
                 });
-            } else if (pageId === 'naac') {
-                const defaults = CMS_DEFAULTS['naac'] as any;
+            } else if (pageId === 'naac' || pageId === 'aicte') {
+                const defaults = CMS_DEFAULTS[pageId] as any;
                 setNaacData({
                     certificateItems: defaults?.certificateItems || [],
                     ssrItems: defaults?.ssrItems || [],
@@ -503,7 +504,7 @@ export default function ManageContentPage() {
         setPageBadgeText((defaults as any).badgeText || '');
         setFacultyList((defaults as any).faculty || []);
 
-        if (selectedPage === 'naac') {
+        if (selectedPage === 'naac' || selectedPage === 'aicte') {
             setNaacData({
                 certificateItems: (defaults as any).certificateItems || [],
                 ssrItems: (defaults as any).ssrItems || [],
@@ -571,7 +572,7 @@ export default function ManageContentPage() {
                         tagline: pageTagline,
                         badgeText: pageBadgeText,
                         faculty: facultyList
-                    } : selectedPage === 'naac' ? {
+                    } : (selectedPage === 'naac' || selectedPage === 'aicte') ? {
                         ...naacData,
                         title: pageTitle,
                         content: pageContent,
@@ -1327,7 +1328,7 @@ export default function ManageContentPage() {
                                                         </div>
                                                     )}
 
-                                                    {selectedPage === 'naac' && (
+                                                    {(selectedPage === 'naac' || selectedPage === 'aicte') && (
                                                         <div className="space-y-8">
                                                             {['certificateItems', 'ssrItems', 'aqarItems'].map((listKey) => (
                                                                 <div key={listKey} className="bg-slate-50 p-6 rounded-xl border border-slate-200">
