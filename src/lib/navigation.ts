@@ -13,6 +13,7 @@
     { label: "Research", href: "/research" },
     { label: "IQAC", href: "/iqac" },
     { label: "NAAC", href: "/naac" },
+    { label: "AICTE", href: "/aicte" },
     { label: "Gallery", href: "/gallery" },
     { label: "Career", href: "/career" },
     { label: "Contact Us", href: "/contact" },
