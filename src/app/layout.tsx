@@ -3,6 +3,7 @@ import Script from 'next/script';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { AuthProvider } from '@/hooks/useAuth';
+import WhatsAppButton from '@/components/layout/whatsapp-button';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.rbanmsfgc.edu.in/'),
@@ -77,6 +78,7 @@ export default function RootLayout({
           {children}
         </AuthProvider>
         <Toaster />
+        <WhatsAppButton />
       </body>
     </html>
   );
