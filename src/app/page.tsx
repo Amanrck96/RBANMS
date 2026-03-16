@@ -37,8 +37,8 @@ export default function Home() {
                         ) : (
                             (() => {
                                 const content = introData?.content || `
-                                    <p class="mb-6">RBANM’s First Grade College was established by RBANM’s Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.</p>
-                                    <p class="mb-6">This is one of the many institutions established under the umbrella of the RBANM’s Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.</p>
+                                    <p class="mb-6">RBANMS First Grade College was established by RBANMS Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.</p>
+                                    <p class="mb-6">This is one of the many institutions established under the umbrella of the RBANMS Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.</p>
                                     <p>The college has been accredited by NAAC and is recognised under Section 2(f) and 12(b) of the UGC Act, 1956.</p>
                                 `;
                                 return (
@@ -49,7 +49,7 @@ export default function Home() {
                                             <div className="relative w-[240px] h-[240px] overflow-hidden">
                                                 <Image
                                                     src={settings?.logoUrl || "/images/logo-full.png"}
-                                                    alt={settings?.collegeName || "RBANM's First Grade College Logo"}
+                                                    alt={settings?.collegeName || "RBANMS First Grade College Logo"}
                                                     fill
                                                     className="object-contain"
                                                     priority

@@ -133,7 +133,7 @@ export function SiteFooter() {
           <DynamicSection
             pageId="footer-about"
             onlyContent
-            defaultContent={<p>&copy; 2025 RBANM's First Grade College. All Rights Reserved.</p>}
+            defaultContent={<p>&copy; 2025 RBANMS First Grade College. All Rights Reserved.</p>}
           />
         </div>
       </div>

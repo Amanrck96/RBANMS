@@ -65,10 +65,10 @@ export default function ApplyPage() {
       
       <main className="flex-grow">
         {/* Banner Section */}
-        <div className="bg-[#B22222] text-white py-16 md:py-24">
+        <div className="bg-white text-slate-900 py-16 md:py-24 border-b">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold font-headline mb-4">Join RBANM's College</h1>
-            <p className="text-xl opacity-90 max-w-2xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold font-headline mb-4 text-[#B22222]">RBANMS First Grade College</h1>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
               Start your journey towards a bright future with quality education and excellent career opportunities.
             </p>
           </div>
@@ -155,7 +155,6 @@ export default function ApplyPage() {
                         <SelectItem value="Bachelor of Commerce (B.Com)">Bachelor of Commerce (B.Com)</SelectItem>
                         <SelectItem value="Bachelor of Business Administration (B.B.A)">Bachelor of Business Administration (B.B.A)</SelectItem>
                         <SelectItem value="Bachelor of Computer Applications (B.C.A)">Bachelor of Computer Applications (B.C.A)</SelectItem>
-                        <SelectItem value="Bachelor of Science (B.Sc)">Bachelor of Science (B.Sc)</SelectItem>
                         <SelectItem value="Master of Commerce (M.Com)">Master of Commerce (M.Com)</SelectItem>
                       </SelectContent>
                     </Select>
@@ -178,7 +177,7 @@ export default function ApplyPage() {
                   </Button>
                   
                   <p className="text-xs text-center text-slate-400 mt-4 italic">
-                    By submitting this form, you agree to be contacted by RBANM'S First Grade College regarding admissions.
+                    By submitting this form, you agree to be contacted by RBANMS First Grade College regarding admissions.
                   </p>
                 </form>
               )}

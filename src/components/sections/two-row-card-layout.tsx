@@ -136,7 +136,7 @@ export function TwoRowCardLayout() {
                                         {expandedCard === 'director' && (
                                             <div className="mt-3 space-y-3">
                                                 <p>
-                                                    At RBANM&apos;s First Grade College, we believe in nurturing not just academicians but well-rounded individuals who are equipped to face the challenges of the modern world. Our comprehensive approach to education ensures that students develop critical thinking, creativity, and leadership skills.
+                                                    At RBANMS First Grade College, we believe in nurturing not just academicians but well-rounded individuals who are equipped to face the challenges of the modern world. Our comprehensive approach to education ensures that students develop critical thinking, creativity, and leadership skills.
                                                 </p>
                                                 <p>
                                                     We are committed to providing an environment that encourages innovation, collaboration, and personal growth. Our dedicated faculty members work tirelessly to inspire and guide students towards achieving their full potential.
@@ -185,7 +185,7 @@ export function TwoRowCardLayout() {
                                     <div className="text-left text-sm content-black mb-4">
                                         <div
                                             className={expandedCard !== 'principal' ? 'line-clamp-4' : ''}
-                                            dangerouslySetInnerHTML={{ __html: data.summary || 'The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. The key objective of education at RBANM\'s First Grade College is to create efficient academicians, innovative entrepreneurs, and responsible citizens.' }}
+                                            dangerouslySetInnerHTML={{ __html: data.summary || 'The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. The key objective of education at RBANMS First Grade College is to create efficient academicians, innovative entrepreneurs, and responsible citizens.' }}
                                         />
 
                                         {expandedCard === 'principal' && (
@@ -197,7 +197,7 @@ export function TwoRowCardLayout() {
                                                     Through our diverse range of programs, state-of-the-art facilities, and experienced faculty, we strive to provide every student with the tools they need to succeed in their chosen fields and contribute meaningfully to society.
                                                 </p>
                                                 <p>
-                                                    I invite you to join us on this transformative journey of learning and growth at RBANM&apos;s First Grade College.
+                                                    I invite you to join us on this transformative journey of learning and growth at RBANMS First Grade College.
                                                 </p>
                                             </div>
                                         )}
@@ -234,7 +234,7 @@ export function TwoRowCardLayout() {
                                 <Card className="w-full max-w-7xl border-none shadow-none bg-transparent">
                                     <CardHeader className="text-center pb-10">
                                         <CardTitle className="text-[clamp(2rem,4vw,2.5rem)] font-bold text-black font-headline">
-                                            {data.title || "The RBANM's Experience"}
+                                            {data.title || "The RBANMS Experience"}
                                         </CardTitle>
                                     </CardHeader>
                                     <CardContent className="px-4 md:px-6">
@@ -276,7 +276,7 @@ export function TwoRowCardLayout() {
                                                     <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white transition-all duration-500 group-hover:shadow-primary/20 group-hover:scale-[1.03]">
                                                         <Image
                                                             src={data.mag_image || "/images/phoenix-magazine-updated.png"}
-                                                            alt="RBANM Annual Magazine - Phoenix"
+                                                            alt="RBANMS Annual Magazine - Phoenix"
                                                             fill
                                                             className="object-cover"
                                                         />
