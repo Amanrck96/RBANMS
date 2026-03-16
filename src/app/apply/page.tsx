@@ -46,6 +46,14 @@ export default function ApplyPage() {
     }
     
     setIsSubmitting(true);
+
+    // Google Ads conversion tracking
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'conversion', {
+          'send_to': 'AW-17909091166/_uPRCPv70_4bEN6W3NtC'
+      });
+    }
+
     // The form will submit to the hidden iframe
     
     // We'll wait a bit and then show success
@@ -67,7 +75,7 @@ export default function ApplyPage() {
         {/* Banner Section */}
         <div className="bg-white text-slate-900 py-16 md:py-24 border-b">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold font-headline mb-4 text-[#B22222]">RBANMS First Grade College</h1>
+            <h1 className="text-4xl md:text-5xl font-bold font-headline mb-4 text-slate-900">RBANMS First Grade College</h1>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
               Start your journey towards a bright future with quality education and excellent career opportunities.
             </p>

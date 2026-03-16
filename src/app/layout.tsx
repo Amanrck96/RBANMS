@@ -9,11 +9,11 @@ import ApplyNowButton from '@/components/layout/apply-now-button';
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.rbanmsfgc.edu.in/'),
   title: {
-    default: "RBANM'S FIRST GRADE COLLEGE",
-    template: "%s | RBANM'S FIRST GRADE COLLEGE",
+    default: "RBANMS FIRST GRADE COLLEGE",
+    template: "%s | RBANMS FIRST GRADE COLLEGE",
   },
-  description: "RBANM's First Grade College - Affiliated to Bengaluru City University & Accredited by NAAC. Established in 1983, we provide quality education in Arts, Commerce, Management, and Computer Applications.",
-  keywords: 'RBANMS, RBANM First Grade College, Bengaluru City University, NAAC accredited college Bangalore, BCA college Bangalore, BCom college Bangalore, BBA college Bangalore, BA college Bangalore',
+  description: "RBANMS First Grade College - Affiliated to Bengaluru City University & Accredited by NAAC. Established in 1983, we provide quality education in Arts, Commerce, Management, and Computer Applications.",
+  keywords: 'RBANMS, RBANMS First Grade College, Bengaluru City University, NAAC accredited college Bangalore, BCA college Bangalore, BCom college Bangalore, BBA college Bangalore, BA college Bangalore',
   verification: {
     google: 'your-google-verification-code', // Placeholder - user might need to add this later
   },
@@ -21,22 +21,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
     url: 'https://www.rbanmsfgc.edu.in/',
-    siteName: "RBANM'S FIRST GRADE COLLEGE",
-    title: "RBANM'S FIRST GRADE COLLEGE",
-    description: "RBANM's First Grade College - Affiliated to Bengaluru City University & Accredited by NAAC. Empowering students with quality education since 1983.",
+    siteName: "RBANMS FIRST GRADE COLLEGE",
+    title: "RBANMS FIRST GRADE COLLEGE",
+    description: "RBANMS First Grade College - Affiliated to Bengaluru City University & Accredited by NAAC. Empowering students with quality education since 1983.",
     images: [
       {
         url: "/images/logo-full.png",
         width: 1200,
         height: 630,
-        alt: "RBANM's First Grade College Logo",
+        alt: "RBANMS First Grade College Logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "RBANM'S FIRST GRADE COLLEGE",
-    description: "RBANM's First Grade College - Affiliated to Bengaluru City University & Accredited by NAAC.",
+    title: "RBANMS FIRST GRADE COLLEGE",
+    description: "RBANMS First Grade College - Affiliated to Bengaluru City University & Accredited by NAAC.",
     images: ["/images/logo-full.png"],
   },
   alternates: {
@@ -73,6 +73,7 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-F78ZGW994S');
+            gtag('config', 'AW-17909091166');
           `}
         </Script>
         <AuthProvider>

@@ -26,8 +26,8 @@ export default function AboutIndexPage() {
         pageId="about-intro"
         render={(data) => {
           const content = data?.content || `
-            <p class="mb-4">RBANM’s First Grade College was established by RBANM’s Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.</p>
-            <p class="mb-4">This is one of the many institutions established under the umbrella of the RBANM’s Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.</p>
+            <p class="mb-4">RBANMS First Grade College was established by RBANMS Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.</p>
+            <p class="mb-4">This is one of the many institutions established under the umbrella of the RBANMS Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.</p>
             <p>The college has been accredited by NAAC and is recognised under Section 2(f) and 12(b) of the UGC Act, 1956.</p>
           `;
           return (
@@ -37,7 +37,7 @@ export default function AboutIndexPage() {
                 <div className="relative w-[240px] h-[240px] overflow-hidden">
                   <Image
                     src="/images/logo-full.png"
-                    alt="RBANM's First Grade College Logo"
+                    alt="RBANMS First Grade College Logo"
                     fill
                     className="object-contain"
                     priority
@@ -47,7 +47,7 @@ export default function AboutIndexPage() {
 
               {/* Content */}
               <div className="flex-grow">
-                <h1 className="text-3xl font-bold text-blue-900 mb-6 font-headline">About RBANM's First Grade College</h1>
+                <h1 className="text-3xl font-bold text-blue-900 mb-6 font-headline">About RBANMS First Grade College</h1>
                 <div className="prose prose-lg text-justify text-blue-900 max-w-none" dangerouslySetInnerHTML={{ __html: content }} />
               </div>
             </div>

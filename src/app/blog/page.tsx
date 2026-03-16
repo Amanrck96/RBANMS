@@ -56,7 +56,7 @@ export default function BlogPage() {
                         render={(data) => (
                             <>
                                 <h1 className="text-4xl font-bold mb-2">{data.title || "Blog"}</h1>
-                                <p className="text-blue-100">{data.tagline || "Latest updates and articles from RBANM's First Grade College"}</p>
+                                <p className="text-blue-100">{data.tagline || "Latest updates and articles from RBANMS First Grade College"}</p>
                             </>
                         )}
                     />

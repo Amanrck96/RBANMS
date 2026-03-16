@@ -11,7 +11,7 @@ const defaultStructure = {
     {
       title: "Core Subject Courses",
       icon: Book,
-      description: "Core courses in the chosen discipline. Options at RBANM's, depending on eligibility:",
+      description: "Core courses in the chosen discipline. Options at RBANMS, depending on eligibility:",
       options: [
         { name: "Bachelor of Arts – B.A.", href: "/departments/arts" },
         { name: "Bachelor of Arts (Physical Education) – B.A.", href: "/departments/physical-education" },

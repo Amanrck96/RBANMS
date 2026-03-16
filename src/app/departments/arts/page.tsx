@@ -270,12 +270,12 @@ export default function ArtsDepartmentPage() {
           {
             name: "Dr. Avinash V",
             role: "Assistant Professor in History",
-            desc: "Studied his Post Graduation in History from Mangalore University, Mangaluru in 2011. He has been awarded Doctor of Philosophy (Ph.D) from Mangalore University, Mangaluru in 2018. Dr. Avinash had served as Head of the Department of Arts from 2021 to 2023 at RBANM'S FGC, Bengaluru. He published various research papers in National and International journals. Currently, he is serving as an Assistant Professor in History, Department of Arts, RBANM'S First Grade College, Bengaluru."
+            desc: "Studied his Post Graduation in History from Mangalore University, Mangaluru in 2011. He has been awarded Doctor of Philosophy (Ph.D) from Mangalore University, Mangaluru in 2018. Dr. Avinash had served as Head of the Department of Arts from 2021 to 2023 at RBANMS FGC, Bengaluru. He published various research papers in National and International journals. Currently, he is serving as an Assistant Professor in History, Department of Arts, RBANMS First Grade College, Bengaluru."
           },
           {
             name: "Mehnaaz Safura",
             role: "Assistant Professor of Economics & IQAC Coordinator",
-            desc: "Assistant Professor of Economics at RBANM’s First Grade College, Bangalore and a Ph.D. candidate in Economics at Sharda University. She holds an M.A. and a B.A. in Economics, with over five years of college teaching experience and four years of high‑school instruction. She teaches core courses such as International Trade, Public Economics, Entrepreneurship, Contemporary Indian Economy and others. As the IQAC Coordinator, she spearheads initiatives to uphold quality standards. Her research focuses on women’s entrepreneurship, green economics and digital gender gaps. She is a lifetime member of the Global Professors Welfare Association."
+            desc: "Assistant Professor of Economics at RBANMS First Grade College, Bangalore and a Ph.D. candidate in Economics at Sharda University. She holds an M.A. and a B.A. in Economics, with over five years of college teaching experience and four years of high‑school instruction. She teaches core courses such as International Trade, Public Economics, Entrepreneurship, Contemporary Indian Economy and others. As the IQAC Coordinator, she spearheads initiatives to uphold quality standards. Her research focuses on women’s entrepreneurship, green economics and digital gender gaps. She is a lifetime member of the Global Professors Welfare Association."
           },
           {
             name: "Mr. Kashinatha",

@@ -16,7 +16,7 @@ export default function CareerPage() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                     <p className="text-lg leading-relaxed">
-                        Be part of a legacy that values compassion, idealism, and the transformative power of education. At RBANM's First Grade College, we believe that great institutions are built by great people. We are always looking for dedicated, passionate, and qualified individuals to join our faculty and administrative staff.
+                        Be part of a legacy that values compassion, idealism, and the transformative power of education. At RBANMS First Grade College, we believe that great institutions are built by great people. We are always looking for dedicated, passionate, and qualified individuals to join our faculty and administrative staff.
                     </p>
                     <p className="text-lg leading-relaxed">
                         We offer a vibrant academic environment, opportunities for professional growth, and the satisfaction of shaping the future of young minds.
@@ -97,7 +97,7 @@ export default function CareerPage() {
                             <p className="mb-2 text-sm text-black">Address your application to:</p>
                             <address className="not-italic text-black font-medium">
                                 The Principal,<br />
-                                RBANM's First Grade College,<br />
+                                RBANMS First Grade College,<br />
                                 #12, Annaswamy Mudaliar Road,<br />
                                 Bangalore - 560 042
                             </address>

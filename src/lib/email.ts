@@ -76,7 +76,7 @@ export async function sendEnquiryEmails({
 
   // Send to admin(s)
   await transporter.sendMail({
-    from: `RBANM's FGC <${process.env.GMAIL_USER}>`,
+    from: `RBANMS FGC <${process.env.GMAIL_USER}>`,
     replyTo: email,
     to: adminRecipients,
     subject: `New Enquiry: ${subject}`,
@@ -86,17 +86,17 @@ export async function sendEnquiryEmails({
 
   // Send confirmation to submitter
   await transporter.sendMail({
-    from: `RBANM's FGC <${process.env.GMAIL_USER}>`,
+    from: `RBANMS FGC <${process.env.GMAIL_USER}>`,
     to: email,
     subject: `We received your enquiry: ${subject}`,
-    text: `Hi ${name},\n\nThanks for reaching out. We have received your enquiry and will get back to you shortly.\n\nYour message:\n${message}\n\nRegards,\nRBANM's First Grade College`,
+    text: `Hi ${name},\n\nThanks for reaching out. We have received your enquiry and will get back to you shortly.\n\nYour message:\n${message}\n\nRegards,\nRBANMS First Grade College`,
     html: `
       <div style="font-family: Arial, sans-serif; line-height: 1.6;">
         <p>Hi ${name},</p>
         <p>Thanks for reaching out. We have received your enquiry and will get back to you shortly.</p>
         <p><strong>Your message:</strong></p>
         <p style="white-space: pre-wrap;">${message}</p>
-        <p>Regards,<br/>RBANM's First Grade College</p>
+        <p>Regards,<br/>RBANMS First Grade College</p>
       </div>
     `,
   });

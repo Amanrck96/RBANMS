@@ -3,8 +3,8 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'home-intro': {
         title: 'Introduction',
         content: `
-            <p>RBANM's First Grade College was established by RBANM's Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.</p>
-            <p>This is one of the many institutions established under the umbrella of the RBANM's Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.</p>
+            <p>RBANMS First Grade College was established by RBANMS Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.</p>
+            <p>This is one of the many institutions established under the umbrella of the RBANMS Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.</p>
             <p>The college has been accredited by NAAC and is recognised under Section 2(f) and 12(b) of the UGC Act, 1956.</p>
         `
     },
@@ -36,8 +36,8 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         title: 'History of the College',
         content: `
             <div class="space-y-6">
-                <p>RBANMΓÇÖs First Grade College was established by RBANMΓÇÖs Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.</p>
-                <p>This is one of the many institutions established under the umbrella of the RBANMΓÇÖs Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.</p>
+                <p>RBANMS First Grade College was established by RBANMS Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.</p>
+                <p>This is one of the many institutions established under the umbrella of the RBANMS Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.</p>
                 <p>The college has been accredited by NAAC and is recognised under Section 2(f) and 12(b) of the UGC Act, 1956.</p>
                 <div class="mt-8">
                     <h3 class="text-2xl font-bold text-[#b91c1c] mb-4">Our Commitment</h3>
@@ -229,10 +229,10 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     },
 
     'about-intro': {
-        title: "About RBANM's First Grade College",
+        title: "About RBANMS First Grade College",
         content: `
-            <p class="mb-4">RBANMΓÇÖs First Grade College was established by RBANMΓÇÖs Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.</p>
-            <p class="mb-4">This is one of the many institutions established under the umbrella of the RBANMΓÇÖs Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.</p>
+            <p class="mb-4">RBANMS First Grade College was established by RBANMS Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.</p>
+            <p class="mb-4">This is one of the many institutions established under the umbrella of the RBANMS Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.</p>
             <p>The college has been accredited by NAAC and is recognised under Section 2(f) and 12(b) of the UGC Act, 1956.</p>
         `
     },
@@ -255,7 +255,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'about-awards': {
         title: 'Awards & Recognition',
         content: `
-            <p class="mb-6 text-lg">RBANNM's First Grade College has a long-standing tradition of excellence, recognized by various academic and social bodies. Our commitment to holistic education and community service has earned us numerous accolades.</p>
+            <p class="mb-6 text-lg">RBANMS First Grade College has a long-standing tradition of excellence, recognized by various academic and social bodies. Our commitment to holistic education and community service has earned us numerous accolades.</p>
             <div class="space-y-4">
                 <div class="border-l-4 border-yellow-500 pl-4 py-2 bg-yellow-50">
                     <h3 class="font-bold text-xl text-primary">Best College for Holistic Education (2024)</h3>
@@ -275,7 +275,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'academics-index': {
         title: 'Academics',
         content: `
-            <p class="mb-4 text-lg">At RBANNM's First Grade College, academics is not just about clearing examinations; it is about igniting a passion for learning, developing critical thinking, and building a foundation for a successful career and a meaningful life.</p>
+            <p class="mb-4 text-lg">At RBANMS First Grade College, academics is not just about clearing examinations; it is about igniting a passion for learning, developing critical thinking, and building a foundation for a successful career and a meaningful life.</p>
             <p class="mb-4">Our academic structure is designed to be rigorous yet flexible, allowing students to explore their interests while mastering the core fundamentals of their chosen discipline. We offer undergraduate programs in Commerce, Management, Computer Applications, and Arts, all affiliated with Bangalore City University.</p>
             <h3 class="text-xl font-bold text-primary mt-6 mb-3">Our Approach</h3>
             <ul class="list-disc pl-5 space-y-2">
@@ -491,7 +491,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     },
     'blog-header': {
         title: 'Blog',
-        tagline: 'Latest updates and articles from RBANM\'s First Grade College',
+        tagline: 'Latest updates and articles from RBANMS First Grade College',
         content: ''
     },
 
@@ -583,7 +583,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'dept-english': {
         title: 'Department of English',
         tagline: 'Nurturing linguistic proficiency and literary appreciation through a comprehensive and engaging curriculum.',
-        content: '<p>The Department of English at RBANMΓÇÖs First Grade College is committed to fostering a love for language and literature while developing critical thinking and communication skills essential for the modern world.</p>'
+        content: '<p>The Department of English at RBANMS First Grade College is committed to fostering a love for language and literature while developing critical thinking and communication skills essential for the modern world.</p>'
     },
     'page-dept-english-tab-highlights': {
         title: 'Highlights',
