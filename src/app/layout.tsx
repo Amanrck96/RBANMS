@@ -4,6 +4,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { AuthProvider } from '@/hooks/useAuth';
 import WhatsAppButton from '@/components/layout/whatsapp-button';
+import ApplyNowButton from '@/components/layout/apply-now-button';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.rbanmsfgc.edu.in/'),
@@ -79,6 +80,7 @@ export default function RootLayout({
         </AuthProvider>
         <Toaster />
         <WhatsAppButton />
+        <ApplyNowButton />
       </body>
     </html>
   );
