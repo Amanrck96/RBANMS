@@ -22,15 +22,15 @@ export async function GET(request: NextRequest) {
             return NextResponse.json({ post: postDoc.data() });
         }
 
-        // Fetch all posts
+        // Fetch all posts without where filter to avoid composite index requirements
         let query = adminDb.collection('posts').orderBy('createdAt', 'desc');
 
-        if (published === 'true') {
-            query = query.where('published', '==', true) as any;
-        }
-
         const snapshot = await query.get();
-        const posts = snapshot.docs.map(doc => doc.data());
+        let posts = snapshot.docs.map(doc => doc.data());
+
+        if (published === 'true') {
+            posts = posts.filter(post => post.published === true);
+        }
 
         return NextResponse.json({ posts });
     } catch (error) {

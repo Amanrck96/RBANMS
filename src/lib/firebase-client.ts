@@ -1,7 +1,7 @@
 // Firebase client SDK configuration
 import { initializeApp, getApps, FirebaseApp } from 'firebase/app';
 import { getAuth, Auth } from 'firebase/auth';
-import { getFirestore, Firestore } from 'firebase/firestore';
+import { getFirestore, Firestore, initializeFirestore } from 'firebase/firestore';
 import { getStorage, FirebaseStorage } from 'firebase/storage';
 
 const firebaseConfig = {
@@ -24,17 +24,23 @@ let auth: Auth | null = null;
 let db: Firestore | null = null;
 let storage: FirebaseStorage | null = null;
 
-// Only initialize Firebase if credentials are configured
-if (isConfigured) {
+// Only initialize Firebase if credentials are configured and we are in the browser context
+if (isConfigured && typeof window !== 'undefined') {
     try {
-        app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+        if (getApps().length === 0) {
+            app = initializeApp(firebaseConfig);
+            // Force long-polling to bypass WebSocket/firewall timeouts (which cause "client is offline" errors)
+            db = initializeFirestore(app, { experimentalForceLongPolling: true });
+        } else {
+            app = getApps()[0];
+            db = getFirestore(app);
+        }
         auth = getAuth(app);
-        db = getFirestore(app);
         storage = getStorage(app);
     } catch (error) {
         console.error('Firebase initialization error:', error);
     }
-} else {
+} else if (!isConfigured && typeof process !== 'undefined' && process.env.NODE_ENV !== 'test') {
     console.warn(
         '⚠️ Firebase credentials not configured. Please add your Firebase credentials to .env.local\n' +
         'See QUICKSTART.md for setup instructions.'

@@ -9,6 +9,8 @@ import Link from 'next/link';
 import { Post } from '@/types/user';
 import { db } from '@/lib/firebase-client';
 import { collection, query, where, orderBy, onSnapshot } from 'firebase/firestore';
+import { SiteHeader } from '@/components/layout/header';
+import { SiteFooter } from '@/components/layout/footer';
 
 export default function BlogPage() {
     const [posts, setPosts] = useState<Post[]>([]);
@@ -22,7 +24,6 @@ export default function BlogPage() {
 
         const postsQuery = query(
             collection(db, 'posts'),
-            where('published', '==', true),
             orderBy('createdAt', 'desc')
         );
 
@@ -33,7 +34,8 @@ export default function BlogPage() {
                     id: doc.id,
                     ...doc.data()
                 })) as Post[];
-                setPosts(postsList);
+                // Filter manually to avoid Firestore composite index requirement
+                setPosts(postsList.filter(p => p.published === true));
                 setLoading(false);
             },
             (error) => {
@@ -46,7 +48,8 @@ export default function BlogPage() {
     }, []);
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="flex min-h-screen flex-col bg-gray-50">
+            <SiteHeader />
             {/* Header */}
             {/* Header */}
             <header className="bg-gradient-to-r from-blue-900 to-blue-800 text-white">
@@ -127,6 +130,7 @@ export default function BlogPage() {
                     </div>
                 )}
             </main>
+            <SiteFooter />
         </div>
     );
 }

@@ -1,4 +1,4 @@
-﻿export const headerLinks = [
+export const headerLinks = [
     { label: "Home", href: "/#rbanms-fgc" },
     { label: "About Us", href: "/about" },
     { label: "Academics", href: "/academics" },
@@ -15,6 +15,7 @@
     { label: "NAAC", href: "/naac" },
     { label: "AICTE", href: "/aicte" },
     { label: "Gallery", href: "/gallery" },
+    { label: "Blog", href: "/blog" },
     { label: "Career", href: "/career" },
     { label: "Contact Us", href: "/contact" },
 ];

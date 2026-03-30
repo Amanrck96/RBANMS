@@ -10,6 +10,8 @@ import Link from 'next/link';
 import { Post } from '@/types/user';
 import { db } from '@/lib/firebase-client';
 import { collection, query, where, onSnapshot, limit } from 'firebase/firestore';
+import { SiteHeader } from '@/components/layout/header';
+import { SiteFooter } from '@/components/layout/footer';
 
 export default function BlogPostPage() {
     const params = useParams();
@@ -55,34 +57,43 @@ export default function BlogPostPage() {
 
     if (loading) {
         return (
-            <div className="min-h-screen flex items-center justify-center">
-                <div className="text-lg text-gray-600">Loading...</div>
+            <div className="flex min-h-screen flex-col bg-gray-50">
+                <SiteHeader />
+                <div className="flex-grow flex items-center justify-center">
+                    <div className="text-lg text-gray-600">Loading...</div>
+                </div>
+                <SiteFooter />
             </div>
         );
     }
 
     if (!post) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-gray-50">
-                <Card className="max-w-md">
-                    <CardContent className="py-12 text-center">
-                        <div className="text-6xl mb-4">😕</div>
-                        <h2 className="text-2xl font-semibold mb-2">Post not found</h2>
-                        <p className="text-gray-500 mb-6">The post you&apos;re looking for doesn&apos;t exist.</p>
-                        <Link href="/blog">
-                            <Button>
-                                <ArrowLeft size={16} className="mr-2" />
-                                Back to Blog
-                            </Button>
-                        </Link>
-                    </CardContent>
-                </Card>
+            <div className="flex min-h-screen flex-col bg-gray-50">
+                <SiteHeader />
+                <div className="flex-grow flex items-center justify-center">
+                    <Card className="max-w-md">
+                        <CardContent className="py-12 text-center">
+                            <div className="text-6xl mb-4">😕</div>
+                            <h2 className="text-2xl font-semibold mb-2">Post not found</h2>
+                            <p className="text-gray-500 mb-6">The post you&apos;re looking for doesn&apos;t exist.</p>
+                            <Link href="/blog">
+                                <Button>
+                                    <ArrowLeft size={16} className="mr-2" />
+                                    Back to Blog
+                                </Button>
+                            </Link>
+                        </CardContent>
+                    </Card>
+                </div>
+                <SiteFooter />
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="flex min-h-screen flex-col bg-gray-50">
+            <SiteHeader />
             {/* Header */}
             <header className="bg-gradient-to-r from-blue-900 to-blue-800 text-white py-8">
                 <div className="container mx-auto px-4">
@@ -135,9 +146,10 @@ export default function BlogPostPage() {
                                 </p>
                             )}
 
-                            <div className="whitespace-pre-wrap text-gray-800 leading-relaxed">
-                                {post.content}
-                            </div>
+                            <div 
+                                className="text-gray-800 leading-relaxed prose prose-lg prose-blue max-w-none prose-headings:text-blue-900 prose-a:text-blue-600 hover:prose-a:text-blue-800 prose-img:rounded-lg prose-img:shadow-md"
+                                dangerouslySetInnerHTML={{ __html: post.content }} 
+                            />
 
                             {post.updatedAt && post.updatedAt !== post.createdAt && (
                                 <p className="text-sm text-gray-500 mt-8 pt-6 border-t">
@@ -152,6 +164,7 @@ export default function BlogPostPage() {
                     </Card>
                 </article>
             </main>
+            <SiteFooter />
         </div>
     );
 }

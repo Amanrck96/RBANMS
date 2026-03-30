@@ -60,9 +60,9 @@ export function SiteFooter() {
           <div className="space-y-2">
             <h3 className="text-xl font-bold !text-yellow-400">{(settings as any)?.footerTitles?.campus || "Campus"}</h3>
             <ul className="space-y-2">
-              <li><Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">Gallery</Link></li>
+              <li><Link href="/gallery" className="text-sm text-white/80 hover:text-white transition-colors">Gallery</Link></li>
               <li><Link href="/events" className="text-sm text-white/80 hover:text-white transition-colors">Events</Link></li>
-              <li><Link href="#" className="text-sm text-white/80 hover:text-white transition-colors">News</Link></li>
+              <li><Link href="/blog" className="text-sm text-white/80 hover:text-white transition-colors">News & Blog</Link></li>
               <li><Link href="/cells-committees/others/ipc" className="text-sm text-white/80 hover:text-white transition-colors">Placement</Link></li>
             </ul>
           </div>
