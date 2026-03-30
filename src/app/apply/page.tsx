@@ -159,7 +159,9 @@ export default function ApplyPage() {
                         <SelectValue placeholder="Select a course" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="Bachelor of Arts (B.A.)">Bachelor of Arts (B.A.)</SelectItem>
+                        <SelectItem value="B.A. - Economics, with History and Pol Science">B.A. - Economics, with History and Pol Science</SelectItem>
+                        <SelectItem value="B.A. - Physical Education, with History and Pol Science">B.A. - Physical Education, with History and Pol Science</SelectItem>
+                        <SelectItem value="B.A. - Journalism and Mass Communication, History and Economics">B.A. - Journalism and Mass Communication, History and Economics</SelectItem>
                         <SelectItem value="Bachelor of Commerce (B.Com)">Bachelor of Commerce (B.Com)</SelectItem>
                         <SelectItem value="Bachelor of Business Administration (B.B.A)">Bachelor of Business Administration (B.B.A)</SelectItem>
                         <SelectItem value="Bachelor of Computer Applications (B.C.A)">Bachelor of Computer Applications (B.C.A)</SelectItem>
