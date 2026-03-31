@@ -15,7 +15,6 @@ export const headerLinks = [
     { label: "NAAC", href: "/naac" },
     { label: "AICTE", href: "/aicte" },
     { label: "Gallery", href: "/gallery" },
-    { label: "Blog", href: "/blog" },
     { label: "Career", href: "/career" },
     { label: "Contact Us", href: "/contact" },
 ];
