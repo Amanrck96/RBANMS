@@ -2,6 +2,7 @@
 import { initializeApp, getApps, cert } from 'firebase-admin/app';
 import { getAuth } from 'firebase-admin/auth';
 import { getFirestore } from 'firebase-admin/firestore';
+import { getStorage } from 'firebase-admin/storage';
 
 // Initialize Firebase Admin
 const apps = getApps();
@@ -18,12 +19,14 @@ if (!apps.length) {
                 clientEmail,
                 privateKey,
             }),
+            storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
         });
     } else {
         // Fallback for build time where secrets might be missing
         // This prevents the build from crashing but API calls will fail if keys are not present at runtime
         initializeApp({
             projectId: 'build-placeholder',
+            storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || 'placeholder-bucket',
         });
         console.warn('Firebase Admin initialized without credentials (build mode).');
     }
@@ -31,3 +34,4 @@ if (!apps.length) {
 
 export const adminAuth = getAuth();
 export const adminDb = getFirestore();
+export const adminStorage = getStorage();

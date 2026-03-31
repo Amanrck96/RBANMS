@@ -7,7 +7,6 @@ import { SiteFooter } from '@/components/layout/footer';
 import { AdditionalImagesCarousel } from '@/components/sections/additional-images-carousel';
 import { TwoRowCardLayout } from '@/components/sections/two-row-card-layout';
 import { SidebarCards } from '@/components/sections/sidebar-cards';
-import { LatestPosts } from '@/components/sections/latest-posts';
 import { useSiteSettings } from '@/hooks/use-site-settings';
 import { usePageContent } from '@/hooks/use-page-content';
 import { DynamicSection } from '@/components/dynamic-section';
@@ -85,8 +84,6 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* Latest Blog Posts Section */}
-                <LatestPosts />
 
 
 

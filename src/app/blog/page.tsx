@@ -84,15 +84,19 @@ export default function BlogPage() {
                     <div className="max-w-4xl mx-auto space-y-8">
                         {posts.map((post) => (
                             <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                                {post.imageUrl && (
-                                    <div className="aspect-video w-full overflow-hidden bg-gray-200">
+                                <div className="aspect-video w-full overflow-hidden bg-gray-200">
+                                    {post.imageUrl ? (
                                         <img
                                             src={post.imageUrl}
                                             alt={post.title}
                                             className="w-full h-full object-cover"
                                         />
-                                    </div>
-                                )}
+                                    ) : (
+                                        <div className="w-full h-full flex items-center justify-center bg-blue-50 text-blue-200">
+                                            <Calendar size={48} />
+                                        </div>
+                                    )}
+                                </div>
                                 <CardHeader>
                                     <CardTitle className="text-2xl hover:text-blue-600 transition-colors">
                                         <Link href={`/blog/${post.slug}`}>

@@ -45,15 +45,19 @@ export function LatestPosts() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {posts.map((post) => (
                         <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-all flex flex-col h-full bg-white border-blue-100">
-                            {post.imageUrl && (
-                                <div className="aspect-video w-full overflow-hidden bg-gray-200">
+                            <div className="aspect-video w-full overflow-hidden bg-gray-200">
+                                {post.imageUrl ? (
                                     <img
                                         src={post.imageUrl}
                                         alt={post.title}
                                         className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
                                     />
-                                </div>
-                            )}
+                                ) : (
+                                    <div className="w-full h-full flex items-center justify-center bg-blue-50 text-blue-200">
+                                        <Calendar size={48} />
+                                    </div>
+                                )}
+                            </div>
                             <CardHeader className="flex-grow p-5 pb-3">
                                 <CardTitle className="text-xl hover:text-blue-600 transition-colors line-clamp-2 leading-tight">
                                     <Link href={`/blog/${post.slug}`}>

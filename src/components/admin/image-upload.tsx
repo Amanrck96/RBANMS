@@ -3,7 +3,7 @@
 
 import { useState } from 'react';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { storage } from '@/lib/firebase-client';
+import { storage, auth } from '@/lib/firebase-client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Progress } from '@/components/ui/progress';
@@ -24,10 +24,14 @@ export function ImageUpload({ value, onChange, label, folder = 'uploads' }: Imag
 
     const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
-        if (!file || !storage) return;
+        if (!file) return;
 
         // Validations
-        if (!file.type.startsWith('image/')) {
+        const isImageMime = file.type.startsWith('image/');
+        const isImageExt = /\.(jpg|jpeg|png|gif|webp|svg|avif)$/i.test(file.name);
+        
+        if (!isImageMime && !isImageExt) {
+            console.error('Invalid file type:', file.type, 'Name:', file.name);
             toast({ title: 'Invalid File', description: 'Please upload an image file.', variant: 'destructive' });
             return;
         }
@@ -38,28 +42,39 @@ export function ImageUpload({ value, onChange, label, folder = 'uploads' }: Imag
         }
 
         setUploading(true);
-        const storageRef = ref(storage, `${folder}/${Date.now()}-${file.name}`);
-        const uploadTask = uploadBytesResumable(storageRef, file);
+        setProgress(30);
 
-        uploadTask.on('state_changed',
-            (snapshot) => {
-                const p = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                setProgress(p);
-            },
-            (error) => {
-                console.error('Upload error:', error);
-                toast({ title: 'Upload Failed', description: 'Could not upload image.', variant: 'destructive' });
-                setUploading(false);
-            },
-            () => {
-                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                    onChange(downloadURL);
-                    setUploading(false);
-                    setProgress(0);
-                    toast({ title: 'Success', description: 'Image uploaded successfully.' });
-                });
+        try {
+            const token = await auth?.currentUser?.getIdToken();
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('folder', folder);
+
+            const res = await fetch('/api/upload', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                },
+                body: formData
+            });
+
+            if (!res.ok) {
+                const errorData = await res.json().catch(() => ({}));
+                console.error('Server upload error:', errorData);
+                throw new Error(errorData.error || `Upload failed with status: ${res.status}`);
             }
-        );
+
+            const data = await res.json();
+            setProgress(100);
+            onChange(data.url);
+            toast({ title: 'Success', description: 'Image uploaded successfully.' });
+        } catch (error) {
+            console.error('Upload error:', error);
+            toast({ title: 'Upload Failed', description: 'Could not upload image.', variant: 'destructive' });
+        } finally {
+            setUploading(false);
+            setTimeout(() => setProgress(0), 1000);
+        }
     };
 
     return (

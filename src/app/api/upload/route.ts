@@ -1,8 +1,8 @@
-// API route to handle image uploads (admin and super admin)
 import { NextRequest, NextResponse } from 'next/server';
-import { adminAuth, adminDb } from '@/lib/firebase-admin';
+import { adminAuth, adminDb, adminStorage } from '@/lib/firebase-admin';
 
 export async function POST(request: NextRequest) {
+    console.log("--- New Upload Request Incoming ---");
     try {
         const authHeader = request.headers.get('authorization');
         if (!authHeader?.startsWith('Bearer ')) {
@@ -35,6 +35,7 @@ export async function POST(request: NextRequest) {
 
         const formData = await request.formData();
         const file = formData.get('file') as File;
+        const folder = formData.get('folder') as string || 'uploads';
 
         if (!file) {
             return NextResponse.json(
@@ -43,16 +44,44 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // Note: This is a placeholder. In production, you would upload to Firebase Storage
-        // or another cloud storage service. For now, we'll return a success message.
-        // You'll need to implement the actual upload logic using Firebase Storage SDK.
+        const isImageMime = file.type.startsWith('image/');
+        const isImageExt = /\.(jpg|jpeg|png|gif|webp|svg|avif)$/i.test(file.name);
+
+        if (!isImageMime && !isImageExt) {
+            return NextResponse.json(
+                { error: 'File must be an image' },
+                { status: 400 }
+            );
+        }
+
+        const buffer = Buffer.from(await file.arrayBuffer());
+        const filename = `${folder}/${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
+
+        const bucketName = process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET;
+        if (!bucketName) {
+             return NextResponse.json({ error: 'Storage bucket not configured' }, { status: 500 });
+        }
+        const bucket = adminStorage.bucket(bucketName);
+        const fileRef = bucket.file(filename);
+
+        // Generate a random UUID for the download token
+        const downloadToken = crypto.randomUUID();
+
+        await fileRef.save(buffer, {
+            metadata: {
+                contentType: file.type,
+                metadata: {
+                    firebaseStorageDownloadTokens: downloadToken
+                }
+            },
+        });
+
+        // Use the standard Firebase Storage url format
+        const publicUrl = `https://firebasestorage.googleapis.com/v0/b/${bucket.name}/o/${encodeURIComponent(filename)}?alt=media&token=${downloadToken}`;
 
         return NextResponse.json({
-            message: 'File upload endpoint ready',
-            filename: file.name,
-            size: file.size,
-            type: file.type,
-            // In production, return: imageUrl: 'https://...'
+            message: 'File uploaded successfully',
+            url: publicUrl,
         });
     } catch (error: any) {
         console.error('Upload error:', error);
