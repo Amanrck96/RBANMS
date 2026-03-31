@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { adminAuth, adminDb, adminStorage } from '@/lib/firebase-admin';
+import { adminAuth, adminDb } from '@/lib/firebase-admin';
+import { createHash } from 'crypto';
 
 export async function POST(request: NextRequest) {
     console.log("--- New Upload Request Incoming ---");
@@ -35,7 +36,7 @@ export async function POST(request: NextRequest) {
 
         const formData = await request.formData();
         const file = formData.get('file') as File;
-        const folder = formData.get('folder') as string || 'uploads';
+        const folder = (formData.get('folder') as string) || 'uploads';
 
         if (!file) {
             return NextResponse.json(
@@ -54,35 +55,52 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const buffer = Buffer.from(await file.arrayBuffer());
-        const filename = `${folder}/${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
+        const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
+        const apiKey = process.env.CLOUDINARY_API_KEY;
+        const apiSecret = process.env.CLOUDINARY_API_SECRET;
 
-        const bucketName = process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET;
-        if (!bucketName) {
-             return NextResponse.json({ error: 'Storage bucket not configured' }, { status: 500 });
+        if (!cloudName || !apiKey || !apiSecret) {
+            return NextResponse.json(
+                { error: 'Cloudinary not configured' },
+                { status: 500 }
+            );
         }
-        const bucket = adminStorage.bucket(bucketName);
-        const fileRef = bucket.file(filename);
 
-        // Generate a random UUID for the download token
-        const downloadToken = crypto.randomUUID();
+        // Generate signed upload request
+        const timestamp = Math.floor(Date.now() / 1000);
+        const paramsToSign = `folder=${folder}&timestamp=${timestamp}`;
+        const signature = createHash('sha1')
+            .update(paramsToSign + apiSecret)
+            .digest('hex');
 
-        await fileRef.save(buffer, {
-            metadata: {
-                contentType: file.type,
-                metadata: {
-                    firebaseStorageDownloadTokens: downloadToken
-                }
-            },
-        });
+        // Build form data for Cloudinary
+        const uploadForm = new FormData();
+        uploadForm.append('file', file);
+        uploadForm.append('api_key', apiKey);
+        uploadForm.append('timestamp', String(timestamp));
+        uploadForm.append('signature', signature);
+        uploadForm.append('folder', folder);
 
-        // Use the standard Firebase Storage url format
-        const publicUrl = `https://firebasestorage.googleapis.com/v0/b/${bucket.name}/o/${encodeURIComponent(filename)}?alt=media&token=${downloadToken}`;
+        const cloudinaryRes = await fetch(
+            `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+            { method: 'POST', body: uploadForm }
+        );
+
+        const cloudinaryData = await cloudinaryRes.json();
+
+        if (!cloudinaryRes.ok) {
+            console.error('Cloudinary error:', cloudinaryData);
+            return NextResponse.json(
+                { error: cloudinaryData.error?.message || 'Cloudinary upload failed' },
+                { status: 500 }
+            );
+        }
 
         return NextResponse.json({
             message: 'File uploaded successfully',
-            url: publicUrl,
+            url: cloudinaryData.secure_url,
         });
+
     } catch (error: any) {
         console.error('Upload error:', error);
         return NextResponse.json(
