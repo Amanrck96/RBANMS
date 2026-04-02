@@ -29,8 +29,8 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const isImageMime = file.type.startsWith('image/');
-        const isImageExt = /\.(jpg|jpeg|png|gif|webp|svg|avif)$/i.test(file.name);
+        const isImageMime = file.type.startsWith('image/') || file.type === '';
+        const isImageExt = /\.(jpg|jpeg|png|gif|webp|svg|avif|heic|heif)$/i.test(file.name);
 
         if (!isImageMime && !isImageExt) {
             return NextResponse.json(

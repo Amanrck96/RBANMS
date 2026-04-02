@@ -27,8 +27,8 @@ export function ImageUpload({ value, onChange, label, folder = 'uploads' }: Imag
         if (!file) return;
 
         // Validations
-        const isImageMime = file.type.startsWith('image/');
-        const isImageExt = /\.(jpg|jpeg|png|gif|webp|svg|avif)$/i.test(file.name);
+        const isImageMime = file.type.startsWith('image/') || file.type === '';
+        const isImageExt = /\.(jpg|jpeg|png|gif|webp|svg|avif|heic|heif)$/i.test(file.name);
         
         if (!isImageMime && !isImageExt) {
             console.error('Invalid file type:', file.type, 'Name:', file.name);
