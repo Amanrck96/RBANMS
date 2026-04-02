@@ -68,9 +68,9 @@ export function ImageUpload({ value, onChange, label, folder = 'uploads' }: Imag
             setProgress(100);
             onChange(data.url);
             toast({ title: 'Success', description: 'Image uploaded successfully.' });
-        } catch (error) {
+        } catch (error: any) {
             console.error('Upload error:', error);
-            toast({ title: 'Upload Failed', description: 'Could not upload image.', variant: 'destructive' });
+            toast({ title: 'Upload Failed', description: error.message || 'Could not upload image.', variant: 'destructive' });
         } finally {
             setUploading(false);
             setTimeout(() => setProgress(0), 1000);

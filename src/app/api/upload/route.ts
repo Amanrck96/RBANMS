@@ -14,6 +14,13 @@ export async function POST(request: NextRequest) {
         }
 
         const token = authHeader.substring(7);
+        if (!token || token === 'undefined' || token === 'null') {
+             return NextResponse.json(
+                { error: 'Unauthorized: Invalid or missing token' },
+                { status: 401 }
+            );
+        }
+        
         // Just verify the token is valid — any authenticated user can upload
         // The admin UI is already protected so only admins reach this point
         await adminAuth.verifyIdToken(token);
@@ -58,8 +65,12 @@ export async function POST(request: NextRequest) {
             .digest('hex');
 
         // Build form data for Cloudinary
+        const arrayBuffer = await file.arrayBuffer();
+        const buffer = Buffer.from(arrayBuffer);
+        const base64Data = `data:${file.type || 'image/jpeg'};base64,${buffer.toString('base64')}`;
+
         const uploadForm = new FormData();
-        uploadForm.append('file', file);
+        uploadForm.append('file', base64Data);
         uploadForm.append('api_key', apiKey);
         uploadForm.append('timestamp', String(timestamp));
         uploadForm.append('signature', signature);
