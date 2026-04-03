@@ -81,15 +81,15 @@ export default function BlogPage() {
                         </CardContent>
                     </Card>
                 ) : (
-                    <div className="max-w-4xl mx-auto space-y-8">
+                    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {posts.map((post) => (
-                            <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                                <div className="aspect-video w-full overflow-hidden bg-gray-200">
+                            <Card key={post.id} className="overflow-hidden hover:shadow-xl transition-shadow flex flex-col h-full group">
+                                <div className="aspect-video w-full overflow-hidden bg-gray-200 shrink-0">
                                     {post.imageUrl ? (
                                         <img
                                             src={post.imageUrl}
                                             alt={post.title}
-                                            className="w-full h-full object-cover"
+                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                         />
                                     ) : (
                                         <div className="w-full h-full flex items-center justify-center bg-blue-50 text-blue-200">
@@ -97,37 +97,39 @@ export default function BlogPage() {
                                         </div>
                                     )}
                                 </div>
-                                <CardHeader>
-                                    <CardTitle className="text-2xl hover:text-blue-600 transition-colors">
+                                <CardHeader className="shrink-0 pb-4">
+                                    <CardTitle className="text-xl hover:text-blue-600 transition-colors line-clamp-2">
                                         <Link href={`/blog/${post.slug}`}>
                                             {post.title}
                                         </Link>
                                     </CardTitle>
-                                    <div className="flex items-center gap-4 text-sm text-gray-600 mt-2">
+                                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-600 mt-2">
                                         <div className="flex items-center gap-1">
-                                            <User size={16} />
+                                            <User size={14} />
                                             <span>{post.authorName}</span>
                                         </div>
                                         <div className="flex items-center gap-1">
-                                            <Calendar size={16} />
+                                            <Calendar size={14} />
                                             <span>{new Date(post.createdAt).toLocaleDateString('en-US', {
                                                 year: 'numeric',
-                                                month: 'long',
+                                                month: 'short',
                                                 day: 'numeric'
                                             })}</span>
                                         </div>
                                     </div>
                                 </CardHeader>
-                                <CardContent>
-                                    <CardDescription className="text-base mb-4">
+                                <CardContent className="flex flex-col flex-1 pt-0">
+                                    <CardDescription className="text-sm mb-4 line-clamp-3">
                                         {post.excerpt}
                                     </CardDescription>
-                                    <Link
-                                        href={`/blog/${post.slug}`}
-                                        className="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center"
-                                    >
-                                        Read more →
-                                    </Link>
+                                    <div className="mt-auto pt-4 border-t border-gray-100">
+                                        <Link
+                                            href={`/blog/${post.slug}`}
+                                            className="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center text-sm group-hover:text-blue-800 transition-colors"
+                                        >
+                                            Read more <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+                                        </Link>
+                                    </div>
                                 </CardContent>
                             </Card>
                         ))}
