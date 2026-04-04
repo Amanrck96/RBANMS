@@ -159,12 +159,13 @@ export default function ApplyPage() {
                         <SelectValue placeholder="Select a course" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="B.A. - Economics, with History and Pol Science">B.A. - Economics, with History and Pol Science</SelectItem>
-                        <SelectItem value="B.A. - Physical Education, with History and Pol Science">B.A. - Physical Education, with History and Pol Science</SelectItem>
-                        <SelectItem value="B.A. - Journalism and Mass Communication, History and Economics">B.A. - Journalism and Mass Communication, History and Economics</SelectItem>
+                        <SelectItem value="Bachelor of Arts (B.A.) - Economics, with History & Political Science">Bachelor of Arts (B.A.) - Economics, with History & Political Science</SelectItem>
+                        <SelectItem value="Bachelor of Arts (B.A.) - \u2060Physical Education with History & Political Science">Bachelor of Arts (B.A.) - Physical Education with History & Political Science</SelectItem>
+                        <SelectItem value="Bachelor of Arts (B.A.) - Journalism & Mass Communication, History and Economics.">Bachelor of Arts (B.A.) - Journalism & Mass Communication, History and Economics.</SelectItem>
                         <SelectItem value="Bachelor of Commerce (B.Com)">Bachelor of Commerce (B.Com)</SelectItem>
                         <SelectItem value="Bachelor of Business Administration (B.B.A)">Bachelor of Business Administration (B.B.A)</SelectItem>
                         <SelectItem value="Bachelor of Computer Applications (B.C.A)">Bachelor of Computer Applications (B.C.A)</SelectItem>
+                        <SelectItem value="Bachelor of Science (B.Sc)">Bachelor of Science (B.Sc)</SelectItem>
                         <SelectItem value="Master of Commerce (M.Com)">Master of Commerce (M.Com)</SelectItem>
                       </SelectContent>
                     </Select>
