@@ -41,7 +41,6 @@ export default function ApplyPage() {
     "Bachelor of Commerce (B.Com)",
     "Bachelor of Business Administration (B.B.A)",
     "Bachelor of Computer Applications (B.C.A)",
-    "Bachelor of Science (B.Sc)",
     "Master of Commerce (M.Com)"
   ];
 
