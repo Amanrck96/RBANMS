@@ -10,6 +10,7 @@ export function SiteFooter() {
 
   const quickLinks = [
     { name: 'Home', href: '/', highlight: true },
+    { name: 'Admission', href: '/admission', highlight: true },
     { name: 'Industry Connect', href: '/industry-connect/internship' },
     { name: 'RTI', href: '/rti' },
     { name: 'Governance', href: '/governance' },
