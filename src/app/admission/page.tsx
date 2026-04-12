@@ -45,6 +45,7 @@ export default function AdmissionPage() {
       qualifyingExam: "",
       noOfAttempts: "",
       monthYearPassing: "",
+      combination: "",
       
       dob: "",
       village: "",
@@ -318,9 +319,9 @@ export default function AdmissionPage() {
           {/* Header Section */}
           <div className="mb-6 border-b-4 border-black pb-6">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-              <div className="flex-1 flex flex-col justify-center items-center h-full">
-                <div className="w-[590px] h-[149px] max-w-full overflow-hidden flex justify-center items-center">
-                  <img src="/images/logo-wide.png" alt="RBANMS College Logo" className="w-[590px] h-[149px] object-contain" />
+              <div className="flex-1 flex flex-col justify-center items-center h-full w-full">
+                <div className="w-full max-w-[590px] flex justify-center items-center overflow-hidden">
+                  <img src="/images/logo-wide.png" alt="RBANMS College Logo" className="w-full h-auto object-contain" style={{ aspectRatio: '590/149' }} />
                 </div>
                 <div className="text-center mt-3 space-y-1 w-full border-t-2 border-black pt-3 max-w-2xl mx-auto">
                   <p className="text-sm font-bold text-black uppercase tracking-wide">Phone: 080-25512976 | Email: info@rbanmsfgc.edu.in</p>
@@ -434,13 +435,14 @@ export default function AdmissionPage() {
               <div className="space-y-1"><label className={labelClass}>Place:</label><input {...register('collegePlace')} className={inputClass} /></div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="space-y-1"><label className={labelClass}>Qualifying Exam:</label>
                 <div className="text-[10px] italic">(PUC/CBSE/ISC/Other)</div>
                 <input {...register('qualifyingExam')} className={inputClass} />
               </div>
               <div className="space-y-1"><label className={labelClass}>No. of Attempts:</label><input {...register('noOfAttempts')} className={`${inputClass} mt-3.5`} /></div>
               <div className="space-y-1"><label className={labelClass}>Month & Year of Passing:</label><input type="month" {...register('monthYearPassing')} className={`${inputClass} mt-3.5`} /></div>
+              <div className="space-y-1"><label className={labelClass}>Combination:</label><input {...register('combination')} className={`${inputClass} mt-3.5`} /></div>
             </div>
           </div>
 
