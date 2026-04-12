@@ -189,8 +189,34 @@ export default function AdmissionPage() {
         });
         // -----------------------
 
+        // --- ENFORCE DESKTOP LAYOUT FOR PDF ---
+        const originalClasses: { el: Element, className: string }[] = [];
+        const allElements = formRef.current.querySelectorAll('*');
+        allElements.forEach((el) => {
+           let c = el.getAttribute('class') || '';
+           if (typeof c === 'string' && c.length > 0) {
+              originalClasses.push({ el, className: c });
+              if (c.includes('md:grid-cols') || c.includes('lg:grid-cols')) c = c.replace(/\bgrid-cols-\d+\b/g, '');
+              if (c.includes('md:flex-row') || c.includes('lg:flex-row')) c = c.replace(/\bflex-col\b/g, '');
+              if (c.includes('md:w-') || c.includes('lg:w-')) c = c.replace(/\bw-(full|auto|\d+\/\d+)\b/g, '');
+              if (c.includes('md:items-') || c.includes('lg:items-')) c = c.replace(/\bitems-(start|center|end|baseline|stretch)\b/g, '');
+              if (c.includes('md:justify-') || c.includes('lg:justify-')) c = c.replace(/\bjustify-(start|center|end|between|around|evenly)\b/g, '');
+              if (c.includes('md:p-') || c.includes('lg:p-')) c = c.replace(/\bp-\d+\b/g, '');
+              if (c.includes('md:gap-') || c.includes('lg:gap-')) c = c.replace(/\bgap-\d+\b/g, '');
+              c = c.replace(/\bmd:([a-zA-Z0-9_-]+)\b/g, '$1');
+              c = c.replace(/\blg:([a-zA-Z0-9_-]+)\b/g, '$1');
+              el.setAttribute('class', c.trim());
+           }
+        });
+
+        const originalFormStyle = formRef.current.style.cssText;
+        formRef.current.style.width = '1024px';
+        formRef.current.style.maxWidth = '1024px';
+        formRef.current.style.margin = '0 auto';
+        // ------------------------------------
+
         try {
-          const canvas = await html2canvas(formRef.current, { scale: 1.5, backgroundColor: '#FFFDE8' });
+          const canvas = await html2canvas(formRef.current, { scale: 1.5, backgroundColor: '#FFFDE8', windowWidth: 1024 });
           const imgData = canvas.toDataURL('image/jpeg', 0.75);
           const pdf = new jsPDF('p', 'mm', 'a4');
           const pdfWidth = pdf.internal.pageSize.getWidth();
@@ -215,6 +241,10 @@ export default function AdmissionPage() {
         }
 
         // --- RESTORE AFTER PDF ---
+        formRef.current.style.cssText = originalFormStyle;
+        originalClasses.forEach(({ el, className }) => {
+           el.setAttribute('class', className);
+        });
         replacements.forEach(({ input, div }) => {
           if(div.parentNode) div.parentNode.removeChild(div);
           input.style.display = '';
