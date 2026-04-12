@@ -533,15 +533,15 @@ export default function AdmissionPage() {
              <h2 className={sectionTitleClass}>DETAILS OF QUALIFYING EXAMINATION</h2>
              <div className="overflow-x-auto mt-4 w-full">
                <table className="w-full border-collapse border-2 border-black">
-                 <thead>
-                   <tr className="bg-black text-[#FFFDE8]">
-                     <th className="border border-black px-2 py-3 text-left uppercase text-xs font-bold w-1/4">Examination</th>
-                     <th className="border border-black px-2 py-3 text-center uppercase text-xs font-bold">Board / University</th>
-                     <th className="border border-black px-2 py-3 text-center uppercase text-xs font-bold">Register Number</th>
-                     <th className="border border-black px-2 py-3 text-center uppercase text-xs font-bold">Year of Passing</th>
-                     <th className="border border-black px-2 py-3 text-center uppercase text-xs font-bold">Maximum Marks</th>
-                     <th className="border border-black px-2 py-3 text-center uppercase text-xs font-bold">Marks Obtained</th>
-                     <th className="border border-black px-2 py-3 text-center uppercase text-xs font-bold">Percentage</th>
+                 <thead className="bg-black">
+                   <tr>
+                     <th className="border border-gray-600 px-2 py-3 text-left w-1/4 uppercase text-xs font-bold !text-white">Examination</th>
+                     <th className="border border-gray-600 px-2 py-3 text-center uppercase text-xs font-bold !text-white">Board / University</th>
+                     <th className="border border-gray-600 px-2 py-3 text-center uppercase text-xs font-bold !text-white">Register Number</th>
+                     <th className="border border-gray-600 px-2 py-3 text-center uppercase text-xs font-bold !text-white">Year of Passing</th>
+                     <th className="border border-gray-600 px-2 py-3 text-center uppercase text-xs font-bold !text-white">Maximum Marks</th>
+                     <th className="border border-gray-600 px-2 py-3 text-center uppercase text-xs font-bold !text-white">Marks Obtained</th>
+                     <th className="border border-gray-600 px-2 py-3 text-center uppercase text-xs font-bold !text-white">Percentage</th>
                    </tr>
                  </thead>
                  <tbody>
@@ -618,7 +618,7 @@ export default function AdmissionPage() {
             <button 
               type="submit" 
               disabled={isSubmitting}
-              className="bg-black text-[#FFFDE8] text-xl font-bold uppercase tracking-widest px-16 py-5 border-4 border-black hover:bg-transparent hover:text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center justify-center transform active:-translate-x-1 active:-translate-y-1 w-full md:w-auto"
+              className="bg-black text-white text-xl font-bold uppercase tracking-widest px-16 py-5 border-4 border-black hover:bg-transparent hover:text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center justify-center transform active:-translate-x-1 active:-translate-y-1 w-full md:w-auto"
             >
               {isSubmitting ? <><Loader2 className="mr-3 animate-spin" /> Processing Data...</> : "SUBMIT APPLICATION"}
             </button>
