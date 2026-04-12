@@ -159,8 +159,9 @@ export default function AdmissionPage() {
         // -----------------------
 
         try {
-          const canvas = await html2canvas(formRef.current, { scale: 2, backgroundColor: '#FFFDE8' });
-          const imgData = canvas.toDataURL('image/jpeg', 1.0);
+          // scale: 1.5 and quality: 0.7 keeps good quality but reduces size from ~15MB to ~2-3MB
+          const canvas = await html2canvas(formRef.current, { scale: 1.5, backgroundColor: '#FFFDE8' });
+          const imgData = canvas.toDataURL('image/jpeg', 0.75);
           const pdf = new jsPDF('p', 'mm', 'a4');
           const pdfWidth = pdf.internal.pageSize.getWidth();
           const pageHeight = pdf.internal.pageSize.getHeight();

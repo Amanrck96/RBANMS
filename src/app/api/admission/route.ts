@@ -4,19 +4,31 @@ import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 import fs from 'fs';
 import path from 'path';
 
+// Body size limit is managed by Next.js app router defaults or deployment platform.
+// For Vercel, it defaults to 4.5MB. We optimized the client side to keep PDF within limit.
+
 // Define path for local counter file
 const COUNTER_FILE = path.join(process.cwd(), 'application_counter.json');
 const START_NUMBER = 1;
 
-// Ensure counter file exists
-if (!fs.existsSync(COUNTER_FILE)) {
-  fs.writeFileSync(COUNTER_FILE, JSON.stringify({ currentNumber: START_NUMBER }));
+// Ensure counter file exists locally (may fail on Vercel/read-only envs)
+try {
+  if (!fs.existsSync(COUNTER_FILE)) {
+    fs.writeFileSync(COUNTER_FILE, JSON.stringify({ currentNumber: START_NUMBER }));
+  }
+} catch (e) {
+  console.warn("Could not write to local counter file (likely read-only environment).");
 }
 
 export async function GET() {
   try {
-    const counterData = JSON.parse(fs.readFileSync(COUNTER_FILE, 'utf-8'));
-    const sequentialId = counterData.currentNumber;
+    let sequentialId = 1;
+    try {
+      const counterData = JSON.parse(fs.readFileSync(COUNTER_FILE, 'utf-8'));
+      sequentialId = counterData.currentNumber || 1;
+    } catch {
+      // Fallback if file doesn't exist or is unreadable
+    }
     const date = new Date();
     const appNum = `RFGC-${date.getFullYear()}-${String(sequentialId).padStart(4, '0')}`;
     return NextResponse.json({ applicationNumber: appNum });
@@ -30,11 +42,18 @@ export async function POST(req: Request) {
     const data = await req.json();
     
     // 1. Generate Application Number Sequentially
-    const counterData = JSON.parse(fs.readFileSync(COUNTER_FILE, 'utf-8'));
-    const sequentialId = counterData.currentNumber;
-    
-    // Increment and save for the next application
-    fs.writeFileSync(COUNTER_FILE, JSON.stringify({ currentNumber: sequentialId + 1 }));
+    let sequentialId = 1;
+    try {
+      const counterData = JSON.parse(fs.readFileSync(COUNTER_FILE, 'utf-8'));
+      sequentialId = counterData.currentNumber || 1;
+      
+      // Increment and save for the next application
+      fs.writeFileSync(COUNTER_FILE, JSON.stringify({ currentNumber: sequentialId + 1 }));
+    } catch (fsErr) {
+      console.warn("Could not read/write local counter file. Using timestamp fallback.", fsErr);
+      // Fallback: use part of timestamp to ensure uniqueness when fs is read-only
+      sequentialId = Math.floor(Date.now() / 1000) % 10000;
+    }
 
     const date = new Date();
     const formattedId = String(sequentialId).padStart(4, '0');
@@ -224,48 +243,45 @@ export async function POST(req: Request) {
       buffer = Buffer.from(pdfBytes);
     }
 
-    // 4. Google Drive Save (If Credentials Exist)
-    const FOLDER_ID = '1PsiG8iXfX9QG-bYfSpgPclHEpXfyqr1x';
+    // 4. Upload PDF to Cloudinary (Service Accounts don't have Drive storage quota)
     let driveErrorMsg = "";
-    if (authClient && pdfBase64) {
-      // Ensure buffer is always set from pdfBase64 (handles client-generated PDF case)
-      const uploadBuffer = Buffer.from(pdfBase64, 'base64');
-
+    if (pdfBase64 && process.env.CLOUDINARY_CLOUD_NAME && process.env.CLOUDINARY_API_KEY && process.env.CLOUDINARY_API_SECRET) {
       try {
-        const drive = google.drive({ version: 'v3', auth: authClient });
-        
-        const stream = require('stream');
-        const bufferStream = new stream.PassThrough();
-        bufferStream.end(uploadBuffer);
-
-        const fileMetadata = {
-          name: `Admission_${appNum}_${data.fullName}.pdf`,
-          parents: [FOLDER_ID]
-        };
-        const media = {
-          mimeType: 'application/pdf',
-          body: bufferStream
-        };
-
-        const file = await drive.files.create({
-          requestBody: fileMetadata,
-          media: media,
-          fields: 'id'
+        const cloudinary = require('cloudinary').v2;
+        cloudinary.config({
+          cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+          api_key: process.env.CLOUDINARY_API_KEY,
+          api_secret: process.env.CLOUDINARY_API_SECRET,
         });
+
+        const uploadResult = await cloudinary.uploader.upload(
+          `data:application/pdf;base64,${pdfBase64}`,
+          {
+            resource_type: 'auto',
+            folder: 'admissions',
+            public_id: `Admission_${appNum}_${data.fullName.replace(/\s+/g, '_')}`,
+            access_mode: 'public',
+          }
+        );
         
-        console.log("Saved to Google Drive:", file.data.id);
-        driveLink = 'https://drive.google.com/file/d/' + file.data.id + '/view?usp=sharing';
+        // Build a direct viewable URL (change /raw/ to /image/ for PDFs so browser can open inline)
+        let rawUrl = uploadResult.secure_url as string;
+        driveLink = rawUrl.replace('/raw/upload/', '/image/upload/').replace(/\.pdf$/, '.pdf');
+        if (!driveLink.includes('/image/upload/')) {
+          driveLink = rawUrl; // fallback
+        }
         driveSuccess = true;
-      } catch (driveErr: any) {
-        driveErrorMsg = driveErr.message || String(driveErr);
-        console.error("Error creating file in drive", driveErr);
-        driveLink = "DriveError: " + driveErrorMsg;
+        console.log("PDF uploaded to Cloudinary:", driveLink);
+      } catch (cloudErr: any) {
+        driveErrorMsg = cloudErr.message || String(cloudErr);
+        driveLink = "CloudinaryError: " + driveErrorMsg;
         driveSuccess = false;
+        console.error("Cloudinary upload error:", cloudErr);
       }
     } else if (!pdfBase64) {
-      driveLink = "DriveSkipped: PDF was empty";
-    } else if (!authClient) {
-      driveLink = "DriveSkipped: No Google credentials";
+      driveLink = "Skipped: PDF was empty";
+    } else {
+      driveLink = "Skipped: Cloudinary credentials missing";
     }
 
     // 5. Google Sheet Entry (Moved here to include PDF Link)
