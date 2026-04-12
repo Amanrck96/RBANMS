@@ -89,6 +89,8 @@ export async function POST(req: Request) {
     let sheetSuccess = false;
     let driveSuccess = false;
     let driveLink = "";
+    let sheetErrorMsg = "";
+    let emailErrorMsg = "";
     
     // (Google Sheet logic moved down below Google Drive logic)
 
@@ -338,7 +340,8 @@ export async function POST(req: Request) {
         });
         console.log("Appended to Google Sheets");
         sheetSuccess = true;
-      } catch (sheetErr) {
+      } catch (sheetErr: any) {
+        sheetErrorMsg = sheetErr.message || String(sheetErr);
         console.error("Error writing to sheet", sheetErr);
       }
     }
@@ -374,7 +377,8 @@ export async function POST(req: Request) {
         await transporter.sendMail(mailOptions);
         console.log("Email sent successfully with PDF");
         emailSuccess = true;
-      } catch (emailErr) {
+      } catch (emailErr: any) {
+        emailErrorMsg = emailErr.message || String(emailErr);
         console.error("Email sending failed:", emailErr);
       }
     }
@@ -386,7 +390,9 @@ export async function POST(req: Request) {
       sheetSuccess,
       driveSuccess,
       emailSuccess,
-      driveErrorMsg
+      driveErrorMsg,
+      sheetErrorMsg,
+      emailErrorMsg
     });
 
   } catch (error) {

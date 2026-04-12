@@ -228,9 +228,9 @@ export default function AdmissionPage() {
       } else {
         toast({
           title: "Saved Locally!",
-          description: `PDF is downloaded. App No: ${result.applicationNumber}. Note: Backend save misconfigured.`,
+          description: `Dev Info: Sheets: ${result.sheetErrorMsg || 'Auth Missing'}. Email: ${result.emailErrorMsg || 'Auth Missing'}`,
           variant: "destructive",
-          duration: 10000
+          duration: 15000
         });
       }
 
