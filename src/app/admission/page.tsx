@@ -304,9 +304,9 @@ export default function AdmissionPage() {
     }
   };
 
-  const labelClass = "text-sm font-bold uppercase tracking-wider text-black";
-  const inputClass = "w-full bg-transparent border-b border-black outline-none py-1 focus:border-b-2 text-black placeholder:text-black/40";
-  const sectionTitleClass = "text-xl font-extrabold uppercase tracking-[0.1em] text-black border-b-2 border-black inline-block mb-6 lg:mb-8 pt-4";
+  const labelClass = "text-sm font-bold uppercase tracking-wider text-black block mb-1 leading-relaxed";
+  const inputClass = "w-full bg-transparent border-b border-black outline-none py-1 focus:border-b-2 text-black placeholder:text-black/40 mt-1";
+  const sectionTitleClass = "text-xl font-extrabold uppercase tracking-[0.1em] text-black border-b-2 border-black inline-block pb-2 mb-6 lg:mb-8 pt-6 mt-2 leading-relaxed";
 
   return (
     <div className="flex min-h-screen flex-col font-sans bg-[#FDFBF7]">
@@ -318,17 +318,15 @@ export default function AdmissionPage() {
           {/* Header Section */}
           <div className="mb-6 border-b-4 border-black pb-6">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-              <div className="w-28 h-28 flex-shrink-0 flex items-center justify-center bg-white p-2 border border-black/20 rounded">
-                <img src="/images/logo-full.png" alt="Logo" className="w-full h-full object-contain" />
-              </div>
-              
-              <div className="text-center flex-1">
-                <h1 className="text-2xl md:text-3xl font-bold uppercase tracking-widest text-[#000000]">RBANM'S FIRST GRADE COLLEGE</h1>
-                <p className="text-sm font-bold uppercase mt-2">12, Annaswamy Mudaliar Road, Bengaluru – 560042</p>
-                <p className="text-sm font-semibold mt-1">Phone: 080-25512976</p>
-                <p className="text-sm font-semibold">Email: info@rbanmsfgc.edu.in</p>
-                <p className="text-sm font-semibold">Website: www.rbanmsfgc.edu.in</p>
-                <h2 className="text-2xl font-extrabold uppercase mt-6 tracking-widest">APPLICATION FORM</h2>
+              <div className="flex-1 flex flex-col justify-center items-center h-full">
+                <div className="w-[590px] h-[149px] max-w-full overflow-hidden flex justify-center items-center">
+                  <img src="/images/logo-wide.png" alt="RBANMS College Logo" className="w-[590px] h-[149px] object-contain" />
+                </div>
+                <div className="text-center mt-3 space-y-1 w-full border-t-2 border-black pt-3 max-w-2xl mx-auto">
+                  <p className="text-sm font-bold text-black uppercase tracking-wide">Phone: 080-25512976 | Email: info@rbanmsfgc.edu.in</p>
+                  <p className="text-sm font-bold text-black uppercase tracking-wide">Website: www.rbanmsfgc.edu.in</p>
+                  <h2 className="text-2xl font-extrabold uppercase mt-6 pt-4 tracking-widest text-black">APPLICATION FORM</h2>
+                </div>
               </div>
 
               <div 
@@ -375,12 +373,12 @@ export default function AdmissionPage() {
             <h2 className={sectionTitleClass}>COURSE (TICK WHICHEVER IS APPLICABLE)</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
               {[
-                'B.C.A.',
-                'B.B.A.',
+                'BCA',
+                'BBA',
                 'B.Com',
-                'B.A. (Political Science, Economics, History)',
-                'B.A. (Journalism, History, Economics)',
-                'B.A. (Physical Education, History, Political Science)',
+                'BA (Economics, History, Political Science)',
+                'BA (Journalism, History, Economics)',
+                'BA (Physical Education, History, Political Science)',
                 'M.Com'
               ].map((course, i) => (
                 <label key={course} className="flex items-start space-x-3 cursor-pointer">
@@ -397,20 +395,20 @@ export default function AdmissionPage() {
             
             <div className="flex flex-col md:flex-row gap-4">
               <div className="w-full md:w-2/3 space-y-1">
-                <label className={labelClass}>Name of Student:</label>
+                <label className={labelClass}>Full Name:</label>
                 <div className="text-[10px] italic mb-1">(In Block Letters as per SSLC Certificate)</div>
                 <input {...register('fullName', { required: true })} className={`${inputClass} uppercase`} />
               </div>
               <div className="w-full md:w-1/3 space-y-1 pt-4">
-                <label className={labelClass}>Email Id:</label>
+                <label className={labelClass}>Email ID:</label>
                 <input type="email" {...register('email')} className={inputClass} />
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="space-y-1"><label className={labelClass}>Contact Number:</label><input {...register('contactNumber')} className={inputClass} /></div>
-              <div className="space-y-1"><label className={labelClass}>Sex:</label>
-                <select {...register('gender')} className="w-full bg-transparent border-b border-black py-1 outline-none uppercase font-bold">
+              <div className="space-y-1"><label className={labelClass}>Gender:</label>
+                <select {...register('gender')} className="w-full bg-transparent border-b border-black py-1 outline-none uppercase font-bold mt-1">
                   <option value="">--</option><option value="Male">MALE</option><option value="Female">FEMALE</option>
                 </select>
               </div>
@@ -420,28 +418,28 @@ export default function AdmissionPage() {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
               <div className="space-y-1"><label className={labelClass}>Religion:</label><input {...register('religion')} className={inputClass} /></div>
-              <div className="space-y-1"><label className={labelClass}>Physically Challenged:</label>
-                 <select {...register('physicallyChallenged')} className="w-full bg-transparent border-b border-black py-1 outline-none uppercase font-bold">
+              <div className="space-y-1"><label className={labelClass}>Physically Challenged (Yes/No):</label>
+                 <select {...register('physicallyChallenged')} className="w-full bg-transparent border-b border-black py-1 outline-none uppercase font-bold mt-1">
                     <option value="">--</option><option value="Yes">YES</option><option value="No">NO</option>
                   </select>
               </div>
               <div className="space-y-1 flex items-end pb-1 gap-6">
-                 <label className="flex items-center space-x-2 font-bold uppercase"><input type="radio" value="Yes" {...register('karnatakaStudent')} className="w-4 h-4 accent-black" /><span>Karnataka</span></label>
-                 <label className="flex items-center space-x-2 font-bold uppercase"><input type="radio" value="No" {...register('karnatakaStudent')} className="w-4 h-4 accent-black" /><span>Non-Karnataka</span></label>
+                 <label className="flex items-center space-x-2 font-bold uppercase"><input type="radio" value="Yes" {...register('karnatakaStudent')} className="w-4 h-4 accent-black" /><span>Karnataka Student (Yes)</span></label>
+                 <label className="flex items-center space-x-2 font-bold uppercase"><input type="radio" value="No" {...register('karnatakaStudent')} className="w-4 h-4 accent-black" /><span>(No)</span></label>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-dashed border-black/30">
-              <div className="space-y-1"><label className={labelClass}>Name of College Last Attended:</label><input {...register('collegeAttended')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>College Last Attended:</label><input {...register('collegeAttended')} className={inputClass} /></div>
               <div className="space-y-1"><label className={labelClass}>Place:</label><input {...register('collegePlace')} className={inputClass} /></div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="space-y-1"><label className={labelClass}>Qualifying Examination Passed:</label>
+              <div className="space-y-1"><label className={labelClass}>Qualifying Exam:</label>
                 <div className="text-[10px] italic">(PUC/CBSE/ISC/Other)</div>
                 <input {...register('qualifyingExam')} className={inputClass} />
               </div>
-              <div className="space-y-1"><label className={labelClass}>Number of Attempts:</label><input {...register('noOfAttempts')} className={`${inputClass} mt-3.5`} /></div>
+              <div className="space-y-1"><label className={labelClass}>No. of Attempts:</label><input {...register('noOfAttempts')} className={`${inputClass} mt-3.5`} /></div>
               <div className="space-y-1"><label className={labelClass}>Month & Year of Passing:</label><input type="month" {...register('monthYearPassing')} className={`${inputClass} mt-3.5`} /></div>
             </div>
           </div>
@@ -461,7 +459,7 @@ export default function AdmissionPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-1"><label className={labelClass}>Language Spoken:</label><input {...register('languagesKnown')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Languages Known:</label><input {...register('languagesKnown')} className={inputClass} /></div>
               <div className="space-y-1"><label className={labelClass}>Blood Group:</label><input {...register('bloodGroup')} className={inputClass} /></div>
             </div>
           </div>
@@ -469,49 +467,49 @@ export default function AdmissionPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
             <div className="space-y-4">
                <h2 className={sectionTitleClass}>PERMANENT ADDRESS</h2>
-               <div className="space-y-1"><label className={labelClass}>Address:</label><textarea {...register('permanentAddress')} rows={3} className="w-full bg-transparent border-b border-black outline-none resize-none py-1 focus:border-b-2"></textarea></div>
+               <div className="space-y-1"><label className={labelClass}>Permanent Address:</label><textarea {...register('permanentAddress')} rows={3} className="w-full bg-transparent border-b border-black outline-none resize-none py-1 focus:border-b-2"></textarea></div>
                <div className="space-y-1"><label className={labelClass}>Pin Code:</label><input {...register('pinCode')} className={inputClass} /></div>
-               <div className="space-y-1"><label className={labelClass}>Contact No:</label><input {...register('addressContact')} className={inputClass} /></div>
+               <div className="space-y-1"><label className={labelClass}>Contact Number:</label><input {...register('addressContact')} className={inputClass} /></div>
             </div>
             <div className="space-y-4">
                <h2 className={sectionTitleClass}>LOCAL ADDRESS (GUARDIAN IF ANY)</h2>
                <div className="space-y-1"><label className={labelClass}>Name:</label><input {...register('guardianName')} className={inputClass} /></div>
                <div className="space-y-1"><label className={labelClass}>Address:</label><textarea {...register('guardianAddress')} rows={2} className="w-full bg-transparent border-b border-black outline-none resize-none py-1 focus:border-b-2"></textarea></div>
                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-1"><label className={labelClass}>Contact No:</label><input {...register('guardianContact')} className={inputClass} /></div>
+                  <div className="space-y-1"><label className={labelClass}>Contact Number:</label><input {...register('guardianContact')} className={inputClass} /></div>
                   <div className="space-y-1"><label className={labelClass}>Email:</label><input {...register('guardianEmail')} className={inputClass} /></div>
                </div>
             </div>
           </div>
 
           <div className="mb-10 space-y-6">
-            <h2 className={sectionTitleClass}>PARENT / GUARDIAN DETAILS</h2>
+            <h2 className={sectionTitleClass} style={{ marginTop: 0 }}>PARENT / GUARDIAN DETAILS</h2>
             
-            <div className="border border-black p-4 rounded-sm space-y-4 relative">
-              <div className="absolute -top-3 left-4 bg-[#FFFDE8] px-2 font-bold uppercase tracking-widest text-sm">Father's Details</div>
+            <div className="border border-black p-4 pt-6 rounded-sm space-y-4 relative mt-12">
+              <div className="absolute -top-4 left-4 bg-[#FFFDE8] px-2 py-1 z-10 font-bold uppercase tracking-widest text-sm leading-relaxed">Father's Details</div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="space-y-1"><label className={labelClass}>Name:</label><input {...register('fatherName')} className={inputClass} /></div>
                 <div className="space-y-1"><label className={labelClass}>Qualification:</label><input {...register('fatherQual')} className={inputClass} /></div>
                 <div className="space-y-1"><label className={labelClass}>Occupation:</label><input {...register('fatherOcc')} className={inputClass} /></div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="space-y-1"><label className={labelClass}>Annual Income:</label><input {...register('fatherIncome')} className={inputClass} /></div>
-                <div className="space-y-1"><label className={labelClass}>Contact Number:</label><input {...register('fatherContact')} className={inputClass} /></div>
-                <div className="space-y-1"><label className={labelClass}>Email ID:</label><input type="email" {...register('fatherEmail')} className={inputClass} /></div>
+                <div className="space-y-1"><label className={labelClass}>Income:</label><input {...register('fatherIncome')} className={inputClass} /></div>
+                <div className="space-y-1"><label className={labelClass}>Contact:</label><input {...register('fatherContact')} className={inputClass} /></div>
+                <div className="space-y-1"><label className={labelClass}>Email:</label><input type="email" {...register('fatherEmail')} className={inputClass} /></div>
               </div>
             </div>
 
-            <div className="border border-black p-4 rounded-sm space-y-4 relative mt-8">
-              <div className="absolute -top-3 left-4 bg-[#FFFDE8] px-2 font-bold uppercase tracking-widest text-sm">Mother's Details</div>
+            <div className="border border-black p-4 pt-6 rounded-sm space-y-4 relative mt-12">
+              <div className="absolute -top-4 left-4 bg-[#FFFDE8] px-2 py-1 z-10 font-bold uppercase tracking-widest text-sm leading-relaxed">Mother's Details</div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="space-y-1"><label className={labelClass}>Name:</label><input {...register('motherName')} className={inputClass} /></div>
                 <div className="space-y-1"><label className={labelClass}>Qualification:</label><input {...register('motherQual')} className={inputClass} /></div>
                 <div className="space-y-1"><label className={labelClass}>Occupation:</label><input {...register('motherOcc')} className={inputClass} /></div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="space-y-1"><label className={labelClass}>Annual Income:</label><input {...register('motherIncome')} className={inputClass} /></div>
-                <div className="space-y-1"><label className={labelClass}>Contact Number:</label><input {...register('motherContact')} className={inputClass} /></div>
-                <div className="space-y-1"><label className={labelClass}>Email ID:</label><input type="email" {...register('motherEmail')} className={inputClass} /></div>
+                <div className="space-y-1"><label className={labelClass}>Income:</label><input {...register('motherIncome')} className={inputClass} /></div>
+                <div className="space-y-1"><label className={labelClass}>Contact:</label><input {...register('motherContact')} className={inputClass} /></div>
+                <div className="space-y-1"><label className={labelClass}>Email:</label><input type="email" {...register('motherEmail')} className={inputClass} /></div>
               </div>
             </div>
           </div>
@@ -525,7 +523,7 @@ export default function AdmissionPage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
               <div className="space-y-1"><label className={labelClass}>Work / Hostel Address:</label><input {...register('workHostelAddress')} className={inputClass} /></div>
-              <div className="space-y-1"><label className={labelClass}>Recently Staying With:</label><input {...register('stayingWith')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Staying With:</label><input {...register('stayingWith')} className={inputClass} /></div>
             </div>
           </div>
 
@@ -558,10 +556,6 @@ export default function AdmissionPage() {
                     ))}
                  </tbody>
                </table>
-             </div>
-             <div className="mt-6 flex flex-col space-y-2">
-               <label className={labelClass}>Extra Curricular Activities/Sports – (Inter-school/State/National Level):</label>
-               <input {...register('extraCurricular')} className={inputClass} />
              </div>
           </div>
 
