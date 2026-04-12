@@ -46,6 +46,7 @@ export default function AdmissionPage() {
       noOfAttempts: "",
       monthYearPassing: "",
       combination: "",
+      languageDetails: "",
       
       dob: "",
       village: "",
@@ -353,21 +354,29 @@ export default function AdmissionPage() {
               </div>
             </div>
             
-            <div className="mt-8 flex justify-between items-end">
-              <div className="text-left inline-block">
-                <span className={`${labelClass} text-lg`}>Application No:</span> 
+            <div className="mt-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-4 overflow-hidden">
+              <div className="text-left flex flex-col md:inline-block w-full md:w-auto">
+                <span className={`${labelClass} text-lg mb-2 md:mb-0`}>Application No:</span> 
                 {appNumber ? (
-                  <span className="ml-2 font-bold text-xl text-black border-b-2 border-black tracking-widest px-2">{appNumber}</span>
+                  <span className="md:ml-2 font-bold text-xl sm:text-2xl text-black border-b-2 border-black tracking-widest px-2 whitespace-nowrap overflow-visible">
+                    {appNumber}
+                  </span>
                 ) : (
-                  <span className="ml-2 font-bold text-gray-500 tracking-wider italic">(Auto)</span>
+                  <span className="md:ml-2 font-bold text-gray-500 tracking-wider italic">(Auto)</span>
                 )}
               </div>
-              <div className="text-left">
-                <div className="font-bold flex items-center"><span className="w-32 uppercase text-sm">Admission No:</span><input type="text" className="w-40 border-b border-black bg-transparent outline-none ml-2" readOnly /></div>
-                <div className="font-bold flex items-center mt-2"><span className="w-32 uppercase text-sm">Fees Due:</span><input type="text" className="w-40 border-b border-black bg-transparent outline-none ml-2" readOnly /></div>
+              <div className="text-left w-full md:w-auto overflow-hidden">
+                <div className="font-bold flex flex-col sm:flex-row sm:items-center">
+                  <span className="w-full sm:w-32 uppercase text-sm mb-1 sm:mb-0">Admission No:</span>
+                  <input type="text" className="w-full sm:w-40 border-b border-black bg-transparent outline-none sm:ml-2" readOnly />
+                </div>
+                <div className="font-bold flex flex-col sm:flex-row sm:items-center mt-3 sm:mt-2">
+                  <span className="w-full sm:w-32 uppercase text-sm mb-1 sm:mb-0">Fees Due:</span>
+                  <input type="text" className="w-full sm:w-40 border-b border-black bg-transparent outline-none sm:ml-2" readOnly />
+                </div>
               </div>
             </div>
-            <div className="uppercase text-xs font-bold mt-2 tracking-widest">FOR OFFICE USE ONLY</div>
+            <div className="uppercase text-xs font-bold mt-4 md:mt-2 tracking-widest">FOR OFFICE USE ONLY</div>
           </div>
 
           <div className="mb-10">
@@ -417,16 +426,25 @@ export default function AdmissionPage() {
               <div className="space-y-1"><label className={labelClass}>Caste:</label><input {...register('caste')} className={inputClass} /></div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
               <div className="space-y-1"><label className={labelClass}>Religion:</label><input {...register('religion')} className={inputClass} /></div>
               <div className="space-y-1"><label className={labelClass}>Physically Challenged (Yes/No):</label>
                  <select {...register('physicallyChallenged')} className="w-full bg-transparent border-b border-black py-1 outline-none uppercase font-bold mt-1">
                     <option value="">--</option><option value="Yes">YES</option><option value="No">NO</option>
                   </select>
               </div>
-              <div className="space-y-1 flex items-end pb-1 gap-6">
-                 <label className="flex items-center space-x-2 font-bold uppercase"><input type="radio" value="Yes" {...register('karnatakaStudent')} className="w-4 h-4 accent-black" /><span>Karnataka Student (Yes)</span></label>
-                 <label className="flex items-center space-x-2 font-bold uppercase"><input type="radio" value="No" {...register('karnatakaStudent')} className="w-4 h-4 accent-black" /><span>(No)</span></label>
+              <div className="space-y-1 lg:pl-4">
+                 <label className={labelClass}>Karnataka Resident:</label>
+                 <div className="flex items-center gap-6 mt-2">
+                   <label className="flex items-center space-x-2 font-bold uppercase cursor-pointer">
+                     <input type="radio" value="Karnataka" {...register('karnatakaStudent')} className="w-4 h-4 accent-black shrink-0" />
+                     <span>Karnataka</span>
+                   </label>
+                   <label className="flex items-center space-x-2 font-bold uppercase cursor-pointer">
+                     <input type="radio" value="Non-Karnataka" {...register('karnatakaStudent')} className="w-4 h-4 accent-black shrink-0" />
+                     <span>Non-Karnataka</span>
+                   </label>
+                 </div>
               </div>
             </div>
 
@@ -435,14 +453,18 @@ export default function AdmissionPage() {
               <div className="space-y-1"><label className={labelClass}>Place:</label><input {...register('collegePlace')} className={inputClass} /></div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="space-y-1"><label className={labelClass}>Qualifying Exam:</label>
                 <div className="text-[10px] italic">(PUC/CBSE/ISC/Other)</div>
                 <input {...register('qualifyingExam')} className={inputClass} />
               </div>
               <div className="space-y-1"><label className={labelClass}>No. of Attempts:</label><input {...register('noOfAttempts')} className={`${inputClass} mt-3.5`} /></div>
               <div className="space-y-1"><label className={labelClass}>Month & Year of Passing:</label><input type="month" {...register('monthYearPassing')} className={`${inputClass} mt-3.5`} /></div>
-              <div className="space-y-1"><label className={labelClass}>Combination:</label><input {...register('combination')} className={`${inputClass} mt-3.5`} /></div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+              <div className="space-y-1"><label className={labelClass}>Combination:</label><input {...register('combination')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Language:</label><input {...register('languageDetails')} className={inputClass} /></div>
             </div>
           </div>
 
