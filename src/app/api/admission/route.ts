@@ -220,19 +220,18 @@ export async function POST(req: Request) {
       nextLine(10);
       drawText('Marks Details', true, 12); nextLine(20);
       if(Array.isArray(data.marksDetails)) {
-        data.marksDetails.filter((m: any) => m.subject).forEach((m: any) => {
-          drawText(`${m.subject}  |  Max: ${m.maxMarks}  |  Obt: ${m.obtainedMarks}  |  Reg: ${m.registerNo}`, false, 10, 60);
+        data.marksDetails.filter((m: any) => m.examination && m.board).forEach((m: any) => {
+          drawText(`${m.examination}  |  Max: ${m.maxMarks}  |  Obt: ${m.obtainedMarks}  |  Reg: ${m.registerNo}`, false, 10, 60);
           nextLine();
         });
       }
 
       nextLine(10);
       drawText('Documents Submitted', true, 12); nextLine(20);
-      if(Array.isArray(data.documents)) {
-        data.documents.filter((d: any) => d.documentName).forEach((d: any) => {
-          drawText(`${d.documentName}  |  No: ${d.documentNumber}  |  Mode: ${d.mode}`, false, 10, 60);
-          nextLine();
-        });
+      if(data.docs) {
+        const docNames = Object.entries(data.docs).filter(([k,v]) => v).map(([k]) => k).join(", ");
+        drawText(docNames, false, 10, 60);
+        nextLine();
       }
       
       nextLine(10);
@@ -293,12 +292,14 @@ export async function POST(req: Request) {
         const sheets = google.sheets({ version: 'v4', auth: authClient });
         let marksStr = "";
         if (Array.isArray(data.marksDetails)) {
-          marksStr = data.marksDetails.filter((m: any) => m.subject).map((m: any) => `${m.subject}: ${m.obtainedMarks}/${m.maxMarks} (Reg: ${m.registerNo})`).join(" | ");
+          marksStr = data.marksDetails.filter((m: any) => m.examination && m.board).map((m: any) => `${m.examination}: ${m.obtainedMarks}/${m.maxMarks} (Reg: ${m.registerNo})`).join(" | ");
         }
         let docsStr = "";
-        if (Array.isArray(data.documents)) {
-          docsStr = data.documents.filter((d: any) => d.documentName).map((d: any) => `${d.documentName} No:${d.documentNumber}`).join(" | ");
+        if (data.docs) {
+          docsStr = Object.entries(data.docs).filter(([k,v]) => v).map(([k]) => k.toUpperCase()).join(", ");
         }
+
+        const addressCombined = [data.permanentAddress, data.pinCode, data.addressContact].filter(Boolean).join(', ');
 
         await sheets.spreadsheets.values.append({
           spreadsheetId: SPREADSHEET_ID,
@@ -315,16 +316,16 @@ export async function POST(req: Request) {
                 data.percentage || '',
                 data.dob || '',
                 data.age || '',
-                data.birthPlace || '',
+                data.village || data.taluk || '',
                 data.state || '',
                 data.nationality || '',
                 data.religion || '',
                 data.caste || '',
                 data.category || '',
                 data.motherTongue || '',
-                data.mobile || '',
+                data.contactNumber || data.mobile || '',
                 data.email || '',
-                String(data.address || '').replace(/\n/g, ', '),
+                String(addressCombined || data.address || '').replace(/\n/g, ', '),
                 data.fatherName || '',
                 data.motherName || '',
                 data.guardianName || '',

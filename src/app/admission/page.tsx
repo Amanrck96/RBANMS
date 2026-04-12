@@ -5,7 +5,7 @@ import { useForm, useFieldArray } from 'react-hook-form';
 import { SiteHeader } from "@/components/layout/header";
 import { SiteFooter } from "@/components/layout/footer";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, Plus, Trash2, Upload } from "lucide-react";
+import { Loader2, Upload } from "lucide-react";
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 
@@ -18,7 +18,6 @@ export default function AdmissionPage() {
   const formRef = useRef<HTMLFormElement>(null);
 
   React.useEffect(() => {
-    // Fetch the preview application number on load
     fetch('/api/admission')
       .then(res => res.json())
       .then(data => {
@@ -33,63 +32,90 @@ export default function AdmissionPage() {
     defaultValues: {
       courseApplied: "",
       fullName: "",
+      contactNumber: "",
+      email: "",
       gender: "",
-      percentage: "",
+      nationality: "Indian",
+      caste: "",
+      religion: "",
+      physicallyChallenged: "",
+      karnatakaStudent: "",
+      collegeAttended: "",
+      collegePlace: "",
+      qualifyingExam: "",
+      noOfAttempts: "",
+      monthYearPassing: "",
+      
       dob: "",
-      age: "",
-      birthPlace: "",
+      village: "",
       taluk: "",
       district: "",
       state: "",
-      physicallyChallenged: "",
-      karnatakaStudent: "",
-      outsiderState: "",
-      passportNumber: "",
-      passportIssueDate: "",
-      passportValidityDate: "",
-      caste: "",
-      community: "",
-      category: "",
-      nationality: "Indian",
-      religion: "",
       motherTongue: "",
-      collegeAttended: "",
-      qualifyingExam: "",
-      mediumOfInstruction: "",
-      noOfAttempts: "",
-      monthYearPassing: "",
-      address: "",
-      pinCode: "",
-      mobile: "",
-      email: "",
       bloodGroup: "",
+      languagesKnown: "",
+      
+      permanentAddress: "",
+      pinCode: "",
+      addressContact: "",
+      
+      guardianName: "",
+      guardianAddress: "",
+      guardianContact: "",
+      guardianEmail: "",
+      
       fatherName: "",
       fatherQual: "",
       fatherOcc: "",
+      fatherIncome: "",
+      fatherContact: "",
+      fatherEmail: "",
+      
       motherName: "",
       motherQual: "",
       motherOcc: "",
-      permanentAddress: "",
-      parentEmail: "",
-      guardianName: "",
-      guardianContact: "",
-      guardianEmail: "",
-      marksDetails: [{ subject: "", maxMarks: "", obtainedMarks: "", registerNo: "" }],
-      documents: [{ documentName: "", date: "", documentNumber: "", mode: "In Person" }],
+      motherIncome: "",
+      motherContact: "",
+      motherEmail: "",
+      
+      noOfDependents: "",
+      noOfBrothers: "",
+      noOfSisters: "",
+      workHostelAddress: "",
+      stayingWith: "",
+      
+      marksDetails: [
+        { examination: "SSLC / 10th", board: "", registerNo: "", year: "", maxMarks: "", obtainedMarks: "", percentage: "" },
+        { examination: "PUC / 12th", board: "", registerNo: "", year: "", maxMarks: "", obtainedMarks: "", percentage: "" },
+        { examination: "Any Other (Specify)", board: "", registerNo: "", year: "", maxMarks: "", obtainedMarks: "", percentage: "" }
+      ],
+      
       extraCurricular: "",
-      howKnown: "",
+      
+      docs: {
+        sslc: false,
+        puc: false,
+        tc: false,
+        migration: false,
+        caste: false,
+        income: false,
+        aadhaar: false,
+        photos: false
+      },
+      
+      infoCorrect: false,
       studentSignature: "",
       parentSignature: "",
       declarationDate: new Date().toISOString().split('T')[0],
-      // Office Use
+      
       admissionNo: "",
       feesDue: "",
-      admitTo: ""
+      admissionApproved: "",
+      remarks: ""
     }
   });
 
   const marksArray = useFieldArray({ control, name: "marksDetails" });
-  const docsArray = useFieldArray({ control, name: "documents" });
 
   const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -107,6 +133,11 @@ export default function AdmissionPage() {
   };
 
   const onSubmit = async (data: any) => {
+    if (!data.infoCorrect) {
+      toast({ title: "Declaration Required", description: "Please check the declaration box before submitting.", variant: "destructive" });
+      return;
+    }
+    
     setIsSubmitting(true);
     try {
       let generatedPdfBase64 = null;
@@ -133,11 +164,11 @@ export default function AdmissionPage() {
           div.style.height = 'auto';
           div.style.minHeight = style.height;
           div.style.display = 'flex';
-          div.style.alignItems = 'flex-end'; // Align to bottom similar to border-b inputs
+          div.style.alignItems = 'flex-end';
           div.style.border = 'none';
           div.style.borderBottom = style.borderBottom; 
           div.style.backgroundColor = 'transparent';
-          div.style.paddingBottom = '4px'; // Prevent bottom clipping
+          div.style.paddingBottom = '4px';
           div.style.boxSizing = 'border-box';
           div.style.overflow = 'hidden';
           
@@ -159,7 +190,6 @@ export default function AdmissionPage() {
         // -----------------------
 
         try {
-          // scale: 1.5 and quality: 0.7 keeps good quality but reduces size from ~15MB to ~2-3MB
           const canvas = await html2canvas(formRef.current, { scale: 1.5, backgroundColor: '#FFFDE8' });
           const imgData = canvas.toDataURL('image/jpeg', 0.75);
           const pdf = new jsPDF('p', 'mm', 'a4');
@@ -186,7 +216,7 @@ export default function AdmissionPage() {
 
         // --- RESTORE AFTER PDF ---
         replacements.forEach(({ input, div }) => {
-          div.parentNode?.removeChild(div);
+          if(div.parentNode) div.parentNode.removeChild(div);
           input.style.display = '';
         });
         // -------------------------
@@ -207,7 +237,6 @@ export default function AdmissionPage() {
 
       const result = await response.json();
       
-      // If we got base64 PDF back, let's trigger a download so user knows PDF is generated
       if (result.pdfBase64) {
         const link = document.createElement('a');
         link.href = `data:application/pdf;base64,${result.pdfBase64}`;
@@ -245,33 +274,33 @@ export default function AdmissionPage() {
     }
   };
 
-  const borderClass = "border border-black p-2";
   const labelClass = "text-sm font-bold uppercase tracking-wider text-black";
   const inputClass = "w-full bg-transparent border-b border-black outline-none py-1 focus:border-b-2 text-black placeholder:text-black/40";
+  const sectionTitleClass = "text-xl font-extrabold uppercase tracking-[0.1em] text-black border-b-2 border-black inline-block mb-6 lg:mb-8 pt-4";
 
   return (
     <div className="flex min-h-screen flex-col font-sans bg-[#FDFBF7]">
       <SiteHeader />
       
       <main className="flex-grow py-8 px-2 md:px-8">
-        <form ref={formRef} onSubmit={handleSubmit(onSubmit)} className="max-w-4xl mx-auto bg-[#FFFDE8] border-2 border-black p-4 md:p-8 shadow-xl text-black">
+        <form ref={formRef} onSubmit={handleSubmit(onSubmit)} className="max-w-4xl mx-auto bg-[#FFFDE8] border-2 border-black p-6 md:p-12 shadow-2xl text-black">
           
           {/* Header Section */}
-          <div className="mb-6 border-b-4 border-black pb-4">
+          <div className="mb-6 border-b-4 border-black pb-6">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-              {/* Logo */}
               <div className="w-28 h-28 flex-shrink-0 flex items-center justify-center bg-white p-2 border border-black/20 rounded">
                 <img src="/images/logo-full.png" alt="Logo" className="w-full h-full object-contain" />
               </div>
               
-              {/* Center Text */}
               <div className="text-center flex-1">
-                <h1 className="text-2xl md:text-3xl font-bold uppercase tracking-widest text-black">RBANM's First Grade College</h1>
-                <p className="text-sm font-bold uppercase mt-1">#12, Annaswamy Mudaliar Road, Bangalore - 560 042</p>
-                <p className="text-sm font-semibold mt-1">Phone: 080-25512976 | Web: www.rbanmsfgc.edu.in</p>
+                <h1 className="text-2xl md:text-3xl font-bold uppercase tracking-widest text-[#000000]">RBANM'S FIRST GRADE COLLEGE</h1>
+                <p className="text-sm font-bold uppercase mt-2">12, Annaswamy Mudaliar Road, Bengaluru – 560042</p>
+                <p className="text-sm font-semibold mt-1">Phone: 080-25512976</p>
+                <p className="text-sm font-semibold">Email: info@rbanmsfgc.edu.in</p>
+                <p className="text-sm font-semibold">Website: www.rbanmsfgc.edu.in</p>
+                <h2 className="text-2xl font-extrabold uppercase mt-6 tracking-widest">APPLICATION FORM</h2>
               </div>
 
-              {/* Photo Box */}
               <div 
                 className="w-[3.5cm] h-[4.5cm] border-2 border-black flex flex-col items-center justify-center text-center p-1 flex-shrink-0 bg-white relative cursor-pointer hover:bg-gray-50 overflow-hidden"
                 onClick={() => photoInputRef.current?.click()}
@@ -281,8 +310,8 @@ export default function AdmissionPage() {
                    <img src={photoPreview} alt="Passport Size" className="w-full h-full object-cover" />
                 ) : (
                   <>
-                    <Upload className="w-4 h-4 mb-1 text-gray-400" />
-                    <span className="text-[10px] font-bold text-gray-800 uppercase leading-tight">Affix Recent<br/>Passport Size<br/>Photo Here</span>
+                    <Upload className="w-4 h-4 mb-2 text-gray-400" />
+                    <span className="text-[10px] font-bold text-gray-800 uppercase leading-loose italic">Affix Passport<br/>Size Photograph</span>
                   </>
                 )}
                 <input 
@@ -295,342 +324,273 @@ export default function AdmissionPage() {
               </div>
             </div>
             
-            <div className="mt-8 flex justify-between items-end border-t border-black pt-4">
-              <div className="text-left inline-block bg-[#FFFDE8]">
+            <div className="mt-8 flex justify-between items-end">
+              <div className="text-left inline-block">
                 <span className={`${labelClass} text-lg`}>Application No:</span> 
                 {appNumber ? (
-                  <span className="ml-2 font-bold text-2xl text-red-600 tracking-widest bg-yellow-200 px-2 py-1 outline outline-2 outline-red-600">{appNumber}</span>
+                  <span className="ml-2 font-bold text-xl text-black border-b-2 border-black tracking-widest px-2">{appNumber}</span>
                 ) : (
-                  <span className="ml-2 font-bold text-red-600 tracking-wider italic">(Auto Generated on Submit)</span>
+                  <span className="ml-2 font-bold text-gray-500 tracking-wider italic">(Auto)</span>
                 )}
               </div>
+              <div className="text-left">
+                <div className="font-bold flex items-center"><span className="w-32 uppercase text-sm">Admission No:</span><input type="text" className="w-40 border-b border-black bg-transparent outline-none ml-2" readOnly /></div>
+                <div className="font-bold flex items-center mt-2"><span className="w-32 uppercase text-sm">Fees Due:</span><input type="text" className="w-40 border-b border-black bg-transparent outline-none ml-2" readOnly /></div>
+              </div>
+            </div>
+            <div className="uppercase text-xs font-bold mt-2 tracking-widest">FOR OFFICE USE ONLY</div>
+          </div>
+
+          <div className="mb-10">
+            <h2 className={sectionTitleClass}>COURSE (TICK WHICHEVER IS APPLICABLE)</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+              {[
+                'B.C.A.',
+                'B.B.A.',
+                'B.Com',
+                'B.A. (Political Science, Economics, History)',
+                'B.A. (Journalism, History, Economics)',
+                'B.A. (Physical Education, History, Political Science)',
+                'M.Com'
+              ].map((course, i) => (
+                <label key={course} className="flex items-start space-x-3 cursor-pointer">
+                  <span className="font-bold">{i + 1}.</span>
+                  <input type="radio" value={course} {...register('courseApplied', { required: true })} className="w-5 h-5 mt-0.5 accent-black border-black shrink-0" />
+                  <span className="font-bold text-sm leading-tight uppercase tracking-wide">{course}</span>
+                </label>
+              ))}
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-            {/* Course Selection */}
-            <div className="border-2 border-black p-4">
-              <h2 className={`${labelClass} mb-3`}>Course Applied For</h2>
-              <div className="space-y-2">
-                {[
-                  'Bachelor of Arts (B.A.) - Economics, with History & Political Science',
-                  'Bachelor of Arts (B.A.) - Physical Education with History & Political Science',
-                  'Bachelor of Arts (B.A.) - Journalism & Mass Communication, History and Economics.',
-                  'Bachelor of Commerce (B.Com)',
-                  'Bachelor of Business Administration (B.B.A)',
-                  'Bachelor of Computer Applications (B.C.A)',
-                  'Master of Commerce (M.Com)'
-                ].map(course => (
-                  <label key={course} className="flex items-start space-x-3 cursor-pointer">
-                    <input type="radio" value={course} {...register('courseApplied', { required: true })} className="w-5 h-5 mt-1 accent-black border-black shrink-0" />
-                    <span className="font-bold text-sm leading-tight">{course}</span>
-                  </label>
-                ))}
+          <div className="mb-10 space-y-4">
+            <h2 className={sectionTitleClass}>STUDENT DETAILS</h2>
+            
+            <div className="flex flex-col md:flex-row gap-4">
+              <div className="w-full md:w-2/3 space-y-1">
+                <label className={labelClass}>Name of Student:</label>
+                <div className="text-[10px] italic mb-1">(In Block Letters as per SSLC Certificate)</div>
+                <input {...register('fullName', { required: true })} className={`${inputClass} uppercase`} />
+              </div>
+              <div className="w-full md:w-1/3 space-y-1 pt-4">
+                <label className={labelClass}>Email Id:</label>
+                <input type="email" {...register('email')} className={inputClass} />
               </div>
             </div>
 
-            {/* Office Use */}
-            <div className="border-2 border-black p-4">
-              <h2 className={`${labelClass} text-center border-b border-black pb-2 mb-2`}>For Office Use Only</h2>
-              <div className="space-y-3 mt-4">
-                <div>
-                  <span className={labelClass}>Admission No: </span>
-                  <input type="text" className={inputClass} readOnly />
-                </div>
-                <div>
-                  <span className={labelClass}>Fees Due: </span>
-                  <input type="text" className={inputClass} readOnly />
-                </div>
-                <div>
-                  <span className={labelClass}>Admit To: </span>
-                  <input type="text" className={inputClass} readOnly />
-                </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="space-y-1"><label className={labelClass}>Contact Number:</label><input {...register('contactNumber')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Sex:</label>
+                <select {...register('gender')} className="w-full bg-transparent border-b border-black py-1 outline-none uppercase font-bold">
+                  <option value="">--</option><option value="Male">MALE</option><option value="Female">FEMALE</option>
+                </select>
               </div>
+              <div className="space-y-1"><label className={labelClass}>Nationality:</label><input {...register('nationality')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Caste:</label><input {...register('caste')} className={inputClass} /></div>
             </div>
-          </div>
-
-          {/* Page 1 Split: Left Details & Right Details */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-2 border-black mb-4">
-            {/* Left Side Details */}
-            <div className="p-4 border-r-0 md:border-r-2 border-black space-y-4">
-              <div className="space-y-1">
-                <label className={labelClass}>Student Full Name</label>
-                <input {...register('fullName', { required: true })} className={inputClass} />
-              </div>
-              
-              <div className="flex gap-4">
-                <div className="space-y-1 flex-1">
-                  <label className={labelClass}>Gender</label>
-                  <select {...register('gender', { required: true })} className="w-full bg-transparent border-b border-black py-1 outline-none uppercase font-bold">
-                    <option value="">--</option>
-                    <option value="Male">MALE</option>
-                    <option value="Female">FEMALE</option>
-                  </select>
-                </div>
-                <div className="space-y-1 flex-1">
-                  <label className={labelClass}>Percentage</label>
-                  <input {...register('percentage')} className={inputClass} />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-1">
-                  <label className={labelClass}>DOB</label>
-                  <input type="date" {...register('dob')} className={inputClass} />
-                </div>
-                <div className="space-y-1">
-                  <label className={labelClass}>Age</label>
-                  <input {...register('age')} className={inputClass} />
-                </div>
-              </div>
-
-              <div className="space-y-1">
-                <label className={labelClass}>Place of Birth</label>
-                <div className="grid grid-cols-2 gap-2">
-                  <input {...register('birthPlace')} placeholder="City/Village" className={inputClass} />
-                  <input {...register('taluk')} placeholder="Taluk" className={inputClass} />
-                  <input {...register('district')} placeholder="District" className={inputClass} />
-                  <input {...register('state')} placeholder="State" className={inputClass} />
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                 <div className="space-y-1 flex-1">
-                  <label className={labelClass}>Physically Chlg</label>
-                  <select {...register('physicallyChallenged')} className="w-full bg-transparent border-b border-black py-1 outline-none uppercase font-bold">
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+              <div className="space-y-1"><label className={labelClass}>Religion:</label><input {...register('religion')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Physically Challenged:</label>
+                 <select {...register('physicallyChallenged')} className="w-full bg-transparent border-b border-black py-1 outline-none uppercase font-bold">
                     <option value="">--</option><option value="Yes">YES</option><option value="No">NO</option>
                   </select>
-                </div>
-                <div className="space-y-1 flex-1">
-                  <label className={labelClass}>Karnataka Stdnt</label>
-                  <select {...register('karnatakaStudent')} className="w-full bg-transparent border-b border-black py-1 outline-none uppercase font-bold">
-                    <option value="">--</option><option value="Yes">YES</option><option value="No">NO</option>
-                  </select>
-                </div>
               </div>
-              <div className="space-y-1">
-                  <label className={labelClass}>If outsider (State Name)</label>
-                  <input {...register('outsiderState')} className={inputClass} />
-              </div>
-
-              <div className="border border-black p-2 mt-4 space-y-2">
-                <label className={labelClass}>Passport Details</label>
-                <input {...register('passportNumber')} placeholder="Passport No" className={inputClass} />
-                <div className="flex gap-2">
-                  <input type="date" {...register('passportIssueDate')} title="Issue Date" className={inputClass} />
-                  <input type="date" {...register('passportValidityDate')} title="Valid Date" className={inputClass} />
-                </div>
+              <div className="space-y-1 flex items-end pb-1 gap-6">
+                 <label className="flex items-center space-x-2 font-bold uppercase"><input type="radio" value="Yes" {...register('karnatakaStudent')} className="w-4 h-4 accent-black" /><span>Karnataka</span></label>
+                 <label className="flex items-center space-x-2 font-bold uppercase"><input type="radio" value="No" {...register('karnatakaStudent')} className="w-4 h-4 accent-black" /><span>Non-Karnataka</span></label>
               </div>
             </div>
 
-            {/* Right Side Details */}
-            <div className="p-4 space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-1"><label className={labelClass}>Caste</label><input {...register('caste')} className={inputClass} /></div>
-                <div className="space-y-1"><label className={labelClass}>Community</label><input {...register('community')} className={inputClass} /></div>
-                
-                <div className="space-y-1"><label className={labelClass}>Category</label>
-                  <select {...register('category')} className="w-full bg-transparent border-b border-black py-1 outline-none uppercase font-bold">
-                    <option value="">--</option><option value="SC">SC</option><option value="ST">ST</option><option value="OBC">OBC</option><option value="GM">GM</option>
-                  </select>
-                </div>
-                <div className="space-y-1"><label className={labelClass}>Nationality</label><input {...register('nationality')} className={inputClass} /></div>
-                
-                <div className="space-y-1"><label className={labelClass}>Religion</label><input {...register('religion')} className={inputClass} /></div>
-                <div className="space-y-1"><label className={labelClass}>Mother Tongue</label><input {...register('motherTongue')} className={inputClass} /></div>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-dashed border-black/30">
+              <div className="space-y-1"><label className={labelClass}>Name of College Last Attended:</label><input {...register('collegeAttended')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Place:</label><input {...register('collegePlace')} className={inputClass} /></div>
+            </div>
 
-              <div className="space-y-1">
-                <label className={labelClass}>College Last Attended</label>
-                <input {...register('collegeAttended')} className={inputClass} />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="space-y-1"><label className={labelClass}>Qualifying Examination Passed:</label>
+                <div className="text-[10px] italic">(PUC/CBSE/ISC/Other)</div>
+                <input {...register('qualifyingExam')} className={inputClass} />
               </div>
-              
-              <div className="space-y-1">
-                <label className={labelClass}>Qualifying Exam Passed</label>
-                <input {...register('qualifyingExam')} placeholder="PUC / CBSE / ISC" className={inputClass} />
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-1"><label className={labelClass}>Medium of Inst.</label><input {...register('mediumOfInstruction')} className={inputClass} /></div>
-                <div className="space-y-1"><label className={labelClass}>No of Attempts</label><input {...register('noOfAttempts')} className={inputClass} /></div>
-              </div>
-
-              <div className="space-y-1">
-                <label className={labelClass}>Month & Year of Passing</label>
-                <input type="month" {...register('monthYearPassing')} className={inputClass} />
-              </div>
+              <div className="space-y-1"><label className={labelClass}>Number of Attempts:</label><input {...register('noOfAttempts')} className={`${inputClass} mt-3.5`} /></div>
+              <div className="space-y-1"><label className={labelClass}>Month & Year of Passing:</label><input type="month" {...register('monthYearPassing')} className={`${inputClass} mt-3.5`} /></div>
             </div>
           </div>
 
-          {/* Page 2: Address & Parents */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-2 border-black mb-4">
-            {/* Address */}
-            <div className="p-4 border-r-0 md:border-r-2 border-black space-y-4">
-               <h2 className={`${labelClass} border-b border-black pb-1`}>Address for Communication</h2>
-               <textarea {...register('address')} rows={3} className="w-full bg-transparent border border-black p-2 outline-none resize-none"></textarea>
-               
+          <div className="mb-10 space-y-4">
+            <h2 className={sectionTitleClass}>BIRTH DETAILS</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="space-y-1"><label className={labelClass}>Date of Birth:</label><input type="date" {...register('dob')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Village:</label><input {...register('village')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Taluk:</label><input {...register('taluk')} className={inputClass} /></div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="space-y-1"><label className={labelClass}>District:</label><input {...register('district')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>State:</label><input {...register('state')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Mother Tongue:</label><input {...register('motherTongue')} className={inputClass} /></div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-1"><label className={labelClass}>Language Spoken:</label><input {...register('languagesKnown')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Blood Group:</label><input {...register('bloodGroup')} className={inputClass} /></div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+            <div className="space-y-4">
+               <h2 className={sectionTitleClass}>PERMANENT ADDRESS</h2>
+               <div className="space-y-1"><label className={labelClass}>Address:</label><textarea {...register('permanentAddress')} rows={3} className="w-full bg-transparent border-b border-black outline-none resize-none py-1 focus:border-b-2"></textarea></div>
+               <div className="space-y-1"><label className={labelClass}>Pin Code:</label><input {...register('pinCode')} className={inputClass} /></div>
+               <div className="space-y-1"><label className={labelClass}>Contact No:</label><input {...register('addressContact')} className={inputClass} /></div>
+            </div>
+            <div className="space-y-4">
+               <h2 className={sectionTitleClass}>LOCAL ADDRESS (GUARDIAN IF ANY)</h2>
+               <div className="space-y-1"><label className={labelClass}>Name:</label><input {...register('guardianName')} className={inputClass} /></div>
+               <div className="space-y-1"><label className={labelClass}>Address:</label><textarea {...register('guardianAddress')} rows={2} className="w-full bg-transparent border-b border-black outline-none resize-none py-1 focus:border-b-2"></textarea></div>
                <div className="grid grid-cols-2 gap-4">
-                 <div className="space-y-1"><label className={labelClass}>Pin Code</label><input {...register('pinCode')} className={inputClass} /></div>
-                 <div className="space-y-1"><label className={labelClass}>Blood Group</label><input {...register('bloodGroup')} className={inputClass} /></div>
-               </div>
-               
-               <div className="space-y-1"><label className={labelClass}>Mobile Number</label><input {...register('mobile')} className={inputClass} /></div>
-               <div className="space-y-1"><label className={labelClass}>Email ID</label><input {...register('email')} className={inputClass} /></div>
-            </div>
-
-            {/* Parents & Guardian Details */}
-            <div className="p-4 space-y-4">
-               <h2 className={`${labelClass} border-b border-black pb-1`}>Parents Details</h2>
-               <div className="space-y-1"><label className={labelClass}>Father's Name & Qual.</label>
-                 <div className="flex gap-2"><input {...register('fatherName')} placeholder="Name" className={inputClass} /><input {...register('fatherQual')} placeholder="Qualification" className={inputClass} /></div>
-               </div>
-               <div className="space-y-1"><label className={labelClass}>Father's Occupation</label><input {...register('fatherOcc')} className={inputClass} /></div>
-               
-               <div className="space-y-1"><label className={labelClass}>Mother's Name & Qual.</label>
-                 <div className="flex gap-2"><input {...register('motherName')} placeholder="Name" className={inputClass} /><input {...register('motherQual')} placeholder="Qualification" className={inputClass} /></div>
-               </div>
-               <div className="space-y-1"><label className={labelClass}>Mother's Occupation</label><input {...register('motherOcc')} className={inputClass} /></div>
-
-               <div className="space-y-1"><label className={labelClass}>Permanent Address & Email</label>
-                 <input {...register('permanentAddress')} placeholder="Address" className={inputClass} />
-                 <input {...register('parentEmail')} placeholder="Email" className={inputClass} />
-               </div>
-
-               <div className="border border-black p-2 space-y-2 mt-2">
-                 <h2 className={labelClass}>Guardian Details (If any)</h2>
-                 <input {...register('guardianName')} placeholder="Name" className={inputClass} />
-                 <div className="flex gap-2"><input {...register('guardianContact')} placeholder="Contact" className={inputClass} /><input {...register('guardianEmail')} placeholder="Email" className={inputClass} /></div>
+                  <div className="space-y-1"><label className={labelClass}>Contact No:</label><input {...register('guardianContact')} className={inputClass} /></div>
+                  <div className="space-y-1"><label className={labelClass}>Email:</label><input {...register('guardianEmail')} className={inputClass} /></div>
                </div>
             </div>
           </div>
 
-          {/* Marks Table */}
-          <div className="border-2 border-black mb-4 p-4">
-             <div className="flex justify-between items-center border-b border-black pb-2 mb-4">
-                <h2 className={labelClass}>Marks in Qualifying Examination</h2>
-                <button type="button" onClick={() => marksArray.append({ subject: "", maxMarks: "", obtainedMarks: "", registerNo: "" })} className="text-xs bg-black text-[#FFFDE8] py-1 px-3 uppercase font-bold flex items-center">
-                  <Plus className="w-3 h-3 mr-1" /> Add Subject
-                </button>
-             </div>
-             <div className="overflow-x-auto">
-               <table className="w-full border-collapse border border-black text-sm">
+          <div className="mb-10 space-y-6">
+            <h2 className={sectionTitleClass}>PARENT / GUARDIAN DETAILS</h2>
+            
+            <div className="border border-black p-4 rounded-sm space-y-4 relative">
+              <div className="absolute -top-3 left-4 bg-[#FFFDE8] px-2 font-bold uppercase tracking-widest text-sm">Father's Details</div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="space-y-1"><label className={labelClass}>Name:</label><input {...register('fatherName')} className={inputClass} /></div>
+                <div className="space-y-1"><label className={labelClass}>Qualification:</label><input {...register('fatherQual')} className={inputClass} /></div>
+                <div className="space-y-1"><label className={labelClass}>Occupation:</label><input {...register('fatherOcc')} className={inputClass} /></div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="space-y-1"><label className={labelClass}>Annual Income:</label><input {...register('fatherIncome')} className={inputClass} /></div>
+                <div className="space-y-1"><label className={labelClass}>Contact Number:</label><input {...register('fatherContact')} className={inputClass} /></div>
+                <div className="space-y-1"><label className={labelClass}>Email ID:</label><input type="email" {...register('fatherEmail')} className={inputClass} /></div>
+              </div>
+            </div>
+
+            <div className="border border-black p-4 rounded-sm space-y-4 relative mt-8">
+              <div className="absolute -top-3 left-4 bg-[#FFFDE8] px-2 font-bold uppercase tracking-widest text-sm">Mother's Details</div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="space-y-1"><label className={labelClass}>Name:</label><input {...register('motherName')} className={inputClass} /></div>
+                <div className="space-y-1"><label className={labelClass}>Qualification:</label><input {...register('motherQual')} className={inputClass} /></div>
+                <div className="space-y-1"><label className={labelClass}>Occupation:</label><input {...register('motherOcc')} className={inputClass} /></div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="space-y-1"><label className={labelClass}>Annual Income:</label><input {...register('motherIncome')} className={inputClass} /></div>
+                <div className="space-y-1"><label className={labelClass}>Contact Number:</label><input {...register('motherContact')} className={inputClass} /></div>
+                <div className="space-y-1"><label className={labelClass}>Email ID:</label><input type="email" {...register('motherEmail')} className={inputClass} /></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mb-10 space-y-4">
+            <h2 className={sectionTitleClass}>OTHER DETAILS</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="space-y-1"><label className={labelClass}>No. of Dependents:</label><input {...register('noOfDependents')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>No. of Brothers:</label><input {...register('noOfBrothers')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>No. of Sisters:</label><input {...register('noOfSisters')} className={inputClass} /></div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+              <div className="space-y-1"><label className={labelClass}>Work / Hostel Address:</label><input {...register('workHostelAddress')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Recently Staying With:</label><input {...register('stayingWith')} className={inputClass} /></div>
+            </div>
+          </div>
+
+          <div className="mb-10">
+             <h2 className={sectionTitleClass}>DETAILS OF QUALIFYING EXAMINATION</h2>
+             <div className="overflow-x-auto mt-4 w-full">
+               <table className="w-full border-collapse border-2 border-black">
                  <thead>
-                   <tr className="bg-black/5">
-                     <th className="border border-black px-2 py-2 text-left uppercase">Subject</th>
-                     <th className="border border-black px-2 py-2 text-center uppercase">Max Marks</th>
-                     <th className="border border-black px-2 py-2 text-center uppercase">Obtained</th>
-                     <th className="border border-black px-2 py-2 text-center uppercase">Reg No / Year</th>
-                     <th className="border border-black px-2 py-2 text-center uppercase w-12">Del</th>
+                   <tr className="bg-black text-[#FFFDE8]">
+                     <th className="border border-black px-2 py-3 text-left uppercase text-xs font-bold w-1/4">Examination</th>
+                     <th className="border border-black px-2 py-3 text-center uppercase text-xs font-bold">Board / University</th>
+                     <th className="border border-black px-2 py-3 text-center uppercase text-xs font-bold">Register Number</th>
+                     <th className="border border-black px-2 py-3 text-center uppercase text-xs font-bold">Year of Passing</th>
+                     <th className="border border-black px-2 py-3 text-center uppercase text-xs font-bold">Maximum Marks</th>
+                     <th className="border border-black px-2 py-3 text-center uppercase text-xs font-bold">Marks Obtained</th>
+                     <th className="border border-black px-2 py-3 text-center uppercase text-xs font-bold">Percentage</th>
                    </tr>
                  </thead>
                  <tbody>
                     {marksArray.fields.map((item, idx) => (
-                      <tr key={item.id}>
-                        <td className="border border-black p-1"><input {...register(`marksDetails.${idx}.subject`)} className="w-full bg-transparent outline-none" /></td>
-                        <td className="border border-black p-1"><input {...register(`marksDetails.${idx}.maxMarks`)} className="w-full bg-transparent outline-none text-center" /></td>
-                        <td className="border border-black p-1"><input {...register(`marksDetails.${idx}.obtainedMarks`)} className="w-full bg-transparent outline-none text-center" /></td>
-                        <td className="border border-black p-1"><input {...register(`marksDetails.${idx}.registerNo`)} className="w-full bg-transparent outline-none text-center" /></td>
-                        <td className="border border-black p-1 text-center">
-                          <button type="button" onClick={() => marksArray.remove(idx)}><Trash2 className="w-4 h-4 text-red-700" /></button>
-                        </td>
+                      <tr key={item.id} className="hover:bg-gray-50/50">
+                        <td className="border border-black p-2 bg-black/5 font-bold">{item.examination}</td>
+                        <td className="border border-black p-0"><input {...register(`marksDetails.${idx}.board`)} className="w-full h-full bg-transparent outline-none p-2 text-center focus:bg-white" /></td>
+                        <td className="border border-black p-0"><input {...register(`marksDetails.${idx}.registerNo`)} className="w-full h-full bg-transparent outline-none p-2 text-center focus:bg-white" /></td>
+                        <td className="border border-black p-0"><input {...register(`marksDetails.${idx}.year`)} className="w-full h-full bg-transparent outline-none p-2 text-center focus:bg-white" /></td>
+                        <td className="border border-black p-0"><input {...register(`marksDetails.${idx}.maxMarks`)} className="w-full h-full bg-transparent outline-none p-2 text-center focus:bg-white" /></td>
+                        <td className="border border-black p-0"><input {...register(`marksDetails.${idx}.obtainedMarks`)} className="w-full h-full bg-transparent outline-none p-2 text-center focus:bg-white" /></td>
+                        <td className="border border-black p-0"><input {...register(`marksDetails.${idx}.percentage`)} className="w-full h-full bg-transparent outline-none p-2 text-center focus:bg-white" /></td>
                       </tr>
                     ))}
                  </tbody>
                </table>
              </div>
-          </div>
-
-          {/* Documents Table */}
-          <div className="border-2 border-black mb-4 p-4">
-             <div className="flex justify-between items-center border-b border-black pb-2 mb-4">
-                <h2 className={labelClass}>Documents Submitted</h2>
-                <button type="button" onClick={() => docsArray.append({ documentName: "", date: "", documentNumber: "", mode: "In Person" })} className="text-xs bg-black text-[#FFFDE8] py-1 px-3 uppercase font-bold flex items-center">
-                  <Plus className="w-3 h-3 mr-1" /> Add Document
-                </button>
-             </div>
-             <p className="text-xs italic mb-2">e.g. Marks Card, Caste Certificate, Conduct Certificate, Migration, Eligibility, etc.</p>
-             <div className="overflow-x-auto">
-               <table className="w-full border-collapse border border-black text-sm">
-                 <thead>
-                   <tr className="bg-black/5">
-                     <th className="border border-black px-2 py-2 text-left uppercase">Document Name</th>
-                     <th className="border border-black px-2 py-2 text-center uppercase">Date</th>
-                     <th className="border border-black px-2 py-2 text-center uppercase">Number</th>
-                     <th className="border border-black px-2 py-2 text-center uppercase">Mode</th>
-                     <th className="border border-black px-2 py-2 text-center w-12">Del</th>
-                   </tr>
-                 </thead>
-                 <tbody>
-                    {docsArray.fields.map((item, idx) => (
-                      <tr key={item.id}>
-                        <td className="border border-black p-1"><input {...register(`documents.${idx}.documentName`)} className="w-full bg-transparent outline-none" /></td>
-                        <td className="border border-black p-1"><input type="date" {...register(`documents.${idx}.date`)} className="w-full bg-transparent outline-none" /></td>
-                        <td className="border border-black p-1"><input {...register(`documents.${idx}.documentNumber`)} className="w-full bg-transparent outline-none text-center" /></td>
-                        <td className="border border-black p-1">
-                          <select {...register(`documents.${idx}.mode`)} className="w-full bg-transparent outline-none text-center">
-                            <option value="In Person">In Person</option><option value="Post">Post</option>
-                          </select>
-                        </td>
-                        <td className="border border-black p-1 text-center">
-                          <button type="button" onClick={() => docsArray.remove(idx)}><Trash2 className="w-4 h-4 text-red-700" /></button>
-                        </td>
-                      </tr>
-                    ))}
-                 </tbody>
-               </table>
+             <div className="mt-6 flex flex-col space-y-2">
+               <label className={labelClass}>Extra Curricular Activities/Sports – (Inter-school/State/National Level):</label>
+               <input {...register('extraCurricular')} className={inputClass} />
              </div>
           </div>
 
-          {/* Page 3: Extra Details & Declaration */}
-          <div className="border-2 border-black mb-4 p-4 space-y-6">
-            <div className="space-y-1">
-              <label className={labelClass}>Extra Curricular Activities / Sports</label>
-              <input {...register('extraCurricular')} className={inputClass} />
+          <div className="mb-10">
+             <h2 className={sectionTitleClass}>DOCUMENTS TO BE SUBMITTED</h2>
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2 font-bold uppercase text-sm">
+                <label className="flex items-center space-x-3 cursor-pointer p-2 border border-black/10 hover:bg-black/5 transition-colors"><input type="checkbox" {...register('docs.sslc')} className="w-5 h-5 accent-black border-black" /><span>SSLC Marks Card Copy</span></label>
+                <label className="flex items-center space-x-3 cursor-pointer p-2 border border-black/10 hover:bg-black/5 transition-colors"><input type="checkbox" {...register('docs.puc')} className="w-5 h-5 accent-black border-black" /><span>PUC / 12th Marks Card Copy</span></label>
+                <label className="flex items-center space-x-3 cursor-pointer p-2 border border-black/10 hover:bg-black/5 transition-colors"><input type="checkbox" {...register('docs.tc')} className="w-5 h-5 accent-black border-black" /><span>Transfer Certificate</span></label>
+                <label className="flex items-center space-x-3 cursor-pointer p-2 border border-black/10 hover:bg-black/5 transition-colors"><input type="checkbox" {...register('docs.migration')} className="w-5 h-5 accent-black border-black" /><span>Migration Certificate (if applicable)</span></label>
+                <label className="flex items-center space-x-3 cursor-pointer p-2 border border-black/10 hover:bg-black/5 transition-colors"><input type="checkbox" {...register('docs.caste')} className="w-5 h-5 accent-black border-black" /><span>Caste Certificate (if applicable)</span></label>
+                <label className="flex items-center space-x-3 cursor-pointer p-2 border border-black/10 hover:bg-black/5 transition-colors"><input type="checkbox" {...register('docs.income')} className="w-5 h-5 accent-black border-black" /><span>Income Cert. (Mandatory for EWS)</span></label>
+                <label className="flex items-center space-x-3 cursor-pointer p-2 border border-black/10 hover:bg-black/5 transition-colors"><input type="checkbox" {...register('docs.aadhaar')} className="w-5 h-5 accent-black border-black" /><span>Aadhaar Copy</span></label>
+                <label className="flex items-center space-x-3 cursor-pointer p-2 border border-black/10 hover:bg-black/5 transition-colors"><input type="checkbox" {...register('docs.photos')} className="w-5 h-5 accent-black border-black" /><span>Passport Size Photographs – 5 copies</span></label>
+             </div>
+          </div>
+
+          <div className="border border-black p-6 md:p-10 mb-8 bg-white relative">
+            <h2 className="text-2xl font-extrabold uppercase tracking-widest text-center mb-6">DECLARATION</h2>
+            <p className="text-sm text-justify leading-loose font-medium mb-6">
+              I hereby declare that the above information furnished is true and correct to the best of my knowledge. I agree to abide by the rules and regulations of the institution.
+            </p>
+            
+            <div className="flex items-center space-x-3 mb-8 bg-red-50 p-4 border border-red-200">
+               <input type="checkbox" {...register('infoCorrect')} id="infoCorrect" className="w-6 h-6 accent-red-600 border-red-600 cursor-pointer" />
+               <label htmlFor="infoCorrect" className="font-bold text-red-700 cursor-pointer">I confirm the declaration above.</label>
             </div>
 
-            <div className="space-y-2">
-              <label className={labelClass}>How did you come to know about RBANM's First Grade College?</label>
-              <div className="flex gap-6 flex-wrap">
-                {['Banners in your locality', 'Pamphlets/Hand Bills', 'Web Site', 'Other'].map(opt => (
-                  <label key={opt} className="flex items-center space-x-2 cursor-pointer font-bold uppercase text-sm">
-                    <input type="radio" value={opt} {...register('howKnown')} className="w-4 h-4 accent-black" />
-                    <span>{opt}</span>
-                  </label>
-                ))}
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10 mt-12 pb-4">
+              <div className="flex flex-col w-64 pt-1">
+                 <input {...register('studentSignature')} placeholder="Type name to sign" className="bg-transparent outline-none font-signature text-2xl border-b border-black mb-2 px-2" />
+                 <span className={labelClass}>Signature of Student</span>
+              </div>
+              <div className="flex flex-col w-64 pt-1">
+                 <input {...register('parentSignature')} placeholder="Type name to sign" className="bg-transparent outline-none font-signature text-2xl border-b border-black mb-2 px-2" />
+                 <span className={labelClass}>Signature of Parent/Guardian</span>
               </div>
             </div>
-
-            <div className="pt-6 border-t border-black">
-               <h2 className={`${labelClass} mb-2 text-center text-lg`}>Declaration</h2>
-               <p className="text-sm text-justify leading-relaxed mb-6 font-medium">
-                  I hereby declare that the particulars furnished above are true to the best of my knowledge and belief. I agree to abide by the rules and regulations of the college. I understand that my admission is provisional and subject to the approval of Bangalore University. I shall attend classes regularly and ensure a minimum of 75% attendance.
-               </p>
-               
-               <div className="flex justify-between items-end mt-12 pb-4">
-                  <div className="flex flex-col border-t border-black w-48 pt-1 text-center">
-                    <span className={labelClass}>Date</span>
-                    <input type="date" {...register('declarationDate')} className="bg-transparent outline-none text-center" />
-                  </div>
-                  <div className="flex flex-col border-t border-black w-48 pt-1 text-center">
-                     <input {...register('studentSignature')} placeholder="Type name to sign" className="bg-transparent outline-none text-center font-signature text-lg border-b border-dashed border-black/30 mb-1" />
-                     <span className={labelClass}>Signature of Student</span>
-                  </div>
-                  <div className="flex flex-col border-t border-black w-48 pt-1 text-center">
-                     <input {...register('parentSignature')} placeholder="Type name to sign" className="bg-transparent outline-none text-center font-signature text-lg border-b border-dashed border-black/30 mb-1" />
-                     <span className={labelClass}>Signature of Parent/Guardian</span>
-                  </div>
-               </div>
+            <div className="flex flex-col w-48 pt-1 mt-6">
+              <input type="date" {...register('declarationDate')} className="bg-transparent outline-none border-b border-black mb-2 px-2 py-1 font-bold" />
+              <span className={labelClass}>Date</span>
             </div>
           </div>
 
-          {/* Submit Button */}
-          <div id="submit-btn-wrapper" className="flex justify-center mt-8">
+          <div className="bg-black/5 border border-black p-6 space-y-4 mb-8">
+            <h3 className="font-extrabold text-xl uppercase tracking-wider">REFUND POLICY (AS PER UNIVERSITY NORMS)</h3>
+            <ol className="list-decimal list-inside space-y-2 font-bold text-sm">
+              <li>Registration / Application Fee is Non-Refundable</li>
+              <li>Tuition Fee for the year is Non-Refundable once classes commence</li>
+            </ol>
+          </div>
+
+          <div id="submit-btn-wrapper" className="flex justify-center mt-12">
             <button 
               type="submit" 
               disabled={isSubmitting}
-              className="bg-black text-[#FFFDE8] text-xl font-bold uppercase tracking-widest px-12 py-4 border-4 border-black hover:bg-transparent hover:text-black transition-all"
+              className="bg-black text-[#FFFDE8] text-xl font-bold uppercase tracking-widest px-16 py-5 border-4 border-black hover:bg-transparent hover:text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center justify-center transform active:-translate-x-1 active:-translate-y-1 w-full md:w-auto"
             >
-              {isSubmitting ? <span className="flex items-center"><Loader2 className="mr-2 animate-spin" /> Processing...</span> : "Submit Application"}
+              {isSubmitting ? <><Loader2 className="mr-3 animate-spin" /> Processing Data...</> : "SUBMIT APPLICATION"}
             </button>
           </div>
           
