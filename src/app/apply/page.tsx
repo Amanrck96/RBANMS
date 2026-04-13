@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import { SiteHeader } from "@/components/layout/header";
 import { SiteFooter } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
@@ -19,6 +20,7 @@ import { Loader2, CheckCircle2 } from "lucide-react";
 
 export default function ApplyPage() {
   const { toast } = useToast();
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
@@ -110,12 +112,20 @@ export default function ApplyPage() {
                   <p className="text-slate-600 mb-8">
                     Your application has been received successfully. Our admissions team will contact you on your provided phone number or email.
                   </p>
-                  <Button 
-                    onClick={() => setIsSubmitted(false)}
-                    variant="outline"
-                  >
-                    Fill another form
-                  </Button>
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                    <Button 
+                      onClick={() => router.push('/admission')}
+                      className="bg-[#B22222] hover:bg-[#8B0000] text-white px-8 py-3 text-base font-bold"
+                    >
+                      Continue Application →
+                    </Button>
+                    <Button 
+                      onClick={() => setIsSubmitted(false)}
+                      variant="outline"
+                    >
+                      Fill another form
+                    </Button>
+                  </div>
                 </div>
               ) : (
                 <form 
