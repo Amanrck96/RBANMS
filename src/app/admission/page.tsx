@@ -146,8 +146,40 @@ export default function AdmissionPage() {
       if (formRef.current) {
         const submitBtn = document.getElementById('submit-btn-wrapper');
         if (submitBtn) submitBtn.style.display = 'none';
-        
-        // --- PREPARE FOR PDF ---
+
+        // --- FORCE DESKTOP LAYOUT FOR PDF ---
+        // Temporarily override media-query classes so the PDF always renders
+        // with the desktop grid regardless of actual window width
+        const styleTag = document.createElement('style');
+        styleTag.id = '__pdf_override__';
+        styleTag.innerHTML = `
+          .pdf-page-section .grid { display: grid !important; }
+          .pdf-page-section .md\\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+          .pdf-page-section .md\\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+          .pdf-page-section .md\\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+          .pdf-page-section .lg\\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+          .pdf-page-section .lg\\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+          .pdf-page-section .md\\:flex-row { flex-direction: row !important; }
+          .pdf-page-section .md\\:w-2\\/3 { width: 66.666% !important; }
+          .pdf-page-section .md\\:w-1\\/3 { width: 33.333% !important; }
+          .pdf-page-section .md\\:w-auto { width: auto !important; }
+          .pdf-page-section .md\\:items-center { align-items: center !important; }
+          .pdf-page-section .md\\:items-end { align-items: flex-end !important; }
+          .pdf-page-section .md\\:flex-row { flex-direction: row !important; }
+          .pdf-page-section .md\\:inline-block { display: inline-block !important; }
+          .pdf-page-section .sm\\:flex-row { flex-direction: row !important; }
+          .pdf-page-section .sm\\:items-center { align-items: center !important; }
+          .pdf-page-section .sm\\:w-32 { width: 8rem !important; }
+          .pdf-page-section .sm\\:w-40 { width: 10rem !important; }
+          .pdf-page-section .sm\\:w-60 { width: 15rem !important; }
+          .pdf-page-section .sm\\:mb-0 { margin-bottom: 0 !important; }
+          .pdf-page-section .sm\\:mt-2 { margin-top: 0.5rem !important; }
+          .pdf-page-section .sm\\:ml-2 { margin-left: 0.5rem !important; }
+          .pdf-page-section .md\\:mb-0 { margin-bottom: 0 !important; }
+          .pdf-page-section table td input { display: block; width: 100%; padding: 6px 4px; text-align: center; }
+        `;
+        document.head.appendChild(styleTag);
+
         const originalFormStyle = formRef.current.style.cssText;
         formRef.current.style.width = '1024px';
         formRef.current.style.maxWidth = '1024px';
@@ -160,14 +192,23 @@ export default function AdmissionPage() {
           const pdfWidth = pdf.internal.pageSize.getWidth();
           
           if (pages.length > 0) {
+            const pdfHeight = pdf.internal.pageSize.getHeight();
             for (let i = 0; i < pages.length; i++) {
                const pageEl = pages[i] as HTMLElement;
                const canvas = await html2canvas(pageEl, { scale: 1.5, backgroundColor: '#FFFDE8', windowWidth: 1024 });
                const imgData = canvas.toDataURL('image/jpeg', 0.8);
-               const imgHeightInPdf = (canvas.height * pdfWidth) / canvas.width;
+               let imgHeightInPdf = (canvas.height * pdfWidth) / canvas.width;
+               let finalWidth = pdfWidth;
+               let xOffset = 0;
+               
+               if (imgHeightInPdf > pdfHeight) {
+                  imgHeightInPdf = pdfHeight;
+                  finalWidth = (canvas.width * pdfHeight) / canvas.height;
+                  xOffset = (pdfWidth - finalWidth) / 2;
+               }
                
                if (i > 0) pdf.addPage();
-               pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, imgHeightInPdf);
+               pdf.addImage(imgData, 'JPEG', xOffset, 0, finalWidth, imgHeightInPdf);
             }
           } else {
              const canvas = await html2canvas(formRef.current, { scale: 1.5, backgroundColor: '#FFFDE8', windowWidth: 1024 });
@@ -195,6 +236,8 @@ export default function AdmissionPage() {
 
         // --- RESTORE AFTER PDF ---
         formRef.current.style.cssText = originalFormStyle;
+        const oldTag = document.getElementById('__pdf_override__');
+        if (oldTag) oldTag.remove();
         // -------------------------
 
         if (submitBtn) submitBtn.style.display = 'flex';
@@ -347,19 +390,19 @@ export default function AdmissionPage() {
           <div className="mb-10 space-y-4">
             <h2 className={sectionTitleClass}>STUDENT DETAILS</h2>
             
-            <div className="flex flex-col md:flex-row gap-4">
-              <div className="w-full md:w-2/3 space-y-1">
+            <div className="grid grid-cols-3 gap-4">
+              <div className="col-span-2 space-y-1">
                 <label className={labelClass}>Full Name:</label>
                 <div className="text-[10px] italic mb-1">(In Block Letters as per SSLC Certificate)</div>
                 <input {...register('fullName', { required: true })} className={`${inputClass} uppercase`} />
               </div>
-              <div className="w-full md:w-1/3 space-y-1 pt-4">
+              <div className="space-y-1 pt-4">
                 <label className={labelClass}>Email ID:</label>
                 <input type="email" {...register('email')} className={inputClass} />
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="space-y-1"><label className={labelClass}>Contact Number:</label><input {...register('contactNumber')} className={inputClass} /></div>
               <div className="space-y-1"><label className={labelClass}>Gender:</label>
                 <select {...register('gender')} className="w-full bg-transparent border-b border-black py-1 outline-none uppercase font-bold mt-1">
@@ -370,16 +413,16 @@ export default function AdmissionPage() {
               <div className="space-y-1"><label className={labelClass}>Caste:</label><input {...register('caste')} className={inputClass} /></div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
               <div className="space-y-1"><label className={labelClass}>Religion:</label><input {...register('religion')} className={inputClass} /></div>
               <div className="space-y-1"><label className={labelClass}>Physically Challenged (Yes/No):</label>
                  <select {...register('physicallyChallenged')} className="w-full bg-transparent border-b border-black py-1 outline-none uppercase font-bold mt-1">
                     <option value="">--</option><option value="Yes">YES</option><option value="No">NO</option>
                   </select>
               </div>
-              <div className="space-y-1 lg:pl-4">
+              <div className="space-y-1">
                  <label className={labelClass}>Karnataka Resident:</label>
-                 <div className="flex items-center gap-6 mt-2">
+                 <div className="flex items-center gap-4 mt-2">
                    <label className="flex items-center space-x-2 font-bold uppercase cursor-pointer">
                      <input type="radio" value="Karnataka" {...register('karnatakaStudent')} className="w-4 h-4 accent-black shrink-0" />
                      <span>Karnataka</span>
@@ -392,12 +435,12 @@ export default function AdmissionPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-dashed border-black/30">
+            <div className="grid grid-cols-2 gap-4 pt-4 border-t border-dashed border-black/30">
               <div className="space-y-1"><label className={labelClass}>College Last Attended:</label><input {...register('collegeAttended')} className={inputClass} /></div>
               <div className="space-y-1"><label className={labelClass}>Place:</label><input {...register('collegePlace')} className={inputClass} /></div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-3 gap-4">
               <div className="space-y-1"><label className={labelClass}>Qualifying Exam:</label>
                 <div className="text-[10px] italic">(PUC/CBSE/ISC/Other)</div>
                 <input {...register('qualifyingExam')} className={inputClass} />
@@ -406,7 +449,7 @@ export default function AdmissionPage() {
               <div className="space-y-1"><label className={labelClass}>Month & Year of Passing:</label><input type="month" {...register('monthYearPassing')} className={`${inputClass} mt-3.5`} /></div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+            <div className="grid grid-cols-2 gap-4 pt-2">
               <div className="space-y-1"><label className={labelClass}>Combination:</label><input {...register('combination')} className={inputClass} /></div>
               <div className="space-y-1"><label className={labelClass}>Language:</label><input {...register('languageDetails')} className={inputClass} /></div>
             </div>
@@ -418,19 +461,19 @@ export default function AdmissionPage() {
           <div className="pdf-page-section bg-[#FFFDE8] border-2 border-black p-6 md:p-12 shadow-2xl text-black">
           <div className="mb-10 space-y-4">
             <h2 className={sectionTitleClass}>BIRTH DETAILS</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-3 md:grid-cols-3 gap-4">
               <div className="space-y-1"><label className={labelClass}>Date of Birth:</label><input type="date" {...register('dob')} className={inputClass} /></div>
               <div className="space-y-1"><label className={labelClass}>Village:</label><input {...register('village')} className={inputClass} /></div>
               <div className="space-y-1"><label className={labelClass}>Taluk:</label><input {...register('taluk')} className={inputClass} /></div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-3 md:grid-cols-3 gap-4">
               <div className="space-y-1"><label className={labelClass}>District:</label><input {...register('district')} className={inputClass} /></div>
               <div className="space-y-1"><label className={labelClass}>State:</label><input {...register('state')} className={inputClass} /></div>
               <div className="space-y-1"><label className={labelClass}>Mother Tongue:</label><input {...register('motherTongue')} className={inputClass} /></div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
               <div className="space-y-1"><label className={labelClass}>Languages Known:</label><input {...register('languagesKnown')} className={inputClass} /></div>
               <div className="space-y-1"><label className={labelClass}>Blood Group:</label>
                  <select {...register('bloodGroup')} className="w-full bg-transparent border-b border-black py-1 outline-none uppercase font-bold mt-1 text-black">
@@ -448,7 +491,7 @@ export default function AdmissionPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-6 mb-10">
             <div className="space-y-4">
                <h2 className={sectionTitleClass}>PERMANENT ADDRESS</h2>
                <div className="space-y-1"><label className={labelClass}>Permanent Address:</label><textarea {...register('permanentAddress')} rows={3} className="w-full bg-transparent border-b border-black outline-none resize-none py-1 focus:border-b-2"></textarea></div>
@@ -469,28 +512,28 @@ export default function AdmissionPage() {
           <div className="mb-10 space-y-6">
             <h2 className={sectionTitleClass} style={{ marginTop: 0 }}>PARENT / GUARDIAN DETAILS</h2>
             
-            <div className="border border-black p-4 pt-6 rounded-sm space-y-4 relative mt-12">
+            <div className="border border-black p-4 pt-6 rounded-sm space-y-4 relative mt-10">
               <div className="absolute -top-4 left-4 bg-[#FFFDE8] px-2 py-1 z-10 font-bold uppercase tracking-widest text-sm leading-relaxed">Father's Details</div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 md:grid-cols-3 gap-4">
                 <div className="space-y-1"><label className={labelClass}>Name:</label><input {...register('fatherName')} className={inputClass} /></div>
                 <div className="space-y-1"><label className={labelClass}>Qualification:</label><input {...register('fatherQual')} className={inputClass} /></div>
                 <div className="space-y-1"><label className={labelClass}>Occupation:</label><input {...register('fatherOcc')} className={inputClass} /></div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 md:grid-cols-3 gap-4">
                 <div className="space-y-1"><label className={labelClass}>Income:</label><input {...register('fatherIncome')} className={inputClass} /></div>
                 <div className="space-y-1"><label className={labelClass}>Contact:</label><input {...register('fatherContact')} className={inputClass} /></div>
                 <div className="space-y-1"><label className={labelClass}>Email:</label><input type="email" {...register('fatherEmail')} className={inputClass} /></div>
               </div>
             </div>
 
-            <div className="border border-black p-4 pt-6 rounded-sm space-y-4 relative mt-12">
+            <div className="border border-black p-4 pt-6 rounded-sm space-y-4 relative mt-10">
               <div className="absolute -top-4 left-4 bg-[#FFFDE8] px-2 py-1 z-10 font-bold uppercase tracking-widest text-sm leading-relaxed">Mother's Details</div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 md:grid-cols-3 gap-4">
                 <div className="space-y-1"><label className={labelClass}>Name:</label><input {...register('motherName')} className={inputClass} /></div>
                 <div className="space-y-1"><label className={labelClass}>Qualification:</label><input {...register('motherQual')} className={inputClass} /></div>
                 <div className="space-y-1"><label className={labelClass}>Occupation:</label><input {...register('motherOcc')} className={inputClass} /></div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 md:grid-cols-3 gap-4">
                 <div className="space-y-1"><label className={labelClass}>Income:</label><input {...register('motherIncome')} className={inputClass} /></div>
                 <div className="space-y-1"><label className={labelClass}>Contact:</label><input {...register('motherContact')} className={inputClass} /></div>
                 <div className="space-y-1"><label className={labelClass}>Email:</label><input type="email" {...register('motherEmail')} className={inputClass} /></div>
@@ -502,44 +545,44 @@ export default function AdmissionPage() {
 
           {/* Page 3 Wrap */}
           <div className="pdf-page-section bg-[#FFFDE8] border-2 border-black p-6 md:p-12 shadow-2xl text-black">
-          <div className="mb-10 space-y-4">
+          <div className="mb-8 space-y-5">
             <h2 className={sectionTitleClass}>OTHER DETAILS</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-3 gap-6">
               <div className="space-y-1"><label className={labelClass}>No. of Dependents:</label><input {...register('noOfDependents')} className={inputClass} /></div>
               <div className="space-y-1"><label className={labelClass}>No. of Brothers:</label><input {...register('noOfBrothers')} className={inputClass} /></div>
               <div className="space-y-1"><label className={labelClass}>No. of Sisters:</label><input {...register('noOfSisters')} className={inputClass} /></div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+            <div className="grid grid-cols-2 gap-6">
               <div className="space-y-1"><label className={labelClass}>Work / Hostel Address:</label><input {...register('workHostelAddress')} className={inputClass} /></div>
               <div className="space-y-1"><label className={labelClass}>Staying With:</label><input {...register('stayingWith')} className={inputClass} /></div>
             </div>
           </div>
 
-          <div className="mb-10">
+          <div className="mb-8">
              <h2 className={sectionTitleClass}>DETAILS OF QUALIFYING EXAMINATION</h2>
-             <div className="overflow-x-auto mt-4 w-full">
-               <table className="w-full border-collapse border-2 border-black">
+             <div className="mt-4 w-full">
+               <table className="w-full border-collapse border-2 border-black table-fixed">
                  <thead className="bg-black">
                    <tr>
-                     <th className="border border-gray-600 px-2 py-3 text-left w-1/4 uppercase text-xs font-bold !text-white">Examination</th>
-                     <th className="border border-gray-600 px-2 py-3 text-center uppercase text-xs font-bold !text-white">Board / University</th>
-                     <th className="border border-gray-600 px-2 py-3 text-center uppercase text-xs font-bold !text-white">Register Number</th>
-                     <th className="border border-gray-600 px-2 py-3 text-center uppercase text-xs font-bold !text-white">Year of Passing</th>
-                     <th className="border border-gray-600 px-2 py-3 text-center uppercase text-xs font-bold !text-white">Maximum Marks</th>
-                     <th className="border border-gray-600 px-2 py-3 text-center uppercase text-xs font-bold !text-white">Marks Obtained</th>
-                     <th className="border border-gray-600 px-2 py-3 text-center uppercase text-xs font-bold !text-white">Percentage</th>
+                     <th className="border border-gray-600 px-2 py-3 text-left uppercase text-xs font-bold !text-white" style={{width:'22%'}}>Examination</th>
+                     <th className="border border-gray-600 px-2 py-3 text-center uppercase text-xs font-bold !text-white" style={{width:'13%'}}>Board / University</th>
+                     <th className="border border-gray-600 px-2 py-3 text-center uppercase text-xs font-bold !text-white" style={{width:'15%'}}>Register Number</th>
+                     <th className="border border-gray-600 px-2 py-3 text-center uppercase text-xs font-bold !text-white" style={{width:'13%'}}>Year of Passing</th>
+                     <th className="border border-gray-600 px-2 py-3 text-center uppercase text-xs font-bold !text-white" style={{width:'13%'}}>Maximum Marks</th>
+                     <th className="border border-gray-600 px-2 py-3 text-center uppercase text-xs font-bold !text-white" style={{width:'13%'}}>Marks Obtained</th>
+                     <th className="border border-gray-600 px-2 py-3 text-center uppercase text-xs font-bold !text-white" style={{width:'11%'}}>Percentage</th>
                    </tr>
                  </thead>
                  <tbody>
                     {marksArray.fields.map((item, idx) => (
-                      <tr key={item.id} className="hover:bg-gray-50/50">
-                        <td className="border border-black p-2 bg-black/5 font-bold">{item.examination}</td>
-                        <td className="border border-black p-0"><input {...register(`marksDetails.${idx}.board`)} className="w-full h-full bg-transparent outline-none p-2 text-center focus:bg-white" /></td>
-                        <td className="border border-black p-0"><input {...register(`marksDetails.${idx}.registerNo`)} className="w-full h-full bg-transparent outline-none p-2 text-center focus:bg-white" /></td>
-                        <td className="border border-black p-0"><input {...register(`marksDetails.${idx}.year`)} className="w-full h-full bg-transparent outline-none p-2 text-center focus:bg-white" /></td>
-                        <td className="border border-black p-0"><input {...register(`marksDetails.${idx}.maxMarks`)} className="w-full h-full bg-transparent outline-none p-2 text-center focus:bg-white" /></td>
-                        <td className="border border-black p-0"><input {...register(`marksDetails.${idx}.obtainedMarks`)} className="w-full h-full bg-transparent outline-none p-2 text-center focus:bg-white" /></td>
-                        <td className="border border-black p-0"><input {...register(`marksDetails.${idx}.percentage`)} className="w-full h-full bg-transparent outline-none p-2 text-center focus:bg-white" /></td>
+                      <tr key={item.id} className="even:bg-black/[0.03]">
+                        <td className="border border-black px-2 py-3 bg-black/5 font-bold text-sm">{item.examination}</td>
+                        <td className="border border-black p-0"><input {...register(`marksDetails.${idx}.board`)} className="w-full block bg-transparent outline-none py-2 px-2 text-center focus:bg-white" /></td>
+                        <td className="border border-black p-0"><input {...register(`marksDetails.${idx}.registerNo`)} className="w-full block bg-transparent outline-none py-2 px-2 text-center focus:bg-white" /></td>
+                        <td className="border border-black p-0"><input {...register(`marksDetails.${idx}.year`)} className="w-full block bg-transparent outline-none py-2 px-2 text-center focus:bg-white" /></td>
+                        <td className="border border-black p-0"><input {...register(`marksDetails.${idx}.maxMarks`)} className="w-full block bg-transparent outline-none py-2 px-2 text-center focus:bg-white" /></td>
+                        <td className="border border-black p-0"><input {...register(`marksDetails.${idx}.obtainedMarks`)} className="w-full block bg-transparent outline-none py-2 px-2 text-center focus:bg-white" /></td>
+                        <td className="border border-black p-0"><input {...register(`marksDetails.${idx}.percentage`)} className="w-full block bg-transparent outline-none py-2 px-2 text-center focus:bg-white" /></td>
                       </tr>
                     ))}
                  </tbody>
@@ -547,44 +590,44 @@ export default function AdmissionPage() {
              </div>
           </div>
 
-          <div className="mb-10">
+          <div className="mb-8">
              <h2 className={sectionTitleClass}>DOCUMENTS TO BE SUBMITTED</h2>
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2 font-bold uppercase text-sm">
-                <label className="flex items-center space-x-3 cursor-pointer p-2 border border-black/10 hover:bg-black/5 transition-colors"><input type="checkbox" {...register('docs.sslc')} className="w-5 h-5 accent-black border-black" /><span>SSLC Marks Card Copy</span></label>
-                <label className="flex items-center space-x-3 cursor-pointer p-2 border border-black/10 hover:bg-black/5 transition-colors"><input type="checkbox" {...register('docs.puc')} className="w-5 h-5 accent-black border-black" /><span>PUC / 12th Marks Card Copy</span></label>
-                <label className="flex items-center space-x-3 cursor-pointer p-2 border border-black/10 hover:bg-black/5 transition-colors"><input type="checkbox" {...register('docs.tc')} className="w-5 h-5 accent-black border-black" /><span>Transfer Certificate</span></label>
-                <label className="flex items-center space-x-3 cursor-pointer p-2 border border-black/10 hover:bg-black/5 transition-colors"><input type="checkbox" {...register('docs.migration')} className="w-5 h-5 accent-black border-black" /><span>Migration Certificate (if applicable)</span></label>
-                <label className="flex items-center space-x-3 cursor-pointer p-2 border border-black/10 hover:bg-black/5 transition-colors"><input type="checkbox" {...register('docs.caste')} className="w-5 h-5 accent-black border-black" /><span>Caste Certificate (if applicable)</span></label>
-                <label className="flex items-center space-x-3 cursor-pointer p-2 border border-black/10 hover:bg-black/5 transition-colors"><input type="checkbox" {...register('docs.income')} className="w-5 h-5 accent-black border-black" /><span>Income Cert. (Mandatory for EWS)</span></label>
-                <label className="flex items-center space-x-3 cursor-pointer p-2 border border-black/10 hover:bg-black/5 transition-colors"><input type="checkbox" {...register('docs.aadhaar')} className="w-5 h-5 accent-black border-black" /><span>Aadhaar Copy</span></label>
-                <label className="flex items-center space-x-3 cursor-pointer p-2 border border-black/10 hover:bg-black/5 transition-colors"><input type="checkbox" {...register('docs.photos')} className="w-5 h-5 accent-black border-black" /><span>Passport Size Photographs – 5 copies</span></label>
+             <div className="grid grid-cols-2 gap-3 mt-3 font-bold uppercase text-sm">
+                <label className="flex items-center gap-3 cursor-pointer px-3 py-2 border border-black/20 bg-black/[0.02]"><input type="checkbox" {...register('docs.sslc')} className="w-4 h-4 shrink-0 accent-black" /><span>SSLC Marks Card Copy</span></label>
+                <label className="flex items-center gap-3 cursor-pointer px-3 py-2 border border-black/20 bg-black/[0.02]"><input type="checkbox" {...register('docs.puc')} className="w-4 h-4 shrink-0 accent-black" /><span>PUC / 12th Marks Card Copy</span></label>
+                <label className="flex items-center gap-3 cursor-pointer px-3 py-2 border border-black/20 bg-black/[0.02]"><input type="checkbox" {...register('docs.tc')} className="w-4 h-4 shrink-0 accent-black" /><span>Transfer Certificate</span></label>
+                <label className="flex items-center gap-3 cursor-pointer px-3 py-2 border border-black/20 bg-black/[0.02]"><input type="checkbox" {...register('docs.migration')} className="w-4 h-4 shrink-0 accent-black" /><span>Migration Certificate (if applicable)</span></label>
+                <label className="flex items-center gap-3 cursor-pointer px-3 py-2 border border-black/20 bg-black/[0.02]"><input type="checkbox" {...register('docs.caste')} className="w-4 h-4 shrink-0 accent-black" /><span>Caste Certificate (if applicable)</span></label>
+                <label className="flex items-center gap-3 cursor-pointer px-3 py-2 border border-black/20 bg-black/[0.02]"><input type="checkbox" {...register('docs.income')} className="w-4 h-4 shrink-0 accent-black" /><span>Income Cert. (Mandatory for EWS)</span></label>
+                <label className="flex items-center gap-3 cursor-pointer px-3 py-2 border border-black/20 bg-black/[0.02]"><input type="checkbox" {...register('docs.aadhaar')} className="w-4 h-4 shrink-0 accent-black" /><span>Aadhaar Copy</span></label>
+                <label className="flex items-center gap-3 cursor-pointer px-3 py-2 border border-black/20 bg-black/[0.02]"><input type="checkbox" {...register('docs.photos')} className="w-4 h-4 shrink-0 accent-black" /><span>Passport Size Photographs – 5 copies</span></label>
              </div>
           </div>
 
-          <div className="border border-black p-6 md:p-10 mb-8 bg-white relative">
-            <h2 className="text-2xl font-extrabold uppercase tracking-widest text-center mb-6">DECLARATION</h2>
-            <p className="text-sm text-justify leading-loose font-medium mb-6">
+          <div className="border border-black p-8 mb-8 bg-white">
+            <h2 className="text-xl font-extrabold uppercase tracking-widest text-center mb-5 border-b-2 border-black pb-3">DECLARATION</h2>
+            <p className="text-sm text-justify leading-relaxed font-medium mb-5">
               I hereby declare that the above information furnished is true and correct to the best of my knowledge. I agree to abide by the rules and regulations of the institution.
             </p>
-            
-            <div className="flex items-center space-x-3 mb-8 bg-red-50 p-4 border border-red-200">
-               <input type="checkbox" {...register('infoCorrect')} id="infoCorrect" className="w-6 h-6 accent-red-600 border-red-600 cursor-pointer" />
-               <label htmlFor="infoCorrect" className="font-bold text-red-700 cursor-pointer">I confirm the declaration above.</label>
+
+            <div className="flex items-center gap-3 mb-6 bg-black/5 px-4 py-3 border border-black/20">
+               <input type="checkbox" {...register('infoCorrect')} id="infoCorrect" className="w-5 h-5 shrink-0 accent-black cursor-pointer" />
+               <label htmlFor="infoCorrect" className="font-bold uppercase text-sm tracking-wide cursor-pointer">I confirm the declaration above.</label>
             </div>
 
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10 mt-12 pb-4">
-              <div className="flex flex-col w-64 pt-1">
-                 <input {...register('studentSignature')} placeholder="Type name to sign" className="bg-transparent outline-none font-signature text-2xl border-b border-black mb-2 px-2" />
-                 <span className={labelClass}>Signature of Student</span>
+            <div className="grid grid-cols-3 gap-6 mt-8">
+              <div className="col-span-1 flex flex-col">
+                <input {...register('studentSignature')} placeholder="Sign here" className="bg-transparent outline-none text-base border-b-2 border-black mb-1 px-2 py-1 w-full" />
+                <span className={labelClass}>Signature of Student</span>
               </div>
-              <div className="flex flex-col w-64 pt-1">
-                 <input {...register('parentSignature')} placeholder="Type name to sign" className="bg-transparent outline-none font-signature text-2xl border-b border-black mb-2 px-2" />
-                 <span className={labelClass}>Signature of Parent/Guardian</span>
+              <div className="col-span-1 flex flex-col">
+                <div className="border-b-2 border-black mb-1 py-1 h-9"></div>
+                <span className={labelClass}>Date: <input type="date" {...register('declarationDate')} className="bg-transparent outline-none font-bold text-sm" /></span>
               </div>
-            </div>
-            <div className="flex flex-col w-48 pt-1 mt-6">
-              <input type="date" {...register('declarationDate')} className="bg-transparent outline-none border-b border-black mb-2 px-2 py-1 font-bold" />
-              <span className={labelClass}>Date</span>
+              <div className="col-span-1 flex flex-col">
+                <input {...register('parentSignature')} placeholder="Sign here" className="bg-transparent outline-none text-base border-b-2 border-black mb-1 px-2 py-1 w-full" />
+                <span className={labelClass}>Signature of Parent/Guardian</span>
+              </div>
             </div>
           </div>
 
