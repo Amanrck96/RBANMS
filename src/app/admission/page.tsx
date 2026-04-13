@@ -148,69 +148,6 @@ export default function AdmissionPage() {
         if (submitBtn) submitBtn.style.display = 'none';
         
         // --- PREPARE FOR PDF ---
-        const inputs = Array.from(formRef.current.querySelectorAll('input, textarea, select')) as any[];
-        const replacements: any[] = [];
-
-        inputs.forEach((input) => {
-          if (input.type === 'radio' || input.type === 'checkbox') {
-            if (input.checked) input.setAttribute('checked', 'checked');
-            else input.removeAttribute('checked');
-            return;
-          }
-          if (input.type === 'file') return;
-          
-          const div = document.createElement('div');
-          const style = window.getComputedStyle(input);
-          
-          div.style.cssText = style.cssText;
-          div.style.height = 'auto';
-          div.style.minHeight = style.height;
-          div.style.display = 'flex';
-          div.style.alignItems = 'flex-end';
-          div.style.border = 'none';
-          div.style.borderBottom = style.borderBottom; 
-          div.style.backgroundColor = 'transparent';
-          div.style.paddingBottom = '4px';
-          div.style.boxSizing = 'border-box';
-          div.style.overflow = 'hidden';
-          
-          if (input.tagName.toLowerCase() === 'textarea') {
-            div.innerText = input.value;
-            div.style.whiteSpace = 'pre-wrap';
-            div.style.alignItems = 'flex-start';
-          } else if (input.tagName.toLowerCase() === 'select') {
-             div.innerText = input.options[input.selectedIndex]?.text || '';
-          } else {
-             div.innerText = input.value;
-             div.style.justifyContent = style.textAlign === 'center' ? 'center' : (style.textAlign === 'right' ? 'flex-end' : 'flex-start');
-          }
-
-          input.parentNode?.insertBefore(div, input);
-          input.style.display = 'none';
-          replacements.push({ input, div });
-        });
-        // -----------------------
-
-        // --- ENFORCE DESKTOP LAYOUT FOR PDF ---
-        const originalClasses: { el: Element, className: string }[] = [];
-        const allElements = formRef.current.querySelectorAll('*');
-        allElements.forEach((el) => {
-           let c = el.getAttribute('class') || '';
-           if (typeof c === 'string' && c.length > 0) {
-              originalClasses.push({ el, className: c });
-              if (c.includes('md:grid-cols') || c.includes('lg:grid-cols')) c = c.replace(/\bgrid-cols-\d+\b/g, '');
-              if (c.includes('md:flex-row') || c.includes('lg:flex-row')) c = c.replace(/\bflex-col\b/g, '');
-              if (c.includes('md:w-') || c.includes('lg:w-')) c = c.replace(/\bw-(full|auto|\d+\/\d+)\b/g, '');
-              if (c.includes('md:items-') || c.includes('lg:items-')) c = c.replace(/\bitems-(start|center|end|baseline|stretch)\b/g, '');
-              if (c.includes('md:justify-') || c.includes('lg:justify-')) c = c.replace(/\bjustify-(start|center|end|between|around|evenly)\b/g, '');
-              if (c.includes('md:p-') || c.includes('lg:p-')) c = c.replace(/\bp-\d+\b/g, '');
-              if (c.includes('md:gap-') || c.includes('lg:gap-')) c = c.replace(/\bgap-\d+\b/g, '');
-              c = c.replace(/\bmd:([a-zA-Z0-9_-]+)\b/g, '$1');
-              c = c.replace(/\blg:([a-zA-Z0-9_-]+)\b/g, '$1');
-              el.setAttribute('class', c.trim());
-           }
-        });
-
         const originalFormStyle = formRef.current.style.cssText;
         formRef.current.style.width = '1024px';
         formRef.current.style.maxWidth = '1024px';
@@ -218,24 +155,38 @@ export default function AdmissionPage() {
         // ------------------------------------
 
         try {
-          const canvas = await html2canvas(formRef.current, { scale: 1.5, backgroundColor: '#FFFDE8', windowWidth: 1024 });
-          const imgData = canvas.toDataURL('image/jpeg', 0.75);
+          const pages = Array.from(formRef.current.querySelectorAll('.pdf-page-section'));
           const pdf = new jsPDF('p', 'mm', 'a4');
           const pdfWidth = pdf.internal.pageSize.getWidth();
-          const pageHeight = pdf.internal.pageSize.getHeight();
-          const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
           
-          let heightLeft = pdfHeight;
-          let position = 0;
+          if (pages.length > 0) {
+            for (let i = 0; i < pages.length; i++) {
+               const pageEl = pages[i] as HTMLElement;
+               const canvas = await html2canvas(pageEl, { scale: 1.5, backgroundColor: '#FFFDE8', windowWidth: 1024 });
+               const imgData = canvas.toDataURL('image/jpeg', 0.8);
+               const imgHeightInPdf = (canvas.height * pdfWidth) / canvas.width;
+               
+               if (i > 0) pdf.addPage();
+               pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, imgHeightInPdf);
+            }
+          } else {
+             const canvas = await html2canvas(formRef.current, { scale: 1.5, backgroundColor: '#FFFDE8', windowWidth: 1024 });
+             const imgData = canvas.toDataURL('image/jpeg', 0.75);
+             const pageHeight = pdf.internal.pageSize.getHeight();
+             const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+             
+             let heightLeft = pdfHeight;
+             let position = 0;
 
-          pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, pdfHeight);
-          heightLeft -= pageHeight;
+             pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, pdfHeight);
+             heightLeft -= pageHeight;
 
-          while (heightLeft > 0) {
-            position = heightLeft - pdfHeight;
-            pdf.addPage();
-            pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, pdfHeight);
-            heightLeft -= pageHeight;
+             while (heightLeft > 0) {
+               position = heightLeft - pdfHeight;
+               pdf.addPage();
+               pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, pdfHeight);
+               heightLeft -= pageHeight;
+             }
           }
           generatedPdfBase64 = pdf.output('datauristring').split(',')[1];
         } catch(e) {
@@ -244,13 +195,6 @@ export default function AdmissionPage() {
 
         // --- RESTORE AFTER PDF ---
         formRef.current.style.cssText = originalFormStyle;
-        originalClasses.forEach(({ el, className }) => {
-           el.setAttribute('class', className);
-        });
-        replacements.forEach(({ input, div }) => {
-          if(div.parentNode) div.parentNode.removeChild(div);
-          input.style.display = '';
-        });
         // -------------------------
 
         if (submitBtn) submitBtn.style.display = 'flex';
@@ -315,8 +259,10 @@ export default function AdmissionPage() {
       <SiteHeader />
       
       <main className="flex-grow py-8 px-2 md:px-8">
-        <form ref={formRef} onSubmit={handleSubmit(onSubmit)} className="max-w-4xl mx-auto bg-[#FFFDE8] border-2 border-black p-6 md:p-12 shadow-2xl text-black">
+        <form ref={formRef} onSubmit={handleSubmit(onSubmit)} className="max-w-4xl mx-auto space-y-8">
           
+          {/* Page 1 Wrap */}
+          <div className="pdf-page-section bg-[#FFFDE8] border-2 border-black p-6 md:p-12 shadow-2xl text-black">
           {/* Header Section */}
           <div className="mb-6 border-b-4 border-black pb-6">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -354,18 +300,16 @@ export default function AdmissionPage() {
               </div>
             </div>
             
-            <div className="mt-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-4 overflow-hidden">
-              <div className="text-left flex flex-col md:inline-block w-full md:w-auto">
-                <span className={`${labelClass} text-lg mb-2 md:mb-0`}>Application No:</span> 
+            <div className="mt-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-4">
+              <div className="text-left flex flex-col md:flex-row md:items-center w-full md:w-auto pt-2">
+                <span className={`${labelClass} text-lg mb-2 md:mb-0 mr-2`}>Application No:</span> 
                 {appNumber ? (
-                  <span className="md:ml-2 font-bold text-xl sm:text-2xl text-black border-b-2 border-black tracking-widest px-2 whitespace-nowrap overflow-visible">
-                    {appNumber}
-                  </span>
+                  <input type="text" className="w-full sm:w-60 font-bold text-xl sm:text-2xl text-black border-b-2 border-black tracking-widest px-2 pb-1 bg-transparent outline-none pointer-events-none" value={appNumber} readOnly />
                 ) : (
                   <span className="md:ml-2 font-bold text-gray-500 tracking-wider italic">(Auto)</span>
                 )}
               </div>
-              <div className="text-left w-full md:w-auto overflow-hidden">
+              <div className="text-left w-full md:w-auto">
                 <div className="font-bold flex flex-col sm:flex-row sm:items-center">
                   <span className="w-full sm:w-32 uppercase text-sm mb-1 sm:mb-0">Admission No:</span>
                   <input type="text" className="w-full sm:w-40 border-b border-black bg-transparent outline-none sm:ml-2" readOnly />
@@ -468,6 +412,10 @@ export default function AdmissionPage() {
             </div>
           </div>
 
+          </div>
+          
+          {/* Page 2 Wrap */}
+          <div className="pdf-page-section bg-[#FFFDE8] border-2 border-black p-6 md:p-12 shadow-2xl text-black">
           <div className="mb-10 space-y-4">
             <h2 className={sectionTitleClass}>BIRTH DETAILS</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -484,7 +432,19 @@ export default function AdmissionPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-1"><label className={labelClass}>Languages Known:</label><input {...register('languagesKnown')} className={inputClass} /></div>
-              <div className="space-y-1"><label className={labelClass}>Blood Group:</label><input {...register('bloodGroup')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Blood Group:</label>
+                 <select {...register('bloodGroup')} className="w-full bg-transparent border-b border-black py-1 outline-none uppercase font-bold mt-1 text-black">
+                   <option value="">-- SELECT --</option>
+                   <option value="A+ve">A+ve</option>
+                   <option value="A-ve">A-ve</option>
+                   <option value="B+ve">B+ve</option>
+                   <option value="B-ve">B-ve</option>
+                   <option value="AB+ve">AB+ve</option>
+                   <option value="AB-ve">AB-ve</option>
+                   <option value="O+ve">O+ve</option>
+                   <option value="O-ve">O-ve</option>
+                 </select>
+              </div>
             </div>
           </div>
 
@@ -538,6 +498,10 @@ export default function AdmissionPage() {
             </div>
           </div>
 
+          </div>
+
+          {/* Page 3 Wrap */}
+          <div className="pdf-page-section bg-[#FFFDE8] border-2 border-black p-6 md:p-12 shadow-2xl text-black">
           <div className="mb-10 space-y-4">
             <h2 className={sectionTitleClass}>OTHER DETAILS</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -631,6 +595,9 @@ export default function AdmissionPage() {
               <li>Tuition Fee for the year is Non-Refundable once classes commence</li>
             </ol>
           </div>
+
+          </div>
+          {/* End Page 3 Wrap */}
 
           <div id="submit-btn-wrapper" className="flex justify-center mt-12">
             <button 
