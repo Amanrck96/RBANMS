@@ -294,7 +294,7 @@ export default function AdmissionPage() {
   };
 
   const labelClass = "text-sm font-bold uppercase tracking-wider text-black block mb-1 leading-relaxed";
-  const inputClass = "w-full bg-transparent border-b border-black outline-none py-1 focus:border-b-2 text-black placeholder:text-black/40 mt-1";
+  const inputClass = "w-full bg-transparent border-b border-black outline-none pt-1 pb-3 focus:border-b-2 text-black placeholder:text-black/40 mt-1";
   const sectionTitleClass = "text-xl font-extrabold uppercase tracking-[0.1em] text-black border-b-2 border-black inline-block pb-2 mb-6 lg:mb-8 pt-6 mt-2 leading-relaxed";
 
   return (
@@ -405,7 +405,7 @@ export default function AdmissionPage() {
             <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="space-y-1"><label className={labelClass}>Contact Number:</label><input {...register('contactNumber')} className={inputClass} /></div>
               <div className="space-y-1"><label className={labelClass}>Gender:</label>
-                <select {...register('gender')} className="w-full bg-transparent border-b border-black py-1 outline-none uppercase font-bold mt-1">
+                <select {...register('gender')} className="w-full bg-transparent border-b border-black pt-1 pb-3 outline-none uppercase font-bold mt-1">
                   <option value="">--</option><option value="Male">MALE</option><option value="Female">FEMALE</option>
                 </select>
               </div>
@@ -416,7 +416,7 @@ export default function AdmissionPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
               <div className="space-y-1"><label className={labelClass}>Religion:</label><input {...register('religion')} className={inputClass} /></div>
               <div className="space-y-1"><label className={labelClass}>Physically Challenged (Yes/No):</label>
-                 <select {...register('physicallyChallenged')} className="w-full bg-transparent border-b border-black py-1 outline-none uppercase font-bold mt-1">
+                 <select {...register('physicallyChallenged')} className="w-full bg-transparent border-b border-black pt-1 pb-3 outline-none uppercase font-bold mt-1">
                     <option value="">--</option><option value="Yes">YES</option><option value="No">NO</option>
                   </select>
               </div>
@@ -476,7 +476,7 @@ export default function AdmissionPage() {
             <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
               <div className="space-y-1"><label className={labelClass}>Languages Known:</label><input {...register('languagesKnown')} className={inputClass} /></div>
               <div className="space-y-1"><label className={labelClass}>Blood Group:</label>
-                 <select {...register('bloodGroup')} className="w-full bg-transparent border-b border-black py-1 outline-none uppercase font-bold mt-1 text-black">
+                 <select {...register('bloodGroup')} className="w-full bg-transparent border-b border-black pt-1 pb-3 outline-none uppercase font-bold mt-1 text-black">
                    <option value="">-- SELECT --</option>
                    <option value="A+ve">A+ve</option>
                    <option value="A-ve">A-ve</option>

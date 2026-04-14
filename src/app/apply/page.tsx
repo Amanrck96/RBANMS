@@ -31,10 +31,12 @@ export default function ApplyPage() {
     name: "entry.1818681582",
     phone: "entry.1241924600",
     email: "entry.553026809",
-    course: "entry.1609840044"
+    course: "entry.1609840044",
+    fromBengaluru: "entry.fromBengaluru"
   };
 
   const [selectedCourse, setSelectedCourse] = useState("");
+  const [fromBengaluru, setFromBengaluru] = useState("");
 
   const courses = [
     "Bachelor of Arts (B.A.) - Economics, with History & Political Science",
@@ -187,6 +189,38 @@ export default function ApplyPage() {
                       </SelectContent>
                     </Select>
                     <input type="hidden" name={ENTRY_IDS.course} value={selectedCourse} />
+                  </div>
+
+                  {/* Bengaluru Question */}
+                  <div className="space-y-3 border border-slate-200 rounded-lg p-4 bg-slate-50">
+                    <Label className="text-slate-700 font-semibold">
+                      Are you from Bengaluru and looking for a college in Bengaluru?
+                    </Label>
+                    <div className="flex gap-6 pt-1">
+                      <label className="flex items-center gap-2 cursor-pointer group">
+                        <input
+                          type="radio"
+                          name="fromBengaluru"
+                          value="Yes"
+                          checked={fromBengaluru === "Yes"}
+                          onChange={() => setFromBengaluru("Yes")}
+                          className="w-4 h-4 accent-[#B22222]"
+                        />
+                        <span className="font-semibold text-slate-700 group-hover:text-[#B22222] transition-colors">Yes</span>
+                      </label>
+                      <label className="flex items-center gap-2 cursor-pointer group">
+                        <input
+                          type="radio"
+                          name="fromBengaluru"
+                          value="No"
+                          checked={fromBengaluru === "No"}
+                          onChange={() => setFromBengaluru("No")}
+                          className="w-4 h-4 accent-[#B22222]"
+                        />
+                        <span className="font-semibold text-slate-700 group-hover:text-[#B22222] transition-colors">No</span>
+                      </label>
+                    </div>
+                    <input type="hidden" name={ENTRY_IDS.fromBengaluru} value={fromBengaluru} />
                   </div>
 
                   <Button 
