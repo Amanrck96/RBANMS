@@ -32,7 +32,7 @@ export default function ApplyPage() {
     phone: "entry.1241924600",
     email: "entry.553026809",
     course: "entry.1609840044",
-    fromBengaluru: "entry.fromBengaluru"
+    fromBengaluru: "entry.1751753047"
   };
 
   const [selectedCourse, setSelectedCourse] = useState("");
