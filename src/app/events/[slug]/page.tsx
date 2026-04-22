@@ -1,76 +1,151 @@
-import { notFound } from 'next/navigation';
-import { events } from '@/lib/events-data';
+'use client';
+
+import { useState, useEffect, use } from 'react';
+import { useRouter } from 'next/navigation';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft } from 'lucide-react';
+import { Calendar, User, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { Badge } from '@/components/ui/badge';
-import { DynamicSection } from '@/components/dynamic-section';
+import { Post } from '@/types/user';
+import { db } from '@/lib/firebase-client';
+import { collection, query, where, onSnapshot, limit } from 'firebase/firestore';
 
-export default async function EventDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const resolvedParams = await params;
-  const event = events.find((e) => e.slug === resolvedParams.slug);
+export default function EventDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+    const resolvedParams = use(params);
+    const router = useRouter();
+    const [event, setEvent] = useState<Post | null>(null);
+    const [loading, setLoading] = useState(true);
 
-  if (!event) {
-    notFound();
-  }
-
-  return (
-    <div className="container mx-auto px-4 py-12 md:py-16">
-      <Button asChild variant="ghost" className="mb-8">
-        <Link href="/events">
-          <ArrowLeft className="mr-2 h-4 w-4" /> Back to Events
-        </Link>
-      </Button>
-
-      <DynamicSection
-        pageId={`event-${event.slug}`}
-        defaultTitle={event.title}
-        defaultContent={
-          <div className="max-w-4xl bg-card rounded-lg border p-8 shadow-sm">
-            <div className="flex flex-wrap items-center gap-4 mb-6 text-muted-foreground">
-              <div className="flex items-center bg-muted/50 px-3 py-1 rounded-md">
-                <span className="text-xl font-bold text-primary mr-2">{event.date.day}</span>
-                <span className="font-medium">{event.date.month} {event.date.year}</span>
-              </div>
-              {event.tag && (
-                <Badge variant="secondary" className="text-sm font-normal px-3 py-1">{event.tag}</Badge>
-              )}
-            </div>
-            
-            <div className="prose max-w-none mb-8">
-              <p className="text-lg leading-relaxed text-card-foreground">
-                {event.description}
-              </p>
-            </div>
-            
-            {event.images && event.images.length > 0 && (
-              <div className="mt-8 pt-8 border-t">
-                <h3 className="text-2xl font-bold mb-6 text-primary font-headline">Event Gallery</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {event.images.map((imagePath, index) => (
-                    <div key={index} className="relative w-full aspect-[4/3] rounded-lg overflow-hidden border shadow-sm hover:shadow-md transition-shadow">
-                      <Image 
-                        src={imagePath} 
-                        alt={`${event.title} gallery photo ${index + 1}`} 
-                        fill 
-                        className="object-cover"
-                        unoptimized={process.env.NODE_ENV === 'development'}
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
+    useEffect(() => {
+        if (!db || !resolvedParams.slug) {
+            setLoading(false);
+            return;
         }
-      />
-    </div>
-  );
-}
 
-export function generateStaticParams() {
-  return events.map((event) => ({
-    slug: event.slug,
-  }));
+        const eventsQuery = query(
+            collection(db, 'events'),
+            where('slug', '==', resolvedParams.slug),
+            where('published', '==', true),
+            limit(1)
+        );
+
+        const unsubscribe = onSnapshot(
+            eventsQuery,
+            (snapshot) => {
+                if (!snapshot.empty) {
+                    const eventData = snapshot.docs[0].data();
+                    setEvent({
+                        id: snapshot.docs[0].id,
+                        ...eventData
+                    } as Post);
+                } else {
+                    setEvent(null);
+                }
+                setLoading(false);
+            },
+            (error) => {
+                console.error('Real-time event listener error:', error);
+                setLoading(false);
+            }
+        );
+
+        return () => unsubscribe();
+    }, [resolvedParams.slug]);
+
+    if (loading) {
+        return (
+            <div className="flex flex-col bg-gray-50 min-h-[60vh]">
+                <div className="flex-grow flex items-center justify-center py-20">
+                    <div className="text-lg text-gray-600">Loading Event...</div>
+                </div>
+            </div>
+        );
+    }
+
+    if (!event) {
+        return (
+            <div className="flex flex-col bg-gray-50 min-h-[60vh]">
+                <div className="flex-grow flex items-center justify-center py-20">
+                    <Card className="max-w-md w-full mx-4">
+                        <CardContent className="py-12 text-center">
+                            <div className="text-6xl mb-4">😕</div>
+                            <h2 className="text-2xl font-semibold mb-2">Event not found</h2>
+                            <p className="text-gray-500 mb-6">The event you're looking for doesn't exist or is not published yet.</p>
+                            <Link href="/events">
+                                <Button>
+                                    <ArrowLeft size={16} className="mr-2" />
+                                    Back to Events
+                                </Button>
+                            </Link>
+                        </CardContent>
+                    </Card>
+                </div>
+            </div>
+        );
+    }
+
+    return (
+        <div className="flex flex-col bg-gray-50 pb-20">
+            {/* Header */}
+            <header className="bg-gradient-to-r from-blue-900 to-blue-800 text-white py-8">
+                <div className="container mx-auto px-4">
+                    <Link href="/events">
+                        <Button variant="ghost" className="text-white hover:bg-blue-700 mb-4">
+                            <ArrowLeft size={16} className="mr-2" />
+                            Back to Events
+                        </Button>
+                    </Link>
+                </div>
+            </header>
+
+            {/* Content */}
+            <main className="container mx-auto px-4 -mt-4">
+                <article className="max-w-4xl mx-auto">
+                    <Card className="overflow-hidden border-2 border-primary/10 shadow-lg">
+                        {event.imageUrl && (
+                            <div className="aspect-video w-full overflow-hidden bg-gray-200">
+                                <img
+                                    src={event.imageUrl}
+                                    alt={event.title}
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                        )}
+
+                        <CardHeader className="space-y-4 pt-10 px-8">
+                            <CardTitle className="text-4xl text-primary font-headline">{event.title}</CardTitle>
+
+                            <div className="flex items-center gap-6 text-gray-600 pt-4 border-t border-gray-100">
+                                <div className="flex items-center gap-2">
+                                    <User size={18} className="text-primary/60" />
+                                    <span className="font-medium">{event.authorName}</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <Calendar size={18} className="text-primary/60" />
+                                    <span className="font-medium">{new Date(event.createdAt).toLocaleDateString('en-US', {
+                                        year: 'numeric',
+                                        month: 'long',
+                                        day: 'numeric'
+                                    })}</span>
+                                </div>
+                            </div>
+                        </CardHeader>
+
+                        <CardContent className="px-8 pb-10">
+                            {event.excerpt && (
+                                <p className="text-xl text-gray-600 italic mb-8 pb-8 border-b border-gray-100">
+                                    {event.excerpt}
+                                </p>
+                            )}
+
+                            <div 
+                                className="text-gray-800 leading-relaxed prose prose-lg prose-blue max-w-none prose-headings:text-primary prose-a:text-blue-600 hover:prose-a:text-blue-800 prose-img:rounded-xl prose-img:shadow-md"
+                                dangerouslySetInnerHTML={{ __html: event.content }} 
+                            />
+                        </CardContent>
+                    </Card>
+                </article>
+            </main>
+        </div>
+    );
 }
