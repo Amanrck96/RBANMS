@@ -18,8 +18,7 @@ import {
     Loader2
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { storage } from '@/lib/firebase-client';
+import { auth } from '@/lib/firebase-client';
 import { useToast } from '@/hooks/use-toast';
 
 interface VisualEditorProps {
@@ -64,27 +63,87 @@ export function VisualEditor({ value, onChange, placeholder }: VisualEditorProps
         }
     };
 
-    const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handlePaste = async (e: React.ClipboardEvent<HTMLDivElement>) => {
+        const items = e.clipboardData?.items;
+        if (!items) return;
+
+        let hasImage = false;
+        for (let i = 0; i < items.length; i++) {
+            if (items[i].type.indexOf('image') !== -1) {
+                hasImage = true;
+                const file = items[i].getAsFile();
+                if (!file) continue;
+                
+                // Prevent default paste of base64 image
+                e.preventDefault();
+                setUploading(true);
+
+                try {
+                    const token = await auth?.currentUser?.getIdToken();
+                    const formData = new FormData();
+                    formData.append('file', file);
+                    formData.append('folder', 'editor');
+
+                    const res = await fetch('/api/upload', {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: formData
+                    });
+
+                    if (!res.ok) {
+                        const errorData = await res.json().catch(() => ({}));
+                        throw new Error(errorData.error || `Upload failed`);
+                    }
+
+                    const data = await res.json();
+                    execCommand('insertImage', data.url);
+                } catch (error: any) {
+                    console.error('Paste upload error:', error);
+                    toast({ title: 'Paste Upload Failed', description: error.message || 'Could not upload pasted image.', variant: 'destructive' });
+                } finally {
+                    setUploading(false);
+                }
+                break; // Handle only the first image in clipboard
+            }
+        }
+    };
+
+    const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
-        if (!file || !storage) return;
+        if (!file) return;
 
         setUploading(true);
-        const storageRef = ref(storage, `editor/${Date.now()}-${file.name}`);
-        const uploadTask = uploadBytesResumable(storageRef, file);
+        
+        try {
+            const token = await auth?.currentUser?.getIdToken();
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('folder', 'editor');
 
-        uploadTask.on('state_changed',
-            null,
-            (error) => {
-                toast({ title: 'Error', description: 'Failed to upload image', variant: 'destructive' });
-                setUploading(false);
-            },
-            () => {
-                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                    execCommand('insertImage', downloadURL);
-                    setUploading(false);
-                });
+            const res = await fetch('/api/upload', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                },
+                body: formData
+            });
+
+            if (!res.ok) {
+                const errorData = await res.json().catch(() => ({}));
+                throw new Error(errorData.error || `Upload failed`);
             }
-        );
+
+            const data = await res.json();
+            execCommand('insertImage', data.url);
+        } catch (error: any) {
+            console.error('Upload error:', error);
+            toast({ title: 'Upload Failed', description: error.message || 'Could not upload image.', variant: 'destructive' });
+        } finally {
+            setUploading(false);
+            if (e.target) e.target.value = ''; // Reset input
+        }
     };
 
     const toggleView = (v: 'visual' | 'code') => {
@@ -220,6 +279,7 @@ export function VisualEditor({ value, onChange, placeholder }: VisualEditorProps
                         ref={editorRef}
                         contentEditable
                         onInput={handleInput}
+                        onPaste={handlePaste}
                         className="p-6 focus:outline-none prose prose-slate max-w-none min-h-[400px]"
                         dangerouslySetInnerHTML={{ __html: value }}
                     />

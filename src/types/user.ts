@@ -25,6 +25,8 @@ export interface Post {
     slug: string;
 }
 
+export interface Event extends Post {}
+
 export interface Permission {
     canEditPosts: boolean;
     canDeletePosts: boolean;
@@ -33,6 +35,9 @@ export interface Permission {
     canManageSettings: boolean;
     canUploadImages: boolean;
     canEditAnyContent: boolean;
+    canEditEvents: boolean;
+    canDeleteEvents: boolean;
+    canCreateEvents: boolean;
 }
 
 // Permission sets for each role
@@ -45,6 +50,9 @@ export const ROLE_PERMISSIONS: Record<UserRole, Permission> = {
         canManageSettings: true,
         canUploadImages: true,
         canEditAnyContent: true,
+        canEditEvents: true,
+        canDeleteEvents: true,
+        canCreateEvents: true,
     },
     admin: {
         canEditPosts: true,
@@ -54,5 +62,8 @@ export const ROLE_PERMISSIONS: Record<UserRole, Permission> = {
         canManageSettings: false,
         canUploadImages: true,
         canEditAnyContent: true,
+        canEditEvents: true,
+        canDeleteEvents: false,
+        canCreateEvents: true,
     },
 };
