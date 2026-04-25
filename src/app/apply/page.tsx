@@ -58,6 +58,16 @@ export default function ApplyPage() {
       e.preventDefault();
       return;
     }
+
+    if (!fromBengaluru) {
+      toast({
+        title: "Error",
+        description: "Please answer if you are from Bengaluru.",
+        variant: "destructive",
+      });
+      e.preventDefault();
+      return;
+    }
     
     setIsSubmitting(true);
 

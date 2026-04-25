@@ -180,6 +180,7 @@ export default function AdmissionPage() {
         `;
         document.head.appendChild(styleTag);
 
+        window.scrollTo(0, 0);
         const originalFormStyle = formRef.current.style.cssText;
         formRef.current.style.width = '1024px';
         formRef.current.style.maxWidth = '1024px';
@@ -195,7 +196,7 @@ export default function AdmissionPage() {
             const pdfHeight = pdf.internal.pageSize.getHeight();
             for (let i = 0; i < pages.length; i++) {
                const pageEl = pages[i] as HTMLElement;
-               const canvas = await html2canvas(pageEl, { scale: 1.5, backgroundColor: '#FFFDE8', windowWidth: 1024 });
+               const canvas = await html2canvas(pageEl, { scale: 1.5, backgroundColor: '#FFFDE8', windowWidth: 1024, scrollY: 0 });
                const imgData = canvas.toDataURL('image/jpeg', 0.8);
                let imgHeightInPdf = (canvas.height * pdfWidth) / canvas.width;
                let finalWidth = pdfWidth;
@@ -211,7 +212,7 @@ export default function AdmissionPage() {
                pdf.addImage(imgData, 'JPEG', xOffset, 0, finalWidth, imgHeightInPdf);
             }
           } else {
-             const canvas = await html2canvas(formRef.current, { scale: 1.5, backgroundColor: '#FFFDE8', windowWidth: 1024 });
+             const canvas = await html2canvas(formRef.current, { scale: 1.5, backgroundColor: '#FFFDE8', windowWidth: 1024, scrollY: 0 });
              const imgData = canvas.toDataURL('image/jpeg', 0.75);
              const pageHeight = pdf.internal.pageSize.getHeight();
              const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
@@ -398,23 +399,23 @@ export default function AdmissionPage() {
               </div>
               <div className="space-y-1 pt-4">
                 <label className={labelClass}>Email ID:</label>
-                <input type="email" {...register('email')} className={inputClass} />
+                <input type="email" {...register('email', { required: true })} required className={inputClass} />
               </div>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="space-y-1"><label className={labelClass}>Contact Number:</label><input {...register('contactNumber')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Contact Number:</label><input {...register('contactNumber', { required: true })} required className={inputClass} /></div>
               <div className="space-y-1"><label className={labelClass}>Gender:</label>
-                <select {...register('gender')} className="w-full bg-transparent border-b border-black pt-1 pb-3 outline-none uppercase font-bold mt-1">
+                <select {...register('gender', { required: true })} required className="w-full bg-transparent border-b border-black pt-1 pb-3 outline-none uppercase font-bold mt-1">
                   <option value="">--</option><option value="Male">MALE</option><option value="Female">FEMALE</option>
                 </select>
               </div>
-              <div className="space-y-1"><label className={labelClass}>Nationality:</label><input {...register('nationality')} className={inputClass} /></div>
-              <div className="space-y-1"><label className={labelClass}>Caste:</label><input {...register('caste')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Nationality:</label><input {...register('nationality', { required: true })} required className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Caste:</label><input {...register('caste', { required: true })} required className={inputClass} /></div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-              <div className="space-y-1"><label className={labelClass}>Religion:</label><input {...register('religion')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Religion:</label><input {...register('religion', { required: true })} required className={inputClass} /></div>
               <div className="space-y-1"><label className={labelClass}>Physically Challenged (Yes/No):</label>
                  <select {...register('physicallyChallenged')} className="w-full bg-transparent border-b border-black pt-1 pb-3 outline-none uppercase font-bold mt-1">
                     <option value="">--</option><option value="Yes">YES</option><option value="No">NO</option>
@@ -436,22 +437,22 @@ export default function AdmissionPage() {
             </div>
 
             <div className="grid grid-cols-2 gap-4 pt-4 border-t border-dashed border-black/30">
-              <div className="space-y-1"><label className={labelClass}>College Last Attended:</label><input {...register('collegeAttended')} className={inputClass} /></div>
-              <div className="space-y-1"><label className={labelClass}>Place:</label><input {...register('collegePlace')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>College Last Attended:</label><input {...register('collegeAttended', { required: true })} required className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Place:</label><input {...register('collegePlace', { required: true })} required className={inputClass} /></div>
             </div>
 
             <div className="grid grid-cols-3 gap-4">
               <div className="space-y-1"><label className={labelClass}>Qualifying Exam:</label>
                 <div className="text-[10px] italic">(PUC/CBSE/ISC/Other)</div>
-                <input {...register('qualifyingExam')} className={inputClass} />
+                <input {...register('qualifyingExam', { required: true })} required className={inputClass} />
               </div>
-              <div className="space-y-1"><label className={labelClass}>No. of Attempts:</label><input {...register('noOfAttempts')} className={`${inputClass} mt-3.5`} /></div>
-              <div className="space-y-1"><label className={labelClass}>Month & Year of Passing:</label><input type="month" {...register('monthYearPassing')} className={`${inputClass} mt-3.5`} /></div>
+              <div className="space-y-1"><label className={labelClass}>No. of Attempts:</label><input {...register('noOfAttempts', { required: true })} required className={`${inputClass} mt-3.5`} /></div>
+              <div className="space-y-1"><label className={labelClass}>Month & Year of Passing:</label><input type="month" {...register('monthYearPassing', { required: true })} required className={`${inputClass} mt-3.5`} /></div>
             </div>
 
             <div className="grid grid-cols-2 gap-4 pt-2">
-              <div className="space-y-1"><label className={labelClass}>Combination:</label><input {...register('combination')} className={inputClass} /></div>
-              <div className="space-y-1"><label className={labelClass}>Language:</label><input {...register('languageDetails')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Combination:</label><input {...register('combination', { required: true })} required className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Language:</label><input {...register('languageDetails', { required: true })} required className={inputClass} /></div>
             </div>
           </div>
 
@@ -462,21 +463,21 @@ export default function AdmissionPage() {
           <div className="mb-10 space-y-4">
             <h2 className={sectionTitleClass}>BIRTH DETAILS</h2>
             <div className="grid grid-cols-3 md:grid-cols-3 gap-4">
-              <div className="space-y-1"><label className={labelClass}>Date of Birth:</label><input type="date" {...register('dob')} className={inputClass} /></div>
-              <div className="space-y-1"><label className={labelClass}>Village:</label><input {...register('village')} className={inputClass} /></div>
-              <div className="space-y-1"><label className={labelClass}>Taluk:</label><input {...register('taluk')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Date of Birth:</label><input type="date" {...register('dob', { required: true })} required className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Village:</label><input {...register('village', { required: true })} required className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Taluk:</label><input {...register('taluk', { required: true })} required className={inputClass} /></div>
             </div>
             
             <div className="grid grid-cols-3 md:grid-cols-3 gap-4">
-              <div className="space-y-1"><label className={labelClass}>District:</label><input {...register('district')} className={inputClass} /></div>
-              <div className="space-y-1"><label className={labelClass}>State:</label><input {...register('state')} className={inputClass} /></div>
-              <div className="space-y-1"><label className={labelClass}>Mother Tongue:</label><input {...register('motherTongue')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>District:</label><input {...register('district', { required: true })} required className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>State:</label><input {...register('state', { required: true })} required className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Mother Tongue:</label><input {...register('motherTongue', { required: true })} required className={inputClass} /></div>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
               <div className="space-y-1"><label className={labelClass}>Languages Known:</label><input {...register('languagesKnown')} className={inputClass} /></div>
               <div className="space-y-1"><label className={labelClass}>Blood Group:</label>
-                 <select {...register('bloodGroup')} className="w-full bg-transparent border-b border-black pt-1 pb-3 outline-none uppercase font-bold mt-1 text-black">
+                 <select {...register('bloodGroup', { required: true })} required className="w-full bg-transparent border-b border-black pt-1 pb-3 outline-none uppercase font-bold mt-1 text-black">
                    <option value="">-- SELECT --</option>
                    <option value="A+ve">A+ve</option>
                    <option value="A-ve">A-ve</option>
@@ -494,17 +495,17 @@ export default function AdmissionPage() {
           <div className="grid grid-cols-2 md:grid-cols-2 gap-6 mb-10">
             <div className="space-y-4">
                <h2 className={sectionTitleClass}>PERMANENT ADDRESS</h2>
-               <div className="space-y-1"><label className={labelClass}>Permanent Address:</label><textarea {...register('permanentAddress')} rows={3} className="w-full bg-transparent border-b border-black outline-none resize-none py-1 focus:border-b-2"></textarea></div>
-               <div className="space-y-1"><label className={labelClass}>Pin Code:</label><input {...register('pinCode')} className={inputClass} /></div>
-               <div className="space-y-1"><label className={labelClass}>Contact Number:</label><input {...register('addressContact')} className={inputClass} /></div>
+               <div className="space-y-1"><label className={labelClass}>Permanent Address:</label><textarea {...register('permanentAddress', { required: true })} required rows={3} className="w-full bg-transparent border-b border-black outline-none resize-none py-1 focus:border-b-2"></textarea></div>
+               <div className="space-y-1"><label className={labelClass}>Pin Code:</label><input {...register('pinCode', { required: true })} required className={inputClass} /></div>
+               <div className="space-y-1"><label className={labelClass}>Contact Number:</label><input {...register('addressContact', { required: true })} required className={inputClass} /></div>
             </div>
             <div className="space-y-4">
                <h2 className={sectionTitleClass}>LOCAL ADDRESS (GUARDIAN IF ANY)</h2>
-               <div className="space-y-1"><label className={labelClass}>Name:</label><input {...register('guardianName')} className={inputClass} /></div>
-               <div className="space-y-1"><label className={labelClass}>Address:</label><textarea {...register('guardianAddress')} rows={2} className="w-full bg-transparent border-b border-black outline-none resize-none py-1 focus:border-b-2"></textarea></div>
+               <div className="space-y-1"><label className={labelClass}>Name:</label><input {...register('guardianName', { required: true })} required className={inputClass} /></div>
+               <div className="space-y-1"><label className={labelClass}>Address:</label><textarea {...register('guardianAddress', { required: true })} required rows={2} className="w-full bg-transparent border-b border-black outline-none resize-none py-1 focus:border-b-2"></textarea></div>
                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-1"><label className={labelClass}>Contact Number:</label><input {...register('guardianContact')} className={inputClass} /></div>
-                  <div className="space-y-1"><label className={labelClass}>Email:</label><input {...register('guardianEmail')} className={inputClass} /></div>
+                  <div className="space-y-1"><label className={labelClass}>Contact Number:</label><input {...register('guardianContact', { required: true })} required className={inputClass} /></div>
+                  <div className="space-y-1"><label className={labelClass}>Email:</label><input {...register('guardianEmail', { required: true })} required className={inputClass} /></div>
                </div>
             </div>
           </div>
@@ -515,13 +516,13 @@ export default function AdmissionPage() {
             <div className="border border-black p-4 pt-6 rounded-sm space-y-4 relative mt-10">
               <div className="absolute -top-4 left-4 bg-[#FFFDE8] px-2 py-1 z-10 font-bold uppercase tracking-widest text-sm leading-relaxed">Father's Details</div>
               <div className="grid grid-cols-3 md:grid-cols-3 gap-4">
-                <div className="space-y-1"><label className={labelClass}>Name:</label><input {...register('fatherName')} className={inputClass} /></div>
+                <div className="space-y-1"><label className={labelClass}>Name:</label><input {...register('fatherName', { required: true })} required className={inputClass} /></div>
                 <div className="space-y-1"><label className={labelClass}>Qualification:</label><input {...register('fatherQual')} className={inputClass} /></div>
-                <div className="space-y-1"><label className={labelClass}>Occupation:</label><input {...register('fatherOcc')} className={inputClass} /></div>
+                <div className="space-y-1"><label className={labelClass}>Occupation:</label><input {...register('fatherOcc', { required: true })} required className={inputClass} /></div>
               </div>
               <div className="grid grid-cols-3 md:grid-cols-3 gap-4">
-                <div className="space-y-1"><label className={labelClass}>Income:</label><input {...register('fatherIncome')} className={inputClass} /></div>
-                <div className="space-y-1"><label className={labelClass}>Contact:</label><input {...register('fatherContact')} className={inputClass} /></div>
+                <div className="space-y-1"><label className={labelClass}>Income:</label><input {...register('fatherIncome', { required: true })} required className={inputClass} /></div>
+                <div className="space-y-1"><label className={labelClass}>Contact:</label><input {...register('fatherContact', { required: true })} required className={inputClass} /></div>
                 <div className="space-y-1"><label className={labelClass}>Email:</label><input type="email" {...register('fatherEmail')} className={inputClass} /></div>
               </div>
             </div>
@@ -529,13 +530,13 @@ export default function AdmissionPage() {
             <div className="border border-black p-4 pt-6 rounded-sm space-y-4 relative mt-10">
               <div className="absolute -top-4 left-4 bg-[#FFFDE8] px-2 py-1 z-10 font-bold uppercase tracking-widest text-sm leading-relaxed">Mother's Details</div>
               <div className="grid grid-cols-3 md:grid-cols-3 gap-4">
-                <div className="space-y-1"><label className={labelClass}>Name:</label><input {...register('motherName')} className={inputClass} /></div>
+                <div className="space-y-1"><label className={labelClass}>Name:</label><input {...register('motherName', { required: true })} required className={inputClass} /></div>
                 <div className="space-y-1"><label className={labelClass}>Qualification:</label><input {...register('motherQual')} className={inputClass} /></div>
-                <div className="space-y-1"><label className={labelClass}>Occupation:</label><input {...register('motherOcc')} className={inputClass} /></div>
+                <div className="space-y-1"><label className={labelClass}>Occupation:</label><input {...register('motherOcc', { required: true })} required className={inputClass} /></div>
               </div>
               <div className="grid grid-cols-3 md:grid-cols-3 gap-4">
-                <div className="space-y-1"><label className={labelClass}>Income:</label><input {...register('motherIncome')} className={inputClass} /></div>
-                <div className="space-y-1"><label className={labelClass}>Contact:</label><input {...register('motherContact')} className={inputClass} /></div>
+                <div className="space-y-1"><label className={labelClass}>Income:</label><input {...register('motherIncome', { required: true })} required className={inputClass} /></div>
+                <div className="space-y-1"><label className={labelClass}>Contact:</label><input {...register('motherContact', { required: true })} required className={inputClass} /></div>
                 <div className="space-y-1"><label className={labelClass}>Email:</label><input type="email" {...register('motherEmail')} className={inputClass} /></div>
               </div>
             </div>
@@ -548,13 +549,13 @@ export default function AdmissionPage() {
           <div className="mb-8 space-y-5">
             <h2 className={sectionTitleClass}>OTHER DETAILS</h2>
             <div className="grid grid-cols-3 gap-6">
-              <div className="space-y-1"><label className={labelClass}>No. of Dependents:</label><input {...register('noOfDependents')} className={inputClass} /></div>
-              <div className="space-y-1"><label className={labelClass}>No. of Brothers:</label><input {...register('noOfBrothers')} className={inputClass} /></div>
-              <div className="space-y-1"><label className={labelClass}>No. of Sisters:</label><input {...register('noOfSisters')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>No. of Dependents:</label><input {...register('noOfDependents', { required: true })} required className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>No. of Brothers:</label><input {...register('noOfBrothers', { required: true })} required className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>No. of Sisters:</label><input {...register('noOfSisters', { required: true })} required className={inputClass} /></div>
             </div>
             <div className="grid grid-cols-2 gap-6">
-              <div className="space-y-1"><label className={labelClass}>Work / Hostel Address:</label><input {...register('workHostelAddress')} className={inputClass} /></div>
-              <div className="space-y-1"><label className={labelClass}>Staying With:</label><input {...register('stayingWith')} className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Work / Hostel Address:</label><input {...register('workHostelAddress', { required: true })} required className={inputClass} /></div>
+              <div className="space-y-1"><label className={labelClass}>Staying With:</label><input {...register('stayingWith', { required: true })} required className={inputClass} /></div>
             </div>
           </div>
 
