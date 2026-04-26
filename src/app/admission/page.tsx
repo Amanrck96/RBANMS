@@ -197,39 +197,37 @@ export default function AdmissionPage() {
             });
             
             const span = document.createElement('div');
-            let textValue = el.value;
+            let textValue = el.value || '';
             if (el.tagName.toLowerCase() === 'select' && el.selectedIndex >= 0) {
                 textValue = el.options[el.selectedIndex].text;
             }
             span.innerText = textValue;
             
             const computed = window.getComputedStyle(el);
-            span.className = el.className;
-            span.style.cssText = el.style.cssText;
+            
+            span.style.cssText = ''; // Clear to avoid tailwind conflicts
             span.style.borderBottom = computed.borderBottom;
             span.style.width = computed.width;
-            span.style.height = computed.height;
             span.style.padding = computed.padding;
             span.style.margin = computed.margin;
             span.style.font = computed.font;
             span.style.fontSize = isTableInput ? '11px' : computed.fontSize;
-            span.style.fontWeight = 'bold'; // force bold to match inputs
+            span.style.fontWeight = 'bold'; 
             span.style.color = computed.color;
             span.style.textAlign = computed.textAlign;
-            span.style.textTransform = 'uppercase'; // force uppercase as form does
-            span.style.display = 'flex';
-            span.style.alignItems = isTableInput ? 'center' : 'flex-end';
-            span.style.justifyContent = computed.textAlign === 'center' ? 'center' : 'flex-start';
+            span.style.textTransform = 'uppercase';
             span.style.boxSizing = 'border-box';
-            span.style.overflow = 'hidden';
             
-            if (isTableInput) {
-                span.style.whiteSpace = 'normal';
-                span.style.wordWrap = 'break-word';
-                span.style.lineHeight = '1.2';
-            } else {
-                span.style.whiteSpace = 'nowrap';
-                span.style.paddingBottom = '4px'; 
+            // Use block so text-align works perfectly for wrapping text without pushing it out the left side
+            span.style.display = 'block';
+            span.style.whiteSpace = 'pre-wrap';
+            span.style.wordWrap = 'break-word';
+            span.style.overflow = 'visible';
+            span.style.lineHeight = '1.4';
+            
+            // Ensure empty inputs still hold their vertical space for the bottom border
+            if (!textValue.trim()) {
+                span.style.minHeight = computed.height;
             }
             
             span.id = '__pdf_span_' + index;
