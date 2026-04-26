@@ -185,6 +185,57 @@ export default function AdmissionPage() {
         formRef.current.style.width = '1024px';
         formRef.current.style.maxWidth = '1024px';
         formRef.current.style.margin = '0 auto';
+        
+        // Convert inputs to divs to prevent html2canvas clipping issues
+        const originalInputs: any[] = [];
+        const inputsToConvert = formRef.current.querySelectorAll('input:not([type="radio"]):not([type="checkbox"]):not([type="file"]), select, textarea');
+        inputsToConvert.forEach((el: any, index) => {
+            const isTableInput = el.closest('table') !== null;
+            originalInputs.push({
+                el,
+                display: el.style.display
+            });
+            
+            const span = document.createElement('div');
+            let textValue = el.value;
+            if (el.tagName.toLowerCase() === 'select' && el.selectedIndex >= 0) {
+                textValue = el.options[el.selectedIndex].text;
+            }
+            span.innerText = textValue;
+            
+            const computed = window.getComputedStyle(el);
+            span.className = el.className;
+            span.style.cssText = el.style.cssText;
+            span.style.borderBottom = computed.borderBottom;
+            span.style.width = computed.width;
+            span.style.height = computed.height;
+            span.style.padding = computed.padding;
+            span.style.margin = computed.margin;
+            span.style.font = computed.font;
+            span.style.fontSize = isTableInput ? '11px' : computed.fontSize;
+            span.style.fontWeight = 'bold'; // force bold to match inputs
+            span.style.color = computed.color;
+            span.style.textAlign = computed.textAlign;
+            span.style.textTransform = 'uppercase'; // force uppercase as form does
+            span.style.display = 'flex';
+            span.style.alignItems = isTableInput ? 'center' : 'flex-end';
+            span.style.justifyContent = computed.textAlign === 'center' ? 'center' : 'flex-start';
+            span.style.boxSizing = 'border-box';
+            span.style.overflow = 'hidden';
+            
+            if (isTableInput) {
+                span.style.whiteSpace = 'normal';
+                span.style.wordWrap = 'break-word';
+                span.style.lineHeight = '1.2';
+            } else {
+                span.style.whiteSpace = 'nowrap';
+                span.style.paddingBottom = '4px'; 
+            }
+            
+            span.id = '__pdf_span_' + index;
+            el.style.display = 'none';
+            el.parentNode.insertBefore(span, el);
+        });
         // ------------------------------------
 
         try {
@@ -236,6 +287,12 @@ export default function AdmissionPage() {
         }
 
         // --- RESTORE AFTER PDF ---
+        originalInputs.forEach((item, index) => {
+            item.el.style.display = item.display;
+            const span = document.getElementById('__pdf_span_' + index);
+            if (span) span.remove();
+        });
+        
         formRef.current.style.cssText = originalFormStyle;
         const oldTag = document.getElementById('__pdf_override__');
         if (oldTag) oldTag.remove();

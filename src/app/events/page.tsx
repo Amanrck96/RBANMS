@@ -46,10 +46,10 @@ export default function EventsPage() {
 
     return (
         <div className="container mx-auto px-4 py-12 md:py-16">
-            <DynamicSection
-                pageId="events"
-                defaultTitle="Events & Announcements"
-            />
+            <div className="mb-8">
+                <h1 className="text-4xl font-bold text-blue-900 mb-4 uppercase tracking-wide border-l-8 border-blue-900 pl-6">Events & Announcements</h1>
+                <p className="text-gray-600 max-w-3xl">Stay updated with the latest events, announcements, and activities at RBANMS First Grade College.</p>
+            </div>
             
             <div className="mt-12 space-y-12">
                 {loading ? (
