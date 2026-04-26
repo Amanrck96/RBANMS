@@ -5,8 +5,6 @@ import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { DynamicSection } from '@/components/dynamic-section';
 import { Calendar, User, ArrowRight } from 'lucide-react';
-import { db } from '@/lib/firebase-client';
-import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 import { Post } from '@/types/user';
 
 export default function EventsPage() {
@@ -14,34 +12,22 @@ export default function EventsPage() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (!db) {
-            setLoading(false);
-            return;
-        }
-
-        const eventsQuery = query(
-            collection(db, 'events'),
-            orderBy('createdAt', 'desc')
-        );
-
-        const unsubscribe = onSnapshot(
-            eventsQuery,
-            (snapshot) => {
-                const eventsList = snapshot.docs.map(doc => ({
-                    id: doc.id,
-                    ...doc.data()
-                })) as Post[];
-                // Filter manually to avoid Firestore composite index requirement
-                setEvents(eventsList.filter(p => p.published === true));
-                setLoading(false);
-            },
-            (error) => {
-                console.error('Real-time events listener error:', error);
+        const fetchEvents = async () => {
+            try {
+                const response = await fetch('/api/events?published=true');
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.events) {
+                        setEvents(data.events);
+                    }
+                }
+            } catch (error) {
+                console.error('Error fetching events:', error);
+            } finally {
                 setLoading(false);
             }
-        );
-
-        return () => unsubscribe();
+        };
+        fetchEvents();
     }, []);
 
     return (

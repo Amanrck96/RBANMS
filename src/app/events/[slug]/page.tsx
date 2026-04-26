@@ -7,8 +7,6 @@ import { Button } from '@/components/ui/button';
 import { Calendar, User, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { Post } from '@/types/user';
-import { db } from '@/lib/firebase-client';
-import { collection, query, where, onSnapshot, limit } from 'firebase/firestore';
 
 export default function EventDetailPage({ params }: { params: Promise<{ slug: string }> }) {
     const resolvedParams = use(params);
@@ -17,39 +15,36 @@ export default function EventDetailPage({ params }: { params: Promise<{ slug: st
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (!db || !resolvedParams.slug) {
-            setLoading(false);
-            return;
-        }
+        const fetchEventDetail = async () => {
+            if (!resolvedParams.slug) {
+                setLoading(false);
+                return;
+            }
 
-        const eventsQuery = query(
-            collection(db, 'events'),
-            where('slug', '==', resolvedParams.slug),
-            where('published', '==', true),
-            limit(1)
-        );
-
-        const unsubscribe = onSnapshot(
-            eventsQuery,
-            (snapshot) => {
-                if (!snapshot.empty) {
-                    const eventData = snapshot.docs[0].data();
-                    setEvent({
-                        id: snapshot.docs[0].id,
-                        ...eventData
-                    } as Post);
+            try {
+                const response = await fetch(`/api/events?slug=${resolvedParams.slug}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.event && data.event.published) {
+                        setEvent({
+                            id: data.event.id,
+                            ...data.event
+                        } as Post);
+                    } else {
+                        setEvent(null);
+                    }
                 } else {
                     setEvent(null);
                 }
-                setLoading(false);
-            },
-            (error) => {
-                console.error('Real-time event listener error:', error);
+            } catch (error) {
+                console.error('Error fetching event detail:', error);
+                setEvent(null);
+            } finally {
                 setLoading(false);
             }
-        );
+        };
 
-        return () => unsubscribe();
+        fetchEventDetail();
     }, [resolvedParams.slug]);
 
     if (loading) {

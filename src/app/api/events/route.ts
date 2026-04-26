@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
         const published = searchParams.get('published');
 
         if (eventId) {
-            // Fetch single event
+            // Fetch single event by ID
             const eventDoc = await adminDb.collection('events').doc(eventId).get();
             if (!eventDoc.exists) {
                 return NextResponse.json(
@@ -20,6 +20,23 @@ export async function GET(request: NextRequest) {
                 );
             }
             return NextResponse.json({ event: eventDoc.data() });
+        }
+
+        const slug = searchParams.get('slug');
+        if (slug) {
+            // Fetch single event by slug
+            const snapshot = await adminDb.collection('events')
+                .where('slug', '==', slug)
+                .limit(1)
+                .get();
+            
+            if (snapshot.empty) {
+                return NextResponse.json(
+                    { error: 'Event not found' },
+                    { status: 404 }
+                );
+            }
+            return NextResponse.json({ event: snapshot.docs[0].data() });
         }
 
         // Fetch all events without where filter to avoid composite index requirements
