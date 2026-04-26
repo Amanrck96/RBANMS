@@ -186,6 +186,7 @@ export default function LanguagesDepartmentPage() {
             <li><strong>Literature Week:</strong> is celebrated with daily events throughout the week, including Essay writing, Debate, and Poetry writing competitions, aimed at enhancing students’ linguistic and literary skills.</li>
             <li><strong>International Language Day:</strong> on 22 February is for highlighting the significance of multilingualism and cultural diversity.</li>
             <li><strong>Celebrations:</strong> Hindi Diwas and Kannada Rajyotsava are grand celebrations in college.</li>
+            <li><strong>Basavanna Jayanthi (21 April):</strong> Honouring the timeless wisdom of Basavanna—a voice of equality, compassion and truth.</li>
           </ul>
         </CardContent>
       </Card>
