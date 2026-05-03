@@ -117,7 +117,7 @@ export default function EventDetailPage({ params }: { params: Promise<{ slug: st
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <Calendar size={18} className="text-primary/60" />
-                                    <span className="font-medium">{new Date(event.createdAt).toLocaleDateString('en-US', {
+                                    <span className="font-medium">{new Date(event.eventDate || event.createdAt).toLocaleDateString('en-US', {
                                         year: 'numeric',
                                         month: 'long',
                                         day: 'numeric'

@@ -79,7 +79,7 @@ export default function EventsPage() {
                                     <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-500 mt-2">
                                         <div className="flex items-center gap-1">
                                             <Calendar size={14} />
-                                            <span>{new Date(event.createdAt).toLocaleDateString('en-US', {
+                                            <span>{new Date(event.eventDate || event.createdAt).toLocaleDateString('en-US', {
                                                 year: 'numeric',
                                                 month: 'long',
                                                 day: 'numeric'

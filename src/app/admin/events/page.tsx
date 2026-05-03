@@ -106,7 +106,7 @@ export default function EventsPage() {
                                         <div className="flex items-center gap-4 mt-3 text-sm text-gray-500">
                                             <span>By {event.authorName}</span>
                                             <span>•</span>
-                                            <span>{new Date(event.createdAt).toLocaleDateString()}</span>
+                                            <span>{new Date(event.eventDate || event.createdAt).toLocaleDateString()}</span>
                                             <span>•</span>
                                             <span className={event.published ? 'text-green-600' : 'text-yellow-600'}>
                                                 {event.published ? 'Published' : 'Draft'}

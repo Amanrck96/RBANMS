@@ -26,6 +26,7 @@ export default function EventEditorPage() {
     const [excerpt, setExcerpt] = useState('');
     const [content, setContent] = useState('');
     const [imageUrl, setImageUrl] = useState('');
+    const [eventDate, setEventDate] = useState(new Date().toISOString().split('T')[0]);
     const [published, setPublished] = useState(false);
     const [loading, setLoading] = useState(false);
     const [fetching, setFetching] = useState(isEditing);
@@ -45,6 +46,9 @@ export default function EventEditorPage() {
                 setExcerpt(data.event.excerpt);
                 setContent(data.event.content);
                 setImageUrl(data.event.imageUrl || '');
+                if (data.event.eventDate) {
+                    setEventDate(new Date(data.event.eventDate).toISOString().split('T')[0]);
+                }
                 setPublished(data.event.published);
             }
         } catch (error) {
@@ -63,8 +67,8 @@ export default function EventEditorPage() {
             const url = '/api/events';
             const method = isEditing ? 'PUT' : 'POST';
             const body = isEditing
-                ? { eventId: params.id, title, excerpt, content, imageUrl, published }
-                : { title, excerpt, content, imageUrl, published };
+                ? { eventId: params.id, title, excerpt, content, imageUrl, published, eventDate: new Date(eventDate).toISOString() }
+                : { title, excerpt, content, imageUrl, published, eventDate: new Date(eventDate).toISOString() };
 
             const response = await fetch(url, {
                 method,
@@ -137,6 +141,18 @@ export default function EventEditorPage() {
                                 onChange={(e) => setExcerpt(e.target.value)}
                                 placeholder="Brief summary of the event"
                                 rows={3}
+                                required
+                                disabled={loading}
+                            />
+                        </div>
+
+                        <div className="space-y-2">
+                            <Label htmlFor="eventDate">Event Date *</Label>
+                            <Input
+                                id="eventDate"
+                                type="date"
+                                value={eventDate}
+                                onChange={(e) => setEventDate(e.target.value)}
                                 required
                                 disabled={loading}
                             />

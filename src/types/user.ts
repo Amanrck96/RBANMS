@@ -23,6 +23,7 @@ export interface Post {
     updatedAt: string;
     published: boolean;
     slug: string;
+    eventDate?: string;
 }
 
 export interface Event extends Post {}
