@@ -5,31 +5,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Calendar, Bell, FileText, Star, Clock, BookOpen } from 'lucide-react';
-import { useState, useEffect } from 'react';
-import { db } from '@/lib/firebase-client';
-import { CMS_DEFAULTS } from '@/lib/cms-defaults';
 import Link from 'next/link';
 
 export function SidebarCards() {
-    const [realEvents, setRealEvents] = useState<any[]>([]);
-
-    useEffect(() => {
-        const fetchEvents = async () => {
-            try {
-                const response = await fetch('/api/events?published=true');
-                if (response.ok) {
-                    const data = await response.json();
-                    if (data.events) {
-                        setRealEvents(data.events.slice(0, 3));
-                    }
-                }
-            } catch (error) {
-                console.error('Error fetching events for sidebar:', error);
-            }
-        };
-        fetchEvents();
-    }, []);
-
     return (
         <DynamicSection
             pageId="8"
@@ -59,9 +37,7 @@ export function SidebarCards() {
                         <li>Regular classes for all courses will commence on January 27.</li>
                     </ul>`;
 
-                const upcomingEvents = realEvents.length > 0 
-                    ? realEvents.map(e => e.title)
-                    : data?.upcoming_events_text || [
+                                const upcomingEvents = data?.upcoming_events_text || [
                         'Internal Assessment - Jan 20',
                         'Republic Day Celebration - Jan 26',
                         'Industrial Visit - Feb 05'
@@ -184,7 +160,6 @@ export function SidebarCards() {
                                     <CardContent className="p-4 pt-4 flex-grow">
                                         <div className="space-y-2">
                                             {upcomingEvents.map((item: string, i: number) => {
-                                                const eventDoc = realEvents[i];
                                                 const content = (
                                                     <div className="flex items-center gap-3 p-2.5 bg-slate-50 rounded border border-slate-100 hover:bg-white hover:shadow-sm transition-all group">
                                                         <div className="size-8 rounded-full bg-blue-900 text-white flex items-center justify-center font-bold text-[10px] shrink-0 group-hover:scale-110 transition-transform">
@@ -194,13 +169,6 @@ export function SidebarCards() {
                                                     </div>
                                                 );
                                                 
-                                                if (eventDoc && eventDoc.slug) {
-                                                    return (
-                                                        <Link key={i} href={`/events/${eventDoc.slug}`}>
-                                                            {content}
-                                                        </Link>
-                                                    );
-                                                }
                                                 return <div key={i}>{content}</div>;
                                             })}
                                             <div className="pt-2 text-right">
