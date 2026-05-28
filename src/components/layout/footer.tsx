@@ -19,6 +19,7 @@ export function SiteFooter() {
     { name: 'Statutory CELLS', href: '/statutory-cells' },
     { name: 'Alumni', href: '/alumni/activity' },
     { name: 'Contact Us', href: '/contact' },
+    { name: 'FAQ', href: '/faq' },
   ];
 
   const footerTopLinks = [
