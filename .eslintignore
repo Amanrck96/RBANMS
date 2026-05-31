@@ -1,0 +1,7 @@
+# Ignore Next.js build output and dependency folders
+.next/
+node_modules/
+out/
+build/
+dist/
+*.tsbuildinfo

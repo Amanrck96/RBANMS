@@ -6,5 +6,19 @@
   "search.exclude": {
     "**/.next": true,
     "**/node_modules": true
+  },
+  "files.watcherExclude": {
+    "**/.next/**": true,
+    "**/node_modules/**": true
+  },
+  "sonarlint.exclusions": {
+    "**/.next/**": true,
+    "**/node_modules/**": true
+  },
+  "eslint.options": {
+    "ignorePattern": [
+      "**/.next/**",
+      "**/node_modules/**"
+    ]
   }
 }
