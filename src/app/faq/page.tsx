@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { 
   Search, 
@@ -26,10 +26,11 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
 interface FAQ {
-  id: number;
+  id: string | number;
   question: string;
   answer: string;
   category: 'admissions' | 'fees' | 'academics' | 'campus' | 'placements' | 'general';
+  order?: number;
 }
 
 const FAQ_DATA: FAQ[] = [
@@ -359,16 +360,32 @@ const CATEGORIES = [
 export default function FAQPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState('all');
+  const [faqs, setFaqs] = useState<FAQ[]>(FAQ_DATA);
+
+  useEffect(() => {
+    async function loadFAQs() {
+      try {
+        const res = await fetch('/api/faqs');
+        const data = await res.json();
+        if (data.faqs && data.faqs.length > 0) {
+          setFaqs(data.faqs);
+        }
+      } catch (error) {
+        console.error('Failed to load dynamic FAQs, using static fallback:', error);
+      }
+    }
+    loadFAQs();
+  }, []);
 
   const filteredFAQs = useMemo(() => {
-    return FAQ_DATA.filter((faq) => {
+    return faqs.filter((faq) => {
       const matchesCategory = activeCategory === 'all' || faq.category === activeCategory;
       const matchesSearch = 
         faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
         faq.answer.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesCategory && matchesSearch;
     });
-  }, [searchQuery, activeCategory]);
+  }, [faqs, searchQuery, activeCategory]);
 
   const handleClearSearch = () => {
     setSearchQuery('');
@@ -480,7 +497,7 @@ export default function FAQPage() {
                         <AccordionTrigger className="text-left font-semibold text-slate-800 hover:text-blue-900 hover:no-underline py-4 text-base md:text-lg group">
                           <div className="flex flex-col md:flex-row md:items-center gap-2.5 w-full pr-4">
                             <span className="text-xs uppercase tracking-wider font-bold bg-slate-100 text-slate-500 px-2 py-0.5 rounded w-max select-none">
-                              Q{faq.id}
+                              Q{faq.order || idx + 1}
                             </span>
                             <span className="flex-1 group-hover:translate-x-0.5 transition-transform duration-200">
                               {faq.question}

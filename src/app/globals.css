@@ -66,12 +66,12 @@
   - All headings and CardTitle components render in blue
   - This applies across the site to meet the requirement
 */
-main :where(h1, h2, h3, h4, h5, h6),
-main .card-title {
+main:not(.keep-colors) :where(h1, h2, h3, h4, h5, h6),
+main:not(.keep-colors) .card-title {
   color: #1e3a8a !important;
 }
 
-main :where(p, li, span, small, strong, em, td, th, figcaption, label) {
+main:not(.keep-colors) :where(p, li, span, small, strong, em, td, th, figcaption, label) {
   color: #000 !important;
 }
 
@@ -81,7 +81,7 @@ footer :where(p, li, span, small, strong, em, a, button, div, section) {
 }
 
 /* Body content icons: set to maroon across pages */
-main :where(svg) {
+main:not(.keep-colors) :where(svg) {
   color: #800000 !important;
 }
 

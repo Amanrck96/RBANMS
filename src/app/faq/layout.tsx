@@ -15,7 +15,7 @@ export default function FAQLayout({
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
-      <main className="flex-grow bg-background">
+      <main className="flex-grow bg-background keep-colors">
         {children}
       </main>
       <SiteFooter />
