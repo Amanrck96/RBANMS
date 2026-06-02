@@ -74,19 +74,28 @@ export function TwoRowCardLayout() {
                                     <p className="text-muted-foreground text-sm text-center mb-3">(1827–1910)</p>
 
                                     <div className="text-left text-sm content-black mb-4">
-                                        <div
-                                            className={expandedCard !== 'founder' ? 'line-clamp-3' : ''}
-                                            dangerouslySetInnerHTML={{ __html: data.summary || 'Our founder Dharmarathnakara Rai Bahadur Arcot Narrainswamy Mudaliar embarked on his vision of social regeneration, providing for all classes and castes in the fields of education and social welfare.' }}
-                                        />
+                                        {data.content ? (
+                                            <div 
+                                                className={expandedCard !== 'founder' ? 'line-clamp-3' : ''}
+                                                dangerouslySetInnerHTML={{ __html: data.content }}
+                                            />
+                                        ) : (
+                                            <>
+                                                <div
+                                                    className={expandedCard !== 'founder' ? 'line-clamp-3' : ''}
+                                                    dangerouslySetInnerHTML={{ __html: data.summary || 'Our founder Dharmarathnakara Rai Bahadur Arcot Narrainswamy Mudaliar embarked on his vision of social regeneration, providing for all classes and castes in the fields of education and social welfare.' }}
+                                                />
 
-                                        {expandedCard === 'founder' && (
-                                            <div className="mt-3 space-y-3">
-                                                <p>
-                                                    <a href="/about/founder" className="text-primary hover:underline font-semibold">
-                                                        Read more about our Founder
-                                                    </a>
-                                                </p>
-                                            </div>
+                                                {expandedCard === 'founder' && (
+                                                    <div className="mt-3 space-y-3">
+                                                        <p>
+                                                            <a href="/about/founder" className="text-primary hover:underline font-semibold">
+                                                                Read more about our Founder
+                                                            </a>
+                                                        </p>
+                                                    </div>
+                                                )}
+                                            </>
                                         )}
                                     </div>
 
@@ -128,20 +137,29 @@ export function TwoRowCardLayout() {
                                     </div>
 
                                     <div className="text-left text-sm content-black mb-4">
-                                        <div
-                                            className={expandedCard !== 'director' ? 'line-clamp-4' : ''}
-                                            dangerouslySetInnerHTML={{ __html: data.summary || 'Education must go beyond the syllabus and help prepare students for life so that their professional success is balanced with their personal, emotional, and spiritual wellbeing. Our student-centric approach keeps the campus energetic and purposeful.' }}
-                                        />
+                                        {data.content ? (
+                                            <div 
+                                                className={expandedCard !== 'director' ? 'line-clamp-4' : ''}
+                                                dangerouslySetInnerHTML={{ __html: data.content }}
+                                            />
+                                        ) : (
+                                            <>
+                                                <div
+                                                    className={expandedCard !== 'director' ? 'line-clamp-4' : ''}
+                                                    dangerouslySetInnerHTML={{ __html: data.summary || 'Education must go beyond the syllabus and help prepare students for life so that their professional success is balanced with their personal, emotional, and spiritual wellbeing. Our student-centric approach keeps the campus energetic and purposeful.' }}
+                                                />
 
-                                        {expandedCard === 'director' && (
-                                            <div className="mt-3 space-y-3">
-                                                <p>
-                                                    At RBANMS First Grade College, we believe in nurturing not just academicians but well-rounded individuals who are equipped to face the challenges of the modern world. Our comprehensive approach to education ensures that students develop critical thinking, creativity, and leadership skills.
-                                                </p>
-                                                <p>
-                                                    We are committed to providing an environment that encourages innovation, collaboration, and personal growth. Our dedicated faculty members work tirelessly to inspire and guide students towards achieving their full potential.
-                                                </p>
-                                            </div>
+                                                {expandedCard === 'director' && (
+                                                    <div className="mt-3 space-y-3">
+                                                        <p>
+                                                            At RBANMS First Grade College, we believe in nurturing not just academicians but well-rounded individuals who are equipped to face the challenges of the modern world. Our comprehensive approach to education ensures that students develop critical thinking, creativity, and leadership skills.
+                                                        </p>
+                                                        <p>
+                                                            We are committed to providing an environment that encourages innovation, collaboration, and personal growth. Our dedicated faculty members work tirelessly to inspire and guide students towards achieving their full potential.
+                                                        </p>
+                                                    </div>
+                                                )}
+                                            </>
                                         )}
                                     </div>
 
@@ -183,23 +201,32 @@ export function TwoRowCardLayout() {
                                     </div>
 
                                     <div className="text-left text-sm content-black mb-4">
-                                        <div
-                                            className={expandedCard !== 'principal' ? 'line-clamp-4' : ''}
-                                            dangerouslySetInnerHTML={{ __html: data.summary || 'The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. The key objective of education at RBANMS First Grade College is to create efficient academicians, innovative entrepreneurs, and responsible citizens.' }}
-                                        />
+                                        {data.content ? (
+                                            <div 
+                                                className={expandedCard !== 'principal' ? 'line-clamp-4' : ''}
+                                                dangerouslySetInnerHTML={{ __html: data.content }}
+                                            />
+                                        ) : (
+                                            <>
+                                                <div
+                                                    className={expandedCard !== 'principal' ? 'line-clamp-4' : ''}
+                                                    dangerouslySetInnerHTML={{ __html: data.summary || 'The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. The key objective of education at RBANMS First Grade College is to create efficient academicians, innovative entrepreneurs, and responsible citizens.' }}
+                                                />
 
-                                        {expandedCard === 'principal' && (
-                                            <div className="mt-3 space-y-3">
-                                                <p>
-                                                    We are dedicated to fostering an educational experience that goes beyond textbooks. Our focus is on holistic development that encompasses intellectual growth, emotional maturity, and social responsibility.
-                                                </p>
-                                                <p>
-                                                    Through our diverse range of programs, state-of-the-art facilities, and experienced faculty, we strive to provide every student with the tools they need to succeed in their chosen fields and contribute meaningfully to society.
-                                                </p>
-                                                <p>
-                                                    I invite you to join us on this transformative journey of learning and growth at RBANMS First Grade College.
-                                                </p>
-                                            </div>
+                                                {expandedCard === 'principal' && (
+                                                    <div className="mt-3 space-y-3">
+                                                        <p>
+                                                            We are dedicated to fostering an educational experience that goes beyond textbooks. Our focus is on holistic development that encompasses intellectual growth, emotional maturity, and social responsibility.
+                                                        </p>
+                                                        <p>
+                                                            Through our diverse range of programs, state-of-the-art facilities, and experienced faculty, we strive to provide every student with the tools they need to succeed in their chosen fields and contribute meaningfully to society.
+                                                        </p>
+                                                        <p>
+                                                            I invite you to join us on this transformative journey of learning and growth at RBANMS First Grade College.
+                                                        </p>
+                                                    </div>
+                                                )}
+                                            </>
                                         )}
                                     </div>
 
