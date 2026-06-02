@@ -394,7 +394,7 @@ export default function FAQPage() {
   return (
     <div className="w-full bg-slate-50 min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-blue-900 via-blue-950 to-[#800000] text-white py-16 md:py-24">
+      <section className="relative overflow-hidden bg-gradient-to-r from-blue-900 via-blue-950 to-blue-900 text-white py-16 md:py-24">
         {/* Subtle Decorative Elements */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,215,0,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px]" />
@@ -456,11 +456,11 @@ export default function FAQPage() {
                   onClick={() => setActiveCategory(cat.id)}
                   className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-all whitespace-nowrap border shrink-0
                     ${isActive 
-                      ? 'bg-blue-900 text-[#FFD700] border-blue-900 shadow-md transform -translate-y-0.5' 
-                      : 'bg-white text-slate-600 hover:text-blue-900 hover:bg-slate-50 border-slate-200 hover:border-slate-300'
+                      ? 'bg-[#800000] text-[#FFD700] border-[#800000] shadow-md transform -translate-y-0.5' 
+                      : 'bg-white text-slate-700 hover:text-[#800000] hover:bg-slate-50 border-slate-200 hover:border-[#800000]/30'
                     }`}
                 >
-                  <Icon className={`h-4 w-4 ${isActive ? 'text-[#FFD700]' : 'text-slate-400 group-hover:text-blue-900'}`} />
+                  <Icon className={`h-4 w-4 ${isActive ? 'text-[#FFD700]' : 'text-[#800000]'}`} />
                   {cat.label}
                 </button>
               );
@@ -468,7 +468,7 @@ export default function FAQPage() {
           </div>
 
           {/* Results Metadata */}
-          <div className="flex justify-between items-center px-1 text-sm text-slate-500">
+          <div className="flex justify-between items-center px-1 text-sm text-slate-600">
             <span>
               Showing <strong>{filteredFAQs.length}</strong> {filteredFAQs.length === 1 ? 'question' : 'questions'}
               {activeCategory !== 'all' && ` in "${CATEGORIES.find(c => c.id === activeCategory)?.label}"`}
@@ -494,23 +494,23 @@ export default function FAQPage() {
                         value={`item-${faq.id}`}
                         className={`border-b-0 py-2 first:pt-0 last:pb-0`}
                       >
-                        <AccordionTrigger className="text-left font-semibold text-slate-800 hover:text-blue-900 hover:no-underline py-4 text-base md:text-lg group">
+                        <AccordionTrigger className="text-left font-bold text-blue-900 hover:text-[#800000] hover:no-underline py-4 text-base md:text-lg group">
                           <div className="flex flex-col md:flex-row md:items-center gap-2.5 w-full pr-4">
-                            <span className="text-xs uppercase tracking-wider font-bold bg-slate-100 text-slate-500 px-2 py-0.5 rounded w-max select-none">
+                            <span className="text-xs uppercase tracking-wider font-bold bg-[#800000]/10 text-[#800000] px-2 py-0.5 rounded w-max select-none">
                               Q{faq.order || idx + 1}
                             </span>
                             <span className="flex-1 group-hover:translate-x-0.5 transition-transform duration-200">
                               {faq.question}
                             </span>
                             {activeCategory === 'all' && catInfo && (
-                              <span className="hidden md:inline-block text-[10px] uppercase tracking-wider font-bold border border-slate-200 text-slate-400 px-2 py-0.5 rounded-full bg-white select-none">
+                              <span className="hidden md:inline-block text-[10px] uppercase tracking-wider font-bold border border-blue-100 text-blue-900 px-2 py-0.5 rounded-full bg-blue-50/50 select-none">
                                 {catInfo.label}
                               </span>
                             )}
                           </div>
                         </AccordionTrigger>
-                        <AccordionContent className="text-slate-600 leading-relaxed text-sm md:text-base pb-4 pt-1 px-1">
-                          <div className="bg-slate-50 border-l-4 border-l-blue-900 rounded-r-lg p-4 shadow-sm">
+                        <AccordionContent className="text-slate-900 leading-relaxed text-sm md:text-base pb-4 pt-1 px-1">
+                          <div className="bg-slate-50 border-l-4 border-l-[#800000] rounded-r-lg p-4 shadow-sm">
                             {faq.answer}
                           </div>
                         </AccordionContent>

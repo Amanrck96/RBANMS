@@ -24,6 +24,7 @@ export interface Post {
     published: boolean;
     slug: string;
     eventDate?: string;
+    department?: string;
 }
 
 export interface Event extends Post {}

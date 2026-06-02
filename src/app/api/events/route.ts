@@ -91,7 +91,7 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const { title, content, excerpt, imageUrl, published, eventDate } = await request.json();
+        const { title, content, excerpt, imageUrl, published, eventDate, department } = await request.json();
 
         const now = new Date().toISOString();
         const slug = generateSlug(title);
@@ -110,6 +110,7 @@ export async function POST(request: NextRequest) {
             published: published || false,
             slug,
             eventDate: eventDate || now,
+            department: department || 'general',
         };
 
         await adminDb.collection('events').doc(eventId).set(eventData);
@@ -158,7 +159,7 @@ export async function PUT(request: NextRequest) {
             );
         }
 
-        const { eventId, title, content, excerpt, imageUrl, published, eventDate } = await request.json();
+        const { eventId, title, content, excerpt, imageUrl, published, eventDate, department } = await request.json();
 
         const eventDoc = await adminDb.collection('events').doc(eventId).get();
         if (!eventDoc.exists) {
@@ -182,6 +183,7 @@ export async function PUT(request: NextRequest) {
         if (imageUrl !== undefined) updates.imageUrl = imageUrl;
         if (published !== undefined) updates.published = published;
         if (eventDate !== undefined) updates.eventDate = eventDate;
+        if (department !== undefined) updates.department = department;
 
         await adminDb.collection('events').doc(eventId).update(updates);
 

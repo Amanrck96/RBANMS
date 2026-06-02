@@ -110,7 +110,7 @@ export default function EventDetailPage({ params }: { params: Promise<{ slug: st
                         <CardHeader className="space-y-4 pt-10 px-8">
                             <CardTitle className="text-4xl text-primary font-headline">{event.title}</CardTitle>
 
-                            <div className="flex items-center gap-6 text-gray-600 pt-4 border-t border-gray-100">
+                            <div className="flex flex-wrap items-center gap-6 text-gray-600 pt-4 border-t border-gray-100">
                                 <div className="flex items-center gap-2">
                                     <User size={18} className="text-primary/60" />
                                     <span className="font-medium">{event.authorName}</span>
@@ -123,6 +123,13 @@ export default function EventDetailPage({ params }: { params: Promise<{ slug: st
                                         day: 'numeric'
                                     })}</span>
                                 </div>
+                                {event.department && event.department !== 'general' && (
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-xs uppercase tracking-wider font-bold bg-[#800000]/10 text-[#800000] px-3 py-1 rounded-full">
+                                            {event.department === 'computer-applications' ? 'Computer Applications (BCA)' : event.department === 'management' ? 'Management (BBA)' : event.department.replace('-', ' ')}
+                                        </span>
+                                    </div>
+                                )}
                             </div>
                         </CardHeader>
 

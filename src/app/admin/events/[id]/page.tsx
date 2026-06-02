@@ -15,6 +15,7 @@ import { Save, ArrowLeft, ImageIcon } from 'lucide-react';
 import Link from 'next/link';
 import { VisualEditor } from '@/components/admin/visual-editor';
 import { ImageUpload } from '@/components/admin/image-upload';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 export default function EventEditorPage() {
     const router = useRouter();
@@ -28,6 +29,7 @@ export default function EventEditorPage() {
     const [imageUrl, setImageUrl] = useState('');
     const [eventDate, setEventDate] = useState(new Date().toISOString().split('T')[0]);
     const [published, setPublished] = useState(false);
+    const [department, setDepartment] = useState('general');
     const [loading, setLoading] = useState(false);
     const [fetching, setFetching] = useState(isEditing);
 
@@ -50,6 +52,7 @@ export default function EventEditorPage() {
                     setEventDate(new Date(data.event.eventDate).toISOString().split('T')[0]);
                 }
                 setPublished(data.event.published);
+                setDepartment(data.event.department || 'general');
             }
         } catch (error) {
             console.error('Failed to fetch event:', error);
@@ -67,8 +70,8 @@ export default function EventEditorPage() {
             const url = '/api/events';
             const method = isEditing ? 'PUT' : 'POST';
             const body = isEditing
-                ? { eventId: params.id, title, excerpt, content, imageUrl, published, eventDate: new Date(eventDate).toISOString() }
-                : { title, excerpt, content, imageUrl, published, eventDate: new Date(eventDate).toISOString() };
+                ? { eventId: params.id, title, excerpt, content, imageUrl, published, eventDate: new Date(eventDate).toISOString(), department }
+                : { title, excerpt, content, imageUrl, published, eventDate: new Date(eventDate).toISOString(), department };
 
             const response = await fetch(url, {
                 method,
@@ -156,6 +159,25 @@ export default function EventEditorPage() {
                                 required
                                 disabled={loading}
                             />
+                        </div>
+
+                        <div className="space-y-2">
+                            <Label htmlFor="department">Department Tag *</Label>
+                            <Select value={department} onValueChange={setDepartment} disabled={loading}>
+                                <SelectTrigger className="w-full bg-white border-slate-200 text-slate-900">
+                                    <SelectValue placeholder="Select Department" />
+                                </SelectTrigger>
+                                <SelectContent className="bg-white text-slate-900 border-slate-200">
+                                    <SelectItem value="general">General / All Departments</SelectItem>
+                                    <SelectItem value="arts">Arts</SelectItem>
+                                    <SelectItem value="commerce">Commerce</SelectItem>
+                                    <SelectItem value="computer-applications">Computer Applications (BCA)</SelectItem>
+                                    <SelectItem value="english">English</SelectItem>
+                                    <SelectItem value="languages">Languages</SelectItem>
+                                    <SelectItem value="management">Management (BBA)</SelectItem>
+                                    <SelectItem value="physical-education">Physical Education</SelectItem>
+                                </SelectContent>
+                            </Select>
                         </div>
 
                         <div className="space-y-4">
