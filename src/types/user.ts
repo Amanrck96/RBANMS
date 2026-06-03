@@ -25,6 +25,7 @@ export interface Post {
     slug: string;
     eventDate?: string;
     department?: string;
+    tags?: string[];
 }
 
 export interface Event extends Post {}

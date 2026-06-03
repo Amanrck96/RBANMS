@@ -16,6 +16,33 @@ const DEPARTMENTS = [
     { id: 'languages', label: 'Languages' },
     { id: 'management', label: 'BBA' },
     { id: 'physical-education', label: 'Physical Education' },
+    { id: 'nss', label: 'NSS' },
+    { id: 'ncc', label: 'NCC' },
+    { id: 'ncc-army', label: 'NCC Army' },
+    { id: 'ncc-navy', label: 'NCC Navy' },
+    { id: 'iqac', label: 'IQAC' },
+    { id: 'womens-cell', label: 'Women\'s Cell' },
+    { id: 'equal-opportunity', label: 'Equal Opportunity Cell' },
+    { id: 'grievance-redressal', label: 'Grievance Redressal Cell' },
+    { id: 'anti-ragging', label: 'Anti-Ragging' },
+    { id: 'posh', label: 'POSH Cell' },
+    { id: 'sc-st-cell', label: 'SC/ST Cell' },
+    { id: 'internal-compliance', label: 'Internal Compliance' },
+    { id: 'manasa-counselling', label: 'Manasa Counselling' },
+    { id: 'cultural-committee', label: 'Cultural Committee' },
+    { id: 'eco-club', label: 'Eco Club' },
+    { id: 'aicte', label: 'AICTE' },
+    { id: 'discipline', label: 'Discipline' },
+    { id: 'examination', label: 'Examination' },
+    { id: 'ipc', label: 'IPC (Placement)' },
+    { id: 'yrc-scouts', label: 'YRC & Scouts' },
+    { id: 'statutory', label: 'Statutory Cell' },
+    { id: 'bca-forum', label: 'BCA Forum' },
+    { id: 'commerce-forum', label: 'Commerce Forum' },
+    { id: 'management-forum', label: 'Management Forum' },
+    { id: 'literary-forum', label: 'Literary Forum' },
+    { id: 'languages-forum', label: 'Languages Forum' },
+    { id: 'other', label: 'Other' }
 ];
 
 export default function EventsPage() {
@@ -44,7 +71,12 @@ export default function EventsPage() {
 
     const filteredEvents = useMemo(() => {
         if (activeDepartment === 'all') return events;
-        return events.filter(e => e.department === activeDepartment);
+        return events.filter(e => {
+            if (e.tags && Array.isArray(e.tags)) {
+                return e.tags.includes(activeDepartment);
+            }
+            return e.department === activeDepartment;
+        });
     }, [events, activeDepartment]);
 
     return (
@@ -104,7 +136,6 @@ export default function EventsPage() {
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {filteredEvents.map((event) => {
-                            const deptLabel = DEPARTMENTS.find(d => d.id === event.department)?.label || 'Event';
                             return (
                                 <Card key={event.id} className="overflow-hidden hover:shadow-xl transition-shadow flex flex-col h-full group border-slate-200">
                                     <div className="aspect-video w-full overflow-hidden bg-gray-200 shrink-0 relative">
@@ -119,8 +150,27 @@ export default function EventsPage() {
                                                 <Calendar size={48} className="text-slate-300" />
                                             </div>
                                         )}
-                                        <div className="absolute top-2 right-2 bg-white/95 backdrop-blur text-[#800000] text-[10px] font-bold px-2 py-1 rounded shadow-sm border border-[#800000]/10 uppercase tracking-wider select-none">
-                                            {event.department && event.department !== 'general' ? deptLabel : 'Event'}
+                                        <div className="absolute top-2 right-2 flex flex-wrap gap-1 justify-end max-w-[90%] pointer-events-none">
+                                            {(() => {
+                                                const eventTags = event.tags || (event.department ? [event.department] : ['general']);
+                                                const nonGeneralTags = eventTags.filter(t => t !== 'general');
+                                                if (nonGeneralTags.length === 0) {
+                                                    return (
+                                                        <span className="bg-white/95 backdrop-blur text-[#800000] text-[9px] font-bold px-1.5 py-0.5 rounded shadow-sm border border-[#800000]/10 uppercase tracking-wider select-none">
+                                                            General
+                                                        </span>
+                                                    );
+                                                }
+                                                return nonGeneralTags.map(t => {
+                                                    const tagObj = DEPARTMENTS.find(d => d.id === t);
+                                                    if (!tagObj) return null;
+                                                    return (
+                                                        <span key={t} className="bg-white/95 backdrop-blur text-[#800000] text-[9px] font-bold px-1.5 py-0.5 rounded shadow-sm border border-[#800000]/10 uppercase tracking-wider select-none">
+                                                            {tagObj.label}
+                                                        </span>
+                                                    );
+                                                });
+                                            })()}
                                         </div>
                                     </div>
                                     <CardHeader className="shrink-0 pb-4">

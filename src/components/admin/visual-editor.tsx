@@ -195,6 +195,34 @@ export function VisualEditor({ value, onChange, placeholder }: VisualEditorProps
                     type="button"
                     variant="ghost"
                     size="sm"
+                    onClick={() => execCommand('fontSize', '2')}
+                    title="Font Size: Small"
+                >
+                    <span className="text-[10px] font-bold text-slate-700">A-</span>
+                </Button>
+                <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => execCommand('fontSize', '4')}
+                    title="Font Size: Normal"
+                >
+                    <span className="text-[13px] font-bold text-slate-700">A</span>
+                </Button>
+                <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => execCommand('fontSize', '6')}
+                    title="Font Size: Large"
+                >
+                    <span className="text-[16px] font-bold text-slate-700">A+</span>
+                </Button>
+                <div className="w-px h-6 bg-gray-300 mx-1 self-center" />
+                <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
                     onClick={() => execCommand('insertUnorderedList')}
                     title="Bullet List"
                 >

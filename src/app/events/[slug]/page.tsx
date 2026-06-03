@@ -123,13 +123,52 @@ export default function EventDetailPage({ params }: { params: Promise<{ slug: st
                                         day: 'numeric'
                                     })}</span>
                                 </div>
-                                {event.department && event.department !== 'general' && (
-                                    <div className="flex items-center gap-2">
-                                        <span className="text-xs uppercase tracking-wider font-bold bg-[#800000]/10 text-[#800000] px-3 py-1 rounded-full">
-                                            {event.department === 'computer-applications' ? 'Computer Applications (BCA)' : event.department === 'management' ? 'Management (BBA)' : event.department.replace('-', ' ')}
-                                        </span>
-                                    </div>
-                                )}
+                                {((event.tags && Array.isArray(event.tags)) ? event.tags : (event.department ? [event.department] : [])).filter(t => t !== 'general').map(t => {
+                                    const tagObj = [
+                                        { id: 'arts', label: 'Arts' },
+                                        { id: 'commerce', label: 'Commerce' },
+                                        { id: 'computer-applications', label: 'Computer Applications (BCA)' },
+                                        { id: 'english', label: 'English' },
+                                        { id: 'languages', label: 'Languages' },
+                                        { id: 'management', label: 'Management (BBA)' },
+                                        { id: 'physical-education', label: 'Physical Education' },
+                                        { id: 'nss', label: 'NSS' },
+                                        { id: 'ncc', label: 'NCC' },
+                                        { id: 'ncc-army', label: 'NCC Army' },
+                                        { id: 'ncc-navy', label: 'NCC Navy' },
+                                        { id: 'iqac', label: 'IQAC' },
+                                        { id: 'womens-cell', label: 'Women\'s Cell' },
+                                        { id: 'equal-opportunity', label: 'Equal Opportunity Cell' },
+                                        { id: 'grievance-redressal', label: 'Grievance Redressal Cell' },
+                                        { id: 'anti-ragging', label: 'Anti-Ragging' },
+                                        { id: 'posh', label: 'POSH Cell' },
+                                        { id: 'sc-st-cell', label: 'SC/ST Cell' },
+                                        { id: 'internal-compliance', label: 'Internal Compliance' },
+                                        { id: 'manasa-counselling', label: 'Manasa Counselling' },
+                                        { id: 'cultural-committee', label: 'Cultural Committee' },
+                                        { id: 'eco-club', label: 'Eco Club' },
+                                        { id: 'aicte', label: 'AICTE' },
+                                        { id: 'discipline', label: 'Discipline' },
+                                        { id: 'examination', label: 'Examination' },
+                                        { id: 'ipc', label: 'Internal Placement Cell (IPC)' },
+                                        { id: 'yrc-scouts', label: 'YRC & Scouts' },
+                                        { id: 'statutory', label: 'Statutory Cell' },
+                                        { id: 'bca-forum', label: 'BCA Forum' },
+                                        { id: 'commerce-forum', label: 'Commerce Forum' },
+                                        { id: 'management-forum', label: 'Management Forum' },
+                                        { id: 'literary-forum', label: 'Literary Forum' },
+                                        { id: 'languages-forum', label: 'Languages Forum' },
+                                        { id: 'other', label: 'Other' }
+                                    ].find(x => x.id === t);
+                                    if (!tagObj) return null;
+                                    return (
+                                        <div key={t} className="flex items-center gap-2">
+                                            <span className="text-xs uppercase tracking-wider font-bold bg-[#800000]/10 text-[#800000] px-3 py-1 rounded-full">
+                                                {tagObj.label}
+                                            </span>
+                                        </div>
+                                    );
+                                })}
                             </div>
                         </CardHeader>
 

@@ -15,7 +15,43 @@ import { Save, ArrowLeft, ImageIcon } from 'lucide-react';
 import Link from 'next/link';
 import { VisualEditor } from '@/components/admin/visual-editor';
 import { ImageUpload } from '@/components/admin/image-upload';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+const EVENT_TAGS = [
+    { id: 'general', label: 'General / All Departments' },
+    { id: 'arts', label: 'Arts' },
+    { id: 'commerce', label: 'Commerce' },
+    { id: 'computer-applications', label: 'Computer Applications (BCA)' },
+    { id: 'english', label: 'English' },
+    { id: 'languages', label: 'Languages' },
+    { id: 'management', label: 'Management (BBA)' },
+    { id: 'physical-education', label: 'Physical Education' },
+    { id: 'nss', label: 'NSS (National Service Scheme)' },
+    { id: 'ncc', label: 'NCC (National Cadet Corps)' },
+    { id: 'ncc-army', label: 'NCC Army' },
+    { id: 'ncc-navy', label: 'NCC Navy' },
+    { id: 'iqac', label: 'IQAC' },
+    { id: 'womens-cell', label: 'Women\'s Cell' },
+    { id: 'equal-opportunity', label: 'Equal Opportunity Cell' },
+    { id: 'grievance-redressal', label: 'Grievance Redressal Cell' },
+    { id: 'anti-ragging', label: 'Anti-Ragging Cell' },
+    { id: 'posh', label: 'POSH (Prevention of Sexual Harassment) Cell' },
+    { id: 'sc-st-cell', label: 'SC/ST Cell' },
+    { id: 'internal-compliance', label: 'Internal Compliance Committee' },
+    { id: 'manasa-counselling', label: 'Manasa Counselling' },
+    { id: 'cultural-committee', label: 'Cultural Committee' },
+    { id: 'eco-club', label: 'Eco Club' },
+    { id: 'aicte', label: 'AICTE Committee' },
+    { id: 'discipline', label: 'Discipline Committee' },
+    { id: 'examination', label: 'Examination Committee' },
+    { id: 'ipc', label: 'Internal Placement Cell (IPC)' },
+    { id: 'yrc-scouts', label: 'YRC & Scouts' },
+    { id: 'statutory', label: 'Statutory Cell' },
+    { id: 'bca-forum', label: 'BCA Forum (Techtantra)' },
+    { id: 'commerce-forum', label: 'Commerce Forum' },
+    { id: 'management-forum', label: 'Management Forum (BBA)' },
+    { id: 'literary-forum', label: 'Literary Forum' },
+    { id: 'languages-forum', label: 'Languages Forum' },
+    { id: 'other', label: 'Other' }
+];
 
 export default function EventEditorPage() {
     const router = useRouter();
@@ -30,6 +66,8 @@ export default function EventEditorPage() {
     const [eventDate, setEventDate] = useState(new Date().toISOString().split('T')[0]);
     const [published, setPublished] = useState(false);
     const [department, setDepartment] = useState('general');
+    const [tags, setTags] = useState<string[]>(['general']);
+    const [searchQuery, setSearchQuery] = useState('');
     const [loading, setLoading] = useState(false);
     const [fetching, setFetching] = useState(isEditing);
 
@@ -53,12 +91,36 @@ export default function EventEditorPage() {
                 }
                 setPublished(data.event.published);
                 setDepartment(data.event.department || 'general');
+                setTags(data.event.tags || (data.event.department ? [data.event.department] : ['general']));
             }
         } catch (error) {
             console.error('Failed to fetch event:', error);
         } finally {
             setFetching(false);
         }
+    };
+
+    const handleToggleTag = (tagId: string) => {
+        setTags(prev => {
+            const isSelected = prev.includes(tagId);
+            let nextTags;
+            if (isSelected) {
+                nextTags = prev.filter(t => t !== tagId);
+            } else {
+                nextTags = [...prev, tagId];
+            }
+            // Sync legacy department field with first active tag
+            setDepartment(nextTags[0] || 'general');
+            return nextTags;
+        });
+    };
+
+    const handleRemoveTag = (tagId: string) => {
+        setTags(prev => {
+            const nextTags = prev.filter(t => t !== tagId);
+            setDepartment(nextTags[0] || 'general');
+            return nextTags;
+        });
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -69,9 +131,11 @@ export default function EventEditorPage() {
             const token = await auth?.currentUser?.getIdToken();
             const url = '/api/events';
             const method = isEditing ? 'PUT' : 'POST';
+            
+            const activeDepartment = tags[0] || 'general';
             const body = isEditing
-                ? { eventId: params.id, title, excerpt, content, imageUrl, published, eventDate: new Date(eventDate).toISOString(), department }
-                : { title, excerpt, content, imageUrl, published, eventDate: new Date(eventDate).toISOString(), department };
+                ? { eventId: params.id, title, excerpt, content, imageUrl, published, eventDate: new Date(eventDate).toISOString(), department: activeDepartment, tags }
+                : { title, excerpt, content, imageUrl, published, eventDate: new Date(eventDate).toISOString(), department: activeDepartment, tags };
 
             const response = await fetch(url, {
                 method,
@@ -161,23 +225,67 @@ export default function EventEditorPage() {
                             />
                         </div>
 
-                        <div className="space-y-2">
-                            <Label htmlFor="department">Department Tag *</Label>
-                            <Select value={department} onValueChange={setDepartment} disabled={loading}>
-                                <SelectTrigger className="w-full bg-white border-slate-200 text-slate-900">
-                                    <SelectValue placeholder="Select Department" />
-                                </SelectTrigger>
-                                <SelectContent className="bg-white text-slate-900 border-slate-200">
-                                    <SelectItem value="general">General / All Departments</SelectItem>
-                                    <SelectItem value="arts">Arts</SelectItem>
-                                    <SelectItem value="commerce">Commerce</SelectItem>
-                                    <SelectItem value="computer-applications">Computer Applications (BCA)</SelectItem>
-                                    <SelectItem value="english">English</SelectItem>
-                                    <SelectItem value="languages">Languages</SelectItem>
-                                    <SelectItem value="management">Management (BBA)</SelectItem>
-                                    <SelectItem value="physical-education">Physical Education</SelectItem>
-                                </SelectContent>
-                            </Select>
+                        <div className="space-y-3">
+                            <Label className="text-base font-semibold text-slate-900">Event Tags (Select multiple) *</Label>
+                            <div className="flex flex-wrap gap-2 p-3 bg-slate-50 border border-slate-200 rounded-lg min-h-[50px] items-center">
+                                {tags.length === 0 ? (
+                                    <span className="text-sm text-slate-400 italic">No tags selected. Select tags below.</span>
+                                ) : (
+                                    tags.map(tagId => {
+                                        const t = EVENT_TAGS.find(x => x.id === tagId);
+                                        return (
+                                            <span key={tagId} className="inline-flex items-center gap-1 bg-[#800000] text-[#FFD700] text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm">
+                                                {t ? t.label : tagId}
+                                                <button
+                                                    type="button"
+                                                    onClick={() => handleRemoveTag(tagId)}
+                                                    className="hover:bg-[#660000] rounded-full p-0.5 ml-1 text-xs"
+                                                    title="Remove tag"
+                                                    disabled={loading}
+                                                >
+                                                    &times;
+                                                </button>
+                                            </span>
+                                        );
+                                    })
+                                )}
+                            </div>
+
+                            <div className="border border-slate-200 rounded-lg overflow-hidden bg-white shadow-sm">
+                                <div className="p-2 border-b bg-slate-50">
+                                    <Input
+                                        placeholder="Search tags..."
+                                        value={searchQuery}
+                                        onChange={(e) => setSearchQuery(e.target.value)}
+                                        className="h-9 bg-white text-slate-900 border-slate-200 focus:ring-[#800000]"
+                                        disabled={loading}
+                                    />
+                                </div>
+                                <div className="max-h-[220px] overflow-y-auto p-3 grid grid-cols-1 md:grid-cols-2 gap-2">
+                                    {EVENT_TAGS.filter(t => t.label.toLowerCase().includes(searchQuery.toLowerCase())).map(t => {
+                                        const isSelected = tags.includes(t.id);
+                                        return (
+                                            <label
+                                                key={t.id}
+                                                className={`flex items-center gap-2.5 p-2 rounded-md border text-xs font-semibold cursor-pointer select-none transition-all ${
+                                                    isSelected
+                                                        ? 'bg-[#800000]/5 border-[#800000] text-[#800000]'
+                                                        : 'hover:bg-slate-50 border-slate-100 text-slate-700'
+                                                }`}
+                                            >
+                                                <input
+                                                    type="checkbox"
+                                                    checked={isSelected}
+                                                    onChange={() => handleToggleTag(t.id)}
+                                                    disabled={loading}
+                                                    className="w-4 h-4 rounded text-[#800000] border-slate-300 focus:ring-[#800000]"
+                                                />
+                                                {t.label}
+                                            </label>
+                                        );
+                                    })}
+                                </div>
+                            </div>
                         </div>
 
                         <div className="space-y-4">

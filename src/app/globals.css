@@ -146,3 +146,21 @@ main:not(.keep-colors) :where(svg) {
   color: #2563eb;
   text-decoration: underline;
 }
+
+/* Font Size overrides for editor and rendered content */
+font[size="2"],
+.prose font[size="2"] {
+  font-size: 0.875rem !important; /* Small (14px) */
+}
+font[size="3"],
+font[size="4"],
+.prose font[size="3"],
+.prose font[size="4"] {
+  font-size: 1rem !important; /* Normal (16px) */
+}
+font[size="5"],
+font[size="6"],
+.prose font[size="5"],
+.prose font[size="6"] {
+  font-size: 1.25rem !important; /* Large (20px) */
+}
