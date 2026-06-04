@@ -73,7 +73,7 @@ export function TwoRowCardLayout() {
                                     </h3>
                                     <p className="text-muted-foreground text-sm text-center mb-3">(1827–1910)</p>
 
-                                    <div className="text-left text-sm content-black mb-4">
+                                    <div className="text-left text-sm content-black homepage-card-content mb-4">
                                         {data.content ? (
                                             <div 
                                                 className={expandedCard !== 'founder' ? 'line-clamp-3' : ''}
@@ -136,7 +136,7 @@ export function TwoRowCardLayout() {
                                         />
                                     </div>
 
-                                    <div className="text-left text-sm content-black mb-4">
+                                    <div className="text-left text-sm content-black homepage-card-content mb-4">
                                         {data.content ? (
                                             <div 
                                                 className={expandedCard !== 'director' ? 'line-clamp-4' : ''}
@@ -200,7 +200,7 @@ export function TwoRowCardLayout() {
                                         />
                                     </div>
 
-                                    <div className="text-left text-sm content-black mb-4">
+                                    <div className="text-left text-sm content-black homepage-card-content mb-4">
                                         {data.content ? (
                                             <div 
                                                 className={expandedCard !== 'principal' ? 'line-clamp-4' : ''}

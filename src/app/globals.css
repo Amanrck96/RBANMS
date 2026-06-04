@@ -91,6 +91,14 @@ main:not(.keep-colors) :where(svg) {
   color: #000 !important;
 }
 
+/* Force consistent font size and family inside home page cards to override visual editor inline styles and utility classes */
+.homepage-card-content,
+.homepage-card-content :where(p, li, span, small, strong, em, a, td, th, figcaption, label, div) {
+  font-size: 0.875rem !important; /* text-sm (14px) */
+  font-family: inherit !important;
+  line-height: 1.6 !important;
+}
+
 /* Visual Editor Styles */
 [contenteditable] {
   outline: none;
