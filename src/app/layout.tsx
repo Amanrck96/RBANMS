@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   },
   description: "RBANMS First Grade College - Affiliated to Bengaluru City University & Accredited by NAAC. Established in 1983, we provide quality education in Arts, Commerce, Management, and Computer Applications.",
   keywords: 'RBANMS, RBANMS First Grade College, Bengaluru City University, NAAC accredited college Bangalore, BCA college Bangalore, BCom college Bangalore, BBA college Bangalore, BA college Bangalore',
+  other: {
+    'google-adsense-account': 'ca-pub-1490226050512529',
+  },
   verification: {
     google: 'your-google-verification-code', // Placeholder - user might need to add this later
   },
@@ -76,6 +79,12 @@ export default function RootLayout({
             gtag('config', 'AW-17909091166');
           `}
         </Script>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1490226050512529"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <AuthProvider>
           {children}
         </AuthProvider>

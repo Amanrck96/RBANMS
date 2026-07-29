@@ -2,7 +2,9 @@
 <html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-1490226050512529">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1490226050512529"
+     crossorigin="anonymous"></script>
     <?php wp_head(); ?>
     <script>
         tailwind.config = {
