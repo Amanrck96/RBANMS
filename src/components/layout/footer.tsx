@@ -10,15 +10,15 @@ export function SiteFooter() {
 
   const quickLinks = [
     { name: 'Home', href: '/', highlight: true },
+    { name: 'About Us', href: '/about' },
     { name: 'Admission', href: '/admission', highlight: true },
-    { name: 'Industry Connect', href: '/industry-connect/internship' },
-    { name: 'RTI', href: '/rti' },
-    { name: 'Governance', href: '/governance' },
-
-    { name: 'Code of Conduct', href: '/code-of-conduct' },
-    { name: 'Statutory CELLS', href: '/statutory-cells' },
-    { name: 'Alumni', href: '/alumni/activity' },
     { name: 'Contact Us', href: '/contact' },
+    { name: 'Privacy Policy', href: '/privacy-policy', highlight: true },
+    { name: 'Terms of Service', href: '/terms-of-service' },
+    { name: 'Disclaimer', href: '/disclaimer' },
+    { name: 'Code of Conduct', href: '/code-of-conduct' },
+    { name: 'Governance', href: '/governance' },
+    { name: 'RTI', href: '/rti' },
     { name: 'FAQ', href: '/faq' },
   ];
 
@@ -131,12 +131,23 @@ export function SiteFooter() {
       </div>
 
       <div className="bg-[#800000]">
-        <div className="container mx-auto px-4 py-3 text-center text-sm text-white/70">
-          <DynamicSection
-            pageId="footer-about"
-            onlyContent
-            defaultContent={<p>&copy; 2025 RBANMS First Grade College. All Rights Reserved.</p>}
-          />
+        <div className="container mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between text-sm text-white/80 gap-2">
+          <div>
+            <DynamicSection
+              pageId="footer-about"
+              onlyContent
+              defaultContent={<p>&copy; {new Date().getFullYear()} RBANMS First Grade College. All Rights Reserved.</p>}
+            />
+          </div>
+          <div className="flex flex-wrap items-center gap-4 text-xs text-white/80">
+            <Link href="/privacy-policy" className="hover:text-white underline transition-colors">Privacy Policy</Link>
+            <span>•</span>
+            <Link href="/terms-of-service" className="hover:text-white underline transition-colors">Terms of Service</Link>
+            <span>•</span>
+            <Link href="/disclaimer" className="hover:text-white underline transition-colors">Disclaimer</Link>
+            <span>•</span>
+            <Link href="/sitemap.xml" className="hover:text-white underline transition-colors">Sitemap</Link>
+          </div>
         </div>
       </div>
     </footer>
