@@ -26,12 +26,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/privacy-policy',
     '/terms-of-service',
     '/disclaimer',
+    '/college-info',
+    '/scholarships',
+    '/departments',
+    '/research',
+    '/ncc',
+    '/aicte',
+    '/activities',
   ];
 
   return routes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: route === '' ? 'daily' : 'weekly',
-    priority: route === '' ? 1.0 : 0.8,
+    changeFrequency: (route === '' || route === '/college-info') ? 'daily' : 'weekly',
+    priority: route === '' ? 1.0 : route === '/college-info' ? 0.95 : 0.8,
   }));
 }

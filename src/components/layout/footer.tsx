@@ -10,10 +10,11 @@ export function SiteFooter() {
 
   const quickLinks = [
     { name: 'Home', href: '/', highlight: true },
+    { name: 'College Info', href: '/college-info', highlight: true },
     { name: 'About Us', href: '/about' },
     { name: 'Admission', href: '/admission', highlight: true },
     { name: 'Contact Us', href: '/contact' },
-    { name: 'Privacy Policy', href: '/privacy-policy', highlight: true },
+    { name: 'Privacy Policy', href: '/privacy-policy' },
     { name: 'Terms of Service', href: '/terms-of-service' },
     { name: 'Disclaimer', href: '/disclaimer' },
     { name: 'Code of Conduct', href: '/code-of-conduct' },
