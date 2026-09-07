@@ -17,9 +17,6 @@ export const metadata: Metadata = {
   other: {
     'google-adsense-account': 'ca-pub-1490226050512529',
   },
-  verification: {
-    google: 'your-google-verification-code', // Placeholder - user might need to add this later
-  },
   openGraph: {
     type: 'website',
     locale: 'en_IN',

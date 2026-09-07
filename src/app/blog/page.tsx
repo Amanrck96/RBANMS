@@ -12,13 +12,14 @@ import { collection, query, where, orderBy, onSnapshot } from 'firebase/firestor
 import { SiteHeader } from '@/components/layout/header';
 import { SiteFooter } from '@/components/layout/footer';
 
+import { staticBlogPosts } from '@/lib/blog-data';
+
 export default function BlogPage() {
-    const [posts, setPosts] = useState<Post[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [posts, setPosts] = useState<any[]>(staticBlogPosts);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if (!db) {
-            setLoading(false);
             return;
         }
 
@@ -34,13 +35,16 @@ export default function BlogPage() {
                     id: doc.id,
                     ...doc.data()
                 })) as Post[];
-                // Filter manually to avoid Firestore composite index requirement
-                setPosts(postsList.filter(p => p.published === true));
-                setLoading(false);
+                const publishedFirestore = postsList.filter(p => p.published === true);
+                if (publishedFirestore.length > 0) {
+                    setPosts([...publishedFirestore, ...staticBlogPosts]);
+                } else {
+                    setPosts(staticBlogPosts);
+                }
             },
             (error) => {
                 console.error('Real-time posts listener error:', error);
-                setLoading(false);
+                setPosts(staticBlogPosts);
             }
         );
 

@@ -13,14 +13,17 @@ import { collection, query, where, onSnapshot, limit } from 'firebase/firestore'
 import { SiteHeader } from '@/components/layout/header';
 import { SiteFooter } from '@/components/layout/footer';
 
+import { staticBlogPosts } from '@/lib/blog-data';
+
 export default function BlogPostPage() {
     const params = useParams();
     const router = useRouter();
-    const [post, setPost] = useState<Post | null>(null);
-    const [loading, setLoading] = useState(true);
+    const staticMatch = staticBlogPosts.find(p => p.slug === params?.slug);
+    const [post, setPost] = useState<any>(staticMatch || null);
+    const [loading, setLoading] = useState(!staticMatch);
 
     useEffect(() => {
-        if (!db || !params.slug) {
+        if (!db || !params?.slug) {
             setLoading(false);
             return;
         }
@@ -41,19 +44,22 @@ export default function BlogPostPage() {
                         id: snapshot.docs[0].id,
                         ...postData
                     } as Post);
-                } else {
+                } else if (!staticMatch) {
                     setPost(null);
                 }
                 setLoading(false);
             },
             (error) => {
                 console.error('Real-time post listener error:', error);
+                if (!staticMatch) {
+                    setPost(null);
+                }
                 setLoading(false);
             }
         );
 
         return () => unsubscribe();
-    }, [params.slug]);
+    }, [params?.slug, staticMatch]);
 
     if (loading) {
         return (

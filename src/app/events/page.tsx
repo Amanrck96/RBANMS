@@ -45,9 +45,23 @@ const DEPARTMENTS = [
     { id: 'other', label: 'Other' }
 ];
 
+import { events as staticEvents } from '@/lib/events-data';
+
+const fallbackEvents: any[] = staticEvents.map((ev, idx) => ({
+    id: `static-event-${idx}-${ev.slug}`,
+    slug: ev.slug,
+    title: ev.title,
+    excerpt: ev.description,
+    department: 'general',
+    tags: ['general', ev.tag?.toLowerCase().includes('commerce') ? 'commerce' : ev.tag?.toLowerCase().includes('language') ? 'languages' : 'other'],
+    createdAt: `${ev.date.year}-06-01T10:00:00.000Z`,
+    imageUrl: ev.images && ev.images.length > 0 ? ev.images[0] : undefined,
+    published: true,
+}));
+
 export default function EventsPage() {
-    const [events, setEvents] = useState<Post[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [events, setEvents] = useState<any[]>(fallbackEvents);
+    const [loading, setLoading] = useState(false);
     const [activeDepartment, setActiveDepartment] = useState('all');
 
     useEffect(() => {
@@ -56,14 +70,15 @@ export default function EventsPage() {
                 const response = await fetch('/api/events?published=true');
                 if (response.ok) {
                     const data = await response.json();
-                    if (data.events) {
-                        setEvents(data.events);
+                    if (data.events && data.events.length > 0) {
+                        setEvents([...data.events, ...fallbackEvents]);
+                    } else {
+                        setEvents(fallbackEvents);
                     }
                 }
             } catch (error) {
                 console.error('Error fetching events:', error);
-            } finally {
-                setLoading(false);
+                setEvents(fallbackEvents);
             }
         };
         fetchEvents();
