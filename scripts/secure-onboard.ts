@@ -34,11 +34,6 @@ const USERS = [
         email: 'anand.b.j.7@gmail.com',
         role: 'admin',
         displayName: 'Content Admin'
-    },
-    {
-        email: 'shabreen2k20@gmail.com',
-        role: 'admin',
-        displayName: 'Content Admin'
     }
 ];
 
