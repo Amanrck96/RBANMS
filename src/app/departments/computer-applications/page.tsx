@@ -156,13 +156,13 @@ export default function ComputerApplicationsDeptPage() {
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 mb-8 text-black">COURSE MATRIX</h2>
       <div className="bg-white p-6 rounded-xl border-2 border-primary">
         <Tabs defaultValue="sem1" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 md:grid-cols-6 h-auto p-1 bg-white shadow-sm mb-8 border border-primary/20">
-            <TabsTrigger value="sem1" className="py-2 text-black data-[state=active]:bg-primary data-[state=active]:text-white">Sem 1</TabsTrigger>
-            <TabsTrigger value="sem2" className="py-2 text-black data-[state=active]:bg-primary data-[state=active]:text-white">Sem 2</TabsTrigger>
-            <TabsTrigger value="sem3" className="py-2 text-black data-[state=active]:bg-primary data-[state=active]:text-white">Sem 3</TabsTrigger>
-            <TabsTrigger value="sem4" className="py-2 text-black data-[state=active]:bg-primary data-[state=active]:text-white">Sem 4</TabsTrigger>
-            <TabsTrigger value="sem5" className="py-2 text-black data-[state=active]:bg-primary data-[state=active]:text-white">Sem 5</TabsTrigger>
-            <TabsTrigger value="sem6" className="py-2 text-black data-[state=active]:bg-primary data-[state=active]:text-white">Sem 6</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 h-auto p-2 bg-slate-50 shadow-sm mb-8 border border-slate-200 rounded-lg">
+            <TabsTrigger value="sem1" className="tab-trigger-sem py-2.5 px-3 rounded-md border text-sm font-semibold">Sem 1</TabsTrigger>
+            <TabsTrigger value="sem2" className="tab-trigger-sem py-2.5 px-3 rounded-md border text-sm font-semibold">Sem 2</TabsTrigger>
+            <TabsTrigger value="sem3" className="tab-trigger-sem py-2.5 px-3 rounded-md border text-sm font-semibold">Sem 3</TabsTrigger>
+            <TabsTrigger value="sem4" className="tab-trigger-sem py-2.5 px-3 rounded-md border text-sm font-semibold">Sem 4</TabsTrigger>
+            <TabsTrigger value="sem5" className="tab-trigger-sem py-2.5 px-3 rounded-md border text-sm font-semibold">Sem 5</TabsTrigger>
+            <TabsTrigger value="sem6" className="tab-trigger-sem py-2.5 px-3 rounded-md border text-sm font-semibold">Sem 6</TabsTrigger>
           </TabsList>
 
           <TabsContent value="sem1">

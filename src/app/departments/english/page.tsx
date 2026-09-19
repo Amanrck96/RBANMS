@@ -157,11 +157,11 @@ export default function EnglishDepartmentPage() {
       <div className="bg-white p-6 rounded-xl border-2 border-primary">
         <p className="mb-4 text-black italic font-semibold">NOTE: In RBANM’s First Grade College, English is a compulsory subject for all under-graduate streams, BA, BCA, B.Com, BBA, throughout the first, second, third and fourth semesters, without exception.</p>
         <Tabs defaultValue="general" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto p-1 bg-white shadow-sm mb-8 border border-primary/20">
-            <TabsTrigger value="general" className="py-2 text-black data-[state=active]:bg-primary data-[state=active]:text-white">General English</TabsTrigger>
-            <TabsTrigger value="additional" className="py-2 text-black data-[state=active]:bg-primary data-[state=active]:text-white">Additional English</TabsTrigger>
-            <TabsTrigger value="business" className="py-2 text-black data-[state=active]:bg-primary data-[state=active]:text-white">Business Comm</TabsTrigger>
-            <TabsTrigger value="employability" className="py-2 text-black data-[state=active]:bg-primary data-[state=active]:text-white">Employability</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 gap-2 h-auto p-2 bg-slate-50 shadow-sm mb-8 border border-slate-200 rounded-lg">
+            <TabsTrigger value="general" className="tab-trigger-sem py-2.5 px-3 rounded-md border text-sm font-semibold">General English</TabsTrigger>
+            <TabsTrigger value="additional" className="tab-trigger-sem py-2.5 px-3 rounded-md border text-sm font-semibold">Additional English</TabsTrigger>
+            <TabsTrigger value="business" className="tab-trigger-sem py-2.5 px-3 rounded-md border text-sm font-semibold">Business Comm</TabsTrigger>
+            <TabsTrigger value="employability" className="tab-trigger-sem py-2.5 px-3 rounded-md border text-sm font-semibold">Employability</TabsTrigger>
           </TabsList>
 
           <TabsContent value="general">

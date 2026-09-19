@@ -174,9 +174,9 @@ export default function CommerceDepartmentPage() {
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 mb-8 text-black">COURSE MATRIX: CORE PAPERS</h2>
       <div className="bg-white p-6 rounded-xl border-2 border-primary">
         <Tabs defaultValue="sem1" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 md:grid-cols-6 h-auto p-1 bg-white shadow-sm mb-8 border border-primary/20">
+          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 h-auto p-2 bg-slate-50 shadow-sm mb-8 border border-slate-200 rounded-lg">
             {['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4', 'Sem 5', 'Sem 6'].map((sem, i) => (
-              <TabsTrigger key={i} value={`sem${i + 1}`} className="py-2 text-black data-[state=active]:bg-primary data-[state=active]:text-white">{sem}</TabsTrigger>
+              <TabsTrigger key={i} value={`sem${i + 1}`} className="tab-trigger-sem py-2.5 px-3 rounded-md border text-sm font-semibold">{sem}</TabsTrigger>
             ))}
           </TabsList>
           <TabsContent value="sem1"><Card className="bg-white border-2 border-primary text-black"><CardHeader><CardTitle className="text-primary">Semester 1</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5"><li>FINANCIAL ACCOUNTING</li><li>PRINCIPLES OF MARKETING</li><li>BUSINESS ENVIRONMENT</li><li>INDIAN FINANCIAL SYSTEM</li></ul></CardContent></Card></TabsContent>

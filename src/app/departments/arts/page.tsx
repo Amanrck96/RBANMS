@@ -164,9 +164,9 @@ export default function ArtsDepartmentPage() {
       <h3 className="text-2xl font-bold mt-8 mb-4 text-black">Course Matrix – History</h3>
       <div className="bg-white p-6 rounded-xl border-2 border-primary">
         <Tabs defaultValue="sem1" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 md:grid-cols-6 h-auto p-1 bg-white shadow-sm mb-8 border border-primary/20">
+          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 h-auto p-2 bg-slate-50 shadow-sm mb-8 border border-slate-200 rounded-lg">
             {['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4', 'Sem 5', 'Sem 6'].map((sem, i) => (
-              <TabsTrigger key={i} value={`sem${i + 1}`} className="py-2 text-black data-[state=active]:bg-primary data-[state=active]:text-white">{sem}</TabsTrigger>
+              <TabsTrigger key={i} value={`sem${i + 1}`} className="tab-trigger-sem py-2.5 px-3 rounded-md border text-sm font-semibold">{sem}</TabsTrigger>
             ))}
           </TabsList>
           <TabsContent value="sem1"><Card className="bg-white border-2 border-primary text-black"><CardHeader><CardTitle className="text-primary">Semester 1</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5"><li>CORE - History of Ancient India</li></ul></CardContent></Card></TabsContent>
@@ -193,9 +193,9 @@ export default function ArtsDepartmentPage() {
       <h3 className="text-2xl font-bold mt-8 mb-4 text-black text-primary">Course Matrix - Economics</h3>
       <div className="bg-white p-6 rounded-xl border-2 border-primary">
         <Tabs defaultValue="sem1" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 md:grid-cols-6 h-auto p-1 bg-white shadow-sm mb-8 border border-primary/20">
+          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 h-auto p-2 bg-slate-50 shadow-sm mb-8 border border-slate-200 rounded-lg">
             {['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4', 'Sem 5', 'Sem 6'].map((sem, i) => (
-              <TabsTrigger key={i} value={`sem${i + 1}`} className="py-2 text-black data-[state=active]:bg-primary data-[state=active]:text-white">{sem}</TabsTrigger>
+              <TabsTrigger key={i} value={`sem${i + 1}`} className="tab-trigger-sem py-2.5 px-3 rounded-md border text-sm font-semibold">{sem}</TabsTrigger>
             ))}
           </TabsList>
           <TabsContent value="sem1"><Card className="bg-white border-2 border-primary text-black"><CardHeader><CardTitle className="text-primary">Semester 1</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5"><li>CORE - Micro Economics</li></ul></CardContent></Card></TabsContent>
@@ -222,9 +222,9 @@ export default function ArtsDepartmentPage() {
       <h3 className="text-2xl font-bold mt-8 mb-4 text-black">Course Matrix – Political Science</h3>
       <div className="bg-white p-6 rounded-xl border-2 border-primary">
         <Tabs defaultValue="sem1" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 md:grid-cols-6 h-auto p-1 bg-white shadow-sm mb-8 border border-primary/20">
+          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 h-auto p-2 bg-slate-50 shadow-sm mb-8 border border-slate-200 rounded-lg">
             {['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4', 'Sem 5', 'Sem 6'].map((sem, i) => (
-              <TabsTrigger key={i} value={`sem${i + 1}`} className="py-2 text-black data-[state=active]:bg-primary data-[state=active]:text-white">{sem}</TabsTrigger>
+              <TabsTrigger key={i} value={`sem${i + 1}`} className="tab-trigger-sem py-2.5 px-3 rounded-md border text-sm font-semibold">{sem}</TabsTrigger>
             ))}
           </TabsList>
           <TabsContent value="sem1"><Card className="bg-white border-2 border-primary text-black"><CardHeader><CardTitle className="text-primary">Semester 1</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5"><li>CORE - Foundational Concepts in Political Science</li><li><strong>Compulsory Paper:</strong> Constitutional Values – I (for all streams)</li></ul></CardContent></Card></TabsContent>

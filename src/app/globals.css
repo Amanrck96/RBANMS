@@ -113,17 +113,32 @@ main:not(.keep-colors) :where(p, li, span, small, strong, em, td, th, figcaption
   color: inherit !important;
 }
 
-/* Ensure badges and white text have guaranteed contrast */
-.course-badge-blue {
+/* Ensure blue course badges have guaranteed contrast */
+.course-badge-blue,
+.course-badge-blue * {
   background-color: #1e3a8a !important;
   color: #ffffff !important;
 }
 
-.text-white,
-[class*="text-white"],
-.course-badge-blue,
-.course-badge-blue * {
+/* Tabs trigger styling safeguards for Semester and matrix buttons */
+.tab-trigger-sem {
+  transition: all 0.2s ease-in-out;
+}
+[data-state="active"].tab-trigger-sem {
+  background-color: #800000 !important;
   color: #ffffff !important;
+  border-color: #800000 !important;
+  font-weight: 700 !important;
+}
+[data-state="inactive"].tab-trigger-sem {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+  font-weight: 600 !important;
+}
+[data-state="inactive"].tab-trigger-sem:hover {
+  background-color: #e2e8f0 !important;
+  color: #000000 !important;
 }
 
 header :where(p, li, span, small, strong, em, a, button, div, section),
