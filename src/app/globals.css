@@ -113,6 +113,19 @@ main:not(.keep-colors) :where(p, li, span, small, strong, em, td, th, figcaption
   color: inherit !important;
 }
 
+/* Ensure badges and white text have guaranteed contrast */
+.course-badge-blue {
+  background-color: #1e3a8a !important;
+  color: #ffffff !important;
+}
+
+.text-white,
+[class*="text-white"],
+.course-badge-blue,
+.course-badge-blue * {
+  color: #ffffff !important;
+}
+
 header :where(p, li, span, small, strong, em, a, button, div, section),
 footer :where(p, li, span, small, strong, em, a, button, div, section) {
   color: inherit;

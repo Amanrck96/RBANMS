@@ -104,10 +104,10 @@ export default function Home() {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                             {/* BCA */}
-                            <div className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-xl transition-all flex flex-col justify-between group hover:border-[#800000]">
+                            <div className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-xl transition-all flex flex-col justify-between group hover:border-blue-900">
                                 <div>
-                                    <span className="text-xs font-bold uppercase tracking-wider bg-[#800000] !text-white keep-colors px-2.5 py-1 rounded inline-block shadow-sm" style={{ color: '#ffffff' }}>B.C.A.</span>
-                                    <h3 className="text-xl font-bold text-slate-900 mt-4 mb-2 group-hover:text-[#800000] transition-colors">
+                                    <span className="text-xs font-bold uppercase tracking-wider bg-blue-900 !text-white keep-colors px-3 py-1 rounded inline-block shadow-sm course-badge-blue" style={{ backgroundColor: '#1e3a8a', color: '#ffffff' }}>B.C.A.</span>
+                                    <h3 className="text-xl font-bold text-slate-900 mt-4 mb-2 group-hover:text-blue-900 transition-colors">
                                         Bachelor of Computer Applications
                                     </h3>
                                     <p className="text-xs text-slate-500 font-semibold mb-3">Duration: 3 Years (6 Semesters)</p>
@@ -115,16 +115,16 @@ export default function Home() {
                                         Covers software engineering, cloud computing, database systems, web development, and algorithms for emerging IT careers.
                                     </p>
                                 </div>
-                                <Link href="/departments/computer-applications" className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-[#800000] hover:underline mt-auto">
+                                <Link href="/departments/computer-applications" className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-blue-900 hover:text-blue-700 hover:underline mt-auto">
                                     Course Details <ArrowRight className="h-3.5 w-3.5" />
                                 </Link>
                             </div>
 
                             {/* B.Com */}
-                            <div className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-xl transition-all flex flex-col justify-between group hover:border-[#800000]">
+                            <div className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-xl transition-all flex flex-col justify-between group hover:border-blue-900">
                                 <div>
-                                    <span className="text-xs font-bold uppercase tracking-wider bg-[#800000] !text-white keep-colors px-2.5 py-1 rounded inline-block shadow-sm" style={{ color: '#ffffff' }}>B.Com.</span>
-                                    <h3 className="text-xl font-bold text-slate-900 mt-4 mb-2 group-hover:text-[#800000] transition-colors">
+                                    <span className="text-xs font-bold uppercase tracking-wider bg-blue-900 !text-white keep-colors px-3 py-1 rounded inline-block shadow-sm course-badge-blue" style={{ backgroundColor: '#1e3a8a', color: '#ffffff' }}>B.Com.</span>
+                                    <h3 className="text-xl font-bold text-slate-900 mt-4 mb-2 group-hover:text-blue-900 transition-colors">
                                         Bachelor of Commerce
                                     </h3>
                                     <p className="text-xs text-slate-500 font-semibold mb-3">Duration: 3 Years (6 Semesters)</p>
@@ -132,16 +132,16 @@ export default function Home() {
                                         Specializations in Corporate Accounting, Taxation, GST Law, Financial Management, Auditing, and Banking Operations.
                                     </p>
                                 </div>
-                                <Link href="/departments/commerce" className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-[#800000] hover:underline mt-auto">
+                                <Link href="/departments/commerce" className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-blue-900 hover:text-blue-700 hover:underline mt-auto">
                                     Course Details <ArrowRight className="h-3.5 w-3.5" />
                                 </Link>
                             </div>
 
                             {/* BBA */}
-                            <div className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-xl transition-all flex flex-col justify-between group hover:border-[#800000]">
+                            <div className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-xl transition-all flex flex-col justify-between group hover:border-blue-900">
                                 <div>
-                                    <span className="text-xs font-bold uppercase tracking-wider bg-[#800000] !text-white keep-colors px-2.5 py-1 rounded inline-block shadow-sm" style={{ color: '#ffffff' }}>B.B.A.</span>
-                                    <h3 className="text-xl font-bold text-slate-900 mt-4 mb-2 group-hover:text-[#800000] transition-colors">
+                                    <span className="text-xs font-bold uppercase tracking-wider bg-blue-900 !text-white keep-colors px-3 py-1 rounded inline-block shadow-sm course-badge-blue" style={{ backgroundColor: '#1e3a8a', color: '#ffffff' }}>B.B.A.</span>
+                                    <h3 className="text-xl font-bold text-slate-900 mt-4 mb-2 group-hover:text-blue-900 transition-colors">
                                         Bachelor of Business Administration
                                     </h3>
                                     <p className="text-xs text-slate-500 font-semibold mb-3">Duration: 3 Years (6 Semesters)</p>
@@ -149,16 +149,16 @@ export default function Home() {
                                         Focuses on organizational leadership, corporate finance, marketing strategies, entrepreneurship, and human resources.
                                     </p>
                                 </div>
-                                <Link href="/departments/management" className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-[#800000] hover:underline mt-auto">
+                                <Link href="/departments/management" className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-blue-900 hover:text-blue-700 hover:underline mt-auto">
                                     Course Details <ArrowRight className="h-3.5 w-3.5" />
                                 </Link>
                             </div>
 
                             {/* BA */}
-                            <div className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-xl transition-all flex flex-col justify-between group hover:border-[#800000]">
+                            <div className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-xl transition-all flex flex-col justify-between group hover:border-blue-900">
                                 <div>
-                                    <span className="text-xs font-bold uppercase tracking-wider bg-[#800000] !text-white keep-colors px-2.5 py-1 rounded inline-block shadow-sm" style={{ color: '#ffffff' }}>B.A.</span>
-                                    <h3 className="text-xl font-bold text-slate-900 mt-4 mb-2 group-hover:text-[#800000] transition-colors">
+                                    <span className="text-xs font-bold uppercase tracking-wider bg-blue-900 !text-white keep-colors px-3 py-1 rounded inline-block shadow-sm course-badge-blue" style={{ backgroundColor: '#1e3a8a', color: '#ffffff' }}>B.A.</span>
+                                    <h3 className="text-xl font-bold text-slate-900 mt-4 mb-2 group-hover:text-blue-900 transition-colors">
                                         Bachelor of Arts
                                     </h3>
                                     <p className="text-xs text-slate-500 font-semibold mb-3">Duration: 3 Years (6 Semesters)</p>
@@ -166,7 +166,7 @@ export default function Home() {
                                         Disciplines in History, Economics, Political Science, Sociology, and English Literature. Ideal preparation for Civil Services.
                                     </p>
                                 </div>
-                                <Link href="/departments/arts" className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-[#800000] hover:underline mt-auto">
+                                <Link href="/departments/arts" className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-blue-900 hover:text-blue-700 hover:underline mt-auto">
                                     Course Details <ArrowRight className="h-3.5 w-3.5" />
                                 </Link>
                             </div>
