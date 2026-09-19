@@ -3,8 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
-import { SiteHeader } from '@/components/layout/header';
-import { SiteFooter } from '@/components/layout/footer';
+
 import { Camera, Calendar, Tag } from 'lucide-react';
 
 interface GalleryItem {
@@ -131,9 +130,7 @@ export default function GalleryPage() {
     : GALLERY_ITEMS.filter((item) => item.category === activeCategory);
 
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50">
-      <SiteHeader />
-
+    <div className="flex flex-col bg-slate-50">
       {/* Header Banner */}
       <header className="bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 text-white py-14">
         <div className="container mx-auto px-4 text-center max-w-3xl space-y-3">
@@ -207,8 +204,6 @@ export default function GalleryPage() {
           <p>Official photographs from graduation ceremonies and annual sports meets can be obtained through the college media cell or administration office.</p>
         </div>
       </main>
-
-      <SiteFooter />
     </div>
   );
 }

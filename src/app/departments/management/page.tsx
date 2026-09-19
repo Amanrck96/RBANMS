@@ -1,5 +1,6 @@
 import React from 'react';
 import { DepartmentLayout } from '@/components/layout/department-layout';
+import { DepartmentContact } from '@/components/departments/department-contact';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
@@ -272,6 +273,15 @@ export default function ManagementDepartmentPage() {
     </div>
   );
 
+  const contactContent = (
+    <DepartmentContact
+      departmentName="Department of Management Studies (BBA)"
+      departmentEmail="priyamahesh09@gmail.com"
+      hodName="Prof. Priya K (Head of Department – Management)"
+      hodPhone="9880213203"
+    />
+  );
+
   const sections = [
     { id: "why-bba", label: "Why BBA?", content: whyBbaContent },
     { id: "skills", label: "Skill Set Acquired", content: skillSetContent },
@@ -282,6 +292,7 @@ export default function ManagementDepartmentPage() {
     { id: "outcomes", label: "Programme Outcome", content: outcomesContent },
     { id: "activities", label: "Activities", content: activitiesContent },
     { id: "faculty", label: "Faculty Profile", content: facultyContent },
+    { id: "contact", label: "Contact", content: contactContent },
   ];
 
   return (

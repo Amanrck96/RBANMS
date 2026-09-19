@@ -1,5 +1,6 @@
 import React from 'react';
 import { DepartmentLayout } from '@/components/layout/department-layout';
+import { DepartmentContact } from '@/components/departments/department-contact';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -177,19 +178,10 @@ export default function PhysicalEducationPage() {
 
   // 5. Contact
   const contactContent = (
-    <div className="space-y-6">
-      <h2 className="text-3xl font-bold border-l-4 border-primary pl-4">Contact</h2>
-      <Card>
-        <CardContent className="pt-6 text-center text-muted-foreground">
-          <p className="font-bold text-slate-800 mb-2">Physical Education Department</p>
-          <p className="flex items-center justify-center gap-2">
-            <Mail className="h-4 w-4 text-primary" />
-            <a href="mailto:rbanmsfgc.ped@gmail.com" className="hover:text-primary transition-colors">rbanmsfgc.ped@gmail.com</a>
-          </p>
-          <p className="mt-4 text-sm italic">For inquiries regarding sports activities and teams, please visit the Physical Education Department on campus.</p>
-        </CardContent>
-      </Card>
-    </div>
+    <DepartmentContact
+      departmentName="Department of Physical Education & Sports"
+      departmentEmail="rbanmsfgc.ped@gmail.com"
+    />
   );
 
   const sections = [

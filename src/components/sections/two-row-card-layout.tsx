@@ -48,49 +48,52 @@ export function TwoRowCardLayout() {
             <div className="container mx-auto px-4">
                 {/* Row 1: Founder, Director, Principal */}
                 <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6 mb-6">
-                    {/* Founder Card */}
+                    {/* Secretary Card */}
                     <DynamicSection
-                        pageId="about-founder"
+                        pageId="about-secretary"
                         render={(data: any) => (
                             <Card className="flex flex-col h-full">
                                 <CardHeader>
                                     <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">
-                                        Our Founder
+                                        Our Secretary
                                     </CardTitle>
                                 </CardHeader>
                                 <CardContent className="flex-grow flex flex-col">
                                     <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gray-100">
                                         <Image
-                                            src={data.imageUrl || "/images/founder.jpg"}
-                                            alt={data.title || "Rai Bahadur Arcot Narrainswamy Mudaliar"}
+                                            src={data.imageUrl || "/images/secretary.jpg"}
+                                            alt={data.title || "Sri A. A. Sanjeev Narrain - Secretary"}
                                             fill
-                                            className="object-cover"
+                                            className="object-cover object-top"
                                             sizes="(max-width: 1024px) 100vw, 33vw"
                                         />
                                     </div>
-                                    <h3 className="text-center text-sm font-bold text-primary mb-2">
-                                        {data.title || "Rai Bahadur Arcot Narrainswamy Mudaliar"}
+                                    <h3 className="text-center text-sm font-bold text-primary mb-1">
+                                        {data.title || "Sri A. A. Sanjeev Narrain"}
                                     </h3>
-                                    <p className="text-muted-foreground text-sm text-center mb-3">(1827–1910)</p>
+                                    <p className="text-muted-foreground text-xs text-center font-medium mb-3">Hon. Secretary, RBANMS Educational Charities</p>
 
                                     <div className="text-left text-sm content-black homepage-card-content mb-4">
                                         {data.content ? (
                                             <div 
-                                                className={expandedCard !== 'founder' ? 'line-clamp-3' : ''}
+                                                className={expandedCard !== 'secretary' ? 'line-clamp-3' : ''}
                                                 dangerouslySetInnerHTML={{ __html: data.content }}
                                             />
                                         ) : (
                                             <>
                                                 <div
-                                                    className={expandedCard !== 'founder' ? 'line-clamp-3' : ''}
-                                                    dangerouslySetInnerHTML={{ __html: data.summary || 'Our founder Dharmarathnakara Rai Bahadur Arcot Narrainswamy Mudaliar embarked on his vision of social regeneration, providing for all classes and castes in the fields of education and social welfare.' }}
+                                                    className={expandedCard !== 'secretary' ? 'line-clamp-3' : ''}
+                                                    dangerouslySetInnerHTML={{ __html: data.summary || 'RBANMS Educational Charities continues its proud legacy of over 150 years in providing inclusive, quality, and value-based education to empower students from every sphere of society to excel and lead.' }}
                                                 />
 
-                                                {expandedCard === 'founder' && (
+                                                {expandedCard === 'secretary' && (
                                                     <div className="mt-3 space-y-3">
                                                         <p>
-                                                            <a href="/about/founder" className="text-primary hover:underline font-semibold">
-                                                                Read more about our Founder
+                                                            Dedicated to the foundational ethos of holistic youth empowerment, our institutions blend traditional character-building with contemporary skills, industry readiness, and community leadership.
+                                                        </p>
+                                                        <p>
+                                                            <a href="/about/governance" className="text-primary hover:underline font-semibold">
+                                                                Read more about Trust & Governance
                                                             </a>
                                                         </p>
                                                     </div>
@@ -100,11 +103,11 @@ export function TwoRowCardLayout() {
                                     </div>
 
                                     <Button
-                                        onClick={() => toggleCard('founder')}
+                                        onClick={() => toggleCard('secretary')}
                                         variant="link"
                                         className="mt-auto flex items-center gap-1 px-0"
                                     >
-                                        {expandedCard === 'founder' ? (
+                                        {expandedCard === 'secretary' ? (
                                             <>Read Less <ChevronUp className="h-4 w-4" /></>
                                         ) : (
                                             <>Read More <ChevronDown className="h-4 w-4" /></>

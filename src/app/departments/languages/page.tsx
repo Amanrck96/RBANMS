@@ -1,5 +1,6 @@
 import React from 'react';
 import { DepartmentLayout } from '@/components/layout/department-layout';
+import { DepartmentContact } from '@/components/departments/department-contact';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
@@ -225,12 +226,11 @@ export default function LanguagesDepartmentPage() {
 
   // 10. Contact
   const contactContent = (
-    <div className="max-w-lg mx-auto text-center" id="contact">
-      <h2 className="text-3xl font-bold mb-8 text-black">CONTACT</h2>
-      <p className="text-lg text-black flex items-center justify-center gap-2">
-        <Mail className="h-5 w-5 text-primary" /> sunilkumarshetty1977@gmail.com
-      </p>
-    </div>
+    <DepartmentContact
+      departmentName="Department of Languages"
+      departmentEmail="sunilkumarshetty1977@gmail.com"
+      hodName="Dr. Sunil Kumar (Head of Department Languages, Asst. Professor - Hindi)"
+    />
   );
 
   const sidebarContent = (

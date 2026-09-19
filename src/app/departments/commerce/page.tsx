@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { DepartmentLayout } from '@/components/layout/department-layout';
+import { DepartmentContact } from '@/components/departments/department-contact';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -294,6 +295,13 @@ export default function CommerceDepartmentPage() {
   );
 
 
+  const contactContent = (
+    <DepartmentContact
+      departmentName="Department of Commerce"
+      departmentEmail="commerce@rbanmsfgc.edu.in"
+    />
+  );
+
   const sections = [
     { id: "why-bcom", label: "Why B.COM?", content: whyBcomContent },
     { id: "highlights", label: "Highlights", content: highlightsContent },
@@ -303,6 +311,7 @@ export default function CommerceDepartmentPage() {
     { id: "outcomes", label: "Outcomes", content: outcomesContent },
     { id: "activities", label: "Activities", content: activitiesContent },
     { id: "faculty", label: "Faculty Profile", content: facultyContent },
+    { id: "contact", label: "Contact", content: contactContent },
   ];
 
   return (

@@ -31,6 +31,7 @@ const PAGE_GROUPS = [
         name: 'About College',
         pages: [
             { label: 'About: Introduction', id: 'about-intro' },
+            { label: 'Our Secretary', id: 'about-secretary' },
             { label: 'The Founder', id: 'about-founder' },
             { label: 'Founder\'s Vision', id: 'about-founders-vision' },
             { label: 'History & Heritage', id: 'about-history' },
@@ -601,8 +602,22 @@ export default function ManageContentPage() {
                 })
             });
 
+            // Also save any tab subsections if present
+            if (res.ok && subSections.length > 0) {
+                for (const sub of subSections) {
+                    await fetch('/api/site-content', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                        body: JSON.stringify({
+                            section: `page-${selectedPage}-tab-${sub.id}`,
+                            data: { content: sub.content }
+                        })
+                    });
+                }
+            }
+
             if (res.ok) {
-                toast({ title: 'Success', description: 'Page updated successfully' });
+                toast({ title: 'Success', description: 'Page and all tabs updated successfully' });
                 // Update current data state
                 setCurrentData({
                     title: pageTitle,

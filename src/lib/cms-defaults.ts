@@ -1569,5 +1569,176 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         ],
         ssrItems: [],
         aqarItems: []
+    },
+    'research': {
+        title: 'Research & Innovation',
+        tagline: 'Advancing knowledge through inquiry, collaboration, and academic excellence.',
+        content: `
+            <div class="space-y-6">
+                <p class="text-lg text-justify leading-relaxed">RBANM’S First Grade College is committed to promoting a culture of research and innovation among its faculty and students. We believe that an inquiry-driven environment is essential for academic excellence and for preparing students to meet the challenges of a rapidly changing world.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                    <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                        <h3 class="text-xl font-bold text-blue-900 mb-4 font-headline">Key Objectives</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <span class="text-blue-600 mt-1 font-bold">●</span>
+                                <span class="text-slate-700">To encourage faculty and students to undertake innovative research projects and publications.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-blue-600 mt-1 font-bold">●</span>
+                                <span class="text-slate-700">To facilitate active participation in national and international research conferences and symposiums.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-blue-600 mt-1 font-bold">●</span>
+                                <span class="text-slate-700">To support paper presentations and publications in UGC-CARE and peer-reviewed journals.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-blue-600 mt-1 font-bold">●</span>
+                                <span class="text-slate-700">To organize periodic workshops on research methodology, data analysis tools, and academic ethics.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                        <h3 class="text-xl font-bold text-blue-900 mb-4 font-headline">Research Areas</h3>
+                        <p class="text-slate-700 mb-4">Our faculty members and students are actively involved in research across multiple disciplines, including:</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-white border border-blue-200 rounded-full text-blue-800 text-sm">Commerce & Management</span>
+                            <span class="px-3 py-1 bg-white border border-blue-200 rounded-full text-blue-800 text-sm">Computer Applications & AI</span>
+                            <span class="px-3 py-1 bg-white border border-blue-200 rounded-full text-blue-800 text-sm">Economic Policy & Public Finance</span>
+                            <span class="px-3 py-1 bg-white border border-blue-200 rounded-full text-blue-800 text-sm">Social Sciences & History</span>
+                            <span class="px-3 py-1 bg-white border border-blue-200 rounded-full text-blue-800 text-sm">Linguistics & Literature</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-6 bg-slate-50 rounded-xl border border-slate-200">
+                    <h3 class="text-xl font-bold text-slate-900 mb-3 font-headline">Research Committee</h3>
+                    <p class="text-slate-700 leading-relaxed">
+                        The Research Cell monitors ethical standards in student research, assists with grant proposals, and promotes institutional affiliations with academic bodies and industry research clusters under Dr. Manmohan Singh Bengaluru City University.
+                    </p>
+                </div>
+            </div>
+        `
+    },
+    'about-secretary': {
+        title: 'Sri A. A. Sanjeev Narrain',
+        tagline: 'Hon. Secretary, RBANMS Educational Charities',
+        imageUrl: '/images/secretary.jpg',
+        content: '<p>RBANMS Educational Charities continues its proud legacy of over 150 years in providing inclusive, quality, and value-based education to empower students from every sphere of society to excel and lead.</p>'
+    },
+    'dept-management-sidebar': {
+        title: 'Management Faculty',
+        content: '<p>Dedicated mentors guiding future corporate leaders and entrepreneurs.</p>',
+        imageUrl: '/images/departments/management-faculty.jpg'
+    },
+    'dept-bca-sidebar': {
+        title: 'Computer Applications Lab',
+        content: '<p>State-of-the-art developer labs and technical computing forums.</p>',
+        imageUrl: '/images/departments/bca_dept.jpg'
+    },
+    'dept-arts-sidebar': {
+        title: 'Arts Faculty & Scholars',
+        content: '<p>Interdisciplinary scholars cultivating critical inquiry and civic leadership.</p>',
+        imageUrl: '/images/departments/arts/group_photo.jpg'
+    },
+    'dept-english-sidebar': {
+        title: 'English & Communication Faculty',
+        content: '<p>Fostering critical discourse, theatrical expression, and language excellence.</p>',
+        imageUrl: '/images/departments/english-faculty.jpg'
+    },
+    'dept-languages-sidebar': {
+        title: 'Languages Faculty',
+        content: '<p>Preserving literary heritage across Kannada, Hindi, and Tamil.</p>',
+        imageUrl: '/images/departments/languages-faculty.jpg'
+    },
+    'dept-physed-sidebar': {
+        title: 'Sports & Athletics',
+        content: '<p>Championship athletic grounds, indoor courts, and fitness facilities.</p>',
+        imageUrl: '/images/hero/hero-2.jpg'
+    },
+    'cell-iqac-sidebar': {
+        title: 'IQAC Cell',
+        content: '<p>Internal Quality Assurance Cell maintaining institutional excellence.</p>',
+        imageUrl: '/images/migrated/campus1.jpg'
+    },
+    'cell-nss-sidebar': {
+        title: 'NSS Volunteers',
+        content: '<p>Community service, health drives, and social regeneration in action.</p>',
+        imageUrl: '/images/gallery/aids-awareness-rally.jpg'
+    },
+    'cell-ncc-sidebar': {
+        title: 'NCC Cadet Corps',
+        content: '<p>National Cadet Corps Army & Navy Wings of RBANMS First Grade College.</p>',
+        imageUrl: '/images/gallery/ncc-group-photo.jpg'
+    },
+    'cell-ncc-army-sidebar': {
+        title: 'NCC Army Wing',
+        content: '<p>Cadets participating in rifle drill, tactical training, and national camps.</p>',
+        imageUrl: '/images/ncc/army_wing.jpg'
+    },
+    'cell-ncc-navy-sidebar': {
+        title: 'NCC Navy Wing',
+        content: '<p>Naval cadets mastering seamanship, semaphore, and maritime traditions.</p>',
+        imageUrl: '/images/ncc/navy_wing.png'
+    },
+    'cell-womens-sidebar': {
+        title: 'Women Empowerment Cell',
+        content: '<p>Advancing gender equity, health workshops, and career mentorship.</p>',
+        imageUrl: '/images/migrated/event1.jpg'
+    },
+    'cell-manasa-sidebar': {
+        title: 'Manasa Counselling Centre',
+        content: '<p>Confidential mental health guidance and emotional wellbeing support.</p>',
+        imageUrl: '/images/migrated/campus2.jpg'
+    },
+    'cell-cultural-sidebar': {
+        title: 'Cultural Committee',
+        content: '<p>Celebrating arts, music, dance, and creative expressions across campus.</p>',
+        imageUrl: '/images/gallery/natya-singing-1.jpg'
+    },
+    'cell-eco-sidebar': {
+        title: 'Eco Club',
+        content: '<p>Environmental conservation, green campus drives, and nature trekking.</p>',
+        imageUrl: '/images/gallery/group-hiking.jpg'
+    },
+    'cell-ipc-sidebar': {
+        title: 'Internal Placement Cell',
+        content: '<p>Corporate linkages, internships, and campus recruitment drives.</p>',
+        imageUrl: '/images/departments/commerce/group_photo.jpg'
+    },
+    'cell-statutory': {
+        title: 'Statutory Cells & Committees',
+        tagline: 'Ensuring compliance, fairness, and institutional integrity.',
+        content: `
+            <div class="space-y-6">
+                <p class="text-lg">Statutory committees at RBANMS First Grade College are constituted in compliance with the mandates of UGC, Bangalore City University, and statutory regulatory bodies to ensure transparent governance, equal opportunity, and safe campus operations.</p>
+                <p>These committees include the Internal Complaints Committee (POSH), Anti-Ragging Committee, Grievance Redressal Cell, Equal Opportunity Cell, and SC/ST Committee.</p>
+            </div>
+        `
+    },
+    'cell-others': {
+        title: 'Other Cells & Committees',
+        tagline: 'Enriching student life through diverse extracurricular and co-curricular forums.',
+        content: `
+            <div class="space-y-6">
+                <p class="text-lg">Beyond academics and statutory mandates, RBANMS fosters a rich spectrum of clubs, student bodies, and cells that support holistic growth, creative exploration, environmental stewardship, and community impact.</p>
+                <p>Forums include the Eco Club, Cultural Committee, YRC, Internal Placement Cell (IPC), and Student Mentorship Cell.</p>
+            </div>
+        `
+    },
+    'site-settings': {
+        title: 'Global Site Settings',
+        collegeName: 'RBANMS First Grade College',
+        email: 'info@rbanmsfgc.edu.in',
+        phone: '080-25512976 / 080-48533572',
+        address: 'Opposite Ulsoor Lake, 12 Annasawmy Mudaliar Road, Bangalore - 560042',
+        socialLinks: {
+            facebook: '', twitter: '', instagram: '', linkedin: '', youtube: '', pinterest: '', bluesky: ''
+        },
+        footerTitles: {
+            quickLinks: 'Quick Links', campus: 'Campus', contact: 'Contact Us', social: 'Social Media'
+        }
     }
 };

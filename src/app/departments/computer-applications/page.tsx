@@ -1,5 +1,6 @@
 import React from 'react';
 import { DepartmentLayout } from '@/components/layout/department-layout';
+import { DepartmentContact } from '@/components/departments/department-contact';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -287,6 +288,14 @@ export default function ComputerApplicationsDeptPage() {
     </div>
   );
 
+  const contactContent = (
+    <DepartmentContact
+      departmentName="Department of Computer Applications (BCA)"
+      departmentEmail="rbanmsfgc.bca@gmail.com"
+      hodName="Moka Nanditha Varma (HOD)"
+    />
+  );
+
   const sections = [
     { id: "highlights", label: "Highlights", content: highlightsContent },
     { id: "vision", label: "Vision & Mission", content: visionContent },
@@ -297,7 +306,8 @@ export default function ComputerApplicationsDeptPage() {
     { id: "objectives", label: "Objectives", content: objContent },
     { id: "outcomes", label: "Programme Outcome", content: outcomesContent },
     { id: "faculty", label: "Faculty Profile", content: facultyContent },
-    { id: "forum", label: "BCA Forum", content: bcaForumContent }, // Renamed label? 'BCA Forum' in prompt
+    { id: "forum", label: "BCA Forum", content: bcaForumContent },
+    { id: "contact", label: "Contact", content: contactContent },
   ];
 
   return (
@@ -307,7 +317,6 @@ export default function ComputerApplicationsDeptPage() {
       tagline="Welcome to the Department of Computer Applications. At the Department of Computer Applications, technology is not just a subject, it's a gateway to innovation. Here, our classrooms transform into dynamic learning spaces where concepts meet creativity, and every student becomes both a problem-solver and a creator. We believe studying Computer Applications is not merely about coding or completing assignments; it’s about shaping analytical minds that design, develop, question, and innovate. We nurture an inclusive and vibrant environment where every student’s curiosity is valued and encouraged. Beyond textbooks, we integrate hands-on lab sessions, coding workshops, project-based learning, industry interactions, technical quizzes, seminars, hackathons, and tech-driven events—making the study of Computer Applications as engaging, relevant, and future-focused as the digital world itself."
       sidebarContent={sidebarContent}
       sections={sections}
-      ctaContent={<div className="text-center"><p className="font-bold">Contact:</p><p>rbanmsfgc.bca@gmail.com</p></div>}
     />
   );
 }
