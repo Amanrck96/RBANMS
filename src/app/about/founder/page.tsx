@@ -11,7 +11,16 @@ export default function FounderPage() {
   return (
     <DynamicSection
       pageId="about-founder"
-      render={(data) => (
+      render={(data) => {
+        const rawTitle = data.title?.trim();
+        const isSecretary = rawTitle && /secretary/i.test(rawTitle);
+        const pageTitle = (!rawTitle || isSecretary) ? "Our Founder" : rawTitle;
+        const founderName = (data.personName && !/secretary|arvind/i.test(data.personName)) 
+          ? data.personName 
+          : "Rai Bahadur Arcot Narrainswamy Mudaliar";
+        const imageUrl = (data.imageUrl && !data.imageUrl.includes('secretary')) ? data.imageUrl : "/images/founder.jpg";
+
+        return (
         <div className="container mx-auto px-4 py-12 md:py-16">
           <Card className="overflow-hidden">
             <CardContent className="p-6 md:p-10">
@@ -20,24 +29,24 @@ export default function FounderPage() {
                 <div className="md:col-span-1 space-y-6">
                   <div className="relative w-full aspect-[3/4] rounded-lg overflow-hidden border shadow-sm">
                     <Image
-                      src={data.imageUrl || "/images/founder.jpg"}
-                      alt={data.title || "Rai Bahadur Arcot Narrainswamy Mudaliar"}
+                      src={imageUrl}
+                      alt={founderName}
                       fill
                       className="object-contain object-top"
                       data-ai-hint="historical portrait"
                     />
                   </div>
                   <div className="text-center">
-                    <h2 className="text-xl font-bold text-primary">{data.title || "Rai Bahadur Arcot Narrainswamy Mudaliar"}</h2>
+                    <h2 className="text-xl font-bold text-primary">{founderName}</h2>
                     <p className="text-muted-foreground">(1827–1910)</p>
-                    {data.title ? null : <p className="mt-2 text-sm font-semibold text-accent">A Visionary Philanthropist & Social Reformer</p>}
+                    <p className="mt-2 text-sm font-semibold text-accent">A Visionary Philanthropist & Social Reformer</p>
                   </div>
                 </div>
 
                 {/* Main Content */}
                 <div className="md:col-span-2 space-y-6">
                   <h1 className="text-3xl md:text-4xl font-bold text-primary font-headline border-b pb-2">
-                    {data.title || "Our Founder"}
+                    {pageTitle}
                   </h1>
                   <div className="prose prose-lg max-w-none text-foreground/80 space-y-4" dangerouslySetInnerHTML={{
                     __html: data.content || `
@@ -77,7 +86,8 @@ export default function FounderPage() {
             </CardContent>
           </Card>
         </div>
-      )}
+        );
+      }}
     />
   );
 }

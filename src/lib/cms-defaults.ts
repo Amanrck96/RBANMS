@@ -1625,11 +1625,11 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         `
     },
     'about-secretary': {
-        title: 'Our Founder',
-        personName: 'Rai Bahadur Arcot Narrainswamy Mudaliar',
-        tagline: 'Founder, RBANMS Educational Charities',
-        imageUrl: '/images/founder.jpg',
-        content: '<p>Welcome to RBANMS! We are proud to welcome you into an institution which has a rich history and a bright future! The RBANMS college focuses not just on delivering quality education through competent faculty but also gives attention to sports, culture and other ways in which the personality of the student can grow. We hope that in your time in RBANMS you take advantage of the multifarious educational opportunities to develop yourself, and also contribute to addressing some of the problems plaguing our world. For that is the ethos of RBANMS, where we focus both on the growth of the self as well as giving back to society. That is an apt tribute to the vision of Sri Arcot Narrainswamy Mudalair, the man who lay behind the founding of RBANM’s Educational Charities.</p>'
+        title: 'Message from the Board',
+        personName: 'Arvind Narrain',
+        tagline: 'Secretary, Educational Charities',
+        imageUrl: '/images/secretary.jpg',
+        content: '<p>Welcome to RBANMS! We are proud to welcome you into an institution which has a rich history and a bright future! The RBANMS college focuses not just on delivering quality education through competent faculty but also gives attention to sports, culture and other ways in which the personality of the student can grow. We hope that in your time in RBANMS you take advantage of the multifarious educational opportunities to develop yourself, and also contribute to addressing some of the problems plaguing our world. For that is the ethos of RBANMS, where we focus both on the growth of the self as well as giving back to society. That is an apt tribute to the vision of Sri Arcot Narainswamy Mudalair, the man who lay behind the founding of RBANM’s Educational Charities.</p>'
     },
     'dept-management-sidebar': {
         title: 'Management Faculty',

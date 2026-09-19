@@ -31,7 +31,7 @@ const PAGE_GROUPS = [
         name: 'About College',
         pages: [
             { label: 'About: Introduction', id: 'about-intro' },
-            { label: 'Card 1: Our Founder', id: 'about-secretary' },
+            { label: 'Message from the Board', id: 'about-secretary' },
             { label: 'The Founder', id: 'about-founder' },
             { label: 'Founder\'s Vision', id: 'about-founders-vision' },
             { label: 'History & Heritage', id: 'about-history' },

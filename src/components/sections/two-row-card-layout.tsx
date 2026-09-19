@@ -48,19 +48,14 @@ export function TwoRowCardLayout() {
             <div className="container mx-auto px-4">
                 {/* Row 1: Founder, Director, Principal */}
                 <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6 mb-6">
-                    {/* Founder Card */}
+                    {/* Secretary Card */}
                     <DynamicSection
                         pageId="about-secretary"
                         render={(data: any) => {
-                            const rawTitle = data.title || "Our Founder";
-                            const title = (rawTitle === "Secretary" || rawTitle === "Our Secretary" || rawTitle === "Message from the Board") 
-                                ? "Our Founder" 
-                                : rawTitle.replace(/Secretary/gi, 'Founder');
-                            const rawTagline = data.tagline || data.personRole || "Founder, RBANMS Educational Charities";
-                            const tagline = rawTagline.replace(/Secretary/gi, 'Founder');
-                            const personName = (data.personName && !data.personName.includes('Arvind Narrain'))
-                                ? data.personName
-                                : "Rai Bahadur Arcot Narrainswamy Mudaliar";
+                            const title = (!data.title || data.title === 'Our Founder') ? "Message from the Board" : data.title;
+                            const personName = (!data.personName || data.personName.includes('Arcot Narrainswamy')) ? "Arvind Narrain" : data.personName;
+                            const tagline = (!data.tagline || data.tagline.includes('Founder')) ? (data.personRole || "Secretary, Educational Charities") : data.tagline;
+                            const imageUrl = (!data.imageUrl || data.imageUrl.includes('founder.jpg')) ? "/images/secretary.jpg" : data.imageUrl;
 
                             return (
                             <Card className="flex flex-col h-full">
@@ -72,12 +67,12 @@ export function TwoRowCardLayout() {
                                 <CardContent className="flex-grow flex flex-col">
                                     <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gray-100">
                                         <Image
-                                            src={data.imageUrl || "/images/founder.jpg"}
-                                            alt={`${personName} - ${tagline}`}
+                                            src={imageUrl}
+                                            alt={personName ? `${personName} - ${tagline}` : "Arvind Narrain - Secretary, Educational Charities"}
                                             fill
                                             className="object-cover object-top"
                                             sizes="(max-width: 1024px) 100vw, 33vw"
-                                            unoptimized={data.imageUrl?.startsWith('http')}
+                                            unoptimized={imageUrl?.startsWith('http')}
                                         />
                                     </div>
                                     <div className="text-center mb-3">
@@ -93,7 +88,7 @@ export function TwoRowCardLayout() {
                                         {data.content ? (
                                             <div 
                                                 className={expandedCard !== 'secretary' ? 'line-clamp-3' : ''}
-                                                dangerouslySetInnerHTML={{ __html: data.content.replace(/Secretary/gi, 'Founder') }}
+                                                dangerouslySetInnerHTML={{ __html: data.content }}
                                             />
                                         ) : (
                                             <>
@@ -108,8 +103,8 @@ export function TwoRowCardLayout() {
                                                 {expandedCard === 'secretary' && (
                                                     <div className="mt-3 space-y-3">
                                                         <p>
-                                                            <a href="/about/founder" className="text-primary hover:underline font-semibold">
-                                                                Read more about our Founder
+                                                            <a href="/about/governance" className="text-primary hover:underline font-semibold">
+                                                                Read more about Trust & Governance
                                                             </a>
                                                         </p>
                                                     </div>
