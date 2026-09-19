@@ -48,21 +48,32 @@ export function TwoRowCardLayout() {
             <div className="container mx-auto px-4">
                 {/* Row 1: Founder, Director, Principal */}
                 <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6 mb-6">
-                    {/* Secretary Card */}
+                    {/* Founder Card */}
                     <DynamicSection
                         pageId="about-secretary"
-                        render={(data: any) => (
+                        render={(data: any) => {
+                            const rawTitle = data.title || "Our Founder";
+                            const title = (rawTitle === "Secretary" || rawTitle === "Our Secretary" || rawTitle === "Message from the Board") 
+                                ? "Our Founder" 
+                                : rawTitle.replace(/Secretary/gi, 'Founder');
+                            const rawTagline = data.tagline || data.personRole || "Founder, RBANMS Educational Charities";
+                            const tagline = rawTagline.replace(/Secretary/gi, 'Founder');
+                            const personName = (data.personName && !data.personName.includes('Arvind Narrain'))
+                                ? data.personName
+                                : "Rai Bahadur Arcot Narrainswamy Mudaliar";
+
+                            return (
                             <Card className="flex flex-col h-full">
                                 <CardHeader>
                                     <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">
-                                        {data.title || "Message from the Board"}
+                                        {title}
                                     </CardTitle>
                                 </CardHeader>
                                 <CardContent className="flex-grow flex flex-col">
                                     <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gray-100">
                                         <Image
-                                            src={data.imageUrl || "/images/secretary.jpg"}
-                                            alt={data.personName ? `${data.personName} - Secretary` : "Arvind Narrain - Secretary, Educational Charities"}
+                                            src={data.imageUrl || "/images/founder.jpg"}
+                                            alt={`${personName} - ${tagline}`}
                                             fill
                                             className="object-cover object-top"
                                             sizes="(max-width: 1024px) 100vw, 33vw"
@@ -71,10 +82,10 @@ export function TwoRowCardLayout() {
                                     </div>
                                     <div className="text-center mb-3">
                                         <h3 className="text-base font-bold text-primary mb-0.5">
-                                            {data.personName || "Arvind Narrain"}
+                                            {personName}
                                         </h3>
                                         <p className="text-muted-foreground text-xs font-medium">
-                                            {data.tagline || data.personRole || "Secretary, Educational Charities"}
+                                            {tagline}
                                         </p>
                                     </div>
 
@@ -82,7 +93,7 @@ export function TwoRowCardLayout() {
                                         {data.content ? (
                                             <div 
                                                 className={expandedCard !== 'secretary' ? 'line-clamp-3' : ''}
-                                                dangerouslySetInnerHTML={{ __html: data.content }}
+                                                dangerouslySetInnerHTML={{ __html: data.content.replace(/Secretary/gi, 'Founder') }}
                                             />
                                         ) : (
                                             <>
@@ -97,8 +108,8 @@ export function TwoRowCardLayout() {
                                                 {expandedCard === 'secretary' && (
                                                     <div className="mt-3 space-y-3">
                                                         <p>
-                                                            <a href="/about/governance" className="text-primary hover:underline font-semibold">
-                                                                Read more about Trust & Governance
+                                                            <a href="/about/founder" className="text-primary hover:underline font-semibold">
+                                                                Read more about our Founder
                                                             </a>
                                                         </p>
                                                     </div>
@@ -120,7 +131,8 @@ export function TwoRowCardLayout() {
                                     </Button>
                                 </CardContent>
                             </Card>
-                        )}
+                            );
+                        }}
                     />
 
                     {/* Director's Message */}
