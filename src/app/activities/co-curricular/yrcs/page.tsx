@@ -11,7 +11,7 @@ export default function YRCSPage() {
         <CardContent>
           <div className="space-y-6 text-foreground/90 leading-relaxed">
             <p className="text-lg">
-              The Youth Red Cross Society unit focuses on the protection of health and life, service to the sick, and promotion of international friendship. Our student volunteers are trained in first aid, disaster management, and community health hygiene. We regularly organize blood donation camps and health check-ups. The YRCS at RBNMS encourages students to embrace humanitarian values, fostering a spirit of compassion and readiness to help those in distress.
+              The Youth Red Cross Society unit focuses on the protection of health and life, service to the sick, and promotion of international friendship. Our student volunteers are trained in first aid, disaster management, and community health hygiene. We regularly organize blood donation camps and health check-ups. The YRCS at RBANMS encourages students to embrace humanitarian values, fostering a spirit of compassion and readiness to help those in distress.
             </p>
           </div>
         </CardContent>

@@ -26,7 +26,7 @@ export default function CoCurricularActivitiesPage() {
               >
                 <div className="h-full rounded-lg border shadow-sm overflow-hidden flex flex-col bg-background">
                   <div className="relative w-full aspect-[16/9]">
-                    <Image src={item.imageUrl} alt={item.title} fill className="object-cover" />
+                    <Image src={item.imageUrl} alt={item.title} fill className="object-cover" unoptimized={item.imageUrl?.startsWith('http')} />
                   </div>
                   <div className="p-4 flex-1 flex flex-col">
                     <h3 className="text-lg font-bold text-primary mb-2">{item.title}</h3>

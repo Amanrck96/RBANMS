@@ -104,6 +104,10 @@ export default function EventsPage() {
                                             {event.excerpt}
                                         </CardDescription>
                                         <div className="flex flex-wrap items-center gap-2 mt-3 text-sm text-gray-500">
+                                            <span className="text-[10px] uppercase tracking-wider font-bold bg-[#800000] text-[#FFD700] px-2.5 py-0.5 rounded shadow-sm">
+                                                {event.primaryTag || 'Events'}
+                                            </span>
+                                            <span>•</span>
                                             <span>By {event.authorName}</span>
                                             <span>•</span>
                                             <span>{new Date(event.eventDate || event.createdAt).toLocaleDateString()}</span>
@@ -111,14 +115,13 @@ export default function EventsPage() {
                                             <span className={event.published ? 'text-green-600 font-medium' : 'text-yellow-600 font-medium'}>
                                                 {event.published ? 'Published' : 'Draft'}
                                             </span>
-                                            {event.department && event.department !== 'general' && (
-                                                <>
-                                                    <span>•</span>
-                                                    <span className="text-[10px] uppercase tracking-wider font-bold bg-blue-50 text-blue-800 px-2 py-0.5 rounded">
-                                                        {event.department === 'computer-applications' ? 'BCA' : event.department === 'management' ? 'BBA' : event.department.replace('-', ' ')}
+                                            {(event.secondaryTags || event.tags || (event.department ? [event.department] : ['general']))
+                                                .filter((t: string) => t && t !== 'general')
+                                                .map((t: string) => (
+                                                    <span key={t} className="text-[10px] uppercase tracking-wider font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded border border-slate-200">
+                                                        {t === 'computer-applications' ? 'BCA' : t === 'management' ? 'BBA' : t.replace('-', ' ')}
                                                     </span>
-                                                </>
-                                            )}
+                                                ))}
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-2">

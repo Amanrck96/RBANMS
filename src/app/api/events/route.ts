@@ -3,6 +3,37 @@ import { NextRequest, NextResponse } from 'next/server';
 import { adminAuth, adminDb } from '@/lib/firebase-admin';
 import { generateSlug } from '@/lib/auth-utils';
 
+function inferPrimaryTag(event: any): 'Academics' | 'Co-curricular' | 'Events' {
+    if (event.primaryTag === 'Academics' || event.primaryTag === 'Co-curricular' || event.primaryTag === 'Events') {
+        return event.primaryTag;
+    }
+    const all = [
+        ...(Array.isArray(event.secondaryTags) ? event.secondaryTags : []),
+        ...(Array.isArray(event.tags) ? event.tags : []),
+        event.department || ''
+    ].map(t => String(t).toLowerCase());
+
+    if (all.some(t => ['academics', 'commerce', 'computer-applications', 'bca', 'management', 'bba', 'arts', 'english', 'languages', 'hindi', 'kannada', 'anrc', 'commerce-forum', 'bca-forum', 'management-forum', 'literary-forum', 'languages-forum'].includes(t))) {
+        return 'Academics';
+    }
+    if (all.some(t => ['co-curricular', 'nss', 'ncc', 'ncc-army', 'ncc-navy', 'physical-education', 'cultural-committee', 'eco-club', 'yrc-scouts', 'manasa-counselling', 'womens-cell'].includes(t))) {
+        return 'Co-curricular';
+    }
+    return 'Events';
+}
+
+function normalizeEvent(data: any) {
+    if (!data) return data;
+    const primary = inferPrimaryTag(data);
+    const secondary = data.secondaryTags || data.tags || (data.department ? [data.department] : ['general']);
+    return {
+        ...data,
+        primaryTag: primary,
+        secondaryTags: secondary,
+        tags: secondary,
+    };
+}
+
 // GET - Fetch all events or a specific event
 export async function GET(request: NextRequest) {
     try {
@@ -19,7 +50,7 @@ export async function GET(request: NextRequest) {
                     { status: 404 }
                 );
             }
-            return NextResponse.json({ event: eventDoc.data() });
+            return NextResponse.json({ event: normalizeEvent(eventDoc.data()) });
         }
 
         const slug = searchParams.get('slug');
@@ -36,14 +67,14 @@ export async function GET(request: NextRequest) {
                     { status: 404 }
                 );
             }
-            return NextResponse.json({ event: snapshot.docs[0].data() });
+            return NextResponse.json({ event: normalizeEvent(snapshot.docs[0].data()) });
         }
 
         // Fetch all events without where filter to avoid composite index requirements
         let query = adminDb.collection('events').orderBy('createdAt', 'desc');
 
         const snapshot = await query.get();
-        let events = snapshot.docs.map(doc => doc.data());
+        let events = snapshot.docs.map(doc => normalizeEvent(doc.data()));
 
         if (published === 'true') {
             events = events.filter(event => event.published === true);
@@ -91,11 +122,14 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const { title, content, excerpt, imageUrl, published, eventDate, department, tags } = await request.json();
+        const { title, content, excerpt, imageUrl, published, eventDate, department, tags, primaryTag, secondaryTags } = await request.json();
 
         const now = new Date().toISOString();
         const slug = generateSlug(title);
         const eventId = adminDb.collection('events').doc().id;
+
+        const effectiveSecondary = secondaryTags || tags || [department || 'general'];
+        const effectivePrimary = primaryTag || inferPrimaryTag({ tags: effectiveSecondary, department });
 
         const eventData = {
             id: eventId,
@@ -110,15 +144,17 @@ export async function POST(request: NextRequest) {
             published: published || false,
             slug,
             eventDate: eventDate || now,
-            department: department || 'general',
-            tags: tags || [department || 'general'],
+            department: department || effectiveSecondary[0] || 'general',
+            tags: effectiveSecondary,
+            primaryTag: effectivePrimary,
+            secondaryTags: effectiveSecondary,
         };
 
         await adminDb.collection('events').doc(eventId).set(eventData);
 
         return NextResponse.json({
             message: 'Event created successfully',
-            event: eventData,
+            event: normalizeEvent(eventData),
         });
     } catch (error: any) {
         console.error('Create event error:', error);
@@ -160,7 +196,7 @@ export async function PUT(request: NextRequest) {
             );
         }
 
-        const { eventId, title, content, excerpt, imageUrl, published, eventDate, department, tags } = await request.json();
+        const { eventId, title, content, excerpt, imageUrl, published, eventDate, department, tags, primaryTag, secondaryTags } = await request.json();
 
         const eventDoc = await adminDb.collection('events').doc(eventId).get();
         if (!eventDoc.exists) {
@@ -185,7 +221,15 @@ export async function PUT(request: NextRequest) {
         if (published !== undefined) updates.published = published;
         if (eventDate !== undefined) updates.eventDate = eventDate;
         if (department !== undefined) updates.department = department;
-        if (tags !== undefined) updates.tags = tags;
+        if (primaryTag !== undefined) updates.primaryTag = primaryTag;
+        if (secondaryTags !== undefined) {
+            updates.secondaryTags = secondaryTags;
+            updates.tags = secondaryTags;
+            if (department === undefined) updates.department = secondaryTags[0] || 'general';
+        } else if (tags !== undefined) {
+            updates.tags = tags;
+            updates.secondaryTags = tags;
+        }
 
         await adminDb.collection('events').doc(eventId).update(updates);
 
@@ -193,7 +237,7 @@ export async function PUT(request: NextRequest) {
 
         return NextResponse.json({
             message: 'Event updated successfully',
-            event: updatedEvent.data(),
+            event: normalizeEvent(updatedEvent.data()),
         });
     } catch (error: any) {
         console.error('Update event error:', error);

@@ -9,7 +9,7 @@ const DEFAULT_FAQs = [
     id: '1',
     category: 'admissions',
     question: 'What programmes does RBANM’s FG College offer?',
-    answer: 'RBANM’s FG College offers undergraduate degrees in Arts, Commerce, and Science streams including B.A., B.Com., and B.Sc. programmes.',
+    answer: 'RBANMS First Grade College offers undergraduate and postgraduate degrees in Arts, Commerce, Management, and Computer Applications including B.A., B.Com., B.B.A., B.C.A., and M.Com. programmes.',
     order: 1
   },
   {

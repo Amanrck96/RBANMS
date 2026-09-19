@@ -114,12 +114,10 @@ export function SearchDialog() {
 
         // Add all contact information
         const contacts = [
-            { title: "Phone: 080-48533572", href: "/contact" },
-            { title: "Email: principal_rbanms@gmail.com", href: "/contact" },
-            { title: "Email: priyamahesh09@gmail.com (Placement)", href: "/contact" },
-            { title: "BCA Department Email: rbanmsfgc.bca@gmail.com", href: "/departments/computer-applications" },
-            { title: "English Department Email: departmentofenglishrbanms@gmail.com", href: "/departments/english" },
-            { title: "Address: #12, Annaswamy Mudaliar Road, Bangalore 560042", href: "/contact" },
+            { title: "Phone: 080-25512976 / 080-48533572", href: "/contact" },
+            { title: "Mobile: 7349251497", href: "/contact" },
+            { title: "Email: info@rbanmsfgc.edu.in", href: "/contact" },
+            { title: "Address: #12, Annaswamy Mudaliar Road, Opposite Ulsoor Lake, Bangalore 560042", href: "/contact" },
         ];
 
         contacts.forEach((contact) => {

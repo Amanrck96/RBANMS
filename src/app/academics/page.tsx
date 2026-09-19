@@ -41,7 +41,7 @@ const defaultStructure = {
     {
       title: "Other Compulsory Courses",
       icon: CheckSquare,
-      description: "Compulsory courses in subjects like Constitution, and Environmental Science as directed by Bengaluru City University.",
+      description: "Compulsory courses in subjects like Constitution, and Environmental Science as directed by Dr. Manmohan Singh Bengaluru City University.",
     },
     {
       title: "Skill-Based & Vocational Courses",

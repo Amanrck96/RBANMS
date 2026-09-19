@@ -106,7 +106,7 @@ export default function Home() {
                             {/* BCA */}
                             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-xl transition-all flex flex-col justify-between group hover:border-[#800000]">
                                 <div>
-                                    <span className="text-xs font-bold uppercase tracking-wider bg-[#800000] text-white px-2.5 py-1 rounded">B.C.A.</span>
+                                    <span className="text-xs font-bold uppercase tracking-wider bg-[#800000] !text-white keep-colors px-2.5 py-1 rounded inline-block shadow-sm" style={{ color: '#ffffff' }}>B.C.A.</span>
                                     <h3 className="text-xl font-bold text-slate-900 mt-4 mb-2 group-hover:text-[#800000] transition-colors">
                                         Bachelor of Computer Applications
                                     </h3>
@@ -123,7 +123,7 @@ export default function Home() {
                             {/* B.Com */}
                             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-xl transition-all flex flex-col justify-between group hover:border-[#800000]">
                                 <div>
-                                    <span className="text-xs font-bold uppercase tracking-wider bg-[#800000] text-white px-2.5 py-1 rounded">B.Com.</span>
+                                    <span className="text-xs font-bold uppercase tracking-wider bg-[#800000] !text-white keep-colors px-2.5 py-1 rounded inline-block shadow-sm" style={{ color: '#ffffff' }}>B.Com.</span>
                                     <h3 className="text-xl font-bold text-slate-900 mt-4 mb-2 group-hover:text-[#800000] transition-colors">
                                         Bachelor of Commerce
                                     </h3>
@@ -140,7 +140,7 @@ export default function Home() {
                             {/* BBA */}
                             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-xl transition-all flex flex-col justify-between group hover:border-[#800000]">
                                 <div>
-                                    <span className="text-xs font-bold uppercase tracking-wider bg-[#800000] text-white px-2.5 py-1 rounded">B.B.A.</span>
+                                    <span className="text-xs font-bold uppercase tracking-wider bg-[#800000] !text-white keep-colors px-2.5 py-1 rounded inline-block shadow-sm" style={{ color: '#ffffff' }}>B.B.A.</span>
                                     <h3 className="text-xl font-bold text-slate-900 mt-4 mb-2 group-hover:text-[#800000] transition-colors">
                                         Bachelor of Business Administration
                                     </h3>
@@ -157,7 +157,7 @@ export default function Home() {
                             {/* BA */}
                             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-xl transition-all flex flex-col justify-between group hover:border-[#800000]">
                                 <div>
-                                    <span className="text-xs font-bold uppercase tracking-wider bg-[#800000] text-white px-2.5 py-1 rounded">B.A.</span>
+                                    <span className="text-xs font-bold uppercase tracking-wider bg-[#800000] !text-white keep-colors px-2.5 py-1 rounded inline-block shadow-sm" style={{ color: '#ffffff' }}>B.A.</span>
                                     <h3 className="text-xl font-bold text-slate-900 mt-4 mb-2 group-hover:text-[#800000] transition-colors">
                                         Bachelor of Arts
                                     </h3>

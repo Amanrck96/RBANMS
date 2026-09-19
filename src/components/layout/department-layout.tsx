@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { DynamicSection } from '@/components/dynamic-section';
+import { CMS_DEFAULTS } from '@/lib/cms-defaults';
 
 interface NavItem {
     label: string;
@@ -59,17 +60,19 @@ export function DepartmentLayout({
     pageId
 }: DepartmentLayoutProps) {
 
-    // Dynamic Hero Image State
+    // Dynamic Hero Image & Title State
     const [dynamicHeroImage, setDynamicHeroImage] = useState<string | null>(null);
+    const [dynamicTitle, setDynamicTitle] = useState<string | null>(null);
 
     useEffect(() => {
         if (!pageId) return;
         async function fetchPageData() {
             try {
-                const res = await fetch(`/api/site-content?section=page-${pageId}`);
+                const res = await fetch(`/api/site-content?section=page-${pageId}`, { cache: 'no-store' });
                 const json = await res.json();
-                if (json.data && json.data.imageUrl) {
-                    setDynamicHeroImage(json.data.imageUrl);
+                if (json.data) {
+                    if (json.data.imageUrl) setDynamicHeroImage(json.data.imageUrl);
+                    if (json.data.title) setDynamicTitle(json.data.title);
                 }
             } catch (e) {
                 console.error("Failed to fetch dynamic page content:", e);
@@ -89,13 +92,21 @@ export function DepartmentLayout({
                             {badgeText}
                         </Badge>
                         <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tight text-black">
-                            {title}
+                            {dynamicTitle || title}
                         </h1>
                         {pageId ? (
                             <div className="mt-4 text-lg md:text-xl leading-relaxed text-black">
                                 <DynamicSection
                                     pageId={pageId}
-                                    defaultContent={typeof tagline === 'string' ? <p>{tagline}</p> : (tagline || <div />)}
+                                    defaultContent={
+                                        CMS_DEFAULTS[pageId]?.content ? (
+                                            <div dangerouslySetInnerHTML={{ __html: CMS_DEFAULTS[pageId].content }} />
+                                        ) : typeof tagline === 'string' ? (
+                                            <p>{tagline}</p>
+                                        ) : (
+                                            tagline || <div />
+                                        )
+                                    }
                                     onlyContent
                                 />
                             </div>

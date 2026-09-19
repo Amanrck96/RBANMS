@@ -173,7 +173,7 @@ export default function IQACPage() {
     <DepartmentLayout
       title="Internal Quality Assurance Cell (IQAC)"
       pageId="cell-iqac"
-      tagline="The Internal Quality Assurance Cell (IQAC) at RBNMS College is the driving force behind our pursuit of academic excellence."
+      tagline="The Internal Quality Assurance Cell (IQAC) at RBANMS First Grade College is the driving force behind our pursuit of academic excellence."
       sections={sections}
     />
   );

@@ -4,7 +4,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         title: 'Introduction',
         content: `
             <p>RBANMS First Grade College was established by RBANMS Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.</p>
-            <p>This is one of the many institutions established under the umbrella of the RBANMS Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.</p>
+            <p>This is one of the many institutions established under the umbrella of the RBANMS Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Dr. Manmohan Singh Bengaluru City University while being managed by the Educational Charities Trust.</p>
             <p>The college has been accredited by NAAC and is recognised under Section 2(f) and 12(b) of the UGC Act, 1956.</p>
         `
     },
@@ -37,7 +37,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         content: `
             <div class="space-y-6">
                 <p>RBANMS First Grade College was established by RBANMS Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.</p>
-                <p>This is one of the many institutions established under the umbrella of the RBANMS Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.</p>
+                <p>This is one of the many institutions established under the umbrella of the RBANMS Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Dr. Manmohan Singh Bengaluru City University while being managed by the Educational Charities Trust.</p>
                 <p>The college has been accredited by NAAC and is recognised under Section 2(f) and 12(b) of the UGC Act, 1956.</p>
                 <div class="mt-8">
                     <h3 class="text-2xl font-bold text-[#b91c1c] mb-4">Our Commitment</h3>
@@ -92,6 +92,9 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     },
     'about-director': {
         title: 'Message from Director',
+        personName: 'Dr. Sahana Das',
+        personRole: 'Director of Colleges',
+        organization: 'RBANMs Educational Charities',
         content: `<div class="space-y-5 leading-relaxed text-gray-700">
   <p>A very warm welcome to the RBANM's Degree college and its website.</p>
   <p>I am privileged to lead an Institution like ours, where education is not a commercial transaction, but a tool of transformation towards a better life. It is therefore natural that the years at RBANM's go beyond just the syllabus. Our student-centric philosophy of education includes employability skills, personality development, and social sensitivity along with the expected degree from the University. This, to us, is true education.</p>
@@ -104,9 +107,12 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     },
     'about-principal': {
         title: 'Message from Principal',
+        personName: 'Dr. Shanti Iyer',
+        personRole: 'Principal, RBANMs FGC',
         content: 'The purpose of higher education is not merely the transmission of knowledge, but the transformation of individuals. Our objective is to create efficient academicians, innovative entrepreneurs, and responsible citizens.',
         imageUrl: '/images/migrated/principal-whatsapp.jpeg'
     },
+
 
     'dept-commerce': {
         title: 'Department of Commerce',
@@ -239,7 +245,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         title: "About RBANMS First Grade College",
         content: `
             <p class="mb-4">RBANMS First Grade College was established by RBANMS Educational Charities in the year 1983 to cater to the educational needs of students in the city of Bangalore. It is a premier Institution dedicated to fostering academic excellence and holistic development in all students.</p>
-            <p class="mb-4">This is one of the many institutions established under the umbrella of the RBANMS Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Bangalore City University while being managed by the Educational Charities Trust.</p>
+            <p class="mb-4">This is one of the many institutions established under the umbrella of the RBANMS Educational Charities. The college is co-educational and is known to support meritorious students, irrespective of their socio-economic background. It is affiliated to Dr. Manmohan Singh Bengaluru City University while being managed by the Educational Charities Trust.</p>
             <p>The college has been accredited by NAAC and is recognised under Section 2(f) and 12(b) of the UGC Act, 1956.</p>
         `
     },
@@ -283,7 +289,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         title: 'Academics',
         content: `
             <p class="mb-4 text-lg">At RBANMS First Grade College, academics is not just about clearing examinations; it is about igniting a passion for learning, developing critical thinking, and building a foundation for a successful career and a meaningful life.</p>
-            <p class="mb-4">Our academic structure is designed to be rigorous yet flexible, allowing students to explore their interests while mastering the core fundamentals of their chosen discipline. We offer undergraduate programs in Commerce, Management, Computer Applications, and Arts, all affiliated with Bangalore City University.</p>
+            <p class="mb-4">Our academic structure is designed to be rigorous yet flexible, allowing students to explore their interests while mastering the core fundamentals of their chosen discipline. We offer undergraduate programs in Commerce, Management, Computer Applications, and Arts, all affiliated with Dr. Manmohan Singh Bengaluru City University.</p>
             <h3 class="text-xl font-bold text-primary mt-6 mb-3">Our Approach</h3>
             <ul class="list-disc pl-5 space-y-2">
                 <li><strong>Student-Centric Learning:</strong> Focus on individual attention and mentorship.</li>
@@ -524,10 +530,6 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
                 <span className="font-bold min-w-[80px]">Email:</span>
                 <a href="mailto:info@rbanmsfgc.edu.in" className="text-primary hover:underline">info@rbanmsfgc.edu.in</a>
             </div>
-            <div className="flex items-center gap-4 mb-3">
-                <span className="font-bold min-w-[80px]">Placement:</span>
-                <a href="mailto:priyamahesh09@gmail.com" className="text-primary hover:underline">priyamahesh09@gmail.com</a>
-            </div>
             <div className="flex items-start gap-4 mb-3">
                 <span className="font-bold min-w-[80px]">Phone:</span>
                 <div>
@@ -642,7 +644,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     },
     'page-dept-english-tab-contact': {
         title: 'Contact Information',
-        content: '<p>Email: english@rbanmsfgc.edu.in</p>'
+        content: '<p>Email: info@rbanmsfgc.edu.in</p>'
     },
 
     // Dept Languages
@@ -689,7 +691,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     },
     'page-dept-languages-tab-contact': {
         title: 'Contact Information',
-        content: '<p>Email: languages@rbanmsfgc.edu.in</p>'
+        content: '<p>Email: info@rbanmsfgc.edu.in</p>'
     },
 
     // Dept Physical Education
@@ -720,7 +722,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     },
     'page-dept-physed-tab-contact': {
         title: 'Contact Information',
-        content: '<p>Email: sports@rbanmsfgc.edu.in</p>'
+        content: '<p>Email: info@rbanmsfgc.edu.in</p>'
     },
 
     // Dept BCA
@@ -852,7 +854,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     },
     'page-dept-arts-tab-contact': {
         title: 'Contact Information',
-        content: '<p>Email: arts@rbanmsfgc.edu.in</p>'
+        content: '<p>Email: info@rbanmsfgc.edu.in</p>'
     },
     'page-dept-arts-tab-history': {
         title: 'History',
@@ -920,12 +922,12 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
                     <tr>
                         <td class="border border-gray-300 p-2">Appellate Authority</td>
                         <td class="border border-gray-300 p-2">Dr. Shanti Iyer (Principal)</td>
-                        <td class="border border-gray-300 p-2">principal@rbanmsfgc.edu.in</td>
+                        <td class="border border-gray-300 p-2">info@rbanmsfgc.edu.in</td>
                     </tr>
                     <tr>
                         <td class="border border-gray-300 p-2">Public Information Officer</td>
                         <td class="border border-gray-300 p-2">Office Superintendent</td>
-                        <td class="border border-gray-300 p-2">office@rbanmsfgc.edu.in</td>
+                        <td class="border border-gray-300 p-2">info@rbanmsfgc.edu.in</td>
                     </tr>
                 </tbody>
             </table>
@@ -1036,17 +1038,17 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'administration': {
         title: 'Administration',
         content: `
-            <p class="mb-6 text-lg">Our administrative team is the backbone of the college, ensuring smooth day-to-day operations and providing essential support to students and faculty.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-blue-50 p-6 rounded-lg">
-                    <h3 class="text-xl font-bold text-blue-900 mb-2">College Office</h3>
-                    <p class="text-gray-700 mb-2">Handles admissions, fee collection, and general enquiries.</p>
-                    <p class="text-sm font-semibold">Contact: office@rbanmsfgc.edu.in</p>
+            <p class="mb-6 text-lg text-slate-800 leading-relaxed font-medium">Our administrative team is the backbone of the college, ensuring smooth day-to-day operations and providing essential support to students and faculty.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 not-prose">
+                <div class="bg-blue-50/80 p-6 rounded-xl border border-blue-200 shadow-sm space-y-2">
+                    <h3 class="text-xl font-bold text-blue-900 mb-2 font-headline">College Office</h3>
+                    <p class="text-slate-700 text-sm leading-relaxed">Handles admissions, fee collection, and general enquiries.</p>
+                    <p class="text-sm font-semibold text-slate-900 pt-2 border-t border-blue-100">Contact: <a href="mailto:info@rbanmsfgc.edu.in" class="text-primary hover:underline font-bold">info@rbanmsfgc.edu.in</a></p>
                 </div>
-                <div class="bg-blue-50 p-6 rounded-lg">
-                    <h3 class="text-xl font-bold text-blue-900 mb-2">Examination Section</h3>
-                    <p class="text-gray-700 mb-2">Manages internal assessments and university examinations.</p>
-                    <p class="text-sm font-semibold">Contact: exams@rbanmsfgc.edu.in</p>
+                <div class="bg-blue-50/80 p-6 rounded-xl border border-blue-200 shadow-sm space-y-2">
+                    <h3 class="text-xl font-bold text-blue-900 mb-2 font-headline">Examination Section</h3>
+                    <p class="text-slate-700 text-sm leading-relaxed">Manages internal assessments and university examinations.</p>
+                    <p class="text-sm font-semibold text-slate-900 pt-2 border-t border-blue-100">Contact: <a href="mailto:info@rbanmsfgc.edu.in" class="text-primary hover:underline font-bold">info@rbanmsfgc.edu.in</a></p>
                 </div>
             </div>
         `
@@ -1107,7 +1109,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
             <div class="space-y-6">
                 <div class="bg-red-50 p-5 rounded-lg border-l-4 border-red-500">
                     <h3 class="font-bold text-red-900 mb-2">Attendance Policy</h3>
-                    <p class="text-gray-700 text-sm">As per Bangalore City University norms, a minimum of <strong>75% attendance</strong> is mandatory in each subject to appear for the end-semester examination. Students falling short will not be permitted to write the exams.</p>
+                    <p class="text-gray-700 text-sm">As per Dr. Manmohan Singh Bengaluru City University norms, a minimum of <strong>75% attendance</strong> is mandatory in each subject to appear for the end-semester examination. Students falling short will not be permitted to write the exams.</p>
                 </div>
                 
                 <div>
@@ -1234,12 +1236,12 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'cell-antiragging': {
         title: 'Anti-Ragging Committee',
         badgeText: 'Statutory Committee',
-        content: '<p>RBNMS College maintains a zero-tolerance policy towards ragging. The Anti-Ragging Committee works vigilantly to ensure the college campus remains a ragging-free zone. We strictly enforce UGC regulations and state laws to protect new students from any form of physical or mental harassment. Through counselling and strict monitoring, we guarantee a friendly and welcoming atmosphere where every student feels safe and comfortable from their very first day.</p>'
+        content: '<p>RBANMS First Grade College maintains a zero-tolerance policy towards ragging. The Anti-Ragging Committee works vigilantly to ensure the college campus remains a ragging-free zone. We strictly enforce UGC regulations and state laws to protect new students from any form of physical or mental harassment. Through counselling and strict monitoring, we guarantee a friendly and welcoming atmosphere where every student feels safe and comfortable from their very first day.</p>'
     },
     'cell-exam': {
         title: 'Examination Committee',
         badgeText: 'Committee',
-        content: '<p>The Examination Committee is the backbone of the college\'s evaluation system, ensuring transparency, fairness, and efficiency in all internal and external assessments. We are responsible for scheduling exams, securing question papers, and managing the conduct of tests in strict accordance with university norms. By maintaining the integrity of the examination process, we ensure that student performance is assessed accurately and impartially, upholding the academic credibility of RBNMS College.</p>'
+        content: '<p>The Examination Committee is the backbone of the college\'s evaluation system, ensuring transparency, fairness, and efficiency in all internal and external assessments. We are responsible for scheduling exams, securing question papers, and managing the conduct of tests in strict accordance with university norms. By maintaining the integrity of the examination process, we ensure that student performance is assessed accurately and impartially, upholding the academic credibility of RBANMS First Grade College.</p>'
     },
     'cell-eco': {
         title: 'Eco Club',
@@ -1254,12 +1256,12 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'cell-yrc': {
         title: 'YRCS (Youth Red Cross Society)',
         badgeText: 'Society',
-        content: '<p>The Youth Red Cross Society unit focuses on the protection of health and life, service to the sick, and promotion of international friendship. Our student volunteers are trained in first aid, disaster management, and community health hygiene. We regularly organize blood donation camps and health check-ups. The YRCS at RBNMS encourages students to embrace humanitarian values, fostering a spirit of compassion and readiness to help those in distress.</p>'
+        content: '<p>The Youth Red Cross Society unit focuses on the protection of health and life, service to the sick, and promotion of international friendship. Our student volunteers are trained in first aid, disaster management, and community health hygiene. We regularly organize blood donation camps and health check-ups. The YRCS at RBANMS encourages students to embrace humanitarian values, fostering a spirit of compassion and readiness to help those in distress.</p>'
     },
     'cell-womens': {
         title: 'Women Cell',
         badgeText: 'Cell',
-        content: '<p>The Women Cell at RBNMS College is dedicated to empowering female students and staff by creating a supportive and inclusive campus environment. The cell serves as a platform for women to voice their concerns and aspirations, fostering confidence and leadership skills. We organize seminars, workshops, and awareness programs focusing on gender equity, women\'s rights, and health. We are committed to ensuring that women feel safe, respected, and valued in all their endeavors on campus and beyond.</p>'
+        content: '<p>The Women Cell at RBANMS First Grade College is dedicated to empowering female students and staff by creating a supportive and inclusive campus environment. The cell serves as a platform for women to voice their concerns and aspirations, fostering confidence and leadership skills. We organize seminars, workshops, and awareness programs focusing on gender equity, women\'s rights, and health. We are committed to ensuring that women feel safe, respected, and valued in all their endeavors on campus and beyond.</p>'
     },
     'cell-cultural': {
         title: 'Cultural Committee',
@@ -1299,7 +1301,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'cell-ncc': {
         title: 'National Cadet Corps (NCC)',
         badgeText: 'Activity',
-        content: '<p>The National Cadet Corps (NCC) at RBNMS College is a premier youth organization that strives to develop the qualities of character, courage, comradeship, discipline, leadership, and the ideal of selfless service among the youth of the country. We offer both Army and Navy wings, providing cadets with diverse opportunities for personal growth and adventure.</p>'
+        content: '<p>The National Cadet Corps (NCC) at RBANMS First Grade College is a premier youth organization that strives to develop the qualities of character, courage, comradeship, discipline, leadership, and the ideal of selfless service among the youth of the country. We offer both Army and Navy wings, providing cadets with diverse opportunities for personal growth and adventure.</p>'
     },
 
     'page-administration-tab-overview': {
@@ -1350,7 +1352,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     },
     'academics-structure': {
         title: 'Academic Structure',
-        content: '<p>Our academic structure follows the Bangalore City University guidelines with NEP integration.</p>'
+        content: '<p>Our academic structure follows the Dr. Manmohan Singh Bengaluru City University guidelines with NEP integration.</p>'
     },
     'academics-philosophy': {
         title: 'Philosophy of Teaching',
@@ -1448,7 +1450,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
 
     'cell-iqac': {
         title: 'Internal Quality Assurance Cell (IQAC)',
-        tagline: 'The Internal Quality Assurance Cell (IQAC) at RBNMS College is the driving force behind our pursuit of academic excellence.',
+        tagline: 'The Internal Quality Assurance Cell (IQAC) at RBANMS First Grade College is the driving force behind our pursuit of academic excellence.',
         content: '<p>Dedicated to maintaining high standards, the cell continuously monitors and enhances the quality of teaching, learning, and infrastructure.</p>'
     },
     'page-cell-iqac-tab-objectives': {
@@ -1623,10 +1625,11 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         `
     },
     'about-secretary': {
-        title: 'Sri A. A. Sanjeev Narrain',
-        tagline: 'Hon. Secretary, RBANMS Educational Charities',
+        title: 'Message from the Board',
+        personName: 'Arvind Narrain',
+        tagline: 'Secretary, Educational Charities',
         imageUrl: '/images/secretary.jpg',
-        content: '<p>RBANMS Educational Charities continues its proud legacy of over 150 years in providing inclusive, quality, and value-based education to empower students from every sphere of society to excel and lead.</p>'
+        content: '<p>Welcome to RBANMS! We are proud to welcome you into an institution which has a rich history and a bright future! The RBANMS college focuses not just on delivering quality education through competent faculty but also gives attention to sports, culture and other ways in which the personality of the student can grow. We hope that in your time in RBANMS you take advantage of the multifarious educational opportunities to develop yourself, and also contribute to addressing some of the problems plaguing our world. For that is the ethos of RBANMS, where we focus both on the growth of the self as well as giving back to society. That is an apt tribute to the vision of Sri Arcot Narainswamy Mudalair, the man who lay behind the founding of RBANM’s Educational Charities.</p>'
     },
     'dept-management-sidebar': {
         title: 'Management Faculty',
@@ -1713,7 +1716,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         tagline: 'Ensuring compliance, fairness, and institutional integrity.',
         content: `
             <div class="space-y-6">
-                <p class="text-lg">Statutory committees at RBANMS First Grade College are constituted in compliance with the mandates of UGC, Bangalore City University, and statutory regulatory bodies to ensure transparent governance, equal opportunity, and safe campus operations.</p>
+                <p class="text-lg">Statutory committees at RBANMS First Grade College are constituted in compliance with the mandates of UGC, Dr. Manmohan Singh Bengaluru City University, and statutory regulatory bodies to ensure transparent governance, equal opportunity, and safe campus operations.</p>
                 <p>These committees include the Internal Complaints Committee (POSH), Anti-Ragging Committee, Grievance Redressal Cell, Equal Opportunity Cell, and SC/ST Committee.</p>
             </div>
         `

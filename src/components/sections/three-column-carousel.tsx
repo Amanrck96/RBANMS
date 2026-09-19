@@ -10,6 +10,7 @@ interface CarouselSlide {
   title: string;
   desc: string;
   imageUrl: string;
+  link?: string;
 }
 
 interface ColumnData {
@@ -19,6 +20,28 @@ interface ColumnData {
   link: string;
   linkText: string;
   slides: CarouselSlide[];
+}
+
+function inferPrimaryTag(event: any): 'Academics' | 'Co-curricular' | 'Events' {
+  if (event.primaryTag) {
+    const raw = String(event.primaryTag).toLowerCase().replace(/[^a-z]/g, '');
+    if (raw.includes('academic')) return 'Academics';
+    if (raw.includes('curricul') || raw.includes('cocurricular') || raw.includes('activity')) return 'Co-curricular';
+    if (raw.includes('event')) return 'Events';
+  }
+  const all = [
+    ...(Array.isArray(event.secondaryTags) ? event.secondaryTags : []),
+    ...(Array.isArray(event.tags) ? event.tags : []),
+    event.department || ''
+  ].map((t: string) => String(t).toLowerCase());
+
+  if (all.some((t: string) => ['academics', 'commerce', 'computer-applications', 'bca', 'management', 'bba', 'arts', 'english', 'languages', 'hindi', 'kannada', 'anrc', 'commerce-forum', 'bca-forum', 'management-forum', 'literary-forum', 'languages-forum'].includes(t))) {
+    return 'Academics';
+  }
+  if (all.some((t: string) => ['co-curricular', 'cocurricular', 'nss', 'ncc', 'ncc-army', 'ncc-navy', 'physical-education', 'cultural-committee', 'eco-club', 'yrc-scouts', 'manasa-counselling', 'womens-cell'].includes(t))) {
+    return 'Co-curricular';
+  }
+  return 'Events';
 }
 
 const COLUMNS_DATA: ColumnData[] = [
@@ -131,7 +154,11 @@ function ColumnCarousel({ column }: { column: ColumnData }) {
   const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    if (isPaused) return;
+    setCurrentIndex(0);
+  }, [column.slides.length]);
+
+  useEffect(() => {
+    if (isPaused || column.slides.length <= 1) return;
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % column.slides.length);
     }, 4000);
@@ -147,7 +174,7 @@ function ColumnCarousel({ column }: { column: ColumnData }) {
   };
 
   const IconComponent = column.icon;
-  const currentSlide = column.slides[currentIndex];
+  const currentSlide = column.slides[currentIndex] || column.slides[0];
 
   return (
     <Card 
@@ -175,52 +202,84 @@ function ColumnCarousel({ column }: { column: ColumnData }) {
       <CardContent className="p-0 flex-grow flex flex-col justify-between">
         {/* Carousel Image Container */}
         <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
-          <Image
-            src={currentSlide.imageUrl}
-            alt={currentSlide.title}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-            priority={currentIndex === 0}
-          />
+          {currentSlide.link ? (
+            <Link href={currentSlide.link} className="block w-full h-full">
+              <Image
+                src={currentSlide.imageUrl}
+                alt={currentSlide.title}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                priority={currentIndex === 0}
+                unoptimized={currentSlide.imageUrl?.startsWith('http')}
+              />
+            </Link>
+          ) : (
+            <Image
+              src={currentSlide.imageUrl}
+              alt={currentSlide.title}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              priority={currentIndex === 0}
+              unoptimized={currentSlide.imageUrl?.startsWith('http')}
+            />
+          )}
 
           {/* Left / Right Buttons */}
-          <button
-            onClick={(e) => { e.preventDefault(); prevSlide(); }}
-            className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-[#800000] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm z-10"
-            aria-label="Previous Slide"
-          >
-            <ChevronLeft className="h-4 w-4" />
-          </button>
-          <button
-            onClick={(e) => { e.preventDefault(); nextSlide(); }}
-            className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-[#800000] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm z-10"
-            aria-label="Next Slide"
-          >
-            <ChevronRight className="h-4 w-4" />
-          </button>
+          {column.slides.length > 1 && (
+            <>
+              <button
+                type="button"
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); prevSlide(); }}
+                className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-[#800000] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm z-10"
+                aria-label="Previous Slide"
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </button>
+              <button
+                type="button"
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); nextSlide(); }}
+                className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-[#800000] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm z-10"
+                aria-label="Next Slide"
+              >
+                <ChevronRight className="h-4 w-4" />
+              </button>
+            </>
+          )}
 
           {/* Indicators */}
-          <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1.5 z-10">
-            {column.slides.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrentIndex(i)}
-                className={`h-1.5 rounded-full transition-all ${
-                  i === currentIndex ? 'w-5 bg-[#FFD700]' : 'w-1.5 bg-white/70 hover:bg-white'
-                }`}
-                aria-label={`Go to slide ${i + 1}`}
-              />
-            ))}
-          </div>
+          {column.slides.length > 1 && (
+            <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1.5 z-10">
+              {column.slides.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); setCurrentIndex(i); }}
+                  className={`h-1.5 rounded-full transition-all ${
+                    i === currentIndex ? 'w-5 bg-[#FFD700]' : 'w-1.5 bg-white/70 hover:bg-white'
+                  }`}
+                  aria-label={`Go to slide ${i + 1}`}
+                />
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Slide Description & Link */}
         <div className="p-5 flex flex-col flex-grow justify-between space-y-4">
           <div>
-            <h4 className="font-bold text-base text-slate-900 group-hover:text-[#800000] transition-colors line-clamp-1 mb-1.5">
-              {currentSlide.title}
-            </h4>
+            {currentSlide.link ? (
+              <Link href={currentSlide.link} className="hover:text-[#800000] transition-colors">
+                <h4 className="font-bold text-base text-slate-900 group-hover:text-[#800000] transition-colors line-clamp-1 mb-1.5">
+                  {currentSlide.title}
+                </h4>
+              </Link>
+            ) : (
+              <h4 className="font-bold text-base text-slate-900 group-hover:text-[#800000] transition-colors line-clamp-1 mb-1.5">
+                {currentSlide.title}
+              </h4>
+            )}
             <p className="text-xs text-slate-600 leading-relaxed line-clamp-2">
               {currentSlide.desc}
             </p>
@@ -233,6 +292,14 @@ function ColumnCarousel({ column }: { column: ColumnData }) {
             >
               {column.linkText} <ArrowRight className="h-3.5 w-3.5" />
             </Link>
+            {currentSlide.link && (
+              <Link
+                href={currentSlide.link}
+                className="text-[11px] font-semibold text-slate-500 hover:text-[#800000] hover:underline"
+              >
+                View Details
+              </Link>
+            )}
           </div>
         </div>
       </CardContent>
@@ -241,6 +308,62 @@ function ColumnCarousel({ column }: { column: ColumnData }) {
 }
 
 export function ThreeColumnCarousel() {
+  const [columns, setColumns] = useState<ColumnData[]>(COLUMNS_DATA);
+
+  useEffect(() => {
+    async function fetchDynamicEvents() {
+      try {
+        const res = await fetch('/api/events?published=true');
+        if (!res.ok) return;
+        const data = await res.json();
+        const events: any[] = data.events || [];
+        if (!events.length) return;
+
+        const dynamicAcademics: CarouselSlide[] = [];
+        const dynamicCoCurricular: CarouselSlide[] = [];
+        const dynamicEvents: CarouselSlide[] = [];
+
+        events.forEach((ev) => {
+          const pTag = inferPrimaryTag(ev);
+          const slide: CarouselSlide = {
+            title: ev.title,
+            desc: ev.excerpt || (ev.description || (ev.content ? ev.content.replace(/<[^>]*>?/gm, '').slice(0, 110) + '...' : '')),
+            imageUrl: ev.imageUrl || (ev.images && ev.images[0]) || (
+              pTag === 'Academics' ? '/images/departments/bca_dept.jpg' :
+              pTag === 'Co-curricular' ? '/images/gallery/ncc-group-photo.jpg' :
+              '/images/events/basavanna-1.jpg'
+            ),
+            link: `/events/${ev.slug || ev.id}`,
+          };
+
+          if (pTag === 'Academics') {
+            dynamicAcademics.push(slide);
+          } else if (pTag === 'Co-curricular') {
+            dynamicCoCurricular.push(slide);
+          } else {
+            dynamicEvents.push(slide);
+          }
+        });
+
+        setColumns(prev => prev.map(col => {
+          if (col.title === 'Academics') {
+            return { ...col, slides: [...dynamicAcademics, ...COLUMNS_DATA[0].slides] };
+          }
+          if (col.title === 'Co-Curricular') {
+            return { ...col, slides: [...dynamicCoCurricular, ...COLUMNS_DATA[1].slides] };
+          }
+          if (col.title === 'Events') {
+            return { ...col, slides: [...dynamicEvents, ...COLUMNS_DATA[2].slides] };
+          }
+          return col;
+        }));
+      } catch (err) {
+        console.error('Failed to load dynamic events for carousel:', err);
+      }
+    }
+    fetchDynamicEvents();
+  }, []);
+
   return (
     <section className="py-14 bg-slate-50 border-t border-slate-200">
       <div className="container mx-auto px-4 max-w-7xl space-y-10">
@@ -259,7 +382,7 @@ export function ThreeColumnCarousel() {
 
         {/* 3 Columns Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-          {COLUMNS_DATA.map((col) => (
+          {columns.map((col) => (
             <div key={col.title} className="h-full">
               <ColumnCarousel column={col} />
             </div>
@@ -277,19 +400,19 @@ export function ThreeColumnCarousel() {
             </p>
           </div>
 
-          <div className="bg-gradient-to-r from-[#800000] to-[#990000] text-white p-5 rounded-xl shadow-md flex items-center justify-between gap-4">
+          <div className="keep-colors bg-gradient-to-r from-[#800000] to-[#990000] !text-white p-5 rounded-xl shadow-md flex items-center justify-between gap-4" style={{ backgroundColor: '#800000', color: '#ffffff' }}>
             <div className="space-y-1">
-              <div className="flex items-center gap-1.5 text-xs font-bold text-yellow-300 uppercase tracking-wider">
-                <FileText className="h-4 w-4" /> Prospectus
+              <div className="flex items-center gap-1.5 text-xs font-bold !text-yellow-300 uppercase tracking-wider" style={{ color: '#fde047' }}>
+                <FileText className="h-4 w-4 text-yellow-300" style={{ color: '#fde047' }} /> Prospectus
               </div>
-              <h4 className="font-bold text-base">College Brochure</h4>
-              <p className="text-xs text-white/80">Download our updated prospectus and course guides.</p>
+              <h4 className="font-bold text-base !text-white" style={{ color: '#ffffff' }}>College Brochure</h4>
+              <p className="text-xs !text-white/90" style={{ color: '#ffffff' }}>Download our updated prospectus and course guides.</p>
             </div>
             <a
               href="https://drive.google.com/file/d/1CzrsV32FaXRc79ZHvfneH4dZbinqriDH/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-white text-[#800000] font-bold text-xs rounded-lg hover:bg-yellow-400 hover:text-slate-900 transition-colors shrink-0 shadow"
+              className="px-4 py-2 bg-white !text-[#800000] font-bold text-xs rounded-lg hover:bg-yellow-400 hover:!text-slate-900 transition-colors shrink-0 shadow"
             >
               View Brochure
             </a>

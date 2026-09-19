@@ -66,13 +66,51 @@
   - All headings and CardTitle components render in blue
   - This applies across the site to meet the requirement
 */
-main:not(.keep-colors) :where(h1, h2, h3, h4, h5, h6),
-main:not(.keep-colors) .card-title {
+main:not(.keep-colors) :where(h1, h2, h3, h4, h5, h6):not(
+  .keep-colors, 
+  .keep-colors *, 
+  .text-white, 
+  [class*="text-white"], 
+  [class*="text-yellow"], 
+  [class*="text-amber"], 
+  [class*="text-blue-100"],
+  [class*="bg-[#800000]"], 
+  [class*="bg-[#800000]"] *, 
+  [class*="from-[#800000]"], 
+  [class*="from-[#800000]"] *,
+  [class*="bg-blue-9"], 
+  [class*="bg-blue-9"] *, 
+  [class*="from-blue-9"], 
+  [class*="from-blue-9"] *
+),
+main:not(.keep-colors) .card-title:not(.keep-colors, .keep-colors *, .text-white, [class*="text-white"]) {
   color: #1e3a8a !important;
 }
 
-main:not(.keep-colors) :where(p, li, span, small, strong, em, td, th, figcaption, label) {
+main:not(.keep-colors) :where(p, li, span, small, strong, em, td, th, figcaption, label):not(
+  .keep-colors, 
+  .keep-colors *, 
+  .text-white, 
+  [class*="text-white"], 
+  [class*="text-yellow"], 
+  [class*="text-amber"], 
+  [class*="text-blue-100"],
+  [class*="bg-[#800000]"], 
+  [class*="bg-[#800000]"] *, 
+  [class*="from-[#800000]"], 
+  [class*="from-[#800000]"] *,
+  [class*="bg-blue-9"], 
+  [class*="bg-blue-9"] *, 
+  [class*="from-blue-9"], 
+  [class*="from-blue-9"] *
+) {
   color: #000 !important;
+}
+
+/* Explicit exemption helper for high contrast */
+.keep-colors,
+.keep-colors :where(h1, h2, h3, h4, h5, h6, p, li, span, small, strong, em, a, div, svg) {
+  color: inherit !important;
 }
 
 header :where(p, li, span, small, strong, em, a, button, div, section),

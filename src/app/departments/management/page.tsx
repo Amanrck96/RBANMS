@@ -166,7 +166,7 @@ export default function ManagementDepartmentPage() {
           <Lightbulb className="h-16 w-16 mx-auto text-primary" />
           <h3 className="text-3xl font-bold">OBJECTIVES</h3>
           <p className="text-black leading-relaxed text-lg">
-            The BBA program at RBANMs First Grade College under Bengaluru City University is designed to develop comprehensive business competencies with dual specialization in Human Resources and Marketing.
+            The BBA program at RBANMs First Grade College under Dr. Manmohan Singh Bengaluru City University is designed to develop comprehensive business competencies with dual specialization in Human Resources and Marketing.
           </p>
         </CardContent>
       </Card>
@@ -276,7 +276,7 @@ export default function ManagementDepartmentPage() {
   const contactContent = (
     <DepartmentContact
       departmentName="Department of Management Studies (BBA)"
-      departmentEmail="priyamahesh09@gmail.com"
+      departmentEmail="info@rbanmsfgc.edu.in"
       hodName="Prof. Priya K (Head of Department – Management)"
       hodPhone="9880213203"
     />

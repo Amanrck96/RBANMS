@@ -180,7 +180,7 @@ export default function PhysicalEducationPage() {
   const contactContent = (
     <DepartmentContact
       departmentName="Department of Physical Education & Sports"
-      departmentEmail="rbanmsfgc.ped@gmail.com"
+      departmentEmail="info@rbanmsfgc.edu.in"
     />
   );
 

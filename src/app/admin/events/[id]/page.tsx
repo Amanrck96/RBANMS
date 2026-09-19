@@ -15,7 +15,13 @@ import { Save, ArrowLeft, ImageIcon } from 'lucide-react';
 import Link from 'next/link';
 import { VisualEditor } from '@/components/admin/visual-editor';
 import { ImageUpload } from '@/components/admin/image-upload';
-const EVENT_TAGS = [
+export const PRIMARY_TAGS = [
+    { id: 'Academics', label: 'Academics', desc: 'Academics, course seminars, computer labs & departments' },
+    { id: 'Co-curricular', label: 'Co-curricular', desc: 'Clubs, NSS, NCC, sports, cultural activities & fests' },
+    { id: 'Events', label: 'Events', desc: 'Institutional celebrations, orientation, conferences & milestones' }
+] as const;
+
+export const SECONDARY_TAGS = [
     { id: 'general', label: 'General / All Departments' },
     { id: 'arts', label: 'Arts' },
     { id: 'commerce', label: 'Commerce' },
@@ -24,6 +30,9 @@ const EVENT_TAGS = [
     { id: 'languages', label: 'Languages' },
     { id: 'management', label: 'Management (BBA)' },
     { id: 'physical-education', label: 'Physical Education' },
+    { id: 'hindi', label: 'Hindi' },
+    { id: 'kannada', label: 'Kannada' },
+    { id: 'anrc', label: 'ANRC (Arcot Narainswamy Research Centre)' },
     { id: 'nss', label: 'NSS (National Service Scheme)' },
     { id: 'ncc', label: 'NCC (National Cadet Corps)' },
     { id: 'ncc-army', label: 'NCC Army' },
@@ -65,8 +74,8 @@ export default function EventEditorPage() {
     const [imageUrl, setImageUrl] = useState('');
     const [eventDate, setEventDate] = useState(new Date().toISOString().split('T')[0]);
     const [published, setPublished] = useState(false);
-    const [department, setDepartment] = useState('general');
-    const [tags, setTags] = useState<string[]>(['general']);
+    const [primaryTag, setPrimaryTag] = useState<'Academics' | 'Co-curricular' | 'Events'>('Events');
+    const [secondaryTags, setSecondaryTags] = useState<string[]>(['general']);
     const [searchQuery, setSearchQuery] = useState('');
     const [loading, setLoading] = useState(false);
     const [fetching, setFetching] = useState(isEditing);
@@ -90,8 +99,24 @@ export default function EventEditorPage() {
                     setEventDate(new Date(data.event.eventDate).toISOString().split('T')[0]);
                 }
                 setPublished(data.event.published);
-                setDepartment(data.event.department || 'general');
-                setTags(data.event.tags || (data.event.department ? [data.event.department] : ['general']));
+                
+                // Primary Tag with inference fallback for legacy events
+                if (data.event.primaryTag) {
+                    setPrimaryTag(data.event.primaryTag);
+                } else {
+                    const existing = data.event.secondaryTags || data.event.tags || (data.event.department ? [data.event.department] : []);
+                    if (existing.some((t: string) => ['academics', 'commerce', 'computer-applications', 'bca', 'management', 'bba', 'arts', 'english', 'languages', 'hindi', 'kannada', 'anrc', 'bca-forum', 'commerce-forum', 'management-forum', 'literary-forum', 'languages-forum'].includes(t))) {
+                        setPrimaryTag('Academics');
+                    } else if (existing.some((t: string) => ['co-curricular', 'nss', 'ncc', 'ncc-army', 'ncc-navy', 'physical-education', 'cultural-committee', 'eco-club', 'yrc-scouts', 'manasa-counselling', 'womens-cell'].includes(t))) {
+                        setPrimaryTag('Co-curricular');
+                    } else {
+                        setPrimaryTag('Events');
+                    }
+                }
+
+                // Secondary Tags
+                const loadedSecondary = data.event.secondaryTags || data.event.tags || (data.event.department ? [data.event.department] : ['general']);
+                setSecondaryTags(loadedSecondary.length > 0 ? loadedSecondary : ['general']);
             }
         } catch (error) {
             console.error('Failed to fetch event:', error);
@@ -100,26 +125,23 @@ export default function EventEditorPage() {
         }
     };
 
-    const handleToggleTag = (tagId: string) => {
-        setTags(prev => {
+    const handleToggleSecondaryTag = (tagId: string) => {
+        setSecondaryTags(prev => {
             const isSelected = prev.includes(tagId);
-            let nextTags;
             if (isSelected) {
-                nextTags = prev.filter(t => t !== tagId);
+                const nextTags = prev.filter(t => t !== tagId);
+                return nextTags.length > 0 ? nextTags : ['general'];
             } else {
-                nextTags = [...prev, tagId];
+                const filtered = prev.filter(t => t !== 'general');
+                return [...filtered, tagId];
             }
-            // Sync legacy department field with first active tag
-            setDepartment(nextTags[0] || 'general');
-            return nextTags;
         });
     };
 
-    const handleRemoveTag = (tagId: string) => {
-        setTags(prev => {
+    const handleRemoveSecondaryTag = (tagId: string) => {
+        setSecondaryTags(prev => {
             const nextTags = prev.filter(t => t !== tagId);
-            setDepartment(nextTags[0] || 'general');
-            return nextTags;
+            return nextTags.length > 0 ? nextTags : ['general'];
         });
     };
 
@@ -132,10 +154,33 @@ export default function EventEditorPage() {
             const url = '/api/events';
             const method = isEditing ? 'PUT' : 'POST';
             
-            const activeDepartment = tags[0] || 'general';
+            const activeDepartment = secondaryTags[0] || 'general';
             const body = isEditing
-                ? { eventId: params.id, title, excerpt, content, imageUrl, published, eventDate: new Date(eventDate).toISOString(), department: activeDepartment, tags }
-                : { title, excerpt, content, imageUrl, published, eventDate: new Date(eventDate).toISOString(), department: activeDepartment, tags };
+                ? { 
+                    eventId: params.id, 
+                    title, 
+                    excerpt, 
+                    content, 
+                    imageUrl, 
+                    published, 
+                    eventDate: new Date(eventDate).toISOString(), 
+                    department: activeDepartment, 
+                    tags: secondaryTags,
+                    primaryTag,
+                    secondaryTags
+                }
+                : { 
+                    title, 
+                    excerpt, 
+                    content, 
+                    imageUrl, 
+                    published, 
+                    eventDate: new Date(eventDate).toISOString(), 
+                    department: activeDepartment, 
+                    tags: secondaryTags,
+                    primaryTag,
+                    secondaryTags
+                };
 
             const response = await fetch(url, {
                 method,
@@ -225,21 +270,77 @@ export default function EventEditorPage() {
                             />
                         </div>
 
-                        <div className="space-y-3">
-                            <Label className="text-base font-semibold text-slate-900">Event Tags (Select multiple) *</Label>
-                            <div className="flex flex-wrap gap-2 p-3 bg-slate-50 border border-slate-200 rounded-lg min-h-[50px] items-center">
-                                {tags.length === 0 ? (
-                                    <span className="text-sm text-slate-400 italic">No tags selected. Select tags below.</span>
+                        {/* PRIMARY TAG */}
+                        <div className="space-y-3 p-4 bg-slate-50/80 border-2 border-slate-200 rounded-xl">
+                            <div>
+                                <Label className="text-base font-bold text-slate-900 flex items-center gap-2">
+                                    <span className="w-2.5 h-2.5 rounded-full bg-[#800000]"></span>
+                                    PRIMARY TAG (Controls Homepage Carousel Placement) *
+                                </Label>
+                                <p className="text-xs text-slate-600 mt-1">
+                                    Determines whether this event appears in the <strong>Academics</strong>, <strong>Co-curricular</strong>, or <strong>Events</strong> carousel column on the homepage.
+                                </p>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
+                                {PRIMARY_TAGS.map((p) => {
+                                    const isSelected = primaryTag === p.id;
+                                    return (
+                                        <button
+                                            key={p.id}
+                                            type="button"
+                                            onClick={() => setPrimaryTag(p.id)}
+                                            disabled={loading}
+                                            className={`p-3.5 rounded-lg border-2 text-left transition-all relative ${
+                                                isSelected
+                                                    ? 'bg-[#800000] text-white border-[#800000] shadow-md ring-2 ring-[#800000]/20'
+                                                    : 'bg-white text-slate-800 border-slate-200 hover:border-[#800000]/40 hover:bg-slate-50'
+                                            }`}
+                                        >
+                                            <div className="flex items-center justify-between">
+                                                <span className={`font-bold text-sm ${isSelected ? 'text-white' : 'text-slate-900'}`}>
+                                                    {p.label}
+                                                </span>
+                                                {isSelected && (
+                                                    <span className="text-[10px] font-bold bg-white text-[#800000] px-2 py-0.5 rounded-full uppercase tracking-wider">
+                                                        Active
+                                                    </span>
+                                                )}
+                                            </div>
+                                            <p className={`text-xs mt-1.5 leading-snug ${isSelected ? 'text-white/85' : 'text-slate-500'}`}>
+                                                {p.desc}
+                                            </p>
+                                        </button>
+                                    );
+                                })}
+                            </div>
+                        </div>
+
+                        {/* SECONDARY TAGS */}
+                        <div className="space-y-3 p-4 bg-slate-50/80 border border-slate-200 rounded-xl">
+                            <div>
+                                <Label className="text-base font-bold text-slate-900 flex items-center gap-2">
+                                    <span className="w-2.5 h-2.5 rounded-full bg-blue-900"></span>
+                                    SECONDARY TAGS (Department &amp; Activity Filters) *
+                                </Label>
+                                <p className="text-xs text-slate-600 mt-1">
+                                    Used for department pages, language tracks (Hindi, Kannada), research (ANRC), and student club filtering.
+                                </p>
+                            </div>
+
+                            <div className="flex flex-wrap gap-2 p-3 bg-white border border-slate-200 rounded-lg min-h-[48px] items-center">
+                                {secondaryTags.length === 0 ? (
+                                    <span className="text-sm text-slate-400 italic">No secondary tags selected. Select from below.</span>
                                 ) : (
-                                    tags.map(tagId => {
-                                        const t = EVENT_TAGS.find(x => x.id === tagId);
+                                    secondaryTags.map(tagId => {
+                                        const t = SECONDARY_TAGS.find(x => x.id === tagId);
                                         return (
-                                            <span key={tagId} className="inline-flex items-center gap-1 bg-[#800000] text-[#FFD700] text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm">
+                                            <span key={tagId} className="inline-flex items-center gap-1.5 bg-[#800000] text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
                                                 {t ? t.label : tagId}
                                                 <button
                                                     type="button"
-                                                    onClick={() => handleRemoveTag(tagId)}
-                                                    className="hover:bg-[#660000] rounded-full p-0.5 ml-1 text-xs"
+                                                    onClick={() => handleRemoveSecondaryTag(tagId)}
+                                                    className="hover:bg-white/20 rounded-full p-0.5 ml-0.5 text-xs text-white"
                                                     title="Remove tag"
                                                     disabled={loading}
                                                 >
@@ -254,7 +355,7 @@ export default function EventEditorPage() {
                             <div className="border border-slate-200 rounded-lg overflow-hidden bg-white shadow-sm">
                                 <div className="p-2 border-b bg-slate-50">
                                     <Input
-                                        placeholder="Search tags..."
+                                        placeholder="Search secondary tags (e.g. Hindi, Kannada, ANRC, Commerce)..."
                                         value={searchQuery}
                                         onChange={(e) => setSearchQuery(e.target.value)}
                                         className="h-9 bg-white text-slate-900 border-slate-200 focus:ring-[#800000]"
@@ -262,21 +363,21 @@ export default function EventEditorPage() {
                                     />
                                 </div>
                                 <div className="max-h-[220px] overflow-y-auto p-3 grid grid-cols-1 md:grid-cols-2 gap-2">
-                                    {EVENT_TAGS.filter(t => t.label.toLowerCase().includes(searchQuery.toLowerCase())).map(t => {
-                                        const isSelected = tags.includes(t.id);
+                                    {SECONDARY_TAGS.filter(t => t.label.toLowerCase().includes(searchQuery.toLowerCase())).map(t => {
+                                        const isSelected = secondaryTags.includes(t.id);
                                         return (
                                             <label
                                                 key={t.id}
                                                 className={`flex items-center gap-2.5 p-2 rounded-md border text-xs font-semibold cursor-pointer select-none transition-all ${
                                                     isSelected
-                                                        ? 'bg-[#800000]/5 border-[#800000] text-[#800000]'
-                                                        : 'hover:bg-slate-50 border-slate-100 text-slate-700'
+                                                        ? 'bg-[#800000]/10 border-[#800000] text-[#800000] font-bold'
+                                                        : 'hover:bg-slate-50 border-slate-200 text-slate-700'
                                                 }`}
                                             >
                                                 <input
                                                     type="checkbox"
                                                     checked={isSelected}
-                                                    onChange={() => handleToggleTag(t.id)}
+                                                    onChange={() => handleToggleSecondaryTag(t.id)}
                                                     disabled={loading}
                                                     className="w-4 h-4 rounded text-[#800000] border-slate-300 focus:ring-[#800000]"
                                                 />

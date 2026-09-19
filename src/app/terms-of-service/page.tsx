@@ -56,7 +56,7 @@ export default function TermsOfServicePage() {
             <address className="not-italic bg-blue-50 p-4 rounded-md border border-blue-100 text-sm space-y-1">
               <p className="font-semibold text-blue-950">Principal, RBANMS First Grade College</p>
               <p>#12, Annaswamy Mudaliar Road, Bengaluru, Karnataka - 560042</p>
-              <p>Email: <a href="mailto:principal_rbanms@gmail.com" className="text-blue-600 underline">principal_rbanms@gmail.com</a></p>
+              <p>Email: <a href="mailto:info@rbanmsfgc.edu.in" className="text-blue-600 underline">info@rbanmsfgc.edu.in</a></p>
             </address>
           </section>
         </div>

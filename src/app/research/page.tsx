@@ -57,22 +57,31 @@ const defaultResearchContent = (
 
 export default function ResearchPage() {
     return (
-        <div className="container mx-auto px-4 py-12 md:py-16">
-            <Card className="overflow-hidden border-none shadow-xl">
-                <div className="bg-white py-12 px-8 border-b border-gray-100">
-                    <h1 className="text-4xl md:text-5xl font-bold font-headline mb-4 text-[#800000]">Research & Innovation</h1>
-                    <p className="text-slate-600 text-lg max-w-2xl">
-                        Advancing knowledge through inquiry, collaboration, and academic excellence.
-                    </p>
-                </div>
-                <CardContent className="pt-12 pb-16 px-8 md:px-12 prose prose-lg max-w-none">
-                    <DynamicSection
-                        pageId="research"
-                        onlyContent
-                        defaultContent={defaultResearchContent}
-                    />
-                </CardContent>
-            </Card>
-        </div>
+        <DynamicSection
+            pageId="research"
+            render={(data) => {
+                const title = data?.title || "Research & Innovation";
+                const tagline = data?.tagline || "Advancing knowledge through inquiry, collaboration, and academic excellence.";
+                return (
+                    <div className="container mx-auto px-4 py-12 md:py-16">
+                        <Card className="overflow-hidden border-none shadow-xl">
+                            <div className="bg-white py-12 px-8 border-b border-gray-100">
+                                <h1 className="text-4xl md:text-5xl font-bold font-headline mb-4 text-[#800000]">{title}</h1>
+                                <p className="text-slate-600 text-lg max-w-2xl">
+                                    {tagline}
+                                </p>
+                            </div>
+                            <CardContent className="pt-12 pb-16 px-8 md:px-12 prose prose-lg max-w-none">
+                                {data?.content ? (
+                                    <div dangerouslySetInnerHTML={{ __html: data.content }} />
+                                ) : (
+                                    defaultResearchContent
+                                )}
+                            </CardContent>
+                        </Card>
+                    </div>
+                );
+            }}
+        />
     );
 }

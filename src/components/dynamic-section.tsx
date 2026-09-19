@@ -111,6 +111,7 @@ export function DynamicSection({ pageId, defaultTitle, defaultContent, defaultIm
                                 alt={currentTitle || "Featured Image"}
                                 fill
                                 className="object-cover"
+                                unoptimized={currentImageUrl?.startsWith('http')}
                             />
                         </div>
                     </div>

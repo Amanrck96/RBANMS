@@ -31,7 +31,7 @@ export default function CollegeInfoPage() {
               <strong>RBANMS First Grade College</strong> is one of the most reputed degree colleges in Bengaluru, Karnataka. Established in <strong>1983</strong> by the RBANMS Educational Charities Trust, the college has served over four decades providing affordable, high-quality undergraduate education to students from all socioeconomic backgrounds.
             </p>
             <p>
-              The college is <strong>affiliated to Bengaluru City University (BCU)</strong> and is recognised under Sections 2(f) and 12(B) of the UGC Act, 1956. It has been <strong>accredited by NAAC (National Assessment and Accreditation Council)</strong>, which validates the quality of teaching, infrastructure, governance, and student support systems.
+              The college is <strong>affiliated to Dr. Manmohan Singh Bengaluru City University</strong> and is recognised under Sections 2(f) and 12(B) of the UGC Act, 1956. It has been <strong>accredited by NAAC (National Assessment and Accreditation Council)</strong>, which validates the quality of teaching, infrastructure, governance, and student support systems.
             </p>
             <p>
               Located at <strong>12, Annaswamy Mudaliar Road, opposite Ulsoor Lake, Bengaluru – 560042</strong>, the college is easily accessible by public transport. With over 2,000+ students enrolled annually across multiple degree programmes, RBANMS is among the most sought-after undergraduate colleges in the city.
@@ -49,22 +49,22 @@ export default function CollegeInfoPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="border border-blue-100 rounded-lg p-5 bg-blue-50">
                 <h3 className="text-lg font-bold text-blue-900 mb-2">Bachelor of Arts – B.A.</h3>
-                <p className="text-sm text-gray-500 mb-2">3 Years | Bengaluru City University</p>
+                <p className="text-sm text-gray-500 mb-2">3 Years | Dr. Manmohan Singh Bengaluru City University</p>
                 <p>Subjects include History, Political Science, Economics, Sociology, and Literature. Ideal for students pursuing civil services, law, education, and journalism.</p>
               </div>
               <div className="border border-blue-100 rounded-lg p-5 bg-blue-50">
                 <h3 className="text-lg font-bold text-blue-900 mb-2">Bachelor of Commerce – B.Com.</h3>
-                <p className="text-sm text-gray-500 mb-2">3 Years | Bengaluru City University</p>
+                <p className="text-sm text-gray-500 mb-2">3 Years | Dr. Manmohan Singh Bengaluru City University</p>
                 <p>Covers Accounting, Taxation, Finance, Business Law, and Auditing. Perfect foundation for CA, CMA, MBA, and corporate finance careers.</p>
               </div>
               <div className="border border-blue-100 rounded-lg p-5 bg-blue-50">
                 <h3 className="text-lg font-bold text-blue-900 mb-2">Bachelor of Business Administration – B.B.A.</h3>
-                <p className="text-sm text-gray-500 mb-2">3 Years | Bengaluru City University</p>
+                <p className="text-sm text-gray-500 mb-2">3 Years | Dr. Manmohan Singh Bengaluru City University</p>
                 <p>Marketing, HR, Operations, Entrepreneurship, and Organizational Behaviour. Excellent base for MBA aspirants and future business owners.</p>
               </div>
               <div className="border border-blue-100 rounded-lg p-5 bg-blue-50">
                 <h3 className="text-lg font-bold text-blue-900 mb-2">Bachelor of Computer Applications – B.C.A.</h3>
-                <p className="text-sm text-gray-500 mb-2">3 Years | Bengaluru City University</p>
+                <p className="text-sm text-gray-500 mb-2">3 Years | Dr. Manmohan Singh Bengaluru City University</p>
                 <p>Programming, Data Structures, DBMS, Web Development, Software Engineering, and Networking. Gateway to the IT industry and MCA postgraduation.</p>
               </div>
             </div>
@@ -74,7 +74,7 @@ export default function CollegeInfoPage() {
         <section id="admission">
           <h2 className="text-2xl font-bold text-blue-900 border-l-4 border-yellow-400 pl-4 mb-6">Admission Process 2026-27</h2>
           <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 text-gray-700 space-y-4">
-            <p>Admissions commence in <strong>June–July</strong> each year, following Bengaluru City University and Government of Karnataka guidelines.</p>
+            <p>Admissions commence in <strong>June–July</strong> each year, following Dr. Manmohan Singh Bengaluru City University and Government of Karnataka guidelines.</p>
             <h3 className="font-bold text-blue-900 text-lg">Eligibility</h3>
             <ul className="list-disc pl-6 space-y-2">
               <li><strong>B.A. / B.Com. / B.B.A.:</strong> Passed 10+2 or equivalent with minimum 35% aggregate marks.</li>
@@ -96,7 +96,7 @@ export default function CollegeInfoPage() {
           <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 text-gray-700 space-y-4">
             <p>The campus at Ulsoor, Bengaluru provides state-of-the-art facilities for academic and extracurricular activities:</p>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 list-none">
-              {["Library with thousands of books, journals, and e-resources", "Computer Labs with high-speed internet access", "Science Labs for Physics, Chemistry, and Biology practicals", "Sports grounds for cricket, football, and athletics", "On-campus canteen with hygienic, affordable meals", "Seminar Hall for workshops and guest lectures", "Women's Common Room for female students", "Campus-wide Wi-Fi connectivity"].map(f => (
+              {["Library with thousands of books, journals, and e-resources", "Computer Labs with high-speed internet access", "Business Lab & Media Design Lab for practical training", "Sports grounds for cricket, football, throwball, and athletics", "On-campus canteen with hygienic, affordable meals", "Seminar Hall for workshops and guest lectures", "Women's Common Room for female students", "Campus-wide Wi-Fi connectivity"].map(f => (
                 <li key={f} className="flex items-start gap-2 text-gray-700">
                   <span className="text-yellow-500 font-bold mt-0.5">✓</span>
                   <span>{f}</span>
@@ -142,7 +142,7 @@ export default function CollegeInfoPage() {
             <ul className="space-y-3">
               <li><strong>✓ NAAC Accredited</strong> — Quality assurance in teaching, infrastructure, and governance.</li>
               <li><strong>✓ UGC Recognised</strong> — Under Sections 2(f) and 12(B) of the UGC Act, 1956.</li>
-              <li><strong>✓ Bengaluru City University Affiliated</strong> — One of the long-standing affiliated colleges, maintaining standards for 40+ years.</li>
+              <li><strong>✓ Dr. Manmohan Singh Bengaluru City University Affiliated</strong> — One of the long-standing affiliated colleges, maintaining standards for 40+ years.</li>
               <li><strong>✓ IQAC Active</strong> — Internal Quality Assurance Cell ensuring continuous improvement.</li>
               <li><strong>✓ AICTE Compliance</strong> — Programmes are aligned with All India Council for Technical Education guidelines.</li>
             </ul>

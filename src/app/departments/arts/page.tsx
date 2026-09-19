@@ -310,7 +310,7 @@ export default function ArtsDepartmentPage() {
   const contactContent = (
     <DepartmentContact
       departmentName="Department of Arts"
-      departmentEmail="hodartsrbanms@gmail.com"
+      departmentEmail="info@rbanmsfgc.edu.in"
     />
   );
 

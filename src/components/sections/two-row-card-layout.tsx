@@ -55,23 +55,28 @@ export function TwoRowCardLayout() {
                             <Card className="flex flex-col h-full">
                                 <CardHeader>
                                     <CardTitle className="text-[clamp(1.25rem,2.5vw,1.5rem)] text-blue-900 font-headline">
-                                        Our Secretary
+                                        {data.title || "Message from the Board"}
                                     </CardTitle>
                                 </CardHeader>
                                 <CardContent className="flex-grow flex flex-col">
                                     <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gray-100">
                                         <Image
                                             src={data.imageUrl || "/images/secretary.jpg"}
-                                            alt={data.title || "Sri A. A. Sanjeev Narrain - Secretary"}
+                                            alt={data.personName ? `${data.personName} - Secretary` : "Arvind Narrain - Secretary, Educational Charities"}
                                             fill
                                             className="object-cover object-top"
                                             sizes="(max-width: 1024px) 100vw, 33vw"
+                                            unoptimized={data.imageUrl?.startsWith('http')}
                                         />
                                     </div>
-                                    <h3 className="text-center text-sm font-bold text-primary mb-1">
-                                        {data.title || "Sri A. A. Sanjeev Narrain"}
-                                    </h3>
-                                    <p className="text-muted-foreground text-xs text-center font-medium mb-3">Hon. Secretary, RBANMS Educational Charities</p>
+                                    <div className="text-center mb-3">
+                                        <h3 className="text-base font-bold text-primary mb-0.5">
+                                            {data.personName || "Arvind Narrain"}
+                                        </h3>
+                                        <p className="text-muted-foreground text-xs font-medium">
+                                            {data.tagline || data.personRole || "Secretary, Educational Charities"}
+                                        </p>
+                                    </div>
 
                                     <div className="text-left text-sm content-black homepage-card-content mb-4">
                                         {data.content ? (
@@ -83,14 +88,14 @@ export function TwoRowCardLayout() {
                                             <>
                                                 <div
                                                     className={expandedCard !== 'secretary' ? 'line-clamp-3' : ''}
-                                                    dangerouslySetInnerHTML={{ __html: data.summary || 'RBANMS Educational Charities continues its proud legacy of over 150 years in providing inclusive, quality, and value-based education to empower students from every sphere of society to excel and lead.' }}
-                                                />
+                                                >
+                                                    <p>
+                                                        Welcome to RBANMS! We are proud to welcome you into an institution which has a rich history and a bright future! The RBANMS college focuses not just on delivering quality education through competent faculty but also gives attention to sports, culture and other ways in which the personality of the student can grow. We hope that in your time in RBANMS you take advantage of the multifarious educational opportunities to develop yourself, and also contribute to addressing some of the problems plaguing our world. For that is the ethos of RBANMS, where we focus both on the growth of the self as well as giving back to society. That is an apt tribute to the vision of Sri Arcot Narainswamy Mudalair, the man who lay behind the founding of RBANM’s Educational Charities.
+                                                    </p>
+                                                </div>
 
                                                 {expandedCard === 'secretary' && (
                                                     <div className="mt-3 space-y-3">
-                                                        <p>
-                                                            Dedicated to the foundational ethos of holistic youth empowerment, our institutions blend traditional character-building with contemporary skills, industry readiness, and community leadership.
-                                                        </p>
                                                         <p>
                                                             <a href="/about/governance" className="text-primary hover:underline font-semibold">
                                                                 Read more about Trust & Governance
@@ -132,33 +137,50 @@ export function TwoRowCardLayout() {
                                     <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gray-100">
                                         <Image
                                             src={data.imageUrl || "/images/director_new.png"}
-                                            alt={data.title || "Dr. Sahana Das - Director"}
+                                            alt={data.personName ? `${data.personName} - Director` : "Dr. Sahana Das - Director"}
                                             fill
                                             className="object-cover"
                                             sizes="(max-width: 1024px) 100vw, 33vw"
+                                            unoptimized={data.imageUrl?.startsWith('http')}
                                         />
+                                    </div>
+                                    <div className="text-center mb-3">
+                                        <h3 className="text-base font-bold text-primary mb-0.5">
+                                            {data.personName || "Dr. Sahana Das"}
+                                        </h3>
+                                        <p className="text-muted-foreground text-xs font-medium">
+                                            {data.personRole || "Director of Colleges"}
+                                        </p>
+                                        <p className="text-slate-500 text-[11px] font-normal">
+                                            {data.organization || "RBANMs Educational Charities"}
+                                        </p>
                                     </div>
 
                                     <div className="text-left text-sm content-black homepage-card-content mb-4">
                                         {data.content ? (
                                             <div 
-                                                className={expandedCard !== 'director' ? 'line-clamp-4' : ''}
+                                                className={expandedCard !== 'director' ? 'line-clamp-3' : ''}
                                                 dangerouslySetInnerHTML={{ __html: data.content }}
                                             />
                                         ) : (
                                             <>
-                                                <div
-                                                    className={expandedCard !== 'director' ? 'line-clamp-4' : ''}
-                                                    dangerouslySetInnerHTML={{ __html: data.summary || 'Education must go beyond the syllabus and help prepare students for life so that their professional success is balanced with their personal, emotional, and spiritual wellbeing. Our student-centric approach keeps the campus energetic and purposeful.' }}
-                                                />
+                                                <div 
+                                                    className={expandedCard !== 'director' ? 'line-clamp-3' : ''}
+                                                >
+                                                    <div className="space-y-5 leading-relaxed text-gray-700">
+                                                        <p>A very warm welcome to the RBANM's Degree college and its website.</p>
+                                                        <p>I am privileged to lead an Institution like ours, where education is not a commercial transaction, but a tool of transformation towards a better life. It is therefore natural that the years at RBANM's go beyond just the syllabus. Our student-centric philosophy of education includes employability skills, personality development, and social sensitivity along with the expected degree from the University. This, to us, is true education.</p>
+                                                        <p>With an experienced and dedicated staff, spacious classrooms and other facilities, our constant endeavor is to enrich each student's journey in the College, while grooming them towards a life of purpose.</p>
+                                                        <p>I hope the website is useful to understand who we are and what we stand for. Best wishes for an enriching association with our College!</p>
+                                                    </div>
+                                                </div>
 
                                                 {expandedCard === 'director' && (
                                                     <div className="mt-3 space-y-3">
                                                         <p>
-                                                            At RBANMS First Grade College, we believe in nurturing not just academicians but well-rounded individuals who are equipped to face the challenges of the modern world. Our comprehensive approach to education ensures that students develop critical thinking, creativity, and leadership skills.
-                                                        </p>
-                                                        <p>
-                                                            We are committed to providing an environment that encourages innovation, collaboration, and personal growth. Our dedicated faculty members work tirelessly to inspire and guide students towards achieving their full potential.
+                                                            <a href="/about/director-message" className="text-primary hover:underline font-semibold">
+                                                                Read more about the Director
+                                                            </a>
                                                         </p>
                                                     </div>
                                                 )}
@@ -196,11 +218,20 @@ export function TwoRowCardLayout() {
                                     <div className="relative w-full aspect-[3/4] mb-4 rounded-lg overflow-hidden bg-gray-100">
                                         <Image
                                             src={data.imageUrl || "/images/migrated/principal-whatsapp.jpeg"}
-                                            alt={data.title || "Dr. Shanti Iyer - Principal"}
+                                            alt={data.personName ? `${data.personName} - Principal` : "Dr. Shanti Iyer - Principal"}
                                             fill
                                             className="object-cover"
                                             sizes="(max-width: 1024px) 100vw, 33vw"
+                                            unoptimized={data.imageUrl?.startsWith('http')}
                                         />
+                                    </div>
+                                    <div className="text-center mb-3">
+                                        <h3 className="text-base font-bold text-primary mb-0.5">
+                                            {data.personName || "Dr. Shanti Iyer"}
+                                        </h3>
+                                        <p className="text-muted-foreground text-xs font-medium">
+                                            {data.personRole || "Principal, RBANMs FGC"}
+                                        </p>
                                     </div>
 
                                     <div className="text-left text-sm content-black homepage-card-content mb-4">

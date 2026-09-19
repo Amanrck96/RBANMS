@@ -35,7 +35,22 @@ export function SiteHeader() {
 
   return (
     <header aria-label="Main" className="w-full m-0 p-0">
-      <DynamicSection pageId="header-top" onlyContent />
+      <DynamicSection
+        pageId="header-top"
+        render={(data) => {
+          if (!data?.content || !data.content.trim()) return null;
+          // If header-top duplicates the contact info, don't render a second duplicate bar
+          if (data.content.includes('080-25512976') || data.content.includes('25512976') || data.content.includes('7349251497')) {
+            return null;
+          }
+          return (
+            <div 
+              className="w-full bg-blue-950 text-white border-b border-white/10 text-xs py-1"
+              dangerouslySetInnerHTML={{ __html: data.content }} 
+            />
+          );
+        }}
+      />
       {/* First header: contact info */}
       <div className="w-full bg-blue-900 text-white border-b border-white/10">
         <div className="relative mx-auto max-w-7xl px-2 py-1 flex flex-col md:flex-row items-center md:justify-center gap-2 text-xs">

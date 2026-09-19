@@ -298,7 +298,7 @@ export default function CommerceDepartmentPage() {
   const contactContent = (
     <DepartmentContact
       departmentName="Department of Commerce"
-      departmentEmail="commerce@rbanmsfgc.edu.in"
+      departmentEmail="info@rbanmsfgc.edu.in"
     />
   );
 

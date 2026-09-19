@@ -29,7 +29,7 @@ export default function NCCPage() {
                                         {data.title || "National Cadet Corps (NCC)"}
                                     </h1>
                                     <p className="text-xl text-foreground/80 leading-relaxed max-w-4xl">
-                                        The National Cadet Corps (NCC) at RBNMS College is a premier youth organization that strives to develop the qualities of character, courage, comradeship, discipline, leadership, and the ideal of selfless service among the youth of the country. We offer both Army and Navy wings, providing cadets with diverse opportunities for personal growth and adventure.
+                                        The National Cadet Corps (NCC) at RBANMS First Grade College is a premier youth organization that strives to develop the qualities of character, courage, comradeship, discipline, leadership, and the ideal of selfless service among the youth of the country. We offer both Army and Navy wings, providing cadets with diverse opportunities for personal growth and adventure.
                                     </p>
 
                                     {/* Dynamic Admin Content */}

@@ -47,19 +47,9 @@ export function DepartmentContact({
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-[#800000] shrink-0" />
                 <div>
-                  <span className="font-semibold">General Enquiry: </span>
+                  <span className="font-semibold">Email: </span>
                   <a href="mailto:info@rbanmsfgc.edu.in" className="text-[#800000] hover:underline">
                     info@rbanmsfgc.edu.in
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <Mail className="h-4 w-4 text-[#800000] shrink-0" />
-                <div>
-                  <span className="font-semibold">College Office: </span>
-                  <a href="mailto:office@rbanmsfgc.edu.in" className="text-[#800000] hover:underline">
-                    office@rbanmsfgc.edu.in
                   </a>
                 </div>
               </div>

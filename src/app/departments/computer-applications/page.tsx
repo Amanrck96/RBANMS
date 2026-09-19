@@ -54,7 +54,7 @@ export default function ComputerApplicationsDeptPage() {
         <Target className="h-8 w-8 stroke-[3px] text-primary" /> VISION
       </h3>
       <div className="text-black italic text-lg space-y-4 leading-relaxed">
-        <p>In keeping with the ideals of the college and our founder, of the Department of Languages attempts :</p>
+        <p>In keeping with the ideals of the college and our founder, the Department of Computer Applications aims to:</p>
         <ul className="text-left space-y-2 list-disc pl-8 inline-block">
           <li>Build technically skilled and industry-ready computer professionals.</li>
           <li>Cultivate innovative thinking, problem-solving abilities, and creativity in students.</li>
@@ -291,7 +291,7 @@ export default function ComputerApplicationsDeptPage() {
   const contactContent = (
     <DepartmentContact
       departmentName="Department of Computer Applications (BCA)"
-      departmentEmail="rbanmsfgc.bca@gmail.com"
+      departmentEmail="info@rbanmsfgc.edu.in"
       hodName="Moka Nanditha Varma (HOD)"
     />
   );

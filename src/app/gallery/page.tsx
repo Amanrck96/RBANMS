@@ -132,13 +132,13 @@ export default function GalleryPage() {
   return (
     <div className="flex flex-col bg-slate-50">
       {/* Header Banner */}
-      <header className="bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 text-white py-14">
+      <header className="keep-colors bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 !text-white py-14" style={{ backgroundColor: '#0f172a', color: '#ffffff' }}>
         <div className="container mx-auto px-4 text-center max-w-3xl space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-yellow-400 text-blue-950 uppercase tracking-wider">
-            <Camera className="h-3.5 w-3.5" /> Campus Life & Heritage
+            <Camera className="h-3.5 w-3.5" /> Campus Life &amp; Heritage
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold font-headline">College Photo Gallery</h1>
-          <p className="text-blue-100 text-base md:text-lg leading-relaxed">
+          <h1 className="text-4xl md:text-5xl font-bold font-headline !text-white" style={{ color: '#ffffff' }}>College Photo Gallery</h1>
+          <p className="text-blue-100 text-base md:text-lg leading-relaxed !text-blue-100" style={{ color: '#dbeafe' }}>
             Capturing the vibrant moments, academic achievements, national service, and cultural celebrations across RBANMS First Grade College.
           </p>
         </div>
@@ -177,20 +177,21 @@ export default function GalleryPage() {
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  unoptimized={item.imageUrl?.startsWith('http')}
                 />
-                <span className="absolute top-3 left-3 bg-blue-950/85 backdrop-blur text-yellow-300 text-[10px] font-bold px-2.5 py-1 rounded shadow uppercase tracking-wider">
+                <span className="absolute top-3 left-3 bg-blue-950/90 backdrop-blur text-yellow-300 text-[10px] font-bold px-2.5 py-1 rounded shadow uppercase tracking-wider keep-colors" style={{ color: '#fde047' }}>
                   {item.category.toUpperCase()}
                 </span>
               </div>
               <CardContent className="p-5 flex flex-col flex-grow">
                 <div className="flex items-center gap-2 text-xs text-slate-500 mb-2">
-                  <Calendar className="h-3.5 w-3.5 text-slate-400" />
+                  <Calendar className="h-3.5 w-3.5 text-[#800000]" />
                   <span>{item.date}</span>
                 </div>
-                <h2 className="font-bold text-lg text-blue-950 mb-2 line-clamp-2 group-hover:text-blue-700 transition-colors">
+                <h2 className="font-bold text-lg text-blue-950 mb-2 line-clamp-2 group-hover:text-[#800000] transition-colors font-headline">
                   {item.title}
                 </h2>
-                <p className="text-sm text-slate-600 leading-relaxed mt-auto">
+                <p className="text-sm text-slate-600 leading-relaxed mt-auto font-body">
                   {item.description}
                 </p>
               </CardContent>

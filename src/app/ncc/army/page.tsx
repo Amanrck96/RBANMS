@@ -25,7 +25,7 @@ export default function ArmyPage() {
                                         {data.title || "NCC – Army Wing"}
                                     </h1>
                                     <p className="text-lg">
-                                        The NCC Army Wing at RBNMS College is a premier youth grooming platform that focuses on character, comradeship, and discipline. Cadets receive training in military drills, map reading, and weapon handling, alongside developing soft skills and leadership qualities. We prepare youth for the armed forces and other uniformed services while fostering a strong spirit of national integration. Our cadets are trained to be resilient leaders ready to serve the nation with pride.
+                                        The NCC Army Wing at RBANMS First Grade College is a premier youth grooming platform that focuses on character, comradeship, and discipline. Cadets receive training in military drills, map reading, and weapon handling, alongside developing soft skills and leadership qualities. We prepare youth for the armed forces and other uniformed services while fostering a strong spirit of national integration. Our cadets are trained to be resilient leaders ready to serve the nation with pride.
                                     </p>
 
                                     {/* Dynamic Admin Content */}

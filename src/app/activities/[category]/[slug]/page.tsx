@@ -25,7 +25,7 @@ export default function ActivityDetailPage({ params }: { params: { category: 'cu
         </CardHeader>
         <CardContent className="pt-6 space-y-6">
           <div className="relative w-full aspect-[16/9] rounded-lg overflow-hidden border">
-            <Image src={item.imageUrl} alt={item.title} fill className="object-cover" />
+            <Image src={item.imageUrl} alt={item.title} fill className="object-cover" unoptimized={item.imageUrl?.startsWith('http')} />
           </div>
           <p className="text-foreground/80">{item.excerpt}</p>
           <div>

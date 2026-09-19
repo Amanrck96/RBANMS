@@ -367,7 +367,7 @@ export default function EnglishDepartmentPage() {
   const contactContent = (
     <DepartmentContact
       departmentName="Department of English & Communications"
-      departmentEmail="departmentofenglishrbanms@gmail.com"
+      departmentEmail="info@rbanmsfgc.edu.in"
       hodName="Ms. Simran (Head, Dept of English & Communication)"
     />
   );

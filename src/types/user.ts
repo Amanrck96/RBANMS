@@ -26,9 +26,16 @@ export interface Post {
     eventDate?: string;
     department?: string;
     tags?: string[];
+    primaryTag?: EventPrimaryTag;
+    secondaryTags?: string[];
 }
 
-export interface Event extends Post {}
+export type EventPrimaryTag = 'Academics' | 'Co-curricular' | 'Events';
+
+export interface Event extends Post {
+    primaryTag?: EventPrimaryTag;
+    secondaryTags?: string[];
+}
 
 export interface Permission {
     canEditPosts: boolean;

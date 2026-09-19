@@ -46,7 +46,7 @@ export default function SettingsPage() {
         website: "www.rbanmsfgc.edu.in",
         establishedYear: "1983",
         accreditation: "NAAC Accredited",
-        affiliation: "Bangalore City University",
+        affiliation: "Dr. Manmohan Singh Bengaluru City University",
         socialLinks: {}
     });
 
@@ -184,7 +184,7 @@ export default function SettingsPage() {
                                         id="affiliation"
                                         value={settings.affiliation}
                                         onChange={(e) => setSettings({ ...settings, affiliation: e.target.value })}
-                                        placeholder="e.g., Bangalore City University"
+                                        placeholder="e.g., Dr. Manmohan Singh Bengaluru City University"
                                     />
                                 </div>
                             </div>

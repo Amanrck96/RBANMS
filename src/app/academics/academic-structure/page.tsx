@@ -12,6 +12,7 @@ const structure = {
       description: "Core courses in the chosen discipline. Options at RBANMS, depending on eligibility:",
       options: [
         { name: "Bachelor of Arts – B.A.", href: "/departments/arts" },
+        { name: "Bachelor of Arts (Physical Education) – B.A.", href: "/departments/physical-education" },
         { name: "Bachelor of Commerce – B.Com.", href: "/departments/commerce" },
         { name: "Bachelor of Business Management – B.B.A.", href: "/departments/management" },
         { name: "Bachelor of Computer Applications – B.C.A.", href: "/departments/computer-applications" },
@@ -38,7 +39,7 @@ const structure = {
     {
       title: "Other Compulsory Courses",
       icon: CheckSquare,
-      description: "Compulsory courses in subjects like Constitution, and Environmental Science as directed by Bengaluru City University.",
+      description: "Compulsory courses in subjects like Constitution, and Environmental Science as directed by Dr. Manmohan Singh Bengaluru City University.",
     },
     {
       title: "Skill-Based & Vocational Courses",

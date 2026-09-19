@@ -110,6 +110,14 @@ export default function EventDetailPage({ params }: { params: Promise<{ slug: st
                         <CardHeader className="space-y-4 pt-10 px-8">
                             <CardTitle className="text-4xl text-primary font-headline">{event.title}</CardTitle>
 
+                            {event.primaryTag && (
+                                <div className="pt-2">
+                                    <span className="text-xs uppercase tracking-wider font-extrabold bg-[#800000] text-white px-3.5 py-1 rounded-md shadow-sm" style={{ backgroundColor: '#800000', color: '#ffffff' }}>
+                                        {event.primaryTag}
+                                    </span>
+                                </div>
+                            )}
+
                             <div className="flex flex-wrap items-center gap-6 text-gray-600 pt-4 border-t border-gray-100">
                                 <div className="flex items-center gap-2">
                                     <User size={18} className="text-primary/60" />
@@ -130,6 +138,9 @@ export default function EventDetailPage({ params }: { params: Promise<{ slug: st
                                         { id: 'computer-applications', label: 'Computer Applications (BCA)' },
                                         { id: 'english', label: 'English' },
                                         { id: 'languages', label: 'Languages' },
+                                        { id: 'hindi', label: 'Hindi' },
+                                        { id: 'kannada', label: 'Kannada' },
+                                        { id: 'anrc', label: 'ANRC' },
                                         { id: 'management', label: 'Management (BBA)' },
                                         { id: 'physical-education', label: 'Physical Education' },
                                         { id: 'nss', label: 'NSS' },

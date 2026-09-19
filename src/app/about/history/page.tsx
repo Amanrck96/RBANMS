@@ -12,7 +12,6 @@ export default function HistoryPage() {
           <DynamicSection
             pageId="about-history"
             defaultTitle="History of the College"
-            onlyContent
           />
         </CardContent>
       </Card>

@@ -108,12 +108,6 @@ export default function ContactPage() {
                             Via e-mail: info@rbanmsfgc.edu.in
                           </a>
                         </div>
-                        <div className="flex items-center gap-4">
-                          <Mail className="h-6 w-6 text-primary" />
-                          <a href="mailto:priyamahesh09@gmail.com" className="text-muted-foreground hover:text-primary">
-                            priyamahesh09@gmail.com (Placement)
-                          </a>
-                        </div>
                         <div className="flex items-start gap-4">
                           <Phone className="h-6 w-6 text-primary mt-1" />
                           <div className="flex flex-col text-muted-foreground">

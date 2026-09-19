@@ -228,8 +228,8 @@ export default function LanguagesDepartmentPage() {
   const contactContent = (
     <DepartmentContact
       departmentName="Department of Languages"
-      departmentEmail="sunilkumarshetty1977@gmail.com"
-      hodName="Dr. Sunil Kumar (Head of Department Languages, Asst. Professor - Hindi)"
+      departmentEmail="info@rbanmsfgc.edu.in"
+      hodName="Dr. Sunil Kumar (Head of the Department - Languages, Asst. Professor - Hindi)"
     />
   );
 
@@ -262,7 +262,7 @@ export default function LanguagesDepartmentPage() {
     <DepartmentLayout
       title="Department of Languages"
       pageId="dept-languages"
-      tagline="Welcome to the Department of Languages. At RBANM’s First Grade College, Language Study is offered as a second language, other than the compulsory course in English. This is as prescribed by Bengaluru City University for students across all steams of BA, BCA, B.COM, and BBA. The language option offered are: Tamil, Kannada, Hindi, Additional English (only for eligible students, conducted by the Department of English)"
+      tagline="Welcome to the Department of Languages. At RBANM’s First Grade College, Language Study is offered as a second language, other than the compulsory course in English. This is as prescribed by Dr. Manmohan Singh Bengaluru City University for students across all streams of BA, BCA, B.COM, and BBA. The language options offered are: Tamil, Kannada, Hindi, Additional English (only for eligible students, conducted by the Department of English)."
       sidebarContent={sidebarContent}
       sections={sections}
     />
