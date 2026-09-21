@@ -1,18 +1,19 @@
 'use client';
 
 import { Card, CardContent } from '@/components/ui/card';
-import { Mail, Phone, MapPin, Building2 } from 'lucide-react';
+import { Phone, Mail, MapPin, Building2 } from 'lucide-react';
 
 interface DepartmentContactProps {
   departmentName: string;
-  departmentEmail?: string;
+  departmentEmail?: string; // kept for API compatibility but not used directly
   hodName?: string;
   hodPhone?: string;
 }
 
+const COLLEGE_EMAIL = 'info@rbanmsfgc.edu.in';
+
 export function DepartmentContact({
   departmentName,
-  departmentEmail,
   hodName,
   hodPhone
 }: DepartmentContactProps) {
@@ -48,8 +49,8 @@ export function DepartmentContact({
                 <Mail className="h-4 w-4 text-[#800000] shrink-0" />
                 <div>
                   <span className="font-semibold">Email: </span>
-                  <a href="mailto:info@rbanmsfgc.edu.in" className="text-[#800000] hover:underline">
-                    info@rbanmsfgc.edu.in
+                  <a href={`mailto:${COLLEGE_EMAIL}`} className="text-[#800000] hover:underline">
+                    {COLLEGE_EMAIL}
                   </a>
                 </div>
               </div>
@@ -80,17 +81,15 @@ export function DepartmentContact({
             </div>
 
             <div className="space-y-3 text-sm text-slate-700">
-              {departmentEmail && (
-                <div className="flex items-center gap-3">
-                  <Mail className="h-4 w-4 text-[#800000] shrink-0" />
-                  <div>
-                    <span className="font-semibold">Department Email: </span>
-                    <a href={`mailto:${departmentEmail}`} className="text-[#800000] hover:underline font-medium">
-                      {departmentEmail}
-                    </a>
-                  </div>
+              <div className="flex items-center gap-3">
+                <Mail className="h-4 w-4 text-[#800000] shrink-0" />
+                <div>
+                  <span className="font-semibold">Department Email: </span>
+                  <a href={`mailto:${COLLEGE_EMAIL}`} className="text-[#800000] hover:underline font-medium">
+                    {COLLEGE_EMAIL}
+                  </a>
                 </div>
-              )}
+              </div>
 
               {hodName && (
                 <div className="p-3 bg-slate-50 rounded-lg border border-slate-100 space-y-1 mt-2">
@@ -115,3 +114,4 @@ export function DepartmentContact({
     </div>
   );
 }
+

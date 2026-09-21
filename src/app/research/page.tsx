@@ -60,8 +60,9 @@ export default function ResearchPage() {
         <DynamicSection
             pageId="research"
             render={(data) => {
-                const title = data?.title || "Research & Innovation";
-                const tagline = data?.tagline || "Advancing knowledge through inquiry, collaboration, and academic excellence.";
+                // data is the Firebase document — title/tagline saved by admin
+                const title = (data && data.title) ? data.title : "Research & Innovation";
+                const tagline = (data && data.tagline) ? data.tagline : "Advancing knowledge through inquiry, collaboration, and academic excellence.";
                 return (
                     <div className="container mx-auto px-4 py-12 md:py-16">
                         <Card className="overflow-hidden border-none shadow-xl">
@@ -72,7 +73,7 @@ export default function ResearchPage() {
                                 </p>
                             </div>
                             <CardContent className="pt-12 pb-16 px-8 md:px-12 prose prose-lg max-w-none">
-                                {data?.content ? (
+                                {(data && data.content) ? (
                                     <div dangerouslySetInnerHTML={{ __html: data.content }} />
                                 ) : (
                                     defaultResearchContent

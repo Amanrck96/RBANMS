@@ -80,8 +80,8 @@ export function SiteFooter() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 shrink-0" />
-                <a href={`mailto:${settings?.email || 'info@rbanmsfgc.edu.in'}`} className="text-white/80 hover:text-white transition-colors">
-                  Via e-mail: {settings?.email || 'info@rbanmsfgc.edu.in'}
+                <a href="mailto:info@rbanmsfgc.edu.in" className="text-white/80 hover:text-white transition-colors">
+                  Via e-mail: info@rbanmsfgc.edu.in
                 </a>
               </li>
               <li className="flex items-start gap-3">

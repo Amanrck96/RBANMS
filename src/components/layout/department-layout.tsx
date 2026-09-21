@@ -9,6 +9,8 @@ import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { DynamicSection } from '@/components/dynamic-section';
 import { CMS_DEFAULTS } from '@/lib/cms-defaults';
+import { db } from '@/lib/firebase-client';
+import { doc, onSnapshot } from 'firebase/firestore';
 
 interface NavItem {
     label: string;
@@ -60,25 +62,25 @@ export function DepartmentLayout({
     pageId
 }: DepartmentLayoutProps) {
 
-    // Dynamic Hero Image & Title State
+    // Dynamic Hero Image & Title State — real-time from Firebase
     const [dynamicHeroImage, setDynamicHeroImage] = useState<string | null>(null);
     const [dynamicTitle, setDynamicTitle] = useState<string | null>(null);
 
     useEffect(() => {
-        if (!pageId) return;
-        async function fetchPageData() {
-            try {
-                const res = await fetch(`/api/site-content?section=page-${pageId}`, { cache: 'no-store' });
-                const json = await res.json();
-                if (json.data) {
-                    if (json.data.imageUrl) setDynamicHeroImage(json.data.imageUrl);
-                    if (json.data.title) setDynamicTitle(json.data.title);
-                }
-            } catch (e) {
-                console.error("Failed to fetch dynamic page content:", e);
+        if (!pageId || !db) return;
+
+        const docRef = doc(db, 'site-content', `page-${pageId}`);
+        const unsubscribe = onSnapshot(docRef, (snapshot) => {
+            if (snapshot.exists()) {
+                const data = snapshot.data();
+                if (data?.imageUrl) setDynamicHeroImage(data.imageUrl);
+                if (data?.title) setDynamicTitle(data.title);
             }
-        }
-        fetchPageData();
+        }, (error) => {
+            console.error('DepartmentLayout real-time error:', error);
+        });
+
+        return () => unsubscribe();
     }, [pageId]);
 
     const effectiveHeroImage = dynamicHeroImage || heroImage;

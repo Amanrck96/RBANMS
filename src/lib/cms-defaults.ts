@@ -1040,15 +1040,15 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
         content: `
             <p class="mb-6 text-lg text-slate-800 leading-relaxed font-medium">Our administrative team is the backbone of the college, ensuring smooth day-to-day operations and providing essential support to students and faculty.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 not-prose">
-                <div class="bg-blue-50/80 p-6 rounded-xl border border-blue-200 shadow-sm space-y-2">
-                    <h3 class="text-xl font-bold text-blue-900 mb-2 font-headline">College Office</h3>
+                <div class="bg-red-50/60 p-6 rounded-xl border border-[#800000]/20 shadow-sm space-y-2">
+                    <h3 class="text-xl font-bold text-[#800000] mb-2 font-headline">College Office</h3>
                     <p class="text-slate-700 text-sm leading-relaxed">Handles admissions, fee collection, and general enquiries.</p>
-                    <p class="text-sm font-semibold text-slate-900 pt-2 border-t border-blue-100">Contact: <a href="mailto:info@rbanmsfgc.edu.in" class="text-primary hover:underline font-bold">info@rbanmsfgc.edu.in</a></p>
+                    <p class="text-sm font-semibold text-slate-900 pt-2 border-t border-[#800000]/10">Contact: <a href="mailto:info@rbanmsfgc.edu.in" class="text-[#800000] hover:underline font-bold">info@rbanmsfgc.edu.in</a></p>
                 </div>
-                <div class="bg-blue-50/80 p-6 rounded-xl border border-blue-200 shadow-sm space-y-2">
-                    <h3 class="text-xl font-bold text-blue-900 mb-2 font-headline">Examination Section</h3>
+                <div class="bg-red-50/60 p-6 rounded-xl border border-[#800000]/20 shadow-sm space-y-2">
+                    <h3 class="text-xl font-bold text-[#800000] mb-2 font-headline">Examination Section</h3>
                     <p class="text-slate-700 text-sm leading-relaxed">Manages internal assessments and university examinations.</p>
-                    <p class="text-sm font-semibold text-slate-900 pt-2 border-t border-blue-100">Contact: <a href="mailto:info@rbanmsfgc.edu.in" class="text-primary hover:underline font-bold">info@rbanmsfgc.edu.in</a></p>
+                    <p class="text-sm font-semibold text-slate-900 pt-2 border-t border-[#800000]/10">Contact: <a href="mailto:info@rbanmsfgc.edu.in" class="text-[#800000] hover:underline font-bold">info@rbanmsfgc.edu.in</a></p>
                 </div>
             </div>
         `

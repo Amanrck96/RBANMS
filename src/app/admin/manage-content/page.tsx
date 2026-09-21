@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Plus, Trash2, Save, Loader2, Globe, FileEdit, ImageIcon, Star, Calendar, Bell, FileText, Clock, BookOpen, Settings, Users } from 'lucide-react';
+import { Plus, Trash2, Save, Loader2, Globe, FileEdit, ImageIcon, Star, Calendar, Bell, FileText, Clock, BookOpen, Settings, Users, Mail } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { VisualEditor } from '@/components/admin/visual-editor';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -902,6 +902,60 @@ export default function ManageContentPage() {
         return <div className="flex justify-center py-20"><Loader2 className="animate-spin" /></div>;
     }
 
+    // Fix Stale Emails Helper — patches affected sections in Firebase
+    const handleFixStaleEmails = async () => {
+        if (!confirm('This will update the Administration page, all Department contact sections, and site settings in Firebase to use only info@rbanmsfgc.edu.in. Continue?')) return;
+        setLoading(true);
+        try {
+            const token = await auth?.currentUser?.getIdToken();
+            const adminDefault = CMS_DEFAULTS['administration'];
+            // 1. Patch administration page
+            await fetch('/api/site-content', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                body: JSON.stringify({ section: 'page-administration', data: { title: adminDefault.title, content: adminDefault.content } })
+            });
+            // 2. Patch site-settings — fix email to info@ only
+            await fetch('/api/site-content', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                body: JSON.stringify({
+                    section: 'page-site-settings',
+                    data: {
+                        email: 'info@rbanmsfgc.edu.in',
+                        collegeName: 'RBANMS First Grade College',
+                        phone: '080-25512976 / 080-48533572',
+                        address: 'Opposite Ulsoor Lake, 12 Annasawmy Mudaliar Road, Bangalore - 560042'
+                    }
+                })
+            });
+            // 3. Patch dept contact tabs – clear stale department emails by resetting to info@
+            const deptContactSections = [
+                'page-dept-arts-tab-contact',
+                'page-dept-english-tab-contact',
+                'page-dept-languages-tab-contact',
+                'page-dept-physed-tab-contact',
+                'page-dept-commerce-tab-contact',
+                'page-dept-management-tab-contact',
+                'page-dept-bca-tab-contact',
+                'page-contact-info'
+            ];
+            const cleanContactContent = `<p>For all enquiries, please contact us at <a href="mailto:info@rbanmsfgc.edu.in" style="color:#800000;font-weight:bold;">info@rbanmsfgc.edu.in</a></p>`;
+            for (const section of deptContactSections) {
+                await fetch('/api/site-content', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                    body: JSON.stringify({ section, data: { content: cleanContactContent } })
+                });
+            }
+            toast({ title: '✅ Emails Fixed', description: 'All contact pages and footer now show only info@rbanmsfgc.edu.in' });
+        } catch (error) {
+            toast({ title: 'Error', description: 'Failed to fix stale emails', variant: 'destructive' });
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <div className="space-y-8 max-w-6xl mx-auto">
             <div className="flex items-center justify-between">
@@ -911,7 +965,11 @@ export default function ManageContentPage() {
                     </h1>
                     <p className="text-muted-foreground mt-1">Super Admin Dashboard for editing any page content across the website.</p>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-wrap justify-end">
+                    <Button variant="outline" onClick={handleFixStaleEmails} disabled={loading} className="border-orange-400 text-orange-700 hover:bg-orange-50">
+                        {loading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Mail className="w-4 h-4 mr-2" />}
+                        Fix Stale Emails
+                    </Button>
                     <Button variant="destructive" onClick={handlePublishAllDefaults} disabled={loading}>
                         {loading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Settings className="w-4 h-4 mr-2" />}
                         Initialize / Ecosystem Reset

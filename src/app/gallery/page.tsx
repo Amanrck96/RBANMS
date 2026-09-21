@@ -132,13 +132,13 @@ export default function GalleryPage() {
   return (
     <div className="flex flex-col bg-slate-50">
       {/* Header Banner */}
-      <header className="keep-colors bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 !text-white py-14" style={{ backgroundColor: '#0f172a', color: '#ffffff' }}>
+      <header className="keep-colors !text-white py-14" style={{ backgroundColor: '#800000', color: '#ffffff' }}>
         <div className="container mx-auto px-4 text-center max-w-3xl space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-yellow-400 text-blue-950 uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-[#FFD700] text-[#800000] uppercase tracking-wider">
             <Camera className="h-3.5 w-3.5" /> Campus Life &amp; Heritage
           </div>
           <h1 className="text-4xl md:text-5xl font-bold font-headline !text-white" style={{ color: '#ffffff' }}>College Photo Gallery</h1>
-          <p className="text-blue-100 text-base md:text-lg leading-relaxed !text-blue-100" style={{ color: '#dbeafe' }}>
+          <p className="text-base md:text-lg leading-relaxed" style={{ color: '#fde8e8' }}>
             Capturing the vibrant moments, academic achievements, national service, and cultural celebrations across RBANMS First Grade College.
           </p>
         </div>
@@ -179,7 +179,7 @@ export default function GalleryPage() {
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                   unoptimized={item.imageUrl?.startsWith('http')}
                 />
-                <span className="absolute top-3 left-3 bg-blue-950/90 backdrop-blur text-yellow-300 text-[10px] font-bold px-2.5 py-1 rounded shadow uppercase tracking-wider keep-colors" style={{ color: '#fde047' }}>
+                <span className="absolute top-3 left-3 bg-[#800000]/90 backdrop-blur text-[#FFD700] text-[10px] font-bold px-2.5 py-1 rounded shadow uppercase tracking-wider keep-colors" style={{ color: '#FFD700' }}>
                   {item.category.toUpperCase()}
                 </span>
               </div>
@@ -188,7 +188,7 @@ export default function GalleryPage() {
                   <Calendar className="h-3.5 w-3.5 text-[#800000]" />
                   <span>{item.date}</span>
                 </div>
-                <h2 className="font-bold text-lg text-blue-950 mb-2 line-clamp-2 group-hover:text-[#800000] transition-colors font-headline">
+                <h2 className="font-bold text-lg text-slate-900 mb-2 line-clamp-2 group-hover:text-[#800000] transition-colors font-headline">
                   {item.title}
                 </h2>
                 <p className="text-sm text-slate-600 leading-relaxed mt-auto font-body">
@@ -200,8 +200,8 @@ export default function GalleryPage() {
         </div>
 
         {/* Notice for visitors */}
-        <div className="mt-16 bg-blue-50 border border-blue-200 rounded-xl p-6 text-center max-w-2xl mx-auto text-sm text-slate-700">
-          <p className="font-semibold text-blue-950 mb-1">Looking for high-resolution event archives?</p>
+        <div className="mt-16 bg-red-50 border border-[#800000]/20 rounded-xl p-6 text-center max-w-2xl mx-auto text-sm text-slate-700">
+          <p className="font-semibold text-[#800000] mb-1">Looking for high-resolution event archives?</p>
           <p>Official photographs from graduation ceremonies and annual sports meets can be obtained through the college media cell or administration office.</p>
         </div>
       </main>

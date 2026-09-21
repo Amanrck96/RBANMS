@@ -400,19 +400,20 @@ export function ThreeColumnCarousel() {
             </p>
           </div>
 
-          <div className="keep-colors bg-gradient-to-r from-[#800000] to-[#990000] !text-white p-5 rounded-xl shadow-md flex items-center justify-between gap-4" style={{ backgroundColor: '#800000', color: '#ffffff' }}>
+          <div className="keep-colors bg-gradient-to-r from-[#800000] to-[#990000] p-5 rounded-xl shadow-md flex items-center justify-between gap-4" style={{ backgroundColor: '#800000' }}>
             <div className="space-y-1">
-              <div className="flex items-center gap-1.5 text-xs font-bold !text-yellow-300 uppercase tracking-wider" style={{ color: '#fde047' }}>
-                <FileText className="h-4 w-4 text-yellow-300" style={{ color: '#fde047' }} /> Prospectus
+              <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider" style={{ color: '#FFD700' }}>
+                <FileText className="h-4 w-4" style={{ color: '#FFD700' }} /> Prospectus
               </div>
-              <h4 className="font-bold text-base !text-white" style={{ color: '#ffffff' }}>College Brochure</h4>
-              <p className="text-xs !text-white/90" style={{ color: '#ffffff' }}>Download our updated prospectus and course guides.</p>
+              <h4 className="font-bold text-base" style={{ color: '#ffffff' }}>College Brochure</h4>
+              <p className="text-xs" style={{ color: '#fde8e8' }}>Download our updated prospectus and course guides.</p>
             </div>
             <a
               href="https://drive.google.com/file/d/1CzrsV32FaXRc79ZHvfneH4dZbinqriDH/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-white !text-[#800000] font-bold text-xs rounded-lg hover:bg-yellow-400 hover:!text-slate-900 transition-colors shrink-0 shadow"
+              className="px-4 py-2 bg-white font-bold text-xs rounded-lg hover:bg-[#FFD700] transition-colors shrink-0 shadow"
+              style={{ color: '#800000' }}
             >
               View Brochure
             </a>
