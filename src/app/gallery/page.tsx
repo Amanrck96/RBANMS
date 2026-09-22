@@ -131,14 +131,16 @@ export default function GalleryPage() {
 
   return (
     <div className="flex flex-col bg-slate-50">
-      {/* Header Banner */}
-      <header className="keep-colors !text-white py-14" style={{ backgroundColor: '#800000', color: '#ffffff' }}>
+      {/* Header Banner — Restored to 7-days-ago Blue Theme with guaranteed high-contrast white text */}
+      <header className="keep-colors bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 py-14 shadow-inner" style={{ backgroundColor: '#0f172a', color: '#ffffff' }}>
         <div className="container mx-auto px-4 text-center max-w-3xl space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-[#FFD700] text-[#800000] uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-yellow-400 text-blue-950 uppercase tracking-wider shadow-sm">
             <Camera className="h-3.5 w-3.5" /> Campus Life &amp; Heritage
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold font-headline" style={{ color: '#ffffff' }}>College Photo Gallery</h1>
-          <p className="text-base md:text-lg leading-relaxed" style={{ color: '#ffffff', opacity: 0.9 }}>
+          <h1 className="text-4xl md:text-5xl font-bold font-headline !text-white tracking-tight" style={{ color: '#ffffff' }}>
+            College Photo Gallery
+          </h1>
+          <p className="text-base md:text-lg leading-relaxed !text-blue-100 max-w-2xl mx-auto" style={{ color: '#dbeafe' }}>
             Capturing the vibrant moments, academic achievements, national service, and cultural celebrations across RBANMS First Grade College.
           </p>
         </div>
@@ -179,16 +181,16 @@ export default function GalleryPage() {
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                   unoptimized={item.imageUrl?.startsWith('http')}
                 />
-                <span className="absolute top-3 left-3 bg-[#800000]/90 backdrop-blur text-[#FFD700] text-[10px] font-bold px-2.5 py-1 rounded shadow uppercase tracking-wider keep-colors" style={{ color: '#FFD700' }}>
+                <span className="absolute top-3 left-3 bg-blue-950/85 backdrop-blur text-yellow-300 text-[10px] font-bold px-2.5 py-1 rounded shadow uppercase tracking-wider keep-colors" style={{ color: '#fde047' }}>
                   {item.category.toUpperCase()}
                 </span>
               </div>
               <CardContent className="p-5 flex flex-col flex-grow">
                 <div className="flex items-center gap-2 text-xs text-slate-500 mb-2">
-                  <Calendar className="h-3.5 w-3.5 text-[#800000]" />
+                  <Calendar className="h-3.5 w-3.5 text-blue-600" />
                   <span>{item.date}</span>
                 </div>
-                <h2 className="font-bold text-lg text-slate-900 mb-2 line-clamp-2 group-hover:text-[#800000] transition-colors font-headline">
+                <h2 className="font-bold text-lg text-blue-950 mb-2 line-clamp-2 group-hover:text-blue-700 transition-colors font-headline">
                   {item.title}
                 </h2>
                 <p className="text-sm text-slate-600 leading-relaxed mt-auto font-body">
@@ -199,12 +201,13 @@ export default function GalleryPage() {
           ))}
         </div>
 
-        {/* Notice for visitors */}
-        <div className="mt-16 bg-red-50 border border-[#800000]/20 rounded-xl p-6 text-center max-w-2xl mx-auto text-sm text-slate-700">
-          <p className="font-semibold text-[#800000] mb-1">Looking for high-resolution event archives?</p>
+        {/* Notice for visitors — Blue Theme */}
+        <div className="mt-16 bg-blue-50 border border-blue-200 rounded-xl p-6 text-center max-w-2xl mx-auto text-sm text-slate-700 shadow-sm">
+          <p className="font-semibold text-blue-950 mb-1">Looking for high-resolution event archives?</p>
           <p>Official photographs from graduation ceremonies and annual sports meets can be obtained through the college media cell or administration office.</p>
         </div>
       </main>
+
     </div>
   );
 }

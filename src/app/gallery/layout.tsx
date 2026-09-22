@@ -10,9 +10,9 @@ export default function GalleryLayout({
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
-      <main className="flex-grow bg-background">
+      <div className="flex-grow bg-background">
         {children}
-      </main>
+      </div>
       <SiteFooter />
     </div>
   );

@@ -113,6 +113,16 @@ main:not(.keep-colors) :where(p, li, span, small, strong, em, td, th, figcaption
   color: inherit !important;
 }
 
+/* Guaranteed high-contrast white text for header banners */
+header.keep-colors h1,
+header.keep-colors .font-headline {
+  color: #ffffff !important;
+}
+
+header.keep-colors p {
+  color: #dbeafe !important;
+}
+
 /* Ensure blue course badges have guaranteed contrast */
 .course-badge-blue,
 .course-badge-blue * {
