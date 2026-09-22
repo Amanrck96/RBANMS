@@ -137,8 +137,8 @@ export default function GalleryPage() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-[#FFD700] text-[#800000] uppercase tracking-wider">
             <Camera className="h-3.5 w-3.5" /> Campus Life &amp; Heritage
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold font-headline !text-white" style={{ color: '#ffffff' }}>College Photo Gallery</h1>
-          <p className="text-base md:text-lg leading-relaxed" style={{ color: '#fde8e8' }}>
+          <h1 className="text-4xl md:text-5xl font-bold font-headline" style={{ color: '#ffffff' }}>College Photo Gallery</h1>
+          <p className="text-base md:text-lg leading-relaxed" style={{ color: '#ffffff', opacity: 0.9 }}>
             Capturing the vibrant moments, academic achievements, national service, and cultural celebrations across RBANMS First Grade College.
           </p>
         </div>
