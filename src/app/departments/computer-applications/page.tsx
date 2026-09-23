@@ -291,8 +291,6 @@ export default function ComputerApplicationsDeptPage() {
   const contactContent = (
     <DepartmentContact
       departmentName="Department of Computer Applications (BCA)"
-      departmentEmail="info@rbanmsfgc.edu.in"
-      hodName="Moka Nanditha Varma (HOD)"
     />
   );
 

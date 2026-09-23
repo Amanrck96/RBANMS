@@ -49,7 +49,7 @@ const COLUMNS_DATA: ColumnData[] = [
     title: 'Academics',
     subtitle: 'Classroom & Labs',
     icon: BookOpen,
-    link: '/academics',
+    link: '/events?category=Academics',
     linkText: 'Explore Academics',
     slides: [
       {
@@ -83,8 +83,8 @@ const COLUMNS_DATA: ColumnData[] = [
     title: 'Co-Curricular',
     subtitle: 'Clubs, NCC & NSS',
     icon: Sparkles,
-    link: '/activities',
-    linkText: 'Explore Activities',
+    link: '/events?category=Co-curricular',
+    linkText: 'Explore Co-Curricular',
     slides: [
       {
         title: 'NCC Army & Navy Wings',
@@ -117,8 +117,9 @@ const COLUMNS_DATA: ColumnData[] = [
     title: 'Events',
     subtitle: 'Campus Celebrations',
     icon: Calendar,
-    link: '/events',
+    link: '/events?category=Events',
     linkText: 'View All Events',
+
     slides: [
       {
         title: 'Basavanna Jayanthi Celebration',
@@ -400,24 +401,25 @@ export function ThreeColumnCarousel() {
             </p>
           </div>
 
-          <div className="keep-colors bg-gradient-to-r from-[#800000] to-[#990000] p-5 rounded-xl shadow-md flex items-center justify-between gap-4" style={{ backgroundColor: '#800000' }}>
+          <div className="prospectus-card bg-gradient-to-r from-[#800000] to-[#990000] p-5 rounded-xl shadow-md flex items-center justify-between gap-4 border border-[#800000]" style={{ backgroundColor: '#800000', color: '#ffffff' }}>
             <div className="space-y-1">
-              <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider" style={{ color: '#FFD700' }}>
-                <FileText className="h-4 w-4" style={{ color: '#FFD700' }} /> Prospectus
+              <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#FFD700]">
+                <FileText className="h-4 w-4 text-[#FFD700]" /> Prospectus
               </div>
-              <h4 className="font-bold text-base" style={{ color: '#ffffff' }}>College Brochure</h4>
-              <p className="text-xs" style={{ color: '#fde8e8' }}>Download our updated prospectus and course guides.</p>
+              <h4 className="font-bold text-base text-white" style={{ color: '#ffffff' }}>College Brochure</h4>
+              <p className="text-xs text-red-100" style={{ color: '#fde8e8' }}>Download our updated prospectus and course guides.</p>
             </div>
             <a
               href="https://drive.google.com/file/d/1CzrsV32FaXRc79ZHvfneH4dZbinqriDH/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-white font-bold text-xs rounded-lg hover:bg-[#FFD700] transition-colors shrink-0 shadow"
+              className="px-4 py-2 bg-white font-bold text-xs rounded-lg hover:bg-[#FFD700] transition-colors shrink-0 shadow text-[#800000]"
               style={{ color: '#800000' }}
             >
               View Brochure
             </a>
           </div>
+
         </div>
       </div>
     </section>

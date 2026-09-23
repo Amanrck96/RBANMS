@@ -228,8 +228,6 @@ export default function LanguagesDepartmentPage() {
   const contactContent = (
     <DepartmentContact
       departmentName="Department of Languages"
-      departmentEmail="info@rbanmsfgc.edu.in"
-      hodName="Dr. Sunil Kumar (Head of the Department - Languages, Asst. Professor - Hindi)"
     />
   );
 

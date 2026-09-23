@@ -112,11 +112,16 @@ export default function EventDetailPage({ params }: { params: Promise<{ slug: st
 
                             {event.primaryTag && (
                                 <div className="pt-2">
-                                    <span className="text-xs uppercase tracking-wider font-extrabold bg-[#800000] text-white px-3.5 py-1 rounded-md shadow-sm" style={{ backgroundColor: '#800000', color: '#ffffff' }}>
+                                    <Link
+                                        href={`/events?category=${encodeURIComponent(event.primaryTag)}`}
+                                        className="inline-block text-xs uppercase tracking-wider font-extrabold bg-[#800000] hover:bg-[#990000] text-white px-3.5 py-1 rounded-md shadow-sm transition-colors"
+                                        style={{ backgroundColor: '#800000', color: '#ffffff' }}
+                                    >
                                         {event.primaryTag}
-                                    </span>
+                                    </Link>
                                 </div>
                             )}
+
 
                             <div className="flex flex-wrap items-center gap-6 text-gray-600 pt-4 border-t border-gray-100">
                                 <div className="flex items-center gap-2">

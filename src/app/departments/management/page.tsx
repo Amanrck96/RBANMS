@@ -276,9 +276,6 @@ export default function ManagementDepartmentPage() {
   const contactContent = (
     <DepartmentContact
       departmentName="Department of Management Studies (BBA)"
-      departmentEmail="info@rbanmsfgc.edu.in"
-      hodName="Prof. Priya K (Head of Department – Management)"
-      hodPhone="9880213203"
     />
   );
 

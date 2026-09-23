@@ -130,6 +130,18 @@ header.keep-colors p {
   color: #ffffff !important;
 }
 
+/* Ensure Prospectus card text is always crisp white on dark red */
+.prospectus-card,
+.prospectus-card h4,
+.prospectus-card .font-bold {
+  color: #ffffff !important;
+}
+
+.prospectus-card p {
+  color: #fde8e8 !important;
+}
+
+
 /* Tabs trigger styling safeguards for Semester and matrix buttons */
 .tab-trigger-sem {
   transition: all 0.2s ease-in-out;

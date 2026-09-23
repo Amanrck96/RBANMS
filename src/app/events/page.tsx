@@ -103,6 +103,23 @@ export default function EventsPage() {
     const [activeDepartment, setActiveDepartment] = useState<string>('all');
 
     useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const params = new URLSearchParams(window.location.search);
+            const cat = params.get('category');
+            if (cat) {
+                const matched = PRIMARY_TAGS.find(p => p.id.toLowerCase() === cat.toLowerCase());
+                if (matched) {
+                    setActivePrimaryTag(matched.id);
+                }
+            }
+            const dept = params.get('dept') || params.get('department');
+            if (dept) {
+                setActiveDepartment(dept);
+            }
+        }
+    }, []);
+
+    useEffect(() => {
         const fetchEvents = async () => {
             try {
                 const response = await fetch('/api/events?published=true');
@@ -121,6 +138,7 @@ export default function EventsPage() {
         };
         fetchEvents();
     }, []);
+
 
     const filteredEvents = useMemo(() => {
         return events.filter(e => {

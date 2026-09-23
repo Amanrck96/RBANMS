@@ -80,38 +80,41 @@ export function DepartmentContact({
               <h3 className="font-bold text-base text-slate-900">{departmentName} Helpdesk</h3>
             </div>
 
-            <div className="space-y-3 text-sm text-slate-700">
-              <div className="flex items-center gap-3">
-                <Mail className="h-4 w-4 text-[#800000] shrink-0" />
-                <div>
-                  <span className="font-semibold">Department Email: </span>
-                  <a href={`mailto:${COLLEGE_EMAIL}`} className="text-[#800000] hover:underline font-medium">
-                    {COLLEGE_EMAIL}
-                  </a>
+              <div className="space-y-3 text-sm text-slate-700">
+                <div className="flex items-center gap-3">
+                  <Mail className="h-4 w-4 text-[#800000] shrink-0" />
+                  <div>
+                    <span className="font-semibold">General Enquiry: </span>
+                    <a href={`mailto:${COLLEGE_EMAIL}`} className="text-[#800000] hover:underline font-bold">
+                      {COLLEGE_EMAIL}
+                    </a>
+                  </div>
                 </div>
-              </div>
 
-              {hodName && (
-                <div className="p-3 bg-slate-50 rounded-lg border border-slate-100 space-y-1 mt-2">
-                  <div className="text-xs uppercase tracking-wider font-bold text-[#800000]">Head of Department</div>
-                  <div className="font-semibold text-slate-900">{hodName}</div>
-                  {hodPhone && (
-                    <div className="text-xs text-slate-600 flex items-center gap-1.5 pt-1">
-                      <Phone className="h-3.5 w-3.5 text-[#800000]" />
-                      <a href={`tel:${hodPhone}`} className="hover:underline">{hodPhone}</a>
+                <div className="flex items-start gap-3">
+                  <Phone className="h-4 w-4 text-[#800000] shrink-0 mt-1" />
+                  <div className="flex flex-col space-y-1">
+                    <div>
+                      <span className="font-semibold">Landline: </span>
+                      <a href="tel:08025512976" className="hover:text-[#800000]">080-25512976</a> / <a href="tel:08048533572" className="hover:text-[#800000]">080-48533572</a>
                     </div>
-                  )}
+                    <div>
+                      <span className="font-semibold">Mobile: </span>
+                      <a href="tel:7349251497" className="hover:text-[#800000]">7349251497</a>
+                    </div>
+                  </div>
                 </div>
-              )}
 
-              <div className="text-xs text-slate-500 leading-relaxed pt-2">
-                For curriculum details, syllabus inquiries, and academic mentorship, students and parents can contact the department desk directly during college working hours (9:00 AM - 4:30 PM).
+                <div className="p-3 bg-slate-50 rounded-lg border border-slate-100 text-xs text-slate-600 leading-relaxed mt-2">
+                  For admission guidance, curriculum queries, and general administration, please reach out to the college general office during working hours (9:00 AM – 4:30 PM).
+                </div>
               </div>
-            </div>
           </CardContent>
         </Card>
       </div>
     </div>
   );
 }
+
+
 
