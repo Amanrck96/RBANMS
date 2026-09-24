@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { DepartmentLayout } from '@/components/layout/department-layout';
+import { DepartmentContact } from '@/components/departments/department-contact';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Users, Image as ImageIcon } from 'lucide-react';
 
@@ -89,10 +90,17 @@ export default function AdministrationPage() {
     </div>
   );
 
+  const contactContent = (
+    <DepartmentContact
+      departmentName="College Administration"
+    />
+  );
+
   const sections = [
     { id: 'overview', label: 'Overview', content: introContent },
     { id: 'staff-list', label: 'Staff List', content: staffContent },
     { id: 'photos', label: 'Staff Photos', content: photosContent },
+    { id: 'contact', label: 'Contact', content: contactContent },
   ];
 
   return (

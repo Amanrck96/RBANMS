@@ -11,8 +11,7 @@ import {
   Calendar,
   Users,
   Lightbulb,
-  Target,
-  Mail
+  Target
 } from 'lucide-react';
 
 export default function LanguagesDepartmentPage() {
@@ -200,11 +199,11 @@ export default function LanguagesDepartmentPage() {
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">OUR FACULTY</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
-          { name: "Dr. Sunil Kumar", role: "Head of the Department Languages, Asst. Professor - Hindi", qual: "M.A. , B.Ed ,Ph.D.", email: "sunilkumarshetty1977@gmail.com" },
-          { name: "Abhimanyu Shinde", role: "Asst. Professor, Dept. of Languages - Hindi", qual: "M.A., B. Ed", email: "abhimanyushinde14@gmail.com" },
-          { name: "Pushpa Latha. K R", role: "Asst. Professor, Dept. of Languages - Kannada", qual: "MA. B.Ed., NET, SLET", email: "pushpalatha.rbanmsfgc.gmail.com" },
-          { name: "Dr. Narayanaswamy K", role: "Asst. Professor, Dept. of Languages - Kannada", qual: "MA. Kannada., MA MCJ., UGC NET-JRF., PhD", email: "narayankkyasamballi.gmail.com" },
-          { name: "Ms. Sivapriya Kannan", role: "Asst. Professor, Dept of Languages - Tamil", qual: "", email: "priyakannan.8892@gmail.com" }
+          { name: "Dr. Sunil Kumar", role: "Head of the Department Languages, Asst. Professor - Hindi", qual: "M.A. , B.Ed ,Ph.D." },
+          { name: "Abhimanyu Shinde", role: "Asst. Professor, Dept. of Languages - Hindi", qual: "M.A., B. Ed" },
+          { name: "Pushpa Latha. K R", role: "Asst. Professor, Dept. of Languages - Kannada", qual: "MA. B.Ed., NET, SLET" },
+          { name: "Dr. Narayanaswamy K", role: "Asst. Professor, Dept. of Languages - Kannada", qual: "MA. Kannada., MA MCJ., UGC NET-JRF., PhD" },
+          { name: "Ms. Sivapriya Kannan", role: "Asst. Professor, Dept of Languages - Tamil", qual: "" }
         ].map((faculty, i) => (
           <Card key={i} className="text-center bg-white border-2 border-primary text-black hover:bg-primary/5 transition-colors">
             <CardHeader>
@@ -215,8 +214,7 @@ export default function LanguagesDepartmentPage() {
               <CardDescription className="text-primary font-medium">{faculty.role}</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-xs text-black mb-2 font-semibold">{faculty.qual}</p>
-              <span className="flex items-center justify-center gap-1 text-xs text-black"><Mail className="h-3 w-3" /> {faculty.email}</span>
+              {faculty.qual && <p className="text-xs text-black font-semibold">{faculty.qual}</p>}
             </CardContent>
           </Card>
         ))}

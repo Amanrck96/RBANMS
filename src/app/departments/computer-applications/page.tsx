@@ -14,8 +14,7 @@ import {
   Users,
   Lightbulb,
   Target,
-  Award,
-  Code2
+  Award
 } from 'lucide-react';
 
 export default function ComputerApplicationsDeptPage() {
@@ -240,11 +239,11 @@ export default function ComputerApplicationsDeptPage() {
       <h2 className="text-3xl font-bold border-l-4 border-primary pl-4 text-black">OUR FACULTY</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
-          { name: "Moka Nanditha Varma", role: "HOD, Assistant Professor", qual: "B. Tech, M. Tech (pursuing PhD in Jain University)", email: "nanditha.moka@gmail.com" },
-          { name: "Vijaya Lakshmi", role: "Assistant Professor", qual: "B.E, M. Tech", email: "vijayalakshmi.rbanmsfgc@gmail.com" },
-          { name: "S Divya", role: "Assistant Professor", qual: "BCA, MCA (pursuing PhD in Vels University)", email: "dhivya.valli@gmail.com" },
-          { name: "Shirley Nesamani", role: "Assistant Professor", qual: "MCA, Diploma in Health and Integrative Lifestyle", email: "rbanmsfgc.shirley@gmail.com" },
-          { name: "Md Ziya Hakim", role: "Assistant Professor", qual: "BCA, MCA", email: "ziyahakim89@gmail.com" }
+          { name: "Moka Nanditha Varma", role: "HOD, Assistant Professor", qual: "B. Tech, M. Tech (pursuing PhD in Jain University)" },
+          { name: "Vijaya Lakshmi", role: "Assistant Professor", qual: "B.E, M. Tech" },
+          { name: "S Divya", role: "Assistant Professor", qual: "BCA, MCA (pursuing PhD in Vels University)" },
+          { name: "Shirley Nesamani", role: "Assistant Professor", qual: "MCA, Diploma in Health and Integrative Lifestyle" },
+          { name: "Md Ziya Hakim", role: "Assistant Professor", qual: "BCA, MCA" }
         ].map((faculty, i) => (
           <Card key={i} className="text-center bg-white border-2 border-primary text-black hover:bg-primary/5 transition-colors">
             <CardHeader>
@@ -255,8 +254,7 @@ export default function ComputerApplicationsDeptPage() {
               <CardDescription className="text-primary font-medium">{faculty.role}</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-xs text-black mb-2 font-semibold">{faculty.qual}</p>
-              <span className="flex items-center justify-center gap-1 text-xs text-black"><Code2 className="h-3 w-3" /> {faculty.email}</span>
+              {faculty.qual && <p className="text-xs text-black font-semibold">{faculty.qual}</p>}
             </CardContent>
           </Card>
         ))}

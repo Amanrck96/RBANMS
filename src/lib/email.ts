@@ -51,7 +51,7 @@ export async function sendEnquiryEmails({
   const adminEmailsRaw =
     process.env.ADMIN_EMAILS ||
     process.env.ADMIN_EMAIL ||
-    "principal_rbanms@gmail.com,priyamahesh09@gmail.com";
+    "info@rbanmsfgc.edu.in";
 
   if (!adminEmailsRaw) {
     throw new Error("Missing ADMIN_EMAILS/ADMIN_EMAIL or GMAIL_USER environment variable");

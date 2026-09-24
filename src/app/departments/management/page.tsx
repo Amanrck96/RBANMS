@@ -13,7 +13,6 @@ import {
   Lightbulb,
   Award,
   Rocket,
-  Mail,
   Zap
 } from 'lucide-react';
 
@@ -235,10 +234,10 @@ export default function ManagementDepartmentPage() {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {[
-          { name: "Prof. Priya K", role: "Head of the Department – Management", qual: "MBA, MMM, (Ph.D)", email: "priyamahesh09@gmail.com", phone: "9880213203" },
-          { name: "Prof. Pavithra S", role: "Assistant Professor", qual: "M.Com (Accounting & Taxation)", email: "pavithrabalaji036@gmail.com", phone: "9916844662" },
-          { name: "Prof. Banuprakash H. V.", role: "Assistant Professor", qual: "M.Sc. Mathematics, B.Ed", email: "banuprakash1989@gmail.com", phone: "7259248824" },
-          { name: "Prof. Akshaya Kumari M.", role: "Assistant Professor", qual: "M.Com, (Ph.D)", email: "akshaya199310@gmail.com", phone: "8296476934" }
+          { name: "Prof. Priya K", role: "Head of the Department – Management", qual: "MBA, MMM, (Ph.D)" },
+          { name: "Prof. Pavithra S", role: "Assistant Professor", qual: "M.Com (Accounting & Taxation)" },
+          { name: "Prof. Banuprakash H. V.", role: "Assistant Professor", qual: "M.Sc. Mathematics, B.Ed" },
+          { name: "Prof. Akshaya Kumari M.", role: "Assistant Professor", qual: "M.Com, (Ph.D)" }
         ].map((faculty, i) => (
           <Card key={i} className="text-center bg-white border-2 border-primary text-black hover:bg-primary/5 transition-colors">
             <CardHeader>
@@ -249,11 +248,7 @@ export default function ManagementDepartmentPage() {
               <CardDescription className="text-primary font-medium">{faculty.role}</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-xs text-black mb-2 font-semibold">{faculty.qual}</p>
-              <div className="flex flex-col items-center gap-1 text-xs text-black">
-                <span className="flex items-center gap-1"><Mail className="h-3 w-3" /> {faculty.email}</span>
-                <span className="flex items-center gap-1">Ph: {faculty.phone}</span>
-              </div>
+              {faculty.qual && <p className="text-xs text-black font-semibold">{faculty.qual}</p>}
             </CardContent>
           </Card>
         ))}

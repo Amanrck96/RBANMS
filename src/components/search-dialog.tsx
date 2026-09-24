@@ -128,35 +128,48 @@ export function SearchDialog() {
             });
         });
 
-        // Add BCA Faculty members
-        const bcaFaculty = [
-            { name: "Moka Nanditha Varma (HOD, BCA)", email: "nanditha.moka@gmail.com" },
-            { name: "Vijaya Lakshmi (BCA Faculty)", email: "vijayalakshmi.rbanmsfgc@gmail.com" },
-            { name: "S Divya (BCA Faculty)", email: "dhivya.valli@gmail.com" },
-            { name: "Shirley Nesamani (BCA Faculty)", email: "rbanmsfgc.shirley@gmail.com" },
-            { name: "Md Ziya Hakim (BCA Faculty)", email: "ziyahakim89@gmail.com" },
+        // Add Faculty members across departments (names and roles only, no personal contacts)
+        const facultyList = [
+            // Commerce
+            { name: "YASHODHA S.M (HOD, Commerce)", href: "/departments/commerce", category: "Faculty - Commerce" },
+            { name: "Ms. Savitha G.M (Commerce Faculty)", href: "/departments/commerce", category: "Faculty - Commerce" },
+            { name: "Mr. Mohhamed Nawaz (Commerce Faculty)", href: "/departments/commerce", category: "Faculty - Commerce" },
+            { name: "Ms. Gayathri K (Commerce Faculty)", href: "/departments/commerce", category: "Faculty - Commerce" },
+            { name: "Ms. Angel Jaya Kirubha (Commerce Faculty)", href: "/departments/commerce", category: "Faculty - Commerce" },
+            // Management
+            { name: "Prof. Priya K (HOD, Management)", href: "/departments/management", category: "Faculty - Management" },
+            { name: "Prof. Pavithra S (Management Faculty)", href: "/departments/management", category: "Faculty - Management" },
+            { name: "Prof. Banuprakash H. V. (Management Faculty)", href: "/departments/management", category: "Faculty - Management" },
+            { name: "Prof. Akshaya Kumari M. (Management Faculty)", href: "/departments/management", category: "Faculty - Management" },
+            // BCA
+            { name: "Moka Nanditha Varma (HOD, BCA)", href: "/departments/computer-applications", category: "Faculty - Computer Applications" },
+            { name: "Vijaya Lakshmi (BCA Faculty)", href: "/departments/computer-applications", category: "Faculty - Computer Applications" },
+            { name: "S Divya (BCA Faculty)", href: "/departments/computer-applications", category: "Faculty - Computer Applications" },
+            { name: "Shirley Nesamani (BCA Faculty)", href: "/departments/computer-applications", category: "Faculty - Computer Applications" },
+            { name: "Md Ziya Hakim (BCA Faculty)", href: "/departments/computer-applications", category: "Faculty - Computer Applications" },
+            // English
+            { name: "Ms. Simran (HOD, English)", href: "/departments/english", category: "Faculty - English" },
+            { name: "Rashi Tibrewal (English Faculty)", href: "/departments/english", category: "Faculty - English" },
+            { name: "Tony Chembakassery Paul (English Faculty)", href: "/departments/english", category: "Faculty - English" },
+            // Languages
+            { name: "Dr. Sunil Kumar (HOD, Languages)", href: "/departments/languages", category: "Faculty - Languages" },
+            { name: "Abhimanyu Shinde (Languages Faculty - Hindi)", href: "/departments/languages", category: "Faculty - Languages" },
+            { name: "Pushpa Latha K R (Languages Faculty - Kannada)", href: "/departments/languages", category: "Faculty - Languages" },
+            { name: "Dr. Narayanaswamy K (Languages Faculty - Kannada)", href: "/departments/languages", category: "Faculty - Languages" },
+            { name: "Ms. Sivapriya Kannan (Languages Faculty - Tamil)", href: "/departments/languages", category: "Faculty - Languages" },
+            // Arts
+            { name: "Dr. Sudhakara Karakoti (HOD, Arts - Political Science)", href: "/departments/arts", category: "Faculty - Arts" },
+            { name: "Dr. Avinash V (Arts Faculty - History)", href: "/departments/arts", category: "Faculty - Arts" },
+            { name: "Mehnaaz Safura (Arts Faculty - Economics)", href: "/departments/arts", category: "Faculty - Arts" },
+            { name: "Mr. Kashinatha (Arts Faculty - History)", href: "/departments/arts", category: "Faculty - Arts" },
+            { name: "Ms. Anusha Chari (Arts Faculty - Economics)", href: "/departments/arts", category: "Faculty - Arts" },
         ];
 
-        bcaFaculty.forEach((faculty) => {
+        facultyList.forEach((faculty) => {
             items.push({
-                title: `${faculty.name} - ${faculty.email}`,
-                href: "/departments/computer-applications",
-                category: "Faculty - Computer Applications",
-            });
-        });
-
-        // Add English Faculty members
-        const englishFaculty = [
-            { name: "Simran (English Faculty)", email: "s.simranwrites@gmail.com" },
-            { name: "Rashi Tibrewal (English Faculty)", email: "rashi30tibrewal@gmail.com" },
-            { name: "Tony Chembakassery Paul (English Faculty)", email: "tony17paul@gmail.com" },
-        ];
-
-        englishFaculty.forEach((faculty) => {
-            items.push({
-                title: `${faculty.name} - ${faculty.email}`,
-                href: "/departments/english",
-                category: "Faculty - English",
+                title: faculty.name,
+                href: faculty.href,
+                category: faculty.category,
             });
         });
 

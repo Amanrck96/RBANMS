@@ -10,7 +10,6 @@ import {
   Users,
   Lightbulb,
   Target,
-  Mail,
   Mic2,
   Drama,
   PenTool
@@ -341,9 +340,9 @@ export default function EnglishDepartmentPage() {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
-          { name: "Ms. Simran", role: "Assistant Professor, Head, Dept of English & Communication", qual: "M.A English, KSET", email: "s.simranwrites@gmail.com" },
-          { name: "Rashi Tibrewal", role: "Assistant Professor, Dept of English & Communication", qual: "M.A. English, KSET", email: "rashi30tibrewal@gmail.com" },
-          { name: "Tony Chembakassery Paul", role: "Assistant Professor, Dept of English & Communication", qual: "M.A English, KSET", email: "tony17paul@gmail.com" }
+          { name: "Ms. Simran", role: "Assistant Professor, Head, Dept of English & Communication", qual: "M.A English, KSET" },
+          { name: "Rashi Tibrewal", role: "Assistant Professor, Dept of English & Communication", qual: "M.A. English, KSET" },
+          { name: "Tony Chembakassery Paul", role: "Assistant Professor, Dept of English & Communication", qual: "M.A English, KSET" }
         ].map((faculty, i) => (
           <Card key={i} className="text-center bg-white border-2 border-primary text-black hover:bg-primary/5 transition-colors">
             <CardHeader>
@@ -354,8 +353,7 @@ export default function EnglishDepartmentPage() {
               <CardDescription className="text-primary font-medium">{faculty.role}</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-xs text-black mb-2 font-semibold">{faculty.qual}</p>
-              <span className="flex items-center justify-center gap-1 text-xs text-black"><Mail className="h-3 w-3" /> {faculty.email}</span>
+              {faculty.qual && <p className="text-xs text-black font-semibold">{faculty.qual}</p>}
             </CardContent>
           </Card>
         ))}
