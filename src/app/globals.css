@@ -131,14 +131,45 @@ header.keep-colors p {
 }
 
 /* Ensure Prospectus card text is always crisp white on dark red */
-.prospectus-card,
-.prospectus-card h4,
-.prospectus-card .font-bold {
+.prospectus-card {
+  background-color: #800000;
+  color: #ffffff;
+}
+
+.prospectus-card h4 {
   color: #ffffff !important;
 }
 
 .prospectus-card p {
   color: #fde8e8 !important;
+}
+
+/* Explicit high-contrast button styling for View Brochure button */
+.prospectus-card a.prospectus-btn,
+.prospectus-card .prospectus-btn,
+a.prospectus-btn {
+  background-color: #ffffff !important;
+  color: #800000 !important;
+  font-weight: 700 !important;
+}
+
+.prospectus-card a.prospectus-btn *,
+.prospectus-card .prospectus-btn *,
+a.prospectus-btn * {
+  color: #800000 !important;
+}
+
+.prospectus-card a.prospectus-btn:hover,
+.prospectus-card .prospectus-btn:hover,
+a.prospectus-btn:hover {
+  background-color: #FFD700 !important;
+  color: #800000 !important;
+}
+
+.prospectus-card a.prospectus-btn:hover *,
+.prospectus-card .prospectus-btn:hover *,
+a.prospectus-btn:hover * {
+  color: #800000 !important;
 }
 
 

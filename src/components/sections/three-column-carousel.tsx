@@ -310,8 +310,23 @@ function ColumnCarousel({ column }: { column: ColumnData }) {
 
 export function ThreeColumnCarousel() {
   const [columns, setColumns] = useState<ColumnData[]>(COLUMNS_DATA);
+  const [brochureLink, setBrochureLink] = useState("https://drive.google.com/file/d/1CzrsV32FaXRc79ZHvfneH4dZbinqriDH/view?usp=sharing");
 
   useEffect(() => {
+    async function fetchBrochureLink() {
+      try {
+        const res = await fetch('/api/site-content?section=page-8');
+        if (!res.ok) return;
+        const data = await res.json();
+        if (data?.data?.brochure_link) {
+          setBrochureLink(data.data.brochure_link);
+        }
+      } catch (err) {
+        // Fallback to default link
+      }
+    }
+    fetchBrochureLink();
+
     async function fetchDynamicEvents() {
       try {
         const res = await fetch('/api/events?published=true');
@@ -410,13 +425,14 @@ export function ThreeColumnCarousel() {
               <p className="text-xs text-red-100" style={{ color: '#fde8e8' }}>Download our updated prospectus and course guides.</p>
             </div>
             <a
-              href="https://drive.google.com/file/d/1CzrsV32FaXRc79ZHvfneH4dZbinqriDH/view?usp=sharing"
+              href={brochureLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-white font-bold text-xs rounded-lg hover:bg-[#FFD700] transition-colors shrink-0 shadow text-[#800000]"
-              style={{ color: '#800000' }}
+              className="prospectus-btn inline-flex items-center gap-1.5 px-4 py-2 bg-white font-bold text-xs rounded-lg hover:bg-[#FFD700] transition-colors shrink-0 shadow !text-[#800000]"
+              style={{ backgroundColor: '#ffffff', color: '#800000' }}
             >
-              View Brochure
+              <FileText className="h-3.5 w-3.5 text-[#800000] shrink-0" style={{ color: '#800000' }} />
+              <span className="font-bold text-[#800000]" style={{ color: '#800000' }}>View Brochure</span>
             </a>
           </div>
 

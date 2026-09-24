@@ -78,10 +78,10 @@ export function SidebarCards() {
                                 </Card>
 
                                 {/* Brochure Card */}
-                                <Card className="flex flex-col border-blue-100 shadow-sm hover:shadow-md transition-shadow flex-1">
-                                    <CardHeader className="bg-blue-50/50 pb-3 p-4">
-                                        <CardTitle className="text-blue-900 flex items-center gap-2 text-base font-bold">
-                                            <FileText className="size-4 text-secondary" /> College Brochure
+                                <Card className="flex flex-col border-[#800000]/20 shadow-sm hover:shadow-md transition-shadow flex-1">
+                                    <CardHeader className="bg-[#800000]/5 pb-3 p-4">
+                                        <CardTitle className="text-[#800000] flex items-center gap-2 text-base font-bold">
+                                            <FileText className="size-4 text-[#800000]" /> College Brochure
                                         </CardTitle>
                                     </CardHeader>
                                     <CardContent className="p-4 pt-4 flex-grow flex flex-col items-center justify-center">
@@ -98,7 +98,7 @@ export function SidebarCards() {
                                                 className="object-cover"
                                             />
                                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                                <span className="bg-white text-blue-900 px-4 py-1.5 rounded-full font-bold text-[10px]">View Brochure</span>
+                                                <span className="bg-white text-[#800000] px-4 py-1.5 rounded-full font-bold text-[10px]">View Brochure</span>
                                             </div>
                                         </a>
                                     </CardContent>
