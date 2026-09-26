@@ -92,6 +92,12 @@ export function SiteFooter() {
                   <span>Mobile: <a href="tel:7349251497" className="hover:text-white transition-colors">7349251497</a></span>
                 </div>
               </li>
+              <li className="flex items-center gap-3">
+                <Mail className="h-5 w-5 shrink-0" />
+                <a href={`mailto:${(settings as any)?.placementEmail || 'priyamahesh09@gmail.com'}`} className="text-white/80 hover:text-white transition-colors">
+                  Placement: {(settings as any)?.placementEmail || 'priyamahesh09@gmail.com'}
+                </a>
+              </li>
             </ul>
           </div>
 
