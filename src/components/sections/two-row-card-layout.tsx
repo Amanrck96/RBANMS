@@ -336,15 +336,15 @@ export function TwoRowCardLayout() {
                                             {/* Right Side - Image (Featured Magazine) */}
                                             <div className="w-full sm:w-[280px] lg:w-[300px] shrink-0 self-center">
                                                 <a
-                                                    href={data.mag_link || "https://drive.google.com/file/d/1iZPsekFA8vT5qAVqkYK7mPBN9XXPodvv/view?usp=sharing"}
+                                                    href={data.mag_link || "/documents/Magazine-AY-2025-26.pdf"}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     className="block group"
                                                 >
                                                     <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white transition-all duration-500 group-hover:shadow-primary/20 group-hover:scale-[1.03]">
                                                         <Image
-                                                            src={data.mag_image || "/images/phoenix-magazine-updated.png"}
-                                                            alt="RBANMS Annual Magazine - Phoenix"
+                                                            src={data.mag_image || "/images/magazine-2025-26-cover.png"}
+                                                            alt="RBANMS Annual Magazine - Phoenix (AY 2025-26)"
                                                             fill
                                                             className="object-cover"
                                                         />
@@ -357,7 +357,7 @@ export function TwoRowCardLayout() {
                                                     </div>
                                                     <div className="text-center mt-3">
                                                         <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest group-hover:text-primary transition-colors">
-                                                            Phoenix Annual Magazine
+                                                            Phoenix Annual Magazine (AY 2025-26)
                                                         </p>
                                                     </div>
                                                 </a>

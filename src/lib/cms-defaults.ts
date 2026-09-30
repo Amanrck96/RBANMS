@@ -1148,7 +1148,9 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     'home-hero': {
         title: 'Welcome to RBANMS',
         content: '<h1>Empowering Generations Since 1883</h1><p>A legacy of excellence in education and character building.</p>',
-        imageUrl: '/images/hero/hero-2.jpg'
+        imageUrl: '/images/hero/hero-2.jpg',
+        mag_image: '/images/magazine-2025-26-cover.png',
+        mag_link: '/documents/Magazine-AY-2025-26.pdf',
     },
     '8': {
         title: 'Campus Updates',
@@ -1173,7 +1175,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
                 <li>Second and First Year students will begin classes on January 27.</li>
             </ul>
         `,
-        brochure_image: '/images/phoenix-magazine.png',
+        brochure_image: '/images/magazine-2025-26-cover.png',
         brochure_alt: 'College Magazine',
         upcoming_events_text: [
             'Internal Assessment - Jan 20',
@@ -1733,6 +1735,7 @@ export const CMS_DEFAULTS: Record<string, { title: string; content: string; imag
     },
     'site-settings': {
         title: 'Global Site Settings',
+        content: '',
         collegeName: 'RBANMS First Grade College',
         email: 'info@rbanmsfgc.edu.in',
         phone: '080-25512976 / 080-48533572',

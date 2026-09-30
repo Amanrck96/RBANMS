@@ -325,7 +325,7 @@ export default function EnglishDepartmentPage() {
             </div>
           </div>
           <div className="mt-4">
-            <p className="mb-2"><strong>Our Work:</strong> The Editorial Committee is proud to be the team behind “Phoenix”, the most recent edition of the college annual magazine, published in the academic year 2024–25. What began as a dedicated space for the final-year editorial team has now grown into a vibrant, multi-year community with newly recruited members from both 1st and 2nd years.</p>
+            <p className="mb-2"><strong>Our Work:</strong> The Editorial Committee is proud to be the team behind “Phoenix”, the most recent edition of the college annual magazine, published for the academic year 2025–26. What began as a dedicated space for the final-year editorial team has now grown into a vibrant, multi-year community with newly recruited members from both 1st and 2nd years.</p>
             <p>What makes the Editorial Committee truly special is the fun, energy and camaraderie that flows through every discussion, draft, design, and photoshoot. Whether you are someone who loves to play with ideas, enjoys designing in silence, spots typos from a mile away, or just wants to explore creativity, there is a place for you here. If you have ever felt the spark to write, create, design, edit, or simply be part of something meaningful, come join the Editorial family. Here, every thought matters, every voice counts, and every student is a storyteller.</p>
           </div>
         </CardContent>
