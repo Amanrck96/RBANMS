@@ -67,7 +67,7 @@ export function SiteFooter() {
               <li><Link href="/events" className="text-sm text-white/80 hover:text-white transition-colors">Events</Link></li>
               <li><Link href="/blog" className="text-sm text-white/80 hover:text-white transition-colors">Blog</Link></li>
               <li><Link href="/cells-committees/others/ipc" className="text-sm text-white/80 hover:text-white transition-colors">Placement</Link></li>
-              <li><a href="https://drive.google.com/file/d/1iZPsekFA8vT5qAVqkYK7mPBN9XXPodvv/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-sm text-white/80 hover:text-white transition-colors">Magazine (AY 2024-25)</a></li>
+              <li><a href="/documents/Magazine-AY-2024-25.pdf" target="_blank" rel="noopener noreferrer" className="text-sm text-white/80 hover:text-white transition-colors">Magazine (AY 2024-25)</a></li>
             </ul>
           </div>
 
