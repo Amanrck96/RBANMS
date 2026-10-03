@@ -15,6 +15,7 @@ import { Save, ArrowLeft, ImageIcon } from 'lucide-react';
 import Link from 'next/link';
 import { VisualEditor } from '@/components/admin/visual-editor';
 import { ImageUpload } from '@/components/admin/image-upload';
+import { MultiImageUpload } from '@/components/admin/multi-image-upload';
 export const PRIMARY_TAGS = [
     { id: 'Academics', label: 'Academics', desc: 'Academics, course seminars, computer labs & departments' },
     { id: 'Co-curricular', label: 'Co-curricular', desc: 'Clubs, NSS, NCC, sports, cultural activities & fests' },
@@ -72,6 +73,7 @@ export default function EventEditorPage() {
     const [excerpt, setExcerpt] = useState('');
     const [content, setContent] = useState('');
     const [imageUrl, setImageUrl] = useState('');
+    const [images, setImages] = useState<string[]>([]);
     const [eventDate, setEventDate] = useState(new Date().toISOString().split('T')[0]);
     const [published, setPublished] = useState(false);
     const [primaryTag, setPrimaryTag] = useState<'Academics' | 'Co-curricular' | 'Events'>('Events');
@@ -94,7 +96,11 @@ export default function EventEditorPage() {
                 setTitle(data.event.title);
                 setExcerpt(data.event.excerpt);
                 setContent(data.event.content);
-                setImageUrl(data.event.imageUrl || '');
+                const loadedImages = Array.isArray(data.event.images) && data.event.images.length > 0
+                    ? data.event.images
+                    : (data.event.imageUrl ? [data.event.imageUrl] : []);
+                setImages(loadedImages);
+                setImageUrl(data.event.imageUrl || (loadedImages.length > 0 ? loadedImages[0] : ''));
                 if (data.event.eventDate) {
                     setEventDate(new Date(data.event.eventDate).toISOString().split('T')[0]);
                 }
@@ -155,13 +161,17 @@ export default function EventEditorPage() {
             const method = isEditing ? 'PUT' : 'POST';
             
             const activeDepartment = secondaryTags[0] || 'general';
+            const effectiveImages = images.length > 0 ? images : (imageUrl ? [imageUrl] : []);
+            const effectiveFeatured = imageUrl || (effectiveImages.length > 0 ? effectiveImages[0] : '');
+
             const body = isEditing
                 ? { 
                     eventId: params.id, 
                     title, 
                     excerpt, 
                     content, 
-                    imageUrl, 
+                    imageUrl: effectiveFeatured, 
+                    images: effectiveImages,
                     published, 
                     eventDate: new Date(eventDate).toISOString(), 
                     department: activeDepartment, 
@@ -173,7 +183,8 @@ export default function EventEditorPage() {
                     title, 
                     excerpt, 
                     content, 
-                    imageUrl, 
+                    imageUrl: effectiveFeatured, 
+                    images: effectiveImages,
                     published, 
                     eventDate: new Date(eventDate).toISOString(), 
                     department: activeDepartment, 
@@ -390,10 +401,20 @@ export default function EventEditorPage() {
                         </div>
 
                         <div className="space-y-4">
-                            <ImageUpload
-                                label="Featured Image"
-                                value={imageUrl}
-                                onChange={setImageUrl}
+                            <MultiImageUpload
+                                label="Event Photos & Gallery"
+                                description="Upload multiple photos for this event. The Cover image will be displayed on cards, carousels, and listings, while all images appear in the event photo gallery."
+                                images={images}
+                                onChange={(newImages) => {
+                                    setImages(newImages);
+                                    if (!imageUrl && newImages.length > 0) {
+                                        setImageUrl(newImages[0]);
+                                    } else if (imageUrl && !newImages.includes(imageUrl)) {
+                                        setImageUrl(newImages.length > 0 ? newImages[0] : '');
+                                    }
+                                }}
+                                featuredImage={imageUrl}
+                                onFeaturedChange={setImageUrl}
                                 folder="events"
                             />
                         </div>

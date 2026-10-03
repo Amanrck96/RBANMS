@@ -17,6 +17,7 @@ export interface Post {
     content: string;
     excerpt: string;
     imageUrl?: string;
+    images?: string[];
     authorId: string;
     authorName: string;
     createdAt: string;

@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calendar, ArrowRight } from 'lucide-react';
+import { Calendar, ArrowRight, Images } from 'lucide-react';
 import { Post } from '@/types/user';
 
 const DEPARTMENTS = [
@@ -92,6 +92,7 @@ const fallbackEvents: any[] = staticEvents.map((ev, idx) => {
         tags: [isDept],
         createdAt: `${ev.date.year}-06-01T10:00:00.000Z`,
         imageUrl: ev.images && ev.images.length > 0 ? ev.images[0] : undefined,
+        images: ev.images || [],
         published: true,
     };
 });
@@ -247,17 +248,36 @@ export default function EventsPage() {
                             return (
                                 <Card key={event.id} className="overflow-hidden hover:shadow-xl transition-shadow flex flex-col h-full group border-slate-200">
                                     <div className="aspect-video w-full overflow-hidden bg-gray-200 shrink-0 relative">
-                                        {event.imageUrl ? (
-                                            <img
-                                                src={event.imageUrl}
-                                                alt={event.title}
-                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                            />
-                                        ) : (
-                                            <div className="w-full h-full flex items-center justify-center bg-slate-50 text-slate-300 group-hover:scale-105 transition-transform duration-500">
-                                                <Calendar size={48} className="text-slate-300" />
-                                            </div>
-                                        )}
+                                        {(() => {
+                                            const displayImg = event.imageUrl || (Array.isArray(event.images) && event.images[0]) || '';
+                                            const photoCount = Array.isArray(event.images) && event.images.length > 0
+                                                ? event.images.length
+                                                : (displayImg ? 1 : 0);
+                                            return (
+                                                <>
+                                                    {displayImg ? (
+                                                        // eslint-disable-next-line @next/next/no-img-element
+                                                        <img
+                                                            src={displayImg}
+                                                            alt={event.title}
+                                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                        />
+                                                    ) : (
+                                                        <div className="w-full h-full flex items-center justify-center bg-slate-50 text-slate-300 group-hover:scale-105 transition-transform duration-500">
+                                                            <Calendar size={48} className="text-slate-300" />
+                                                        </div>
+                                                    )}
+                                                    {photoCount > 1 && (
+                                                        <div className="absolute bottom-2 right-2 pointer-events-none z-10">
+                                                            <span className="bg-black/75 backdrop-blur-md text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-sm flex items-center gap-1 border border-white/10">
+                                                                <Images size={11} className="text-[#FFD700]" />
+                                                                {photoCount} Photos
+                                                            </span>
+                                                        </div>
+                                                    )}
+                                                </>
+                                            );
+                                        })()}
 
                                         {/* Primary Tag Badge */}
                                         <div className="absolute top-2 left-2 pointer-events-none z-10">

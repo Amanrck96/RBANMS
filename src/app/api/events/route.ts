@@ -26,8 +26,21 @@ function normalizeEvent(data: any) {
     if (!data) return data;
     const primary = inferPrimaryTag(data);
     const secondary = data.secondaryTags || data.tags || (data.department ? [data.department] : ['general']);
+    
+    // Normalize images array and imageUrl
+    let images: string[] = [];
+    if (Array.isArray(data.images) && data.images.length > 0) {
+        images = data.images.map((img: any) => String(img).trim()).filter(Boolean);
+    } else if (data.imageUrl && typeof data.imageUrl === 'string' && data.imageUrl.trim().length > 0) {
+        images = [data.imageUrl.trim()];
+    }
+
+    const imageUrl = data.imageUrl || (images.length > 0 ? images[0] : '');
+
     return {
         ...data,
+        imageUrl,
+        images,
         primaryTag: primary,
         secondaryTags: secondary,
         tags: secondary,
@@ -122,7 +135,7 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const { title, content, excerpt, imageUrl, published, eventDate, department, tags, primaryTag, secondaryTags } = await request.json();
+        const { title, content, excerpt, imageUrl, images, published, eventDate, department, tags, primaryTag, secondaryTags } = await request.json();
 
         const now = new Date().toISOString();
         const slug = generateSlug(title);
@@ -131,12 +144,21 @@ export async function POST(request: NextRequest) {
         const effectiveSecondary = secondaryTags || tags || [department || 'general'];
         const effectivePrimary = primaryTag || inferPrimaryTag({ tags: effectiveSecondary, department });
 
+        let finalImages: string[] = [];
+        if (Array.isArray(images) && images.length > 0) {
+            finalImages = images.map((img: any) => String(img).trim()).filter(Boolean);
+        } else if (imageUrl && typeof imageUrl === 'string' && imageUrl.trim()) {
+            finalImages = [imageUrl.trim()];
+        }
+        const finalImageUrl = imageUrl || (finalImages.length > 0 ? finalImages[0] : '');
+
         const eventData = {
             id: eventId,
             title,
             content,
             excerpt,
-            imageUrl: imageUrl || '',
+            imageUrl: finalImageUrl,
+            images: finalImages,
             authorId: uid,
             authorName: userData?.displayName || userData?.email || 'Unknown',
             createdAt: now,
@@ -196,7 +218,7 @@ export async function PUT(request: NextRequest) {
             );
         }
 
-        const { eventId, title, content, excerpt, imageUrl, published, eventDate, department, tags, primaryTag, secondaryTags } = await request.json();
+        const { eventId, title, content, excerpt, imageUrl, images, published, eventDate, department, tags, primaryTag, secondaryTags } = await request.json();
 
         const eventDoc = await adminDb.collection('events').doc(eventId).get();
         if (!eventDoc.exists) {
@@ -217,7 +239,24 @@ export async function PUT(request: NextRequest) {
         }
         if (content !== undefined) updates.content = content;
         if (excerpt !== undefined) updates.excerpt = excerpt;
-        if (imageUrl !== undefined) updates.imageUrl = imageUrl;
+        if (images !== undefined) {
+            const cleanImages = Array.isArray(images)
+                ? images.map((img: any) => String(img).trim()).filter(Boolean)
+                : [];
+            updates.images = cleanImages;
+            if (imageUrl === undefined && cleanImages.length > 0) {
+                updates.imageUrl = cleanImages[0];
+            }
+        }
+        if (imageUrl !== undefined) {
+            updates.imageUrl = imageUrl;
+            if (images === undefined && imageUrl) {
+                const currentData = eventDoc.data();
+                if (!currentData?.images || currentData.images.length === 0) {
+                    updates.images = [imageUrl];
+                }
+            }
+        }
         if (published !== undefined) updates.published = published;
         if (eventDate !== undefined) updates.eventDate = eventDate;
         if (department !== undefined) updates.department = department;
