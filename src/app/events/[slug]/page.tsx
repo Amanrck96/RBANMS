@@ -13,7 +13,6 @@ export default function EventDetailPage({ params }: { params: Promise<{ slug: st
     const router = useRouter();
     const [event, setEvent] = useState<Post | null>(null);
     const [loading, setLoading] = useState(true);
-    const [activeImageIndex, setActiveImageIndex] = useState(0);
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [lightboxIndex, setLightboxIndex] = useState(0);
 
@@ -120,108 +119,21 @@ export default function EventDetailPage({ params }: { params: Promise<{ slug: st
             <main className="container mx-auto px-4 -mt-4">
                 <article className="max-w-4xl mx-auto">
                     <Card className="overflow-hidden border-2 border-primary/10 shadow-lg">
-                        {/* Image Showcase */}
-                        {eventImages.length > 0 && (
-                            <div className="bg-slate-900 border-b border-slate-200">
-                                <div className="relative aspect-video w-full overflow-hidden bg-slate-950 flex items-center justify-center group">
-                                    {/* Active Image */}
+                        {/* Cover Image Banner (Original Clean Layout) */}
+                        {(() => {
+                            const coverImg = event.imageUrl || (eventImages.length > 0 ? eventImages[0] : '');
+                            if (!coverImg) return null;
+                            return (
+                                <div className="aspect-video w-full overflow-hidden bg-gray-200">
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
-                                        src={eventImages[activeImageIndex] || eventImages[0]}
-                                        alt={`${event.title} - Photo ${activeImageIndex + 1}`}
-                                        onClick={() => {
-                                            setLightboxIndex(activeImageIndex);
-                                            setLightboxOpen(true);
-                                        }}
-                                        className="w-full h-full object-contain cursor-zoom-in transition-all duration-300"
+                                        src={coverImg}
+                                        alt={event.title}
+                                        className="w-full h-full object-cover"
                                     />
-
-                                    {/* Badges Overlay */}
-                                    <div className="absolute top-4 left-4 flex items-center gap-2 z-10 pointer-events-none">
-                                        {eventImages.length > 1 && (
-                                            <span className="bg-black/75 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full shadow border border-white/10 flex items-center gap-1.5">
-                                                <Images className="w-3.5 h-3.5 text-[#FFD700]" />
-                                                Photo {activeImageIndex + 1} of {eventImages.length}
-                                            </span>
-                                        )}
-                                    </div>
-
-                                    <div className="absolute top-4 right-4 z-10">
-                                        <button
-                                            type="button"
-                                            onClick={() => {
-                                                setLightboxIndex(activeImageIndex);
-                                                setLightboxOpen(true);
-                                            }}
-                                            title="View Fullscreen"
-                                            className="bg-black/75 hover:bg-[#800000] text-white p-2 rounded-full backdrop-blur-md transition-colors shadow border border-white/10 flex items-center gap-1.5 text-xs font-semibold px-3"
-                                        >
-                                            <Maximize2 className="w-3.5 h-3.5" />
-                                            <span className="hidden sm:inline">Fullscreen</span>
-                                        </button>
-                                    </div>
-
-                                    {/* Previous / Next buttons */}
-                                    {eventImages.length > 1 && (
-                                        <>
-                                            <button
-                                                type="button"
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    setActiveImageIndex(prev => (prev - 1 + eventImages.length) % eventImages.length);
-                                                }}
-                                                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 hover:bg-[#800000] text-white flex items-center justify-center opacity-80 hover:opacity-100 transition-all backdrop-blur-sm z-10 shadow-lg"
-                                                aria-label="Previous image"
-                                            >
-                                                <ChevronLeft className="w-6 h-6" />
-                                            </button>
-                                            <button
-                                                type="button"
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    setActiveImageIndex(prev => (prev + 1) % eventImages.length);
-                                                }}
-                                                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 hover:bg-[#800000] text-white flex items-center justify-center opacity-80 hover:opacity-100 transition-all backdrop-blur-sm z-10 shadow-lg"
-                                                aria-label="Next image"
-                                            >
-                                                <ChevronRight className="w-6 h-6" />
-                                            </button>
-                                        </>
-                                    )}
                                 </div>
-
-                                {/* Thumbnails Strip */}
-                                {eventImages.length > 1 && (
-                                    <div className="p-3 bg-slate-900 border-t border-white/10 overflow-x-auto flex gap-2.5 items-center scrollbar-thin">
-                                        {eventImages.map((img, idx) => {
-                                            const isActive = idx === activeImageIndex;
-                                            return (
-                                                <button
-                                                    key={idx}
-                                                    type="button"
-                                                    onClick={() => setActiveImageIndex(idx)}
-                                                    className={`relative h-16 w-24 rounded-lg overflow-hidden flex-shrink-0 border-2 transition-all ${
-                                                        isActive
-                                                            ? 'border-[#FFD700] ring-2 ring-[#800000] scale-105 opacity-100'
-                                                            : 'border-white/20 opacity-60 hover:opacity-100 hover:border-white/60'
-                                                    }`}
-                                                >
-                                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                                    <img
-                                                        src={img}
-                                                        alt={`Thumbnail ${idx + 1}`}
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                    {isActive && (
-                                                        <div className="absolute inset-0 bg-[#800000]/20 pointer-events-none" />
-                                                    )}
-                                                </button>
-                                            );
-                                        })}
-                                    </div>
-                                )}
-                            </div>
-                        )}
+                            );
+                        })()}
 
                         <CardHeader className="space-y-4 pt-10 px-8">
                             <CardTitle className="text-4xl text-primary font-headline">{event.title}</CardTitle>
