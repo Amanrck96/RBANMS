@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo, use } from 'react';
 import { useRouter } from 'next/navigation';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Calendar, User, ArrowLeft, ChevronLeft, ChevronRight, Maximize2, X, Images } from 'lucide-react';
+import { Calendar, User, ArrowLeft, ChevronLeft, ChevronRight, Maximize2, X } from 'lucide-react';
 import Link from 'next/link';
 import { Post } from '@/types/user';
 
@@ -119,18 +119,37 @@ export default function EventDetailPage({ params }: { params: Promise<{ slug: st
             <main className="container mx-auto px-4 -mt-4">
                 <article className="max-w-4xl mx-auto">
                     <Card className="overflow-hidden border-2 border-primary/10 shadow-lg">
-                        {/* Cover Image Banner (Original Clean Layout) */}
+                        {/* Top Cover Image Showcase (Matches Screenshot Reference) */}
                         {(() => {
                             const coverImg = event.imageUrl || (eventImages.length > 0 ? eventImages[0] : '');
                             if (!coverImg) return null;
                             return (
-                                <div className="aspect-video w-full overflow-hidden bg-gray-200">
+                                <div className="relative aspect-video w-full overflow-hidden bg-slate-950 flex items-center justify-center group border-b border-slate-200">
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
                                         src={coverImg}
                                         alt={event.title}
-                                        className="w-full h-full object-cover"
+                                        onClick={() => {
+                                            setLightboxIndex(0);
+                                            setLightboxOpen(true);
+                                        }}
+                                        className="w-full h-full object-contain cursor-zoom-in transition-all duration-300"
                                     />
+
+                                    <div className="absolute top-4 right-4 z-10">
+                                        <button
+                                            type="button"
+                                            onClick={() => {
+                                                setLightboxIndex(0);
+                                                setLightboxOpen(true);
+                                            }}
+                                            title="View Fullscreen"
+                                            className="bg-black/75 hover:bg-[#800000] text-white p-2 rounded-full backdrop-blur-md transition-colors shadow border border-white/10 flex items-center gap-1.5 text-xs font-semibold px-3"
+                                        >
+                                            <Maximize2 className="w-3.5 h-3.5" />
+                                            <span className="hidden sm:inline">Fullscreen</span>
+                                        </button>
+                                    </div>
                                 </div>
                             );
                         })()}
@@ -228,53 +247,38 @@ export default function EventDetailPage({ params }: { params: Promise<{ slug: st
                                 dangerouslySetInnerHTML={{ __html: event.content }} 
                             />
 
-                            {/* Event Photo Gallery Grid */}
-                            {eventImages.length > 1 && (
-                                <div className="mt-12 pt-8 border-t border-slate-200">
-                                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
-                                        <div>
-                                            <h3 className="text-2xl font-bold text-slate-900 font-headline flex items-center gap-2">
-                                                <Images className="h-6 w-6 text-[#800000]" />
-                                                Event Photo Gallery
-                                            </h3>
-                                            <p className="text-sm text-slate-500 mt-1">
-                                                Captured moments and photographs from this event. Click any photo to view in high resolution.
-                                            </p>
-                                        </div>
-                                        <span className="text-xs font-bold uppercase tracking-wider bg-[#800000] text-white px-3.5 py-1.5 rounded-full shadow-sm self-start sm:self-auto">
-                                            {eventImages.length} Photos
-                                        </span>
-                                    </div>
-
-                                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                                        {eventImages.map((imgUrl, idx) => (
-                                            <div
-                                                key={idx}
-                                                onClick={() => {
-                                                    setLightboxIndex(idx);
-                                                    setLightboxOpen(true);
-                                                }}
-                                                className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm hover:shadow-lg cursor-pointer transition-all hover:-translate-y-0.5"
-                                            >
-                                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                                <img
-                                                    src={imgUrl}
-                                                    alt={`${event.title} photo ${idx + 1}`}
-                                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                                                />
-                                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-between p-3">
-                                                    <span className="text-white text-xs font-bold flex items-center gap-1.5">
-                                                        <Maximize2 className="w-3.5 h-3.5 text-[#FFD700]" /> View Photo
-                                                    </span>
-                                                    <span className="bg-black/60 text-white text-[10px] font-bold px-2 py-0.5 rounded">
-                                                        #{idx + 1}
-                                                    </span>
+                            {/* Additional Event Photos (Stacked full-width matching reference layout) */}
+                            {(() => {
+                                const additionalImages = eventImages.slice(1).filter(img => !event.content || !event.content.includes(img));
+                                if (additionalImages.length === 0) return null;
+                                return (
+                                    <div className="mt-8 space-y-6">
+                                        {additionalImages.map((imgUrl, idx) => {
+                                            const globalIndex = idx + 1;
+                                            return (
+                                                <div
+                                                    key={idx}
+                                                    onClick={() => {
+                                                        setLightboxIndex(globalIndex);
+                                                        setLightboxOpen(true);
+                                                    }}
+                                                    className="group relative rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-md hover:shadow-xl transition-all cursor-zoom-in"
+                                                >
+                                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                                    <img
+                                                        src={imgUrl}
+                                                        alt={`${event.title} photo ${globalIndex + 1}`}
+                                                        className="w-full h-auto max-h-[750px] object-contain mx-auto bg-slate-950 sm:bg-slate-900 group-hover:scale-[1.01] transition-transform duration-300"
+                                                    />
+                                                    <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-black/75 backdrop-blur-md text-white text-xs font-semibold px-3 py-1.5 rounded-full border border-white/10 flex items-center gap-1.5 shadow">
+                                                        <Maximize2 className="w-3.5 h-3.5 text-[#FFD700]" /> Click to view high-res
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        ))}
+                                            );
+                                        })}
                                     </div>
-                                </div>
-                            )}
+                                );
+                            })()}
                         </CardContent>
                     </Card>
                 </article>
