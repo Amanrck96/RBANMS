@@ -125,9 +125,9 @@ export default function CoursesOfferedPage() {
                   <h3 className="text-2xl font-bold text-blue-950 leading-tight">
                     {course.title}
                   </h3>
-                  {('comingSoon' in course) && course.comingSoon && (
+                  {'comingSoon' in course && Boolean((course as { comingSoon?: string }).comingSoon) && (
                     <Badge variant="secondary" className="mt-2 bg-blue-50 text-blue-700 hover:bg-blue-100 border-blue-100 font-semibold">
-                      {course.comingSoon}
+                      {String((course as { comingSoon?: string }).comingSoon)}
                     </Badge>
                   )}
                 </div>

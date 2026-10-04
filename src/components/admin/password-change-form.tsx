@@ -32,7 +32,7 @@ export function PasswordChangeForm({ uid, onComplete }: { uid: string, onComplet
 
         setLoading(true);
         try {
-            if (auth.currentUser) {
+            if (auth && auth.currentUser && db) {
                 // 1. Update password in Auth
                 await updatePassword(auth.currentUser, password);
 
